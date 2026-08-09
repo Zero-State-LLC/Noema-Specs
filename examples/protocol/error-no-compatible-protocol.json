@@ -1,0 +1,20 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ERROR",
+  "request_id": "req-hello-bad-001",
+  "agent_id": null,
+  "world_id": null,
+  "cycle": null,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {},
+  "error": {
+    "code": "NO_COMPATIBLE_PROTOCOL",
+    "message": "No mutually supported protocol/schema set",
+    "retryable": false,
+    "details": {
+      "server_protocols": ["agent-protocol/v1"],
+      "client_protocols": ["agent-protocol/v0", "thought-stream/9.9"]
+    },
+    "caused_by_request_id": "req-hello-bad-001"
+  }
+}

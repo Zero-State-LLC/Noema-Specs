@@ -1,0 +1,69 @@
+{
+  "schema_version": "observation/1.0",
+  "observation_id": "obs.look-1",
+  "world_id": "world-01",
+  "cycle": 1,
+  "observer_id": "agent.nacre",
+  "source": "LOOK",
+  "claim_label": "OBSERVED",
+  "content": {
+    "observation_type": "LOCATION_VIEW",
+    "kind": "LOOK",
+    "summary": "You are in the Relay Quarter of Aster Reach. Power stability has declined.",
+    "location": {
+      "location_id": "room.relay-quarter",
+      "name": "Relay Quarter",
+      "description": "Civic infrastructure district of Aster Reach."
+    },
+    "entities": [
+      {
+        "entity_id": "entity.relay-7",
+        "entity_type": "INFRASTRUCTURE",
+        "name": "relay-7",
+        "claim_label": "OBSERVED"
+      }
+    ],
+    "exits": [
+      {
+        "exit_id": "exit.rq-east",
+        "label": "EAST — Transit Ring",
+        "direction": "EAST",
+        "destination_id": "room.transit-ring",
+        "traversable": true
+      },
+      {
+        "exit_id": "exit.rq-north",
+        "label": "NORTH — Civic Exchange",
+        "direction": "NORTH",
+        "destination_id": "room.civic-exchange",
+        "traversable": true
+      },
+      {
+        "exit_id": "exit.rq-down",
+        "label": "DOWN — Infrastructure Vault",
+        "direction": "DOWN",
+        "destination_id": "room.infrastructure-vault",
+        "traversable": false,
+        "requirements": ["ACCESS_TOKEN"]
+      }
+    ],
+    "budget_state": {
+      "attention": { "remaining": 7, "limit": 8 },
+      "compute": { "remaining": 64, "limit": 64 },
+      "energy": { "remaining": 80, "limit": 80 },
+      "influence": { "remaining": 40, "limit": 40 },
+      "storage": { "remaining": 16, "limit": 16 }
+    },
+    "redactions": [
+      {
+        "path": "agents.*.private",
+        "reason": "private_cognition_boundary"
+      }
+    ]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "world_event_ids": ["evt.v01.003"],
+    "generated_at": "2026-08-09T16:01:03Z"
+  }
+}

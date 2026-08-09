@@ -1,0 +1,44 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C02-identity-authz-denial",
+  "suite": "noema-v0.1-chamber",
+  "title": "Identity binding denies cross-agent authorization",
+  "acceptance_items": [2],
+  "requirement_refs": [
+    "docs/AGENT-INTERFACE.md",
+    "protocols/agent-protocol-v1.md",
+    "docs/SECURITY-SEQUENCES.md"
+  ],
+  "preconditions": [
+    "agent.nacre and agent.vesper are registered",
+    "Client session is authenticated as agent.nacre only"
+  ],
+  "fixtures": [
+    "examples/protocol/act-cross-agent-forbidden.json",
+    "examples/protocol/error-forbidden.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "ACT",
+      "input": { "fixture": "examples/protocol/act-cross-agent-forbidden.json" },
+      "notes": "Authenticated as agent.nacre but ACT body targets agent.vesper"
+    }
+  ],
+  "expected": {
+    "outcome": "DENY",
+    "error_code": "FORBIDDEN",
+    "assertions": [
+      "No World Event is appended",
+      "No budget is charged for agent.nacre or agent.vesper",
+      "Error does not disclose vesper private metadata"
+    ],
+    "must_not_contain_paths": [
+      "body.private_prompt",
+      "body.provider_key",
+      "body.other_agent_memory"
+    ]
+  },
+  "security_class": "authz"
+}

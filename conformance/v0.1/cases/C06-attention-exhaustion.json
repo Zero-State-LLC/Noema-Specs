@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C06-attention-exhaustion",
+  "suite": "noema-v0.1-chamber",
+  "title": "Attention exhaustion yields deterministic rejection or lower-resolution path",
+  "acceptance_items": [6],
+  "requirement_refs": [
+    "docs/EVENT-CATALOG.md",
+    "docs/OBSERVATION.md",
+    "examples/v01-seed/sample-trajectory.jsonl"
+  ],
+  "preconditions": [
+    "Agent attention remaining is below requested spend"
+  ],
+  "fixtures": [
+    "examples/v01-seed/sample-trajectory.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "APPLY",
+      "input": {
+        "event_type": "BUDGET_EXCEEDED",
+        "note": "Present in v01 seed as evt.v01.026"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "BUDGET_EXCEEDED is ledgered when requested > available",
+      "No LOOK/INSPECT mutation accompanies the exceed",
+      "Budgets unchanged except audit record",
+      "Behavior is deterministic under the same prior state"
+    ]
+  },
+  "security_class": "none"
+}

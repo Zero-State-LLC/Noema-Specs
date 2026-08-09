@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-state.schema.json",
+  "title": "NOEMA World State (v0.1 acceptance projection and canonical snapshot fields)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "world-state/1.0"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "enum": ["ACTIVE", "PAUSED", "INCIDENT", "ARCHIVED"]
+    },
+    "active_agents": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["room_id", "budgets"],
+        "properties": {
+          "room_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "budgets": {
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "organizations": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "members"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["ACTIVE", "DISSOLVED"] },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["agent_id", "role"],
+              "properties": {
+                "agent_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.:-]+$"
+                },
+                "role": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "entities_present": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "destroyed_entities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "last_event_digest": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "world_id",
+    "cycle",
+    "sequence",
+    "active_agents",
+    "organizations",
+    "entities_present",
+    "destroyed_entities",
+    "event_count"
+  ]
+}

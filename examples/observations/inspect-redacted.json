@@ -1,0 +1,43 @@
+{
+  "schema_version": "observation/1.0",
+  "observation_id": "obs.inspect-relay",
+  "world_id": "world-01",
+  "cycle": 2,
+  "observer_id": "agent.nacre",
+  "source": "INSPECT",
+  "claim_label": "OBSERVED",
+  "content": {
+    "observation_type": "ENTITY_INSPECTION",
+    "kind": "INSPECT",
+    "summary": "Relay-7 is non-responsive. Surface diagnostics show declining stability.",
+    "entities": [
+      {
+        "entity_id": "entity.relay-7",
+        "entity_type": "INFRASTRUCTURE",
+        "name": "relay-7",
+        "state": {
+          "power_stability": 0.42,
+          "responding": false
+        },
+        "claim_label": "OBSERVED"
+      }
+    ],
+    "redactions": [
+      {
+        "path": "content.entities.entity.relay-7.state.internal_diag",
+        "reason": "hidden_diagnostics"
+      }
+    ]
+  },
+  "uncertainty": {
+    "mode": "BOUNDED",
+    "confidence": 0.9,
+    "unknown_fields": ["content.entities.entity.relay-7.state.internal_diag"],
+    "notes": ["noise_id=noise.inspect-1 applied at level 0.1"]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "world_event_ids": ["evt.v01.005"],
+    "generated_at": "2026-08-09T16:02:07Z"
+  }
+}

@@ -62,8 +62,8 @@ This repository does not implement runtime code. It specifies the authoritative 
 - Protocols: [MUD Command v1](protocols/mud-command-v1.md), [Agent Protocol v1](protocols/agent-protocol-v1.md), [Event Ledger v1](protocols/event-ledger-v1.md), [Replay Protocol v1](protocols/replay-protocol-v1.md)
 - Research: [Research Method](docs/RESEARCH-METHOD.md), [Metrics](docs/METRICS.md), [Reproducibility](docs/REPRODUCIBILITY.md), [Claims Policy](research/claims-policy.md), [Phenomena Operational Definitions](research/phenomena-operational-definitions.md)
 - Operations: [Environment](docs/ENVIRONMENT.md), [Deployment](docs/DEPLOYMENT.md), [Security](docs/SECURITY.md), [Security Sequences](docs/SECURITY-SEQUENCES.md), [Testing](docs/TESTING.md), [Observability](docs/OBSERVABILITY.md), [Versioning](docs/VERSIONING.md)
-- Governance: [ADRs](adr/README.md), [Contract Cards](docs/CONTRACT-CARDS.md), [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md), [Integration Surface](docs/INTEGRATION-SURFACE.md)
-- Validation: [Validation suite](validation/README.md), [SPEC Checklist](SPEC-CHECKLIST.md)
+- Governance: [ADRs](adr/README.md), [Contract Cards](docs/CONTRACT-CARDS.md), [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md), [v0.1 Conformance](docs/v0.1-CONFORMANCE.md), [Integration Surface](docs/INTEGRATION-SURFACE.md)
+- Validation: [Validation suite](validation/README.md), [SPEC Checklist](SPEC-CHECKLIST.md), [Conformance suite](conformance/v0.1/)
 
 ## Versioning
 
@@ -88,4 +88,4 @@ pip install -r validation/requirements-validation.txt
 python validation/validate_all.py
 ```
 
-v0.1 Chamber fixtures live in [`examples/v01-seed/`](examples/v01-seed/). Negative rejection fixtures live in [`examples/negative/`](examples/negative/).
+v0.1 Chamber fixtures live in [`examples/v01-seed/`](examples/v01-seed/). Negative rejection fixtures live in [`examples/negative/`](examples/negative/). Protocol and observation fixtures live under [`examples/protocol/`](examples/protocol/) and [`examples/observations/`](examples/observations/). The ten acceptance tests are machine-readable under [`conformance/v0.1/`](conformance/v0.1/).

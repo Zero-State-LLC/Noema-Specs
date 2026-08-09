@@ -28,6 +28,8 @@ The command MUST exit 0 and report `PASS` for a change to be mergeable.
   - required acceptance events (LOOK, MOVE, MOVE_REJECTED, BUDGET_EXCEEDED, OBSERVATION_GENERATED, MESSAGE, ORG_CREATE)
   - digest chain continuity and equivalence-boundary fields
 - `examples/negative/` rejection corpus (≥6 fixtures; schema, catalog, and semantic cases)
+- Schema validation of seed, state, snapshot, boundary, protocol, and observation fixtures
+- `conformance/v0.1/` suite: 10 cases, fixture linkage, acceptance item coverage 1–10
 
 ## Adding checks
 

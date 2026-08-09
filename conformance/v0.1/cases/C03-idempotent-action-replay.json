@@ -1,0 +1,44 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C03-idempotent-action-replay",
+  "suite": "noema-v0.1-chamber",
+  "title": "Idempotent action replay does not double-mutate or double-charge",
+  "acceptance_items": [3],
+  "requirement_refs": [
+    "protocols/agent-protocol-v1.md",
+    "docs/WORLD-ENGINE.md",
+    "docs/v0.1-ACCEPTANCE.md"
+  ],
+  "preconditions": [
+    "agent.nacre is IN_WORLD with known budgets",
+    "Identical idempotency_key is reused on a second ACT"
+  ],
+  "fixtures": [
+    "examples/protocol/act-look-idempotent.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "ACT",
+      "input": { "fixture": "examples/protocol/act-look-idempotent.json" }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "ACT",
+      "input": { "fixture": "examples/protocol/act-look-idempotent.json" },
+      "notes": "Exact duplicate including idempotency_key"
+    }
+  ],
+  "expected": {
+    "outcome": "NO_MUTATION",
+    "assertions": [
+      "Second response returns original acceptance or deterministic conflict",
+      "Exactly one LOOK world event exists for the key",
+      "Attention is charged at most once",
+      "Event sequence advances only once"
+    ]
+  },
+  "security_class": "none"
+}

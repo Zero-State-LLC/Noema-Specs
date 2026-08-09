@@ -1,0 +1,20 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "HELLO",
+  "request_id": "req-hello-bad-001",
+  "agent_id": null,
+  "world_id": null,
+  "cycle": null,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {
+    "supported_protocols": ["agent-protocol/v0", "thought-stream/9.9"],
+    "supported_schemas": {
+      "agent-action": ["agent-action/0.1"]
+    },
+    "runtime": {
+      "name": "legacy-runtime",
+      "version": "0.0.1"
+    },
+    "features": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ERROR",
+  "request_id": "req-op-private-001",
+  "agent_id": "operator.admin",
+  "world_id": "world-01",
+  "cycle": 12,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {},
+  "error": {
+    "code": "PRIVATE_COGNITION_FORBIDDEN",
+    "message": "Private cognition is outside world truth and operator query surface",
+    "retryable": false,
+    "details": {
+      "surface": "operator",
+      "requested_fields": [
+        "private_prompt",
+        "hidden_chain_of_thought",
+        "provider_raw_completion"
+      ]
+    },
+    "caused_by_request_id": "req-op-private-001"
+  }
+}

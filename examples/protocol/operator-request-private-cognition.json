@@ -1,0 +1,17 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ACT",
+  "request_id": "req-op-private-001",
+  "idempotency_key": "idem-op-private-001",
+  "agent_id": "operator.admin",
+  "world_id": "world-01",
+  "cycle": 12,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {
+    "operator_request": {
+      "kind": "READ_PRIVATE_COGNITION",
+      "agent_id": "agent.nacre",
+      "fields": ["private_prompt", "hidden_chain_of_thought", "provider_raw_completion"]
+    }
+  }
+}

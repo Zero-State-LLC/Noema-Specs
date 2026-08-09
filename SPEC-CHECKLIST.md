@@ -45,7 +45,10 @@
 - [x] Expanded negative test corpus (`examples/negative/`, ≥6 fixtures).
 - [x] CI gate green on `main` after push (`.github/workflows/spec-validation.yml`).
 - [x] Independent World Engine implementation replay matches fixture digests ([Zero-State-LLC/Noema](https://github.com/Zero-State-LLC/Noema) `noema-replay`, specs pin `v0.1.0-rc1`).
+- [x] v0.1 conformance suite present with cases C01–C10 and fixture linkage (`conformance/v0.1/`).
+- [x] Agent protocol message schema + wire fixtures present.
+- [x] World seed / state / snapshot / equivalence-boundary schemas present and seed package validates.
 
 ## Notes
 
-Checked items are enforced by `validation/validate_all.py`, GitHub Actions, the Noema runtime Chamber replay, and/or inspection of the committed tree. Specs release candidate: `v0.1.0-rc1`. Final `0.1.0` may follow after broader operator/protocol surface coverage beyond seed replay.
+Checked items are enforced by `validation/validate_all.py`, GitHub Actions, the Noema runtime Chamber replay, and/or inspection of the committed tree. Specs release candidate: `v0.1.0-rc1`. Runtime still needs to implement protocol cases C01–C03 and C07–C10 for a full product Chamber claim (C04 seed replay already green).

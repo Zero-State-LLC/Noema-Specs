@@ -1,0 +1,45 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C01-protocol-negotiation",
+  "suite": "noema-v0.1-chamber",
+  "title": "Protocol and schema negotiation rejects incompatible versions",
+  "acceptance_items": [1],
+  "requirement_refs": [
+    "protocols/agent-protocol-v1.md",
+    "docs/v0.1-ACCEPTANCE.md#conformance-tests-minimum-set"
+  ],
+  "preconditions": [
+    "Server supports only agent-protocol/v1 and agent-action/1.0"
+  ],
+  "fixtures": [
+    "examples/protocol/hello-ok.json",
+    "examples/protocol/hello-incompatible.json",
+    "examples/protocol/error-no-compatible-protocol.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "HELLO",
+      "input": { "fixture": "examples/protocol/hello-ok.json" },
+      "notes": "Compatible HELLO MUST receive HELLO_ACK with selected protocol agent-protocol/v1"
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "HELLO",
+      "input": { "fixture": "examples/protocol/hello-incompatible.json" },
+      "notes": "Incompatible HELLO MUST receive ERROR NO_COMPATIBLE_PROTOCOL"
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "error_code": "NO_COMPATIBLE_PROTOCOL",
+    "assertions": [
+      "Compatible HELLO selects protocol agent-protocol/v1",
+      "Incompatible HELLO does not enter AUTH or REGISTER",
+      "ERROR body matches examples/protocol/error-no-compatible-protocol.json shape"
+    ]
+  },
+  "security_class": "none"
+}

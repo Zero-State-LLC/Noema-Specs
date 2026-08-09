@@ -4,6 +4,11 @@
 
 ### Added
 
+- v0.1 Chamber **conformance suite** (`conformance/v0.1/`, docs/v0.1-CONFORMANCE.md) covering acceptance items C01–C10.
+- Schemas: `world-state`, `world-seed`, `world-snapshot`, `equivalence-boundary`, `agent-protocol-message`, `conformance-case`.
+- Protocol wire fixtures (`examples/protocol/`) and observation positives (`examples/observations/`).
+- Genesis snapshot example for seed load (`examples/v01-seed/genesis-snapshot.json`).
+- Expanded `protocols/agent-protocol-v1.md` with ACT→event mapping, error codes, resume, sandbox, and private cognition rules.
 - Canonical NOEMA persistent MUD multi-agent specification baseline.
 - Exact required protocol documents for MUD commands, agent protocol, event ledger, and replay.
 - Ten requested Draft 2020-12 JSON Schema files and matching examples.

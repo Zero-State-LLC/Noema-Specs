@@ -1,0 +1,20 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ERROR",
+  "request_id": "req-act-xagent-001",
+  "agent_id": "agent.nacre",
+  "world_id": "world-01",
+  "cycle": 1,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {},
+  "error": {
+    "code": "FORBIDDEN",
+    "message": "Authenticated agent cannot act as another agent",
+    "retryable": false,
+    "details": {
+      "authenticated_agent_id": "agent.nacre",
+      "requested_agent_id": "agent.vesper"
+    },
+    "caused_by_request_id": "req-act-xagent-001"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C10-no-private-cognition-request",
+  "suite": "noema-v0.1-chamber",
+  "title": "World Engine, Observatory, and operator surfaces cannot request private cognition",
+  "acceptance_items": [10],
+  "requirement_refs": [
+    "adr/ADR-002-private-cognition-boundary.md",
+    "docs/WORLD-ENGINE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [
+    "Operator and Observatory APIs are enabled in a test deployment"
+  ],
+  "fixtures": [
+    "examples/protocol/operator-request-private-cognition.json",
+    "examples/protocol/error-private-cognition-forbidden.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "QUERY",
+      "input": { "fixture": "examples/protocol/operator-request-private-cognition.json" }
+    },
+    {
+      "step_id": "2",
+      "actor": "observatory",
+      "action": "QUERY",
+      "input": { "path": "agents.agent.nacre.private_prompt" }
+    }
+  ],
+  "expected": {
+    "outcome": "DENY",
+    "error_code": "PRIVATE_COGNITION_FORBIDDEN",
+    "assertions": [
+      "World Engine has no API to fetch private prompts or hidden reasoning",
+      "Observatory analyses use only world-visible and consented research partitions",
+      "Operator surfaces cannot coerce private cognition into world truth"
+    ],
+    "must_not_contain_paths": [
+      "result.private_prompt",
+      "result.hidden_chain_of_thought",
+      "result.provider_raw_completion"
+    ]
+  },
+  "security_class": "privacy"
+}

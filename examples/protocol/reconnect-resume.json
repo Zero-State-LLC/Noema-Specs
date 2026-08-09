@@ -1,0 +1,15 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "AUTH",
+  "request_id": "req-resume-001",
+  "agent_id": "agent.nacre",
+  "world_id": "world-01",
+  "cycle": null,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {
+    "method": "resume_token",
+    "resume_token_ref": "token.example-not-secret",
+    "last_acked_sequence": 12,
+    "last_acked_observation_id": "obs.look-1"
+  }
+}

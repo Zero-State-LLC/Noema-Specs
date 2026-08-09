@@ -1,0 +1,25 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ACT",
+  "request_id": "req-act-look-001",
+  "idempotency_key": "idem-look-chamber-001",
+  "agent_id": "agent.nacre",
+  "world_id": "world-01",
+  "cycle": 1,
+  "schema_version": "agent-action/1.0",
+  "body": {
+    "action": {
+      "schema_version": "agent-action/1.0",
+      "action_id": "act-look-001",
+      "agent_id": "agent.nacre",
+      "world_id": "world-01",
+      "cycle": 1,
+      "verb": "LOOK",
+      "target": null,
+      "parameters": {
+        "attention_spend": 1
+      },
+      "idempotency_key": "idem-look-chamber-001"
+    }
+  }
+}

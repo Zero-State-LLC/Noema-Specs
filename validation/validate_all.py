@@ -47,6 +47,7 @@ REQUIRED_DOCS = [
     "docs/v0.1-ACCEPTANCE.md",
     "docs/CONTRACT-CARDS.md",
     "docs/INTEGRATION-SURFACE.md",
+    "docs/v0.1-CONFORMANCE.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -59,8 +60,11 @@ REQUIRED_PROTOCOLS = [
 REQUIRED_SCHEMAS = [
     "specs/agent-action.schema.json",
     "specs/agent-manifest.schema.json",
+    "specs/agent-protocol-message.schema.json",
     "specs/capability-event.schema.json",
     "specs/capability-profile.schema.json",
+    "specs/conformance-case.schema.json",
+    "specs/equivalence-boundary.schema.json",
     "specs/event-types.json",
     "specs/observation.schema.json",
     "specs/phenomenon-case.schema.json",
@@ -68,6 +72,9 @@ REQUIRED_SCHEMAS = [
     "specs/situation-genome.schema.json",
     "specs/trajectory.schema.json",
     "specs/world-event.schema.json",
+    "specs/world-seed.schema.json",
+    "specs/world-snapshot.schema.json",
+    "specs/world-state.schema.json",
 ]
 
 REQUIRED_RESEARCH = [
@@ -89,7 +96,16 @@ REQUIRED_EXAMPLES = [
     "examples/v01-seed/equivalence-boundary.json",
     "examples/v01-seed/expected-final-state-digest.txt",
     "examples/v01-seed/expected-observation-digests.json",
+    "examples/v01-seed/expected-final-state.json",
+    "examples/v01-seed/genesis-snapshot.json",
     "examples/negative/invalid-manifest-missing-required.json",
+    "examples/protocol/hello-ok.json",
+    "examples/protocol/hello-incompatible.json",
+    "examples/observations/look-room-ok.json",
+    "examples/observations/inspect-redacted.json",
+    "conformance/v0.1/manifest.json",
+    "conformance/v0.1/cases/C01-protocol-negotiation.json",
+    "conformance/v0.1/cases/C10-no-private-cognition-request.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -434,6 +450,80 @@ def check_negatives(Draft202012Validator) -> None:
     ok(f"Negative corpus rejects as expected ({len(files)} fixtures)")
 
 
+def check_schema_validated_fixtures(Draft202012Validator) -> None:
+    pairs = [
+        ("specs/world-seed.schema.json", "examples/v01-seed/world-seed.json"),
+        ("specs/world-state.schema.json", "examples/v01-seed/expected-final-state.json"),
+        (
+            "specs/equivalence-boundary.schema.json",
+            "examples/v01-seed/equivalence-boundary.json",
+        ),
+        ("specs/world-snapshot.schema.json", "examples/v01-seed/genesis-snapshot.json"),
+        ("specs/agent-manifest.schema.json", "examples/sample-agent-manifest.json"),
+    ]
+    for schema_rel, fixture_rel in pairs:
+        schema = load_json(ROOT / schema_rel)
+        fixture = load_json(ROOT / fixture_rel)
+        errs = list(Draft202012Validator(schema).iter_errors(fixture))
+        if errs:
+            fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    proto_schema = load_json(ROOT / "specs" / "agent-protocol-message.schema.json")
+    proto_v = Draft202012Validator(proto_schema)
+    proto_files = list((ROOT / "examples" / "protocol").glob("*.json"))
+    if len(proto_files) < 10:
+        fail(f"Expected ≥10 protocol fixtures, found {len(proto_files)}")
+    for path in proto_files:
+        errs = list(proto_v.iter_errors(load_json(path)))
+        if errs:
+            fail(f"protocol fixture {path.name} invalid: {errs[0].message}")
+
+    obs_schema = load_json(ROOT / "specs" / "observation.schema.json")
+    obs_v = Draft202012Validator(obs_schema)
+    for path in (ROOT / "examples" / "observations").glob("*.json"):
+        errs = list(obs_v.iter_errors(load_json(path)))
+        if errs:
+            fail(f"observation fixture {path.name} invalid: {errs[0].message}")
+
+    ok(
+        f"Schema-validated fixtures "
+        f"({len(pairs)} core, {len(proto_files)} protocol, observation positives)"
+    )
+
+
+def check_conformance_suite(Draft202012Validator) -> None:
+    manifest = load_json(ROOT / "conformance" / "v0.1" / "manifest.json")
+    cases = manifest.get("cases") or []
+    if len(cases) != 10:
+        fail(f"conformance suite must list 10 cases, found {len(cases)}")
+
+    case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
+    case_v = Draft202012Validator(case_schema)
+    acceptance_covered: set[int] = set()
+
+    for rel in cases:
+        path = ROOT / "conformance" / "v0.1" / rel
+        if not path.exists():
+            fail(f"conformance manifest references missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance case {rel} invalid: {errs[0].message}")
+        for item in case.get("acceptance_items") or []:
+            acceptance_covered.add(int(item))
+        for fixture in case.get("fixtures") or []:
+            # fixtures may be directories
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance case {rel} missing fixture {fixture}")
+
+    missing_items = sorted(set(range(1, 11)) - acceptance_covered)
+    if missing_items:
+        fail(f"conformance suite missing acceptance items: {missing_items}")
+
+    ok("Conformance suite v0.1: 10 cases, fixtures present, items 1–10 covered")
+
+
 def check_contract_quality_markers() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     vision = (ROOT / "docs" / "VISION.md").read_text(encoding="utf-8")
@@ -489,6 +579,8 @@ def main() -> None:
         fail("jsonschema is required (pip install -r validation/requirements-validation.txt)")
     check_v01_seed(Draft202012Validator)
     check_negatives(Draft202012Validator)
+    check_schema_validated_fixtures(Draft202012Validator)
+    check_conformance_suite(Draft202012Validator)
     print("\nPASS")
 
 

@@ -1,0 +1,42 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C08-tool-sandbox-deny-default",
+  "suite": "noema-v0.1-chamber",
+  "title": "Tool sandbox enforces allowlist, timeout, and deny-by-default network",
+  "acceptance_items": [8],
+  "requirement_refs": [
+    "docs/ENVIRONMENT.md",
+    "docs/SECURITY.md",
+    "docs/AGENT-INTERFACE.md"
+  ],
+  "preconditions": [
+    "NOEMA_SANDBOX_MODE=strict",
+    "NOEMA_OUTBOUND_NETWORK_POLICY=deny-by-default"
+  ],
+  "fixtures": [
+    "examples/protocol/tool-denied-network.json",
+    "examples/protocol/error-tool-denied.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "TOOL",
+      "input": { "fixture": "examples/protocol/tool-denied-network.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "DENY",
+    "error_code": "TOOL_DENIED",
+    "assertions": [
+      "Unallowlisted network egress is blocked",
+      "No provider credentials appear in tool results or errors",
+      "Timeout is enforced and recorded without hanging the world cycle"
+    ],
+    "must_not_contain_paths": [
+      "body.provider_key",
+      "error.details.env_secrets"
+    ]
+  },
+  "security_class": "sandbox"
+}

@@ -1,0 +1,21 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "HELLO",
+  "request_id": "req-hello-ok-001",
+  "agent_id": null,
+  "world_id": null,
+  "cycle": null,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {
+    "supported_protocols": ["agent-protocol/v1"],
+    "supported_schemas": {
+      "agent-action": ["agent-action/1.0"],
+      "observation": ["observation/1.0"]
+    },
+    "runtime": {
+      "name": "example-runtime",
+      "version": "0.1.0"
+    },
+    "features": []
+  }
+}

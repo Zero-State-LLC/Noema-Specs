@@ -1,0 +1,19 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ACT",
+  "request_id": "req-export-001",
+  "idempotency_key": "idem-export-001",
+  "agent_id": "agent.nacre",
+  "world_id": "world-01",
+  "cycle": 12,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {
+    "operator_request": {
+      "kind": "EXPORT_PUBLIC_BUNDLE",
+      "world_id": "world-01",
+      "sequence_range": { "from": 1, "to": 31 },
+      "include_private_metadata": false,
+      "include_self_reports": false
+    }
+  }
+}

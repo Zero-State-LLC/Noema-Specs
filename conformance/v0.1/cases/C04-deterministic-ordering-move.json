@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C04-deterministic-ordering-move",
+  "suite": "noema-v0.1-chamber",
+  "title": "Deterministic action ordering and movement results",
+  "acceptance_items": [4],
+  "requirement_refs": [
+    "docs/WORLD-ENGINE.md",
+    "docs/EVENT-CATALOG.md",
+    "examples/v01-seed/sample-trajectory.jsonl"
+  ],
+  "preconditions": [
+    "World loaded from examples/v01-seed/world-seed.json"
+  ],
+  "fixtures": [
+    "examples/v01-seed/sample-trajectory.jsonl",
+    "examples/v01-seed/expected-event-digests.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "REPLAY",
+      "input": { "fixture": "examples/v01-seed/" }
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "MOVE_REJECTED for exit.rq-down precedes successful MOVE east",
+      "Agent ends in room.civic-exchange after scripted moves",
+      "Ordered event digests match expected-event-digests.jsonl"
+    ]
+  },
+  "security_class": "none"
+}

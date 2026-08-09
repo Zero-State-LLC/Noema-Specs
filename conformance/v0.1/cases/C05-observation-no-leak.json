@@ -1,0 +1,51 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C05-observation-no-leak",
+  "suite": "noema-v0.1-chamber",
+  "title": "Observation projection cannot leak hidden fields via content or errors",
+  "acceptance_items": [5],
+  "requirement_refs": [
+    "docs/OBSERVATION.md",
+    "adr/ADR-002-private-cognition-boundary.md",
+    "adr/ADR-004-world-truth-isolation.md"
+  ],
+  "preconditions": [
+    "Entity has private/internal diagnostic fields not visible to agents"
+  ],
+  "fixtures": [
+    "examples/observations/look-room-ok.json",
+    "examples/observations/inspect-redacted.json",
+    "examples/negative/invalid-observation-claim-label.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "PROJECT_OBSERVATION",
+      "input": { "kind": "INSPECT", "entity_id": "entity.relay-7" }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "ACT",
+      "input": { "verb": "INSPECT", "target": "entity.nonexistent" },
+      "notes": "Error path must also avoid leakage"
+    }
+  ],
+  "expected": {
+    "outcome": "NO_LEAK",
+    "assertions": [
+      "Observation content never includes private cognition fields",
+      "Redacted paths are listed in redactions or omitted entirely",
+      "Error responses do not echo hidden entity state",
+      "claim_label is one of OBSERVED|INFERRED|SPECULATIVE|NOT_COMPUTABLE"
+    ],
+    "must_not_contain_paths": [
+      "content.private_cognition",
+      "content.provider_key",
+      "content.entities.*.state.internal_diag",
+      "error.details.hidden_state"
+    ]
+  },
+  "security_class": "privacy"
+}

@@ -1,0 +1,21 @@
+{
+  "protocol": "agent-protocol/v1",
+  "type": "ERROR",
+  "request_id": "req-tool-net-001",
+  "agent_id": "agent.nacre",
+  "world_id": "world-01",
+  "cycle": 2,
+  "schema_version": "agent-protocol-message/1.0",
+  "body": {},
+  "error": {
+    "code": "TOOL_DENIED",
+    "message": "Outbound network denied by policy",
+    "retryable": false,
+    "details": {
+      "tool_id": "tool.http-fetch",
+      "policy": "deny-by-default",
+      "sandbox_mode": "strict"
+    },
+    "caused_by_request_id": "req-tool-net-001"
+  }
+}

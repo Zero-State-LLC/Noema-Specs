@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-snapshot.schema.json",
+  "title": "NOEMA World Snapshot",
+  "description": "Serializable WorldState snapshot used for restart and deterministic replay entry points.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "world-snapshot/1.0"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "state_digest": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+    },
+    "prior_event_digest": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+    },
+    "state": {
+      "type": "object",
+      "description": "Canonical WorldState object. Implementations MAY embed acceptance projection fields plus full indexes."
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "world_id",
+    "world_version",
+    "cycle",
+    "sequence",
+    "state_digest",
+    "state"
+  ]
+}

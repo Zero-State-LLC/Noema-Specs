@@ -39,3 +39,16 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 ## Claims Policy
 **Authority:** research/claims-policy.md + ADR-003.  
 **Hard rule:** No scalar consciousness score. All evidence labeled. Consciousness-adjacent constructs only.
+
+## Agent Protocol v1
+**Authority:** protocols/agent-protocol-v1.md + specs/agent-protocol-message.schema.json.  
+**Key invariant:** Session identity binds one agent; idempotent mutators; deny-by-default tools.  
+**Errors:** NO_COMPATIBLE_PROTOCOL, FORBIDDEN, TOOL_DENIED, PRIVATE_COGNITION_FORBIDDEN, …  
+**Conformance:** C01–C03, C07–C08, C10.  
+**Full:** protocols/agent-protocol-v1.md
+
+## v0.1 Conformance Suite
+**Authority:** docs/v0.1-CONFORMANCE.md + conformance/v0.1/.  
+**Key invariant:** Ten acceptance items map 1:1 to machine-readable cases.  
+**Mandatory for World Engine claims:** C04 seed/replay equivalence.  
+**Full:** docs/v0.1-CONFORMANCE.md

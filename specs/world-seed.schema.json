@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-seed.schema.json",
+  "title": "NOEMA World Seed (v0.1 Chamber genesis)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "world-seed/1.0"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalog_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "budget_defaults": {
+      "type": "object",
+      "required": ["attention", "compute", "energy", "influence", "storage"],
+      "properties": {
+        "attention": { "type": "number", "minimum": 0 },
+        "compute": { "type": "number", "minimum": 0 },
+        "energy": { "type": "number", "minimum": 0 },
+        "influence": { "type": "number", "minimum": 0 },
+        "storage": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "rooms": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["room_id", "name", "description"],
+        "properties": {
+          "room_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" },
+          "entity_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        }
+      }
+    },
+    "exits": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["exit_id", "from_room_id", "to_room_id", "direction"],
+        "properties": {
+          "exit_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "from_room_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "to_room_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "direction": { "type": "string", "minLength": 1 },
+          "conditions": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["entity_id", "entity_type", "location"],
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "entity_type": {
+            "enum": [
+              "AGENT",
+              "OBJECT",
+              "ARTIFACT",
+              "INFRASTRUCTURE",
+              "ORGANIZATION",
+              "CURRENCY",
+              "DOCUMENT"
+            ]
+          },
+          "location": {},
+          "owner_id": {
+            "type": ["string", "null"]
+          },
+          "properties": { "type": "object" },
+          "inventory": { "type": "array" },
+          "state": { "type": "object" }
+        }
+      }
+    },
+    "registered_agents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["agent_id"],
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "display_name": { "type": "string" },
+          "manifest_id": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "world_id",
+    "world_version",
+    "seed",
+    "catalog_version",
+    "budget_defaults",
+    "rooms",
+    "exits",
+    "entities",
+    "registered_agents"
+  ]
+}

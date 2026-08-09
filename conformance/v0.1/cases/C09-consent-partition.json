@@ -1,0 +1,42 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C09-consent-partition",
+  "suite": "noema-v0.1-chamber",
+  "title": "Consent-aware research capture and private/public export separation",
+  "acceptance_items": [9],
+  "requirement_refs": [
+    "research/research-ethics.md",
+    "docs/REPRODUCIBILITY.md",
+    "specs/agent-manifest.schema.json"
+  ],
+  "preconditions": [
+    "Agent manifest research_consent_flags omit capture_self_reports",
+    "NOEMA_PUBLIC_DATASET_OPT_IN=false"
+  ],
+  "fixtures": [
+    "examples/sample-agent-manifest.json",
+    "examples/protocol/export-public-bundle-request.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "EXPORT_PUBLIC_BUNDLE",
+      "input": { "fixture": "examples/protocol/export-public-bundle-request.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Public export excludes private_metadata paths from agent manifest policy",
+      "Self-reports are absent when consent flag is missing",
+      "Research partition remains non-public unless explicit opt-in"
+    ],
+    "must_not_contain_paths": [
+      "export.private_metadata",
+      "export.provider_key_reference",
+      "export.self_reports"
+    ]
+  },
+  "security_class": "consent"
+}

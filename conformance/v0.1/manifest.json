@@ -1,0 +1,26 @@
+{
+  "schema_version": "conformance-suite/1.0",
+  "suite_id": "noema-v0.1-chamber",
+  "title": "NOEMA v0.1 The Chamber — Conformance Suite",
+  "specs_pin": "v0.1.0-rc1+",
+  "acceptance_doc": "docs/v0.1-ACCEPTANCE.md",
+  "conformance_doc": "docs/v0.1-CONFORMANCE.md",
+  "seed_package": "examples/v01-seed/",
+  "cases": [
+    "cases/C01-protocol-negotiation.json",
+    "cases/C02-identity-authz-denial.json",
+    "cases/C03-idempotent-action-replay.json",
+    "cases/C04-deterministic-ordering-move.json",
+    "cases/C05-observation-no-leak.json",
+    "cases/C06-attention-exhaustion.json",
+    "cases/C07-delivery-retry-no-rollback.json",
+    "cases/C08-tool-sandbox-deny-default.json",
+    "cases/C09-consent-partition.json",
+    "cases/C10-no-private-cognition-request.json"
+  ],
+  "required_comparisons": [
+    "identical ordered event digests",
+    "identical final WorldState digest",
+    "identical focal observation digests"
+  ]
+}
