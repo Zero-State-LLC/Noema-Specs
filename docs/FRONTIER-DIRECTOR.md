@@ -107,6 +107,9 @@ The Director emits:
 2. `candidate-ledger.jsonl`: every enumerated candidate with derivation, component scores, disposition (`selected`, `rejected`, `skipped`, or `control`), and reason codes.
 3. `director-audit.jsonl`: hash-chained decision records.
 4. `replay-context.json`: exact versions, seed digest, candidate situation digests, and declared equivalence boundaries needed to reconstruct the decision and resulting experiments.
+5. a `SITUATION_INJECTED` World Event for each selected situation admitted to the world, containing the genome identity, versioned selection score and components, target rooms, and named seed stream as defined by the [Event Catalog](EVENT-CATALOG.md).
+
+Selection alone does not mutate canonical world state. Only the ordered `SITUATION_INJECTED` event and any subsequent concrete entity, resource, or noise events enter the World Engine reducer.
 
 `expected information gain` is a planning estimate labeled `INFERRED`, not an observed outcome. Missing inputs or unsupported calculations are labeled `NOT_COMPUTABLE`, never zero.
 
