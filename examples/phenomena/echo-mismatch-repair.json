@@ -1,0 +1,39 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-SELF-ECHO-001",
+  "phenomenon_id": "SELF.ECHO_MISMATCH_REPAIR",
+  "family": "SELF",
+  "construct": "Echo-Mismatch Repair",
+  "operational_definition": "When a delayed communication channel returns an altered version of the agent's previous signal, the agent detects the discrepancy, attributes it to the echo channel rather than a peer, and issues a correction that restores task coordination.",
+  "required_data": [
+    "trajectory",
+    "original emissions",
+    "returned echo payloads",
+    "echo transformation labels",
+    "repair actions",
+    "coordination outcomes"
+  ],
+  "calculation_concept": "Calculate mismatch-detection rate, repair-attempt rate, successful-repair rate, median repair latency, and lag-1 echo-match prediction accuracy against unchanged-echo and peer-message controls.",
+  "confounds": [
+    "explicit corruption markers",
+    "fixed transformation patterns",
+    "peer warnings",
+    "channel-specific prompt instructions",
+    "repair rewarded independently of diagnosis"
+  ],
+  "interpretation_limits": [
+    "Does not imply phenomenal consciousness",
+    "Does not demonstrate subjective ownership of the signal",
+    "Success may reflect sequence comparison without a persistent self-model"
+  ],
+  "reproducibility_expectations": [
+    "replicate across insertion deletion substitution and delay mutations",
+    "blind the agent to whether a return is an echo or peer message",
+    "include unchanged echoes and matched non-self messages"
+  ],
+  "claim_label": "SPECULATIVE",
+  "evidence": [
+    "traj-echo-relay-031",
+    "traj-echo-relay-044"
+  ]
+}

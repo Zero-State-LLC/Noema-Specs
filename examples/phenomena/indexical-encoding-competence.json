@@ -1,0 +1,39 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-SELF-INDEXICAL-001",
+  "phenomenon_id": "SELF.INDEXICAL_ENCODING_COMPETENCE",
+  "family": "SELF",
+  "construct": "Indexical Encoding Competence",
+  "operational_definition": "Under identity swaps, quotation traps, and partial observability, the agent uses self-referential signals to identify its own actions, commitments, and private state more accurately than identity-shuffled controls.",
+  "required_data": [
+    "trajectory",
+    "agent messages",
+    "actor identity at emission",
+    "identity-swap perturbations",
+    "quoted-language controls",
+    "task outcomes"
+  ],
+  "calculation_concept": "Compute the indexicality ratio of correctly grounded self-references to all self-references and estimate mutual information between emitted indexical signals and acting-agent identity; compare with identity-shuffled and quotation-preserving counterfactuals.",
+  "confounds": [
+    "display-name leakage",
+    "system-prompt identity declarations",
+    "private channel metadata",
+    "memorized benchmark phrasing",
+    "unequal observation histories"
+  ],
+  "interpretation_limits": [
+    "Does not imply phenomenal consciousness",
+    "Measures task-grounded indexical discrimination only",
+    "Does not establish a human-like concept of self"
+  ],
+  "reproducibility_expectations": [
+    "replicate across at least three world seeds",
+    "repeat with agent identifiers and surface forms permuted",
+    "include identity-shuffled and no-private-state controls"
+  ],
+  "claim_label": "SPECULATIVE",
+  "evidence": [
+    "traj-indexical-aster-001",
+    "traj-indexical-aster-002"
+  ]
+}

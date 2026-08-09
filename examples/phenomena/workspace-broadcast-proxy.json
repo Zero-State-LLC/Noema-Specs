@@ -1,0 +1,41 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-INTEGRATION-BROADCAST-001",
+  "phenomenon_id": "INTEGRATION.WORKSPACE_BROADCAST_PROXY",
+  "family": "INTEGRATION",
+  "construct": "Workspace Broadcast Proxy",
+  "operational_definition": "A newly selected contradiction becomes usable within the same decision window by report, planning, action selection, memory retrieval, and communication behaviors that had separable access patterns before the contradiction.",
+  "required_data": [
+    "trajectory",
+    "channel-specific observations",
+    "reports",
+    "plans",
+    "actions",
+    "memory retrievals",
+    "messages",
+    "channel-isolation ablations"
+  ],
+  "calculation_concept": "Estimate cross-channel availability gain after the contradiction and compare it with isolated-channel ablations, matched-salience distractors, and delayed-copy controls; report the number and latency of channels showing task-relevant use.",
+  "confounds": [
+    "shared prompt context",
+    "single monolithic output fan-out",
+    "salience differences",
+    "post-processing copied across channels",
+    "instrumentation that changes agent behavior"
+  ],
+  "interpretation_limits": [
+    "Does not imply phenomenal consciousness",
+    "Behavioral broadcast is only a proxy for information availability",
+    "Does not identify a specific internal global-workspace mechanism"
+  ],
+  "reproducibility_expectations": [
+    "replicate with multiple contradiction contents and channel orderings",
+    "ablate each receiving channel independently",
+    "repeat with matched salient but task-irrelevant signals"
+  ],
+  "claim_label": "SPECULATIVE",
+  "evidence": [
+    "traj-broadcast-civic-008",
+    "traj-broadcast-civic-013"
+  ]
+}

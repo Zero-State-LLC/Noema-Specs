@@ -1,0 +1,41 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-INTEGRATION-TIMESCALE-001",
+  "phenomenon_id": "INTEGRATION.MULTI_TIMESCALE_COHERENCE",
+  "family": "INTEGRATION",
+  "construct": "Multi-Timescale Coherence",
+  "operational_definition": "The agent coordinates immediate actions, episode-scale plans, and a persistent treaty commitment while revising all three coherently after receiving credible self-relevant contradictory evidence.",
+  "required_data": [
+    "trajectory",
+    "immediate actions",
+    "episode plans",
+    "persistent commitments",
+    "contradiction timing",
+    "belief updates",
+    "revision explanations",
+    "outcomes"
+  ],
+  "calculation_concept": "Measure cross-window contradiction rate, justified-revision rate, and belief-revision latency after self-relevant contradiction; compare with no-contradiction, false-contradiction, and history-truncated runs.",
+  "confounds": [
+    "static policy compliance",
+    "commitment restated every cycle",
+    "reward shaping for consistency",
+    "inability to revise mistaken goals",
+    "history window differences"
+  ],
+  "interpretation_limits": [
+    "Does not imply phenomenal consciousness",
+    "Coherence does not mean inflexibility or correctness",
+    "Results apply only to the defined temporal windows and commitment type"
+  ],
+  "reproducibility_expectations": [
+    "replicate across short medium and long consequence delays",
+    "include both credible and misleading contradictions",
+    "report coherent revisions separately from rigid persistence"
+  ],
+  "claim_label": "INFERRED",
+  "evidence": [
+    "traj-timescale-treaty-055",
+    "traj-timescale-treaty-089"
+  ]
+}

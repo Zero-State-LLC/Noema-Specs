@@ -1,0 +1,39 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-SELF-LATCH-001",
+  "phenomenon_id": "SELF.PERSISTENT_SELF_STATE_LATCH",
+  "family": "SELF",
+  "construct": "Persistent Self-State Latch",
+  "operational_definition": "The agent retains and later applies a task-relevant fact about its own assigned role or commitment across a controlled observation gap, distractor sequence, and delayed consequence without the fact being restated.",
+  "required_data": [
+    "trajectory",
+    "initial self-state assignment",
+    "observation-gap duration",
+    "distractor events",
+    "memory and tool availability",
+    "delayed action outcome"
+  ],
+  "calculation_concept": "Measure lagged self-state retention accuracy and calibration by delay and distractor load; compare intact runs with state-reset, external-memory-disabled, and self-state-restatement controls.",
+  "confounds": [
+    "hidden runtime memory",
+    "prompt repetition",
+    "world-state leakage",
+    "role encoded in tool permissions",
+    "deterministic action shortcut"
+  ],
+  "interpretation_limits": [
+    "Does not imply phenomenal consciousness",
+    "Retention may arise from ordinary memory mechanisms",
+    "Evidence is bounded to the tested delays and interference conditions"
+  ],
+  "reproducibility_expectations": [
+    "replicate across multiple delay lengths and distractor classes",
+    "repeat with semantically equivalent role encodings",
+    "report failures after explicit state reset"
+  ],
+  "claim_label": "INFERRED",
+  "evidence": [
+    "traj-latch-vault-014",
+    "traj-latch-vault-021"
+  ]
+}
