@@ -1,6 +1,15 @@
 # Negative / Invalid Examples
 
-These fixtures are intentionally non-conforming. Validation and schema tests MUST reject them.
+These fixtures are intentionally non-conforming. Schema and catalog validators MUST reject them.
 
-- `invalid-manifest-missing-required.json` — missing required metadata_policy and other fields.
-- Additional negative cases for observation claim-label conflicts, over-budget actions, and visibility leakage attempts SHOULD be added as the schemas stabilize.
+| Fixture | Why it fails |
+|---------|----------------|
+| `invalid-manifest-missing-required.json` | Missing required `metadata_policy` and related agent-manifest fields |
+| `invalid-world-event-unknown-type.json` | `event_type` not in closed 24-type catalog |
+| `invalid-world-event-missing-digest.json` | Missing required `digest` on world-event envelope |
+| `invalid-move-payload-missing-fields.json` | MOVE payload missing `from_room_id`, `to_room_id`, `cost_paid` |
+| `invalid-budget-exceeded-not-exceeding.json` | `requested` is not greater than `available` |
+| `invalid-observation-claim-label.json` | Claim label outside OBSERVED / INFERRED / SPECULATIVE / NOT_COMPUTABLE |
+| `invalid-org-create-empty-members.json` | `initial_members` empty (minItems: 1) |
+
+Positive fixtures live under `examples/v01-seed/` and `examples/sample-*.json`.

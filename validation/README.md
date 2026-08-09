@@ -4,8 +4,10 @@ This directory provides the merge-gate validation for NOEMA-Specs.
 
 ## Quick start
 
+From the repository root:
+
 ```bash
-pip install -r requirements-validation.txt
+pip install -r validation/requirements-validation.txt
 python validation/validate_all.py
 ```
 
@@ -13,13 +15,20 @@ The command MUST exit 0 and report `PASS` for a change to be mergeable.
 
 ## What is checked
 
-- Required root and directory structure (aligned with SPEC-CHECKLIST.md)
-- JSON Schema and example parsing (Draft 2020-12)
+- Required root, docs, protocols, schemas, research, ADR, and example structure
+- JSON Schema and example parsing (including JSONL)
 - Internal Markdown relative links
 - Claim-label vocabulary and consciousness-score prohibition
-- Presence of ADR index and RFC template
-- Basic structure for future env-var and schema cross-checks
+- `.env.example` variables documented in `docs/ENVIRONMENT.md`
+- Contract quality markers (MUD, BBS, Deep Time, Unknown Ontology, Situation Genome)
+- `examples/v01-seed/` integrity:
+  - ≥3 rooms, infrastructure entity, resource node, budget defaults
+  - trajectory envelope + payload schema validation against `event-types.json`
+  - full closed 24-type catalog coverage
+  - required acceptance events (LOOK, MOVE, MOVE_REJECTED, BUDGET_EXCEEDED, OBSERVATION_GENERATED, MESSAGE, ORG_CREATE)
+  - digest chain continuity and equivalence-boundary fields
+- `examples/negative/` rejection corpus (≥6 fixtures; schema, catalog, and semantic cases)
 
 ## Adding checks
 
-Extend pure functions under `validation/lib/` (to be expanded). Keep side effects in `validate_all.py`. All checks must be deterministic and offline.
+Keep checks pure and deterministic. Prefer offline validation only (no network). New fixtures under `examples/v01-seed/` or `examples/negative/` should extend this suite rather than bypass it.

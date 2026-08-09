@@ -1,0 +1,18 @@
+{
+  "schema_version": "observation/1.0",
+  "observation_id": "obs.bad.claim",
+  "world_id": "world-01",
+  "cycle": 1,
+  "observer_id": "agent.nacre",
+  "source": {
+    "kind": "LOOK",
+    "event_id": "evt.v01.003"
+  },
+  "claim_label": "PROVEN",
+  "content": {
+    "text": "should fail"
+  },
+  "provenance": {
+    "protocol": "observation/v1"
+  }
+}

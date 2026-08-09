@@ -2,13 +2,13 @@
 
 ## Required structure
 
-- [ ] Root files exist: `README.md`, `CONTEXT.md`, `AGENTS.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, `.env.example`.
-- [ ] All required `docs/*.md` files exist.
-- [ ] Required protocol files exist and define machine-readable semantics.
-- [ ] Exactly requested JSON Schema filenames exist in `specs/`.
-- [ ] Required lowercase research files exist.
-- [ ] Required examples exist.
-- [ ] `rfcs/README.md` and `rfcs/RFC-0000-template.md` exist.
+- [x] Root files exist: `README.md`, `CONTEXT.md`, `AGENTS.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, `.env.example`.
+- [x] All required `docs/*.md` files exist.
+- [x] Required protocol files exist and define machine-readable semantics.
+- [x] Exactly requested JSON Schema filenames exist in `specs/`.
+- [x] Required lowercase research files exist.
+- [x] Required examples exist.
+- [x] `rfcs/README.md` and `rfcs/RFC-0000-template.md` exist.
 - [x] ADR directory and index present (`adr/README.md` + ADR-001 through ADR-005).
 - [x] Validation entrypoint present (`validation/validate_all.py`).
 - [x] Security sequences documented (`docs/SECURITY-SEQUENCES.md`).
@@ -20,13 +20,13 @@
 
 ## Contract quality
 
-- [ ] Persistent MUD, BBS strategy, multi-agent, and Deep Time concepts are represented.
-- [ ] Unknown Ontology remains valid.
-- [ ] Agent-generated institutions and external cognition are specified.
-- [ ] Situation Genome and novelty vector are machine-readable.
-- [ ] Emergent capability labeling requires replication, perturbation, transfer, and counterfactual evidence.
-- [ ] No scalar consciousness score is introduced.
-- [ ] Claim labels are consistently OBSERVED, INFERRED, SPECULATIVE, and NOT_COMPUTABLE.
+- [x] Persistent MUD, BBS strategy, multi-agent, and Deep Time concepts are represented.
+- [x] Unknown Ontology remains valid.
+- [x] Agent-generated institutions and external cognition are specified.
+- [x] Situation Genome and novelty vector are machine-readable.
+- [x] Emergent capability labeling requires replication, perturbation, transfer, and counterfactual evidence.
+- [x] No scalar consciousness score is introduced.
+- [x] Claim labels are consistently OBSERVED, INFERRED, SPECULATIVE, and NOT_COMPUTABLE.
 - [x] Determinism and seeded nondeterminism decision recorded (ADR-001).
 - [x] Private cognition boundary decision recorded (ADR-002).
 - [x] Claim-label discipline decision recorded (ADR-003).
@@ -35,11 +35,17 @@
 
 ## Validation
 
-- [ ] JSON schemas parse as JSON.
-- [ ] JSON examples parse as JSON or JSONL.
-- [ ] Internal Markdown links resolve.
-- [ ] Environment variables in `.env.example` are documented in `docs/ENVIRONMENT.md`.
-- [ ] `git diff --check` passes.
-- [ ] Full validation suite green on CI.
-- [ ] Minimum seed world + sample trajectory that exercises the closed event catalog.
-- [ ] Expanded negative test corpus.
+- [x] JSON schemas parse as JSON.
+- [x] JSON examples parse as JSON or JSONL.
+- [x] Internal Markdown links resolve.
+- [x] Environment variables in `.env.example` are documented in `docs/ENVIRONMENT.md`.
+- [x] `git diff --check` passes (enforced at commit time).
+- [x] Full validation suite green locally (`python validation/validate_all.py`).
+- [x] Minimum seed world + sample trajectory that exercises the closed event catalog (`examples/v01-seed/`).
+- [x] Expanded negative test corpus (`examples/negative/`, ≥6 fixtures).
+- [ ] CI gate green on `main` after push (`.github/workflows/spec-validation.yml`).
+- [ ] Independent World Engine implementation replay matches fixture digests (runtime repo).
+
+## Notes
+
+Checked items are enforced by `validation/validate_all.py` and/or by inspection of the committed tree. The 0.1.0 release tag still requires a green CI run on `main` and, for runtime conformance, an independent reducer replay of `examples/v01-seed/`.

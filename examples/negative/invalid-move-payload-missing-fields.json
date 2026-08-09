@@ -1,0 +1,19 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.003",
+  "event_type": "MOVE",
+  "world_id": "world-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-09T16:00:00Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agent_id": "agent.nacre",
+    "exit_id": "exit.rq-east"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1"
+  },
+  "previous_digest": null,
+  "digest": "sha256:bad-move"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.002",
+  "event_type": "LOOK",
+  "world_id": "world-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-09T16:00:00Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agent_id": "agent.nacre",
+    "room_id": "room.relay-quarter",
+    "attention_spent": 1,
+    "observation_id": "obs.bad"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1"
+  },
+  "previous_digest": null
+}

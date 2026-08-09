@@ -1,0 +1,22 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.005",
+  "event_type": "ORG_CREATE",
+  "world_id": "world-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-09T16:00:00Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "org_id": "org.bad",
+    "name": "Empty Org",
+    "charter": "invalid empty membership",
+    "creator_id": "agent.nacre",
+    "initial_members": []
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1"
+  },
+  "previous_digest": null,
+  "digest": "sha256:bad-org"
+}

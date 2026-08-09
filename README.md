@@ -80,3 +80,12 @@ NOEMA MUST NOT claim to prove or directly measure consciousness. It MAY measure 
 ## Status
 
 Specification baseline for implementation-readiness review. No runtime code is included.
+
+## Validation
+
+```bash
+pip install -r validation/requirements-validation.txt
+python validation/validate_all.py
+```
+
+v0.1 Chamber fixtures live in [`examples/v01-seed/`](examples/v01-seed/). Negative rejection fixtures live in [`examples/negative/`](examples/negative/).

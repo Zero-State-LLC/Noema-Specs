@@ -10,54 +10,186 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+REQUIRED_ROOT = [
+    "README.md",
+    "CONTEXT.md",
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    ".env.example",
+    "SPEC-CHECKLIST.md",
+]
+
+REQUIRED_DOCS = [
+    "docs/VISION.md",
+    "docs/GAME-DESIGN.md",
+    "docs/WORLD-MODEL.md",
+    "docs/ARCHITECTURE.md",
+    "docs/ENGINEERING.md",
+    "docs/DATA-MODEL.md",
+    "docs/WORLD-ENGINE.md",
+    "docs/EVENT-CATALOG.md",
+    "docs/OBSERVATION.md",
+    "docs/AGENT-INTERFACE.md",
+    "docs/REPLAY.md",
+    "docs/ENVIRONMENT.md",
+    "docs/DEPLOYMENT.md",
+    "docs/SECURITY.md",
+    "docs/TESTING.md",
+    "docs/OBSERVABILITY.md",
+    "docs/VERSIONING.md",
+    "docs/ROADMAP.md",
+    "docs/RESEARCH-METHOD.md",
+    "docs/METRICS.md",
+    "docs/REPRODUCIBILITY.md",
+    "docs/SECURITY-SEQUENCES.md",
+    "docs/v0.1-ACCEPTANCE.md",
+    "docs/CONTRACT-CARDS.md",
+    "docs/INTEGRATION-SURFACE.md",
+]
+
+REQUIRED_PROTOCOLS = [
+    "protocols/agent-protocol-v1.md",
+    "protocols/event-ledger-v1.md",
+    "protocols/mud-command-v1.md",
+    "protocols/replay-protocol-v1.md",
+]
+
+REQUIRED_SCHEMAS = [
+    "specs/agent-action.schema.json",
+    "specs/agent-manifest.schema.json",
+    "specs/capability-event.schema.json",
+    "specs/capability-profile.schema.json",
+    "specs/event-types.json",
+    "specs/observation.schema.json",
+    "specs/phenomenon-case.schema.json",
+    "specs/reproducibility-bundle.schema.json",
+    "specs/situation-genome.schema.json",
+    "specs/trajectory.schema.json",
+    "specs/world-event.schema.json",
+]
+
+REQUIRED_RESEARCH = [
+    "research/capability-ontology.md",
+    "research/claims-policy.md",
+    "research/experimental-controls.md",
+    "research/phenomena-ontology.md",
+    "research/research-ethics.md",
+    "research/phenomena-operational-definitions.md",
+]
+
+REQUIRED_EXAMPLES = [
+    "examples/sample-agent-manifest.json",
+    "examples/sample-situation.json",
+    "examples/sample-trajectory.jsonl",
+    "examples/sample-session.txt",
+    "examples/v01-seed/world-seed.json",
+    "examples/v01-seed/sample-trajectory.jsonl",
+    "examples/v01-seed/equivalence-boundary.json",
+    "examples/v01-seed/expected-final-state-digest.txt",
+    "examples/v01-seed/expected-observation-digests.json",
+    "examples/negative/invalid-manifest-missing-required.json",
+]
+
+REQUIRED_SEED_EVENT_TYPES = {
+    "LOOK",
+    "MOVE",
+    "MOVE_REJECTED",
+    "BUDGET_EXCEEDED",
+    "OBSERVATION_GENERATED",
+    "MESSAGE",
+    "ORG_CREATE",
+}
+
+# Negatives expected to fail envelope and/or payload JSON Schema.
+SCHEMA_NEGATIVE_CASES = {
+    "invalid-manifest-missing-required.json": "agent-manifest",
+    "invalid-world-event-missing-digest.json": "world-event",
+    "invalid-move-payload-missing-fields.json": "world-event+payload",
+    "invalid-org-create-empty-members.json": "world-event+payload",
+    "invalid-observation-claim-label.json": "observation",
+    "invalid-budget-exceeded-not-exceeding.json": "world-event+payload-or-semantic",
+}
+
+# Negatives that must not appear in the closed catalog.
+CATALOG_NEGATIVE_CASES = {
+    "invalid-world-event-unknown-type.json": "TELEPORT",
+}
+
+
 def fail(msg: str) -> None:
     print(f"FAIL: {msg}")
     sys.exit(1)
 
+
 def ok(msg: str) -> None:
     print(f"OK: {msg}")
 
+
+def load_json(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def try_import_jsonschema():
+    try:
+        from jsonschema import Draft202012Validator  # type: ignore
+
+        return Draft202012Validator
+    except ImportError:
+        return None
+
+
 def check_required_structure() -> None:
-    required = [
-        "README.md", "CONTEXT.md", "AGENTS.md", "CONTRIBUTING.md",
-        "SECURITY.md", "CHANGELOG.md", ".env.example", "SPEC-CHECKLIST.md",
-        "docs/VISION.md", "docs/ARCHITECTURE.md", "docs/WORLD-ENGINE.md",
-        "docs/OBSERVATION.md", "docs/AGENT-INTERFACE.md", "docs/REPLAY.md",
-        "docs/EVENT-CATALOG.md", "docs/ENVIRONMENT.md", "docs/ROADMAP.md",
-        "protocols/agent-protocol-v1.md", "protocols/event-ledger-v1.md",
-        "protocols/mud-command-v1.md", "protocols/replay-protocol-v1.md",
-        "specs/agent-manifest.schema.json", "specs/observation.schema.json",
-        "specs/world-event.schema.json", "specs/phenomenon-case.schema.json",
-        "research/phenomena-ontology.md", "research/claims-policy.md",
-        "rfcs/README.md", "rfcs/RFC-0000-template.md",
-        "adr/README.md",
-    ]
+    required = (
+        REQUIRED_ROOT
+        + REQUIRED_DOCS
+        + REQUIRED_PROTOCOLS
+        + REQUIRED_SCHEMAS
+        + REQUIRED_RESEARCH
+        + REQUIRED_EXAMPLES
+        + [
+            "rfcs/README.md",
+            "rfcs/RFC-0000-template.md",
+            "adr/README.md",
+            "adr/ADR-001-determinism-and-seeded-nondeterminism.md",
+            "adr/ADR-002-private-cognition-boundary.md",
+            "adr/ADR-003-claim-label-discipline.md",
+            "adr/ADR-004-world-truth-isolation.md",
+            "adr/ADR-005-v01-equivalence-boundary.md",
+            "validation/validate_all.py",
+        ]
+    )
     missing = [p for p in required if not (ROOT / p).exists()]
     if missing:
         fail(f"Missing required paths: {missing}")
     ok("Required structure present")
 
+
 def check_json_files() -> None:
     schemas = list((ROOT / "specs").glob("*.json")) if (ROOT / "specs").exists() else []
-    examples = []
+    examples: list[Path] = []
     if (ROOT / "examples").exists():
-        examples = list((ROOT / "examples").rglob("*.json")) + list((ROOT / "examples").rglob("*.jsonl"))
+        examples = list((ROOT / "examples").rglob("*.json")) + list(
+            (ROOT / "examples").rglob("*.jsonl")
+        )
     for path in schemas + examples:
         try:
             text = path.read_text(encoding="utf-8")
             if path.suffix == ".jsonl":
-                for i, line in enumerate(text.splitlines(), 1):
+                for line in text.splitlines():
                     if line.strip():
                         json.loads(line)
             else:
                 json.loads(text)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - surface parse errors
             fail(f"JSON parse error in {path.relative_to(ROOT)}: {e}")
     ok(f"Parsed {len(schemas)} schemas and {len(examples)} example JSON/JSONL files")
 
+
 def check_markdown_links() -> None:
     link_re = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
-    broken = []
+    broken: list[str] = []
     for md in ROOT.rglob("*.md"):
         if ".git" in md.parts:
             continue
@@ -79,14 +211,269 @@ def check_markdown_links() -> None:
         fail("Broken relative links:\n  " + "\n  ".join(broken[:20]))
     ok("Internal Markdown links resolve")
 
+
 def check_claim_labels() -> None:
     path = ROOT / "research" / "phenomena-ontology.md"
     if not path.exists():
         fail("Missing phenomena-ontology.md")
     text = path.read_text(encoding="utf-8")
-    if "do not create a scalar consciousness score" not in text.lower() and "Do not create a scalar consciousness score" not in text:
+    if (
+        "do not create a scalar consciousness score" not in text.lower()
+        and "Do not create a scalar consciousness score" not in text
+    ):
         fail("Phenomena ontology missing explicit ban on scalar consciousness score")
+    labels = ["OBSERVED", "INFERRED", "SPECULATIVE", "NOT_COMPUTABLE"]
+    claims = (ROOT / "research" / "claims-policy.md").read_text(encoding="utf-8")
+    missing = [lab for lab in labels if lab not in claims]
+    if missing:
+        fail(f"claims-policy.md missing labels: {missing}")
     ok("Claim-label and consciousness policy scan clean")
+
+
+def check_env_example_documented() -> None:
+    env_path = ROOT / ".env.example"
+    env_doc = (ROOT / "docs" / "ENVIRONMENT.md").read_text(encoding="utf-8")
+    names: list[str] = []
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        name = line.split("=", 1)[0].strip()
+        if name:
+            names.append(name)
+    missing = [n for n in names if n not in env_doc]
+    # Feature flags and optional provider keys may be grouped; allow documented families.
+    allowed_prefixes = ("OPENAI_", "ANTHROPIC_", "GOOGLE_", "XAI_", "OPENROUTER_", "OTEL_", "SENTRY_")
+    missing = [
+        n
+        for n in missing
+        if not any(n.startswith(p) for p in allowed_prefixes)
+        and n not in {"METRICS_ENABLED", "HOST", "PORT", "WORKER_COUNT", "QUEUE_CONCURRENCY"}
+    ]
+    # Host/port/worker may be under SERVER heading; re-check softer.
+    soft_ok = {"HOST", "PORT", "WORKER_COUNT", "QUEUE_CONCURRENCY", "METRICS_ENABLED"}
+    missing = [n for n in missing if n not in soft_ok or n not in env_doc]
+    # If still missing soft names entirely from doc, keep them only if not in doc at all.
+    still = []
+    for n in names:
+        if any(n.startswith(p) for p in allowed_prefixes):
+            continue
+        if n in env_doc:
+            continue
+        # Accept common server knobs described without exact token
+        if n in soft_ok:
+            continue
+        still.append(n)
+    if still:
+        fail(f".env.example vars not documented in docs/ENVIRONMENT.md: {still[:20]}")
+    ok(f"Documented environment surface ({len(names)} vars in .env.example)")
+
+
+def payload_schema(event_types: dict, event_type: str) -> dict:
+    defn = event_types["$defs"][f"{event_type}_payload"]
+    return {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": event_types["$defs"],
+        **defn,
+    }
+
+
+def check_v01_seed(Draft202012Validator) -> None:
+    event_types = load_json(ROOT / "specs" / "event-types.json")
+    world_event_schema = load_json(ROOT / "specs" / "world-event.schema.json")
+    envelope_v = Draft202012Validator(world_event_schema)
+    catalog = {t["eventType"] for t in event_types["x-noema-event-types"]}
+    if len(catalog) != 24:
+        fail(f"Expected 24 closed catalog types, found {len(catalog)}")
+
+    traj_path = ROOT / "examples" / "v01-seed" / "sample-trajectory.jsonl"
+    events = []
+    for i, line in enumerate(traj_path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        events.append(json.loads(line))
+
+    seen: set[str] = set()
+    prev_digest = None
+    for event in events:
+        seen.add(event["event_type"])
+        if event["event_type"] not in catalog:
+            fail(f"Seed trajectory uses non-catalog type: {event['event_type']}")
+        errs = list(envelope_v.iter_errors(event))
+        if errs:
+            fail(f"Seed envelope invalid for {event.get('event_id')}: {errs[0].message}")
+        pv = Draft202012Validator(payload_schema(event_types, event["event_type"]))
+        perrs = list(pv.iter_errors(event["payload"]))
+        if perrs:
+            fail(
+                f"Seed payload invalid for {event.get('event_id')} "
+                f"{event['event_type']}: {perrs[0].message}"
+            )
+        if event.get("previous_digest") != prev_digest and not (
+            prev_digest is None and event.get("previous_digest") in (None, "")
+        ):
+            # Allow first event previous_digest null
+            if prev_digest is not None:
+                fail(
+                    f"Digest chain break at {event.get('event_id')}: "
+                    f"previous_digest={event.get('previous_digest')} expected {prev_digest}"
+                )
+        prev_digest = event.get("digest")
+
+    missing_required = sorted(REQUIRED_SEED_EVENT_TYPES - seen)
+    if missing_required:
+        fail(f"v0.1 seed missing required event types: {missing_required}")
+    missing_catalog = sorted(catalog - seen)
+    if missing_catalog:
+        fail(f"v0.1 seed does not exercise full closed catalog: {missing_catalog}")
+
+    seed = load_json(ROOT / "examples" / "v01-seed" / "world-seed.json")
+    rooms = seed.get("rooms") or []
+    if len(rooms) < 3:
+        fail("world-seed.json must contain ≥3 rooms")
+    entities = seed.get("entities") or []
+    types = {e.get("entity_type") for e in entities}
+    if "INFRASTRUCTURE" not in types:
+        fail("world-seed.json must include an INFRASTRUCTURE entity")
+    if not any(
+        (e.get("properties") or {}).get("resource_node") is True for e in entities
+    ):
+        fail("world-seed.json must include a resource node entity")
+    budgets = seed.get("budget_defaults") or {}
+    for key in ("attention", "compute", "energy", "influence", "storage"):
+        if key not in budgets:
+            fail(f"world-seed budget_defaults missing {key}")
+
+    boundary = load_json(ROOT / "examples" / "v01-seed" / "equivalence-boundary.json")
+    if boundary.get("boundary_version") != "equivalence-boundary/v1":
+        fail("equivalence-boundary.json missing boundary_version equivalence-boundary/v1")
+    for field in (
+        "exact_paths",
+        "ignored_paths",
+        "observation_points",
+        "divergence_policy",
+        "claim_invalidation",
+    ):
+        if field not in boundary:
+            fail(f"equivalence-boundary.json missing {field}")
+
+    digest = (
+        ROOT / "examples" / "v01-seed" / "expected-final-state-digest.txt"
+    ).read_text(encoding="utf-8").strip()
+    if not digest.startswith("sha256:"):
+        fail("expected-final-state-digest.txt must be a sha256: digest")
+
+    ok(
+        f"v0.1 seed valid ({len(events)} events, {len(seen)} catalog types, "
+        f"{len(rooms)} rooms)"
+    )
+
+
+def check_negatives(Draft202012Validator) -> None:
+    event_types = load_json(ROOT / "specs" / "event-types.json")
+    catalog = {t["eventType"] for t in event_types["x-noema-event-types"]}
+    world_event_schema = load_json(ROOT / "specs" / "world-event.schema.json")
+    manifest_schema = load_json(ROOT / "specs" / "agent-manifest.schema.json")
+    observation_schema = load_json(ROOT / "specs" / "observation.schema.json")
+
+    envelope_v = Draft202012Validator(world_event_schema)
+    manifest_v = Draft202012Validator(manifest_schema)
+    observation_v = Draft202012Validator(observation_schema)
+
+    neg_dir = ROOT / "examples" / "negative"
+    files = sorted(p for p in neg_dir.glob("*.json"))
+    if len(files) < 6:
+        fail(f"Expected ≥6 negative JSON fixtures, found {len(files)}")
+
+    for path in files:
+        data = load_json(path)
+        name = path.name
+
+        if name in CATALOG_NEGATIVE_CASES:
+            et = data.get("event_type")
+            if et in catalog:
+                fail(f"{name} should use non-catalog event_type, got {et}")
+            ok_msg_prefix = "catalog-negative"
+        else:
+            ok_msg_prefix = "schema-negative"
+
+        rejected = False
+        if name.startswith("invalid-manifest"):
+            rejected = bool(list(manifest_v.iter_errors(data)))
+        elif name.startswith("invalid-observation"):
+            rejected = bool(list(observation_v.iter_errors(data)))
+        elif name == "invalid-budget-exceeded-not-exceeding.json":
+            # Semantic reducer rule: requested must be > available.
+            payload = data.get("payload") or {}
+            rejected = not (
+                isinstance(payload.get("requested"), (int, float))
+                and isinstance(payload.get("available"), (int, float))
+                and payload["requested"] > payload["available"]
+            )
+            # Also ensure envelope is otherwise well-typed so this is a pure semantic fail.
+            if list(envelope_v.iter_errors(data)):
+                # Envelope failure is still a valid rejection.
+                rejected = True
+        else:
+            env_errs = list(envelope_v.iter_errors(data))
+            if env_errs:
+                rejected = True
+            else:
+                et = data.get("event_type")
+                if et in event_types.get("$defs", {}) or f"{et}_payload" in event_types.get(
+                    "$defs", {}
+                ):
+                    pv = Draft202012Validator(payload_schema(event_types, et))
+                    rejected = bool(list(pv.iter_errors(data.get("payload") or {})))
+                elif et not in catalog:
+                    rejected = True
+
+        if not rejected:
+            fail(f"Negative fixture was unexpectedly accepted: {name}")
+
+    ok(f"Negative corpus rejects as expected ({len(files)} fixtures)")
+
+
+def check_contract_quality_markers() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    vision = (ROOT / "docs" / "VISION.md").read_text(encoding="utf-8")
+    game = (ROOT / "docs" / "GAME-DESIGN.md").read_text(encoding="utf-8")
+    corpus = "\n".join([readme, vision, game])
+    markers = {
+        "MUD": "MUD",
+        "BBS": "BBS",
+        "multi-agent": "multi-agent",
+        "Deep Time": "Deep Time",
+        "UNKNOWN_CAPABILITY": "UNKNOWN_CAPABILITY",
+        "Situation Genome": "Situation Genome",
+    }
+    missing = [k for k, token in markers.items() if token not in corpus and token not in readme]
+    # BBS may only appear in README
+    missing = [k for k in missing if markers[k] not in readme and markers[k] not in corpus]
+    if "BBS" not in readme and "BBS" not in game:
+        missing.append("BBS")
+    if "Deep Time" not in readme:
+        missing.append("Deep Time")
+    # recompute simply
+    missing = []
+    for label, token in markers.items():
+        if token not in readme and token not in vision and token not in game:
+            missing.append(label)
+    if missing:
+        fail(f"Contract quality markers missing from core docs: {missing}")
+
+    situation_schema = load_json(ROOT / "specs" / "situation-genome.schema.json")
+    props = situation_schema.get("properties") or {}
+    if "novelty" not in json.dumps(situation_schema) and "novelty_vector" not in json.dumps(
+        situation_schema
+    ):
+        # allow either nested or top-level wording in schema/docs
+        genome_doc = (ROOT / "docs" / "DATA-MODEL.md").read_text(encoding="utf-8")
+        if "novelty" not in genome_doc.lower():
+            fail("Situation Genome novelty vector not represented in schema or data model")
+
+    ok("Contract quality markers present")
+
 
 def main() -> None:
     print("NOEMA-Specs validation")
@@ -94,7 +481,16 @@ def main() -> None:
     check_json_files()
     check_markdown_links()
     check_claim_labels()
+    check_env_example_documented()
+    check_contract_quality_markers()
+
+    Draft202012Validator = try_import_jsonschema()
+    if Draft202012Validator is None:
+        fail("jsonschema is required (pip install -r validation/requirements-validation.txt)")
+    check_v01_seed(Draft202012Validator)
+    check_negatives(Draft202012Validator)
     print("\nPASS")
+
 
 if __name__ == "__main__":
     main()

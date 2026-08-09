@@ -1,0 +1,18 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.001",
+  "event_type": "TELEPORT",
+  "world_id": "world-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-09T16:00:00Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agent_id": "agent.nacre"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1"
+  },
+  "previous_digest": null,
+  "digest": "sha256:bad"
+}
