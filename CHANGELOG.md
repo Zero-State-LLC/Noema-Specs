@@ -9,11 +9,27 @@
 - Ten requested Draft 2020-12 JSON Schema files and matching examples.
 - Lowercase research ontology, controls, claims, and ethics files.
 - RFC README and template for contract-changing decisions.
+- `validation/` merge-gate suite (structure, JSON parse, link check, claim-label scan).
+- `adr/` directory with five foundational ADRs (determinism, private cognition, claim labels, world-truth isolation, v0.1 equivalence boundary).
+- `docs/SECURITY-SEQUENCES.md` — concrete containment, quarantine, revocation, incident, kill-switch, and undelivered-observation sequences.
+- `docs/v0.1-ACCEPTANCE.md` — operational acceptance criteria and minimum conformance tests for The Chamber.
+- `docs/CONTRACT-CARDS.md` — progressive-disclosure summaries of major contracts.
+- `docs/INTEGRATION-SURFACE.md` — explicit extension points for Zero State / Abraxas ecosystem consumers.
+- `research/phenomena-operational-definitions.md` — operational definitions, required data, confounds, and limits for the five high-signal constructs.
+- `examples/negative/` — initial invalid fixtures for schema rejection testing.
+- `examples/v01-seed/` — seed package placeholder for v0.1 chamber trajectory work.
+- `.github/workflows/spec-validation.yml` — CI validation gate.
 
 ### Changed
 
 - Reframed all core docs from an agent-centered research-apparatus baseline to the requested autonomous-agent research apparatus.
+- Reinforced claim-label and consciousness-score policy through ADR-003 and operational definitions.
+- Made v0.1 equivalence boundary explicit and mandatory via ADR-005.
 
 ### Removed
 
 - Thought-centric protocol, schema, and example artifacts that were inconsistent with NOEMA.
+
+### Notes
+
+- A 0.1.0 tag should wait until the minimum seed trajectory and full CI gate are green.
