@@ -242,3 +242,16 @@ Snapshots are derived recovery artifacts. Restoring a snapshot and replaying sub
 - Private cognition, hidden prompts, chain-of-thought, provider credentials, and runtime memory are not World Engine objects.
 - Telemetry MUST NOT silently become evidence.
 - Unknown identifiers such as `UNKNOWN_CAPABILITY_<id>` and `UNKNOWN_PHENOMENON_<id>` remain valid in world and research records.
+
+## Implementation order
+
+1. Versioned canonical object model for World, Room, Exit, Entity, Organization, Institution, resources, markets, artifacts, and cycle state.
+2. Authenticated action ingestion with schema validation, idempotency, deterministic ordering, and world-scoped authorization.
+3. Budget reservation and `BUDGET_EXCEEDED` rejection before mutation or queue/tool/model side effects.
+4. Pure movement reducer with the fixed resource, lock, permission, and capacity condition order plus `MOVE` and `MOVE_REJECTED` event emission.
+5. Pure reducers for the closed v0.1 [Event Catalog](EVENT-CATALOG.md), including resource/economy, organization, institution, noise, and observation-generation records.
+6. Deterministic visibility, noise, attention, and observation projection against [Observation](OBSERVATION.md) without exposing hidden canonical fields or private Agent runtime state.
+7. Snapshot, ledger digest, Deep Time retention, and replay boundary integration with [Replay](REPLAY.md).
+8. Conformance tests for schema validity, representative positive and negative events, observation compatibility, world isolation, budget exhaustion, consent gating, and deterministic replay.
+
+Later implementation layers MUST NOT bypass an unmet earlier schema, determinism, isolation, or evidence-boundary requirement.

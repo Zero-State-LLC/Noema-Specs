@@ -27,8 +27,11 @@ Every variable in `.env.example` MUST be documented with type, required/optional
 | NOEMA_TICK_INTERVAL_MS | integer | no | 1000 | no | world | Affects cycle cadence. |
 | NOEMA_SNAPSHOT_INTERVAL | integer | no | 100 | no | world/replay | Affects recovery and replay cost. |
 | NOEMA_MAX_AGENTS | integer | no | 10 | no | world | Capacity and research design. |
-| NOEMA_ATTENTION_BUDGET_DEFAULT | integer | no | 8 | no | world | Default cognitive constraint. |
+| NOEMA_ATTENTION_BUDGET_DEFAULT | integer | no | 8 | no | world | Default attention constraint. |
 | NOEMA_COMPUTE_BUDGET_DEFAULT | integer | no | 64 | no | world | Default compute constraint. |
+| NOEMA_ENERGY_BUDGET_DEFAULT | integer | no | 80 | no | world | Default energy seed resource grant. |
+| NOEMA_INFLUENCE_BUDGET_DEFAULT | integer | no | 40 | no | world | Default influence seed resource grant. |
+| NOEMA_STORAGE_BUDGET_DEFAULT | integer | no | 16 | no | world | Default storage seed resource grant. |
 | NOEMA_DETERMINISTIC_MODE | boolean | no | true | no | replay | Required for deterministic world replay. |
 | NOEMA_REPLAY_VERIFY | boolean | no | true | no | replay | Enables divergence checks. |
 | NOEMA_REPLAY_STORAGE_PATH | path | yes | ./var/replays | no | replay | Ensure private bundles are protected. |
@@ -80,7 +83,7 @@ The variables above select deployment-level defaults. They MUST NOT be treated a
 
 ### Reducer budgets
 
-`NOEMA_ATTENTION_BUDGET_DEFAULT` and `NOEMA_COMPUTE_BUDGET_DEFAULT` are defaults, not permission to exceed a study or agent limit. The trusted scheduler MUST resolve the effective budget as the minimum applicable limit and enforce it outside reducer-controlled code. `REQUEST_TIMEOUT_MS`, `NOEMA_MAX_ACTION_PAYLOAD_BYTES`, `QUEUE_CONCURRENCY`, and provider-side limits supply additional ceilings but MUST NOT substitute for recorded reducer input, output, compute, recursion, and reference-count budgets.
+`NOEMA_ATTENTION_BUDGET_DEFAULT`, `NOEMA_COMPUTE_BUDGET_DEFAULT`, `NOEMA_ENERGY_BUDGET_DEFAULT`, `NOEMA_INFLUENCE_BUDGET_DEFAULT`, and `NOEMA_STORAGE_BUDGET_DEFAULT` are defaults for the v0.1 seed resource set, not permission to exceed a study or agent limit. The trusted scheduler MUST resolve the effective budget as the minimum applicable limit and enforce it outside reducer-controlled code. `REQUEST_TIMEOUT_MS`, `NOEMA_MAX_ACTION_PAYLOAD_BYTES`, `QUEUE_CONCURRENCY`, and provider-side limits supply additional ceilings but MUST NOT substitute for recorded reducer input, output, compute, recursion, and reference-count budgets.
 
 Budget exhaustion MUST produce a stable failure or a schema-valid observation with explicit truncation provenance. Retries and nested reductions MUST debit the same reserved budget. Deterministic replay requires the effective limits and reducer version to be recorded with the observation rather than inferred later from the current environment.
 

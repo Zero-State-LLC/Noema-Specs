@@ -246,6 +246,140 @@
           "minimum": 0
         }
       }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "entity_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "organization_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "institution_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "market_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "artifact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "channel_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "event_id": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "room_projection": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "room_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "descriptors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "local_signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "room_id"
+      ]
+    },
+    "projection_object": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "claim_label": {
+          "$ref": "#/$defs/claim_label"
+        }
+      }
+    },
+    "redaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reason"
+      ]
+    },
+    "budget_state": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "remaining": {
+            "type": "number",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "number",
+            "minimum": 0
+          },
+          "reset_cycle": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        }
+      }
     }
   },
   "properties": {
@@ -274,6 +408,61 @@
     "content": {
       "type": "object",
       "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "room": {
+          "$ref": "#/$defs/room_projection"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projection_object"
+          }
+        },
+        "infrastructure": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projection_object"
+          }
+        },
+        "organizations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projection_object"
+          }
+        },
+        "institutions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projection_object"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projection_object"
+          }
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/structured_value"
+          }
+        },
+        "budget_state": {
+          "$ref": "#/$defs/budget_state"
+        },
+        "redactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/redaction"
+          }
+        },
         "observation_type": {
           "enum": [
             "WORLD_VIEW",
@@ -403,6 +592,7 @@
               "enum": [
                 "ACCEPTED",
                 "SUCCEEDED",
+                "COMMITTED",
                 "FAILED",
                 "REJECTED",
                 "PARTIAL"
@@ -425,6 +615,28 @@
               "items": {
                 "$ref": "#/$defs/localized_fact"
               }
+            },
+            "reason_code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "resulting_event_ids": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/identifier"
+              },
+              "uniqueItems": true
+            },
+            "visible_state_delta": {
+              "type": "object"
+            },
+            "reservations_consumed": {
+              "type": "object"
+            },
+            "reservations_released": {
+              "type": "object"
             }
           },
           "required": [
@@ -573,6 +785,40 @@
           "items": {
             "type": "string"
           }
+        },
+        "mode": {
+          "enum": [
+            "NONE",
+            "BOUNDED",
+            "DISTRIBUTIONAL",
+            "CONFLICTING",
+            "DELAYED",
+            "NOT_COMPUTABLE"
+          ]
+        },
+        "fields": {
+          "type": "object"
+        },
+        "confidence_interval": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": true
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/structured_value"
+          }
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
         }
       }
     },
@@ -659,12 +905,23 @@
           ]
         },
         "consent_basis": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "uniqueItems": true
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "lineage": {
           "type": "array",
@@ -672,6 +929,106 @@
             "type": "string",
             "minLength": 1
           }
+        },
+        "rules_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "projection_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_event_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "uniqueItems": true
+        },
+        "source_state_revision": {
+          "type": [
+            "integer",
+            "string",
+            "null"
+          ]
+        },
+        "generated_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visibility_policy_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "uniqueItems": true
+        },
+        "noise_policy_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/identifier"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attention_cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "salience_rule_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/identifier"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "seed_stream": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "delivery_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/identifier"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "research_eligible": {
+          "type": "boolean"
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
         }
       },
       "additionalProperties": true

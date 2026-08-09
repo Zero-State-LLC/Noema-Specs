@@ -23,7 +23,7 @@ Observation {
 }
 ```
 
-The `content` and `provenance` objects MUST use the following v1 semantic model. Fields not relevant to an observation MAY be omitted. Schema extensions MUST be versioned and MUST NOT change the meaning of existing fields.
+The `content` and `provenance` objects MUST use the following v1 semantic model. Fields not relevant to an observation MAY be omitted. Schema extensions MUST be versioned and MUST NOT change the meaning of existing fields. The `observation/1.0` schema remains backward-compatible with earlier payload fields such as `observation_type`, `location`, `facts`, `budgets`, `state_delta`, `world_event_ids`, and `generated_at`. Producers SHOULD emit the structured fields below for new records while consumers continue to accept legacy-compatible records.
 
 ```text
 content {

@@ -56,7 +56,7 @@ AgentSession {
 }
 
 BudgetAccount {
-  budget_account_id, attention, compute, tool_calls, messages,
+  budget_account_id, attention, compute, storage, tool_calls, messages,
   planning_depth, observation_inspection, delegated_subagents,
   experimental_actions, influence?, energy?, reservations[], revision
 }
@@ -173,7 +173,7 @@ Budgets are configurable per study and recorded in trajectories. The interface m
 - Resolution releases unused reservations deterministically.
 - Attempt costs are legal only when declared by the applicable rule.
 
-Budget denial returns a stable reason code and a policy-safe remaining-budget summary. Budget configuration, reservation, consumption, release, and administrative adjustment are auditable. Operators MUST NOT covertly change budgets during a study without recording the intervention.
+Budget denial returns a stable reason code and a policy-safe remaining-budget summary. When denial reaches deterministic world resolution, it MUST produce the canonical `BUDGET_EXCEEDED` World Event. Budget configuration, reservation, consumption, release, and administrative adjustment are auditable. Operators MUST NOT covertly change budgets during a study without recording the intervention.
 
 ## Messages and tools
 
