@@ -938,6 +938,9 @@
         "location": {
           "oneOf": [
             {
+              "$ref": "#/$defs/Location"
+            },
+            {
               "type": "string",
               "pattern": "^[A-Za-z0-9_.:-]+$"
             },
@@ -1295,6 +1298,93 @@
           "pattern": "^[A-Za-z0-9_.:-]+$"
         }
       }
+    },
+    "Location": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "room_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "ROOM"
+            },
+            "room_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "exit_id",
+            "origin_room_id",
+            "destination_room_id",
+            "entered_cycle",
+            "arrival_cycle"
+          ],
+          "properties": {
+            "kind": {
+              "const": "TRANSIT"
+            },
+            "exit_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "origin_room_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "destination_room_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "entered_cycle": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "arrival_cycle": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "container_entity_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "CONTAINER"
+            },
+            "container_entity_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "NONE"
+            }
+          }
+        }
+      ]
     }
   },
   "x-noema-catalog-version": "event-catalog/0.1",

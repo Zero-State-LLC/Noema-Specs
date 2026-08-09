@@ -84,7 +84,7 @@ Payload: `org_id`, `agent_id`, `authorized_by`, and `reason`. Reducer: require a
 
 ### `ENTITY_CREATE`
 
-Payload: `entity_id`, `entity_type`, nullable `location` and `owner_id`, plus `properties`, `inventory`, and `state`. Reducer: require a new entity id, valid referenced room/owner/inventory entities, and no containment cycle. Create the live entity at the envelope cycle and add it to the room index when located. Reject duplicates, dangling references, or cyclic containment. No trigger side effect.
+Payload: `entity_id`, `entity_type`, nullable canonical `location`, nullable `owner_id`, plus `properties`, `inventory`, and `state`. Reducer: require a new entity id, valid referenced room/owner/inventory entities, and no containment cycle. Create the live entity at the envelope cycle and add it to the room index when located. Reject duplicates, dangling references, or cyclic containment. No trigger side effect.
 
 ### `ENTITY_DESTROY`
 
