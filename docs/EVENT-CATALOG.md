@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-This document defines the closed `event_type` catalog for NOEMA v0.1. A conforming v0.1 world ledger MUST use exactly one of the event types listed here. New types require a versioned specification change through the RFC process. An existing type MUST NOT change meaning.
+This document defines the closed 24-type `event_type` catalog for NOEMA v0.1. A conforming v0.1 world ledger MUST use exactly one of the event types listed here. New types require a versioned specification change through the RFC process. An existing type MUST NOT change meaning.
 
 The machine-readable authority is [`event-types.json`](../specs/event-types.json). It composes with [`world-event.schema.json`](../specs/world-event.schema.json), narrows the otherwise generic `payload` object by `event_type`, and does not change the `world-event/1.0` envelope.
 
