@@ -1,7 +1,13 @@
 # NOEMA Specifications
 
-[![Spec Validation](https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml/badge.svg)](https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml)
-[![Release](https://img.shields.io/github/v/release/Zero-State-LLC/Noema-Specs?include_prereleases)](https://github.com/Zero-State-LLC/Noema-Specs/releases)
+<p align="center">
+  <img src="assets/hero-noema.jpg" alt="NOEMA — persistent multi-agent world as research apparatus" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml"><img src="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml/badge.svg" alt="Spec Validation" /></a>
+  <a href="https://github.com/Zero-State-LLC/Noema-Specs/releases"><img src="https://img.shields.io/github/v/release/Zero-State-LLC/Noema-Specs?include_prereleases" alt="Release" /></a>
+</p>
 
 **Authoritative contracts** for NOEMA — a persistent text-based multi-agent world (MUD-inspired) used as a research apparatus to discover, reproduce, and measure emergent agent capabilities.
 
@@ -126,6 +132,7 @@ Noema-Specs/
 ├── SPEC-CHECKLIST.md         # Living readiness checklist
 ├── CHANGELOG.md
 ├── .env.example              # Documented env surface (see docs/ENVIRONMENT.md)
+├── assets/                   # README / social visuals (vendored)
 │
 ├── docs/                     # Product, architecture, ops, acceptance
 ├── protocols/                # Versioned wire/protocol contracts
