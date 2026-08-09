@@ -21,7 +21,7 @@ Threats include malicious agents, prompt injection through world content, malici
 
 ## Containment
 
-Agent code, tools, model adapters, and reducers MUST execute within a deny-by-default containment boundary. The boundary MUST restrict filesystem paths, processes, network destinations, credentials, tool verbs, payload sizes, wall-clock time, concurrency, and resource use. Capability grants MUST be scoped to one agent, one world, an explicit operation set, and a bounded lifetime. A grant for observation or research export MUST NOT imply authority to mutate world state.
+Agent code, tools, and model adapters MUST execute within a deny-by-default containment boundary. The World Engine MUST NOT execute agent code; it accepts only authenticated, schema-valid structured actions. World reducers execute in the trusted simulation boundary and MUST remain pure, deterministic, and unable to perform network, filesystem, model, or tool side effects. The containment boundary MUST restrict filesystem paths, processes, network destinations, credentials, tool verbs, payload sizes, wall-clock time, concurrency, and resource use. Capability grants MUST be scoped to one agent, one world, an explicit operation set, and a bounded lifetime. A grant for observation or research export MUST NOT imply authority to mutate world state.
 
 Tool and model-provider credentials MUST terminate at a trusted gateway and MUST NOT appear in prompts, observations, agent-visible environment variables, tool results, logs, or replay bundles. Untrusted world content and inter-agent messages MUST be treated as data, not authority. Implementations MUST provide deterministic cancellation at budget exhaustion, timeout, quarantine, world incident mode, or operator kill switch. Cleanup MUST revoke ephemeral credentials and terminate descendant processes.
 
@@ -35,9 +35,13 @@ Canonical state, observable state, agent state, ledgers, reducer inputs, encrypt
 
 Acceptance checks SHOULD create identical object identifiers in two worlds, exercise reads, writes, reductions, cache hits, queue retries, replay, and export, and verify that neither content nor existence metadata crosses the boundary.
 
-## Reducer budget enforcement
+## Budget and reducer enforcement
 
-Reducers transform canonical or event state into agent-visible observations. They MUST be pure or replay-deterministic for the declared world version and reducer version. Before execution, the trusted scheduler MUST reserve explicit limits for input bytes, output bytes, compute units, wall-clock time, recursion or planning depth, and referenced records. Budget accounting MUST occur outside reducer-controlled code and MUST include retries, nested calls, serialization, and extension processing.
+Action resolution MUST check the agent's canonical budget account before applying a state transition. Budget availability and consumption are part of deterministic reducer input and state. An action that would exceed attention, compute, tool, message, planning-depth, inspection, delegation, experimental-action, energy, influence, storage, or other declared limits MUST be rejected and MUST emit `BUDGET_EXCEEDED` as defined by the [Event Catalog](EVENT-CATALOG.md). The attempted action MUST NOT mutate world state, call a tool or model, enter a queue, or consume the exceeded budget. Accepted consumption MUST be recorded through the action event or `BUDGET_CONSUMED` without double charging.
+
+The trusted gateway and scheduler MAY reject malformed, unauthorized, oversized, rate-limited, or obviously over-budget requests before world resolution, but replay-critical budget truth remains canonical reducer state. Gateway reservations and retries MUST reconcile with the reducer result and MUST NOT become a second source of truth.
+
+Observation projectors and other read reducers transform canonical or event state into agent-visible observations. They MUST be pure or replay-deterministic for the declared world version and reducer version. Before execution, the trusted scheduler MUST reserve explicit limits for input bytes, output bytes, compute units, wall-clock time, recursion or planning depth, and referenced records. Infrastructure accounting MUST include retries, nested calls, serialization, and extension processing without allowing projector-controlled code to raise its own limits.
 
 A reducer MUST NOT emit content beyond the observer's visibility and capability scope. On exhaustion it MUST stop deterministically and either return a schema-valid, explicitly truncated observation or fail with a stable error. Truncated observations SHOULD record reducer identity and version, budget limit and use, output digest, truncation state, and omitted sections in provenance. Exhaustion MUST NOT trigger an unbudgeted fallback, silently fetch broader state, or reveal omitted values through errors or timing details.
 

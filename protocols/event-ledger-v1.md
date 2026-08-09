@@ -6,7 +6,7 @@
 
 ## Event record
 
-World events conform to [world-event.schema.json](../specs/world-event.schema.json). Every event includes event id, type, world id, cycle, occurred timestamp, actor when applicable, sequence number, payload, provenance, and optional digest links.
+World events conform to [world-event.schema.json](../specs/world-event.schema.json). The closed v0.1 `event_type` and payload catalog is defined by [Event Catalog](../docs/EVENT-CATALOG.md) and its machine-readable [event-types.json](../specs/event-types.json). Every event includes event id, type, world id, cycle, occurred timestamp, actor when applicable, sequence number, payload, provenance, and optional digest links.
 
 ## Append rules
 

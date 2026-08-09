@@ -50,6 +50,16 @@ input_digest = SHA-256(canonical_json({
 
 Implementations MUST record the canonicalization version and hash algorithm. Unknown canonicalization versions or algorithms fail closed as `NOT_COMPUTABLE`.
 
+## v0.1 mandatory equivalence profile
+
+For NOEMA v0.1 acceptance, the declared boundary MUST require all of the following for the replay interval and focal agents:
+
+1. identical ordered event digests;
+2. an identical final canonical WorldState digest; and
+3. identical observation digests at every declared focal-agent observation point.
+
+The replay loads a full serializable WorldState snapshot identified by cycle, sequence number, schema version, content digest, and world version, then applies events in strict sequence order through the versioned reducers. Any permitted nondeterminism MUST use a named and recorded stream such as `noise_stream_id`. An implementation MAY declare stricter comparisons, but it MUST NOT weaken this profile while claiming v0.1 replay acceptance.
+
 ## Equivalence boundary
 
 The boundary MUST contain all of these fields:

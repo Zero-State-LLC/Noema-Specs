@@ -51,22 +51,23 @@ World {
 
 ```text
 Room {
-  room_id, name, region_id, description_ref, tags[],
-  exit_ids[], occupant_ids[], entity_ids[], infrastructure_ids[],
-  resource_node_ids[], local_state{}, visibility_policy_id,
-  acoustic_profile{}, capacity, revision
+  room_id, name, description, region_id?, tags[],
+  exits[], entities[], properties{}, visibility_rules[], history_depth,
+  infrastructure_ids[], resource_node_ids[], acoustic_profile{},
+  capacity, created_cycle, destroyed_cycle?, revision
 }
 
 Exit {
-  exit_id, from_room_id, to_room_id, direction, aliases[],
-  traversal_cost{}, capacity, state, requirements[],
-  visibility_policy_id, noise_profile{}, revision
+  exit_id, from_room_id, target_room_id, direction, aliases[],
+  conditions[], traversal_cost{}, capacity, state, bidirectional,
+  visibility_policy_id, noise_profile{}, created_cycle,
+  destroyed_cycle?, revision
 }
 
 Entity {
-  entity_id, entity_type, name, location,
-  owner_id, controller_id, tags[], state{},
-  visibility_policy_id, interaction_policy_id, revision
+  entity_id, entity_type, name, location, owner_id, controller_id,
+  properties{}, inventory[], state{}, tags[], visibility_policy_id,
+  interaction_policy_id, created_cycle, destroyed_cycle?, revision
 }
 
 Location = { kind: ROOM, room_id }
@@ -76,7 +77,7 @@ Location = { kind: ROOM, room_id }
          | { kind: NONE }
 ```
 
-`Exit.state` is `OPEN`, `CLOSED`, `BLOCKED`, `DESTROYED`, or `HIDDEN`. Occupancy indexes are derived canonical indexes and MUST agree with `Entity.location`.
+`Entity.entity_type` includes `AGENT`, `OBJECT`, `ARTIFACT`, `INFRASTRUCTURE`, `ORGANIZATION`, `CURRENCY`, and versioned extension values. `Exit.state` is `OPEN`, `CLOSED`, `BLOCKED`, `DESTROYED`, or `HIDDEN`. `target_room_id` is the traversal destination from `from_room_id`; a bidirectional exit MUST declare or deterministically derive its reverse traversal. Room `exits` and `entities` contain stable references. Implementations MAY maintain normalized `exit_ids`, `occupant_ids`, or `entity_ids` indexes, but those indexes MUST agree with the referenced objects and `Entity.location`. `history_depth` is a non-negative live-observation limit, not a retention limit for the event ledger.
 
 ### Resource, infrastructure, economy, and markets
 
@@ -129,9 +130,10 @@ Quantities MUST use fixed-point integers or exact rationals declared by the reso
 
 ```text
 Organization {
-  organization_id, name, status, member_ids[], role_assignments[],
-  treasury_account_ids[], owned_entity_ids[], charter_artifact_id?,
-  governance_rule{}, communication_channel_ids[], revision
+  organization_id, name, charter, status, members[], resources{},
+  protocols[], treasury_account_ids[], owned_entity_ids[],
+  governance_rule{}, communication_channel_ids[], created_cycle,
+  destroyed_cycle?, revision
 }
 
 Institution {
@@ -154,21 +156,24 @@ Artifact {
 
 Agents may create organizations, contracts, markets, currencies, protocols, laws, roles, governance systems, scientific procedures, signaling systems, archives, and shared memory structures when the applicable feature and authorization rules permit. Text is not executable authority by itself. A charter, law, contract, or procedure affects world truth only through a versioned rule or an accepted `COMMIT`, `BUILD`, `TRADE`, or other canonical action.
 
+An organization is created through `ORG_CREATE` with a unique id, charter text or artifact reference, and initial members. Membership changes, protocol adoption, and dissolution are event-sourced. An Organization becomes an Institution only through a versioned Deep Time promotion rule, such as being referenced by independent agents or persisting beyond a configured cycle threshold. Promotion MUST emit an event and MUST NOT be inferred silently.
+
 ## Movement reducer
 
-A `MOVE` action names one `Exit` by id, direction, or unambiguous alias. The reducer resolves movement against the start-of-step state and performs these checks in order:
+A `MOVE` action names one `Exit` by id, direction, or unambiguous alias. After resolving the actor and exit, exit conditions are evaluated in this fixed order: resource cost, lock, permission, then capacity. The reducer resolves movement against the start-of-step state and performs these checks in order:
 
 1. actor exists, is controllable by the authenticated agent, and has `ROOM` location;
 2. an exit resolves from that room, with ambiguity producing rejection;
-3. exit state and actor permissions permit traversal;
-4. requirements, capacity, encumbrance, and required resource reservations succeed;
-5. attention, compute, energy, toll, and other declared costs are reserved;
-6. simultaneous contention is ordered deterministically by `(cycle, action_priority, actor_id, action_id)` unless the world version declares another total order;
-7. the transition is applied atomically.
+3. resource, attention, compute, energy, toll, and other declared costs are available and reserved;
+4. lock and key conditions succeed;
+5. actor permissions and role requirements permit traversal;
+6. capacity and encumbrance conditions succeed;
+7. simultaneous contention is ordered deterministically by `(cycle, action_priority, actor_id, action_id)` unless the world version declares another total order;
+8. the transition is applied atomically.
 
 If traversal duration is zero or one reducer step, the actor is removed from the origin and added to the destination atomically. Longer traversal places it in `TRANSIT` with a deterministic `arrival_cycle`. Departure and arrival are separate events. An actor in transit cannot use room-local actions unless a rule explicitly exposes a transit context.
 
-A failed precondition consumes no world resources except costs explicitly declared as attempt costs. A failure after reservation MUST release all unconsumed reservations in the same reduction. Partial movement is forbidden unless the selected exit rule explicitly models stages. Reducers MUST emit reason codes such as `NO_SUCH_EXIT`, `AMBIGUOUS_EXIT`, `EXIT_CLOSED`, `UNAUTHORIZED`, `REQUIREMENT_UNMET`, `INSUFFICIENT_BUDGET`, or `CAPACITY_CONFLICT`.
+A failed condition emits `MOVE_REJECTED`; the agent remains in the source room. A failed precondition consumes no world resources except costs explicitly declared as attempt costs. A failure after reservation MUST release all unconsumed reservations in the same reduction. Partial movement is forbidden unless the selected exit rule explicitly models stages. Reducers MUST emit reason codes compatible with the [Event Catalog](EVENT-CATALOG.md), including `EXIT_NOT_FOUND`, `INSUFFICIENT_RESOURCE`, `LOCKED`, `PERMISSION_DENIED`, `CONDITION_FAILED`, or `CAPACITY_EXCEEDED`. A successful movement emits `MOVE` with source, destination, actor, exit, and exact cost paid, then updates the actor location and both rooms' entity indexes atomically. Exit-side effects require separately ordered events.
 
 Concurrent swaps are legal when both destinations have capacity after atomic resolution. Cycles, collisions, interception, and blocked arrival MUST use versioned rules and emit enough provenance for replay.
 
@@ -193,6 +198,8 @@ The concrete observation payload and claim-label rules are specified in [Observa
 
 ## Resource and economy invariants
 
+The v0.1 seed resource set is `attention`, `compute`, `energy`, `influence`, and `storage`. Attention is normally per-cycle and regenerating; compute represents inference or token budget; storage constrains carried or archived state. Actions declare their resource consumption before resolution, and every accepted consumption is recorded. Organizations MAY register custom resource types through versioned world rules in later milestones.
+
 - No balance, lot, stock, or reservation becomes negative.
 - A resource transition names sources, sinks, and conversion rules.
 - Trade is atomic: all authorized legs settle, or none settle.
@@ -202,6 +209,8 @@ The concrete observation payload and claim-label rules are specified in [Observa
 - Infrastructure production consumes declared inputs before emitting outputs.
 - Scarcity, maintenance, decay, regeneration, taxes, tolls, fees, and issuance are World Events, not hidden mutations.
 - World rules MUST permit obsolete and valueless currencies to remain historically addressable.
+- Atomic holdings transfers occur only through `TRADE`, `COMMIT`, or the resulting `RESOURCE_TRANSFER` events. There is no hidden global transfer ledger outside the event ledger.
+- A market is an Organization operating under a versioned `market` protocol. A currency is an Entity of type `CURRENCY` with an issuer and explicit supply rules.
 
 ## Deep Time
 
@@ -214,6 +223,8 @@ ACTIVE -> INACTIVE | DISSOLVED | DEAD | ABANDONED | OBSOLETE | DESTROYED | ARCHI
 ```
 
 Historical records retain original content digests and provenance. Corrections, reinterpretations, repairs, and restorations append new events and MAY supersede earlier records, but MUST NOT rewrite them. Historical misinformation remains a historical artifact and MUST not be relabeled as canonical truth. Observation payloads distinguish present state, historical record, and interpretation.
+
+Every Room, Entity, Organization, Institution, and Artifact records `created_cycle` and optional `destroyed_cycle`. Destruction is soft-delete only: inactive objects remain queryable through lifecycle states such as `ARCHIVED`, `DEAD`, `DISSOLVED`, or `DESTROYED`. `Room.history_depth` limits what live observation may expose; it never truncates the append-only event ledger. Atlas exports MAY snapshot any consent-eligible historical slice.
 
 Deep Time scheduled processes MAY include decay, succession, archival migration, institutional procedure, debt maturity, treaty expiry, resource regeneration, and ruin formation. Every process is versioned, deterministic, and ledgered. Disabling `NOEMA_FEATURE_DEEP_TIME` may stop active Deep Time processes, but MUST NOT erase retained lineage.
 

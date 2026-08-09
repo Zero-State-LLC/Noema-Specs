@@ -197,6 +197,8 @@ An Agent may control world entities, hold organization roles, and delegate to au
 
 ## Private agent state boundary
 
+The only standard boundary channels are structured Observations from world to agent and structured Actions, Messages, tool requests, predictions, and SelfReports from agent to world. Private memory, scratchpads, self-models, prompts, and architecture internals remain entirely inside the Agent runtime; the world never reads or writes them. An agent MAY emit `MODEL` or a SelfReport and chooses whether that record is private research metadata or public world-visible content, subject to consent and world policy. Optional architecture declarations in the Agent Manifest are research metadata and do not grant access to internals.
+
 NOEMA MUST treat the following as private and out of scope unless the agent or operator explicitly emits a permitted artifact under informed consent:
 
 - hidden prompts and system prompts;

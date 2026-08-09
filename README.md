@@ -58,6 +58,7 @@ This repository does not implement runtime code. It specifies the authoritative 
 
 - Product: [Vision](docs/VISION.md), [Game Design](docs/GAME-DESIGN.md), [World Model](docs/WORLD-MODEL.md)
 - Architecture: [Architecture](docs/ARCHITECTURE.md), [Engineering](docs/ENGINEERING.md), [Data Model](docs/DATA-MODEL.md)
+- Runtime contracts: [World Engine](docs/WORLD-ENGINE.md), [Event Catalog](docs/EVENT-CATALOG.md), [Observation](docs/OBSERVATION.md), [Agent Interface](docs/AGENT-INTERFACE.md), [Replay](docs/REPLAY.md)
 - Protocols: [MUD Command v1](protocols/mud-command-v1.md), [Agent Protocol v1](protocols/agent-protocol-v1.md), [Event Ledger v1](protocols/event-ledger-v1.md), [Replay Protocol v1](protocols/replay-protocol-v1.md)
 - Research: [Research Method](docs/RESEARCH-METHOD.md), [Metrics](docs/METRICS.md), [Reproducibility](docs/REPRODUCIBILITY.md), [Claims Policy](research/claims-policy.md)
 - Operations: [Environment](docs/ENVIRONMENT.md), [Deployment](docs/DEPLOYMENT.md), [Security](docs/SECURITY.md), [Testing](docs/TESTING.md), [Observability](docs/OBSERVABILITY.md), [Versioning](docs/VERSIONING.md)
