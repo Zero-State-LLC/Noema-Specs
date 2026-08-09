@@ -33,4 +33,6 @@
 
 ### Notes
 
-- Spec checklist structure, contract quality, tree validation, and CI on `main` are green. A `0.1.0` tag still waits on an independent World Engine replay of `examples/v01-seed/` in a runtime implementation.
+- Spec checklist structure, contract quality, tree validation, and CI on `main` are green.
+- Specs release candidate tagged `v0.1.0-rc1`.
+- Independent World Engine Chamber replay is implemented in `Zero-State-LLC/Noema` and matches `examples/v01-seed/` digests (`EQUIVALENT`).

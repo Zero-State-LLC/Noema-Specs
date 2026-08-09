@@ -44,8 +44,8 @@
 - [x] Minimum seed world + sample trajectory that exercises the closed event catalog (`examples/v01-seed/`).
 - [x] Expanded negative test corpus (`examples/negative/`, ≥6 fixtures).
 - [x] CI gate green on `main` after push (`.github/workflows/spec-validation.yml`).
-- [ ] Independent World Engine implementation replay matches fixture digests (runtime repo).
+- [x] Independent World Engine implementation replay matches fixture digests ([Zero-State-LLC/Noema](https://github.com/Zero-State-LLC/Noema) `noema-replay`, specs pin `v0.1.0-rc1`).
 
 ## Notes
 
-Checked items are enforced by `validation/validate_all.py`, GitHub Actions, and/or inspection of the committed tree. The remaining pre-`0.1.0` runtime gate is an independent World Engine reducer replay of `examples/v01-seed/` in the implementation repository.
+Checked items are enforced by `validation/validate_all.py`, GitHub Actions, the Noema runtime Chamber replay, and/or inspection of the committed tree. Specs release candidate: `v0.1.0-rc1`. Final `0.1.0` may follow after broader operator/protocol surface coverage beyond seed replay.
