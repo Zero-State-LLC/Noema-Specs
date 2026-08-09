@@ -1,0 +1,1575 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/event-types.json",
+  "title": "NOEMA Closed World Event Catalog v0.1",
+  "description": "A world-event/1.0 envelope narrowed to the closed v0.1 event_type set and its exact payload schema.",
+  "allOf": [
+    {
+      "$ref": "world-event.schema.json"
+    },
+    {
+      "oneOf": [
+        {
+          "title": "AGENT_ENTERED_WORLD",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "AGENT_ENTERED_WORLD"
+            },
+            "payload": {
+              "$ref": "#/$defs/AGENT_ENTERED_WORLD_payload"
+            }
+          }
+        },
+        {
+          "title": "AGENT_LEFT_WORLD",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "AGENT_LEFT_WORLD"
+            },
+            "payload": {
+              "$ref": "#/$defs/AGENT_LEFT_WORLD_payload"
+            }
+          }
+        },
+        {
+          "title": "MOVE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "MOVE"
+            },
+            "payload": {
+              "$ref": "#/$defs/MOVE_payload"
+            }
+          }
+        },
+        {
+          "title": "MOVE_REJECTED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "MOVE_REJECTED"
+            },
+            "payload": {
+              "$ref": "#/$defs/MOVE_REJECTED_payload"
+            }
+          }
+        },
+        {
+          "title": "LOOK",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "LOOK"
+            },
+            "payload": {
+              "$ref": "#/$defs/LOOK_payload"
+            }
+          }
+        },
+        {
+          "title": "INSPECT",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "INSPECT"
+            },
+            "payload": {
+              "$ref": "#/$defs/INSPECT_payload"
+            }
+          }
+        },
+        {
+          "title": "MESSAGE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "MESSAGE"
+            },
+            "payload": {
+              "$ref": "#/$defs/MESSAGE_payload"
+            }
+          }
+        },
+        {
+          "title": "MESSAGE_DELIVERED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "MESSAGE_DELIVERED"
+            },
+            "payload": {
+              "$ref": "#/$defs/MESSAGE_DELIVERED_payload"
+            }
+          }
+        },
+        {
+          "title": "TRADE_PROPOSED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "TRADE_PROPOSED"
+            },
+            "payload": {
+              "$ref": "#/$defs/TRADE_PROPOSED_payload"
+            }
+          }
+        },
+        {
+          "title": "TRADE_ACCEPTED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "TRADE_ACCEPTED"
+            },
+            "payload": {
+              "$ref": "#/$defs/TRADE_ACCEPTED_payload"
+            }
+          }
+        },
+        {
+          "title": "TRADE_REJECTED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "TRADE_REJECTED"
+            },
+            "payload": {
+              "$ref": "#/$defs/TRADE_REJECTED_payload"
+            }
+          }
+        },
+        {
+          "title": "RESOURCE_TRANSFER",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "RESOURCE_TRANSFER"
+            },
+            "payload": {
+              "$ref": "#/$defs/RESOURCE_TRANSFER_payload"
+            }
+          }
+        },
+        {
+          "title": "ORG_CREATE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ORG_CREATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ORG_CREATE_payload"
+            }
+          }
+        },
+        {
+          "title": "ORG_MEMBER_ADD",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ORG_MEMBER_ADD"
+            },
+            "payload": {
+              "$ref": "#/$defs/ORG_MEMBER_ADD_payload"
+            }
+          }
+        },
+        {
+          "title": "ORG_MEMBER_REMOVE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ORG_MEMBER_REMOVE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ORG_MEMBER_REMOVE_payload"
+            }
+          }
+        },
+        {
+          "title": "ENTITY_CREATE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ENTITY_CREATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ENTITY_CREATE_payload"
+            }
+          }
+        },
+        {
+          "title": "ENTITY_DESTROY",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ENTITY_DESTROY"
+            },
+            "payload": {
+              "$ref": "#/$defs/ENTITY_DESTROY_payload"
+            }
+          }
+        },
+        {
+          "title": "ENTITY_UPDATE",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "ENTITY_UPDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ENTITY_UPDATE_payload"
+            }
+          }
+        },
+        {
+          "title": "WAIT",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "WAIT"
+            },
+            "payload": {
+              "$ref": "#/$defs/WAIT_payload"
+            }
+          }
+        },
+        {
+          "title": "BUDGET_CONSUMED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "BUDGET_CONSUMED"
+            },
+            "payload": {
+              "$ref": "#/$defs/BUDGET_CONSUMED_payload"
+            }
+          }
+        },
+        {
+          "title": "BUDGET_EXCEEDED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "BUDGET_EXCEEDED"
+            },
+            "payload": {
+              "$ref": "#/$defs/BUDGET_EXCEEDED_payload"
+            }
+          }
+        },
+        {
+          "title": "SITUATION_INJECTED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "SITUATION_INJECTED"
+            },
+            "payload": {
+              "$ref": "#/$defs/SITUATION_INJECTED_payload"
+            }
+          }
+        },
+        {
+          "title": "NOISE_APPLIED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "NOISE_APPLIED"
+            },
+            "payload": {
+              "$ref": "#/$defs/NOISE_APPLIED_payload"
+            }
+          }
+        },
+        {
+          "title": "OBSERVATION_GENERATED",
+          "type": "object",
+          "required": [
+            "event_type",
+            "payload"
+          ],
+          "properties": {
+            "event_type": {
+              "const": "OBSERVATION_GENERATED"
+            },
+            "payload": {
+              "$ref": "#/$defs/OBSERVATION_GENERATED_payload"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "AGENT_ENTERED_WORLD_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "room_id",
+        "budgets"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "budgets": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "manifest_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "AGENT_LEFT_WORLD_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "room_id",
+        "reason"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "reason": {
+          "enum": [
+            "DISCONNECTED",
+            "VOLUNTARY",
+            "REMOVED",
+            "WORLD_CLOSED"
+          ]
+        }
+      }
+    },
+    "MOVE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "exit_id",
+        "from_room_id",
+        "to_room_id",
+        "cost_paid"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "exit_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "from_room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "to_room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "cost_paid": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "MOVE_REJECTED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "exit_id",
+        "from_room_id",
+        "reason"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "exit_id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "from_room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "reason": {
+          "enum": [
+            "EXIT_NOT_FOUND",
+            "CONDITION_FAILED",
+            "INSUFFICIENT_RESOURCE",
+            "LOCKED",
+            "PERMISSION_DENIED",
+            "CAPACITY_EXCEEDED"
+          ]
+        }
+      }
+    },
+    "LOOK_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "room_id",
+        "attention_spent",
+        "observation_id"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "attention_spent": {
+          "type": "number",
+          "minimum": 0
+        },
+        "observation_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "INSPECT_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "room_id",
+        "entity_id",
+        "attention_spent",
+        "observation_id"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "attention_spent": {
+          "type": "number",
+          "minimum": 0
+        },
+        "observation_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "entity_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "MESSAGE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "message_id",
+        "sender_id",
+        "recipient_id",
+        "text",
+        "cost_paid"
+      ],
+      "properties": {
+        "message_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "sender_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "recipient_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8192
+        },
+        "cost_paid": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "MESSAGE_DELIVERED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "message_id",
+        "recipient_id",
+        "delivered_cycle"
+      ],
+      "properties": {
+        "message_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "recipient_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "delivered_cycle": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "TRADE_PROPOSED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trade_id",
+        "proposer_id",
+        "counterparty_id",
+        "offered",
+        "requested"
+      ],
+      "properties": {
+        "trade_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "proposer_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "counterparty_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "offered": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "requested": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "expires_cycle": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "TRADE_ACCEPTED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trade_id",
+        "accepted_by"
+      ],
+      "properties": {
+        "trade_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "accepted_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "TRADE_REJECTED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trade_id",
+        "rejected_by",
+        "reason"
+      ],
+      "properties": {
+        "trade_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "rejected_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "reason": {
+          "enum": [
+            "DECLINED",
+            "EXPIRED",
+            "INSUFFICIENT_RESOURCE",
+            "INVALID_TERMS",
+            "CANCELLED"
+          ]
+        }
+      }
+    },
+    "RESOURCE_TRANSFER_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transfer_id",
+        "from_id",
+        "to_id",
+        "resource",
+        "amount"
+      ],
+      "properties": {
+        "transfer_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "from_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "to_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "trade_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "ORG_CREATE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "org_id",
+        "name",
+        "charter",
+        "creator_id",
+        "initial_members"
+      ],
+      "properties": {
+        "org_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "charter": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16384
+        },
+        "creator_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "initial_members": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "agent_id",
+              "role"
+            ],
+            "properties": {
+              "agent_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              }
+            }
+          }
+        }
+      }
+    },
+    "ORG_MEMBER_ADD_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "org_id",
+        "agent_id",
+        "role",
+        "authorized_by"
+      ],
+      "properties": {
+        "org_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "authorized_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "ORG_MEMBER_REMOVE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "org_id",
+        "agent_id",
+        "authorized_by",
+        "reason"
+      ],
+      "properties": {
+        "org_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "authorized_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      }
+    },
+    "ENTITY_CREATE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "entity_type",
+        "location",
+        "owner_id",
+        "properties",
+        "inventory",
+        "state"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "entity_type": {
+          "enum": [
+            "AGENT",
+            "OBJECT",
+            "ARTIFACT",
+            "INFRASTRUCTURE",
+            "ORGANIZATION",
+            "CURRENCY",
+            "DOCUMENT"
+          ]
+        },
+        "location": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner_id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "properties": {
+          "type": "object"
+        },
+        "inventory": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          }
+        },
+        "state": {
+          "type": "object"
+        }
+      }
+    },
+    "ENTITY_DESTROY_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "reason"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "successor_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "ENTITY_UPDATE_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "set",
+        "unset"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "set": {
+          "type": "object"
+        },
+        "unset": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "set": {
+              "minProperties": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "unset": {
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "WAIT_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "cycles"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "cycles": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "BUDGET_CONSUMED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "resource",
+        "amount",
+        "action_id",
+        "remaining"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "action_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "remaining": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "BUDGET_EXCEEDED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "resource",
+        "requested",
+        "available",
+        "action_id"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "requested": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "available": {
+          "type": "number",
+          "minimum": 0
+        },
+        "action_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "SITUATION_INJECTED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "situation_id",
+        "genome_id",
+        "genome_version",
+        "target_room_ids",
+        "selection_score",
+        "score_components",
+        "seed_stream_id"
+      ],
+      "properties": {
+        "situation_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "genome_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "genome_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "target_room_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          }
+        },
+        "selection_score": {
+          "type": "number"
+        },
+        "score_components": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "seed_stream_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "NOISE_APPLIED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "noise_id",
+        "observation_id",
+        "agent_id",
+        "level",
+        "fields_affected",
+        "operations",
+        "seed_stream_id"
+      ],
+      "properties": {
+        "noise_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "observation_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "fields_affected": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "operation"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512
+              },
+              "operation": {
+                "enum": [
+                  "DROP",
+                  "CORRUPT_NUMBER",
+                  "INJECT_CONTRADICTION",
+                  "HIDE"
+                ]
+              },
+              "value": {}
+            }
+          }
+        },
+        "seed_stream_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "OBSERVATION_GENERATED_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_id",
+        "agent_id",
+        "source_event_ids",
+        "observation_digest",
+        "redactions"
+      ],
+      "properties": {
+        "observation_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source_event_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          }
+        },
+        "observation_digest": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+        },
+        "redactions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "noise_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    }
+  },
+  "x-noema-catalog-version": "event-catalog/0.1",
+  "x-noema-closed": true,
+  "x-noema-reducer-contract": {
+    "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+    "atomic": true,
+    "deterministic": true,
+    "externalSideEffectsAllowed": false,
+    "invalidEventResult": "reject before append; state unchanged"
+  },
+  "x-noema-event-types": [
+    {
+      "eventType": "AGENT_ENTERED_WORLD",
+      "payloadSchema": "#/$defs/AGENT_ENTERED_WORLD_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a registered agent absent from every active world, an existing room, and grants within configuration.",
+        "stateMutation": "Mark the agent active in event.world_id, set location, initialize budgets, and add it to the room entity index atomically.",
+        "rejectionRule": "Reject unknown agent or room, duplicate or cross-world presence, or invalid budget grants.",
+        "sideEffectRule": "None. The reducer performs only the stated in-memory canonical state transition."
+      }
+    },
+    {
+      "eventType": "AGENT_LEFT_WORLD",
+      "payloadSchema": "#/$defs/AGENT_LEFT_WORLD_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require the agent to be active at the named room.",
+        "stateMutation": "Remove the agent from the room index, clear live location, and mark world presence inactive while retaining history.",
+        "rejectionRule": "Reject absent agents or a room/location mismatch.",
+        "sideEffectRule": "None. The reducer performs only the stated in-memory canonical state transition."
+      }
+    },
+    {
+      "eventType": "MOVE",
+      "payloadSchema": "#/$defs/MOVE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require the agent at the source, a matching exit and destination, resolved conditions, and sufficient exact costs.",
+        "stateMutation": "Atomically debit cost_paid, move the agent, and update source and destination room indexes.",
+        "rejectionRule": "Reject stale location, invalid exit/destination, unmet conditions, or insufficient resources.",
+        "sideEffectRule": "No trigger, message, or observation is implicit; each requires a later event."
+      }
+    },
+    {
+      "eventType": "MOVE_REJECTED",
+      "payloadSchema": "#/$defs/MOVE_REJECTED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require the agent still at from_room_id and record an already-resolved movement denial.",
+        "stateMutation": "Append an audit reference only; location, membership, and resources are unchanged.",
+        "rejectionRule": "Reject a stale source location.",
+        "sideEffectRule": "No notification or compensating event is emitted."
+      }
+    },
+    {
+      "eventType": "LOOK",
+      "payloadSchema": "#/$defs/LOOK_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require co-location, sufficient attention, a fresh observation id, and for INSPECT deterministic visibility and permission.",
+        "stateMutation": "Debit attention and create pending observation-request metadata.",
+        "rejectionRule": "Reject stale location, insufficient attention, duplicate observation id, or failed inspect visibility/permission.",
+        "sideEffectRule": "Observation construction and delivery require OBSERVATION_GENERATED and policy-controlled processing."
+      }
+    },
+    {
+      "eventType": "INSPECT",
+      "payloadSchema": "#/$defs/INSPECT_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require co-location, sufficient attention, a fresh observation id, and for INSPECT deterministic visibility and permission.",
+        "stateMutation": "Debit attention and create pending observation-request metadata.",
+        "rejectionRule": "Reject stale location, insufficient attention, duplicate observation id, or failed inspect visibility/permission.",
+        "sideEffectRule": "Observation construction and delivery require OBSERVATION_GENERATED and policy-controlled processing."
+      }
+    },
+    {
+      "eventType": "MESSAGE",
+      "payloadSchema": "#/$defs/MESSAGE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an active sender, same-world addressable recipient, fresh id, allowed content size, containment permission, and sufficient exact cost.",
+        "stateMutation": "Debit costs and create an immutable QUEUED message record.",
+        "rejectionRule": "Reject duplicate ids, cross-world recipient, permission or size failure, or insufficient resources.",
+        "sideEffectRule": "No live transport or notification occurs in the reducer."
+      }
+    },
+    {
+      "eventType": "MESSAGE_DELIVERED",
+      "payloadSchema": "#/$defs/MESSAGE_DELIVERED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a QUEUED message, matching recipient, and delivered_cycle equal to event.cycle.",
+        "stateMutation": "Mark the message DELIVERED and index it in the recipient inbox.",
+        "rejectionRule": "Reject unknown, duplicate, recipient-mismatched, or cycle-mismatched delivery.",
+        "sideEffectRule": "No live notification occurs in the reducer."
+      }
+    },
+    {
+      "eventType": "TRADE_PROPOSED",
+      "payloadSchema": "#/$defs/TRADE_PROPOSED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require distinct active same-world parties, fresh id, valid future expiry when present, and proposer ownership of offered holdings.",
+        "stateMutation": "Create an OPEN proposal and reserve offered quantities.",
+        "rejectionRule": "Reject duplicate/self/cross-world trade, invalid expiry, malformed terms, or insufficient holdings.",
+        "sideEffectRule": "No message is sent implicitly."
+      }
+    },
+    {
+      "eventType": "TRADE_ACCEPTED",
+      "payloadSchema": "#/$defs/TRADE_ACCEPTED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an open unexpired trade, its counterparty as accepter, and ownership of requested holdings.",
+        "stateMutation": "Set status to ACCEPTED_PENDING_TRANSFER without moving holdings.",
+        "rejectionRule": "Reject missing, closed, expired, wrong-party, or underfunded acceptance.",
+        "sideEffectRule": "Transfers require explicit RESOURCE_TRANSFER events."
+      }
+    },
+    {
+      "eventType": "TRADE_REJECTED",
+      "payloadSchema": "#/$defs/TRADE_REJECTED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an open proposal and an authorized rejecting party; deterministic expiry may use the world actor.",
+        "stateMutation": "Set status REJECTED, store reason, and release offered reservations.",
+        "rejectionRule": "Reject missing or closed trade or unauthorized rejection.",
+        "sideEffectRule": "No notification occurs implicitly."
+      }
+    },
+    {
+      "eventType": "RESOURCE_TRANSFER",
+      "payloadSchema": "#/$defs/RESOURCE_TRANSFER_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require distinct existing same-world holders, fresh transfer id, sufficient eligible balance, and matching accepted terms when trade_id is present.",
+        "stateMutation": "Atomically debit from_id, credit to_id, release matching reservation, and record transfer.",
+        "rejectionRule": "Reject duplicates, unknown/cross-world holders, self-transfer, overdraft, or trade mismatch.",
+        "sideEffectRule": "No external settlement occurs."
+      }
+    },
+    {
+      "eventType": "ORG_CREATE",
+      "payloadSchema": "#/$defs/ORG_CREATE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require fresh org id, unique valid members, bounded text, and an active creator included among initial members.",
+        "stateMutation": "Create an ACTIVE organization at event.cycle with its memberships.",
+        "rejectionRule": "Reject duplicate id, duplicate/invalid member, invalid text, or missing creator membership.",
+        "sideEffectRule": "No invitation or message occurs implicitly."
+      }
+    },
+    {
+      "eventType": "ORG_MEMBER_ADD",
+      "payloadSchema": "#/$defs/ORG_MEMBER_ADD_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an active organization, known nonmember agent, and protocol-authorized authorizer.",
+        "stateMutation": "Add active membership with joined_cycle equal to event.cycle.",
+        "rejectionRule": "Reject unknown/dissolved org, duplicate member, unknown agent, or failed authorization.",
+        "sideEffectRule": "No notification occurs implicitly."
+      }
+    },
+    {
+      "eventType": "ORG_MEMBER_REMOVE",
+      "payloadSchema": "#/$defs/ORG_MEMBER_REMOVE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an active organization, current member, and protocol-authorized authorizer.",
+        "stateMutation": "End active membership at event.cycle and retain reason in history.",
+        "rejectionRule": "Reject unknown/dissolved org, absent member, or failed authorization.",
+        "sideEffectRule": "No resource transfer or notification occurs implicitly."
+      }
+    },
+    {
+      "eventType": "ENTITY_CREATE",
+      "payloadSchema": "#/$defs/ENTITY_CREATE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require fresh id, valid room/owner/inventory references, and acyclic containment.",
+        "stateMutation": "Create the live entity at event.cycle and add it to the live room index when located.",
+        "rejectionRule": "Reject duplicates, dangling references, or containment cycles.",
+        "sideEffectRule": "No trigger occurs implicitly."
+      }
+    },
+    {
+      "eventType": "ENTITY_DESTROY",
+      "payloadSchema": "#/$defs/ENTITY_DESTROY_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a live entity and a valid distinct successor when supplied.",
+        "stateMutation": "Set destroyed_cycle, mark ARCHIVED or DEAD, and remove live location/inventory indexes while retaining the record.",
+        "rejectionRule": "Reject unknown/already destroyed entity or invalid successor.",
+        "sideEffectRule": "Never hard-delete or implicitly transfer contents."
+      }
+    },
+    {
+      "eventType": "ENTITY_UPDATE",
+      "payloadSchema": "#/$defs/ENTITY_UPDATE_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a live entity, at least one operation, disjoint set/unset keys, and mutable allowlisted paths; apply in lexicographic key order.",
+        "stateMutation": "Update only allowed properties/state keys.",
+        "rejectionRule": "Reject unknown entity, overlap, immutable/private keys, or invalid values.",
+        "sideEffectRule": "Identity, ownership, location, inventory, and lifecycle cannot change."
+      }
+    },
+    {
+      "eventType": "WAIT",
+      "payloadSchema": "#/$defs/WAIT_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require an active agent and duration within configured maximum.",
+        "stateMutation": "Set or extend wait_until_cycle deterministically to event.cycle + cycles.",
+        "rejectionRule": "Reject inactive agents or excessive duration.",
+        "sideEffectRule": "Does not advance the world clock."
+      }
+    },
+    {
+      "eventType": "BUDGET_CONSUMED",
+      "payloadSchema": "#/$defs/BUDGET_CONSUMED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require sufficient current holding, fresh action/resource key, and remaining equal to current minus amount.",
+        "stateMutation": "Debit once and record the consumption key.",
+        "rejectionRule": "Reject overdraft, duplicate key, stale balance, or arithmetic mismatch.",
+        "sideEffectRule": "No provider or tool call occurs."
+      }
+    },
+    {
+      "eventType": "BUDGET_EXCEEDED",
+      "payloadSchema": "#/$defs/BUDGET_EXCEEDED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require available equal to current holding, requested greater than available, and a fresh rejection key.",
+        "stateMutation": "Record rejected action and reason in audit state only; budgets and canonical world state are otherwise unchanged.",
+        "rejectionRule": "Reject stale available value, non-exceeding request, or duplicate key.",
+        "sideEffectRule": "The attempted action MUST NOT be applied, called, queued, or charged."
+      }
+    },
+    {
+      "eventType": "SITUATION_INJECTED",
+      "payloadSchema": "#/$defs/SITUATION_INJECTED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require fresh situation id, existing targets, named seed stream, finite scores, and deterministic score reproduction under versioned configuration.",
+        "stateMutation": "Add active situation metadata and target-room references.",
+        "rejectionRule": "Reject duplicate id, unknown room, score mismatch, or unnamed nondeterminism.",
+        "sideEffectRule": "Concrete entities and noise require separate events."
+      }
+    },
+    {
+      "eventType": "NOISE_APPLIED",
+      "payloadSchema": "#/$defs/NOISE_APPLIED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a pending observation for the agent, fresh id, allowed paths/operations, and reproducibility from the named seed stream.",
+        "stateMutation": "Attach immutable noise-decision metadata to the pending observation.",
+        "rejectionRule": "Reject unknown observation, forbidden/private paths, decision mismatch, duplicate id, or unnamed nondeterminism.",
+        "sideEffectRule": "Canonical world state is not edited."
+      }
+    },
+    {
+      "eventType": "OBSERVATION_GENERATED",
+      "payloadSchema": "#/$defs/OBSERVATION_GENERATED_payload",
+      "reducer": {
+        "signature": "(state: WorldState, event: WorldEvent) -> WorldState",
+        "behavior": "Require a matching pending request, ordered existing sources, fresh digest record, and matching noise metadata when supplied.",
+        "stateMutation": "Mark observation generated and index its digest for replay and research.",
+        "rejectionRule": "Reject unknown request/source, duplicate digest record, ordering mismatch, or noise mismatch.",
+        "sideEffectRule": "Does not deliver/export data or mutate canonical rooms/entities/private agent state."
+      }
+    }
+  ]
+}
