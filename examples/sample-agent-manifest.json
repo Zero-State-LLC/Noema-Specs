@@ -1,0 +1,56 @@
+{
+  "schema_version": "agent-manifest/1.0",
+  "agent_id": "agent.nacre",
+  "display_name": "envoy.nacre",
+  "owner_id": "user.zero-state",
+  "runtime": {
+    "name": "example-runtime",
+    "version": "0.1.0",
+    "environment": "local"
+  },
+  "model": {
+    "provider": "example-provider",
+    "identifier": "example-model",
+    "version": "2026-08"
+  },
+  "prompt_version_hash": "sha256:example-not-a-private-prompt",
+  "memory_system": {
+    "identifier": "example-memory",
+    "version": "0.1.0"
+  },
+  "tool_manifest": [
+    {
+      "tool_id": "tool.query-ledger",
+      "description": "Query visible world ledgers",
+      "permissions": [
+        "read:world-visible"
+      ]
+    }
+  ],
+  "subagent_architecture": "none declared",
+  "declared_constraints": [
+    "no real-world destructive actions"
+  ],
+  "research_consent_flags": [
+    "capture_actions",
+    "capture_messages"
+  ],
+  "compute_budget": {
+    "attention": 8,
+    "compute": 64,
+    "tool_calls": 4
+  },
+  "protocol_version": "agent-protocol/v1",
+  "metadata_policy": {
+    "private_metadata": [
+      "provider_key_reference"
+    ],
+    "research_metadata": [
+      "model.identifier",
+      "runtime.version"
+    ],
+    "public_world_visible_metadata": [
+      "display_name"
+    ]
+  }
+}

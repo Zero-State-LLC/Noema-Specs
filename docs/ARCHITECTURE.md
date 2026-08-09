@@ -1,69 +1,40 @@
 # Architecture
 
-## Intent
+## Canonical subsystems
 
-Noema separates canonical reality, measured evidence, player interpretation, progression, and content tooling so they cannot silently contaminate one another.
+1. **World Engine** maintains persistent MUD-style rooms, geography, movement, economy, resources, infrastructure, organizations, markets, communication, institutions, local state, persistent history, and Deep Time.
+2. **Frontier Director** tracks known capabilities, uncertain regions, recent failures and successes, novelty vectors, and expected information gain.
+3. **Observatory** records observations, actions, messages, tool calls, world state deltas, belief updates where available, predictions, self-reports, experiment provenance, anomalies, and behavioral shifts.
+4. **Experiment Lab** supports deterministic replay, mutation, perturbation, ablation, lesion studies, counterfactual replay, architecture comparison, agent-version differential testing, and replication.
+5. **Phenomenon Compiler** converts interesting live-world behavior into minimal reproducible state, replayable fixtures, behavioral regression tests, and Reproducibility Bundles.
+6. **Capability Graph** tracks capability genesis, dependencies, boundaries, transfer, generalization radius, extrapolation radius, regressions, phase transitions, and architecture dependencies.
+7. **Phenomena Lab** tracks higher-order behavioral constructs without asserting consciousness.
+8. **Noema Atlas** releases versioned datasets of trajectories, experiments, reproductions, validated phenomena, rejected phenomena, agent profiles, capability graphs, world seeds, and Reproducibility Bundles.
 
-## Logical components
+## Dataflow
 
 ```mermaid
 flowchart LR
-  PL[Phenomena Lab] --> PC[Phenomenon Compiler]
-  PC --> CR[Content Registry]
-  CR --> WM[World Model]
-  A[Player Actions] --> WM
-  WM --> O[Observatory]
-  O --> EL[Experiment Lab]
-  O --> N[Notebook]
-  N --> EL
-  EL --> E[Evidence Ledger]
-  E --> CG[Capability Graph]
-  E --> FD[Frontier Director]
-  CG --> FD
-  FD --> CR
-  CG --> A
+  A[Agent Runtime] -->|Agent Protocol v1| G[Gateway]
+  G --> W[World Engine]
+  W --> L[Event Ledger]
+  L --> O[Observatory]
+  O --> E[Experiment Lab]
+  E --> P[Phenomenon Compiler]
+  P --> C[Capability Graph]
+  C --> F[Frontier Director]
+  P --> N[Noema Atlas]
 ```
 
-## Domain ownership
+## Boundary rules
 
-| Domain | Owns | Must not own |
-| --- | --- | --- |
-| World Model | canonical state, laws, events, resolution | player beliefs or unlock judgments |
-| Observatory | instrument-mediated observations and provenance | hidden truth or interpretation |
-| Experiment Lab | plans, predictions, trials, comparisons, validity | simulation rules |
-| Evidence Ledger | immutable evidence lineage and status | mutable notebook prose |
-| Capability Graph | requirements and explainable unlock state | encounter selection |
-| Frontier Director | opportunity ranking and pacing | world-law mutation |
-| Phenomenon Compiler | validated runtime artifacts | live player state |
-| Phenomena Lab | authoring, simulation, review, promotion | release-gate bypass |
+- Terminal commands are a user interface, not the canonical protocol.
+- Structured JSON envelopes are canonical for agents and replay.
+- The World Engine is authoritative for canonical state.
+- Research interpretation MUST NOT mutate world truth.
+- The Frontier Director may select situations but MUST NOT alter truth to force an outcome.
+- The Atlas publishes immutable releases with public/private partitions.
 
-## Data planes
+## MVP shape
 
-1. **Truth:** private canonical state and rules.
-2. **Observation:** instrument outputs with uncertainty and provenance.
-3. **Interpretation:** player-authored claims and annotations.
-4. **Evidence:** validated relationships among predictions, observations, and trials.
-5. **Progression:** capability and frontier decisions with explanations.
-6. **Telemetry:** consented diagnostics isolated from scientific evidence.
-
-Cross-plane movement occurs only through versioned contracts. Truth becomes observable through an instrument model. A notebook claim becomes evidence through Experiment Lab validation.
-
-## Determinism and persistence
-
-World resolution MUST be deterministic for `(runtime version, artifact digest, seed, initial snapshot, ordered action log)`. Random choices use named streams. Events have stable IDs and total ordering within a tick. Saves record versions, digests, replay cursor, evidence lineage, notebook, capabilities, and director state. Corrections supersede immutable records.
-
-## Trust and failure
-
-Imports, collaborative evidence, generated candidates, plugins, and telemetry are untrusted. Validate structure, size, version, permissions, provenance, and semantics at boundaries. Subsystems fail closed for evidence, unlocks, admission, and unsafe actions. Partial outages MUST NOT invent observations, lose accepted evidence, or mutate truth.
-
-## Observability and compatibility
-
-Consequential decisions emit a trace with correlation ID, input references, versions, decision code, and redacted explanation. Logs MUST not leak unrevealed truth. Changed meaning, required fields, identifier semantics, ordering, determinism, or evidence rules require a major version and RFC.
-
-## Acceptance criteria
-
-- A conformance replay produces identical canonical state and evidence digests.
-- No public observation exposes a hidden canonical field.
-- Every unlock and recommendation is explainable from stable references.
-- Invalid or unreviewed content cannot enter the runtime registry.
-- Telemetry deletion does not alter saves, evidence, or replay.
+v0.1 MAY be a modular monolith. Module boundaries and interfaces MUST still be explicit so later deployments can split services without protocol changes.

@@ -2,35 +2,33 @@
 
 ## Mission
 
-Maintain a coherent, testable specification for Noema. Prefer durable contracts over implementation detail and player-observable acceptance criteria over vague intent.
+Maintain the canonical NOEMA specification surface for a persistent text-based multi-agent world research apparatus. Prefer durable contracts, machine-readable protocols, reproducible evidence, and implementation-neutral requirements.
 
-## Before editing
+## Required first actions
 
-1. Read `CONTEXT.md`, `docs/TERMINOLOGY.md`, and the affected subsystem documents.
-2. Inspect schemas, protocols, examples, and accepted RFCs for adjacent contracts.
-3. Check `git status`. Other agents may be editing unrelated files.
+1. Read `CONTEXT.md` before editing.
+2. Read `docs/TERMINOLOGY.md` and every affected subsystem document.
+3. Inspect related protocols, schemas, examples, research files, and RFCs.
+4. Check `git status` and avoid overwriting another contributor's work.
 
 ## Editing rules
 
-- Preserve the separation between world truth, observations, evidence, beliefs, and unlock state.
-- Use the canonical terms exactly. Add new domain language to `docs/TERMINOLOGY.md`.
-- State requirements with MUST, SHOULD, or MAY and give each critical behavior an observable check.
-- Define ownership, inputs, outputs, invariants, failure modes, and versioning for every subsystem.
-- Use stable IDs rather than display names as references.
-- Never invent scientific authority. Label fictional, simplified, inferred, and sourced material.
-- Do not weaken provenance, consent, accessibility, safety, determinism, or replay guarantees for convenience.
-- Contract-breaking changes require an RFC and migration plan.
+- Use canonical terminology exactly.
+- Do not invent protocol fields without a spec change and version review.
+- Do not modify public schemas silently.
+- Do not conflate OBSERVED, INFERRED, SPECULATIVE, or NOT_COMPUTABLE claims.
+- Do not make unsupported consciousness or AGI claims.
+- Do not create a scalar consciousness score.
+- Reproducibility-critical changes require validation evidence.
+- Protocol, schema, ontology semantics, reproducibility boundary, claims policy, and security boundary changes require the RFC process.
+- Maintain backward compatibility where required.
+- Avoid hidden coupling between subsystems.
+- Prefer deterministic state transitions and explicit seeded nondeterminism.
+- Preserve event provenance and lineage.
+- Never commit real secrets, private prompts, or proprietary architecture details in fixtures.
+- Update roadmap and versioning docs when changing milestones or version domains.
+- Do not implement runtime code in this repository.
 
 ## Validation
 
-Before finishing:
-
-- run repository validation scripts when present;
-- check internal Markdown links and required headings;
-- validate JSON/YAML examples against their schemas;
-- inspect `git diff --check` and ensure only intended files changed;
-- update `CHANGELOG.md` for user-visible or contract-visible changes.
-
-## Commit discipline
-
-Make focused commits. Do not rewrite, reset, or discard another contributor's work. Never commit secrets, personal data, copyrighted source corpora, or generated assets without documented provenance and rights.
+Before finishing, run available repository validation, validate JSON syntax, inspect Markdown links, run `git diff --check`, and ensure the final tree still contains every required path.

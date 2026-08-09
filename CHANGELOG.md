@@ -1,24 +1,19 @@
 # Changelog
 
-All notable specification changes are recorded here. Dates use UTC and versions follow semantic versioning.
-
 ## [Unreleased]
 
 ### Added
 
-- Initial repository governance, product vision, game design, architecture, world model, and terminology.
-- Specifications for the Frontier Director, Observatory, Experiment Lab, Phenomenon Compiler, Capability Graph, and Phenomena Lab.
-- RFC process and foundational architecture decision records.
-- Cross-document specification completeness checklist.
+- Canonical NOEMA persistent MUD multi-agent specification baseline.
+- Exact required protocol documents for MUD commands, agent protocol, event ledger, and replay.
+- Ten requested Draft 2020-12 JSON Schema files and matching examples.
+- Lowercase research ontology, controls, claims, and ethics files.
+- RFC README and template for contract-changing decisions.
 
 ### Changed
 
-- Nothing yet.
-
-### Deprecated
-
-- Nothing yet.
+- Reframed all core docs from an agent-centered research-apparatus baseline to the requested autonomous-agent research apparatus.
 
 ### Removed
 
-- Nothing yet.
+- Thought-centric protocol, schema, and example artifacts that were inconsistent with NOEMA.

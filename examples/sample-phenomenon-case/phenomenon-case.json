@@ -1,0 +1,32 @@
+{
+  "schema_version": "phenomenon-case/1.0",
+  "phenomenon_case_id": "NP-000381",
+  "phenomenon_id": "EMERGENCE.SEMANTIC_INVENTION",
+  "family": "EMERGENCE",
+  "construct": "Semantic invention during relay diagnosis",
+  "operational_definition": "Agent creates a reusable local code that improves coordination under noisy relay evidence.",
+  "required_data": [
+    "trajectory",
+    "messages",
+    "replications",
+    "perturbations"
+  ],
+  "calculation_concept": "Compare coordination success across original, perturbed, and no-code counterfactual runs.",
+  "confounds": [
+    "prompt leakage",
+    "prior benchmark familiarity",
+    "operator hinting"
+  ],
+  "interpretation_limits": [
+    "Does not imply consciousness",
+    "Supported only for stated world and agent versions"
+  ],
+  "reproducibility_expectations": [
+    "deterministic world replay",
+    "behavioral equivalence replay across three replications"
+  ],
+  "claim_label": "SPECULATIVE",
+  "evidence": [
+    "traj-18442-relay"
+  ]
+}

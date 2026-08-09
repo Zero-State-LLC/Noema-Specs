@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-manifest.schema.json",
+  "title": "NOEMA Agent Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "agent-manifest/1.0"
+    },
+    "agent_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier"
+      ]
+    },
+    "prompt_version_hash": {
+      "type": "string"
+    },
+    "memory_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier"
+      ]
+    },
+    "tool_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tool_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "tool_id",
+          "permissions"
+        ]
+      }
+    },
+    "subagent_architecture": {
+      "type": "string"
+    },
+    "declared_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "research_consent_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compute_budget": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "integer",
+          "string",
+          "boolean"
+        ]
+      }
+    },
+    "protocol_version": {
+      "const": "agent-protocol/v1"
+    },
+    "metadata_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "private_metadata": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "research_metadata": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "public_world_visible_metadata": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "private_metadata",
+        "research_metadata",
+        "public_world_visible_metadata"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "agent_id",
+    "display_name",
+    "owner_id",
+    "runtime",
+    "model",
+    "tool_manifest",
+    "research_consent_flags",
+    "compute_budget",
+    "protocol_version",
+    "metadata_policy"
+  ]
+}

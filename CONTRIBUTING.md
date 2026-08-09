@@ -1,45 +1,21 @@
-# Contributing to Noema Specifications
+# Contributing
 
 ## Requirement language
 
-The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** are normative. Plain present-tense descriptions are normative when they define a contract. Sections marked “non-normative” provide rationale or examples.
+Use MUST, SHOULD, and MAY for normative requirements. Each critical behavior SHOULD include an observable acceptance check.
 
-## Change classes
+## RFC-required changes
 
-| Class | Examples | Required path |
-| --- | --- | --- |
-| Editorial | clarity, spelling, link repair | pull request |
-| Compatible | additive optional field, new example | pull request plus validation |
-| Behavioral | scoring, director, unlock, or compiler semantics | RFC plus tests/fixtures |
-| Breaking | required field, identifier, meaning, or replay change | RFC, migration, version boundary |
+An RFC is required for changes to protocols, schemas, ontology semantics, reproducibility boundaries, claims policy, security boundaries, version domains, or dataset immutability rules.
 
 ## Workflow
 
-1. Open an issue or RFC describing the player or operator problem.
-2. Identify affected contracts and acceptance criteria.
-3. Update specifications, schemas, fixtures, terminology, and changelog together.
-4. Run the validation matrix in `SPEC-CHECKLIST.md`.
-5. Request review from design and engineering. Add research, safety, accessibility, or content review when relevant.
+1. Read `CONTEXT.md` and affected docs.
+2. Identify impacted protocols, schemas, examples, research files, security boundaries, and versions.
+3. Draft changes with stable IDs, explicit lineage, and claim labels.
+4. Validate JSON syntax, examples, links, terminology, and `git diff --check`.
+5. Update `CHANGELOG.md`, `docs/VERSIONING.md`, and `SPEC-CHECKLIST.md` when contracts move.
 
-## Specification style
+## Style
 
-A subsystem document SHOULD contain: purpose, responsibilities, boundaries, inputs, outputs, state model, algorithms or policy, invariants, failure behavior, observability, versioning, and acceptance criteria. Prefer tables and small examples. Avoid binding the contract to a particular framework.
-
-## RFCs
-
-Use `rfcs/0000-rfc-process.md`. An RFC is required when a decision changes save compatibility, replay, evidence semantics, progression, trust boundaries, content admission, or a public protocol. Accepted RFCs are immutable except for status metadata and obvious errata. Supersede them with a new RFC.
-
-## Review checklist
-
-Reviewers ask:
-
-- Can a player distinguish observation from interpretation?
-- Can an implementation reproduce and explain the outcome?
-- Does failure preserve actionable evidence?
-- Can old data be read or migrated?
-- Are safety, privacy, accessibility, and provenance explicit?
-- Is generated content bounded and testable?
-
-## Conduct and security
-
-Be respectful, critique artifacts rather than people, and do not include sensitive personal data. Report vulnerabilities privately according to `SECURITY.md` when that file is present.
+Avoid hype, unsupported AGI language, and consciousness claims. Prefer precise MUD, protocol, research, replay, and containment language.

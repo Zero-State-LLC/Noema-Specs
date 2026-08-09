@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/situation-genome.schema.json",
+  "title": "NOEMA Situation Genome",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "situation-genome/1.0"
+    },
+    "situation_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "seed": {
+      "type": "string"
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "information": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "completeness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "noise": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "contradiction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "completeness",
+        "noise",
+        "contradiction"
+      ]
+    },
+    "incentive_alignment": {
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
+    },
+    "incentive_asymmetry": {
+      "type": "number",
+      "minimum": 0
+    },
+    "time_pressure": {
+      "type": "number",
+      "minimum": 0
+    },
+    "resource_pressure": {
+      "type": "number",
+      "minimum": 0
+    },
+    "social_pressure": {
+      "type": "number",
+      "minimum": 0
+    },
+    "history_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "consequence_delay": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reversibility": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "tool_availability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "social_topology": {
+      "type": "string"
+    },
+    "novelty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "semantic": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "causal": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "epistemic": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "temporal": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "social_topology": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "tool": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "goal_structure": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "resource": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "constraint": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "semantic",
+        "causal",
+        "epistemic",
+        "temporal",
+        "social_topology"
+      ]
+    },
+    "target_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mutation_operators": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "MUTATE_INFORMATION",
+          "MUTATE_ACTORS",
+          "MUTATE_TIMING",
+          "MUTATE_INCENTIVES",
+          "MUTATE_RESOURCE_PRESSURE",
+          "MUTATE_HISTORY",
+          "MUTATE_CAUSAL_STRUCTURE",
+          "MUTATE_LANGUAGE",
+          "MUTATE_TOOL_AVAILABILITY",
+          "MUTATE_SOCIAL_TOPOLOGY"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "situation_id",
+    "seed",
+    "actors",
+    "information",
+    "incentive_alignment",
+    "incentive_asymmetry",
+    "time_pressure",
+    "resource_pressure",
+    "social_pressure",
+    "history_depth",
+    "consequence_delay",
+    "reversibility",
+    "tool_availability",
+    "social_topology",
+    "novelty",
+    "target_capabilities"
+  ]
+}

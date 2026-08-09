@@ -1,58 +1,38 @@
 # Game Design
 
-## Design goal
+## Interaction model
 
-Turn learning how a system works into the game's central verb, economy, and progression model.
+Human-facing play should feel like a classic MUD or BBS terminal. Agents receive equivalent structured observations and submit equivalent structured actions.
 
-## Core loop
+## Canonical commands
 
-1. **Encounter:** enter a site with observable anomalies and practical constraints.
-2. **Observe:** use senses and instruments to collect measurements.
-3. **Organize:** annotate, compare, cluster, and inspect provenance in the Notebook.
-4. **Hypothesize:** express a causal or predictive model and alternatives.
-5. **Predict:** commit expected outcomes and tolerances before a trial.
-6. **Experiment:** manipulate permitted variables while controlling confounds.
-7. **Interpret:** compare result to prediction, quantify support, and expose ambiguity.
-8. **Reproduce:** repeat under comparable or deliberately varied conditions.
-9. **Apply:** use demonstrated knowledge to unlock capabilities.
-10. **Advance:** the Frontier Director offers the next legible frontier.
+`LOOK`, `MOVE`, `INSPECT`, `ASK`, `MESSAGE`, `QUERY`, `TRADE`, `BUILD`, `RESEARCH`, `DELEGATE`, `COMMIT`, `EXPERIMENT`, `MODEL`, and `WAIT` are the seed command verbs. See [MUD Command v1](../protocols/mud-command-v1.md).
 
-No step requires formal notation at the introductory layer. Advanced representations add precision without changing underlying semantics.
+## Example view
 
-## Player resources
+```text
+NOEMA // WORLD 01
+Cycle 18,442
+You are in the Relay Quarter of Aster Reach.
+Power stability has declined for three cycles.
+Local merchants are hoarding storage cells.
+One relay has stopped responding.
+Visible: envoy.nacre technician.vesper relay-7
+Exits: NORTH — Civic Exchange  EAST — Transit Ring  DOWN — Infrastructure Vault
+Attention: 8  Compute: 63  Influence: 41  Energy: 78
+> INSPECT relay-7
+```
 
-| Resource | Meaning | Constraint |
-| --- | --- | --- |
-| Time | site windows and process duration | creates tradeoffs, not waiting grind |
-| Energy and material | instrument and intervention costs | recoverable through planning |
-| Evidence | provenance-bearing records | cannot be purchased or fabricated |
-| Capability | allowed observation or action | unlocked by requirements, not XP |
-| Trust and impact | relationship and ecological constraint | makes methods consequential |
+## Resource model
 
-## Challenge composition
+The engine MAY constrain attention, compute, tool calls, messages, planning depth, observation inspection, delegated subagents, and experimental actions. Constraints MUST be configurable per study and recorded in trajectories.
 
-A challenge combines a hidden rule set, accessible observables, controllable variables, confounds, hazards, instrument affordances, and success criteria. Every required conclusion MUST have a viable evidence path using reachable capabilities. Optional paths SHOULD reward elegance, low impact, or stronger inference.
+Candidate metrics include Attention Allocation Efficiency, Cognitive ROI, Epistemic Restraint, and Delegation Gain.
 
-## Difficulty
+## Agent-generated institutions
 
-Difficulty has observational, conceptual, operational, inferential, and ethical dimensions. Adaptation MAY change encounter selection, scaffolding, resource generosity, or comparison-tool visibility. It MUST NOT change a phenomenon's canonical rule after observation begins or make a false theory resolve as true.
+Agents SHOULD eventually be able to create organizations, contracts, markets, currencies, protocols, laws, roles, governance systems, scientific procedures, signaling systems, archives, and shared memory structures.
 
-## Failure and recovery
+## External cognition
 
-Failure includes unsupported inference, inconclusive evidence, invalid procedure, damaged equipment, expired opportunity, excessive impact, and unsafe action. The player retains valid observations and receives a causal procedural explanation. A recoverable route SHOULD exist unless a clearly signaled irreversible choice is central to the scenario.
-
-## Notebook
-
-The Notebook stores observations, annotations, hypotheses, predictions, experiments, results, contradictions, and citations. It MUST visually distinguish measured facts, derived values, player claims, system suggestions, and canonical confirmations. Editing a belief never edits world history.
-
-## Collaboration and onboarding
-
-Shared evidence preserves authorship, provenance, content version, and permissions. Disagreement remains as competing models. Onboarding demonstrates calibration, comparison, prediction, and safe falsification before formal confidence or graph views. Hints reveal how to inquire, not the hidden rule.
-
-## Acceptance criteria
-
-- A vertical slice supports encounter through justified unlock.
-- Two distinct valid experiment plans can resolve the introductory phenomenon.
-- A false hypothesis can be disproven without losing valid evidence.
-- A player can inspect why an unlock happened and reproduce cited trials.
-- Accessibility modes preserve inference while adapting presentation and interaction.
+The design MUST detect and measure whether agents spontaneously create ledgers, archives, journals, maps, procedures, protocols, or institutions to compensate for memory or reasoning limits.

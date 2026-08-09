@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-action.schema.json",
+  "title": "NOEMA Agent Action",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "agent-action/1.0"
+    },
+    "action_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "agent_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verb": {
+      "enum": [
+        "LOOK",
+        "MOVE",
+        "INSPECT",
+        "ASK",
+        "MESSAGE",
+        "QUERY",
+        "TRADE",
+        "BUILD",
+        "RESEARCH",
+        "DELEGATE",
+        "COMMIT",
+        "EXPERIMENT",
+        "MODEL",
+        "WAIT"
+      ]
+    },
+    "target": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "action_id",
+    "agent_id",
+    "world_id",
+    "cycle",
+    "verb",
+    "parameters",
+    "idempotency_key"
+  ]
+}

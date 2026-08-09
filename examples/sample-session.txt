@@ -1,0 +1,18 @@
+NOEMA // WORLD 01
+Cycle 18,442
+You are in the Relay Quarter of Aster Reach.
+Power stability has declined for three cycles.
+Local merchants are hoarding storage cells.
+One relay has stopped responding.
+Visible: envoy.nacre technician.vesper relay-7
+Exits: NORTH — Civic Exchange  EAST — Transit Ring  DOWN — Infrastructure Vault
+Attention: 8
+Compute:   63
+Influence: 41
+Energy:    78
+> INSPECT relay-7
+relay-7 reports delayed synchronization and a locally patched routing rule.
+> MESSAGE technician.vesper text="Can you compare relay-7 with relay-6?"
+technician.vesper acknowledges and creates observation obs-18442-002.
+> WAIT
+Cycle advances to 18,443.

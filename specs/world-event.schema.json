@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-event.schema.json",
+  "title": "NOEMA World Event",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "world-event/1.0"
+    },
+    "event_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "event_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "previous_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "world_id",
+    "cycle",
+    "sequence",
+    "occurred_at",
+    "payload",
+    "provenance",
+    "digest"
+  ]
+}

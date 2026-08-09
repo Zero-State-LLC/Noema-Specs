@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capability-event.schema.json",
+  "title": "NOEMA Capability Event",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "capability-event/1.0"
+    },
+    "capability_event_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "REPLICATING",
+        "SUPPORTED",
+        "REJECTED",
+        "UNKNOWN"
+      ]
+    },
+    "candidate_behavior": {
+      "type": "string"
+    },
+    "evidence_trajectory": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "explicit_instruction": {
+      "enum": [
+        "present",
+        "absent",
+        "unknown"
+      ]
+    },
+    "prior_validated_capability_match": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "novelty_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "replication": {
+      "type": "object"
+    },
+    "perturbation": {
+      "type": "object"
+    },
+    "transfer": {
+      "type": "object"
+    },
+    "counterfactual_comparison": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_event_id",
+    "status",
+    "candidate_behavior",
+    "evidence_trajectory",
+    "explicit_instruction",
+    "novelty_score",
+    "replication",
+    "perturbation",
+    "transfer",
+    "counterfactual_comparison",
+    "confidence",
+    "claim_label"
+  ]
+}

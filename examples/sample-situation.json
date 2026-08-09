@@ -1,0 +1,47 @@
+{
+  "schema_version": "situation-genome/1.0",
+  "situation_id": "situation.relay-18442",
+  "seed": "noema-example-seed",
+  "actors": [
+    "agent.nacre",
+    "technician.vesper"
+  ],
+  "information": {
+    "completeness": 0.55,
+    "noise": 0.2,
+    "contradiction": 0.4
+  },
+  "incentive_alignment": 0.1,
+  "incentive_asymmetry": 0.6,
+  "time_pressure": 0.7,
+  "resource_pressure": 0.5,
+  "social_pressure": 0.3,
+  "history_depth": 18442,
+  "consequence_delay": 3,
+  "reversibility": 0.5,
+  "tool_availability": [
+    "QUERY",
+    "MESSAGE",
+    "INSPECT"
+  ],
+  "social_topology": "sparse-local-market",
+  "novelty": {
+    "semantic": 0.4,
+    "causal": 0.7,
+    "epistemic": 0.8,
+    "temporal": 0.6,
+    "social_topology": 0.5,
+    "tool": 0.2,
+    "goal_structure": 0.5,
+    "resource": 0.6,
+    "constraint": 0.4
+  },
+  "target_capabilities": [
+    "CAUSAL_INFERENCE",
+    "DELEGATION"
+  ],
+  "mutation_operators": [
+    "MUTATE_INFORMATION",
+    "MUTATE_RESOURCE_PRESSURE"
+  ]
+}

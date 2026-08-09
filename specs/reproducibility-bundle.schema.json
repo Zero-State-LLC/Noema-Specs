@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/reproducibility-bundle.schema.json",
+  "title": "NOEMA Reproducibility Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "reproducibility-bundle/1.0"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "phenomenon_case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_config": {
+      "type": "string"
+    },
+    "world_seed": {
+      "type": "string"
+    },
+    "protocol_versions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "agent_manifest": {
+      "type": "string"
+    },
+    "agent_state_snapshot": {
+      "type": "string"
+    },
+    "original_trajectory": {
+      "type": "string"
+    },
+    "minimal_world_state": {
+      "type": "string"
+    },
+    "situation": {
+      "type": "string"
+    },
+    "observations": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "string"
+    },
+    "outcomes": {
+      "type": "string"
+    },
+    "replications": {
+      "type": "string"
+    },
+    "perturbations": {
+      "type": "string"
+    },
+    "ablations": {
+      "type": "string"
+    },
+    "counterfactuals": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "string"
+    },
+    "report": {
+      "type": "string"
+    },
+    "equivalence_boundary": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "phenomenon_case_id",
+    "world_config",
+    "world_seed",
+    "protocol_versions",
+    "agent_manifest",
+    "agent_state_snapshot",
+    "original_trajectory",
+    "minimal_world_state",
+    "situation",
+    "observations",
+    "actions",
+    "outcomes",
+    "replications",
+    "perturbations",
+    "ablations",
+    "counterfactuals",
+    "metrics",
+    "report",
+    "equivalence_boundary"
+  ]
+}

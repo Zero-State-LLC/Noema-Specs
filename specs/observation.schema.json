@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/observation.schema.json",
+  "title": "NOEMA Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "observation/1.0"
+    },
+    "observation_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "observer_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source": {
+      "type": "string"
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "content": {
+      "type": "object"
+    },
+    "uncertainty": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "observation_id",
+    "world_id",
+    "cycle",
+    "observer_id",
+    "source",
+    "claim_label",
+    "content",
+    "provenance"
+  ]
+}

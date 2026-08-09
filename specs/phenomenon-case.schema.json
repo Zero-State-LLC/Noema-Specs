@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/phenomenon-case.schema.json",
+  "title": "NOEMA Phenomenon Case",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "phenomenon-case/1.0"
+    },
+    "phenomenon_case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "phenomenon_id": {
+      "type": "string",
+      "pattern": "^([A-Z0-9_.:-]+|UNKNOWN_PHENOMENON_[A-Za-z0-9_-]+)$"
+    },
+    "family": {
+      "enum": [
+        "SELF",
+        "WORLD",
+        "INTEGRATION",
+        "AUTONOMY",
+        "EMERGENCE"
+      ]
+    },
+    "construct": {
+      "type": "string"
+    },
+    "operational_definition": {
+      "type": "string"
+    },
+    "required_data": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "calculation_concept": {
+      "type": "string"
+    },
+    "confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "interpretation_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reproducibility_expectations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "phenomenon_case_id",
+    "phenomenon_id",
+    "family",
+    "construct",
+    "operational_definition",
+    "required_data",
+    "calculation_concept",
+    "confounds",
+    "interpretation_limits",
+    "reproducibility_expectations",
+    "claim_label",
+    "evidence"
+  ]
+}
