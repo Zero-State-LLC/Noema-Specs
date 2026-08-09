@@ -63,3 +63,33 @@ Every variable in `.env.example` MUST be documented with type, required/optional
 | NOEMA_FEATURE_PHENOMENA_LAB | boolean | no | false | no | flags | Phenomena workflows. |
 
 No real credentials belong in this repository.
+
+## Security-control configuration
+
+The variables above select deployment-level defaults. They MUST NOT be treated as the sole enforcement boundary, and agents MUST NOT be allowed to read or modify the trusted process environment. Per-agent, per-world, per-study, and per-request policy belongs in authenticated configuration or capability records so that changes are versioned, authorized, and replayable. No additional environment variables are required for the controls below.
+
+### Containment
+
+`NOEMA_SANDBOX_MODE`, `NOEMA_OUTBOUND_NETWORK_POLICY`, `NOEMA_ALLOWED_AGENT_ORIGINS`, `NOEMA_MAX_ACTION_PAYLOAD_BYTES`, `NOEMA_RATE_LIMIT_PER_MINUTE`, `REQUEST_TIMEOUT_MS`, `WORKER_COUNT`, and `QUEUE_CONCURRENCY` provide deployment ceilings. Production deployments MUST validate their values before accepting traffic and MUST fail closed on missing, unknown, or weaker-than-required modes. `strict` sandboxing and `deny-by-default` egress are the baseline. Provider and storage credentials MUST be injected only into trusted gateways or workers, never agent runtimes, reducer payloads, observations, logs, or replay bundles.
+
+### World isolation
+
+`NOEMA_ENV` separates deployment configuration, while `NOEMA_WORLD_ID` names only the local/default world. It MUST NOT authorize access to a world. Multi-world services MUST derive world scope from authenticated requests and persist it on records, queue jobs, cache keys, storage prefixes, snapshots, and replay bundles. Database roles, object-storage policies, and worker routing SHOULD provide defense in depth. A process serving multiple worlds MUST NOT use `NOEMA_WORLD_ID` as an implicit fallback after authentication.
+
+`DATABASE_URL`, `REDIS_URL`, `OBJECT_STORAGE_ENDPOINT`, `OBJECT_STORAGE_BUCKET`, and `NOEMA_REPLAY_STORAGE_PATH` MAY point to shared infrastructure only when every key and query is world-qualified and cross-world access is denied and tested. Separate credentials, buckets, schemas, or worker pools SHOULD be used for higher-risk studies.
+
+### Reducer budgets
+
+`NOEMA_ATTENTION_BUDGET_DEFAULT` and `NOEMA_COMPUTE_BUDGET_DEFAULT` are defaults, not permission to exceed a study or agent limit. The trusted scheduler MUST resolve the effective budget as the minimum applicable limit and enforce it outside reducer-controlled code. `REQUEST_TIMEOUT_MS`, `NOEMA_MAX_ACTION_PAYLOAD_BYTES`, `QUEUE_CONCURRENCY`, and provider-side limits supply additional ceilings but MUST NOT substitute for recorded reducer input, output, compute, recursion, and reference-count budgets.
+
+Budget exhaustion MUST produce a stable failure or a schema-valid observation with explicit truncation provenance. Retries and nested reductions MUST debit the same reserved budget. Deterministic replay requires the effective limits and reducer version to be recorded with the observation rather than inferred later from the current environment.
+
+### Consent gating
+
+`NOEMA_RESEARCH_ENABLED` is a deployment kill switch. It MUST NOT grant consent. `NOEMA_PUBLIC_DATASET_OPT_IN`, capture flags, and `NOEMA_TRAJECTORY_RETENTION_DAYS` are upper bounds that MUST be intersected with agent consent, study approval, data visibility, licensing, withdrawal state, and retention policy. A false or absent enabling value MUST fail closed.
+
+Capture settings MUST be evaluated before collection, and consent MUST be re-evaluated before analysis, reduction for research, export, or publication. `NOEMA_CAPTURE_AGENT_MESSAGES`, `NOEMA_CAPTURE_TOOL_CALLS`, and `NOEMA_CAPTURE_SELF_REPORTS` MUST NOT override a more restrictive consent record. Changes to environment defaults apply prospectively and MUST NOT retroactively upgrade existing records or erase their lineage and consent basis.
+
+### Deployment acceptance checks
+
+Before promotion, deployments SHOULD verify configuration parsing, strict sandbox activation, denied unapproved egress, world-qualified storage and queues, reducer exact-limit and over-limit behavior, research-disabled behavior, public opt-out, consent withdrawal, and secret redaction. The resolved non-secret configuration and its digest SHOULD be recorded for replay and audit. Secret values MUST never be included in that record.

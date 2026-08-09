@@ -4,28 +4,10 @@
   "title": "NOEMA Observation",
   "type": "object",
   "additionalProperties": false,
-  "properties": {
-    "schema_version": {
-      "const": "observation/1.0"
-    },
-    "observation_id": {
+  "$defs": {
+    "identifier": {
       "type": "string",
       "pattern": "^[A-Za-z0-9_.:-]+$"
-    },
-    "world_id": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
-    },
-    "cycle": {
-      "type": "integer",
-      "minimum": 0
-    },
-    "observer_id": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
-    },
-    "source": {
-      "type": "string"
     },
     "claim_label": {
       "enum": [
@@ -35,17 +17,664 @@
         "NOT_COMPUTABLE"
       ]
     },
+    "structured_value": {
+      "type": [
+        "object",
+        "array",
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null"
+      ]
+    },
+    "localized_fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fact_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "subject_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "predicate": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/structured_value"
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_label": {
+          "$ref": "#/$defs/claim_label"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "predicate",
+        "value"
+      ]
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "entity_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": "object"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localized_fact"
+          }
+        },
+        "affordances": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "claim_label": {
+          "$ref": "#/$defs/claim_label"
+        }
+      },
+      "required": [
+        "entity_id",
+        "entity_type"
+      ]
+    },
+    "exit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exit_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "destination_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "traversable": {
+          "type": "boolean"
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claim_label": {
+          "$ref": "#/$defs/claim_label"
+        }
+      },
+      "required": [
+        "exit_id",
+        "label",
+        "traversable"
+      ]
+    },
+    "message": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "channel_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sender_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recipient_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "sent_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/structured_value"
+          }
+        }
+      },
+      "required": [
+        "message_id",
+        "text"
+      ]
+    },
+    "budget_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attention_remaining": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compute_remaining": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "actions_remaining": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "messages_remaining": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tool_calls_remaining": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reset_cycle": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "const": "observation/1.0"
+    },
+    "observation_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "world_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "observer_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "source": {
+      "type": "string"
+    },
+    "claim_label": {
+      "$ref": "#/$defs/claim_label"
+    },
     "content": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "observation_type": {
+          "enum": [
+            "WORLD_VIEW",
+            "LOCATION_VIEW",
+            "ENTITY_INSPECTION",
+            "MESSAGE_DELIVERY",
+            "ACTION_RESULT",
+            "TOOL_RESULT",
+            "SYSTEM_NOTICE",
+            "MIXED"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "location": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "location_id": {
+              "$ref": "#/$defs/identifier"
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "region_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "location_id"
+          ]
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity"
+          }
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/exit"
+          }
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localized_fact"
+          }
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/message"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "event_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurred_cycle": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "description": {
+                "type": "string"
+              },
+              "participants": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "data": {
+                "type": "object"
+              },
+              "claim_label": {
+                "$ref": "#/$defs/claim_label"
+              }
+            },
+            "required": [
+              "event_type"
+            ]
+          }
+        },
+        "action_result": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "action_id": {
+              "$ref": "#/$defs/identifier"
+            },
+            "status": {
+              "enum": [
+                "ACCEPTED",
+                "SUCCEEDED",
+                "FAILED",
+                "REJECTED",
+                "PARTIAL"
+              ]
+            },
+            "code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "effects": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/localized_fact"
+              }
+            }
+          },
+          "required": [
+            "action_id",
+            "status"
+          ]
+        },
+        "affordances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "verb": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "parameters": {
+                "type": "object"
+              },
+              "available": {
+                "type": "boolean"
+              },
+              "unavailable_reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "verb",
+              "available"
+            ]
+          }
+        },
+        "budgets": {
+          "$ref": "#/$defs/budget_snapshot"
+        },
+        "notices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "enum": [
+                  "INFO",
+                  "WARNING",
+                  "ERROR"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "details": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "severity",
+              "message"
+            ]
+          }
+        },
+        "state_delta": {
+          "type": "object"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
     },
     "uncertainty": {
       "type": [
         "object",
         "null"
-      ]
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "unknown_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string",
+                "minLength": 1
+              },
+              "alternatives": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/structured_value"
+                },
+                "minItems": 2
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "field",
+              "alternatives"
+            ]
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "provenance": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "world_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "world_event_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "uniqueItems": true
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reducer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reducer_id": {
+              "$ref": "#/$defs/identifier"
+            },
+            "reducer_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "input_digest": {
+              "type": "string",
+              "minLength": 1
+            },
+            "output_digest": {
+              "type": "string",
+              "minLength": 1
+            },
+            "budget_limit": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "budget_used": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "truncated": {
+              "type": "boolean"
+            },
+            "omitted_sections": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "reducer_id",
+            "reducer_version"
+          ]
+        },
+        "visibility": {
+          "enum": [
+            "PRIVATE",
+            "WORLD",
+            "RESEARCH_RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "consent_basis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "lineage": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": true
     }
   },
   "required": [
