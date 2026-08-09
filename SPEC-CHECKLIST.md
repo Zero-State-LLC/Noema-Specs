@@ -43,9 +43,9 @@
 - [x] Full validation suite green locally (`python validation/validate_all.py`).
 - [x] Minimum seed world + sample trajectory that exercises the closed event catalog (`examples/v01-seed/`).
 - [x] Expanded negative test corpus (`examples/negative/`, ≥6 fixtures).
-- [ ] CI gate green on `main` after push (`.github/workflows/spec-validation.yml`).
+- [x] CI gate green on `main` after push (`.github/workflows/spec-validation.yml`).
 - [ ] Independent World Engine implementation replay matches fixture digests (runtime repo).
 
 ## Notes
 
-Checked items are enforced by `validation/validate_all.py` and/or by inspection of the committed tree. The 0.1.0 release tag still requires a green CI run on `main` and, for runtime conformance, an independent reducer replay of `examples/v01-seed/`.
+Checked items are enforced by `validation/validate_all.py`, GitHub Actions, and/or inspection of the committed tree. The remaining pre-`0.1.0` runtime gate is an independent World Engine reducer replay of `examples/v01-seed/` in the implementation repository.
