@@ -24,8 +24,9 @@
 - [x] Spectator LIVE/WORLD REPORT/REALM/HISTORY surfaces + high-drama events
 - [x] Starting conditions + system dependency chain
 - [x] Canonical chamber-world 10-room map seed
+- [x] Chamber start-distribution profiles + route pressure (traversal costs / edge tags)
 - [x] GAME-DESIGN spine table for completed game design
-- [x] RFC-0002 draft skeleton for contestation/crime/agreement events
+- [x] RFC-0002 draft with full payload sketches + reducer contracts (schemas/fixtures still required before Accepted)
 
 ## Contract quality
 
@@ -43,3 +44,5 @@
 ## Notes
 
 Product pins: Chamber 0.1.x, Frontier 0.2.x, Observatory 0.3.0-draft. Runtime implementation of O-suite outstanding.
+
+**RFC-0002 next (before Accepted):** JSON Schema for 7 payloads, positive/negative fixtures, action-contract COMMIT ops, catalog packaging (`event-catalog/0.2`). v0.1 24-type catalog remains closed.

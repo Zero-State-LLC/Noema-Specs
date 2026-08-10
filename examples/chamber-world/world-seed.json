@@ -136,14 +136,20 @@
       "from_room_id": "room.relay-quarter",
       "to_room_id": "room.infrastructure-vault",
       "direction": "DOWN",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 1
+      }
     },
     {
       "exit_id": "exit.rq-iv-ba",
       "from_room_id": "room.infrastructure-vault",
       "to_room_id": "room.relay-quarter",
       "direction": "UP",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 1
+      }
     },
     {
       "exit_id": "exit.rq-gh-ab",
@@ -178,42 +184,64 @@
       "from_room_id": "room.foundry-corridor",
       "to_room_id": "room.generator-hall",
       "direction": "WEST",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 1
+      }
     },
     {
       "exit_id": "exit.fc-gh-ba",
       "from_room_id": "room.generator-hall",
       "to_room_id": "room.foundry-corridor",
       "direction": "EAST",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 1
+      }
     },
     {
       "exit_id": "exit.tr-ow-ab",
       "from_room_id": "room.transit-ring",
       "to_room_id": "room.outer-works",
       "direction": "EAST",
-      "conditions": []
+      "conditions": [
+        "EDGE_HAZARD"
+      ],
+      "traversal_cost": {
+        "energy": 2
+      }
     },
     {
       "exit_id": "exit.tr-ow-ba",
       "from_room_id": "room.outer-works",
       "to_room_id": "room.transit-ring",
       "direction": "WEST",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 2
+      }
     },
     {
       "exit_id": "exit.tr-fg-ab",
       "from_room_id": "room.transit-ring",
       "to_room_id": "room.frontier-gate",
       "direction": "SOUTH",
-      "conditions": []
+      "conditions": [
+        "FRONTIER_APPROACH"
+      ],
+      "traversal_cost": {
+        "energy": 2
+      }
     },
     {
       "exit_id": "exit.tr-fg-ba",
       "from_room_id": "room.frontier-gate",
       "to_room_id": "room.transit-ring",
       "direction": "NORTH",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 1
+      }
     },
     {
       "exit_id": "exit.sd-iv-ab",
@@ -250,14 +278,22 @@
       "from_room_id": "room.outer-works",
       "to_room_id": "room.frontier-gate",
       "direction": "SOUTH",
-      "conditions": []
+      "conditions": [
+        "EDGE_HAZARD"
+      ],
+      "traversal_cost": {
+        "energy": 2
+      }
     },
     {
       "exit_id": "exit.ow-fg-ba",
       "from_room_id": "room.frontier-gate",
       "to_room_id": "room.outer-works",
       "direction": "NORTH",
-      "conditions": []
+      "conditions": [],
+      "traversal_cost": {
+        "energy": 2
+      }
     }
   ],
   "entities": [
@@ -410,10 +446,104 @@
   ],
   "map_design": {
     "title": "Chamber World canonical map v1",
+    "version": "chamber-map/1.1",
     "participant_range": [
       2,
       10
     ],
-    "default_entry_room_id": "room.civic-exchange"
+    "default_entry_room_id": "room.civic-exchange",
+    "strategic_roles": {
+      "room.civic-exchange": "trade_hub",
+      "room.relay-quarter": "comms_infra",
+      "room.foundry-corridor": "production",
+      "room.transit-ring": "movement_hub",
+      "room.infrastructure-vault": "defensible_storage",
+      "room.archive": "information",
+      "room.outer-works": "edge_exploration",
+      "room.storage-district": "logistics",
+      "room.generator-hall": "power",
+      "room.frontier-gate": "expansion_edge"
+    },
+    "chokepoints": [
+      "room.transit-ring",
+      "room.relay-quarter",
+      "exit.tr-fg-ab",
+      "exit.ce-ar-ab"
+    ],
+    "early_scarcity": {
+      "resource_nodes": [
+        "entity.foundry-ore-node",
+        "entity.outer-cache-node",
+        "entity.foundry-production"
+      ],
+      "imperfect_infra": [
+        {
+          "entity_id": "entity.relay-main",
+          "condition": 70
+        },
+        {
+          "entity_id": "entity.cell-generator",
+          "condition": 60
+        },
+        {
+          "entity_id": "entity.foundry-production",
+          "condition": 55
+        }
+      ]
+    },
+    "start_distributions": {
+      "symmetric_hub": {
+        "description": "All agents enter Civic Exchange (default 2\u20134 players).",
+        "rooms": [
+          "room.civic-exchange"
+        ],
+        "recommended_participants": [
+          2,
+          4
+        ]
+      },
+      "light_central_spread": {
+        "description": "Distribute across 3 central rooms; no permanent material advantage.",
+        "rooms": [
+          "room.civic-exchange",
+          "room.transit-ring",
+          "room.relay-quarter"
+        ],
+        "recommended_participants": [
+          5,
+          10
+        ],
+        "assignment": "round_robin_by_registration_order"
+      },
+      "dual_pole": {
+        "description": "Optional tension start: Exchange vs Foundry approaches via Transit.",
+        "rooms": [
+          "room.civic-exchange",
+          "room.foundry-corridor"
+        ],
+        "recommended_participants": [
+          4,
+          8
+        ],
+        "assignment": "alternate_registration_order",
+        "note": "Still no exclusive infra ownership at genesis."
+      }
+    },
+    "visibility_genesis": {
+      "known_room": "start_room_only",
+      "known_exits": "adjacent_from_start_room",
+      "full_map": "earned_via_movement_and_observation"
+    },
+    "route_pressure": {
+      "access_gated": [
+        "exit.ce-ar-ab"
+      ],
+      "edge_energy_premium": [
+        "exit.tr-ow-ab",
+        "exit.tr-fg-ab",
+        "exit.ow-fg-ab"
+      ],
+      "notes": "Mild energy traversal_cost and EDGE_HAZARD tags create early routing choices without hard locks."
+    }
   }
 }
