@@ -4,6 +4,15 @@
 
 ### Added
 
+- **Core game design completion package:** LOSS-RECOVERY, DIPLOMACY, GAME-CYCLE, WORLD-REPORTS, PROGRESSION, AMBITIONS, HUMAN-PLAY, AGENT-PLAY, GAME-BALANCE, EXPLORATION, STRATEGIC-KNOWLEDGE, INFRASTRUCTURE (progression), FIRST-20-CYCLES, CHAMBER-MAP, GAME-SYSTEM-MAP, EVENT-CATALOG-AUDIT.
+- Expanded STRATEGIC-CONFLICT with full crime + contestation forms, defense, RFC event list.
+
+### Changed
+
+- GAME-DESIGN contracts map, TERMINOLOGY, ROADMAP, README, SPEC-CHECKLIST for full player-facing design index.
+
+### Added
+
 - **Core game design foundation:** `docs/CORE-GAME-LOOP.md`, `docs/REALMS.md`, `docs/GEOGRAPHY.md`, `docs/TERRITORY-CONTROL.md`, `docs/STRATEGIC-CONFLICT.md` (crime consequence layer; strategic P2P contestation as next milestone; no closed-catalog event expansion without RFC).
 
 ### Changed

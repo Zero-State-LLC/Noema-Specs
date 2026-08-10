@@ -229,6 +229,10 @@ Noema-Specs/
 | Core game loop | [docs/CORE-GAME-LOOP.md](docs/CORE-GAME-LOOP.md) |
 | Realms / geography / territory | [REALMS](docs/REALMS.md) · [GEOGRAPHY](docs/GEOGRAPHY.md) · [TERRITORY-CONTROL](docs/TERRITORY-CONTROL.md) |
 | Crime / strategic conflict | [docs/STRATEGIC-CONFLICT.md](docs/STRATEGIC-CONFLICT.md) |
+| Loss / recovery · diplomacy · cycle/reports | [LOSS-RECOVERY](docs/LOSS-RECOVERY.md) · [DIPLOMACY](docs/DIPLOMACY.md) · [GAME-CYCLE](docs/GAME-CYCLE.md) · [WORLD-REPORTS](docs/WORLD-REPORTS.md) |
+| Progression · ambitions · balance | [PROGRESSION](docs/PROGRESSION.md) · [AMBITIONS](docs/AMBITIONS.md) · [GAME-BALANCE](docs/GAME-BALANCE.md) |
+| Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) |
+| Game system map | [docs/GAME-SYSTEM-MAP.md](docs/GAME-SYSTEM-MAP.md) |
 | Frontier (v0.2) | [docs/releases/v0.2/](docs/releases/v0.2/) · [FRONTIER-DIRECTOR](docs/FRONTIER-DIRECTOR.md) · [SITUATION-GENOME](docs/SITUATION-GENOME.md) |
 | Observatory (v0.3) | [docs/releases/v0.3/](docs/releases/v0.3/) · [OBSERVATORY](docs/OBSERVATORY.md) · [TRAJECTORY](docs/TRAJECTORY.md) |
 

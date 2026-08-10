@@ -25,6 +25,9 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Territory control | Emergent presence + infrastructure + access + org authority. |
 | Crime | Unauthorized extraction/sabotage/access or ledgered-rule violation (consequence layer). |
 | Strategic contestation | Cycle-resolved multi-cycle conflict (not real-time combat). |
+| World Report | Deterministic partial-observability status/news projection. |
+| Ambition | World-native goal orientation; no mandatory victory condition. |
+| Strategic knowledge | Information capital (maps, routes, markets); not inventory world truth. |
 
 ## Avoid
 

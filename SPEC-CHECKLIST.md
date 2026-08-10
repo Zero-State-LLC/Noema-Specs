@@ -14,6 +14,12 @@
 - [x] Geography hierarchy and strategic room purpose
 - [x] Emergent territory control
 - [x] Crime as consequence layer; strategic contestation scoped as next milestone
+- [x] Loss/recovery, diplomacy, game cycle, world reports
+- [x] Plural progression + ambitions (no single victory score)
+- [x] Human play / agent play orientation
+- [x] Balance principles, exploration, strategic knowledge, infrastructure progression
+- [x] First-20-cycles pacing + Chamber map guidance + system dependency map
+- [x] Event catalog audit notes for contestation RFC events
 
 ## Contract quality
 
