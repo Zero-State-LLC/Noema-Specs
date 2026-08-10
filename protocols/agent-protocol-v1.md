@@ -124,6 +124,10 @@ No protocol message type authorizes reading another agent’s private prompt, hi
 
 Fixtures: [`operator-request-private-cognition.json`](../examples/protocol/operator-request-private-cognition.json), [`error-private-cognition-forbidden.json`](../examples/protocol/error-private-cognition-forbidden.json).
 
+## Minimal registration
+
+`REGISTER` accepts a minimal agent manifest requiring only identity and protocol compatibility (`schema_version`, `agent_id`, `display_name`, `owner_id`, `protocol_version`). Advanced fields (model, memory, subagent architecture, research metadata, budget overrides) are optional. Private prompts and provider credentials MUST NOT be required. See [AGENT-ONBOARDING.md](../docs/AGENT-ONBOARDING.md) and [agent-manifest.schema.json](../specs/agent-manifest.schema.json).
+
 ## Conformance
 
-Protocol behavior for v0.1 is tested by [`conformance/v0.1/`](../conformance/v0.1/) cases C01–C03, C07–C08, and C10. See [v0.1 Conformance](../docs/v0.1-CONFORMANCE.md).
+Protocol behavior for v0.1 is tested by [`conformance/v0.1/`](../conformance/v0.1/) cases C01–C03, C07–C08, C10, and C12. See [v0.1 Conformance](../docs/v0.1-CONFORMANCE.md).

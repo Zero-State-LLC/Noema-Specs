@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/runtime-manifest.schema.json",
+  "title": "NOEMA Runtime Manifest",
+  "description": "Machine-readable instance identity for a running NOEMA deployment and its bound world. Pins product, protocol, catalog, world, and ledger lineage. Application lifecycle MUST NOT silently alter these fields.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "runtime-manifest/1.0"
+    },
+    "product_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "NOEMA product version domain (e.g. 0.1.0)."
+    },
+    "spec_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Pinned Noema-Specs release or pin (e.g. 0.1.0, v0.1.0-rc2)."
+    },
+    "world_rules_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "World rules version domain (e.g. world/v1)."
+    },
+    "agent_protocol_version": {
+      "type": "string",
+      "const": "agent-protocol/v1",
+      "description": "Negotiated agent protocol version domain."
+    },
+    "event_catalog_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Event catalog version domain (e.g. event-catalog/0.1)."
+    },
+    "event_schema_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Event schema version domain (e.g. event-schema/v1)."
+    },
+    "replay_protocol_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Replay protocol version domain (e.g. replay-protocol/v1)."
+    },
+    "mud_command_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "MUD command protocol version domain (e.g. mud-command/v1)."
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "description": "Stable world identifier."
+    },
+    "world_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "World instance version lineage. Incompatible rules require migration or a new world_version."
+    },
+    "world_seed": {
+      "type": "string",
+      "description": "Optional human-readable seed string when disclosure is permitted."
+    },
+    "world_seed_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$",
+      "description": "SHA-256 digest of the canonical world seed document."
+    },
+    "configuration_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$",
+      "description": "SHA-256 digest of the resolved non-secret deployment configuration (see deployment-config.schema.json)."
+    },
+    "current_cycle": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Authoritative current world cycle at manifest emission."
+    },
+    "ledger_head": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$",
+      "description": "Digest of the latest append-only event ledger entry."
+    },
+    "snapshot_head": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$",
+      "description": "Digest of the latest world snapshot."
+    },
+    "schema_compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agent_action_schema": { "type": "string" },
+        "observation_schema": { "type": "string" },
+        "agent_manifest_schema": { "type": "string" }
+      }
+    },
+    "emitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp when this manifest instance was emitted."
+    }
+  },
+  "required": [
+    "schema_version",
+    "product_version",
+    "spec_version",
+    "world_rules_version",
+    "agent_protocol_version",
+    "event_catalog_version",
+    "world_id",
+    "world_version",
+    "world_seed_digest",
+    "configuration_digest",
+    "current_cycle",
+    "ledger_head",
+    "snapshot_head"
+  ]
+}

@@ -1,0 +1,60 @@
+# Reference local deployment shape for Zero-State-LLC/Noema (runtime).
+# Specs repo documents the contract; runtime owns the compose file.
+# Golden path:
+#   git clone <runtime-repo>
+#   cp .env.example .env
+#   docker compose up
+#
+# Exposes at minimum:
+#   - application/UI          : http://localhost:3000
+#   - agent protocol endpoint : ws://localhost:3000/ws
+#   - spectator surface       : http://localhost:3000/watch
+#   - /health /ready /version
+
+services:
+  noema:
+    image: noema:local
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - noema-objects:/var/noema/objects
+      - noema-replays:/var/noema/replays
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: noema
+      POSTGRES_PASSWORD: noema
+      POSTGRES_DB: noema
+    ports:
+      - "5432:5432"
+    volumes:
+      - noema-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U noema -d noema"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  noema-pg:
+  noema-objects:
+  noema-replays:
+
+# NOT required for v0.1 local golden path:
+# - redis
+# - kafka
+# - kubernetes
+# - separate auth/event/observatory services
+# - external object storage
+# - model-provider credentials

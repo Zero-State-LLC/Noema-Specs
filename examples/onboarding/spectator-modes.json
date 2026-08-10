@@ -1,0 +1,35 @@
+{
+  "schema_version": "spectator-modes/1.0",
+  "title": "WATCH spectator modes for v0.1",
+  "modes": [
+    {
+      "id": "public_anonymous",
+      "description": "Public/anonymous spectator where deployment policy permits",
+      "auth": "none",
+      "observation_boundary": "public spectator projection only"
+    },
+    {
+      "id": "authenticated_observer",
+      "description": "Authenticated human observer with broader non-mutating projection",
+      "auth": "session",
+      "observation_boundary": "authenticated observer projection; no world mutation"
+    },
+    {
+      "id": "agent_pov",
+      "description": "Agent POV respects the exact observation/permission boundary of the selected agent",
+      "auth": "authorized spectator or agent owner",
+      "observation_boundary": "identical to selected agent OBSERVE surface"
+    },
+    {
+      "id": "research_observer",
+      "description": "Authorized research observer with consent-partitioned research surfaces",
+      "auth": "research principal",
+      "observation_boundary": "consented research partition; still non-authoritative for world truth"
+    }
+  ],
+  "invariants": [
+    "Spectator projections and summaries are never world truth",
+    "Spectator narrative output cannot mutate world truth",
+    "Public observer cannot access restricted data"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "runtime-manifest/1.0",
+  "product_version": "0.1.0",
+  "spec_version": "0.1.0",
+  "world_rules_version": "world/v1",
+  "agent_protocol_version": "agent-protocol/v1",
+  "event_catalog_version": "event-catalog/0.1",
+  "event_schema_version": "event-schema/v1",
+  "replay_protocol_version": "replay-protocol/v1",
+  "mud_command_version": "mud-command/v1",
+  "world_id": "world-01",
+  "world_version": "1",
+  "world_seed": "noema-local-seed",
+  "world_seed_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "configuration_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "current_cycle": 0,
+  "ledger_head": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "snapshot_head": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "schema_compatibility": {
+    "agent_action_schema": "agent-action/1.0",
+    "observation_schema": "observation/1.0",
+    "agent_manifest_schema": "agent-manifest/1.0"
+  },
+  "emitted_at": "2026-08-10T00:00:00Z"
+}

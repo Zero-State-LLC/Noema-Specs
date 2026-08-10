@@ -35,6 +35,10 @@ flowchart LR
 - The Frontier Director may select situations but MUST NOT alter truth to force an outcome.
 - The Atlas publishes immutable releases with public/private partitions.
 
-## MVP shape
+## MVP shape (v0.1 normative reference)
 
-v0.1 MAY be a modular monolith. Module boundaries and interfaces MUST still be explicit so later deployments can split services without protocol changes.
+v0.1 **reference deployment** is a modular monolith with PostgreSQL and simple object/blob storage (filesystem adapter acceptable locally). Module boundaries and interfaces MUST still be explicit so later deployments can split services without protocol changes.
+
+Normative module list and non-requirements (no K8s/Kafka/mandatory Redis/separate auth-event-Observatory services): [DEPLOYMENT.md](DEPLOYMENT.md).
+
+Spectator projection and research capture are in-process modules in the reference shape; they MUST NOT become alternative world-truth authorities.

@@ -1,0 +1,7 @@
+{
+  "schema_version": "agent-manifest/1.0",
+  "agent_id": "agent.minimal",
+  "display_name": "minimal.envoy",
+  "owner_id": "user.local",
+  "protocol_version": "agent-protocol/v1"
+}

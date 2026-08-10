@@ -1,0 +1,78 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C17-upgrade-version-pinning",
+  "suite": "noema-v0.1-chamber",
+  "title": "Runtime exposes version lineage and fails closed on incompatible rules changes",
+  "acceptance_items": [17],
+  "requirement_refs": [
+    "docs/DEPLOYMENT.md",
+    "docs/VERSIONING.md",
+    "docs/OPERATIONS.md",
+    "specs/runtime-manifest.schema.json",
+    "examples/deployment/local-runtime-manifest.json",
+    "examples/negative/invalid-runtime-manifest-missing-ledger-head.json"
+  ],
+  "preconditions": [
+    "World is pinned to an explicit runtime manifest",
+    "A synthetic incompatible world_rules_version is available for negative testing"
+  ],
+  "fixtures": [
+    "examples/deployment/local-runtime-manifest.json",
+    "examples/negative/invalid-runtime-manifest-missing-ledger-head.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "HTTP_GET",
+      "input": { "path": "/version" },
+      "notes": "Runtime exposes all required version fields"
+    },
+    {
+      "step_id": "2",
+      "actor": "operator",
+      "action": "LOAD_RUNTIME_MANIFEST",
+      "input": { "fixture": "examples/deployment/local-runtime-manifest.json" }
+    },
+    {
+      "step_id": "3",
+      "actor": "operator",
+      "action": "ATTEMPT_BOOT",
+      "input": {
+        "world_id": "world-01",
+        "world_rules_version": "world/v999-incompatible"
+      },
+      "notes": "Incompatible rules version fails closed"
+    },
+    {
+      "step_id": "4",
+      "actor": "operator",
+      "action": "ATTEMPT_SILENT_ADOPT",
+      "input": {
+        "world_id": "world-01",
+        "new_semantics": true,
+        "migration": false
+      },
+      "notes": "Existing world cannot silently adopt new semantics"
+    },
+    {
+      "step_id": "5",
+      "actor": "operator",
+      "action": "MIGRATE",
+      "input": { "explicit_migration": true },
+      "notes": "Explicit migration path is required for incompatible changes"
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "Runtime exposes product_version, spec_version, world_rules_version, agent_protocol_version, event_catalog_version, world_id, world_version, world_seed_digest, configuration_digest, current_cycle, ledger_head, snapshot_head",
+      "Incompatible rules version fails closed",
+      "Existing world cannot silently adopt new semantics",
+      "Explicit migration path or new world_version is required",
+      "Code deployment MUST NOT silently change the meaning of an existing world",
+      "Incomplete runtime manifest (missing ledger_head) is rejected by schema"
+    ]
+  },
+  "security_class": "none"
+}

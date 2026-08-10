@@ -4,7 +4,11 @@
 
 ### Added
 
-- v0.1 Chamber **conformance suite** (`conformance/v0.1/`, docs/v0.1-CONFORMANCE.md) covering acceptance items C01–C10.
+- Onboarding/deployment golden path docs: `docs/QUICKSTART.md`, `docs/OPERATIONS.md`, `docs/SPECTATOR-ONBOARDING.md`.
+- Schemas: `runtime-manifest.schema.json`, `deployment-config.schema.json`.
+- Fixtures: `examples/onboarding/`, `examples/deployment/`.
+- Conformance families **C11–C17** (human/agent/spectator onboarding, reference deployment, restart persistence, backup/restore, version pinning).
+- v0.1 Chamber **conformance suite** (`conformance/v0.1/`, docs/v0.1-CONFORMANCE.md) covering acceptance items C01–C17 (C01–C10 retained).
 - Schemas: `world-state`, `world-seed`, `world-snapshot`, `equivalence-boundary`, `agent-protocol-message`, `conformance-case`.
 - Protocol wire fixtures (`examples/protocol/`) and observation positives (`examples/observations/`).
 - Genesis snapshot example for seed load (`examples/v01-seed/genesis-snapshot.json`).
@@ -27,6 +31,11 @@
 
 ### Changed
 
+- Rewrote `docs/AGENT-ONBOARDING.md` for minimal HELLO→ACT path; advanced/research registration is secondary.
+- Rewrote `docs/DEPLOYMENT.md` with normative modular-monolith reference architecture and explicit non-requirements.
+- Reorganized `docs/ENVIRONMENT.md` and `.env.example` into Core / Advanced / Research / Providers / Optional scaling; local boot without Redis/Sentry/OTEL/external object storage/provider keys.
+- Extended `docs/v0.1-ACCEPTANCE.md`, `docs/ROADMAP.md`, `docs/TESTING.md`, `README.md` for PLAY/WATCH/CONNECT AGENT and ops surface.
+- Relaxed `agent-manifest.schema.json` required fields to minimal identity + protocol (compatible with full advanced manifests).
 - Reframed all core docs from an agent-centered research-apparatus baseline to the requested autonomous-agent research apparatus.
 - Reinforced claim-label and consciousness-score policy through ADR-003 and operational definitions.
 - Made v0.1 equivalence boundary explicit and mandatory via ADR-005.

@@ -2,7 +2,7 @@
   "schema_version": "conformance-suite/1.0",
   "suite_id": "noema-v0.1-chamber",
   "title": "NOEMA v0.1 The Chamber — Conformance Suite",
-  "specs_pin": "v0.1.0-rc1+",
+  "specs_pin": "v0.1.0-rc2+",
   "acceptance_doc": "docs/v0.1-ACCEPTANCE.md",
   "conformance_doc": "docs/v0.1-CONFORMANCE.md",
   "seed_package": "examples/v01-seed/",
@@ -16,11 +16,27 @@
     "cases/C07-delivery-retry-no-rollback.json",
     "cases/C08-tool-sandbox-deny-default.json",
     "cases/C09-consent-partition.json",
-    "cases/C10-no-private-cognition-request.json"
+    "cases/C10-no-private-cognition-request.json",
+    "cases/C11-human-onboarding.json",
+    "cases/C12-agent-onboarding.json",
+    "cases/C13-spectator-onboarding.json",
+    "cases/C14-reference-deployment.json",
+    "cases/C15-world-persistence-restart.json",
+    "cases/C16-backup-restore-equivalence.json",
+    "cases/C17-upgrade-version-pinning.json"
   ],
   "required_comparisons": [
     "identical ordered event digests",
     "identical final WorldState digest",
     "identical focal observation digests"
+  ],
+  "onboarding_deployment_families": [
+    "C11 — Human onboarding",
+    "C12 — Agent onboarding",
+    "C13 — Spectator onboarding",
+    "C14 — Reference deployment",
+    "C15 — World persistence across restart",
+    "C16 — Backup/restore equivalence",
+    "C17 — Upgrade/version pinning"
   ]
 }

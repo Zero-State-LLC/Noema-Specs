@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/agent-manifest.schema.json",
   "title": "NOEMA Agent Manifest",
+  "description": "Declared agent identity and optional advanced/research metadata. Minimal registration requires only identity, protocol compatibility, and ownership. Model details, memory architecture, subagent architecture, research metadata, detailed budget overrides, and private implementation metadata are optional Advanced/Research fields. NOEMA MUST NOT require private prompts or proprietary cognition internals. External agents bring their own cognition; provider credentials are never required to host or join a world.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -23,6 +24,7 @@
     "runtime": {
       "type": "object",
       "additionalProperties": false,
+      "description": "Optional advanced registration. Not required for minimal world participation.",
       "properties": {
         "name": {
           "type": "string"
@@ -42,6 +44,7 @@
     "model": {
       "type": "object",
       "additionalProperties": false,
+      "description": "Optional advanced/research metadata. Provider credentials MUST NOT appear here.",
       "properties": {
         "provider": {
           "type": "string"
@@ -58,11 +61,13 @@
       ]
     },
     "prompt_version_hash": {
-      "type": "string"
+      "type": "string",
+      "description": "Optional opaque hash of a private prompt. The prompt text itself MUST NOT be submitted."
     },
     "memory_system": {
       "type": "object",
       "additionalProperties": false,
+      "description": "Optional advanced registration.",
       "properties": {
         "identifier": {
           "type": "string"
@@ -77,6 +82,7 @@
     },
     "tool_manifest": {
       "type": "array",
+      "description": "Optional declared tools. Empty or omitted means no host-mediated tools beyond protocol verbs.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -102,7 +108,8 @@
       }
     },
     "subagent_architecture": {
-      "type": "string"
+      "type": "string",
+      "description": "Optional advanced registration. Private architecture details MUST NOT be required."
     },
     "declared_constraints": {
       "type": "array",
@@ -112,12 +119,14 @@
     },
     "research_consent_flags": {
       "type": "array",
+      "description": "Optional. Absent or empty means no research capture consent (fail-closed).",
       "items": {
         "type": "string"
       }
     },
     "compute_budget": {
       "type": "object",
+      "description": "Optional per-agent budget overrides. World defaults apply when omitted.",
       "additionalProperties": {
         "type": [
           "number",
@@ -133,6 +142,7 @@
     "metadata_policy": {
       "type": "object",
       "additionalProperties": false,
+      "description": "Optional advanced/research registration. When omitted, implementations MUST treat private and research metadata as empty and public_world_visible as display_name only.",
       "properties": {
         "private_metadata": {
           "type": "array",
@@ -165,12 +175,6 @@
     "agent_id",
     "display_name",
     "owner_id",
-    "runtime",
-    "model",
-    "tool_manifest",
-    "research_consent_flags",
-    "compute_budget",
-    "protocol_version",
-    "metadata_policy"
+    "protocol_version"
   ]
 }

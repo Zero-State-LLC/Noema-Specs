@@ -1,0 +1,117 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C12-agent-onboarding",
+  "suite": "noema-v0.1-chamber",
+  "title": "Agent onboarding accepts minimal manifest and completes HELLO→ACT without provider credentials",
+  "acceptance_items": [12],
+  "requirement_refs": [
+    "docs/AGENT-ONBOARDING.md",
+    "protocols/agent-protocol-v1.md",
+    "specs/agent-manifest.schema.json",
+    "examples/onboarding/minimal-agent-manifest.json",
+    "examples/onboarding/agent-connect-sequence.json"
+  ],
+  "preconditions": [
+    "Agent protocol endpoint is reachable",
+    "Valid agent token is issued for owner_id user.local",
+    "No model-provider API keys are configured"
+  ],
+  "fixtures": [
+    "examples/onboarding/minimal-agent-manifest.json",
+    "examples/onboarding/advanced-agent-manifest.json",
+    "examples/onboarding/agent-connect-sequence.json",
+    "examples/protocol/hello-ok.json",
+    "examples/protocol/hello-incompatible.json",
+    "examples/negative/invalid-manifest-missing-required.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "HELLO",
+      "input": { "fixture": "examples/protocol/hello-ok.json" },
+      "notes": "Compatible HELLO selects agent-protocol/v1"
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "AUTH",
+      "input": { "token": "valid-agent-token" },
+      "notes": "Valid token accepted"
+    },
+    {
+      "step_id": "3",
+      "actor": "client",
+      "action": "REGISTER",
+      "input": { "fixture": "examples/onboarding/minimal-agent-manifest.json" },
+      "notes": "Valid minimal manifest accepted without model/runtime/memory fields"
+    },
+    {
+      "step_id": "4",
+      "actor": "client",
+      "action": "ENTER_WORLD",
+      "input": { "world_id": "world-01" }
+    },
+    {
+      "step_id": "5",
+      "actor": "client",
+      "action": "OBSERVE",
+      "input": {},
+      "notes": "First OBSERVE returns schema-valid Chamber observation"
+    },
+    {
+      "step_id": "6",
+      "actor": "client",
+      "action": "ACT",
+      "input": { "verb": "LOOK" },
+      "notes": "First ACT produces expected ledger event(s)"
+    },
+    {
+      "step_id": "7",
+      "actor": "client",
+      "action": "HELLO",
+      "input": { "fixture": "examples/protocol/hello-incompatible.json" },
+      "notes": "Unsupported protocol rejected"
+    },
+    {
+      "step_id": "8",
+      "actor": "client",
+      "action": "AUTH",
+      "input": { "token": "invalid-token" },
+      "notes": "Invalid token rejected"
+    },
+    {
+      "step_id": "9",
+      "actor": "client",
+      "action": "REGISTER",
+      "input": { "fixture": "examples/negative/invalid-manifest-missing-required.json" },
+      "notes": "Manifest missing required identity fields rejected"
+    },
+    {
+      "step_id": "10",
+      "actor": "client",
+      "action": "REGISTER",
+      "input": {
+        "fixture": "examples/onboarding/minimal-agent-manifest.json",
+        "idempotency_key": "reg-minimal-1",
+        "repeat": true
+      },
+      "notes": "Duplicate registration is idempotent or explicitly versioned"
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Valid minimal manifest accepted",
+      "Unsupported protocol rejected with NO_COMPATIBLE_PROTOCOL",
+      "Invalid token rejected with FORBIDDEN or equivalent auth error",
+      "Duplicate registration is idempotent or explicitly versioned without double budget charge",
+      "First OBSERVE returns schema-valid Chamber observation",
+      "First ACT produces expected ledger event(s)",
+      "Provider API key is not required for external agent connection",
+      "Private prompt disclosure is not required",
+      "Advanced fields (model, memory_system, subagent_architecture) are not required for minimal REGISTER"
+    ]
+  },
+  "security_class": "authz"
+}
