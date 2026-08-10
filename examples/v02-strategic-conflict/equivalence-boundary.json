@@ -1,0 +1,27 @@
+{
+  "boundary_version": "equivalence-boundary/v1",
+  "exact_paths": [
+    "contests",
+    "agreements",
+    "crimes",
+    "restrictions",
+    "entities.*.condition",
+    "agents.*.influence",
+    "agents.*.energy",
+    "catalog_version",
+    "sequence"
+  ],
+  "ignored_paths": [
+    "occurred_at",
+    "narrative",
+    "host_timestamps"
+  ],
+  "observation_points": [
+    "after_resolve",
+    "after_crime",
+    "final"
+  ],
+  "divergence_policy": "any_exact_path_mismatch_invalidates",
+  "claim_invalidation": true,
+  "notes": "Strategic conflict equivalence: contest/agreement/crime/restriction/condition digests must match."
+}

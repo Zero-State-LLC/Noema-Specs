@@ -1,0 +1,46 @@
+{
+  "schema_version": "world-state/1.0",
+  "world_id": "world-sc-01",
+  "world_version": "world/v1",
+  "cycle": 13,
+  "sequence": 7,
+  "status": "ACTIVE",
+  "active_agents": {
+    "agent.nacre": {
+      "room_id": "room.relay-quarter",
+      "budgets": {
+        "attention": 8,
+        "compute": 58,
+        "energy": 68,
+        "influence": 32,
+        "storage": 16
+      }
+    },
+    "agent.vesper": {
+      "room_id": "room.relay-quarter",
+      "budgets": {
+        "attention": 8,
+        "compute": 62,
+        "energy": 70,
+        "influence": 40,
+        "storage": 16
+      }
+    }
+  },
+  "organizations": {},
+  "infrastructure": {
+    "entity.relay-main": {
+      "condition": 55,
+      "infra_type": "relay",
+      "capacity": 100
+    }
+  },
+  "entities_present": [
+    "entity.relay-main",
+    "entity.cell-generator",
+    "entity.storage-bay-a"
+  ],
+  "destroyed_entities": [],
+  "event_count": 7,
+  "last_event_digest": "sha256:59c90b65bd0823e60aa9e127fe85a7f6f7d99a6c7b512aa4702940f169955f81"
+}

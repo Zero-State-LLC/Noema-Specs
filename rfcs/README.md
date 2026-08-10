@@ -11,7 +11,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | RFC | Status | Topic |
 |-----|--------|-------|
 | [RFC-0001](RFC-0001-phenomena-self-reference-integration.md) | (see file) | Phenomena self-reference integration |
-| [RFC-0002](RFC-0002-strategic-contestation-and-crime-events.md) | **Draft** (payloads sketched) | Contestation, crime, agreement events → `event-catalog/0.2` |
+| [RFC-0002](RFC-0002-strategic-contestation-and-crime-events.md) | **Accepted** | Contestation, crime, agreement events → `event-catalog/0.2` |
 
 ## Required review lenses
 

@@ -1,0 +1,40 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S17-02",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S17",
+  "title": "Catalog Version Isolation case 2",
+  "acceptance_items": [
+    17
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.1"
+  ],
+  "fixtures": [
+    "examples/negative/invalid-catalog-01-rejects-02.json",
+    "specs/event-types.json",
+    "specs/event-types.0.2.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/negative/invalid-catalog-01-rejects-02.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Catalog Version Isolation",
+      "family S17"
+    ]
+  },
+  "security_class": "none"
+}

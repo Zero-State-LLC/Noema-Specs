@@ -13,7 +13,7 @@
 - [x] Realms as derived projections
 - [x] Geography hierarchy and strategic room purpose
 - [x] Emergent territory control
-- [x] Crime as consequence layer; strategic contestation scoped as next milestone
+- [x] Crime as consequence layer; strategic contestation **executable** (RFC-0002 Accepted)
 - [x] Loss/recovery, diplomacy, game cycle, world reports
 - [x] Plural progression + ambitions (no single victory score)
 - [x] Human play / agent play orientation
@@ -24,9 +24,25 @@
 - [x] Spectator LIVE/WORLD REPORT/REALM/HISTORY surfaces + high-drama events
 - [x] Starting conditions + system dependency chain
 - [x] Canonical chamber-world 10-room map seed
-- [x] Chamber start-distribution profiles + route pressure (traversal costs / edge tags)
 - [x] GAME-DESIGN spine table for completed game design
-- [x] RFC-0002 draft with full payload sketches + reducer contracts (schemas/fixtures still required before Accepted)
+
+## RFC-0002 / event-catalog/0.2 (strategic conflict)
+
+- [x] RFC-0002 **Accepted**
+- [x] `specs/event-types.0.2.json` (31 types = 24 + 7)
+- [x] Seven event payload schemas (`$defs`, additionalProperties false)
+- [x] `specs/contest-config.v02.json` + schema (integer millipoints)
+- [x] `docs/CONTEST-RESOLUTION.md` deterministic algorithm
+- [x] Defense model (passive + CONTEST_DEFEND reservation)
+- [x] `docs/STRATEGIC-EVENT-COUPLING.md`
+- [x] Action contracts v0.2 (`action-contracts.v02.json` + docs)
+- [x] Positive fixtures + multi-agent trajectory
+- [x] Negative fixtures (schema + catalog isolation)
+- [x] Conformance S01–S18
+- [x] Spectator / world-report / Observatory feature mappings
+- [x] Migration 0.1 → 0.2
+- [x] Catalog isolation: 0.1 rejects 0.2 types
+- [x] Validator strategic gate PASS
 
 ## Contract quality
 
@@ -39,10 +55,8 @@
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18 present and linked.
 
 ## Notes
 
-Product pins: Chamber 0.1.x, Frontier 0.2.x, Observatory 0.3.0-draft. Runtime implementation of O-suite outstanding.
-
-**RFC-0002 next (before Accepted):** JSON Schema for 7 payloads, positive/negative fixtures, action-contract COMMIT ops, catalog packaging (`event-catalog/0.2`). v0.1 24-type catalog remains closed.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft. Runtime implementation of O-suite and contest reducers outstanding in the engine repo.

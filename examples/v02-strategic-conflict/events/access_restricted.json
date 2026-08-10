@@ -1,0 +1,36 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.sc.006",
+  "event_type": "ACCESS_RESTRICTED",
+  "world_id": "world-sc-01",
+  "cycle": 13,
+  "sequence": 6,
+  "occurred_at": "2026-08-10T17:13:06Z",
+  "actor_id": "system.world",
+  "payload": {
+    "restriction_id": "access.1",
+    "scope": {
+      "kind": "EXIT",
+      "exit_id": "exit.rq-iv-ab"
+    },
+    "mode": "DENY",
+    "applies_to": "ALL",
+    "except_agent_ids": [
+      "agent.vesper"
+    ],
+    "except_org_ids": [],
+    "reason": "CRIME",
+    "source_event_ids": [
+      "evt.sc.004"
+    ],
+    "expires_cycle": 30,
+    "authorized_by": "WORLD"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": "sha256:b7be314373bd9b92a9405969748050ff24c98265c6f32173ee9c12dfb951c3a1",
+  "digest": "sha256:f6c11631e9b2ad5ae3ad6919c1368b0426a8394624ad6ccf7db4598bd4832111"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S09-03",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S09",
+  "title": "Crime Detection case 3",
+  "acceptance_items": [
+    9
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/negative/invalid-crime-positive-influence.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "REJECT",
+      "input": {
+        "fixture": "examples/negative/invalid-crime-positive-influence.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "Crime Detection",
+      "family S09"
+    ]
+  },
+  "security_class": "none"
+}

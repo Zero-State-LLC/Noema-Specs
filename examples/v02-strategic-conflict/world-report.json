@@ -1,0 +1,40 @@
+{
+  "schema_version": "world-report/0.2",
+  "world_id": "world-sc-01",
+  "cycle": 13,
+  "sections": [
+    {
+      "kind": "DIPLOMACY",
+      "text": "A formal access agreement was signed, then broken."
+    },
+    {
+      "kind": "CONFLICT",
+      "text": "An infrastructure contest partially succeeded in Relay Quarter."
+    },
+    {
+      "kind": "INFRASTRUCTURE",
+      "text": "Relay-main condition fell by 15."
+    },
+    {
+      "kind": "CRIME",
+      "text": "A moderate sabotage incident was detected."
+    },
+    {
+      "kind": "ACCESS",
+      "text": "Vault access is restricted through cycle 30."
+    }
+  ],
+  "source_event_ids": [
+    "evt.sc.001",
+    "evt.sc.002",
+    "evt.sc.003",
+    "evt.sc.004",
+    "evt.sc.005",
+    "evt.sc.006",
+    "evt.sc.007"
+  ],
+  "must_not_include": [
+    "private_cognition",
+    "exact_hidden_stakes_before_public"
+  ]
+}

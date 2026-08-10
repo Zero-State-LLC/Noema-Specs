@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S11-03",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S11",
+  "title": "Agreement Formation case 3",
+  "acceptance_items": [
+    11
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/negative/invalid-agreement-one-party.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "REJECT",
+      "input": {
+        "fixture": "examples/negative/invalid-agreement-one-party.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "Agreement Formation",
+      "family S11"
+    ]
+  },
+  "security_class": "none"
+}

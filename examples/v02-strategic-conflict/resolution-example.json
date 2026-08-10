@@ -1,0 +1,46 @@
+{
+  "contest_rules_version": "contest-rules/0.2.0",
+  "formula": "score = declarer_power - defender_power - infra_mod + org_mod + seed_pert  (org_mod applied as +support then note: org support is subtracted via org_mod field as negative contribution documented as defender help)",
+  "inputs": {
+    "contest_form": "INFRASTRUCTURE_DISRUPTION",
+    "declarer_stake": {
+      "energy": 12,
+      "influence": 8,
+      "compute": 4
+    },
+    "defender_stake": {
+      "energy": 10,
+      "influence": 14,
+      "compute": 4
+    },
+    "infra_condition": 70,
+    "org_defense_support_millipoints": 0,
+    "seed_stream_id": "stream.contest.1",
+    "seed_perturbation_millipoints": 17
+  },
+  "weights": {
+    "stake_weights_millipoints": {
+      "energy": 45,
+      "influence": 40,
+      "compute": 15
+    },
+    "defense_weights_millipoints": {
+      "energy": 25,
+      "influence": 45,
+      "compute": 15
+    }
+  },
+  "expected": {
+    "declarer_power": 920,
+    "defender_power": 940,
+    "infra_mod": 35,
+    "org_mod": 0,
+    "seed_pert": 17,
+    "score_millipoints": -38,
+    "outcome": "PARTIAL_SUCCESS",
+    "thresholds": {
+      "success": 120,
+      "partial": -50
+    }
+  }
+}

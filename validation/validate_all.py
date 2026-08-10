@@ -121,6 +121,11 @@ REQUIRED_DOCS = [
     "docs/GAME-SYSTEM-DEPENDENCY.md",
     "docs/STARTING-CONDITIONS.md",
     "docs/EVENT-CATALOG-AUDIT.md",
+    "docs/CONTEST-RESOLUTION.md",
+    "docs/STRATEGIC-EVENT-COUPLING.md",
+    "docs/releases/v0.2/STRATEGIC-CONFLICT-ACCEPTANCE.md",
+    "docs/releases/v0.2/STRATEGIC-CONFLICT-CONFORMANCE.md",
+    "docs/releases/v0.2/STRATEGIC-CONFLICT-MIGRATION.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -140,6 +145,10 @@ REQUIRED_SCHEMAS = [
     "specs/deployment-config.schema.json",
     "specs/equivalence-boundary.schema.json",
     "specs/event-types.json",
+    "specs/event-types.0.2.json",
+    "specs/contest-config.schema.json",
+    "specs/contest-config.v02.json",
+    "specs/action-contracts.v02.json",
     "specs/observation.schema.json",
     "specs/phenomenon-case.schema.json",
     "specs/reproducibility-bundle.schema.json",
@@ -249,6 +258,10 @@ REQUIRED_EXAMPLES = [
     "examples/chamber-world/world-seed.json",
     "examples/chamber-world/README.md",
     "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "examples/v02-strategic-conflict/trajectory.jsonl",
+    "examples/v02-strategic-conflict/world-seed.json",
+    "examples/v02-strategic-conflict/resolution-example.json",
+    "conformance/v0.2-strategic/manifest.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -530,7 +543,9 @@ def check_v01_seed(Draft202012Validator) -> None:
 
 def check_negatives(Draft202012Validator) -> None:
     event_types = load_json(ROOT / "specs" / "event-types.json")
+    event_types_02 = load_json(ROOT / "specs" / "event-types.0.2.json")
     catalog = {t["eventType"] for t in event_types["x-noema-event-types"]}
+    catalog_02 = {t["eventType"] for t in event_types_02["x-noema-event-types"]}
     world_event_schema = load_json(ROOT / "specs" / "world-event.schema.json")
     manifest_schema = load_json(ROOT / "specs" / "agent-manifest.schema.json")
     observation_schema = load_json(ROOT / "specs" / "observation.schema.json")
@@ -599,12 +614,18 @@ def check_negatives(Draft202012Validator) -> None:
                 rejected = True
             else:
                 et = data.get("event_type")
-                if et in event_types.get("$defs", {}) or f"{et}_payload" in event_types.get(
-                    "$defs", {}
+                # Catalog isolation: 0.2-only types must not be in 0.1 catalog
+                if data.get("x-noema-expect") == "reject_on_catalog_0.1" or name.startswith(
+                    "invalid-catalog-01-rejects"
                 ):
+                    rejected = et not in catalog and et in catalog_02
+                elif f"{et}_payload" in event_types.get("$defs", {}):
                     pv = Draft202012Validator(payload_schema(event_types, et))
                     rejected = bool(list(pv.iter_errors(data.get("payload") or {})))
-                elif et not in catalog:
+                elif f"{et}_payload" in event_types_02.get("$defs", {}):
+                    pv = Draft202012Validator(payload_schema(event_types_02, et))
+                    rejected = bool(list(pv.iter_errors(data.get("payload") or {})))
+                elif et not in catalog and et not in catalog_02:
                     rejected = True
 
         if not rejected:
@@ -892,6 +913,192 @@ def check_contract_quality_markers() -> None:
     ok("Contract quality markers present")
 
 
+
+def check_strategic_conflict(Draft202012Validator) -> None:
+    """Validate event-catalog/0.2, contest config, fixtures, resolution arithmetic, S-suite."""
+    et01 = load_json(ROOT / "specs" / "event-types.json")
+    et02 = load_json(ROOT / "specs" / "event-types.0.2.json")
+    cat01 = {t["eventType"] for t in et01["x-noema-event-types"]}
+    cat02 = {t["eventType"] for t in et02["x-noema-event-types"]}
+    if len(cat01) != 24:
+        fail(f"event-catalog/0.1 must have 24 types, found {len(cat01)}")
+    if len(cat02) != 31:
+        fail(f"event-catalog/0.2 must have 31 types, found {len(cat02)}")
+    if not cat01.issubset(cat02):
+        fail("event-catalog/0.2 must be a superset of 0.1 types")
+    new_types = {
+        "CONTEST_DECLARED",
+        "CONTEST_RESOLVED",
+        "CRIME_DETECTED",
+        "ACCESS_RESTRICTED",
+        "INFRASTRUCTURE_DISRUPTED",
+        "AGREEMENT_FORMED",
+        "AGREEMENT_BROKEN",
+    }
+    if cat02 - cat01 != new_types:
+        fail(f"0.2 new types mismatch: {sorted(cat02 - cat01)}")
+    if et02.get("x-noema-catalog-version") != "event-catalog/0.2":
+        fail("event-types.0.2.json missing x-noema-catalog-version event-catalog/0.2")
+
+    cfg_schema = load_json(ROOT / "specs" / "contest-config.schema.json")
+    cfg = load_json(ROOT / "specs" / "contest-config.v02.json")
+    cerrs = list(Draft202012Validator(cfg_schema).iter_errors(cfg))
+    if cerrs:
+        fail(f"contest-config.v02 invalid: {cerrs[0].message}")
+    if cfg.get("condition_delta_on_resolve") is not False:
+        fail("condition_delta_on_resolve must be false")
+    if cfg.get("arithmetic") != "integer_millipoints":
+        fail("contest arithmetic must be integer_millipoints")
+
+    # Positive trajectory against 0.2 catalog
+    envelope_v = Draft202012Validator(load_json(ROOT / "specs" / "world-event.schema.json"))
+    traj_path = ROOT / "examples" / "v02-strategic-conflict" / "trajectory.jsonl"
+    seen = set()
+    prev = None
+    for line in traj_path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        event = json.loads(line)
+        et = event["event_type"]
+        seen.add(et)
+        if et not in cat02:
+            fail(f"strategic trajectory unknown type {et}")
+        if et in cat01:
+            fail(f"strategic trajectory should use 0.2-only types for scenario events, got {et}")
+        if list(envelope_v.iter_errors(event)):
+            fail(f"strategic envelope invalid {event.get('event_id')}")
+        pv = Draft202012Validator(payload_schema(et02, et))
+        perrs = list(pv.iter_errors(event["payload"]))
+        if perrs:
+            fail(f"strategic payload invalid {et}: {perrs[0].message}")
+        if prev is not None and event.get("previous_digest") != prev:
+            fail(f"strategic digest chain break at {event.get('event_id')}")
+        prev = event.get("digest")
+    if seen != new_types:
+        fail(f"strategic trajectory must exercise all 7 new types, saw {sorted(seen)}")
+
+    # 0.1 must reject a 0.2 event type membership
+    if "CONTEST_DECLARED" in cat01:
+        fail("0.1 catalog must not include CONTEST_DECLARED")
+
+    # Resolution arithmetic fixture
+    res = load_json(ROOT / "examples" / "v02-strategic-conflict" / "resolution-example.json")
+    form = res["inputs"]["contest_form"]
+    fcfg = cfg["forms"][form]
+    dec = res["inputs"]["declarer_stake"]
+    dfn = res["inputs"]["defender_stake"]
+    sw = fcfg["stake_weights_millipoints"]
+    dw = fcfg["defense_weights_millipoints"]
+    d_pow = sum(dec[r] * sw.get(r, 0) for r in dec)
+    f_pow = sum(dfn[r] * dw.get(r, 0) for r in dfn)
+    infra = res["inputs"]["infra_condition"]
+    infra_mod = (infra // cfg["modifiers"]["infra_condition_divisor"]) * cfg["modifiers"][
+        "infra_condition_weight_millipoints"
+    ]
+    seed = res["inputs"]["seed_perturbation_millipoints"]
+    org = res["inputs"]["org_defense_support_millipoints"]
+    score = d_pow - f_pow - infra_mod - org + seed
+    if score != res["expected"]["score_millipoints"]:
+        fail(
+            f"resolution score mismatch: computed {score} expected "
+            f"{res['expected']['score_millipoints']}"
+        )
+    thr_s = fcfg["success_threshold_millipoints"]
+    thr_p = fcfg["partial_threshold_millipoints"]
+    if score >= thr_s:
+        outcome = "SUCCESS"
+    elif score >= thr_p:
+        outcome = "PARTIAL_SUCCESS"
+    else:
+        outcome = "FAILURE"
+    if outcome != res["expected"]["outcome"]:
+        fail(f"resolution outcome mismatch: {outcome} vs {res['expected']['outcome']}")
+
+    # Spectator projections
+    sp_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
+    sp_v = Draft202012Validator(sp_schema)
+    for proj in load_json(
+        ROOT / "examples" / "v02-strategic-conflict" / "spectator-projections.json"
+    ):
+        perrs = list(sp_v.iter_errors(proj))
+        if perrs:
+            fail(f"strategic spectator invalid: {perrs[0].message}")
+
+    # World seed catalog pin
+    seed = load_json(ROOT / "examples" / "v02-strategic-conflict" / "world-seed.json")
+    if seed.get("catalog_version") != "event-catalog/0.2":
+        fail("strategic world-seed must pin event-catalog/0.2")
+
+    # Final state schema
+    ws = load_json(ROOT / "specs" / "world-state.schema.json")
+    final = load_json(ROOT / "examples" / "v02-strategic-conflict" / "expected-final-state.json")
+    ferrs = list(Draft202012Validator(ws).iter_errors(final))
+    if ferrs:
+        fail(f"strategic final state invalid: {ferrs[0].message}")
+
+    # Package negatives
+    neg_dir = ROOT / "examples" / "v02-strategic-conflict" / "negative"
+    neg_files = list(neg_dir.glob("*.json"))
+    if len(neg_files) < 10:
+        fail(f"expected ≥10 strategic negatives, found {len(neg_files)}")
+    for path in neg_files:
+        data = load_json(path)
+        et = data.get("event_type")
+        rejected = False
+        if data.get("x-noema-expect") == "reject_on_catalog_0.1":
+            rejected = et not in cat01 and et in cat02
+        elif f"{et}_payload" in et02.get("$defs", {}):
+            rejected = bool(
+                list(
+                    Draft202012Validator(payload_schema(et02, et)).iter_errors(
+                        data.get("payload") or {}
+                    )
+                )
+            )
+        if not rejected:
+            fail(f"strategic negative accepted: {path.name}")
+
+    # Conformance S-suite
+    m = load_json(ROOT / "conformance" / "v0.2-strategic" / "manifest.json")
+    cases = m.get("cases") or []
+    if len(cases) < 50:
+        fail(f"strategic conformance must list ≥50 cases, found {len(cases)}")
+    case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
+    case_v = Draft202012Validator(case_schema)
+    fams: set[str] = set()
+    for rel in cases:
+        path = ROOT / "conformance" / "v0.2-strategic" / rel
+        if not path.exists():
+            fail(f"strategic conformance missing {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"strategic case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams.add(fam)
+        for fixture in case.get("fixtures") or []:
+            if not (ROOT / fixture).exists():
+                fail(f"strategic case {rel} missing fixture {fixture}")
+    expected = {f"S{i:02d}" for i in range(1, 19)}
+    missing = sorted(expected - fams)
+    if missing:
+        fail(f"strategic conformance missing families: {missing}")
+
+    # RFC Accepted
+    rfc = (ROOT / "rfcs" / "RFC-0002-strategic-contestation-and-crime-events.md").read_text(
+        encoding="utf-8"
+    )
+    if not any(line.strip().startswith("**Accepted**") for line in rfc.splitlines()[:30]):
+        fail("RFC-0002 must be Accepted after strategic package lands")
+
+    ok(
+        f"Strategic conflict 0.2: 31-type catalog, trajectory 7 events, "
+        f"{len(cases)} S-cases, resolution score={score}"
+    )
+
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -908,6 +1115,7 @@ def main() -> None:
     check_negatives(Draft202012Validator)
     check_schema_validated_fixtures(Draft202012Validator)
     check_conformance_suite(Draft202012Validator)
+    check_strategic_conflict(Draft202012Validator)
     print("\nPASS")
 
 

@@ -4,6 +4,19 @@
 
 ### Added
 
+- **RFC-0002 Accepted** — strategic conflict executable contracts (`event-catalog/0.2`).
+- `specs/event-types.0.2.json` (31 types), `contest-config.v02.json` + schema, `action-contracts.v02.json`.
+- Docs: CONTEST-RESOLUTION, STRATEGIC-EVENT-COUPLING, strategic conflict acceptance/conformance/migration.
+- Fixtures: `examples/v02-strategic-conflict/` (trajectory, resolution, spectator, report, Observatory features, negatives).
+- Conformance: `conformance/v0.2-strategic/` families **S01–S18**.
+- Validator gate for catalog isolation, resolution arithmetic, S-suite.
+
+### Changed
+
+- EVENT-CATALOG documents 0.1 vs 0.2; ACTION-CONTRACTS, SPECTATOR, DIPLOMACY, BEHAVIOR-FEATURES, VERSIONING, SPEC-CHECKLIST, README.
+
+### Added
+
 - RFC-0002 expanded to full Draft: payload sketches, reducer preconditions, coupling, observability, worked sequence for seven contestation/crime/agreement events.
 - `examples/chamber-world/start-distributions.json` — ENTER_WORLD assignment profiles.
 - Chamber seed route pressure: `traversal_cost` on edge/vault routes, edge condition tags; richer `map_design` (starts, chokepoints, scarcity).

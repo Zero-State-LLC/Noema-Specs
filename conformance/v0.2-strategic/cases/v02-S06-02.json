@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S06-02",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S06",
+  "title": "Infrastructure Disruption case 2",
+  "acceptance_items": [
+    6
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/events/infrastructure_disrupted.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/events/infrastructure_disrupted.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Infrastructure Disruption",
+      "family S06"
+    ]
+  },
+  "security_class": "none"
+}

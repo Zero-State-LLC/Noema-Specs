@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S10-01",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S10",
+  "title": "Crime Consequences case 1",
+  "acceptance_items": [
+    10
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/events/crime_detected.json",
+    "specs/contest-config.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/events/crime_detected.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Crime Consequences",
+      "family S10"
+    ]
+  },
+  "security_class": "none"
+}

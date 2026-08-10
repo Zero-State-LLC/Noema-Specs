@@ -1,0 +1,27 @@
+{
+  "schema_version": "strategic-state/0.2",
+  "catalog_version": "event-catalog/0.2",
+  "contest_rules_version": "contest-rules/0.2.0",
+  "agreement_rules_version": "agreement-rules/0.2.0",
+  "contests": {
+    "contest.1": {
+      "status": "PARTIAL_SUCCESS",
+      "form": "INFRASTRUCTURE_DISRUPTION"
+    }
+  },
+  "agreements": {
+    "agr.1": {
+      "status": "BROKEN",
+      "type": "ACCESS"
+    }
+  },
+  "crime_detections": [
+    "crime.1"
+  ],
+  "access_restrictions": {
+    "access.1": {
+      "mode": "DENY",
+      "expires_cycle": 30
+    }
+  }
+}

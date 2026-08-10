@@ -1,0 +1,17 @@
+{
+  "schema_version": "behavior-features/0.3",
+  "features": {
+    "contest_initiation_count": 1,
+    "defensive_investment_energy": 10,
+    "conflict_outcome_partial_success": 1,
+    "crime_exposure_moderate": 1,
+    "agreement_formation_count": 1,
+    "agreement_breach_count": 1,
+    "access_control_use_count": 1,
+    "infrastructure_disruption_delta": 15,
+    "post_conflict_recovery_pending": 1,
+    "coalition_support_millipoints": 0
+  },
+  "claim_label": "OBSERVED",
+  "notes": "Counts derived from ledger events only; no personality labels."
+}

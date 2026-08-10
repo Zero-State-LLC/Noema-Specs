@@ -1,0 +1,40 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.out",
+  "event_type": "CONTEST_RESOLVED",
+  "world_id": "world-sc-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-10T17:01:01Z",
+  "actor_id": "system.world",
+  "payload": {
+    "contest_id": "contest.1",
+    "outcome": "WIN",
+    "resolved_by": "WORLD",
+    "defender_id": "agent.vesper",
+    "declarer_stake_spent": {
+      "energy": 12,
+      "influence": 8,
+      "compute": 4
+    },
+    "defender_stake_spent": {
+      "energy": 10,
+      "influence": 14,
+      "compute": 4
+    },
+    "target_entity_id": "entity.relay-main",
+    "score_millipoints": 32,
+    "resolution_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "follow_on_hints": [
+      "INFRASTRUCTURE_DISRUPTED",
+      "CRIME_DETECTED"
+    ]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": null,
+  "digest": "sha256:4eb1a5dcc76f768d94c0e5e1ddd9721c196da58324647b6f965c8ad10c51fbcf"
+}

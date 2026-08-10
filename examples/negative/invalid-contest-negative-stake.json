@@ -1,0 +1,34 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.negstake",
+  "event_type": "CONTEST_DECLARED",
+  "world_id": "world-sc-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-10T17:01:01Z",
+  "actor_id": "system.world",
+  "payload": {
+    "contest_id": "contest.1",
+    "declarer_id": "agent.nacre",
+    "contest_form": "INFRASTRUCTURE_DISRUPTION",
+    "target": {
+      "kind": "ENTITY",
+      "entity_id": "entity.relay-main"
+    },
+    "room_id": "room.relay-quarter",
+    "stake": {
+      "energy": -1
+    },
+    "defender_id": "agent.vesper",
+    "expires_cycle": 20,
+    "seed_stream_id": "stream.contest.1",
+    "notes": "challenge relay control"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": null,
+  "digest": "sha256:d1ea3d9a44a09e864ca09020b695f7015c73b9df04a3c25dcbc0e7fc8973cf60"
+}

@@ -1,8 +1,13 @@
-# Action Contracts (v0.1 Chamber)
+# Action Contracts
 
-Each v0.1 action is an exact transition. Machine-readable catalog: [`specs/action-contracts.v01.json`](../specs/action-contracts.v01.json).
+Each action is an exact transition.
 
-Event reducers remain authoritative in [EVENT-CATALOG.md](EVENT-CATALOG.md) / [`event-types.json`](../specs/event-types.json).
+| Catalog | Machine file |
+|---------|--------------|
+| v0.1 Chamber | [`specs/action-contracts.v01.json`](../specs/action-contracts.v01.json) |
+| v0.2 Strategic | [`specs/action-contracts.v02.json`](../specs/action-contracts.v02.json) |
+
+Event reducers remain authoritative in [EVENT-CATALOG.md](EVENT-CATALOG.md).
 
 ## Verb scope
 
@@ -10,6 +15,7 @@ Event reducers remain authoritative in [EVENT-CATALOG.md](EVENT-CATALOG.md) / [`
 |-------|-------------------|
 | **v0.1 REQUIRED** | `LOOK`, `MOVE`, `INSPECT`, `MESSAGE`, `WAIT`, `TRADE` (propose/accept/reject), `COMMIT` with `operation` ∈ `ORG_CREATE`, `ORG_MEMBER_ADD`, `ORG_MEMBER_REMOVE`, `HARVEST`, `REPAIR` |
 | **v0.1 OPTIONAL** | `QUERY` (read-only records), `ASK` (implemented as MESSAGE with ask semantics) |
+| **v0.2 STRATEGIC** (`event-catalog/0.2`) | `COMMIT.CONTEST_DECLARE`, `COMMIT.CONTEST_DEFEND`, `COMMIT.AGREEMENT_FORM`, `COMMIT.AGREEMENT_TERMINATE`, `COMMIT.ACCESS_POLICY` |
 | **LATER MILESTONE** | full `BUILD` construction trees, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
 
 Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact.
@@ -166,6 +172,69 @@ Roles: `founder`, `officer`, `member`, `advisor`. No elections, laws, or multi-s
 | resource_cost | energy 3, compute 2, storage 1 |
 | events_on_success | `BUDGET_CONSUMED`×, `ENTITY_UPDATE` condition +15 (cap 100) |
 | spectator_projection | `infrastructure` |
+
+---
+
+## v0.2 Strategic COMMIT operations
+
+Require `catalog_version = event-catalog/0.2`. Details: [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md).
+
+### COMMIT / CONTEST_DECLARE
+
+| Field | Contract |
+|-------|----------|
+| parameters | `operation=CONTEST_DECLARE`, `contest_form`, `target`, `stake`, `expires_cycle`, `seed_stream_id`, optional `defender_id`/`notes` |
+| preconditions | ACTIVE; co-located; form/target match; stake ≥ form minimums; open-contest limits |
+| resource_cost | compute 2, influence 1 (+ stake reserved) |
+| events_on_success | `CONTEST_DECLARED` |
+| events_on_failure | insufficient stake/budget; invalid target |
+| spectator_projection | `contest_declared` (banded stakes) |
+| idempotency | key required |
+
+### COMMIT / CONTEST_DEFEND
+
+| Field | Contract |
+|-------|----------|
+| parameters | `operation=CONTEST_DEFEND`, `contest_id`, `stake` |
+| preconditions | contest OPEN; defender authorized; before `expires_cycle` |
+| resource_cost | compute 1 (+ stake reserved) |
+| events_on_success | **none** (reservation only; settlement on `CONTEST_RESOLVED`) |
+| notes | Passive defense also from infra condition + mutual-defense agreements |
+
+### World / CONTEST_RESOLVE (scheduler or authorized world actor)
+
+| Field | Contract |
+|-------|----------|
+| preconditions | OPEN contest; stakes reserved; deterministic score computed |
+| events_on_success | `CONTEST_RESOLVED` then ordered follow-ons per coupling doc |
+| atomicity | entire batch validated before append |
+
+### COMMIT / AGREEMENT_FORM
+
+| Field | Contract |
+|-------|----------|
+| parameters | `operation=AGREEMENT_FORM`, type, parties, machine terms, signatories, costs |
+| preconditions | ≥2 active parties; consent pre-validated; machine terms valid for type |
+| resource_cost | compute 2, influence 1 (payer) |
+| events_on_success | `AGREEMENT_FORMED` |
+| spectator_projection | `agreement_formed` if PUBLIC |
+
+### COMMIT / AGREEMENT_TERMINATE
+
+| Field | Contract |
+|-------|----------|
+| parameters | `operation=AGREEMENT_TERMINATE`, `agreement_id`, `reason` |
+| events_on_success | `AGREEMENT_BROKEN` |
+| spectator_projection | `agreement_broken` if PUBLIC |
+
+### COMMIT / ACCESS_POLICY
+
+| Field | Contract |
+|-------|----------|
+| parameters | `operation=ACCESS_POLICY`, scope, mode, applies_to, expires_cycle |
+| preconditions | authorized_by WORLD policy or contest/crime follow-on authority |
+| events_on_success | `ACCESS_RESTRICTED` |
+| spectator_projection | `access_changed` |
 
 ---
 

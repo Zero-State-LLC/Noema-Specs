@@ -1,10 +1,21 @@
-# Authoritative Event Catalog v0.1
+# Authoritative Event Catalog
 
 ## Status and scope
 
-This document defines the closed 24-type `event_type` catalog for NOEMA v0.1. A conforming v0.1 world ledger MUST use exactly one of the event types listed here. New types require a versioned specification change through the RFC process. An existing type MUST NOT change meaning.
+| Catalog pin | Machine schema | Types | Product |
+|-------------|----------------|-------|---------|
+| `event-catalog/0.1` | [`event-types.json`](../specs/event-types.json) | **24** closed | Chamber v0.1 acceptance |
+| `event-catalog/0.2` | [`event-types.0.2.json`](../specs/event-types.0.2.json) | **31** = 24 + 7 | Strategic conflict (RFC-0002 **Accepted**) |
 
-The machine-readable authority is [`event-types.json`](../specs/event-types.json). It composes with [`world-event.schema.json`](../specs/world-event.schema.json), narrows the otherwise generic `payload` object by `event_type`, and does not change the `world-event/1.0` envelope.
+A conforming world ledger MUST use only event types from its pinned catalog. Worlds on `0.1` MUST reject the seven 0.2 types. An existing type MUST NOT change meaning across catalog versions.
+
+Schemas compose with [`world-event.schema.json`](../specs/world-event.schema.json) and do not change the `world-event/1.0` envelope.
+
+---
+
+## Catalog 0.1 (24 types)
+
+The following section is the closed v0.1 catalog.
 
 ## Reducer contract
 
@@ -128,3 +139,37 @@ Payload: `observation_id`, `agent_id`, `source_event_ids`, `observation_digest`,
 6. A command rejected before event creation SHOULD produce the catalog's matching rejection event where one exists. Budget denial MUST produce `BUDGET_EXCEEDED`. Generic malformed or unauthorized input is an API/protocol rejection and is not a free-form world event.
 
 Replay MUST apply only accepted ledger events in sequence order. Replaying the same snapshot and event sequence MUST produce the same final state and observation digests.
+
+---
+
+## Catalog 0.2 additions (RFC-0002)
+
+Authoritative payloads: `specs/event-types.0.2.json` `$defs`. Algorithm: [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md). Coupling: [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md). Config: `specs/contest-config.v02.json`.
+
+### `CONTEST_DECLARED`
+
+Payload: `contest_id`, `declarer_id`, `contest_form` (`RESOURCE_SEIZURE` \| `INFRASTRUCTURE_DISRUPTION` \| `ACCESS_CONTEST` \| `PRESENCE_PRESSURE`), `target` (discriminated), `room_id`, `stake` (positive integer map), optional `defender_id`, `expires_cycle`, `seed_stream_id`, optional `notes`. Reducer: create OPEN contest; reserve stake. No damage/transfer.
+
+### `CONTEST_RESOLVED`
+
+Payload: `contest_id`, `outcome` (`SUCCESS` \| `PARTIAL_SUCCESS` \| `FAILURE` \| `ABORTED` \| `EXPIRED`), `resolved_by`, optional `defender_id`, `declarer_stake_spent`, optional `defender_stake_spent`, optional `target_entity_id`, optional `score_millipoints`, `resolution_digest`, optional `follow_on_hints`. Reducer: close contest once; spend/release stakes. **Does not** change infrastructure condition (use `INFRASTRUCTURE_DISRUPTED`).
+
+### `CRIME_DETECTED`
+
+Payload: `detection_id`, `subject_id`, `severity`, `category`, `room_id`, `source_event_ids`, `detection_method`, optional sensor/witness fields, `influence_delta` (≤0), `influence_applied` (≤0, clamped), optional `flags`. Reducer: immutable crime record; influence debit with floor 0. Never removes agent.
+
+### `ACCESS_RESTRICTED`
+
+Payload: `restriction_id`, `scope` (EXIT \| ROOM), `mode` (DENY \| ALLOW_ONLY \| CLEAR), `applies_to`, optional lists, `reason`, optional sources, `expires_cycle`, `authorized_by`. Reducer: upsert/clear restriction consulted by MOVE. Expiry by cycle only.
+
+### `INFRASTRUCTURE_DISRUPTED`
+
+Payload: `disruption_id`, `entity_id`, `room_id`, `condition_before`, `condition_after`, `cause`, optional `actor_id` / `contest_id` / `effect_class` / sources. Reducer: require live condition match; set condition; no destroy.
+
+### `AGREEMENT_FORMED`
+
+Payload: `agreement_id`, `agreement_type`, `party_ids` (≥2), `terms.machine` (+ optional summary), `formed_cycle`, optional `expires_cycle`, `cost_payer_id`, `cost_paid`, `signatories`. Reducer: create ACTIVE agreement; deduct formation cost.
+
+### `AGREEMENT_BROKEN`
+
+Payload: `breach_id`, `agreement_id`, `broken_by`, `reason`, optional `breach_type`, `influence_delta_by_party` (values ≤0), `release_commitments`, optional sources/visibility. Reducer: mark BROKEN; apply influence; release commitments when flagged.

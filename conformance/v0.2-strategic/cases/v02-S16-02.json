@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S16-02",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S16",
+  "title": "Replay Equivalence case 2",
+  "acceptance_items": [
+    16
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/equivalence-boundary.json",
+    "examples/v02-strategic-conflict/expected-final-state-digest.txt"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/equivalence-boundary.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Replay Equivalence",
+      "family S16"
+    ]
+  },
+  "security_class": "none"
+}

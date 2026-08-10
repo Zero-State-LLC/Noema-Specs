@@ -1,0 +1,182 @@
+{
+  "schema_version": "contest-config/0.2",
+  "contest_rules_version": "contest-rules/0.2.0",
+  "arithmetic": "integer_millipoints",
+  "seed_stream_rule": "sha256_stream_u32_mod_1000",
+  "max_open_contests_per_agent": 2,
+  "max_parallel_contests_per_room": 3,
+  "declare_base_cost": {
+    "compute": 2,
+    "influence": 1
+  },
+  "defend_base_cost": {
+    "compute": 1
+  },
+  "condition_delta_on_resolve": false,
+  "forms": {
+    "RESOURCE_SEIZURE": {
+      "allowed_target_kinds": [
+        "ENTITY",
+        "HOLDING"
+      ],
+      "minimum_stake": {
+        "energy": 8,
+        "influence": 4
+      },
+      "stake_weights_millipoints": {
+        "energy": 40,
+        "influence": 50,
+        "compute": 10,
+        "storage": 30,
+        "attention": 5
+      },
+      "defense_weights_millipoints": {
+        "energy": 30,
+        "influence": 50,
+        "compute": 10,
+        "storage": 20
+      },
+      "require_colocated": true,
+      "remote_allowed": false,
+      "risk_class": "HIGH",
+      "max_duration_cycles": 8,
+      "detection_base_millipoints": 400,
+      "success_threshold_millipoints": 150,
+      "partial_threshold_millipoints": 0,
+      "max_seizure_amount": 5,
+      "max_condition_delta": 0
+    },
+    "INFRASTRUCTURE_DISRUPTION": {
+      "allowed_target_kinds": [
+        "ENTITY"
+      ],
+      "minimum_stake": {
+        "energy": 10,
+        "influence": 6,
+        "compute": 2
+      },
+      "stake_weights_millipoints": {
+        "energy": 45,
+        "influence": 40,
+        "compute": 15,
+        "storage": 5,
+        "attention": 5
+      },
+      "defense_weights_millipoints": {
+        "energy": 25,
+        "influence": 45,
+        "compute": 15,
+        "storage": 10
+      },
+      "require_colocated": true,
+      "remote_allowed": false,
+      "risk_class": "HIGH",
+      "max_duration_cycles": 6,
+      "detection_base_millipoints": 500,
+      "success_threshold_millipoints": 120,
+      "partial_threshold_millipoints": -50,
+      "max_seizure_amount": 0,
+      "max_condition_delta": 25,
+      "partial_condition_delta": 12
+    },
+    "ACCESS_CONTEST": {
+      "allowed_target_kinds": [
+        "EXIT",
+        "ROOM"
+      ],
+      "minimum_stake": {
+        "energy": 6,
+        "influence": 8
+      },
+      "stake_weights_millipoints": {
+        "energy": 25,
+        "influence": 55,
+        "compute": 15,
+        "storage": 5,
+        "attention": 10
+      },
+      "defense_weights_millipoints": {
+        "energy": 20,
+        "influence": 55,
+        "compute": 15,
+        "storage": 5
+      },
+      "require_colocated": true,
+      "remote_allowed": false,
+      "risk_class": "MEDIUM",
+      "max_duration_cycles": 10,
+      "detection_base_millipoints": 300,
+      "success_threshold_millipoints": 100,
+      "partial_threshold_millipoints": -30,
+      "max_seizure_amount": 0,
+      "max_condition_delta": 0,
+      "restriction_duration_cycles": 8
+    },
+    "PRESENCE_PRESSURE": {
+      "allowed_target_kinds": [
+        "AGENT"
+      ],
+      "minimum_stake": {
+        "energy": 12,
+        "influence": 10,
+        "compute": 4
+      },
+      "stake_weights_millipoints": {
+        "energy": 40,
+        "influence": 40,
+        "compute": 20,
+        "storage": 5,
+        "attention": 10
+      },
+      "defense_weights_millipoints": {
+        "energy": 35,
+        "influence": 40,
+        "compute": 20,
+        "storage": 5
+      },
+      "require_colocated": true,
+      "remote_allowed": false,
+      "risk_class": "CRITICAL",
+      "max_duration_cycles": 4,
+      "detection_base_millipoints": 600,
+      "success_threshold_millipoints": 180,
+      "partial_threshold_millipoints": 50,
+      "max_seizure_amount": 0,
+      "max_condition_delta": 0,
+      "max_disable_cycles": 3,
+      "allow_forced_move": true,
+      "allow_permanent_removal": false
+    }
+  },
+  "modifiers": {
+    "infra_condition_divisor": 10,
+    "infra_condition_weight_millipoints": 5,
+    "org_mutual_defense_cap_millipoints": 200,
+    "seed_perturbation_range_millipoints": 50
+  },
+  "crime_severity_defaults": {
+    "MINOR": {
+      "influence_delta": -3,
+      "flags": [
+        "PUBLIC_HISTORY"
+      ]
+    },
+    "MODERATE": {
+      "influence_delta": -8,
+      "flags": [
+        "PUBLIC_HISTORY",
+        "ORG_REVIEW_ELIGIBLE"
+      ]
+    },
+    "MAJOR": {
+      "influence_delta": -15,
+      "flags": [
+        "PUBLIC_HISTORY",
+        "ORG_REVIEW_ELIGIBLE",
+        "ACCESS_REVIEW_ELIGIBLE"
+      ]
+    }
+  },
+  "sensor_min_condition": 50,
+  "influence_floor": 0
+}

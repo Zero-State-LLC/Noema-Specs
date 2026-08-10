@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S04-01",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S04",
+  "title": "Deterministic Resolution case 1",
+  "acceptance_items": [
+    4
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/resolution-example.json",
+    "docs/CONTEST-RESOLUTION.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/resolution-example.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Deterministic Resolution",
+      "family S04"
+    ]
+  },
+  "security_class": "none"
+}
