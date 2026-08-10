@@ -36,6 +36,7 @@ These contracts bind the modular-monolith reference deployment ([DEPLOYMENT.md](
 | `research_capture` | consented trajectories | **no** |
 | `operator_api` | ops/admin HTTP | mutations only via Action Router |
 | `frontier_director` (v0.2) | plans/audits (research) | **no** (proposes only) |
+| `observatory` (v0.3) | trajectories, features, candidates, audits | **no** |
 
 ### `frontier_director` (v0.2)
 
@@ -49,6 +50,16 @@ These contracts bind the modular-monolith reference deployment ([DEPLOYMENT.md](
 | outputs | plan, ledger, audit, replay-context; **proposals** for `SITUATION_INJECTED` |
 | determinism | fixed-point scores; seed only for ties |
 | conformance | F01–F15 |
+
+### `observatory` (v0.3)
+
+| Field | Value |
+|-------|--------|
+| purpose | Detect unusual/shifted behavior; emit research candidates |
+| owns_state | trajectories, features, baselines, candidates, analysis runs |
+| writes | research partition only |
+| forbidden | WorldState mutation; situation injection; opaque claim-bearing detectors |
+| conformance | O01–O16 |
 
 Full field definitions for v0.1 modules live in the JSON contract.
 

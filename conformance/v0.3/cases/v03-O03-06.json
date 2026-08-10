@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O03-06",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O03",
+  "title": "O03 lineage/version pin check",
+  "acceptance_items": [
+    3
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/MIGRATION.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/lineage.json",
+    "examples/v03-observatory/analysis-run.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "pin": "versions"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "versions pinned",
+      "no ledger rewrite"
+    ]
+  },
+  "security_class": "none"
+}

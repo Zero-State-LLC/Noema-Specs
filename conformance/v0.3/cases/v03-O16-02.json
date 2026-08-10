@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O16-02",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O16",
+  "title": "NOT_COMPUTABLE attribution example",
+  "acceptance_items": [
+    16
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/agent-version-comparison.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "examples/v03-observatory/agent-version-comparison.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "NOT_COMPUTABLE"
+    ]
+  },
+  "security_class": "none"
+}

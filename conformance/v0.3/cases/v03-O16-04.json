@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O16-04",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O16",
+  "title": "analysis_status allows NOT_COMPUTABLE",
+  "acceptance_items": [
+    16
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/analysis-run.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "CHECK",
+      "input": {
+        "fixture": "examples/v03-observatory/analysis-run.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "enum"
+    ]
+  },
+  "security_class": "none"
+}

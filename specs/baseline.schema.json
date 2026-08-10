@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/baseline.schema.json",
+  "title": "Baseline",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "baseline/0.3"
+    },
+    "baseline_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "baseline_type": {
+      "enum": [
+        "self_history",
+        "agent_version",
+        "peer",
+        "scenario",
+        "control",
+        "world_regime"
+      ]
+    },
+    "population_window": {
+      "type": "object"
+    },
+    "inclusion_rules": {
+      "type": "array"
+    },
+    "exclusion_rules": {
+      "type": "array"
+    },
+    "context_constraints": {
+      "type": "object"
+    },
+    "minimum_evidence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "feature_version": {
+      "type": "string"
+    },
+    "construction_algorithm": {
+      "type": "string"
+    },
+    "feature_summary": {
+      "type": "object"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "baseline_id",
+    "baseline_type",
+    "population_window",
+    "minimum_evidence",
+    "feature_version",
+    "construction_algorithm",
+    "feature_summary",
+    "digest"
+  ]
+}

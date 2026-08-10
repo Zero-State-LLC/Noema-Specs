@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O05-05",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O05",
+  "title": "opaque ML not claim-bearing",
+  "acceptance_items": [
+    5
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/anomaly-detector-catalog.v03.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "specs/anomaly-detector-catalog.v03.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "deterministic_only"
+    ]
+  },
+  "security_class": "none"
+}

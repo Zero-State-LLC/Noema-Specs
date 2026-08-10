@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O16-05",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O16",
+  "title": "candidate exit INSUFFICIENT_EVIDENCE allowed",
+  "acceptance_items": [
+    16
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "docs/OBSERVATORY-AUDIT.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "docs/OBSERVATORY-AUDIT.md"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "lifecycle"
+    ]
+  },
+  "security_class": "none"
+}

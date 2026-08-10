@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O01-03",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O01",
+  "title": "missing digest rejected",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/negative/invalid-trajectory-missing-digest.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/negative/invalid-trajectory-missing-digest.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "schema reject"
+    ]
+  },
+  "security_class": "none"
+}

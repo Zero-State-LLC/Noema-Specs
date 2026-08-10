@@ -20,7 +20,11 @@ Prerequisite: v0.1 C01–C26 green. Frontier changes **conditions** only; does n
 
 ## v0.3 — The Observatory
 
-Trajectory analysis, anomaly detection, behavior shift detection, capability candidates, and agent-version comparisons.
+Trajectory representation, behavior features, baselines, anomaly/shift candidates, capability/unknown candidates, agent-version comparison, external cognition & coordination signals, Observatory audit + analysis-run identity, spectator research redaction.
+
+**Executable package:** [docs/releases/v0.3/](releases/v0.3/) · [OBSERVATORY.md](OBSERVATORY.md) · [examples/v03-observatory/](../examples/v03-observatory/) · [conformance/v0.3/](../conformance/v0.3/) (O01–O16).
+
+Prerequisite: v0.1 C01–C26 and v0.2 F01–F15 green. Observatory does not mutate world truth or force capability claims.
 
 ## v0.4 — The Lab
 

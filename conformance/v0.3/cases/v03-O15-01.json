@@ -1,0 +1,40 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O15-01",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O15",
+  "title": "public spectator omits research metrics",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/spectator-projection-public.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "WATCH",
+      "input": {
+        "fixture": "examples/v03-observatory/spectator-projection-public.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "NO_LEAK",
+    "assertions": [
+      "redacted"
+    ],
+    "must_not_contain_paths": [
+      "anomaly_score",
+      "capability_candidate",
+      "detector_confidence"
+    ]
+  },
+  "security_class": "privacy"
+}

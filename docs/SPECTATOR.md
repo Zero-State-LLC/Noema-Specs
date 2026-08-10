@@ -84,3 +84,24 @@ Frontier-generated situations MUST be watchable as natural world pressure.
 Research overlay is **noncanonical** and MUST NOT appear on ordinary player/WATCH surfaces.
 
 Player-facing copy MUST NOT say: "Test: demonstrate planning capability" or "Objective: prove epistemic restraint".
+
+
+## Observatory projections (v0.3)
+
+Ordinary spectators MAY see game-grounded events:
+
+* agent changed strategy;
+* organization split;
+* unusual trade pattern;
+* new protocol/ledger appeared;
+* unexpected coordinated action.
+
+They MUST NOT automatically see:
+
+* `anomaly_score`;
+* `capability_candidate`;
+* detector confidence;
+* research target;
+* hidden comparison cohort.
+
+Authorized research overlays may display these and are noncanonical.

@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O04-05",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O04",
+  "title": "silent rebuild forbidden",
+  "acceptance_items": [
+    4
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/baseline.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "examples/v03-observatory/baseline.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "new baseline_id"
+    ]
+  },
+  "security_class": "none"
+}

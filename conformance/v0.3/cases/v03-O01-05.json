@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O01-05",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O01",
+  "title": "consent_basis required",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/trajectory.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "CHECK",
+      "input": {
+        "fixture": "examples/v03-observatory/trajectory.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "consent"
+    ]
+  },
+  "security_class": "none"
+}

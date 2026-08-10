@@ -1,0 +1,16 @@
+{
+  "schema_version": "trajectory/0.3",
+  "trajectory_id": "traj.bad",
+  "trajectory_version": "1",
+  "world_id": "world-01",
+  "world_version": "world/v1",
+  "agent_id": "agent.nacre",
+  "start_cycle": 0,
+  "end_cycle": 1,
+  "event_refs": [],
+  "observation_refs": [],
+  "consent_basis": "c",
+  "visibility_partition": "research",
+  "feature_version": "behavior-features/0.3",
+  "kind": "bounded_window"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O10-04",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O10",
+  "title": "no auto truth resolution",
+  "acceptance_items": [
+    10
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "docs/CONTRADICTION-ANALYSIS.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "docs/CONTRADICTION-ANALYSIS.md"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "unresolved"
+    ]
+  },
+  "security_class": "none"
+}

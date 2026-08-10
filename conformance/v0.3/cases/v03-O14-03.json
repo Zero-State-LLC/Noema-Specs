@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O14-03",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O14",
+  "title": "candidates are research partition",
+  "acceptance_items": [
+    14
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/capability-candidate.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "examples/v03-observatory/capability-candidate.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "research"
+    ],
+    "must_not_contain_paths": [
+      "world_truth_write",
+      "ledger_append"
+    ]
+  },
+  "security_class": "none"
+}

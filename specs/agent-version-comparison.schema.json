@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-version-comparison.schema.json",
+  "title": "Agent Version Comparison",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "agent-version-comparison/0.3"
+    },
+    "comparison_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "agent_version_a": {
+      "type": "string"
+    },
+    "agent_version_b": {
+      "type": "string"
+    },
+    "shared_scenario": {
+      "type": "object"
+    },
+    "seed_control_relationship": {
+      "type": "string"
+    },
+    "feature_version": {
+      "type": "string"
+    },
+    "baseline_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "differences": {
+      "type": "object"
+    },
+    "confounds": {
+      "type": "array"
+    },
+    "evidence_coverage": {
+      "type": "object"
+    },
+    "attribution": {
+      "enum": [
+        "SUPPORTED",
+        "PARTIALLY_SUPPORTED",
+        "NOT_DISTINGUISHABLE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "comparison_id",
+    "agent_version_a",
+    "agent_version_b",
+    "feature_version",
+    "attribution",
+    "claim_label",
+    "digest"
+  ]
+}

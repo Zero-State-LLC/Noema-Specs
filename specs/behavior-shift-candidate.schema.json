@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/behavior-shift-candidate.schema.json",
+  "title": "Behavior Shift Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "behavior-shift-candidate/0.3"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "DETECTED",
+        "TRIAGED",
+        "RETAINED",
+        "READY_FOR_LAB",
+        "REJECTED",
+        "INSUFFICIENT_EVIDENCE",
+        "DUPLICATE",
+        "CONFOUNDED",
+        "NOT_COMPUTABLE",
+        "REVIEWED",
+        "ESCALATED"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "supporting_evidence": {
+      "type": "array"
+    },
+    "counterevidence": {
+      "type": "array"
+    },
+    "confounds": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "shift_type": {
+      "type": "string"
+    },
+    "pre_window": {
+      "type": "object"
+    },
+    "post_window": {
+      "type": "object"
+    },
+    "magnitude_millipoints": {
+      "type": "integer"
+    },
+    "persistence_cycles": {
+      "type": "integer"
+    },
+    "context_comparability": {
+      "enum": [
+        "COMPARABLE",
+        "CONDITIONALLY_COMPARABLE",
+        "NOT_COMPARABLE"
+      ]
+    },
+    "trajectory_refs": {
+      "type": "array"
+    },
+    "form": {
+      "enum": [
+        "temporary_response",
+        "regime_shift",
+        "progressive_drift",
+        "oscillation"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "shift_type",
+    "pre_window",
+    "post_window",
+    "magnitude_millipoints",
+    "persistence_cycles",
+    "context_comparability",
+    "status",
+    "claim_label",
+    "digest"
+  ]
+}

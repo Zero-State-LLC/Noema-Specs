@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O02-01",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O02",
+  "title": "feature catalog loads 15 families",
+  "acceptance_items": [
+    2
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/behavior-feature-catalog.v03.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "LOAD",
+      "input": {
+        "fixture": "specs/behavior-feature-catalog.v03.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "catalog"
+    ]
+  },
+  "security_class": "none"
+}
