@@ -103,6 +103,22 @@ REQUIRED_DOCS = [
     "docs/GEOGRAPHY.md",
     "docs/TERRITORY-CONTROL.md",
     "docs/STRATEGIC-CONFLICT.md",
+    "docs/LOSS-RECOVERY.md",
+    "docs/DIPLOMACY.md",
+    "docs/GAME-CYCLE.md",
+    "docs/WORLD-REPORTS.md",
+    "docs/PROGRESSION.md",
+    "docs/AMBITIONS.md",
+    "docs/HUMAN-PLAY.md",
+    "docs/AGENT-PLAY.md",
+    "docs/GAME-BALANCE.md",
+    "docs/EXPLORATION.md",
+    "docs/STRATEGIC-KNOWLEDGE.md",
+    "docs/INFRASTRUCTURE.md",
+    "docs/FIRST-20-CYCLES.md",
+    "docs/CHAMBER-MAP.md",
+    "docs/GAME-SYSTEM-MAP.md",
+    "docs/EVENT-CATALOG-AUDIT.md",
 ]
 
 REQUIRED_PROTOCOLS = [

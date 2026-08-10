@@ -121,10 +121,20 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 | Topic | Doc |
 |-------|-----|
 | Core game loop | [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) |
+| System dependency map | [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) |
 | Realms (derived) | [REALMS.md](REALMS.md) |
-| Geography | [GEOGRAPHY.md](GEOGRAPHY.md) |
+| Geography / Chamber map | [GEOGRAPHY.md](GEOGRAPHY.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) |
 | Territory / control | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) |
 | Crime / strategic conflict | [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) |
+| Loss / recovery | [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
+| Diplomacy | [DIPLOMACY.md](DIPLOMACY.md) |
+| Cycle / reports | [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) |
+| Progression / ambitions | [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) |
+| Human / agent play | [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) |
+| Balance / exploration / knowledge | [GAME-BALANCE.md](GAME-BALANCE.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
+| Infrastructure progression | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |
+| First 20 cycles | [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) |
+| Event catalog audit (game) | [EVENT-CATALOG-AUDIT.md](EVENT-CATALOG-AUDIT.md) |
 | Actions | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) |
 | Resources | [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) |
 | Scheduler | [SCHEDULER.md](SCHEDULER.md) |
