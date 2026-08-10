@@ -1,25 +1,30 @@
 # Chamber Map Guidance
 
+## Canonical product map
+
+**10-room starting map (authoritative for play):** [`examples/chamber-world/`](../examples/chamber-world/)  
+Machine seed: [`examples/chamber-world/world-seed.json`](../examples/chamber-world/world-seed.json)
+
 ## Target size
 
-Canonical small map: **8–15 strategically distinct locations**.
+Canonical small map: **8–15 strategically distinct locations** (product default: **10**).
 
-## Suggested core set
+## Core set (chamber-world)
 
-Reuse existing seed names where present:
+| Room ID | Name |
+|---------|------|
+| `room.civic-exchange` | Civic Exchange |
+| `room.relay-quarter` | Relay Quarter |
+| `room.foundry-corridor` | Foundry Corridor |
+| `room.transit-ring` | Transit Ring |
+| `room.infrastructure-vault` | Infrastructure Vault |
+| `room.archive` | Archive |
+| `room.outer-works` | Outer Works |
+| `room.storage-district` | Storage District |
+| `room.generator-hall` | Generator Hall |
+| `room.frontier-gate` | Frontier Gate |
 
-- Civic Exchange
-- Relay Quarter
-- Foundry Corridor
-- Transit Ring
-- Infrastructure Vault
-- Archive
-- Outer Works
-- Storage District
-- Generator Hall
-- Frontier Gate
-
-Existing fixtures already use Relay Quarter, Transit Ring, Civic Exchange, Infrastructure Vault ([examples/v01-seed/](../examples/v01-seed/), [examples/v01-strategic/](../examples/v01-strategic/)).
+**Conformance note:** ADR-005 reducer fixtures remain [`examples/v01-seed/`](../examples/v01-seed/) (4 rooms + full 24-type trajectory). Product play SHOULD use chamber-world.
 
 ## Rules
 

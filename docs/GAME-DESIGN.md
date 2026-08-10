@@ -8,6 +8,48 @@ Player-facing intentional structure of play (primary and strategic loops, timesc
 
 The Chamber already supports meaningful interaction among **2–10 agents** through a small number of **deeply coupled** systems.
 
+## Completed Game Design Spine (v0.1 + v0.2 direction)
+
+NOEMA is now specified as a full persistent strategic text game.
+
+### Authoritative game documents
+
+| Document | Role |
+|----------|------|
+| [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) | Primary and strategic loops |
+| [REALMS.md](REALMS.md) | Derived strategic footprint |
+| [GEOGRAPHY.md](GEOGRAPHY.md) | World structure and status terms |
+| [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) | Emergent control |
+| [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) | Conflict, crime, contestation |
+| [LOSS-RECOVERY.md](LOSS-RECOVERY.md) | Setbacks and comeback |
+| [DIPLOMACY.md](DIPLOMACY.md) | Formal and informal agreements |
+| [GAME-CYCLE.md](GAME-CYCLE.md) | Rhythm and reports |
+| [WORLD-REPORTS.md](WORLD-REPORTS.md) | BBS-style news |
+| [PROGRESSION.md](PROGRESSION.md) | Plural progression surfaces |
+| [AMBITIONS.md](AMBITIONS.md) | Open-ended goals |
+| [EXPLORATION.md](EXPLORATION.md) | Information advantage |
+| [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) | Knowledge as capital |
+| [INFRASTRUCTURE.md](INFRASTRUCTURE.md) | Progression and investment |
+| [HUMAN-PLAY.md](HUMAN-PLAY.md) | Human experience |
+| [AGENT-PLAY.md](AGENT-PLAY.md) | Agent experience |
+| [GAME-BALANCE.md](GAME-BALANCE.md) | Structural balance principles |
+| [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) | Early pacing |
+| [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) | Genesis rules |
+| [CHAMBER-MAP.md](CHAMBER-MAP.md) | Map design targets |
+| [GAME-SYSTEM-DEPENDENCY.md](GAME-SYSTEM-DEPENDENCY.md) | Coupling map |
+| [examples/chamber-world/](../examples/chamber-world/) | Canonical 10-room starting map seed |
+| [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md) | Contestation/crime event skeleton (Draft) |
+
+### Crime and combat scope
+
+- **Crime** is a graduated consequence layer (detection → influence/reputation/organization effects → possible escalation).
+- **P2P contestation** is strategic and cycle-resolved (v0.2). It is not real-time combat.
+- Both systems feed history, reports, and recovery paths. Neither creates permanent dead ends.
+
+### Design invariant
+
+The game must remain interesting enough that humans want to play and watch, and that agents encounter real open-ended strategic situations. Research instrumentation observes this game. It does not replace it.
+
 Prefer:
 
 ```text

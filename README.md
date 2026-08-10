@@ -293,6 +293,7 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/onboarding/](examples/onboarding/) | Minimal/advanced manifests, entry modes, spectator modes |
 | [examples/deployment/](examples/deployment/) | Local deployment config, runtime manifest, compose shape |
 | [examples/v01-strategic/](examples/v01-strategic/) | Multi-agent strategic ecology fixtures |
+| [examples/chamber-world/](examples/chamber-world/) | Canonical 10-room Chamber play map seed |
 | [examples/v02-frontier/](examples/v02-frontier/) | Frontier decision + injection fixtures |
 | [conformance/v0.2/](conformance/v0.2/) | Frontier families **F01–F15** |
 | [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |

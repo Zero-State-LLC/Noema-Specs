@@ -23,6 +23,9 @@
 - [x] Expanded exploration, strategic knowledge, infrastructure progression
 - [x] Spectator LIVE/WORLD REPORT/REALM/HISTORY surfaces + high-drama events
 - [x] Starting conditions + system dependency chain
+- [x] Canonical chamber-world 10-room map seed
+- [x] GAME-DESIGN spine table for completed game design
+- [x] RFC-0002 draft skeleton for contestation/crime/agreement events
 
 ## Contract quality
 

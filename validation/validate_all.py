@@ -246,6 +246,9 @@ REQUIRED_EXAMPLES = [
     "conformance/v0.3/manifest.json",
     "examples/negative/invalid-trajectory-missing-digest.json",
     "examples/negative/invalid-anomaly-mutates-world.json",
+    "examples/chamber-world/world-seed.json",
+    "examples/chamber-world/README.md",
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -716,6 +719,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         (
             "specs/spectator-projection.schema.json",
             "examples/v03-observatory/spectator-projection-public.json",
+        ),
+        (
+            "specs/world-seed.schema.json",
+            "examples/chamber-world/world-seed.json",
         ),
     ]
 
