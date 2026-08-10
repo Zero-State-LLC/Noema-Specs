@@ -226,6 +226,9 @@ Noema-Specs/
 | Action contracts | [docs/ACTION-CONTRACTS.md](docs/ACTION-CONTRACTS.md) |
 | Scheduler | [docs/SCHEDULER.md](docs/SCHEDULER.md) |
 | Spectator projections | [docs/SPECTATOR.md](docs/SPECTATOR.md) |
+| Core game loop | [docs/CORE-GAME-LOOP.md](docs/CORE-GAME-LOOP.md) |
+| Realms / geography / territory | [REALMS](docs/REALMS.md) · [GEOGRAPHY](docs/GEOGRAPHY.md) · [TERRITORY-CONTROL](docs/TERRITORY-CONTROL.md) |
+| Crime / strategic conflict | [docs/STRATEGIC-CONFLICT.md](docs/STRATEGIC-CONFLICT.md) |
 | Frontier (v0.2) | [docs/releases/v0.2/](docs/releases/v0.2/) · [FRONTIER-DIRECTOR](docs/FRONTIER-DIRECTOR.md) · [SITUATION-GENOME](docs/SITUATION-GENOME.md) |
 | Observatory (v0.3) | [docs/releases/v0.3/](docs/releases/v0.3/) · [OBSERVATORY](docs/OBSERVATORY.md) · [TRAJECTORY](docs/TRAJECTORY.md) |
 

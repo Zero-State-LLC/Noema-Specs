@@ -7,6 +7,14 @@
 - [x] v0.2 Frontier: F01–F15, release package, genome/novelty/mutation contracts.
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
 
+## Core game design (player-facing)
+
+- [x] Core game loop (primary + strategic overlay + timescales)
+- [x] Realms as derived projections
+- [x] Geography hierarchy and strategic room purpose
+- [x] Emergent territory control
+- [x] Crime as consequence layer; strategic contestation scoped as next milestone
+
 ## Contract quality
 
 - [x] World truth isolation for Observatory.
