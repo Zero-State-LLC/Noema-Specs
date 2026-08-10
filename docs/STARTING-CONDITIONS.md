@@ -9,12 +9,13 @@
 
 ## Default genesis elements
 
-- Small set of starting rooms with clear strategic roles ([CHAMBER-MAP.md](CHAMBER-MAP.md))
-- Shared or nearby resource nodes with limited initial stock
-- One or more neutral infrastructure pieces (relay, generator, storage) in imperfect condition
+- Canonical 10-room map: [`examples/chamber-world/world-seed.json`](../examples/chamber-world/world-seed.json) ([CHAMBER-MAP.md](CHAMBER-MAP.md))
+- Shared or nearby resource nodes with limited initial stock (Foundry Corridor, Outer Works)
+- Neutral imperfect infrastructure: relay ~70, generator ~60, storage_bay, production_node
 - Starting budgets as defined in [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)
 - No pre-formed organizations (agents create them)
 - Minimal initial knowledge (local room + limited exits)
+- Default entry: `room.civic-exchange`
 - Deterministic World Event Director schedule that begins mild pressure after a few cycles
 
 ## Asymmetric starts

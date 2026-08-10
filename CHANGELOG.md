@@ -4,6 +4,16 @@
 
 ### Added
 
+- `examples/chamber-world/` — canonical 10-room Chamber starting map + `world-seed.json`.
+- `rfcs/RFC-0002-strategic-contestation-and-crime-events.md` (Draft skeleton).
+- GAME-DESIGN completed spine table linking all player-facing game docs.
+
+### Changed
+
+- CHAMBER-MAP / STARTING-CONDITIONS point at chamber-world product map (v01-seed remains ADR-005 fixture).
+
+### Added
+
 - `docs/STARTING-CONDITIONS.md`, `docs/GAME-SYSTEM-DEPENDENCY.md`.
 - Expanded EXPLORATION, STRATEGIC-KNOWLEDGE, INFRASTRUCTURE, SPECTATOR (primary surfaces + high-drama events).
 - EVENT-CATALOG-AUDIT: `AGREEMENT_FORMED` / `AGREEMENT_BROKEN` as v0.2 RFC candidates.
