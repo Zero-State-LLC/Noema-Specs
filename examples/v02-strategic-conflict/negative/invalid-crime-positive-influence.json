@@ -1,0 +1,37 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.inf",
+  "event_type": "CRIME_DETECTED",
+  "world_id": "world-sc-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-10T17:01:01Z",
+  "actor_id": "system.world",
+  "payload": {
+    "detection_id": "crime.1",
+    "subject_id": "agent.nacre",
+    "severity": "MODERATE",
+    "category": "SABOTAGE",
+    "room_id": "room.relay-quarter",
+    "source_event_ids": [
+      "evt.sc.002",
+      "evt.sc.003"
+    ],
+    "detection_method": "INFRASTRUCTURE_SENSOR",
+    "sensor_entity_id": "entity.relay-main",
+    "witness_ids": [],
+    "influence_delta": 5,
+    "influence_applied": 5,
+    "flags": [
+      "PUBLIC_HISTORY",
+      "ORG_REVIEW_ELIGIBLE"
+    ]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": null,
+  "digest": "sha256:03739fb8472f2392a9c6bd8f96b57e1f5d30aa408d040feb0e08867239000fc3"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.sc.004",
+  "event_type": "INFRASTRUCTURE_DISRUPTED",
+  "world_id": "world-sc-01",
+  "cycle": 12,
+  "sequence": 4,
+  "occurred_at": "2026-08-10T17:12:04Z",
+  "actor_id": "system.world",
+  "payload": {
+    "disruption_id": "disrupt.1",
+    "entity_id": "entity.relay-main",
+    "room_id": "room.relay-quarter",
+    "condition_before": 70,
+    "condition_after": 55,
+    "cause": "CONTEST",
+    "actor_id": "agent.nacre",
+    "contest_id": "contest.1",
+    "effect_class": "CONDITION_DROP",
+    "source_event_ids": [
+      "evt.sc.002"
+    ]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": "sha256:332e3666963605994d2fa362ef1483729192e73edfb5bb4860c9bf159828c241",
+  "digest": "sha256:27cd88dd4570db623472e7cdd214013a67739d88036bb23e79e5f07725c0b90d"
+}

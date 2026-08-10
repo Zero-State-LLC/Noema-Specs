@@ -1,0 +1,19 @@
+{
+  "restriction_id": "access.1",
+  "scope": {
+    "kind": "EXIT",
+    "exit_id": "exit.rq-iv-ab"
+  },
+  "mode": "DENY",
+  "applies_to": "ALL",
+  "except_agent_ids": [
+    "agent.vesper"
+  ],
+  "except_org_ids": [],
+  "reason": "CRIME",
+  "source_event_ids": [
+    "evt.sc.004"
+  ],
+  "expires_cycle": 30,
+  "authorized_by": "WORLD"
+}

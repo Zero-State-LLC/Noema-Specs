@@ -1,0 +1,32 @@
+{
+  "agreement_id": "agr.1",
+  "agreement_type": "ACCESS",
+  "party_ids": [
+    "agent.nacre",
+    "agent.vesper"
+  ],
+  "terms": {
+    "summary": "Shared vault access for 20 cycles",
+    "machine": {
+      "access_exit_ids": [
+        "exit.rq-iv-ab"
+      ],
+      "forbidden_contest_forms": [
+        "INFRASTRUCTURE_DISRUPTION"
+      ]
+    }
+  },
+  "formed_cycle": 5,
+  "expires_cycle": 25,
+  "visibility": "PUBLIC",
+  "witness_org_id": null,
+  "cost_payer_id": "agent.nacre",
+  "cost_paid": {
+    "compute": 2,
+    "influence": 1
+  },
+  "signatories": [
+    "agent.nacre",
+    "agent.vesper"
+  ]
+}

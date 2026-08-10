@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S12-01",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S12",
+  "title": "Agreement Breach case 1",
+  "acceptance_items": [
+    12
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/events/agreement_broken.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/events/agreement_broken.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Agreement Breach",
+      "family S12"
+    ]
+  },
+  "security_class": "none"
+}

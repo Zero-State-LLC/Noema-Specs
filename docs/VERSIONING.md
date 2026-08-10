@@ -9,7 +9,9 @@
 - Agent protocol: `agent-protocol/v1`
 - MUD command protocol: `mud-command/v1`
 - Event schema: `event-schema/v1`
-- Event catalog: `event-catalog/0.1`
+- Event catalog: `event-catalog/0.1` (24 types), `event-catalog/0.2` (31 types; RFC-0002)
+- Contest rules: `contest-rules/0.2.0`
+- Agreement rules: `agreement-rules/0.2.0`
 - Replay protocol: `replay-protocol/v1`
 - Situation genome: `situation-genome/0.2` (legacy samples may use `1.0`)
 - Frontier director: `frontier-director/0.2`

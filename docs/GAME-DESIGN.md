@@ -38,7 +38,9 @@ NOEMA is now specified as a full persistent strategic text game.
 | [CHAMBER-MAP.md](CHAMBER-MAP.md) | Map design targets |
 | [GAME-SYSTEM-DEPENDENCY.md](GAME-SYSTEM-DEPENDENCY.md) | Coupling map |
 | [examples/chamber-world/](../examples/chamber-world/) | Canonical 10-room starting map seed |
-| [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md) | Contestation/crime events — Draft with payload sketches |
+| [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md) | Contestation/crime events — **Accepted** (`event-catalog/0.2`) |
+| [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md) | Deterministic integer contest algorithm |
+| [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md) | Valid/forbidden event sequences |
 
 ### Crime and combat scope
 

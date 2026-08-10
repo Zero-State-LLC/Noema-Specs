@@ -106,6 +106,29 @@ Each projection instance:
 **C25** — Spectator Projection Integrity.
 
 
+## Strategic conflict projections (event-catalog/0.2)
+
+| projection_id | Public content | Redact |
+|---------------|----------------|--------|
+| `contest_declared` | room, form, declarer, stake **band** | exact stake map |
+| `contest_resolved` | outcome band, room | raw score_millipoints optional |
+| `infrastructure_disrupted` | entity, condition band/after | private diag |
+| `crime_detected` | severity, category, subject if PUBLIC_HISTORY | private investigation notes |
+| `access_changed` | scope, mode, expires_cycle | except-list internals optional |
+| `agreement_formed` | type, parties if PUBLIC | machine term details optional |
+| `agreement_broken` | agreement, breaker, breach_type if PUBLIC | influence map optional |
+
+Example narrative (derived, not canonical):
+
+```text
+CONTEST — RELAY QUARTER
+Nacre challenged control of the main relay.
+Vesper committed defensive resources.
+The contest partially succeeded; the relay is degraded.
+```
+
+Fixtures: [`examples/v02-strategic-conflict/spectator-projections.json`](../examples/v02-strategic-conflict/spectator-projections.json).
+
 ## Frontier projections (v0.2)
 
 Frontier-generated situations MUST be watchable as natural world pressure.

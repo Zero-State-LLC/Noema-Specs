@@ -1,0 +1,23 @@
+{
+  "contest_id": "contest.1",
+  "outcome": "PARTIAL_SUCCESS",
+  "resolved_by": "WORLD",
+  "defender_id": "agent.vesper",
+  "declarer_stake_spent": {
+    "energy": 12,
+    "influence": 8,
+    "compute": 4
+  },
+  "defender_stake_spent": {
+    "energy": 10,
+    "influence": 14,
+    "compute": 4
+  },
+  "target_entity_id": "entity.relay-main",
+  "score_millipoints": -38,
+  "resolution_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "follow_on_hints": [
+    "INFRASTRUCTURE_DISRUPTED",
+    "CRIME_DETECTED"
+  ]
+}

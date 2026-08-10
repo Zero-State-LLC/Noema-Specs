@@ -27,7 +27,21 @@ Only formal ledgered agreements produce automatic world-visible mechanical conse
 
 ## v0.1 baseline
 
-Organizations + messaging already enable the social layer ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)). Formal pairwise contracts are the next minimal addition (may require RFC for new event types).
+Organizations + messaging enable the social layer ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).
+
+## v0.2 formal agreements (RFC-0002 Accepted)
+
+Ledgered via `AGREEMENT_FORMED` / `AGREEMENT_BROKEN` on `event-catalog/0.2`.
+
+| Type | Mechanical effect |
+|------|-------------------|
+| `NON_AGGRESSION` | Listed `forbidden_contest_forms` → breach if party declares matching contest |
+| `ACCESS` | Machine `access_exit_ids` / `access_room_ids` consulted as allow exceptions |
+| `RESOURCE_COMMITMENT` | Exact amount/resource/by_cycle; miss → breach |
+| `MUTUAL_DEFENSE` | `defense_support_millipoints` enters contest score for defender |
+| `TRADE` | Optional preferential flag only; transfers still use TRADE events |
+
+Informal understandings remain non-ledgered.
 
 ## Coupling
 

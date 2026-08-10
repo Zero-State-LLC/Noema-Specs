@@ -23,7 +23,14 @@
         "conflicting_reports",
         "communication_disrupted",
         "market_shift",
-        "organization_response"
+        "organization_response",
+        "contest_declared",
+        "contest_resolved",
+        "infrastructure_disrupted",
+        "crime_detected",
+        "access_changed",
+        "agreement_formed",
+        "agreement_broken"
       ]
     },
     "world_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },

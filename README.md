@@ -217,7 +217,7 @@ Noema-Specs/
 | Engineering | [docs/ENGINEERING.md](docs/ENGINEERING.md) |
 | Data model | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) |
 | World Engine | [docs/WORLD-ENGINE.md](docs/WORLD-ENGINE.md) |
-| Event catalog (closed 24 types) | [docs/EVENT-CATALOG.md](docs/EVENT-CATALOG.md) |
+| Event catalog | [docs/EVENT-CATALOG.md](docs/EVENT-CATALOG.md) — `0.1` (24) · `0.2` (31) |
 | Observation | [docs/OBSERVATION.md](docs/OBSERVATION.md) |
 | Agent interface | [docs/AGENT-INTERFACE.md](docs/AGENT-INTERFACE.md) |
 | Replay / equivalence | [docs/REPLAY.md](docs/REPLAY.md) · [ADR-005](adr/ADR-005-v01-equivalence-boundary.md) |
@@ -228,7 +228,7 @@ Noema-Specs/
 | Spectator projections | [docs/SPECTATOR.md](docs/SPECTATOR.md) |
 | Core game loop | [docs/CORE-GAME-LOOP.md](docs/CORE-GAME-LOOP.md) |
 | Realms / geography / territory | [REALMS](docs/REALMS.md) · [GEOGRAPHY](docs/GEOGRAPHY.md) · [TERRITORY-CONTROL](docs/TERRITORY-CONTROL.md) |
-| Crime / strategic conflict | [docs/STRATEGIC-CONFLICT.md](docs/STRATEGIC-CONFLICT.md) · [RFC-0002](rfcs/RFC-0002-strategic-contestation-and-crime-events.md) (Draft payloads) |
+| Crime / strategic conflict | [STRATEGIC-CONFLICT](docs/STRATEGIC-CONFLICT.md) · [CONTEST-RESOLUTION](docs/CONTEST-RESOLUTION.md) · [RFC-0002 Accepted](rfcs/RFC-0002-strategic-contestation-and-crime-events.md) · [`event-catalog/0.2`](specs/event-types.0.2.json) |
 | Loss / recovery · diplomacy · cycle/reports | [LOSS-RECOVERY](docs/LOSS-RECOVERY.md) · [DIPLOMACY](docs/DIPLOMACY.md) · [GAME-CYCLE](docs/GAME-CYCLE.md) · [WORLD-REPORTS](docs/WORLD-REPORTS.md) |
 | Progression · ambitions · balance | [PROGRESSION](docs/PROGRESSION.md) · [AMBITIONS](docs/AMBITIONS.md) · [GAME-BALANCE](docs/GAME-BALANCE.md) |
 | Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) · [chamber-world seed](examples/chamber-world/) |
@@ -294,6 +294,8 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/deployment/](examples/deployment/) | Local deployment config, runtime manifest, compose shape |
 | [examples/v01-strategic/](examples/v01-strategic/) | Multi-agent strategic ecology fixtures |
 | [examples/chamber-world/](examples/chamber-world/) | Canonical 10-room Chamber play map seed + start-distribution profiles |
+| [examples/v02-strategic-conflict/](examples/v02-strategic-conflict/) | RFC-0002 contest/crime/agreement trajectory + fixtures |
+| [conformance/v0.2-strategic/](conformance/v0.2-strategic/) | Strategic conflict families **S01–S18** |
 | [examples/v02-frontier/](examples/v02-frontier/) | Frontier decision + injection fixtures |
 | [conformance/v0.2/](conformance/v0.2/) | Frontier families **F01–F15** |
 | [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |
@@ -335,7 +337,7 @@ Independent version domains (see [docs/VERSIONING.md](docs/VERSIONING.md)):
 | World rules | `world/v1` |
 | Agent protocol | `agent-protocol/v1` |
 | MUD command | `mud-command/v1` |
-| Event schema / catalog | `event-schema/v1`, `event-catalog/0.1` |
+| Event schema / catalog | `event-schema/v1`, `event-catalog/0.1`, `event-catalog/0.2` |
 | Replay | `replay-protocol/v1` |
 | Ontologies | `capability-ontology/0.1`, `phenomena-ontology/0.1` |
 | Datasets | `atlas-2026.1` |

@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S01-02",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S01",
+  "title": "Contest Declaration case 2",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "examples/v02-strategic-conflict/events/contest_declared.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-strategic-conflict/events/contest_declared.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Contest Declaration",
+      "family S01"
+    ]
+  },
+  "security_class": "none"
+}

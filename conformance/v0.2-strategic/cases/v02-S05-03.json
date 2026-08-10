@@ -1,0 +1,40 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S05-03",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S05",
+  "title": "Resource Seizure case 3",
+  "acceptance_items": [
+    5
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md",
+    "docs/STRATEGIC-EVENT-COUPLING.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "docs/STRATEGIC-EVENT-COUPLING.md",
+    "specs/contest-config.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "docs/STRATEGIC-EVENT-COUPLING.md"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Resource Seizure",
+      "family S05"
+    ]
+  },
+  "security_class": "none"
+}

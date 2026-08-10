@@ -1,0 +1,19 @@
+{
+  "contest_id": "contest.1",
+  "declarer_id": "agent.nacre",
+  "contest_form": "INFRASTRUCTURE_DISRUPTION",
+  "target": {
+    "kind": "ENTITY",
+    "entity_id": "entity.relay-main"
+  },
+  "room_id": "room.relay-quarter",
+  "stake": {
+    "energy": 12,
+    "influence": 8,
+    "compute": 4
+  },
+  "defender_id": "agent.vesper",
+  "expires_cycle": 20,
+  "seed_stream_id": "stream.contest.1",
+  "notes": "challenge relay control"
+}

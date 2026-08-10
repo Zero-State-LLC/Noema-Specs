@@ -1,0 +1,16 @@
+{
+  "breach_id": "breach.1",
+  "agreement_id": "agr.1",
+  "broken_by": "agent.nacre",
+  "reason": "VIOLATION",
+  "breach_type": "CONTEST_VIOLATION",
+  "influence_delta_by_party": {
+    "agent.nacre": -8,
+    "agent.vesper": 0
+  },
+  "release_commitments": true,
+  "source_event_ids": [
+    "evt.sc.002"
+  ],
+  "visibility": "PUBLIC"
+}

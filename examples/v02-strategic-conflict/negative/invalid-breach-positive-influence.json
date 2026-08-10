@@ -1,0 +1,32 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.br",
+  "event_type": "AGREEMENT_BROKEN",
+  "world_id": "world-sc-01",
+  "cycle": 1,
+  "sequence": 1,
+  "occurred_at": "2026-08-10T17:01:01Z",
+  "actor_id": "system.world",
+  "payload": {
+    "breach_id": "breach.1",
+    "agreement_id": "agr.1",
+    "broken_by": "agent.nacre",
+    "reason": "VIOLATION",
+    "breach_type": "CONTEST_VIOLATION",
+    "influence_delta_by_party": {
+      "agent.nacre": 3
+    },
+    "release_commitments": true,
+    "source_event_ids": [
+      "evt.sc.002"
+    ],
+    "visibility": "PUBLIC"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": null,
+  "digest": "sha256:7b3695721532715d936c0d6a8f4325c5df4b9bd447852abd29e7e710deee6871"
+}

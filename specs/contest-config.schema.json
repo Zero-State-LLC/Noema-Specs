@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/contest-config.schema.json",
+  "title": "NOEMA Contest Configuration v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contest_rules_version",
+    "arithmetic",
+    "forms",
+    "modifiers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "contest-config/0.2"
+    },
+    "contest_rules_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "arithmetic": {
+      "const": "integer_millipoints"
+    },
+    "seed_stream_rule": {
+      "type": "string"
+    },
+    "max_open_contests_per_agent": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_parallel_contests_per_room": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "declare_base_cost": {
+      "type": "object"
+    },
+    "defend_base_cost": {
+      "type": "object"
+    },
+    "condition_delta_on_resolve": {
+      "type": "boolean"
+    },
+    "forms": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "modifiers": {
+      "type": "object"
+    },
+    "crime_severity_defaults": {
+      "type": "object"
+    },
+    "sensor_min_condition": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "influence_floor": {
+      "type": "integer",
+      "maximum": 0
+    }
+  }
+}

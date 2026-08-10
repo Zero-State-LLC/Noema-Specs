@@ -1,0 +1,14 @@
+{
+  "disruption_id": "disrupt.1",
+  "entity_id": "entity.relay-main",
+  "room_id": "room.relay-quarter",
+  "condition_before": 70,
+  "condition_after": 55,
+  "cause": "CONTEST",
+  "actor_id": "agent.nacre",
+  "contest_id": "contest.1",
+  "effect_class": "CONDITION_DROP",
+  "source_event_ids": [
+    "evt.sc.002"
+  ]
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "contest_declared",
+    "world_id": "world-sc-01",
+    "cycle": 10,
+    "source_event_ids": [
+      "evt.sc.002"
+    ],
+    "visibility": "public",
+    "fields": {
+      "room_id": "room.relay-quarter",
+      "contest_form": "INFRASTRUCTURE_DISRUPTION",
+      "declarer_id": "agent.nacre",
+      "stake_band": "HIGH"
+    },
+    "redactions": [
+      "stake_exact"
+    ],
+    "narrative": "Nacre challenged control of the main relay.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "contest_resolved",
+    "world_id": "world-sc-01",
+    "cycle": 12,
+    "source_event_ids": [
+      "evt.sc.003"
+    ],
+    "visibility": "public",
+    "fields": {
+      "outcome": "PARTIAL_SUCCESS",
+      "room_id": "room.relay-quarter"
+    },
+    "redactions": [
+      "score_millipoints"
+    ],
+    "narrative": "The contest partially succeeded; the relay was disrupted.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "infrastructure_disrupted",
+    "world_id": "world-sc-01",
+    "cycle": 12,
+    "source_event_ids": [
+      "evt.sc.004"
+    ],
+    "visibility": "public",
+    "fields": {
+      "entity_id": "entity.relay-main",
+      "condition_band": "DEGRADED",
+      "condition_after": 55
+    },
+    "redactions": [],
+    "narrative": "Relay-main condition fell to 55%.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "crime_detected",
+    "world_id": "world-sc-01",
+    "cycle": 12,
+    "source_event_ids": [
+      "evt.sc.005"
+    ],
+    "visibility": "public",
+    "fields": {
+      "severity": "MODERATE",
+      "category": "SABOTAGE",
+      "subject_id": "agent.nacre"
+    },
+    "redactions": [],
+    "narrative": "A sabotage incident was detected at the relay.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "access_changed",
+    "world_id": "world-sc-01",
+    "cycle": 13,
+    "source_event_ids": [
+      "evt.sc.006"
+    ],
+    "visibility": "public",
+    "fields": {
+      "mode": "DENY",
+      "scope": "exit.rq-iv-ab",
+      "expires_cycle": 30
+    },
+    "redactions": [],
+    "narrative": "Vault access is restricted through cycle 30.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "agreement_formed",
+    "world_id": "world-sc-01",
+    "cycle": 5,
+    "source_event_ids": [
+      "evt.sc.001"
+    ],
+    "visibility": "public",
+    "fields": {
+      "agreement_type": "ACCESS",
+      "parties": [
+        "agent.nacre",
+        "agent.vesper"
+      ]
+    },
+    "redactions": [],
+    "narrative": "A formal access agreement was signed.",
+    "mutates_world": false
+  },
+  {
+    "schema_version": "spectator-projection/1.0",
+    "projection_id": "agreement_broken",
+    "world_id": "world-sc-01",
+    "cycle": 13,
+    "source_event_ids": [
+      "evt.sc.007"
+    ],
+    "visibility": "public",
+    "fields": {
+      "agreement_id": "agr.1",
+      "broken_by": "agent.nacre",
+      "breach_type": "CONTEST_VIOLATION"
+    },
+    "redactions": [],
+    "narrative": "The access agreement was broken after the contest.",
+    "mutates_world": false
+  }
+]

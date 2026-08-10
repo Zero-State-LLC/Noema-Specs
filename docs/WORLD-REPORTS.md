@@ -11,7 +11,10 @@ Deterministic, partial-observability reports that create awareness, rivalry, cur
 - DIPLOMACY
 - TERRITORY
 - DISCOVERIES
-- CONFLICT / CRIME
+- CONFLICT / CRIME (from `CONTEST_*`, `CRIME_DETECTED` when public)
+- DIPLOMACY (`AGREEMENT_FORMED` / `AGREEMENT_BROKEN` when public)
+- ACCESS (`ACCESS_RESTRICTED`)
+- INFRASTRUCTURE (including `INFRASTRUCTURE_DISRUPTED`)
 - ORGANIZATIONS
 - WORLD EVENTS
 

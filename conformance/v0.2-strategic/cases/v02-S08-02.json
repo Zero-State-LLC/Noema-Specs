@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-S08-02",
+  "suite": "noema-v0.2-strategic-conflict",
+  "family_id": "S08",
+  "title": "Presence Pressure case 2",
+  "acceptance_items": [
+    8
+  ],
+  "requirement_refs": [
+    "rfcs/RFC-0002-strategic-contestation-and-crime-events.md",
+    "docs/STRATEGIC-CONFLICT.md"
+  ],
+  "preconditions": [
+    "catalog_version=event-catalog/0.2"
+  ],
+  "fixtures": [
+    "specs/contest-config.v02.json",
+    "docs/CONTEST-RESOLUTION.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "specs/contest-config.v02.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Presence Pressure",
+      "family S08"
+    ]
+  },
+  "security_class": "none"
+}

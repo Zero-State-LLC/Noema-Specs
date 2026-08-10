@@ -1,0 +1,49 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.sc.001",
+  "event_type": "AGREEMENT_FORMED",
+  "world_id": "world-sc-01",
+  "cycle": 5,
+  "sequence": 1,
+  "occurred_at": "2026-08-10T17:05:01Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agreement_id": "agr.1",
+    "agreement_type": "ACCESS",
+    "party_ids": [
+      "agent.nacre",
+      "agent.vesper"
+    ],
+    "terms": {
+      "summary": "Shared vault access for 20 cycles",
+      "machine": {
+        "access_exit_ids": [
+          "exit.rq-iv-ab"
+        ],
+        "forbidden_contest_forms": [
+          "INFRASTRUCTURE_DISRUPTION"
+        ]
+      }
+    },
+    "formed_cycle": 5,
+    "expires_cycle": 25,
+    "visibility": "PUBLIC",
+    "witness_org_id": null,
+    "cost_payer_id": "agent.nacre",
+    "cost_paid": {
+      "compute": 2,
+      "influence": 1
+    },
+    "signatories": [
+      "agent.nacre",
+      "agent.vesper"
+    ]
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v02-strategic-conflict",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": null,
+  "digest": "sha256:96c7ea4a94e7012adf11a060fa22585a086bd0e548b2b6c8bc7cc7bc37e5e667"
+}

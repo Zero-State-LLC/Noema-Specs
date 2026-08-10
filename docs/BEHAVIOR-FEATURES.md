@@ -42,3 +42,24 @@ claim_label: INFERRED
 ```
 
 No feature is an “intelligence” score. Fixed-point millipoints preferred. Thresholds versioned in catalog.
+
+## Strategic conflict event mappings (catalog 0.2)
+
+Ledger-derived counts (claim label **OBSERVED** when taken from events only):
+
+| Feature | Source events |
+|---------|----------------|
+| `contest_initiation_count` | `CONTEST_DECLARED` |
+| `defensive_investment_*` | defender stake on `CONTEST_RESOLVED` |
+| `conflict_outcome_*` | `CONTEST_RESOLVED.outcome` |
+| `crime_exposure_*` | `CRIME_DETECTED.severity` |
+| `agreement_formation_count` | `AGREEMENT_FORMED` |
+| `agreement_breach_count` | `AGREEMENT_BROKEN` |
+| `access_control_use_count` | `ACCESS_RESTRICTED` |
+| `infrastructure_disruption_delta` | sum of condition drops |
+| `post_conflict_recovery_*` | subsequent REPAIR / condition rise |
+| `coalition_support_millipoints` | mutual-defense agreement support used |
+
+Do **not** auto-label agents as aggressive, deceptive, cooperative, or criminal as mental truths. Those remain INFERRED/SPECULATIVE with confounds.
+
+Example package: [`examples/v02-strategic-conflict/observatory-features.json`](../examples/v02-strategic-conflict/observatory-features.json).

@@ -5,7 +5,7 @@
 Authoritative design for conflict, crime, and contested action in NOEMA.
 v0.1 Chamber remains free of **mandatory** combat. Strategic contestation and crime are introduced as **NEXT GAME MILESTONE (v0.2)** with a minimal viable subset.
 
-This document does **not** expand the closed 24-type v0.1 event catalog. Implementations MUST NOT invent uncatalogued world events for contestation without an accepted RFC.
+v0.1 remains on the closed 24-type catalog. Strategic contestation is **Accepted** under [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md) as additive **`event-catalog/0.2`**. Implementations MUST NOT invent uncatalogued world events.
 
 ## Design principles
 
@@ -108,7 +108,7 @@ Contestation is cycle-resolved or multi-cycle. It is **not** real-time combat.
 - `INFRASTRUCTURE_DISRUPTED`
 - `AGREEMENT_FORMED` / `AGREEMENT_BROKEN` (formal diplomacy; see audit)
 
-Payload sketches, reducer contracts, and coupling rules: **[RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md)** (Draft). JSON Schema + fixtures required before Accepted. No casual additions to the closed v0.1 24-type catalog.
+**Accepted:** [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md), catalog [`event-types.0.2.json`](../specs/event-types.0.2.json), config [`contest-config.v02.json`](../specs/contest-config.v02.json), algorithm [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), coupling [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md), fixtures [`examples/v02-strategic-conflict/`](../examples/v02-strategic-conflict/).
 
 ## Defense
 
