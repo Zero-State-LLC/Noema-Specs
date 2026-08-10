@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L01-01",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L01",
+  "title": "Experiment identity case 1",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v04-lab/experiment.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Experiment identity"
+    ]
+  },
+  "security_class": "none"
+}

@@ -126,6 +126,31 @@ REQUIRED_DOCS = [
     "docs/releases/v0.2/STRATEGIC-CONFLICT-ACCEPTANCE.md",
     "docs/releases/v0.2/STRATEGIC-CONFLICT-CONFORMANCE.md",
     "docs/releases/v0.2/STRATEGIC-CONFLICT-MIGRATION.md",
+    "docs/releases/v0.4/SCOPE.md",
+    "docs/releases/v0.4/ARCHITECTURE.md",
+    "docs/releases/v0.4/DATA-MODEL.md",
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/releases/v0.4/CONFORMANCE.md",
+    "docs/releases/v0.4/MIGRATION.md",
+    "docs/releases/v0.4/EXAMPLES.md",
+    "docs/releases/v0.4/NON-GOALS.md",
+    "docs/EXPERIMENT-LAB.md",
+    "docs/EXPERIMENT-IDENTITY.md",
+    "docs/EXPERIMENT-LIFECYCLE.md",
+    "docs/EXPERIMENT-DESIGN.md",
+    "docs/INTERVENTIONS.md",
+    "docs/EXPERIMENT-VARIABLES.md",
+    "docs/EXPERIMENT-FORK.md",
+    "docs/COUNTERFACTUAL-REPLAY.md",
+    "docs/EXPERIMENT-CONTROLS.md",
+    "docs/EXPERIMENT-OUTCOMES.md",
+    "docs/REPLICATION.md",
+    "docs/GENERALIZATION-PROBES.md",
+    "docs/CONFOUNDS.md",
+    "docs/EXPERIMENT-ISOLATION.md",
+    "docs/LAB-AUDIT.md",
+    "docs/AGENT-DETERMINISM.md",
+    "docs/LESION-STUDIES.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -149,6 +174,16 @@ REQUIRED_SCHEMAS = [
     "specs/contest-config.schema.json",
     "specs/contest-config.v02.json",
     "specs/action-contracts.v02.json",
+    "specs/experiment.schema.json",
+    "specs/intervention.schema.json",
+    "specs/experiment-plan.schema.json",
+    "specs/experiment-run.schema.json",
+    "specs/experiment-fork.schema.json",
+    "specs/lab-result.schema.json",
+    "specs/lab-audit-record.schema.json",
+    "specs/perturbation-catalog.v04.json",
+    "specs/ablation-catalog.v04.json",
+    "specs/experiment-variable-registry.v04.json",
     "specs/observation.schema.json",
     "specs/phenomenon-case.schema.json",
     "specs/reproducibility-bundle.schema.json",
@@ -262,6 +297,10 @@ REQUIRED_EXAMPLES = [
     "examples/v02-strategic-conflict/world-seed.json",
     "examples/v02-strategic-conflict/resolution-example.json",
     "conformance/v0.2-strategic/manifest.json",
+    "examples/v04-lab/experiment.json",
+    "examples/v04-lab/experiment-fork.json",
+    "examples/v04-lab/lab-result.json",
+    "conformance/v0.4/manifest.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -596,6 +635,12 @@ def check_negatives(Draft202012Validator) -> None:
         elif name.startswith("invalid-anomaly"):
             an_schema = load_json(ROOT / "specs" / "anomaly-candidate.schema.json")
             rejected = bool(list(Draft202012Validator(an_schema).iter_errors(data)))
+        elif name.startswith("invalid-lab-mutates"):
+            fork_schema = load_json(ROOT / "specs" / "experiment-fork.schema.json")
+            rejected = bool(list(Draft202012Validator(fork_schema).iter_errors(data)))
+        elif name.startswith("invalid-lab-result"):
+            lr_schema = load_json(ROOT / "specs" / "lab-result.schema.json")
+            rejected = bool(list(Draft202012Validator(lr_schema).iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -745,6 +790,13 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "specs/world-seed.schema.json",
             "examples/chamber-world/world-seed.json",
         ),
+        ("specs/experiment.schema.json", "examples/v04-lab/experiment.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
+        ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
+        ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
     ]
 
     spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
@@ -870,6 +922,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
     if missing_o:
         fail(f"conformance v0.3 missing families: {missing_o}")
     ok(f"Conformance suite v0.3: {len(cases3)} cases, families O01–O16 covered")
+
+    # v0.4 Lab suite
+    m4 = load_json(ROOT / "conformance" / "v0.4" / "manifest.json")
+    cases4 = m4.get("cases") or []
+    if len(cases4) < 45:
+        fail(f"conformance v0.4 suite must list ≥45 cases, found {len(cases4)}")
+    fams4: set[str] = set()
+    for rel in cases4:
+        path = ROOT / "conformance" / "v0.4" / rel
+        if not path.exists():
+            fail(f"conformance v0.4 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.4 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams4.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.4 case {rel} missing fixture {fixture}")
+    expected_l = {f"L{i:02d}" for i in range(1, 17)}
+    missing_l = sorted(expected_l - fams4)
+    if missing_l:
+        fail(f"conformance v0.4 missing families: {missing_l}")
+    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L16 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1099,6 +1178,67 @@ def check_strategic_conflict(Draft202012Validator) -> None:
 
 
 
+
+def check_lab_v04(Draft202012Validator) -> None:
+    """Validate v0.4 Lab schemas, fixtures, isolation, null results."""
+    pairs = [
+        ("specs/experiment.schema.json", "examples/v04-lab/experiment.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-perturbation.json"),
+        ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-baseline.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result-null.json"),
+        ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
+    ]
+    for schema_rel, fixture_rel in pairs:
+        schema = load_json(ROOT / schema_rel)
+        fixture = load_json(ROOT / fixture_rel)
+        errs = list(Draft202012Validator(schema).iter_errors(fixture))
+        if errs:
+            fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    fork = load_json(ROOT / "examples" / "v04-lab" / "experiment-fork.json")
+    if fork.get("mutates_production") is not False:
+        fail("lab fork must set mutates_production false")
+
+    exp = load_json(ROOT / "examples" / "v04-lab" / "experiment.json")
+    if exp.get("authorization", {}).get("mode") != "EXPERIMENTAL_FORK_ONLY":
+        fail("lab experiment must authorize EXPERIMENTAL_FORK_ONLY")
+
+    result = load_json(ROOT / "examples" / "v04-lab" / "lab-result.json")
+    if result.get("interpretation") == "PROVEN":
+        fail("lab results must not use PROVEN")
+    if result.get("failed_experiments_retained") is not True:
+        fail("lab results must retain failed experiments")
+
+    null = load_json(ROOT / "examples" / "v04-lab" / "lab-result-null.json")
+    if null.get("interpretation") not in ("NOT_SUPPORTED", "INCONCLUSIVE"):
+        fail("null lab result fixture should be NOT_SUPPORTED or INCONCLUSIVE")
+
+    # negatives
+    neg_fork = load_json(ROOT / "examples" / "negative" / "invalid-lab-mutates-production.json")
+    fork_schema = load_json(ROOT / "specs" / "experiment-fork.schema.json")
+    if not list(Draft202012Validator(fork_schema).iter_errors(neg_fork)):
+        fail("invalid-lab-mutates-production should fail schema")
+    neg_res = load_json(ROOT / "examples" / "negative" / "invalid-lab-result-proven.json")
+    lr_schema = load_json(ROOT / "specs" / "lab-result.schema.json")
+    if not list(Draft202012Validator(lr_schema).iter_errors(neg_res)):
+        fail("invalid-lab-result-proven should fail schema")
+
+    # catalogs present
+    for rel in (
+        "specs/perturbation-catalog.v04.json",
+        "specs/ablation-catalog.v04.json",
+        "specs/experiment-variable-registry.v04.json",
+    ):
+        load_json(ROOT / rel)
+
+    ok("Lab v0.4: schemas, fixtures, isolation, null results, catalogs")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -1116,6 +1256,7 @@ def main() -> None:
     check_schema_validated_fixtures(Draft202012Validator)
     check_conformance_suite(Draft202012Validator)
     check_strategic_conflict(Draft202012Validator)
+    check_lab_v04(Draft202012Validator)
     print("\nPASS")
 
 

@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L05-01",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L05",
+  "title": "Variable registry case 1",
+  "acceptance_items": [
+    5
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "specs/experiment-variable-registry.v04.json",
+    "docs/EXPERIMENT-VARIABLES.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "specs/experiment-variable-registry.v04.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Variable registry"
+    ]
+  },
+  "security_class": "none"
+}

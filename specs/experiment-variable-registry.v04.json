@@ -1,0 +1,108 @@
+{
+  "schema_version": "experiment-variables/0.4",
+  "variables": {
+    "world.infra.condition": {
+      "variable_id": "world.infra.condition",
+      "domain": "WORLD",
+      "measurement": "integer_0_100",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "PERTURBATION",
+        "COUNTERFACTUAL"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "agent.budget.energy": {
+      "variable_id": "agent.budget.energy",
+      "domain": "RESOURCE",
+      "measurement": "integer_nonneg",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "PERTURBATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "observation.noise.level": {
+      "variable_id": "observation.noise.level",
+      "domain": "OBSERVATION",
+      "measurement": "millipoints_0_1000",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "PERTURBATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "agent.tool.access": {
+      "variable_id": "agent.tool.access",
+      "domain": "TOOL",
+      "measurement": "set_of_tool_ids",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "ABLATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "agent.module.memory": {
+      "variable_id": "agent.module.memory",
+      "domain": "AGENT",
+      "measurement": "adapter_declared_capability",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "LESION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0",
+      "requires_adapter_declaration": true
+    },
+    "social.org.support": {
+      "variable_id": "social.org.support",
+      "domain": "SOCIAL",
+      "measurement": "boolean_or_millipoints",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "ABLATION",
+        "PERTURBATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "temporal.deadline_cycles": {
+      "variable_id": "temporal.deadline_cycles",
+      "domain": "TEMPORAL",
+      "measurement": "integer_positive",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "PERTURBATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "information.visibility": {
+      "variable_id": "information.visibility",
+      "domain": "INFORMATION",
+      "measurement": "enum_band",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "PERTURBATION",
+        "ABLATION"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    },
+    "protocol.agent_version": {
+      "variable_id": "protocol.agent_version",
+      "domain": "PROTOCOL",
+      "measurement": "version_string",
+      "mutable": true,
+      "intervention_types_allowed": [
+        "VERSION_DIFFERENTIAL"
+      ],
+      "visibility": "research",
+      "version": "0.4.0"
+    }
+  }
+}

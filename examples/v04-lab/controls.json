@@ -1,0 +1,29 @@
+{
+  "schema_version": "experiment-controls/0.4",
+  "controls": [
+    {
+      "control_id": "ctrl.baseline-1",
+      "role": "BASELINE",
+      "relationship": "no intervention",
+      "expected_behavior": "baseline band",
+      "failure_interpretation": "INVALID if unstable",
+      "required": true
+    },
+    {
+      "control_id": "ctrl.sham-1",
+      "role": "SHAM_CONTROL",
+      "relationship": "pipeline no-op",
+      "expected_behavior": "matches baseline",
+      "failure_interpretation": "pipeline artifact INVALID",
+      "required": true
+    },
+    {
+      "control_id": "ctrl.negative-1",
+      "role": "NEGATIVE_CONTROL",
+      "relationship": "ablate unrelated tool",
+      "expected_behavior": "no change",
+      "failure_interpretation": "measure nonspecific",
+      "required": false
+    }
+  ]
+}

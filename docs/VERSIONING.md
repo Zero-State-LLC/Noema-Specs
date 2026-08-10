@@ -21,6 +21,9 @@
 - Trajectory: `trajectory/0.3` (legacy samples may use `1.0`)
 - Behavior features: `behavior-features/0.3`
 - Observatory: `observatory/0.3`
+- Lab: `lab/0.4`, `experiment/0.4`, `experiment-design/0.4`
+- Perturbation catalog: `perturbation-catalog/0.4.0`
+- Ablation catalog: `ablation-catalog/0.4.0`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

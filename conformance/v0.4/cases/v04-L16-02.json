@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L16-02",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L16",
+  "title": "Production isolation case 2",
+  "acceptance_items": [
+    16
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment-fork.json",
+    "examples/negative/invalid-lab-mutates-production.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v04-lab/experiment-fork.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Production isolation"
+    ]
+  },
+  "security_class": "none"
+}

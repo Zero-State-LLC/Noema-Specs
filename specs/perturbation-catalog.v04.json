@@ -1,0 +1,189 @@
+{
+  "schema_version": "perturbation-catalog/0.4",
+  "catalog_version": "perturbation-catalog/0.4.0",
+  "entries": {
+    "RESOURCE_LEVEL": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 1000
+      },
+      "allowed_targets": [
+        "agent.budget",
+        "node.available"
+      ],
+      "application_point": [
+        "CYCLE_BOUNDARY",
+        "FORK_BOUNDARY"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "MEDIUM",
+      "affected_equivalence_dimensions": [
+        "resources"
+      ]
+    },
+    "RESOURCE_REGEN": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 100
+      },
+      "allowed_targets": [
+        "node.regen_per_cycle"
+      ],
+      "application_point": [
+        "CYCLE_BOUNDARY"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "LOW",
+      "affected_equivalence_dimensions": [
+        "resources"
+      ]
+    },
+    "OBSERVATION_NOISE": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 1000
+      },
+      "allowed_targets": [
+        "noise.level"
+      ],
+      "application_point": [
+        "BEFORE_OBSERVATION"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "MEDIUM",
+      "affected_equivalence_dimensions": [
+        "observations"
+      ]
+    },
+    "OBSERVATION_DELAY": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 20
+      },
+      "allowed_targets": [
+        "observation.delay_cycles"
+      ],
+      "application_point": [
+        "BEFORE_OBSERVATION"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "MEDIUM",
+      "affected_equivalence_dimensions": [
+        "timing",
+        "observations"
+      ]
+    },
+    "INFORMATION_VISIBILITY": {
+      "parameter_domain": {
+        "type": "string"
+      },
+      "allowed_targets": [
+        "observation.fields"
+      ],
+      "application_point": [
+        "BEFORE_OBSERVATION"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "HIGH",
+      "affected_equivalence_dimensions": [
+        "observations",
+        "information"
+      ]
+    },
+    "TIME_PRESSURE": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 1,
+        "max": 100
+      },
+      "allowed_targets": [
+        "scheduler.deadline_cycles"
+      ],
+      "application_point": [
+        "CYCLE_BOUNDARY"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "MEDIUM",
+      "affected_equivalence_dimensions": [
+        "timing"
+      ]
+    },
+    "COMMUNICATION_TOPOLOGY": {
+      "parameter_domain": {
+        "type": "string"
+      },
+      "allowed_targets": [
+        "message.routing"
+      ],
+      "application_point": [
+        "FORK_BOUNDARY"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "affected_equivalence_dimensions": [
+        "social",
+        "communication"
+      ]
+    },
+    "INFRASTRUCTURE_CONDITION": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 100
+      },
+      "allowed_targets": [
+        "entity.state.condition"
+      ],
+      "application_point": [
+        "FORK_BOUNDARY",
+        "CYCLE_BOUNDARY"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "affected_equivalence_dimensions": [
+        "infrastructure",
+        "resources"
+      ]
+    },
+    "INCENTIVE_MAGNITUDE": {
+      "parameter_domain": {
+        "type": "integer",
+        "min": 0,
+        "max": 1000
+      },
+      "allowed_targets": [
+        "trade.bonus",
+        "budget.grant"
+      ],
+      "application_point": [
+        "FORK_BOUNDARY"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "affected_equivalence_dimensions": [
+        "incentives"
+      ]
+    },
+    "PARTICIPANT_TOPOLOGY": {
+      "parameter_domain": {
+        "type": "string"
+      },
+      "allowed_targets": [
+        "agents.present"
+      ],
+      "application_point": [
+        "FORK_BOUNDARY"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "affected_equivalence_dimensions": [
+        "social",
+        "participants"
+      ]
+    }
+  }
+}

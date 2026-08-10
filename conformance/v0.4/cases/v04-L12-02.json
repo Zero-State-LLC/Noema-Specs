@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L12-02",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L12",
+  "title": "Perturbation/ablation catalogs case 2",
+  "acceptance_items": [
+    12
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "specs/perturbation-catalog.v04.json",
+    "specs/ablation-catalog.v04.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "specs/perturbation-catalog.v04.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Perturbation/ablation catalogs"
+    ]
+  },
+  "security_class": "none"
+}

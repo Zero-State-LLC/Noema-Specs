@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-plan.schema.json",
+  "title": "NOEMA Experiment Plan (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "plan_id",
+    "experiment_id",
+    "runs",
+    "analysis",
+    "plan_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-plan/0.4"
+    },
+    "plan_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "run_id",
+          "run_role",
+          "order"
+        ],
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "run_role": {
+            "enum": [
+              "BASELINE",
+              "POSITIVE_CONTROL",
+              "NEGATIVE_CONTROL",
+              "SHAM_CONTROL",
+              "REPLICATION_CONTROL",
+              "INTERVENTION",
+              "REPLICATION",
+              "GENERALIZATION"
+            ]
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comparison_rule",
+        "stopping_rule"
+      ],
+      "properties": {
+        "comparison_rule": {
+          "type": "string"
+        },
+        "stopping_rule": {
+          "type": "string"
+        },
+        "required_controls_pass": {
+          "type": "boolean"
+        }
+      }
+    },
+    "plan_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

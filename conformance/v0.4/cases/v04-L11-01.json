@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L11-01",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L11",
+  "title": "Agent determinism case 1",
+  "acceptance_items": [
+    11
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "docs/AGENT-DETERMINISM.md",
+    "examples/v04-lab/run-baseline.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "docs/AGENT-DETERMINISM.md"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Agent determinism"
+    ]
+  },
+  "security_class": "none"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L07-01",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L07",
+  "title": "Counterfactual replay case 1",
+  "acceptance_items": [
+    7
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "docs/COUNTERFACTUAL-REPLAY.md",
+    "examples/v04-lab/intervention-perturbation.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "docs/COUNTERFACTUAL-REPLAY.md"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Counterfactual replay"
+    ]
+  },
+  "security_class": "none"
+}

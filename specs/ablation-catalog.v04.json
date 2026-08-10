@@ -1,0 +1,62 @@
+{
+  "schema_version": "ablation-catalog/0.4",
+  "catalog_version": "ablation-catalog/0.4.0",
+  "entries": {
+    "TOOL_ACCESS": {
+      "removes": "declared tool capability",
+      "allowed_targets": [
+        "agent.tools"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "HIGH",
+      "architecture_internal": false
+    },
+    "MESSAGE_CHANNEL": {
+      "removes": "message routing",
+      "allowed_targets": [
+        "message.channel"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "architecture_internal": false
+    },
+    "MAP_ACCESS": {
+      "removes": "map knowledge projection",
+      "allowed_targets": [
+        "knowledge.map"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "risk": "MEDIUM",
+      "architecture_internal": false
+    },
+    "EXTERNAL_MEMORY_ARTIFACT": {
+      "removes": "external cognition document",
+      "allowed_targets": [
+        "entity.document"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "MEDIUM",
+      "architecture_internal": false
+    },
+    "ORGANIZATION_SUPPORT": {
+      "removes": "org support",
+      "allowed_targets": [
+        "org.membership"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "HIGH",
+      "architecture_internal": false
+    },
+    "INFORMATION_SOURCE": {
+      "removes": "named information source",
+      "allowed_targets": [
+        "entity.infra",
+        "report"
+      ],
+      "restore_behavior": "NONE_FORK_DISCARD",
+      "risk": "MEDIUM",
+      "architecture_internal": false
+    }
+  },
+  "note": "Architecture lesions are NOT in this catalog; see LESION-STUDIES.md"
+}

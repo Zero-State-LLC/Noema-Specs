@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L13-02",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L13",
+  "title": "Outcomes and replication case 2",
+  "acceptance_items": [
+    13
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-result-null.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v04-lab/lab-result-null.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Outcomes and replication"
+    ]
+  },
+  "security_class": "none"
+}

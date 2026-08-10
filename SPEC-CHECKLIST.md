@@ -6,6 +6,7 @@
 - [x] v0.1 Chamber: C01–C26, golden path, executable world contracts.
 - [x] v0.2 Frontier: F01–F15, release package, genome/novelty/mutation contracts.
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
+- [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L16.
 
 ## Core game design (player-facing)
 
@@ -52,11 +53,20 @@
 - [x] Research metrics redacted from ordinary spectators.
 - [x] No consciousness / scalar intelligence scores.
 
+## v0.4 Lab
+
+- [x] Experimental fork isolation (`mutates_production: false`)
+- [x] Intervention taxonomy + perturbation/ablation catalogs
+- [x] Controls including sham; failed/null results first-class
+- [x] Lifecycle without PROVEN; claim labels separate
+- [x] Lab → Compiler boundary (`compiler_readiness`)
+- [x] Conformance L01–L16 + validator gate
+
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L16 present and linked.
 
 ## Notes
 
-Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft. Runtime implementation of O-suite and contest reducers outstanding in the engine repo.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft. Runtime Lab engine outstanding in the Noema repo.

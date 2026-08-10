@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/lab-result.schema.json",
+  "title": "NOEMA Lab Result (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "lab_result_id",
+    "experiment_id",
+    "source_candidate_ids",
+    "run_ids",
+    "control_outcomes",
+    "intervention_outcomes",
+    "replication_outcomes",
+    "supporting_evidence",
+    "counterevidence",
+    "confounds",
+    "interpretation",
+    "claim_label",
+    "compiler_readiness",
+    "digest",
+    "failed_experiments_retained"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "lab-result/0.4"
+    },
+    "lab_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_candidate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "minItems": 1
+    },
+    "run_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "minItems": 1
+    },
+    "control_outcomes": {
+      "type": "object"
+    },
+    "intervention_outcomes": {
+      "type": "object"
+    },
+    "replication_outcomes": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "REPRODUCED",
+          "PARTIALLY_REPRODUCED",
+          "NOT_REPRODUCED",
+          "NOT_COMPARABLE",
+          "NOT_COMPUTABLE"
+        ]
+      }
+    },
+    "generalization_outcomes": {
+      "type": "object"
+    },
+    "supporting_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "execution_status": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "ABORTED",
+        "INVALID"
+      ]
+    },
+    "interpretation": {
+      "enum": [
+        "SUPPORTED",
+        "PARTIALLY_SUPPORTED",
+        "NOT_SUPPORTED",
+        "INCONCLUSIVE"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "compiler_readiness": {
+      "enum": [
+        "READY",
+        "NOT_READY",
+        "REJECTED"
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "failed_experiments_retained": {
+      "const": true
+    }
+  }
+}

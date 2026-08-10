@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L03-01",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L03",
+  "title": "Lifecycle states case 1",
+  "acceptance_items": [
+    3
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-audit.json",
+    "docs/EXPERIMENT-LIFECYCLE.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v04-lab/lab-audit.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Lifecycle states"
+    ]
+  },
+  "security_class": "none"
+}

@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-run.schema.json",
+  "title": "NOEMA Experiment Run (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "experiment_id",
+    "run_role",
+    "fork",
+    "agent_version",
+    "interventions",
+    "seed_policy",
+    "seed",
+    "config_digest",
+    "start_state_digest",
+    "status",
+    "audit_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-run/0.4"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "run_role": {
+      "enum": [
+        "BASELINE",
+        "POSITIVE_CONTROL",
+        "NEGATIVE_CONTROL",
+        "SHAM_CONTROL",
+        "REPLICATION_CONTROL",
+        "INTERVENTION",
+        "REPLICATION",
+        "GENERALIZATION"
+      ]
+    },
+    "fork": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_world_id",
+        "source_snapshot_id",
+        "source_ledger_head",
+        "fork_cycle",
+        "experimental_world_id"
+      ],
+      "properties": {
+        "source_world_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source_world_version": {
+          "type": "string"
+        },
+        "source_snapshot_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source_ledger_head": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "fork_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fork_event_boundary": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "experimental_world_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        }
+      }
+    },
+    "agent_version": {
+      "type": "string"
+    },
+    "agent_determinism": {
+      "enum": [
+        "DETERMINISTIC",
+        "SEED_CONTROLLED",
+        "NONDETERMINISTIC",
+        "UNKNOWN"
+      ]
+    },
+    "interventions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "control_role": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seed_policy": {
+      "enum": [
+        "SAME_SEED",
+        "DERIVED_SEED",
+        "INDEPENDENT_SEED"
+      ]
+    },
+    "seed": {
+      "type": "string"
+    },
+    "config_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "start_state_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "end_state_digest": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "trajectory_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "RUNNING",
+        "COMPLETE",
+        "PARTIAL",
+        "ABORTED",
+        "INVALID",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "divergence_markers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metric_outputs": {
+      "type": "object"
+    },
+    "outcome_class": {
+      "enum": [
+        "PERSISTED",
+        "DEGRADED",
+        "DISAPPEARED",
+        "CHANGED_FORM",
+        "NOT_COMPARABLE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

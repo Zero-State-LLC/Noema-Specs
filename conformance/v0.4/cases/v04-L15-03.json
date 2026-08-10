@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L15-03",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L15",
+  "title": "Lab result / compiler boundary case 3",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/negative/invalid-lab-result-proven.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "REJECT",
+      "input": {
+        "fixture": "examples/negative/invalid-lab-result-proven.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "Lab result / compiler boundary"
+    ]
+  },
+  "security_class": "none"
+}

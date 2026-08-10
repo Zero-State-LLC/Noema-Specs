@@ -1,0 +1,417 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment.schema.json",
+  "title": "NOEMA Experiment Design (v0.4 Lab)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "experiment_version",
+    "experiment_design_version",
+    "identity",
+    "hypothesis",
+    "question",
+    "independent_variables",
+    "dependent_measures",
+    "controlled_variables",
+    "interventions",
+    "controls",
+    "replication",
+    "success_criteria",
+    "failure_criteria",
+    "equivalence_boundary",
+    "confounds",
+    "authorization",
+    "consent_basis",
+    "status",
+    "provenance",
+    "input_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment/0.4"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "experiment_design_version": {
+      "const": "experiment-design/0.4"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_candidate_ids",
+        "source_trajectory_ids",
+        "world_version",
+        "event_catalog_version",
+        "agent_id",
+        "agent_version",
+        "fork_point",
+        "intervention_set_digest",
+        "control_set_digest",
+        "metric_versions",
+        "feature_catalog_version",
+        "seed_policy",
+        "equivalence_boundary_version",
+        "consent_basis",
+        "research_policy_version",
+        "input_digest"
+      ],
+      "properties": {
+        "source_candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "minItems": 1
+        },
+        "source_trajectory_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "minItems": 1
+        },
+        "world_version": {
+          "type": "string"
+        },
+        "world_rules_version": {
+          "type": "string"
+        },
+        "event_catalog_version": {
+          "type": "string"
+        },
+        "agent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "agent_version": {
+          "type": "string"
+        },
+        "fork_point": {
+          "enum": [
+            "BEFORE_OBSERVATION",
+            "AFTER_OBSERVATION",
+            "BEFORE_ACTION",
+            "AFTER_ACTION",
+            "CYCLE_BOUNDARY",
+            "BEFORE_FRONTIER_INJECTION",
+            "AFTER_FRONTIER_INJECTION"
+          ]
+        },
+        "intervention_set_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "control_set_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "metric_versions": {
+          "type": "object"
+        },
+        "feature_catalog_version": {
+          "type": "string"
+        },
+        "seed_policy": {
+          "enum": [
+            "SAME_SEED",
+            "DERIVED_SEED",
+            "INDEPENDENT_SEED"
+          ]
+        },
+        "equivalence_boundary_version": {
+          "type": "string"
+        },
+        "consent_basis": {
+          "type": "string"
+        },
+        "research_policy_version": {
+          "type": "string"
+        },
+        "input_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "natural_language",
+        "machine"
+      ],
+      "properties": {
+        "natural_language": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "machine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "predicted_outcome_class"
+          ],
+          "properties": {
+            "predicted_outcome_class": {
+              "enum": [
+                "PERSISTED",
+                "DEGRADED",
+                "DISAPPEARED",
+                "CHANGED_FORM",
+                "NOT_COMPARABLE"
+              ]
+            },
+            "predicted_feature_deltas": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "independent_variables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "variable_id",
+          "class"
+        ],
+        "properties": {
+          "variable_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "class": {
+            "enum": [
+              "WORLD",
+              "AGENT",
+              "INFORMATION",
+              "RESOURCE",
+              "TOOL",
+              "SOCIAL",
+              "TEMPORAL",
+              "PROTOCOL",
+              "OBSERVATION"
+            ]
+          },
+          "intervention_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "PERTURBATION",
+                "ABLATION",
+                "LESION",
+                "COUNTERFACTUAL",
+                "REPLICATION",
+                "VERSION_DIFFERENTIAL"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "dependent_measures": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "measure_id",
+          "feature_id",
+          "feature_version",
+          "window",
+          "aggregation",
+          "comparison_rule"
+        ],
+        "properties": {
+          "measure_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "feature_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "metric_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "feature_version": {
+            "type": "string"
+          },
+          "window": {
+            "type": "object"
+          },
+          "aggregation": {
+            "enum": [
+              "MEAN",
+              "MAX",
+              "MIN",
+              "SUM",
+              "LAST",
+              "COUNT",
+              "RATE"
+            ]
+          },
+          "comparison_rule": {
+            "enum": [
+              "DELTA",
+              "THRESHOLD",
+              "BAND",
+              "PRESENCE"
+            ]
+          }
+        }
+      }
+    },
+    "controlled_variables": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "interventions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "controls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "replication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classes",
+        "min_runs"
+      ],
+      "properties": {
+        "classes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "EXACT_REPLAY",
+              "SAME_AGENT",
+              "SAME_AGENT_VERSION",
+              "CROSS_AGENT_VERSION",
+              "CROSS_MODEL",
+              "CROSS_WORLD_CONTEXT",
+              "CROSS_SITUATION"
+            ]
+          },
+          "minItems": 1
+        },
+        "min_runs": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "success_criteria": {
+      "type": "object"
+    },
+    "failure_criteria": {
+      "type": "object"
+    },
+    "equivalence_boundary": {
+      "type": "object"
+    },
+    "confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorized_by",
+        "mode"
+      ],
+      "properties": {
+        "authorized_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "mode": {
+          "enum": [
+            "EXPERIMENTAL_FORK_ONLY",
+            "LIVE_WORLD_FORBIDDEN"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "consent_basis": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "VALIDATED",
+        "READY",
+        "RUNNING",
+        "COMPLETE",
+        "INVALID",
+        "ABORTED",
+        "PARTIAL",
+        "NOT_COMPUTABLE",
+        "QUARANTINED"
+      ]
+    },
+    "interpretation": {
+      "enum": [
+        "SUPPORTED",
+        "PARTIALLY_SUPPORTED",
+        "NOT_SUPPORTED",
+        "INCONCLUSIVE"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "input_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

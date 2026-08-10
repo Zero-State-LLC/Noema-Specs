@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L15-02",
+  "suite": "noema-v0.4-lab",
+  "family_id": "L15",
+  "title": "Lab result / compiler boundary case 2",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/EXPERIMENT-LAB.md"
+  ],
+  "preconditions": [
+    "lab_version=lab/0.4"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-result.json",
+    "specs/lab-result.schema.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v04-lab/lab-result.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Lab result / compiler boundary"
+    ]
+  },
+  "security_class": "none"
+}

@@ -30,7 +30,11 @@ Prerequisite: v0.1 C01–C26 and v0.2 F01–F15 green. Observatory does not muta
 
 ## v0.4 — The Lab
 
-Deterministic replay harness, perturbation, mutation, ablation, lesion studies, counterfactuals, and replication runner.
+Deterministic replay harness, experimental forks, perturbation, ablation, lesion studies (adapter-declared), counterfactuals, controls, replication, and lab-result handoff to Compiler.
+
+**Executable package:** [docs/releases/v0.4/](releases/v0.4/) · [EXPERIMENT-LAB.md](EXPERIMENT-LAB.md) · [examples/v04-lab/](../examples/v04-lab/) · [conformance/v0.4/](../conformance/v0.4/) (**L01–L16**).
+
+Prerequisite: C01–C26, F01–F15, O01–O16 green. Lab does **not** mutate production worlds; does not emit `PROVEN`.
 
 ## v0.5 — The Compiler
 
