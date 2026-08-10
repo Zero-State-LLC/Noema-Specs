@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/contradiction-set.schema.json",
+  "title": "Contradiction Set",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "contradiction-set/0.2"
+    },
+    "contradiction_set_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "member_refs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_identities": {
+      "type": "array"
+    },
+    "known_truth_relationship": {
+      "type": "object"
+    },
+    "agent_visible_relationship": {
+      "type": "string"
+    },
+    "research_visible_relationship": {
+      "type": "string"
+    },
+    "resolution_status": {
+      "enum": [
+        "open",
+        "resolved",
+        "abandoned"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "contradiction_set_id",
+    "member_refs",
+    "agent_visible_relationship",
+    "resolution_status"
+  ]
+}

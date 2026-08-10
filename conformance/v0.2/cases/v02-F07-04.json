@@ -1,0 +1,33 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F07-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F07",
+  "title": "missing required request field NOT_COMPUTABLE",
+  "acceptance_items": [
+    7
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/negative/invalid-frontier-missing-seed.json",
+    "examples/v02-frontier/frontier-plan-empty.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "ADMIT",
+      "input": {}
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "NOT_COMPUTABLE"
+    ]
+  },
+  "security_class": "none"
+}

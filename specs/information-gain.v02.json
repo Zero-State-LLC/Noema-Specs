@@ -1,0 +1,17 @@
+{
+  "schema_version": "information-gain/0.2",
+  "scale": "millipoints",
+  "components": [
+    "uncertainty",
+    "discrimination",
+    "coverage_gain",
+    "novelty",
+    "failure_relevance",
+    "control_value",
+    "cost",
+    "risk",
+    "repetition"
+  ],
+  "missing_uncertainty": "NOT_COMPUTABLE",
+  "claim_label_for_estimates": "INFERRED"
+}

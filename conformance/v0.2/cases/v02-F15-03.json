@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F15-03",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F15",
+  "title": "missing evidence => NOT_COMPUTABLE confidence",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md",
+    "docs/INFORMATION-GAIN.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/capability-primitives.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "EVALUATE",
+      "input": {
+        "fixture": "examples/v02-frontier/capability-primitives.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "null confidence"
+    ]
+  },
+  "security_class": "none"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F15-05",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F15",
+  "title": "NOT_COMPUTABLE not coerced to zero uncertainty",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md",
+    "docs/INFORMATION-GAIN.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/capability-primitives.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "EVALUATE",
+      "input": {
+        "fixture": "examples/v02-frontier/capability-primitives.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "no invented zero"
+    ]
+  },
+  "security_class": "none"
+}

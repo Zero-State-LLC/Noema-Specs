@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/frontier-audit-record.schema.json",
+  "title": "Frontier Audit Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "frontier-audit/0.2"
+    },
+    "audit_version": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "record_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "input_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "director_implementation_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "candidate_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "score_components": {
+      "type": "object"
+    },
+    "constraint_decisions": {
+      "type": "array"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "previous_record_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "record_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "record_index",
+    "record_type",
+    "input_digest",
+    "record_digest",
+    "claim_label"
+  ]
+}

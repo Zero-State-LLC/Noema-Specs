@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F02-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F02",
+  "title": "pairwise_diversity_min default 120",
+  "acceptance_items": [
+    2
+  ],
+  "requirement_refs": [
+    "docs/NOVELTY-VECTOR.md",
+    "specs/novelty-axes.v02.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/novelty-axes.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "CHECK",
+      "input": {
+        "doc": "novelty-axes.v02"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "threshold versioned"
+    ]
+  },
+  "security_class": "none"
+}

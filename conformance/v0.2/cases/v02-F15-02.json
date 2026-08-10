@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F15-02",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F15",
+  "title": "missing seed request invalid",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md",
+    "docs/INFORMATION-GAIN.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/negative/invalid-frontier-missing-seed.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "EVALUATE",
+      "input": {
+        "fixture": "examples/negative/invalid-frontier-missing-seed.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "schema reject"
+    ]
+  },
+  "security_class": "none"
+}

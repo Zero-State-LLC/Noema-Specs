@@ -18,7 +18,12 @@
         "shortage",
         "world_pressure",
         "message_notice",
-        "discovery"
+        "discovery",
+        "frontier_pressure",
+        "conflicting_reports",
+        "communication_disrupted",
+        "market_shift",
+        "organization_response"
       ]
     },
     "world_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },

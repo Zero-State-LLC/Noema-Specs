@@ -57,6 +57,25 @@ REQUIRED_DOCS = [
     "docs/ACTION-CONTRACTS.md",
     "docs/SCHEDULER.md",
     "docs/SPECTATOR.md",
+    "docs/SITUATION-GENOME.md",
+    "docs/NOVELTY-VECTOR.md",
+    "docs/CAPABILITY-PRIMITIVES.md",
+    "docs/SITUATION-MUTATION.md",
+    "docs/PARTIAL-OBSERVABILITY.md",
+    "docs/NOISE-MODEL.md",
+    "docs/CONTRADICTORY-EVIDENCE.md",
+    "docs/ATTENTION-PROJECTION.md",
+    "docs/INFORMATION-GAIN.md",
+    "docs/FRONTIER-CONTROLS.md",
+    "docs/FRONTIER-DIRECTOR.md",
+    "docs/releases/v0.2/SCOPE.md",
+    "docs/releases/v0.2/ARCHITECTURE.md",
+    "docs/releases/v0.2/ACCEPTANCE.md",
+    "docs/releases/v0.2/CONFORMANCE.md",
+    "docs/releases/v0.2/MIGRATION.md",
+    "docs/releases/v0.2/NON-GOALS.md",
+    "docs/releases/v0.2/EXAMPLES.md",
+    "docs/releases/v0.2/DATA-MODEL.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -92,6 +111,20 @@ REQUIRED_SCHEMAS = [
     "specs/action-contracts.v01.json",
     "specs/id-rules.v01.json",
     "specs/spectator-projection.schema.json",
+    "specs/situation-genome.v02.schema.json",
+    "specs/novelty-axes.v02.json",
+    "specs/mutation-catalog.v02.json",
+    "specs/noise-model.v02.json",
+    "specs/attention-projection.v02.json",
+    "specs/information-gain.v02.json",
+    "specs/frontier-director-config.v02.json",
+    "specs/frontier-request.schema.json",
+    "specs/frontier-candidate.schema.json",
+    "specs/frontier-plan.schema.json",
+    "specs/frontier-audit-record.schema.json",
+    "specs/frontier-replay-context.schema.json",
+    "specs/capability-primitive.schema.json",
+    "specs/contradiction-set.schema.json",
 ]
 
 REQUIRED_RESEARCH = [
@@ -141,6 +174,13 @@ REQUIRED_EXAMPLES = [
     "examples/v01-strategic/sample-trajectory.jsonl",
     "examples/v01-strategic/expected-final-state.json",
     "examples/v01-strategic/spectator-projections.json",
+    "examples/v02-frontier/situation-genome.json",
+    "examples/v02-frontier/frontier-request.json",
+    "examples/v02-frontier/frontier-plan.json",
+    "examples/v02-frontier/situation-injected.json",
+    "conformance/v0.2/manifest.json",
+    "examples/negative/invalid-genome-forced-outcome.json",
+    "examples/negative/invalid-frontier-missing-seed.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -461,6 +501,12 @@ def check_negatives(Draft202012Validator) -> None:
         elif name.startswith("invalid-spectator"):
             spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
             rejected = bool(list(Draft202012Validator(spectator_schema).iter_errors(data)))
+        elif name.startswith("invalid-genome"):
+            genome_schema = load_json(ROOT / "specs" / "situation-genome.v02.schema.json")
+            rejected = bool(list(Draft202012Validator(genome_schema).iter_errors(data)))
+        elif name.startswith("invalid-frontier"):
+            fr_schema = load_json(ROOT / "specs" / "frontier-request.schema.json")
+            rejected = bool(list(Draft202012Validator(fr_schema).iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -532,6 +578,38 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "specs/equivalence-boundary.schema.json",
             "examples/v01-strategic/equivalence-boundary.json",
         ),
+        (
+            "specs/situation-genome.v02.schema.json",
+            "examples/v02-frontier/situation-genome.json",
+        ),
+        (
+            "specs/situation-genome.schema.json",
+            "examples/sample-situation.json",
+        ),
+        (
+            "specs/frontier-request.schema.json",
+            "examples/v02-frontier/frontier-request.json",
+        ),
+        (
+            "specs/frontier-plan.schema.json",
+            "examples/v02-frontier/frontier-plan.json",
+        ),
+        (
+            "specs/frontier-plan.schema.json",
+            "examples/v02-frontier/frontier-plan-empty.json",
+        ),
+        (
+            "specs/frontier-replay-context.schema.json",
+            "examples/v02-frontier/replay-context.json",
+        ),
+        (
+            "specs/contradiction-set.schema.json",
+            "examples/v02-frontier/contradiction-set.json",
+        ),
+        (
+            "specs/spectator-projection.schema.json",
+            "examples/v02-frontier/spectator-projection-public.json",
+        ),
     ]
 
     spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
@@ -601,6 +679,35 @@ def check_conformance_suite(Draft202012Validator) -> None:
         fail(f"conformance suite missing acceptance items: {missing_items}")
 
     ok("Conformance suite v0.1: 26 cases, fixtures present, items 1–26 covered")
+
+    # v0.2 Frontier suite
+    m2 = load_json(ROOT / "conformance" / "v0.2" / "manifest.json")
+    cases2 = m2.get("cases") or []
+    if len(cases2) < 75:
+        fail(f"conformance v0.2 suite must list ≥75 cases, found {len(cases2)}")
+    fams: set[str] = set()
+    for rel in cases2:
+        path = ROOT / "conformance" / "v0.2" / rel
+        if not path.exists():
+            fail(f"conformance v0.2 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.2 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.2 case {rel} missing fixture {fixture}")
+    expected_fams = {f"F{i:02d}" for i in range(1, 16)}
+    missing_fams = sorted(expected_fams - fams)
+    if missing_fams:
+        fail(f"conformance v0.2 missing families: {missing_fams}")
+    ok(
+        f"Conformance suite v0.2: {len(cases2)} cases, families F01–F15 covered"
+    )
 
 
 def check_contract_quality_markers() -> None:

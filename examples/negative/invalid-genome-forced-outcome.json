@@ -1,0 +1,25 @@
+{
+  "schema_version": "situation-genome/0.2",
+  "genome_id": "genome.bad",
+  "genome_version": "1",
+  "world_rules_version": "world/v1",
+  "template_id": "t1",
+  "mutation_lineage": [],
+  "affected_rooms": [],
+  "required_agent_action": "INSPECT",
+  "novelty_vector": {
+    "semantic": 1,
+    "causal": 1,
+    "social_topology": 1,
+    "temporal": 1,
+    "tool": 1,
+    "epistemic": 1,
+    "goal_structure": 1,
+    "resource": 1,
+    "constraint": 1
+  },
+  "risk_class": 0,
+  "control_role": "none",
+  "seed_streams": {},
+  "content_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

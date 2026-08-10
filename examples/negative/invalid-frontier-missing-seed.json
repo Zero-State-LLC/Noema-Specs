@@ -1,0 +1,20 @@
+{
+  "schema_version": "frontier-request/0.2",
+  "request_id": "fdrq.bad",
+  "decision_cycle": 1,
+  "director_version": "frontier-director/0.2",
+  "world_version": "world/v1",
+  "capability_snapshot": {},
+  "trajectory_window": {},
+  "targets": [
+    {
+      "capability_id": "X",
+      "priority_weight": 1
+    }
+  ],
+  "novelty_axes_version": "novelty-axes/0.2",
+  "candidate_sources": [],
+  "budgets": {},
+  "safety_rules": {},
+  "research_constraints": {}
+}

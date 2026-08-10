@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F10-01",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F10",
+  "title": "contradiction set validates",
+  "acceptance_items": [
+    10
+  ],
+  "requirement_refs": [
+    "docs/CONTRADICTORY-EVIDENCE.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/contradiction-set.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-frontier/contradiction-set.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "schema"
+    ],
+    "must_not_contain_paths": [
+      "agent_observation.known_truth_relationship"
+    ]
+  },
+  "security_class": "privacy"
+}

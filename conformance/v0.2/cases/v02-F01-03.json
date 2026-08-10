@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F01-03",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F01",
+  "title": "forced outcome field rejected",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/SITUATION-GENOME.md",
+    "specs/situation-genome.v02.schema.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/negative/invalid-genome-forced-outcome.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/negative/invalid-genome-forced-outcome.json"
+      },
+      "notes": "must not encode required action"
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "additionalProperties or product policy reject"
+    ]
+  },
+  "security_class": "none"
+}

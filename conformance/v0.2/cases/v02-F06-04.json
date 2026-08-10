@@ -1,0 +1,33 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F06-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F06",
+  "title": "normalized situation identity stable",
+  "acceptance_items": [
+    6
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-CONTROLS.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/frontier-plan.json",
+    "specs/frontier-director-config.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "FILTER_REPETITION",
+      "input": {}
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "digest"
+    ]
+  },
+  "security_class": "none"
+}

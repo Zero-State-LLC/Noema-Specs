@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F03-02",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F03",
+  "title": "operator forbids research label paths",
+  "acceptance_items": [
+    3
+  ],
+  "requirement_refs": [
+    "docs/SITUATION-MUTATION.md",
+    "specs/mutation-catalog.v02.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/mutation-catalog.v02.json",
+    "examples/v02-frontier/situation-genome.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "MUTATE",
+      "input": {
+        "fixture": "examples/v02-frontier/parent-genome.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "forbidden_paths include research_labels"
+    ]
+  },
+  "security_class": "none"
+}

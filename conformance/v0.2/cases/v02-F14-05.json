@@ -1,0 +1,40 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F14-05",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F14",
+  "title": "authorized research sees genome_id",
+  "acceptance_items": [
+    14
+  ],
+  "requirement_refs": [
+    "docs/SPECTATOR.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/spectator-projection-public.json",
+    "examples/v02-frontier/research-overlay.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "WATCH",
+      "input": {
+        "fixture": "examples/v02-frontier/spectator-projection-public.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "NO_MUTATION",
+    "assertions": [
+      "overlay"
+    ],
+    "must_not_contain_paths": [
+      "fields.target_capabilities",
+      "fields.novelty_vector",
+      "fields.selection_rationale"
+    ]
+  },
+  "security_class": "privacy"
+}

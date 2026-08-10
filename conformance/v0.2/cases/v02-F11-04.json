@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F11-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F11",
+  "title": "A < cost => BUDGET_EXCEEDED no debit",
+  "acceptance_items": [
+    11
+  ],
+  "requirement_refs": [
+    "docs/ATTENTION-PROJECTION.md",
+    "specs/attention-projection.v02.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/attention-projection.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "PROJECT",
+      "input": {
+        "attention": 8
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "failed cost 0"
+    ]
+  },
+  "security_class": "none"
+}

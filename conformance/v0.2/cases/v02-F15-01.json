@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F15-01",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F15",
+  "title": "empty plan valid stop no-safe-candidate",
+  "acceptance_items": [
+    15
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md",
+    "docs/INFORMATION-GAIN.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/frontier-plan-empty.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "EVALUATE",
+      "input": {
+        "fixture": "examples/v02-frontier/frontier-plan-empty.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "empty selected"
+    ]
+  },
+  "security_class": "none"
+}

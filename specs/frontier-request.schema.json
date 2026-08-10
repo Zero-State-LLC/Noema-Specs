@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/frontier-request.schema.json",
+  "title": "Frontier Request",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "frontier-request/0.2"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "decision_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "director_version": {
+      "const": "frontier-director/0.2"
+    },
+    "world_version": {
+      "type": "string"
+    },
+    "capability_snapshot": {
+      "type": "object"
+    },
+    "trajectory_window": {
+      "type": "object"
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1
+    },
+    "novelty_axes_version": {
+      "const": "novelty-axes/0.2"
+    },
+    "candidate_sources": {
+      "type": "array"
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "safety_rules": {
+      "type": "object"
+    },
+    "research_constraints": {
+      "type": "object"
+    },
+    "seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "decision_cycle",
+    "director_version",
+    "world_version",
+    "capability_snapshot",
+    "trajectory_window",
+    "targets",
+    "novelty_axes_version",
+    "candidate_sources",
+    "budgets",
+    "safety_rules",
+    "research_constraints",
+    "seed",
+    "seed_digest"
+  ]
+}
