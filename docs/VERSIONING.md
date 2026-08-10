@@ -2,7 +2,7 @@
 
 ## Version domains
 
-- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier)
+- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory)
 - Spec pin: Noema-Specs release / pin (e.g. `v0.1.0-rc2`, `v0.2.0-draft`)
 - World rules: `world/v1`
 - World instance: `world_id` + `world_version`
@@ -16,6 +16,10 @@
 - Novelty axes: `novelty-axes/0.2`
 - Mutation catalog: `mutation-catalog/0.2`
 - Noise model: `noise-model/0.2`
+- Trajectory: `trajectory/0.3` (legacy samples may use `1.0`)
+- Behavior features: `behavior-features/0.3`
+- Observatory: `observatory/0.3`
+- Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`
 - Dataset: `atlas-2026.1`

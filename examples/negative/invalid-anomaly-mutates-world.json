@@ -1,0 +1,14 @@
+{
+  "schema_version": "anomaly-candidate/0.3",
+  "candidate_id": "anom.bad",
+  "detector_id": "x",
+  "detector_version": "anomaly-detectors/0.3",
+  "trajectory_refs": [
+    "traj.x"
+  ],
+  "baseline_id": "baseline.x",
+  "status": "DETECTED",
+  "claim_label": "INFERRED",
+  "world_mutation": true,
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

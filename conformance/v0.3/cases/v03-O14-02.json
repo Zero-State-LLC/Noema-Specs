@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O14-02",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O14",
+  "title": "anomaly with world_mutation rejected",
+  "acceptance_items": [
+    14
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/negative/invalid-anomaly-mutates-world.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/negative/invalid-anomaly-mutates-world.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "schema/product reject"
+    ],
+    "must_not_contain_paths": [
+      "world_truth_write",
+      "ledger_append"
+    ]
+  },
+  "security_class": "none"
+}

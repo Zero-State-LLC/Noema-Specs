@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/observatory-audit-record.schema.json",
+  "title": "Observatory Audit Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "observatory-audit/0.3"
+    },
+    "analysis_run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "record_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "operation": {
+      "type": "string"
+    },
+    "input_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "feature_result_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "baseline_result_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "detector_result": {
+      "type": "object"
+    },
+    "threshold_decision": {
+      "type": "string"
+    },
+    "candidate_action": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "previous_record_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "record_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "analysis_run_id",
+    "record_index",
+    "operation",
+    "input_digest",
+    "record_digest",
+    "claim_label"
+  ]
+}

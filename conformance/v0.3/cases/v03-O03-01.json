@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O03-01",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O03",
+  "title": "hard mask defined",
+  "acceptance_items": [
+    3
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/context-comparability.v03.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "LOAD",
+      "input": {
+        "fixture": "specs/context-comparability.v03.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "hard_mask"
+    ]
+  },
+  "security_class": "none"
+}

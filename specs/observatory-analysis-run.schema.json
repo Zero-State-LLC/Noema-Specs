@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/observatory-analysis-run.schema.json",
+  "title": "Observatory Analysis Run",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "observatory-analysis-run/0.3"
+    },
+    "analysis_run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "observatory_version": {
+      "const": "observatory/0.3"
+    },
+    "feature_catalog_version": {
+      "type": "string"
+    },
+    "detector_versions": {
+      "type": "object"
+    },
+    "baseline_ids": {
+      "type": "array"
+    },
+    "trajectory_ids": {
+      "type": "array"
+    },
+    "world_versions": {
+      "type": "array"
+    },
+    "agent_versions": {
+      "type": "array"
+    },
+    "config_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "seed": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_digests": {
+      "type": "object"
+    },
+    "output_digests": {
+      "type": "object"
+    },
+    "analysis_status": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "NOT_COMPUTABLE",
+        "FAILED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "analysis_run_id",
+    "observatory_version",
+    "feature_catalog_version",
+    "trajectory_ids",
+    "config_digest",
+    "input_digests",
+    "output_digests",
+    "analysis_status"
+  ]
+}

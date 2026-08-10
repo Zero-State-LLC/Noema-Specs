@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/unknown-candidate.schema.json",
+  "title": "Unknown Behavior/Capability Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "unknown-candidate/0.3"
+    },
+    "unknown_id": {
+      "type": "string",
+      "pattern": "^UNKNOWN_(BEHAVIOR|CAPABILITY)_[A-Za-z0-9_-]+$"
+    },
+    "minimal_description": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1
+    },
+    "reproduction_status": {
+      "enum": [
+        "unreproduced",
+        "partial",
+        "reproduced",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "similarity_links": {
+      "type": "array"
+    },
+    "known_non_explanations": {
+      "type": "array"
+    },
+    "open_questions": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "claim_label": {
+      "enum": [
+        "SPECULATIVE",
+        "INFERRED",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "unknown_id",
+    "minimal_description",
+    "evidence_refs",
+    "reproduction_status",
+    "claim_label",
+    "digest"
+  ]
+}

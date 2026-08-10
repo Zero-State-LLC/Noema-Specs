@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O13-05",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O13",
+  "title": "PARTIAL on limit exceed declared",
+  "acceptance_items": [
+    13
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/observatory-config.v03.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "CHECK",
+      "input": {
+        "fixture": "specs/observatory-config.v03.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "PARTIAL"
+    ]
+  },
+  "security_class": "none"
+}

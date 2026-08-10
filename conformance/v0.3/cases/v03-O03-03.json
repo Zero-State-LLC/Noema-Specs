@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O03-03",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O03",
+  "title": "CONDITIONALLY_COMPARABLE requires confounds",
+  "acceptance_items": [
+    3
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/context-profiles.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "COMPARE",
+      "input": {
+        "fixture": "examples/v03-observatory/context-profiles.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "confounds"
+    ]
+  },
+  "security_class": "none"
+}

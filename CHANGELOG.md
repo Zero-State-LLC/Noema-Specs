@@ -4,6 +4,15 @@
 
 ### Added
 
+- **v0.3 Observatory executable package:** `docs/releases/v0.3/*`, trajectory/0.3, behavior features, context normalization, baselines, anomaly/shift/capability/unknown candidates, agent-version comparison, external cognition & coordination signals, analysis-run + audit schemas, `examples/v03-observatory/`, conformance **O01–O16** (96 cases).
+- Docs: TRAJECTORY, BEHAVIOR-FEATURES, CONTEXT-NORMALIZATION, BASELINES, ANOMALY-DETECTION, BEHAVIOR-SHIFT, AGENT-VERSION-COMPARISON, CAPABILITY-CANDIDATES, CONTRADICTION-ANALYSIS, EXTERNAL-COGNITION, COORDINATION-SIGNALS, EMERGENCE-CANDIDATES, OBSERVATORY-AUDIT; expanded OBSERVATORY.md.
+
+### Changed
+
+- Roadmap/README/VERSIONING/MODULE-CONTRACTS/SPECTATOR/TESTING for Observatory executable scope.
+
+### Added
+
 - **v0.2 Frontier executable package:** `docs/releases/v0.2/*`, Situation Genome 0.2, novelty axes, mutation catalog, noise/attention/info-gain configs, capability primitives, Frontier request/plan/candidate/audit/replay schemas.
 - Docs: SITUATION-GENOME, NOVELTY-VECTOR, CAPABILITY-PRIMITIVES, SITUATION-MUTATION, PARTIAL-OBSERVABILITY, NOISE-MODEL, CONTRADICTORY-EVIDENCE, ATTENTION-PROJECTION, INFORMATION-GAIN, FRONTIER-CONTROLS.
 - Fixtures: `examples/v02-frontier/` end-to-end deterministic Frontier scenario.

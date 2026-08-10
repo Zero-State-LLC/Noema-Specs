@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O13-03",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O13",
+  "title": "identical inputs => equivalent outputs digests",
+  "acceptance_items": [
+    13
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/expected-digests.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "observatory",
+      "action": "REPLAY",
+      "input": {
+        "fixture": "examples/v03-observatory/expected-digests.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "replay"
+    ]
+  },
+  "security_class": "none"
+}

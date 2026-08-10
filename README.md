@@ -151,7 +151,7 @@ python validation/validate_all.py
 
 Expected final line: `PASS`.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**).
 
 ### Replay the Chamber seed (runtime)
 
@@ -227,6 +227,7 @@ Noema-Specs/
 | Scheduler | [docs/SCHEDULER.md](docs/SCHEDULER.md) |
 | Spectator projections | [docs/SPECTATOR.md](docs/SPECTATOR.md) |
 | Frontier (v0.2) | [docs/releases/v0.2/](docs/releases/v0.2/) · [FRONTIER-DIRECTOR](docs/FRONTIER-DIRECTOR.md) · [SITUATION-GENOME](docs/SITUATION-GENOME.md) |
+| Observatory (v0.3) | [docs/releases/v0.3/](docs/releases/v0.3/) · [OBSERVATORY](docs/OBSERVATORY.md) · [TRAJECTORY](docs/TRAJECTORY.md) |
 
 ### Protocols and schemas
 
@@ -286,6 +287,8 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/v01-strategic/](examples/v01-strategic/) | Multi-agent strategic ecology fixtures |
 | [examples/v02-frontier/](examples/v02-frontier/) | Frontier decision + injection fixtures |
 | [conformance/v0.2/](conformance/v0.2/) | Frontier families **F01–F15** |
+| [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |
+| [conformance/v0.3/](conformance/v0.3/) | Observatory families **O01–O16** |
 | [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C26** |
 
 **v0.1 mandatory equivalence (ADR-005):** identical ordered event digests · identical final WorldState digest · identical focal observation digests.
@@ -328,7 +331,7 @@ Independent version domains (see [docs/VERSIONING.md](docs/VERSIONING.md)):
 | Ontologies | `capability-ontology/0.1`, `phenomena-ontology/0.1` |
 | Datasets | `atlas-2026.1` |
 
-**Roadmap (summary):** v0.1 Chamber → [v0.2 Frontier](docs/releases/v0.2/SCOPE.md) → v0.3 Observatory → v0.3 Observatory → v0.4 Lab → v0.5 Compiler → v0.6 Deep Time → v0.7 Capability Graph → v0.8 Phenomena → v0.9 Atlas → v1.0 third-party compatible evidence export. Details: [docs/ROADMAP.md](docs/ROADMAP.md).
+**Roadmap (summary):** v0.1 Chamber → [v0.2 Frontier](docs/releases/v0.2/SCOPE.md) → [v0.3 Observatory](docs/releases/v0.3/SCOPE.md) → v0.4 Lab → v0.5 Compiler → v0.6 Deep Time → v0.7 Capability Graph → v0.8 Phenomena → v0.9 Atlas → v1.0 third-party compatible evidence export. Details: [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 
@@ -394,7 +397,7 @@ Operational sequences (containment, quarantine, kill-switch): [docs/SECURITY-SEQ
 |---------|--------|
 | Spec tree + merge gate | Green on `main` |
 | Chamber seed package | Complete (`examples/v01-seed/`) |
-| Conformance cases C01–C26 + F01–F15 | Specified + fixture-linked |
+| Conformance cases C01–C26 + F01–F15 + O01–O16 | Specified + fixture-linked |
 | Onboarding / deployment golden paths | Documented (QUICKSTART + C11–C17) |
 | Reference reducer replay (C04) | Green in `Zero-State-LLC/Noema` |
 | Protocol + onboarding runtime cases | Specified; implement in runtime |

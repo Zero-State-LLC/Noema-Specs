@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capability-candidate.schema.json",
+  "title": "Capability Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "capability-candidate/0.3"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "DETECTED",
+        "TRIAGED",
+        "RETAINED",
+        "READY_FOR_LAB",
+        "REJECTED",
+        "INSUFFICIENT_EVIDENCE",
+        "DUPLICATE",
+        "CONFOUNDED",
+        "NOT_COMPUTABLE",
+        "REVIEWED",
+        "ESCALATED"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "supporting_evidence": {
+      "type": "array"
+    },
+    "counterevidence": {
+      "type": "array"
+    },
+    "confounds": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "candidate_capability_id": {
+      "type": "string"
+    },
+    "capability_primitive_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "novel_unknown_marker": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supporting_anomaly_refs": {
+      "type": "array"
+    },
+    "behavior_shift_refs": {
+      "type": "array"
+    },
+    "trajectory_refs": {
+      "type": "array"
+    },
+    "observed_conditions": {
+      "type": "object"
+    },
+    "generalization_unknowns": {
+      "type": "array"
+    },
+    "replication_required": {
+      "const": true
+    },
+    "class": {
+      "enum": [
+        "KNOWN_PRIMITIVE_CANDIDATE",
+        "UNKNOWN_CAPABILITY"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "candidate_capability_id",
+    "replication_required",
+    "status",
+    "claim_label",
+    "class",
+    "digest"
+  ]
+}

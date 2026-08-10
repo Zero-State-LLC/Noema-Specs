@@ -76,6 +76,28 @@ REQUIRED_DOCS = [
     "docs/releases/v0.2/NON-GOALS.md",
     "docs/releases/v0.2/EXAMPLES.md",
     "docs/releases/v0.2/DATA-MODEL.md",
+    "docs/OBSERVATORY.md",
+    "docs/TRAJECTORY.md",
+    "docs/BEHAVIOR-FEATURES.md",
+    "docs/CONTEXT-NORMALIZATION.md",
+    "docs/BASELINES.md",
+    "docs/ANOMALY-DETECTION.md",
+    "docs/BEHAVIOR-SHIFT.md",
+    "docs/AGENT-VERSION-COMPARISON.md",
+    "docs/CAPABILITY-CANDIDATES.md",
+    "docs/CONTRADICTION-ANALYSIS.md",
+    "docs/EXTERNAL-COGNITION.md",
+    "docs/COORDINATION-SIGNALS.md",
+    "docs/EMERGENCE-CANDIDATES.md",
+    "docs/OBSERVATORY-AUDIT.md",
+    "docs/releases/v0.3/SCOPE.md",
+    "docs/releases/v0.3/ARCHITECTURE.md",
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/releases/v0.3/CONFORMANCE.md",
+    "docs/releases/v0.3/MIGRATION.md",
+    "docs/releases/v0.3/NON-GOALS.md",
+    "docs/releases/v0.3/EXAMPLES.md",
+    "docs/releases/v0.3/DATA-MODEL.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -125,6 +147,20 @@ REQUIRED_SCHEMAS = [
     "specs/frontier-replay-context.schema.json",
     "specs/capability-primitive.schema.json",
     "specs/contradiction-set.schema.json",
+    "specs/trajectory.v03.schema.json",
+    "specs/behavior-feature-catalog.v03.json",
+    "specs/context-comparability.v03.json",
+    "specs/behavior-shift-config.v03.json",
+    "specs/anomaly-detector-catalog.v03.json",
+    "specs/observatory-config.v03.json",
+    "specs/baseline.schema.json",
+    "specs/anomaly-candidate.schema.json",
+    "specs/behavior-shift-candidate.schema.json",
+    "specs/capability-candidate.schema.json",
+    "specs/unknown-candidate.schema.json",
+    "specs/agent-version-comparison.schema.json",
+    "specs/observatory-analysis-run.schema.json",
+    "specs/observatory-audit-record.schema.json",
 ]
 
 REQUIRED_RESEARCH = [
@@ -181,6 +217,12 @@ REQUIRED_EXAMPLES = [
     "conformance/v0.2/manifest.json",
     "examples/negative/invalid-genome-forced-outcome.json",
     "examples/negative/invalid-frontier-missing-seed.json",
+    "examples/v03-observatory/trajectory.json",
+    "examples/v03-observatory/anomaly-candidate.json",
+    "examples/v03-observatory/analysis-run.json",
+    "conformance/v0.3/manifest.json",
+    "examples/negative/invalid-trajectory-missing-digest.json",
+    "examples/negative/invalid-anomaly-mutates-world.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -507,6 +549,12 @@ def check_negatives(Draft202012Validator) -> None:
         elif name.startswith("invalid-frontier"):
             fr_schema = load_json(ROOT / "specs" / "frontier-request.schema.json")
             rejected = bool(list(Draft202012Validator(fr_schema).iter_errors(data)))
+        elif name.startswith("invalid-trajectory"):
+            tr_schema = load_json(ROOT / "specs" / "trajectory.v03.schema.json")
+            rejected = bool(list(Draft202012Validator(tr_schema).iter_errors(data)))
+        elif name.startswith("invalid-anomaly"):
+            an_schema = load_json(ROOT / "specs" / "anomaly-candidate.schema.json")
+            rejected = bool(list(Draft202012Validator(an_schema).iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -610,6 +658,42 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "specs/spectator-projection.schema.json",
             "examples/v02-frontier/spectator-projection-public.json",
         ),
+        (
+            "specs/trajectory.v03.schema.json",
+            "examples/v03-observatory/trajectory.json",
+        ),
+        (
+            "specs/baseline.schema.json",
+            "examples/v03-observatory/baseline.json",
+        ),
+        (
+            "specs/anomaly-candidate.schema.json",
+            "examples/v03-observatory/anomaly-candidate.json",
+        ),
+        (
+            "specs/behavior-shift-candidate.schema.json",
+            "examples/v03-observatory/behavior-shift-candidate.json",
+        ),
+        (
+            "specs/capability-candidate.schema.json",
+            "examples/v03-observatory/capability-candidate.json",
+        ),
+        (
+            "specs/unknown-candidate.schema.json",
+            "examples/v03-observatory/unknown-candidate.json",
+        ),
+        (
+            "specs/agent-version-comparison.schema.json",
+            "examples/v03-observatory/agent-version-comparison.json",
+        ),
+        (
+            "specs/observatory-analysis-run.schema.json",
+            "examples/v03-observatory/analysis-run.json",
+        ),
+        (
+            "specs/spectator-projection.schema.json",
+            "examples/v03-observatory/spectator-projection-public.json",
+        ),
     ]
 
     spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
@@ -708,6 +792,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
     ok(
         f"Conformance suite v0.2: {len(cases2)} cases, families F01–F15 covered"
     )
+
+    # v0.3 Observatory suite
+    m3 = load_json(ROOT / "conformance" / "v0.3" / "manifest.json")
+    cases3 = m3.get("cases") or []
+    if len(cases3) < 80:
+        fail(f"conformance v0.3 suite must list ≥80 cases, found {len(cases3)}")
+    fams3: set[str] = set()
+    for rel in cases3:
+        path = ROOT / "conformance" / "v0.3" / rel
+        if not path.exists():
+            fail(f"conformance v0.3 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.3 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams3.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.3 case {rel} missing fixture {fixture}")
+    expected_o = {f"O{i:02d}" for i in range(1, 17)}
+    missing_o = sorted(expected_o - fams3)
+    if missing_o:
+        fail(f"conformance v0.3 missing families: {missing_o}")
+    ok(f"Conformance suite v0.3: {len(cases3)} cases, families O01–O16 covered")
 
 
 def check_contract_quality_markers() -> None:

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/trajectory.v03.schema.json",
+  "title": "Trajectory 0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "trajectory/0.3"
+    },
+    "trajectory_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "trajectory_version": {
+      "type": "string"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_version": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "agent_version": {
+      "type": "string"
+    },
+    "start_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "observation_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "action_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "message_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "tool_call_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "world_context_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "experiment_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "frontier_genome_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "consent_basis": {
+      "type": "string"
+    },
+    "visibility_partition": {
+      "enum": [
+        "research",
+        "restricted",
+        "exportable"
+      ]
+    },
+    "feature_version": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "complete",
+        "bounded_window",
+        "rolling",
+        "episode",
+        "redacted",
+        "invalid"
+      ]
+    },
+    "missing_intervals": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "trajectory_id",
+    "trajectory_version",
+    "world_id",
+    "world_version",
+    "agent_id",
+    "start_cycle",
+    "end_cycle",
+    "event_refs",
+    "observation_refs",
+    "consent_basis",
+    "visibility_partition",
+    "feature_version",
+    "kind",
+    "digest"
+  ]
+}

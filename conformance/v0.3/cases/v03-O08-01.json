@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-O08-01",
+  "suite": "noema-v0.3-observatory",
+  "family_id": "O08",
+  "title": "capability candidate validates",
+  "acceptance_items": [
+    8
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.3/ACCEPTANCE.md",
+    "docs/OBSERVATORY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v03-observatory/capability-candidate.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v03-observatory/capability-candidate.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "schema"
+    ]
+  },
+  "security_class": "none"
+}

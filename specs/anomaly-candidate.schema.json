@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/anomaly-candidate.schema.json",
+  "title": "Anomaly Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "anomaly-candidate/0.3"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "DETECTED",
+        "TRIAGED",
+        "RETAINED",
+        "READY_FOR_LAB",
+        "REJECTED",
+        "INSUFFICIENT_EVIDENCE",
+        "DUPLICATE",
+        "CONFOUNDED",
+        "NOT_COMPUTABLE",
+        "REVIEWED",
+        "ESCALATED"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "supporting_evidence": {
+      "type": "array"
+    },
+    "counterevidence": {
+      "type": "array"
+    },
+    "confounds": {
+      "type": "array"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "detector_id": {
+      "type": "string"
+    },
+    "detector_version": {
+      "type": "string"
+    },
+    "trajectory_refs": {
+      "type": "array"
+    },
+    "baseline_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "feature_refs": {
+      "type": "array"
+    },
+    "context_refs": {
+      "type": "array"
+    },
+    "deviation_components": {
+      "type": "object"
+    },
+    "thresholds": {
+      "type": "object"
+    },
+    "created_cycle": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "detector_id",
+    "detector_version",
+    "trajectory_refs",
+    "baseline_id",
+    "status",
+    "claim_label",
+    "digest"
+  ]
+}
