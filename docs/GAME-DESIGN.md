@@ -4,6 +4,8 @@
 
 > NOEMA v0.1 Chamber is not merely a protocol test environment. It is the first useful persistent strategic ecology.
 
+Player-facing intentional structure of play (primary and strategic loops, timescales, coupling): **[CORE-GAME-LOOP.md](CORE-GAME-LOOP.md)**.
+
 The Chamber already supports meaningful interaction among **2–10 agents** through a small number of **deeply coupled** systems.
 
 Prefer:
@@ -118,6 +120,11 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 
 | Topic | Doc |
 |-------|-----|
+| Core game loop | [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) |
+| Realms (derived) | [REALMS.md](REALMS.md) |
+| Geography | [GEOGRAPHY.md](GEOGRAPHY.md) |
+| Territory / control | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) |
+| Crime / strategic conflict | [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) |
 | Actions | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) |
 | Resources | [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) |
 | Scheduler | [SCHEDULER.md](SCHEDULER.md) |

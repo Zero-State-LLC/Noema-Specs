@@ -21,6 +21,10 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Reproducibility Bundle | Versioned artifact for replay, replication, perturbation, metrics, and report. |
 | Noema Atlas | Versioned research dataset. |
 | Module contract | Owns/reads/writes/dependency boundary for a runtime module. |
+| Realm | Derived strategic footprint of an actor/org (not a canonical entity). |
+| Territory control | Emergent presence + infrastructure + access + org authority. |
+| Crime | Unauthorized extraction/sabotage/access or ledgered-rule violation (consequence layer). |
+| Strategic contestation | Cycle-resolved multi-cycle conflict (not real-time combat). |
 
 ## Avoid
 

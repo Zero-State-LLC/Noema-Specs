@@ -98,6 +98,11 @@ REQUIRED_DOCS = [
     "docs/releases/v0.3/NON-GOALS.md",
     "docs/releases/v0.3/EXAMPLES.md",
     "docs/releases/v0.3/DATA-MODEL.md",
+    "docs/CORE-GAME-LOOP.md",
+    "docs/REALMS.md",
+    "docs/GEOGRAPHY.md",
+    "docs/TERRITORY-CONTROL.md",
+    "docs/STRATEGIC-CONFLICT.md",
 ]
 
 REQUIRED_PROTOCOLS = [

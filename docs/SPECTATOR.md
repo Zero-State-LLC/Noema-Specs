@@ -12,6 +12,10 @@ Machine-readable projections: [`specs/spectator-projection.schema.json`](../spec
 4. Agent POV MUST match the selected agent’s observation boundary exactly.
 5. Public observers MUST NOT see restricted fields.
 
+## Realm view
+
+Spectators MAY see [Realm](REALMS.md) summaries (strategic footprint of actors/orgs). Realms are **derived projections**, not canonical entities, and follow the same non-mutation rules.
+
 ## Projection catalog
 
 | Projection id | Source event(s) | Public | Auth observer | Agent POV | Research overlay |
