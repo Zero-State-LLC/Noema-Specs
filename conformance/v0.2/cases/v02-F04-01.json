@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F04-01",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F04",
+  "title": "candidates enumerated with stable candidate_id",
+  "acceptance_items": [
+    4
+  ],
+  "requirement_refs": [
+    "docs/FRONTIER-DIRECTOR.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/candidate-ledger.jsonl",
+    "examples/v02-frontier/frontier-request.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "ENUMERATE",
+      "input": {
+        "request": "examples/v02-frontier/frontier-request.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "fdc- prefix"
+    ]
+  },
+  "security_class": "none"
+}

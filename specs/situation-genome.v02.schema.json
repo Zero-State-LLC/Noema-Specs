@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/situation-genome.v02.schema.json",
+  "title": "Situation Genome 0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "situation-genome/0.2"
+    },
+    "genome_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "genome_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_genome_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "world_rules_version": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "mutation_lineage": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "affected_rooms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "affected_entities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "participants": {
+      "type": "object"
+    },
+    "resource_conditions": {
+      "type": "object"
+    },
+    "information_distribution": {
+      "type": "object"
+    },
+    "social_topology": {
+      "type": "string"
+    },
+    "temporal_structure": {
+      "type": "object"
+    },
+    "goal_structure": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "noise_model": {
+      "type": "object"
+    },
+    "contradictory_evidence": {
+      "type": "object"
+    },
+    "tool_availability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_class": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "control_role": {
+      "enum": [
+        "none",
+        "positive-control",
+        "negative-control",
+        "regression"
+      ]
+    },
+    "novelty_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "semantic": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "causal": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "social_topology": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "temporal": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "tool": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "epistemic": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "goal_structure": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "resource": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "constraint": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "semantic",
+        "causal",
+        "social_topology",
+        "temporal",
+        "tool",
+        "epistemic",
+        "goal_structure",
+        "resource",
+        "constraint"
+      ]
+    },
+    "seed_streams": {
+      "type": "object"
+    },
+    "visibility_policy": {
+      "type": "object"
+    },
+    "duration_cycles": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "termination": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "content_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "genome_id",
+    "genome_version",
+    "world_rules_version",
+    "template_id",
+    "mutation_lineage",
+    "affected_rooms",
+    "novelty_vector",
+    "risk_class",
+    "control_role",
+    "seed_streams",
+    "content_digest"
+  ]
+}

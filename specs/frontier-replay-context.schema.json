@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/frontier-replay-context.schema.json",
+  "title": "Frontier Replay Context",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "frontier-replay-context/0.2"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "director_version": {
+      "type": "string"
+    },
+    "novelty_axes_version": {
+      "type": "string"
+    },
+    "mutation_catalog_version": {
+      "type": "string"
+    },
+    "noise_model_version": {
+      "type": "string"
+    },
+    "seed_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "input_digests": {
+      "type": "object"
+    },
+    "selected_situation_digests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+      }
+    },
+    "equivalence_boundary": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "director_version",
+    "seed_digest",
+    "selected_situation_digests"
+  ]
+}

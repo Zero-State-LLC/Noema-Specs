@@ -12,7 +12,11 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 ## v0.2 — The Frontier
 
-Situation Genome, Frontier Director, partial observability, attention budget, noise, contradictory evidence, novelty vector, and capability primitives.
+Situation Genome, Frontier Director, partial observability, attention degradation, noise, contradictory evidence, novelty vectors, deterministic mutations, information-gain planning estimates, capability primitives (minimal), anti-repetition/controls, Frontier audit + replay, spectator research redaction.
+
+**Executable package:** [docs/releases/v0.2/](releases/v0.2/) · [FRONTIER-DIRECTOR.md](FRONTIER-DIRECTOR.md) · [examples/v02-frontier/](../examples/v02-frontier/) · [conformance/v0.2/](../conformance/v0.2/) (F01–F15).
+
+Prerequisite: v0.1 C01–C26 green. Frontier changes **conditions** only; does not force research outcomes.
 
 ## v0.3 — The Observatory
 

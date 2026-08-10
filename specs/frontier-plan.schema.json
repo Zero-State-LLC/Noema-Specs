@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/frontier-plan.schema.json",
+  "title": "Frontier Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "frontier-plan/0.2"
+    },
+    "plan_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "input_digests": {
+      "type": "object"
+    },
+    "selected_candidates": {
+      "type": "array"
+    },
+    "expected_information_gain": {
+      "type": "object"
+    },
+    "claim_label": {
+      "enum": [
+        "INFERRED",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "budgets_reserved": {
+      "type": "object"
+    },
+    "anti_repetition_constraints": {
+      "type": "object"
+    },
+    "stop_reason": {
+      "type": "string"
+    },
+    "director_version": {
+      "const": "frontier-director/0.2"
+    }
+  },
+  "required": [
+    "schema_version",
+    "plan_id",
+    "request_id",
+    "selected_candidates",
+    "stop_reason",
+    "director_version",
+    "claim_label"
+  ]
+}

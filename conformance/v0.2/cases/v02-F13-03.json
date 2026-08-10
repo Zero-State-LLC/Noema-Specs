@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F13-03",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F13",
+  "title": "genome_id pinned in payload",
+  "acceptance_items": [
+    13
+  ],
+  "requirement_refs": [
+    "docs/EVENT-CATALOG.md",
+    "docs/FRONTIER-DIRECTOR.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/situation-injected.json",
+    "examples/v02-frontier/replay-context.json",
+    "examples/v02-frontier/expected-digests.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "REPLAY",
+      "input": {
+        "fixture": "examples/v02-frontier/situation-injected.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "genome_id"
+    ]
+  },
+  "security_class": "none"
+}

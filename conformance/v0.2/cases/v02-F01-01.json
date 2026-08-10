@@ -1,0 +1,37 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F01-01",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F01",
+  "title": "valid genome 0.2 accepted",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/SITUATION-GENOME.md",
+    "specs/situation-genome.v02.schema.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/situation-genome.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-frontier/situation-genome.json"
+      },
+      "notes": "schema validate"
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "genome validates",
+      "content_digest present"
+    ]
+  },
+  "security_class": "none"
+}

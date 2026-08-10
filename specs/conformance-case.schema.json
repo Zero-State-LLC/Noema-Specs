@@ -26,9 +26,14 @@
       "items": {
         "type": "integer",
         "minimum": 1,
-        "maximum": 26
+        "maximum": 200
       },
       "uniqueItems": true
+    },
+    "family_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "description": "Optional family id (e.g. F01) for multi-suite packaging"
     },
     "requirement_refs": {
       "type": "array",
@@ -53,7 +58,14 @@
         "properties": {
           "step_id": { "type": "string" },
           "actor": {
-            "enum": ["client", "server", "world-engine", "operator", "observatory"]
+            "enum": [
+              "client",
+              "server",
+              "world-engine",
+              "operator",
+              "observatory",
+              "frontier-director"
+            ]
           },
           "action": { "type": "string" },
           "input": {},

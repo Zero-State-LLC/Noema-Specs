@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mutation-operator.schema.json",
+  "title": "Mutation Operator",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "operator_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "allowed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preconditions": {
+      "type": "array"
+    },
+    "parameter_domain": {
+      "type": "object"
+    },
+    "canonical_parameter_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mutation": {
+      "type": "string"
+    },
+    "forbidden_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_effect": {
+      "type": "integer"
+    },
+    "novelty_axes_affected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inverse_or_restore_rule": {
+      "type": "string"
+    },
+    "replay_rule": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "operator_id",
+    "version",
+    "allowed_paths",
+    "mutation",
+    "forbidden_paths",
+    "replay_rule"
+  ]
+}

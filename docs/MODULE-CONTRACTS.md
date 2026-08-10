@@ -35,8 +35,22 @@ These contracts bind the modular-monolith reference deployment ([DEPLOYMENT.md](
 | `spectator_projection` | WATCH surfaces | **no** |
 | `research_capture` | consented trajectories | **no** |
 | `operator_api` | ops/admin HTTP | mutations only via Action Router |
+| `frontier_director` (v0.2) | plans/audits (research) | **no** (proposes only) |
 
-Full field definitions (purpose, owns_state, reads, writes, inputs, outputs, dependencies, forbidden_dependencies, transaction_boundary, idempotency, failure_modes, observability, security_boundary, determinism_requirements, conformance_cases) live in the JSON contract.
+### `frontier_director` (v0.2)
+
+| Field | Value |
+|-------|--------|
+| purpose | Enumerate/rank high-information situations near capability uncertainty |
+| owns_state | frontier plans, candidate ledgers, audits (research partition) |
+| reads | capability primitives, trajectory digests, genomes, public world digests |
+| writes | research artifacts only |
+| forbidden_dependencies | direct world_state writes; opaque claim-bearing rankers |
+| outputs | plan, ledger, audit, replay-context; **proposals** for `SITUATION_INJECTED` |
+| determinism | fixed-point scores; seed only for ties |
+| conformance | F01–F15 |
+
+Full field definitions for v0.1 modules live in the JSON contract.
 
 ## Transaction boundary (normative)
 

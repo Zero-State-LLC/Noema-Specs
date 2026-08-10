@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F02-05",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F02",
+  "title": "missing axis => NOT_COMPUTABLE component",
+  "acceptance_items": [
+    2
+  ],
+  "requirement_refs": [
+    "docs/NOVELTY-VECTOR.md",
+    "specs/novelty-axes.v02.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "specs/novelty-axes.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "CHECK",
+      "input": {
+        "doc": "novelty-axes.v02"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "no invented zero"
+    ]
+  },
+  "security_class": "none"
+}

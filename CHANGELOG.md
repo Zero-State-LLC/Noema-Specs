@@ -4,6 +4,19 @@
 
 ### Added
 
+- **v0.2 Frontier executable package:** `docs/releases/v0.2/*`, Situation Genome 0.2, novelty axes, mutation catalog, noise/attention/info-gain configs, capability primitives, Frontier request/plan/candidate/audit/replay schemas.
+- Docs: SITUATION-GENOME, NOVELTY-VECTOR, CAPABILITY-PRIMITIVES, SITUATION-MUTATION, PARTIAL-OBSERVABILITY, NOISE-MODEL, CONTRADICTORY-EVIDENCE, ATTENTION-PROJECTION, INFORMATION-GAIN, FRONTIER-CONTROLS.
+- Fixtures: `examples/v02-frontier/` end-to-end deterministic Frontier scenario.
+- Conformance: `conformance/v0.2/` families **F01–F15** (76 atomic cases).
+- Hardened `FRONTIER-DIRECTOR.md` cross-links to versioned configs; spectator Frontier projections; migration/version domains.
+
+### Changed
+
+- Roadmap/README/VERSIONING/MODULE-CONTRACTS/SPECTATOR updated for v0.2 Frontier executable scope.
+- Conformance-case schema: acceptance_items max 200; family_id; frontier-director actor.
+
+### Added (prior)
+
 - Executable world/game contracts: `docs/MODULE-CONTRACTS.md`, `docs/RESOURCE-ECONOMY.md`, `docs/ACTION-CONTRACTS.md`, `docs/SCHEDULER.md`, `docs/SPECTATOR.md`.
 - Machine-readable: `module-contracts.v01.json`, `resource-economy.v01.json`, `action-contracts.v01.json`, `id-rules.v01.json`, spectator-projection + module-contracts schemas.
 - Strategic fixture package `examples/v01-strategic/` (4-agent coupled scenario).

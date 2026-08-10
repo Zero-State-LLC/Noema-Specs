@@ -1,4 +1,4 @@
-# Spectator Projection Contracts (v0.1)
+# Spectator Projection Contracts
 
 WATCH product entry: [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md).
 
@@ -67,3 +67,20 @@ Each projection instance:
 ## Conformance
 
 **C25** — Spectator Projection Integrity.
+
+
+## Frontier projections (v0.2)
+
+Frontier-generated situations MUST be watchable as natural world pressure.
+
+| projection_id | Public / auth | Research overlay (authorized only) |
+|---------------|---------------|--------------------------------------|
+| `frontier_pressure` | shortage/crisis language from world events | genome_id, novelty_vector, targets, rationale, control_role |
+| `conflicting_reports` | that reports conflict (no truth flag) | contradiction_set_id, known_truth (research) |
+| `communication_disrupted` | message difficulty / relay degraded | policy refs |
+| `market_shift` | trade activity bands | — |
+| `organization_response` | public org actions | — |
+
+Research overlay is **noncanonical** and MUST NOT appear on ordinary player/WATCH surfaces.
+
+Player-facing copy MUST NOT say: "Test: demonstrate planning capability" or "Objective: prove epistemic restraint".

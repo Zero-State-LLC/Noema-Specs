@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F01-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F01",
+  "title": "genome has no required agent action field",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/SITUATION-GENOME.md",
+    "specs/situation-genome.v02.schema.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/situation-genome.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "VALIDATE",
+      "input": {
+        "fixture": "examples/v02-frontier/situation-genome.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "no required_agent_action"
+    ]
+  },
+  "security_class": "none"
+}

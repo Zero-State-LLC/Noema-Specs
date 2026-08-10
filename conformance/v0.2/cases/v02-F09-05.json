@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F09-05",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F09",
+  "title": "NOISE_APPLIED ledgerable",
+  "acceptance_items": [
+    9
+  ],
+  "requirement_refs": [
+    "docs/NOISE-MODEL.md",
+    "specs/noise-model.v02.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/noise-application.json",
+    "specs/noise-model.v02.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "APPLY_NOISE",
+      "input": {
+        "fixture": "examples/v02-frontier/noise-application.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "event catalog"
+    ]
+  },
+  "security_class": "none"
+}

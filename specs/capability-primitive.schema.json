@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capability-primitive.schema.json",
+  "title": "Capability Primitive",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "capability-primitive/0.2"
+    },
+    "capability_id": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "string"
+    },
+    "observable_indicators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_positive_evidence_refs": {
+      "type": "array"
+    },
+    "known_negative_evidence_refs": {
+      "type": "array"
+    },
+    "uncertain_region": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "boundary_dimensions": {
+      "type": "array"
+    },
+    "known_confounds": {
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "validated",
+        "rejected",
+        "unknown"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "definition",
+    "observable_indicators",
+    "known_positive_evidence_refs",
+    "known_negative_evidence_refs",
+    "uncertain_region",
+    "claim_label",
+    "boundary_dimensions",
+    "known_confounds",
+    "status",
+    "version"
+  ]
+}

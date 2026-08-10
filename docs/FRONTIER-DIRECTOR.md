@@ -1,8 +1,17 @@
 # Frontier Director
 
+**Version domain:** `frontier-director/0.2`
+**Config constants:** [`specs/frontier-director-config.v02.json`](../specs/frontier-director-config.v02.json)
+**Schemas:** `frontier-request`, `frontier-candidate`, `frontier-plan`, `frontier-audit-record`, `frontier-replay-context`
+**v0.2 package:** [releases/v0.2/](releases/v0.2/) · fixtures [`examples/v02-frontier/`](../examples/v02-frontier/) · suite [`conformance/v0.2/`](../conformance/v0.2/)
+
+Related: [SITUATION-GENOME.md](SITUATION-GENOME.md) · [NOVELTY-VECTOR.md](NOVELTY-VECTOR.md) · [SITUATION-MUTATION.md](SITUATION-MUTATION.md) · [INFORMATION-GAIN.md](INFORMATION-GAIN.md) · [FRONTIER-CONTROLS.md](FRONTIER-CONTROLS.md) · [CAPABILITY-PRIMITIVES.md](CAPABILITY-PRIMITIVES.md)
+
 ## Purpose
 
 The Frontier Director searches capability boundaries by generating or selecting high-information situations near uncertain regions. It increases qualitative complexity, not only scalar difficulty.
+
+Situations MUST appear as natural world pressures (shortage, rumor, infrastructure failure, conflicting reports). Player-facing surfaces MUST NOT present exam language or research targets.
 
 ## Inputs
 

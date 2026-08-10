@@ -42,3 +42,8 @@ C24      World Event Pressure
 C25      Spectator Projection Integrity
 C26      Strategic Persistence Across Restart
 ```
+
+
+## v0.2 Frontier suite
+
+Machine-readable cases under [`conformance/v0.2/`](../conformance/v0.2/) (F01–F15). v0.1 C01–C26 MUST remain green. See [releases/v0.2/ACCEPTANCE.md](releases/v0.2/ACCEPTANCE.md).

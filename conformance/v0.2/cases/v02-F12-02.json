@@ -1,0 +1,46 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F12-02",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F12",
+  "title": "world entry only via SITUATION_INJECTED",
+  "acceptance_items": [
+    12
+  ],
+  "requirement_refs": [
+    "docs/releases/v0.2/ARCHITECTURE.md",
+    "docs/FRONTIER-DIRECTOR.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/frontier-plan.json",
+    "examples/v02-frontier/situation-injected.json",
+    "examples/v02-frontier/follow-on-entity-update.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "frontier-director",
+      "action": "SELECT",
+      "input": {}
+    },
+    {
+      "step_id": "2",
+      "actor": "world-engine",
+      "action": "INJECT",
+      "input": {
+        "fixture": "examples/v02-frontier/situation-injected.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "canonical event"
+    ],
+    "must_not_contain_paths": [
+      "frontier_direct_worldstate_write"
+    ]
+  },
+  "security_class": "none"
+}

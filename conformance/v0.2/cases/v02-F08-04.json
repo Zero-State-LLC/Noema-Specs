@@ -1,0 +1,39 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v02-F08-04",
+  "suite": "noema-v0.2-frontier",
+  "family_id": "F08",
+  "title": "errors do not leak hidden state",
+  "acceptance_items": [
+    8
+  ],
+  "requirement_refs": [
+    "docs/PARTIAL-OBSERVABILITY.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v02-frontier/observations.json",
+    "examples/v02-frontier/situation-genome.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "OBSERVE",
+      "input": {
+        "fixture": "examples/v02-frontier/observations.json"
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "NO_LEAK",
+    "assertions": [
+      "no leak"
+    ],
+    "must_not_contain_paths": [
+      "hidden_world_truth",
+      "known_truth_relationship"
+    ]
+  },
+  "security_class": "privacy"
+}

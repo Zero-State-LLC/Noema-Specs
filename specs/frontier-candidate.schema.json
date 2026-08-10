@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/frontier-candidate.schema.json",
+  "title": "Frontier Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "frontier-candidate/0.2"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^fdc-[A-Fa-f0-9]{64}$"
+    },
+    "parent_template_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "parent_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "mutation_operations": {
+      "type": "array"
+    },
+    "genome_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "genome_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "target_capability_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estimated_resource_vector": {
+      "type": "object"
+    },
+    "safety_classification": {
+      "type": "string"
+    },
+    "control_role": {
+      "enum": [
+        "none",
+        "positive-control",
+        "negative-control",
+        "regression"
+      ]
+    },
+    "situation_digest": {
+      "type": "string",
+      "pattern": "^sha256:[A-Fa-f0-9]{64}$"
+    },
+    "scores": {
+      "type": "object"
+    },
+    "disposition": {
+      "enum": [
+        "selected",
+        "rejected",
+        "skipped",
+        "control"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "parent_template_id",
+    "mutation_operations",
+    "genome_id",
+    "target_capability_ids",
+    "control_role",
+    "situation_digest",
+    "disposition"
+  ]
+}
