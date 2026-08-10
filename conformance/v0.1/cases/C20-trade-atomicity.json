@@ -1,0 +1,73 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C20-trade-atomicity",
+  "suite": "noema-v0.1-chamber",
+  "title": "Trade atomicity: valid transfer, insufficient funds, duplicate, contention, rollback",
+  "acceptance_items": [
+    20
+  ],
+  "requirement_refs": [
+    "docs/ACTION-CONTRACTS.md",
+    "docs/EVENT-CATALOG.md"
+  ],
+  "preconditions": [
+    "Two agents with known balances"
+  ],
+  "fixtures": [
+    "examples/v01-strategic/sample-trajectory.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "TRADE_PROPOSE",
+      "input": {
+        "trade_id": "trade.strat.001"
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "TRADE_ACCEPT",
+      "input": {
+        "trade_id": "trade.strat.001"
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "client",
+      "action": "TRADE_PROPOSE",
+      "input": {
+        "insufficient": true
+      }
+    },
+    {
+      "step_id": "4",
+      "actor": "client",
+      "action": "TRADE_PROPOSE",
+      "input": {
+        "duplicate_idempotency": true
+      }
+    },
+    {
+      "step_id": "5",
+      "actor": "world-engine",
+      "action": "CONTENTION",
+      "input": {
+        "same_resource": true
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "valid transfer completes with two RESOURCE_TRANSFER legs",
+      "insufficient funds rejected without partial transfer",
+      "duplicate action does not double transfer",
+      "concurrent contention ordered deterministically",
+      "atomic rollback on accept failure",
+      "observation and spectator trade projection derived only"
+    ]
+  },
+  "security_class": "none"
+}

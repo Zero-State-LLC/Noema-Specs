@@ -1,0 +1,52 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C22-infrastructure-state",
+  "suite": "noema-v0.1-chamber",
+  "title": "Infrastructure condition, repair, and production effects",
+  "acceptance_items": [
+    22
+  ],
+  "requirement_refs": [
+    "docs/RESOURCE-ECONOMY.md",
+    "docs/ACTION-CONTRACTS.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v01-strategic/world-seed.json",
+    "examples/v01-strategic/sample-trajectory.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "DEGRADE",
+      "input": {
+        "entity_id": "entity.relay-7"
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "REPAIR",
+      "input": {
+        "entity_id": "entity.relay-7"
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "world-engine",
+      "action": "CHECK_MODIFIER",
+      "input": {}
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "condition is 0-100 integer",
+      "repair adds 15 capped at 100",
+      "degradation ledgered as ENTITY_UPDATE",
+      "infra types limited to relay|generator|storage_bay|production_node"
+    ]
+  },
+  "security_class": "none"
+}

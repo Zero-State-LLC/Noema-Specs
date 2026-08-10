@@ -52,6 +52,11 @@ REQUIRED_DOCS = [
     "docs/OPERATIONS.md",
     "docs/SPECTATOR-ONBOARDING.md",
     "docs/AGENT-ONBOARDING.md",
+    "docs/MODULE-CONTRACTS.md",
+    "docs/RESOURCE-ECONOMY.md",
+    "docs/ACTION-CONTRACTS.md",
+    "docs/SCHEDULER.md",
+    "docs/SPECTATOR.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -81,6 +86,12 @@ REQUIRED_SCHEMAS = [
     "specs/world-seed.schema.json",
     "specs/world-snapshot.schema.json",
     "specs/world-state.schema.json",
+    "specs/module-contracts.schema.json",
+    "specs/module-contracts.v01.json",
+    "specs/resource-economy.v01.json",
+    "specs/action-contracts.v01.json",
+    "specs/id-rules.v01.json",
+    "specs/spectator-projection.schema.json",
 ]
 
 REQUIRED_RESEARCH = [
@@ -124,6 +135,12 @@ REQUIRED_EXAMPLES = [
     "conformance/v0.1/cases/C10-no-private-cognition-request.json",
     "conformance/v0.1/cases/C11-human-onboarding.json",
     "conformance/v0.1/cases/C17-upgrade-version-pinning.json",
+    "conformance/v0.1/cases/C18-resource-accounting.json",
+    "conformance/v0.1/cases/C26-strategic-persistence-restart.json",
+    "examples/v01-strategic/world-seed.json",
+    "examples/v01-strategic/sample-trajectory.jsonl",
+    "examples/v01-strategic/expected-final-state.json",
+    "examples/v01-strategic/spectator-projections.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -441,6 +458,9 @@ def check_negatives(Draft202012Validator) -> None:
             rejected = bool(list(runtime_manifest_v.iter_errors(data)))
         elif name.startswith("invalid-deployment-config"):
             rejected = bool(list(deployment_config_v.iter_errors(data)))
+        elif name.startswith("invalid-spectator"):
+            spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
+            rejected = bool(list(Draft202012Validator(spectator_schema).iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -499,7 +519,27 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "specs/runtime-manifest.schema.json",
             "examples/deployment/local-runtime-manifest.json",
         ),
+        ("specs/module-contracts.schema.json", "specs/module-contracts.v01.json"),
+        (
+            "specs/world-seed.schema.json",
+            "examples/v01-strategic/world-seed.json",
+        ),
+        (
+            "specs/world-state.schema.json",
+            "examples/v01-strategic/expected-final-state.json",
+        ),
+        (
+            "specs/equivalence-boundary.schema.json",
+            "examples/v01-strategic/equivalence-boundary.json",
+        ),
     ]
+
+    spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
+    spectator_v = Draft202012Validator(spectator_schema)
+    for proj in load_json(ROOT / "examples" / "v01-strategic" / "spectator-projections.json"):
+        perrs = list(spectator_v.iter_errors(proj))
+        if perrs:
+            fail(f"spectator projection invalid: {perrs[0].message}")
     for schema_rel, fixture_rel in pairs:
         schema = load_json(ROOT / schema_rel)
         fixture = load_json(ROOT / fixture_rel)
@@ -533,8 +573,8 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
 def check_conformance_suite(Draft202012Validator) -> None:
     manifest = load_json(ROOT / "conformance" / "v0.1" / "manifest.json")
     cases = manifest.get("cases") or []
-    if len(cases) != 17:
-        fail(f"conformance suite must list 17 cases, found {len(cases)}")
+    if len(cases) != 26:
+        fail(f"conformance suite must list 26 cases, found {len(cases)}")
 
     case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
     case_v = Draft202012Validator(case_schema)
@@ -556,11 +596,11 @@ def check_conformance_suite(Draft202012Validator) -> None:
             if not fpath.exists():
                 fail(f"conformance case {rel} missing fixture {fixture}")
 
-    missing_items = sorted(set(range(1, 18)) - acceptance_covered)
+    missing_items = sorted(set(range(1, 27)) - acceptance_covered)
     if missing_items:
         fail(f"conformance suite missing acceptance items: {missing_items}")
 
-    ok("Conformance suite v0.1: 17 cases, fixtures present, items 1–17 covered")
+    ok("Conformance suite v0.1: 26 cases, fixtures present, items 1–26 covered")
 
 
 def check_contract_quality_markers() -> None:

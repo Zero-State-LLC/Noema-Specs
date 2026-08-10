@@ -8,7 +8,7 @@ unit, schema, contract, property-based, determinism, world replay, event-ledger 
 
 A recorded multi-agent session can be replayed from world seed, world version, protocol versions, deterministic config, and event ledger and reproduce the defined world-state equivalence boundary.
 
-Additionally, product Chamber claims MUST cover onboarding and deployment families C11–C17 (see [v0.1 Acceptance](v0.1-ACCEPTANCE.md)).
+Additionally, product Chamber claims MUST cover onboarding/deployment families C11–C17 and executable world families C18–C26 (see [v0.1 Acceptance](v0.1-ACCEPTANCE.md)).
 
 ## Critical conformance checks
 
@@ -31,11 +31,14 @@ Families:
 
 ```text
 C01–C10  protocol / world / privacy
-C11      Human onboarding
-C12      Agent onboarding
-C13      Spectator onboarding
-C14      Reference deployment
-C15      World persistence across restart
-C16      Backup/restore equivalence
-C17      Upgrade/version pinning
+C11–C17  onboarding / deployment
+C18      Resource Accounting
+C19      Production / Consumption
+C20      Trade Atomicity
+C21      Organization / Faction Persistence
+C22      Infrastructure State
+C23      Deterministic Scheduler Conflicts
+C24      World Event Pressure
+C25      Spectator Projection Integrity
+C26      Strategic Persistence Across Restart
 ```

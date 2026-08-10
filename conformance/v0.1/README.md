@@ -1,18 +1,15 @@
 # Conformance Suite — v0.1 The Chamber
 
-Machine-readable cases for the acceptance tests in `docs/v0.1-ACCEPTANCE.md` (C01–C17).
+Machine-readable cases for `docs/v0.1-ACCEPTANCE.md` (**C01–C26**).
 
-See **[docs/v0.1-CONFORMANCE.md](../../docs/v0.1-CONFORMANCE.md)** for the normative runner contract.
+See **[docs/v0.1-CONFORMANCE.md](../../docs/v0.1-CONFORMANCE.md)**.
 
 ```text
 conformance/v0.1/
   manifest.json
-  cases/C01-...json … C17-...json
+  cases/C01-...json … C26-...json
 ```
 
-Validate cases:
-
 ```bash
-# via repository merge gate
 python validation/validate_all.py
 ```

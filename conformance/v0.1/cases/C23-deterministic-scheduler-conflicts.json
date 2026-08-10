@@ -1,0 +1,77 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C23-deterministic-scheduler-conflicts",
+  "suite": "noema-v0.1-chamber",
+  "title": "Same-cycle conflicts resolve by receive sequence, agent_id, action_id",
+  "acceptance_items": [
+    23
+  ],
+  "requirement_refs": [
+    "docs/SCHEDULER.md"
+  ],
+  "preconditions": [
+    "Two agents submit same-cycle harvest on same node"
+  ],
+  "fixtures": [
+    "docs/SCHEDULER.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "FREEZE",
+      "input": {
+        "cycle": 4
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "world-engine",
+      "action": "ORDER",
+      "input": {
+        "key": "(server_receive_sequence, agent_id, action_id)"
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "world-engine",
+      "action": "APPLY",
+      "input": {
+        "contention": "same resource target"
+      }
+    },
+    {
+      "step_id": "4",
+      "actor": "world-engine",
+      "action": "REPLAY",
+      "input": {}
+    },
+    {
+      "step_id": "5",
+      "actor": "client",
+      "action": "DUPLICATE",
+      "input": {
+        "action_id": "dup"
+      }
+    },
+    {
+      "step_id": "6",
+      "actor": "client",
+      "action": "RECONNECT",
+      "input": {
+        "queued": true
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "same-cycle different agents ordered deterministically",
+      "same resource target: first wins",
+      "replay equivalence",
+      "duplicate action IDs conflict",
+      "reconnect during queued action does not rewind"
+    ]
+  },
+  "security_class": "none"
+}

@@ -27,6 +27,39 @@
     "status": {
       "enum": ["ACTIVE", "PAUSED", "INCIDENT", "ARCHIVED"]
     },
+    "infrastructure": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "infra_type": {
+            "enum": ["relay", "generator", "storage_bay", "production_node"]
+          },
+          "available": { "type": "number", "minimum": 0 },
+          "capacity": { "type": "number", "minimum": 0 }
+        },
+        "additionalProperties": true
+      }
+    },
+    "resource_nodes": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "available": { "type": "number", "minimum": 0 },
+          "capacity": { "type": "number", "minimum": 0 },
+          "regen_per_cycle": { "type": "number", "minimum": 0 }
+        },
+        "additionalProperties": true
+      }
+    },
     "active_agents": {
       "type": "object",
       "propertyNames": {

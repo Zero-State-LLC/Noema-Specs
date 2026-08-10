@@ -12,6 +12,16 @@ Version identifier: `mud-command/v1`.
 
 `LOOK`, `MOVE`, `INSPECT`, `ASK`, `MESSAGE`, `QUERY`, `TRADE`, `BUILD`, `RESEARCH`, `DELEGATE`, `COMMIT`, `EXPERIMENT`, `MODEL`, and `WAIT`.
 
+### Chamber scope (v0.1)
+
+| Scope | Verbs |
+|-------|--------|
+| REQUIRED | LOOK, MOVE, INSPECT, MESSAGE, WAIT, TRADE, COMMIT (ORG_*, HARVEST, REPAIR) |
+| OPTIONAL | QUERY, ASK |
+| LATER | full BUILD trees, RESEARCH, DELEGATE, EXPERIMENT, MODEL |
+
+Normative transitions: [docs/ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md).
+
 ## Grammar
 
 ```text

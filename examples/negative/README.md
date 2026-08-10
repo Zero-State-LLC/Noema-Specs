@@ -13,5 +13,7 @@ These fixtures are intentionally non-conforming. Schema and catalog validators M
 | `invalid-org-create-empty-members.json` | `initial_members` empty (minItems: 1) |
 | `invalid-runtime-manifest-missing-ledger-head.json` | Missing required `ledger_head` |
 | `invalid-deployment-config-secret-field.json` | Secret field `auth_secret` rejected by `additionalProperties: false` |
+| `invalid-resource-negative-balance.json` | `BUDGET_CONSUMED.remaining` &lt; 0 |
+| `invalid-spectator-mutates-world.json` | `mutates_world` must be `false` |
 
-Positive fixtures live under `examples/v01-seed/`, `examples/onboarding/`, `examples/deployment/`, and `examples/sample-*.json`.
+Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/onboarding/`, `examples/deployment/`, and `examples/sample-*.json`.

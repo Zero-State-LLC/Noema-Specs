@@ -151,7 +151,7 @@ python validation/validate_all.py
 
 Expected final line: `PASS`.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C17**).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**).
 
 ### Replay the Chamber seed (runtime)
 
@@ -188,7 +188,7 @@ Noema-Specs/
 │   ├── runtime-manifest.schema.json
 │   └── deployment-config.schema.json
 ├── examples/                 # Positive, negative, seed, protocol, onboarding, deployment
-├── conformance/v0.1/         # Machine-readable acceptance cases C01–C17
+├── conformance/v0.1/         # Machine-readable acceptance cases C01–C26
 ├── research/                 # Ontology, claims, ethics, controls
 ├── adr/                      # Architecture decision records
 ├── rfcs/                     # Contract-changing proposals
@@ -221,6 +221,11 @@ Noema-Specs/
 | Observation | [docs/OBSERVATION.md](docs/OBSERVATION.md) |
 | Agent interface | [docs/AGENT-INTERFACE.md](docs/AGENT-INTERFACE.md) |
 | Replay / equivalence | [docs/REPLAY.md](docs/REPLAY.md) · [ADR-005](adr/ADR-005-v01-equivalence-boundary.md) |
+| Module contracts | [docs/MODULE-CONTRACTS.md](docs/MODULE-CONTRACTS.md) |
+| Resource economy | [docs/RESOURCE-ECONOMY.md](docs/RESOURCE-ECONOMY.md) |
+| Action contracts | [docs/ACTION-CONTRACTS.md](docs/ACTION-CONTRACTS.md) |
+| Scheduler | [docs/SCHEDULER.md](docs/SCHEDULER.md) |
+| Spectator projections | [docs/SPECTATOR.md](docs/SPECTATOR.md) |
 
 ### Protocols and schemas
 
@@ -277,7 +282,8 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/observations/](examples/observations/) | Permissioned LOOK / INSPECT projections |
 | [examples/onboarding/](examples/onboarding/) | Minimal/advanced manifests, entry modes, spectator modes |
 | [examples/deployment/](examples/deployment/) | Local deployment config, runtime manifest, compose shape |
-| [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C17** (protocol → onboarding/deployment) |
+| [examples/v01-strategic/](examples/v01-strategic/) | Multi-agent strategic ecology fixtures |
+| [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C26** |
 
 **v0.1 mandatory equivalence (ADR-005):** identical ordered event digests · identical final WorldState digest · identical focal observation digests.
 
@@ -385,7 +391,7 @@ Operational sequences (containment, quarantine, kill-switch): [docs/SECURITY-SEQ
 |---------|--------|
 | Spec tree + merge gate | Green on `main` |
 | Chamber seed package | Complete (`examples/v01-seed/`) |
-| Conformance cases C01–C17 | Specified + fixture-linked |
+| Conformance cases C01–C26 | Specified + fixture-linked |
 | Onboarding / deployment golden paths | Documented (QUICKSTART + C11–C17) |
 | Reference reducer replay (C04) | Green in `Zero-State-LLC/Noema` |
 | Protocol + onboarding runtime cases | Specified; implement in runtime |

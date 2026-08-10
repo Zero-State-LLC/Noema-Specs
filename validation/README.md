@@ -29,8 +29,8 @@ The command MUST exit 0 and report `PASS` for a change to be mergeable.
   - digest chain continuity and equivalence-boundary fields
 - `examples/negative/` rejection corpus (≥6 fixtures; schema, catalog, and semantic cases)
 - Schema validation of seed, state, snapshot, boundary, protocol, and observation fixtures
-- `conformance/v0.1/` suite: 17 cases, fixture linkage, acceptance item coverage 1–17
-- Deployment/runtime-manifest positive fixtures and related negatives
+- `conformance/v0.1/` suite: 26 cases, fixture linkage, acceptance item coverage 1–26
+- Deployment/runtime-manifest and strategic/module/spectator fixtures and related negatives
 
 ## Adding checks
 

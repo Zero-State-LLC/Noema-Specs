@@ -1,0 +1,85 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C18-resource-accounting",
+  "suite": "noema-v0.1-chamber",
+  "title": "Resource accounting: exact debit, no negative, failed cost zero, reserve once, replay",
+  "acceptance_items": [
+    18
+  ],
+  "requirement_refs": [
+    "docs/RESOURCE-ECONOMY.md",
+    "specs/resource-economy.v01.json",
+    "docs/ACTION-CONTRACTS.md"
+  ],
+  "preconditions": [
+    "Chamber budgets initialized from budget_defaults"
+  ],
+  "fixtures": [
+    "examples/v01-strategic/sample-trajectory.jsonl",
+    "specs/resource-economy.v01.json",
+    "examples/negative/invalid-resource-negative-balance.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "APPLY",
+      "input": {
+        "verb": "LOOK",
+        "cost": {
+          "attention": 1
+        }
+      },
+      "notes": "exact resource debit"
+    },
+    {
+      "step_id": "2",
+      "actor": "world-engine",
+      "action": "REJECT",
+      "input": {
+        "requested": 100,
+        "available": 8
+      },
+      "notes": "no negative balance; BUDGET_EXCEEDED"
+    },
+    {
+      "step_id": "3",
+      "actor": "world-engine",
+      "action": "REJECT",
+      "input": {
+        "failed_action_costs": 0
+      },
+      "notes": "failed action cost is zero"
+    },
+    {
+      "step_id": "4",
+      "actor": "world-engine",
+      "action": "IDEMPOTENT_RETRY",
+      "input": {
+        "idempotency_key": "k1"
+      },
+      "notes": "reserved cost only charged once; retry no double charge"
+    },
+    {
+      "step_id": "5",
+      "actor": "world-engine",
+      "action": "REPLAY",
+      "input": {
+        "fixture": "examples/v01-strategic/sample-trajectory.jsonl"
+      },
+      "notes": "replay reproduces balances"
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "exact resource debit on success",
+      "no negative balance",
+      "failed action cost is zero",
+      "reserved cost only charged once",
+      "retry does not double charge",
+      "replay reproduces balance"
+    ]
+  },
+  "security_class": "none"
+}

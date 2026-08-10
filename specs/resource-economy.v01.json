@@ -1,0 +1,170 @@
+{
+  "schema_version": "resource-economy/1.0",
+  "product_version": "0.1.0",
+  "quantity_type": "non_negative_integer",
+  "resources": {
+    "attention": {
+      "initial_default": 8,
+      "minimum": 0,
+      "maximum": 10000,
+      "regeneration": {
+        "per_cycle": 2,
+        "clamp_to_grant": true
+      },
+      "decay": null,
+      "transferable": false,
+      "tradeable": false,
+      "observable": "self_full",
+      "action_costs": {
+        "LOOK": 1,
+        "INSPECT": 2,
+        "QUERY": 1
+      },
+      "failed_action_costs": 0
+    },
+    "compute": {
+      "initial_default": 64,
+      "minimum": 0,
+      "maximum": 10000,
+      "regeneration": {
+        "per_cycle": 4,
+        "clamp_to_grant": true
+      },
+      "decay": null,
+      "transferable": true,
+      "tradeable": true,
+      "observable": "self_full",
+      "action_costs": {
+        "TRADE": 1,
+        "COMMIT.ORG_*": 2,
+        "COMMIT.HARVEST": 1,
+        "COMMIT.REPAIR": 2,
+        "MESSAGE": 1
+      },
+      "failed_action_costs": 0
+    },
+    "energy": {
+      "initial_default": 80,
+      "minimum": 0,
+      "maximum": 10000,
+      "regeneration": {
+        "per_cycle": 0,
+        "clamp_to_grant": false
+      },
+      "decay": null,
+      "transferable": true,
+      "tradeable": true,
+      "observable": "self_full",
+      "action_costs": {
+        "MOVE": 1,
+        "COMMIT.HARVEST": 2,
+        "COMMIT.REPAIR": 3,
+        "WAIT": 0
+      },
+      "failed_action_costs": 0
+    },
+    "influence": {
+      "initial_default": 40,
+      "minimum": 0,
+      "maximum": 10000,
+      "regeneration": {
+        "per_cycle_if_org_member": 1,
+        "clamp_to_grant": true
+      },
+      "decay": null,
+      "transferable": true,
+      "tradeable": true,
+      "observable": "self_and_org_mates",
+      "action_costs": {
+        "COMMIT.ORG_CREATE": 5,
+        "COMMIT.ORG_MEMBER_ADD": 1
+      },
+      "failed_action_costs": 0
+    },
+    "storage": {
+      "initial_default": 16,
+      "minimum": 0,
+      "maximum": 10000,
+      "regeneration": {
+        "per_cycle": 0
+      },
+      "decay": null,
+      "transferable": true,
+      "tradeable": true,
+      "observable": "self_full",
+      "action_costs": {
+        "COMMIT.REPAIR": 1
+      },
+      "failed_action_costs": 0,
+      "notes": "In v0.1 storage is both capacity ceiling and material stock unit"
+    }
+  },
+  "reservation_semantics": "reserve on accept; release on reject; charge once on success",
+  "contention_semantics": "scheduler order wins; loser fails closed without partial debit",
+  "overflow_behavior": "clamp to maximum; no wrap",
+  "insufficient_resource_behavior": "reject action; emit BUDGET_EXCEEDED when budget gate fails; failed_action_costs=0",
+  "infrastructure_types": [
+    "relay",
+    "generator",
+    "storage_bay",
+    "production_node"
+  ],
+  "production": {
+    "node_defaults": {
+      "capacity": 24,
+      "regen_per_cycle": 1
+    },
+    "modifier_rule": "if any production-capable infra condition < 25 then 0; else if none then 1; else 1 + floor(min_condition/50)",
+    "ledger": "ENTITY_UPDATE on stock change; RESOURCE_TRANSFER for harvest"
+  },
+  "world_event_director": {
+    "stream_id": "world_event_director.v1",
+    "rules": [
+      {
+        "id": "infra_degrade",
+        "when": "cycle > 0 && cycle % 5 == 0",
+        "effect": "each infrastructure condition = max(0, condition - 5)",
+        "events": [
+          "ENTITY_UPDATE"
+        ]
+      },
+      {
+        "id": "shortage_flag",
+        "when": "node.available == 0",
+        "effect": "spectator shortage projection; optional SITUATION_INJECTED if scheduled in seed",
+        "events": [
+          "SITUATION_INJECTED"
+        ]
+      }
+    ],
+    "must_not": [
+      "select outcomes to force agent research behaviors",
+      "mutate without ledger events when stock/condition changes in strategic fixtures"
+    ]
+  },
+  "trade": {
+    "model": "two_phase_offer_accept",
+    "fees": 0,
+    "assets": [
+      "compute",
+      "energy",
+      "influence",
+      "storage"
+    ],
+    "atomicity": "both RESOURCE_TRANSFER legs commit or neither within accept action"
+  },
+  "player_status_surfaces": [
+    "resource_holdings",
+    "production_capacity",
+    "infrastructure_control",
+    "organization_membership_size",
+    "influence",
+    "discoveries"
+  ],
+  "forbidden_player_scores": [
+    "anomaly_score",
+    "capability_confidence",
+    "epistemic_restraint",
+    "phenomenon_classification"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "action-contracts/1.0",
+  "product_version": "0.1.0",
+  "verb_scope": {
+    "v0.1_REQUIRED": [
+      "LOOK",
+      "MOVE",
+      "INSPECT",
+      "MESSAGE",
+      "WAIT",
+      "TRADE",
+      "COMMIT.ORG_CREATE",
+      "COMMIT.ORG_MEMBER_ADD",
+      "COMMIT.ORG_MEMBER_REMOVE",
+      "COMMIT.HARVEST",
+      "COMMIT.REPAIR"
+    ],
+    "v0.1_OPTIONAL": ["QUERY", "ASK"],
+    "LATER_MILESTONE": ["BUILD", "RESEARCH", "DELEGATE", "EXPERIMENT", "MODEL", "COMMIT.GOVERNANCE"]
+  },
+  "actions": [
+    {
+      "verb": "LOOK",
+      "resource_cost": { "attention": 1 },
+      "events_on_success": ["LOOK", "OBSERVATION_GENERATED"],
+      "events_on_failure": ["BUDGET_EXCEEDED"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "MOVE",
+      "resource_cost": { "energy": 1 },
+      "events_on_success": ["MOVE"],
+      "events_on_failure": ["MOVE_REJECTED"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "INSPECT",
+      "resource_cost": { "attention": 2 },
+      "events_on_success": ["INSPECT", "OBSERVATION_GENERATED"],
+      "events_on_failure": ["BUDGET_EXCEEDED"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "MESSAGE",
+      "resource_cost": { "compute": 1 },
+      "events_on_success": ["MESSAGE", "MESSAGE_DELIVERED"],
+      "events_on_failure": ["BUDGET_EXCEEDED"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "WAIT",
+      "resource_cost": {},
+      "events_on_success": ["WAIT"],
+      "events_on_failure": [],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "TRADE",
+      "resource_cost": { "compute": 1 },
+      "events_on_success": ["TRADE_PROPOSED", "TRADE_ACCEPTED", "RESOURCE_TRANSFER", "TRADE_REJECTED"],
+      "model": "two_phase_offer_accept",
+      "failed_action_costs": 0,
+      "idempotency": true,
+      "atomicity": "accept commits both transfer legs or neither"
+    },
+    {
+      "verb": "COMMIT",
+      "operation": "ORG_CREATE",
+      "resource_cost": { "influence": 5, "compute": 2 },
+      "events_on_success": ["BUDGET_CONSUMED", "ORG_CREATE"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "COMMIT",
+      "operation": "ORG_MEMBER_ADD",
+      "resource_cost": { "influence": 1, "compute": 2 },
+      "events_on_success": ["ORG_MEMBER_ADD"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "COMMIT",
+      "operation": "ORG_MEMBER_REMOVE",
+      "resource_cost": { "compute": 1 },
+      "events_on_success": ["ORG_MEMBER_REMOVE"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "COMMIT",
+      "operation": "HARVEST",
+      "resource_cost": { "energy": 2, "compute": 1 },
+      "events_on_success": ["BUDGET_CONSUMED", "RESOURCE_TRANSFER", "ENTITY_UPDATE"],
+      "failed_action_costs": 0,
+      "idempotency": true
+    },
+    {
+      "verb": "COMMIT",
+      "operation": "REPAIR",
+      "resource_cost": { "energy": 3, "compute": 2, "storage": 1 },
+      "events_on_success": ["BUDGET_CONSUMED", "ENTITY_UPDATE"],
+      "effect": "condition = min(100, condition + 15)",
+      "failed_action_costs": 0,
+      "idempotency": true
+    }
+  ]
+}

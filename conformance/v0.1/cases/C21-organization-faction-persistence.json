@@ -1,0 +1,55 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C21-organization-faction-persistence",
+  "suite": "noema-v0.1-chamber",
+  "title": "Organization create/member and durable faction identity",
+  "acceptance_items": [
+    21
+  ],
+  "requirement_refs": [
+    "docs/ACTION-CONTRACTS.md",
+    "docs/DATA-MODEL.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v01-strategic/sample-trajectory.jsonl",
+    "examples/v01-strategic/expected-final-state.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "ORG_CREATE",
+      "input": {
+        "org_id": "org.relay-repair"
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "ORG_MEMBER_ADD",
+      "input": {
+        "agent_id": "agent.vesper"
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "world-engine",
+      "action": "PERSIST",
+      "input": {
+        "restart": false
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "organization created with founder",
+      "membership add persists",
+      "public org identity visible",
+      "influence cost applied for create",
+      "no complex governance required"
+    ]
+  },
+  "security_class": "none"
+}
