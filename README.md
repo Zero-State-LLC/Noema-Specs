@@ -334,3 +334,10 @@ Operational sequences (containment, quarantine, kill-switch): [docs/SECURITY-SEQ
 | Protocol runtime cases (C01–C03, C07–C10) | Specified; implement in runtime |
 
 Specification baseline for implementation-readiness. **No runtime code in this repository.**
+
+
+## License
+
+Copyright © 2026 Zero State LLC. All Rights Reserved. Licensed under the Zero State Proprietary License v1.0. See [`LICENSE`](LICENSE).
+
+Third-party components remain subject to their respective licenses.
