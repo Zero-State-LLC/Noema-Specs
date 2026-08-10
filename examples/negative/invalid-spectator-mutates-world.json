@@ -1,0 +1,12 @@
+{
+  "schema_version": "spectator-projection/1.0",
+  "projection_id": "trade",
+  "world_id": "world-01",
+  "cycle": 1,
+  "source_event_ids": ["evt.strat.001"],
+  "visibility": "public",
+  "fields": {},
+  "redactions": [],
+  "narrative": "should not mutate",
+  "mutates_world": true
+}

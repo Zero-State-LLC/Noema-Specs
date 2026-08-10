@@ -6,6 +6,7 @@
   "acceptance_doc": "docs/v0.1-ACCEPTANCE.md",
   "conformance_doc": "docs/v0.1-CONFORMANCE.md",
   "seed_package": "examples/v01-seed/",
+  "strategic_package": "examples/v01-strategic/",
   "cases": [
     "cases/C01-protocol-negotiation.json",
     "cases/C02-identity-authz-denial.json",
@@ -23,7 +24,16 @@
     "cases/C14-reference-deployment.json",
     "cases/C15-world-persistence-restart.json",
     "cases/C16-backup-restore-equivalence.json",
-    "cases/C17-upgrade-version-pinning.json"
+    "cases/C17-upgrade-version-pinning.json",
+    "cases/C18-resource-accounting.json",
+    "cases/C19-production-consumption.json",
+    "cases/C20-trade-atomicity.json",
+    "cases/C21-organization-faction-persistence.json",
+    "cases/C22-infrastructure-state.json",
+    "cases/C23-deterministic-scheduler-conflicts.json",
+    "cases/C24-world-event-pressure.json",
+    "cases/C25-spectator-projection-integrity.json",
+    "cases/C26-strategic-persistence-restart.json"
   ],
   "required_comparisons": [
     "identical ordered event digests",
@@ -38,5 +48,16 @@
     "C15 — World persistence across restart",
     "C16 — Backup/restore equivalence",
     "C17 — Upgrade/version pinning"
+  ],
+  "executable_world_families": [
+    "C18 — Resource Accounting",
+    "C19 — Production / Consumption",
+    "C20 — Trade Atomicity",
+    "C21 — Organization / Faction Persistence",
+    "C22 — Infrastructure State",
+    "C23 — Deterministic Scheduler Conflicts",
+    "C24 — World Event Pressure",
+    "C25 — Spectator Projection Integrity",
+    "C26 — Strategic Persistence Across Restart"
   ]
 }

@@ -2,23 +2,13 @@
 
 ## v0.1 — The Chamber
 
-Persistent text server, registered agents, rooms, movement, observations, structured actions, messaging, basic resources, event ledger, snapshots, world seed, deterministic world replay, and 2-10 agents.
+Persistent strategic ecology (2–10 agents): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
 
-**Onboarding and deployment (in-scope for v0.1, not deferred):**
+**Onboarding and deployment (in-scope):** PLAY / CONNECT AGENT / WATCH; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
-- PLAY / CONNECT AGENT / WATCH entry model
-- Minimal human and agent onboarding golden paths
-- WATCH spectator surface
-- Docker Compose modular-monolith reference deployment + PostgreSQL
-- Filesystem blob adapter for local mode
-- `/health`, `/ready`, `/version`
-- `noema backup` / `restore` / `verify`
-- Runtime manifest and world/version pinning
-- Persistence across process restart; deployment lifecycle ≠ world lifecycle
+**Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
-Golden path docs: [QUICKSTART.md](QUICKSTART.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md) · [OPERATIONS.md](OPERATIONS.md)
-
-Acceptance: recorded session replays to defined equivalence boundary **and** C01–C17 conformance (or scoped product claim with C04 + C15 mandatory where applicable). See [v0.1-ACCEPTANCE.md](v0.1-ACCEPTANCE.md).
+Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **and** C01–C26. See [v0.1-ACCEPTANCE.md](v0.1-ACCEPTANCE.md).
 
 ## v0.2 — The Frontier
 

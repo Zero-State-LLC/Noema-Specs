@@ -1,0 +1,57 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C19-production-consumption",
+  "suite": "noema-v0.1-chamber",
+  "title": "Production and consumption loop: node regen, harvest, storage, infrastructure modifier",
+  "acceptance_items": [
+    19
+  ],
+  "requirement_refs": [
+    "docs/RESOURCE-ECONOMY.md",
+    "examples/v01-strategic/world-seed.json"
+  ],
+  "preconditions": [
+    "Strategic seed loaded"
+  ],
+  "fixtures": [
+    "examples/v01-strategic/world-seed.json",
+    "examples/v01-strategic/sample-trajectory.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "PRODUCTION_TICK",
+      "input": {
+        "cycle": 7
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "COMMIT.HARVEST",
+      "input": {
+        "entity_id": "entity.vault-production-node",
+        "amount": 2
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "world-engine",
+      "action": "APPLY_MODIFIER",
+      "input": {
+        "infra_condition": 30
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "resource node stock changes are ledgered",
+      "harvest transfers node to agent storage",
+      "production modifier follows condition formula",
+      "consumption debits action costs exactly"
+    ]
+  },
+  "security_class": "none"
+}

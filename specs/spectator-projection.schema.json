@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/spectator-projection.schema.json",
+  "title": "NOEMA Spectator Projection",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "spectator-projection/1.0" },
+    "projection_id": {
+      "type": "string",
+      "enum": [
+        "agent_move",
+        "resource_change",
+        "production",
+        "trade",
+        "organization",
+        "infrastructure",
+        "shortage",
+        "world_pressure",
+        "message_notice",
+        "discovery"
+      ]
+    },
+    "world_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },
+    "cycle": { "type": "integer", "minimum": 0 },
+    "source_event_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["public", "authenticated", "agent_pov", "research"]
+    },
+    "fields": { "type": "object" },
+    "redactions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "narrative": { "type": ["string", "null"] },
+    "mutates_world": { "const": false }
+  },
+  "required": [
+    "schema_version",
+    "projection_id",
+    "world_id",
+    "cycle",
+    "source_event_ids",
+    "visibility",
+    "fields",
+    "mutates_world"
+  ]
+}

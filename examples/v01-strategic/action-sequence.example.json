@@ -1,0 +1,71 @@
+{
+  "schema_version": "action-sequence-example/1.0",
+  "note": "Example trajectory of actions; not a single normative strategy",
+  "steps": [
+    {
+      "agent_id": "agent.nacre",
+      "verb": "LOOK"
+    },
+    {
+      "agent_id": "agent.quill",
+      "verb": "INSPECT",
+      "target": "entity.archive-ledger-obsolescing"
+    },
+    {
+      "agent_id": "agent.nacre",
+      "verb": "COMMIT",
+      "parameters": {
+        "operation": "ORG_CREATE"
+      }
+    },
+    {
+      "agent_id": "agent.helix",
+      "verb": "COMMIT",
+      "parameters": {
+        "operation": "ORG_CREATE"
+      }
+    },
+    {
+      "agent_id": "agent.vesper",
+      "verb": "MOVE",
+      "target": "DOWN"
+    },
+    {
+      "agent_id": "agent.vesper",
+      "verb": "COMMIT",
+      "parameters": {
+        "operation": "HARVEST"
+      }
+    },
+    {
+      "agent_id": "agent.helix",
+      "verb": "COMMIT",
+      "parameters": {
+        "operation": "HARVEST"
+      }
+    },
+    {
+      "agent_id": "agent.helix",
+      "verb": "TRADE",
+      "parameters": {
+        "phase": "propose"
+      }
+    },
+    {
+      "agent_id": "agent.nacre",
+      "verb": "TRADE",
+      "parameters": {
+        "phase": "accept"
+      }
+    },
+    {
+      "agent_id": "agent.nacre",
+      "verb": "COMMIT",
+      "parameters": {
+        "operation": "REPAIR",
+        "entity_id": "entity.relay-7"
+      }
+    }
+  ],
+  "alternative_strategy_note": "Agents MAY harvest only, repair only, or refuse trade; fixtures do not score strategies"
+}

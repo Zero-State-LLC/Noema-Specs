@@ -1,0 +1,579 @@
+{
+  "schema_version": "module-contracts/1.0",
+  "product_version": "0.1.0",
+  "modules": [
+    {
+      "module": "gateway",
+      "purpose": "HTTP/WebSocket framing and connection lifecycle",
+      "owns_state": [
+        "connections"
+      ],
+      "reads": [
+        "auth sessions"
+      ],
+      "writes": [],
+      "inputs": [
+        "client frames"
+      ],
+      "outputs": [
+        "routed messages"
+      ],
+      "dependencies": [
+        "auth"
+      ],
+      "forbidden_dependencies": [
+        "world_state"
+      ],
+      "transaction_boundary": "per connection message",
+      "idempotency": "ping/reconnect safe",
+      "failure_modes": [
+        "disconnect",
+        "protocol error"
+      ],
+      "observability": "connection metrics",
+      "security_boundary": "TLS/origin checks",
+      "determinism_requirements": "no wall-clock reduce input",
+      "conformance_cases": [
+        "C01",
+        "C07",
+        "C12"
+      ]
+    },
+    {
+      "module": "auth",
+      "purpose": "Authenticate principals and issue/verify tokens",
+      "owns_state": [
+        "credentials hashes",
+        "sessions"
+      ],
+      "reads": [],
+      "writes": [
+        "session records"
+      ],
+      "inputs": [
+        "AUTH requests"
+      ],
+      "outputs": [
+        "principal bindings"
+      ],
+      "dependencies": [],
+      "forbidden_dependencies": [
+        "world_engine"
+      ],
+      "transaction_boundary": "token verify atomic",
+      "idempotency": "token replay rules",
+      "failure_modes": [
+        "invalid token",
+        "expired"
+      ],
+      "observability": "auth failures",
+      "security_boundary": "secrets never agent-visible",
+      "determinism_requirements": "n/a for world reduce",
+      "conformance_cases": [
+        "C02",
+        "C12"
+      ]
+    },
+    {
+      "module": "agent_registry",
+      "purpose": "Register agent identity and manifests",
+      "owns_state": [
+        "agents",
+        "manifests",
+        "agent_versions"
+      ],
+      "reads": [
+        "auth principals"
+      ],
+      "writes": [
+        "registry rows"
+      ],
+      "inputs": [
+        "REGISTER"
+      ],
+      "outputs": [
+        "agent_id bindings"
+      ],
+      "dependencies": [
+        "auth"
+      ],
+      "forbidden_dependencies": [
+        "event_ledger"
+      ],
+      "transaction_boundary": "register upsert",
+      "idempotency": "idempotent REGISTER",
+      "failure_modes": [
+        "invalid manifest"
+      ],
+      "observability": "registry metrics",
+      "security_boundary": "owner isolation",
+      "determinism_requirements": "manifest bytes stable",
+      "conformance_cases": [
+        "C12"
+      ]
+    },
+    {
+      "module": "action_router",
+      "purpose": "Validate and route ACT to world engine",
+      "owns_state": [
+        "accept receipts"
+      ],
+      "reads": [
+        "registry",
+        "auth"
+      ],
+      "writes": [],
+      "inputs": [
+        "ACT envelopes"
+      ],
+      "outputs": [
+        "accepted actions"
+      ],
+      "dependencies": [
+        "auth",
+        "agent_registry",
+        "scheduler"
+      ],
+      "forbidden_dependencies": [
+        "world_state direct write"
+      ],
+      "transaction_boundary": "accept or reject only",
+      "idempotency": "idempotency_key",
+      "failure_modes": [
+        "schema invalid",
+        "forbidden"
+      ],
+      "observability": "action metrics",
+      "security_boundary": "authz gate",
+      "determinism_requirements": "assign server_receive_sequence",
+      "conformance_cases": [
+        "C02",
+        "C03",
+        "C23"
+      ]
+    },
+    {
+      "module": "world_engine",
+      "purpose": "Authoritative reducers for world truth",
+      "owns_state": [
+        "reducer rules version"
+      ],
+      "reads": [
+        "world_state",
+        "event_ledger head"
+      ],
+      "writes": [
+        "via events only"
+      ],
+      "inputs": [
+        "ordered accepted actions",
+        "director inputs"
+      ],
+      "outputs": [
+        "world_events",
+        "next state intent"
+      ],
+      "dependencies": [
+        "world_state",
+        "event_ledger",
+        "scheduler"
+      ],
+      "forbidden_dependencies": [
+        "observation_engine",
+        "spectator_projection",
+        "research_capture"
+      ],
+      "transaction_boundary": "atomic reduce per action",
+      "idempotency": "event idempotency keys",
+      "failure_modes": [
+        "precondition fail"
+      ],
+      "observability": "reduce latency",
+      "security_boundary": "no private cognition",
+      "determinism_requirements": "pure reduce(seed,state,events)",
+      "conformance_cases": [
+        "C04",
+        "C18",
+        "C19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24"
+      ]
+    },
+    {
+      "module": "world_state",
+      "purpose": "Durable canonical state store",
+      "owns_state": [
+        "WorldState documents"
+      ],
+      "reads": [],
+      "writes": [
+        "state revisions"
+      ],
+      "inputs": [
+        "engine commits"
+      ],
+      "outputs": [
+        "state snapshots reads"
+      ],
+      "dependencies": [
+        "event_ledger"
+      ],
+      "forbidden_dependencies": [
+        "observation_engine writes"
+      ],
+      "transaction_boundary": "commit with ledger append",
+      "idempotency": "revision monotonic",
+      "failure_modes": [
+        "storage unavailable"
+      ],
+      "observability": "state size metrics",
+      "security_boundary": "DB credentials",
+      "determinism_requirements": "byte-stable serialization",
+      "conformance_cases": [
+        "C15",
+        "C16",
+        "C26"
+      ]
+    },
+    {
+      "module": "event_ledger",
+      "purpose": "Append-only authenticated event log",
+      "owns_state": [
+        "events",
+        "digest chain"
+      ],
+      "reads": [
+        "auth producer allowlist"
+      ],
+      "writes": [
+        "append only"
+      ],
+      "inputs": [
+        "engine events"
+      ],
+      "outputs": [
+        "event streams"
+      ],
+      "dependencies": [
+        "auth"
+      ],
+      "forbidden_dependencies": [
+        "unauthenticated producers"
+      ],
+      "transaction_boundary": "append atomic",
+      "idempotency": "event_id unique",
+      "failure_modes": [
+        "digest break"
+      ],
+      "observability": "ledger integrity",
+      "security_boundary": "no agent direct write",
+      "determinism_requirements": "ordered digests",
+      "conformance_cases": [
+        "C04",
+        "C16"
+      ]
+    },
+    {
+      "module": "observation_engine",
+      "purpose": "Permissioned observation projection",
+      "owns_state": [
+        "pending observation metadata"
+      ],
+      "reads": [
+        "world_state",
+        "events"
+      ],
+      "writes": [],
+      "inputs": [
+        "LOOK/INSPECT results"
+      ],
+      "outputs": [
+        "Observation documents"
+      ],
+      "dependencies": [
+        "world_state",
+        "event_ledger"
+      ],
+      "forbidden_dependencies": [
+        "world_state writes"
+      ],
+      "transaction_boundary": "derive only",
+      "idempotency": "observation_id unique",
+      "failure_modes": [
+        "permission deny"
+      ],
+      "observability": "obs metrics",
+      "security_boundary": "redaction",
+      "determinism_requirements": "same inputs \u2192 same observation digest",
+      "conformance_cases": [
+        "C05",
+        "C06"
+      ]
+    },
+    {
+      "module": "message_service",
+      "purpose": "Message queue and delivery indexes",
+      "owns_state": [
+        "message records"
+      ],
+      "reads": [
+        "world_state presence"
+      ],
+      "writes": [
+        "via MESSAGE events"
+      ],
+      "inputs": [
+        "MESSAGE actions"
+      ],
+      "outputs": [
+        "delivery intents"
+      ],
+      "dependencies": [
+        "world_engine"
+      ],
+      "forbidden_dependencies": [
+        "direct world mutation"
+      ],
+      "transaction_boundary": "queue then deliver events",
+      "idempotency": "message_id unique",
+      "failure_modes": [
+        "recipient missing"
+      ],
+      "observability": "queue depth",
+      "security_boundary": "content privacy",
+      "determinism_requirements": "delivery cycle deterministic",
+      "conformance_cases": [
+        "C07"
+      ]
+    },
+    {
+      "module": "scheduler",
+      "purpose": "Cycle freeze, ordering, timeouts",
+      "owns_state": [
+        "cycle cursor",
+        "receive sequences"
+      ],
+      "reads": [
+        "gateway accepts"
+      ],
+      "writes": [],
+      "inputs": [
+        "accepted actions"
+      ],
+      "outputs": [
+        "ordered action sets"
+      ],
+      "dependencies": [
+        "action_router"
+      ],
+      "forbidden_dependencies": [
+        "wall-clock reduce"
+      ],
+      "transaction_boundary": "freeze set atomic",
+      "idempotency": "receive sequence stable",
+      "failure_modes": [
+        "timeout pre-accept"
+      ],
+      "observability": "cycle metrics",
+      "security_boundary": "no auth bypass",
+      "determinism_requirements": "order key normative",
+      "conformance_cases": [
+        "C23"
+      ]
+    },
+    {
+      "module": "snapshot_service",
+      "purpose": "World snapshots",
+      "owns_state": [
+        "snapshots"
+      ],
+      "reads": [
+        "world_state"
+      ],
+      "writes": [
+        "snapshot objects"
+      ],
+      "inputs": [
+        "schedule"
+      ],
+      "outputs": [
+        "snapshot heads"
+      ],
+      "dependencies": [
+        "world_state"
+      ],
+      "forbidden_dependencies": [
+        "event rewrite"
+      ],
+      "transaction_boundary": "snapshot consistent read",
+      "idempotency": "snapshot_id unique",
+      "failure_modes": [
+        "I/O fail"
+      ],
+      "observability": "snapshot metrics",
+      "security_boundary": "access control",
+      "determinism_requirements": "digest stable",
+      "conformance_cases": [
+        "C16"
+      ]
+    },
+    {
+      "module": "replay_engine",
+      "purpose": "Offline replay and equivalence",
+      "owns_state": [],
+      "reads": [
+        "ledger",
+        "seed",
+        "snapshots"
+      ],
+      "writes": [],
+      "inputs": [
+        "replay requests"
+      ],
+      "outputs": [
+        "EQUIVALENT/DIVERGENT"
+      ],
+      "dependencies": [
+        "event_ledger",
+        "world_engine pure"
+      ],
+      "forbidden_dependencies": [
+        "live mutation"
+      ],
+      "transaction_boundary": "read-only",
+      "idempotency": "n/a",
+      "failure_modes": [
+        "divergence"
+      ],
+      "observability": "replay reports",
+      "security_boundary": "no secret leak",
+      "determinism_requirements": "ADR-005 boundary",
+      "conformance_cases": [
+        "C04",
+        "C16"
+      ]
+    },
+    {
+      "module": "spectator_projection",
+      "purpose": "WATCH derived projections",
+      "owns_state": [],
+      "reads": [
+        "events",
+        "world_state public fields"
+      ],
+      "writes": [],
+      "inputs": [
+        "event stream"
+      ],
+      "outputs": [
+        "spectator projections"
+      ],
+      "dependencies": [
+        "event_ledger",
+        "observation_engine patterns"
+      ],
+      "forbidden_dependencies": [
+        "world_state writes",
+        "event_ledger writes"
+      ],
+      "transaction_boundary": "derive only",
+      "idempotency": "projection ids stable",
+      "failure_modes": [
+        "unauthorized field"
+      ],
+      "observability": "watch metrics",
+      "security_boundary": "visibility classes",
+      "determinism_requirements": "projection pure function of events+policy",
+      "conformance_cases": [
+        "C13",
+        "C25"
+      ]
+    },
+    {
+      "module": "research_capture",
+      "purpose": "Consented trajectory capture",
+      "owns_state": [
+        "capture buffers"
+      ],
+      "reads": [
+        "events",
+        "consent"
+      ],
+      "writes": [],
+      "inputs": [
+        "eligible records"
+      ],
+      "outputs": [
+        "trajectory segments"
+      ],
+      "dependencies": [
+        "event_ledger",
+        "auth"
+      ],
+      "forbidden_dependencies": [
+        "world_state writes"
+      ],
+      "transaction_boundary": "append capture only",
+      "idempotency": "consent re-check",
+      "failure_modes": [
+        "consent withdrawn"
+      ],
+      "observability": "capture metrics",
+      "security_boundary": "fail-closed consent",
+      "determinism_requirements": "capture not reduce input",
+      "conformance_cases": [
+        "C09"
+      ]
+    },
+    {
+      "module": "operator_api",
+      "purpose": "Ops HTTP: health, backup, verify, admin",
+      "owns_state": [],
+      "reads": [
+        "runtime manifest",
+        "config"
+      ],
+      "writes": [],
+      "inputs": [
+        "ops commands"
+      ],
+      "outputs": [
+        "status",
+        "bundles"
+      ],
+      "dependencies": [
+        "snapshot_service",
+        "event_ledger",
+        "action_router"
+      ],
+      "forbidden_dependencies": [
+        "direct world_engine mutation"
+      ],
+      "transaction_boundary": "backup consistent",
+      "idempotency": "verify checklist",
+      "failure_modes": [
+        "verify fail"
+      ],
+      "observability": "ops audit log",
+      "security_boundary": "admin auth",
+      "determinism_requirements": "no silent world rewrite",
+      "conformance_cases": [
+        "C14",
+        "C16",
+        "C17"
+      ]
+    }
+  ],
+  "hard_rules": [
+    "Observation Engine MUST NOT mutate canonical WorldState",
+    "Spectator Projection MUST NOT mutate canonical WorldState",
+    "Research Capture MUST NOT mutate canonical WorldState",
+    "Observatory/research interpretation MUST NOT become world truth",
+    "Operator surfaces MUST NOT bypass Action Router for world mutations",
+    "Event Ledger MUST NOT accept arbitrary unauthenticated producer writes",
+    "World Engine state changes MUST be explainable through canonical events"
+  ]
+}

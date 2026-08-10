@@ -1,0 +1,60 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C26-strategic-persistence-restart",
+  "suite": "noema-v0.1-chamber",
+  "title": "Strategic state persists across restart: orgs, infra, resources, cycle, ledger",
+  "acceptance_items": [
+    26
+  ],
+  "requirement_refs": [
+    "docs/DEPLOYMENT.md",
+    "docs/GAME-DESIGN.md",
+    "examples/v01-strategic/expected-final-state.json"
+  ],
+  "preconditions": [
+    "Strategic trajectory applied"
+  ],
+  "fixtures": [
+    "examples/v01-strategic/expected-final-state.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "CAPTURE",
+      "input": {}
+    },
+    {
+      "step_id": "2",
+      "actor": "operator",
+      "action": "RESTART_SERVER",
+      "input": {}
+    },
+    {
+      "step_id": "3",
+      "actor": "operator",
+      "action": "COMPARE",
+      "input": {
+        "fields": [
+          "organizations",
+          "infrastructure",
+          "resource_nodes",
+          "active_agents.budgets",
+          "cycle",
+          "ledger_head"
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "organizations persist",
+      "infrastructure condition persists",
+      "resource holdings persist",
+      "cycle/ledger unchanged except in-flight commits",
+      "no disposable world reset"
+    ]
+  },
+  "security_class": "none"
+}

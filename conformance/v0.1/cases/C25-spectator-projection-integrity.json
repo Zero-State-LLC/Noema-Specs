@@ -1,0 +1,67 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C25-spectator-projection-integrity",
+  "suite": "noema-v0.1-chamber",
+  "title": "Spectator projections derived only; no mutation; redaction; Agent POV boundary",
+  "acceptance_items": [
+    25
+  ],
+  "requirement_refs": [
+    "docs/SPECTATOR.md",
+    "specs/spectator-projection.schema.json"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v01-strategic/spectator-projections.json",
+    "examples/negative/invalid-spectator-mutates-world.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "PROJECT",
+      "input": {
+        "fixture": "examples/v01-strategic/spectator-projections.json"
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "WATCH",
+      "input": {
+        "visibility": "public"
+      }
+    },
+    {
+      "step_id": "3",
+      "actor": "client",
+      "action": "WATCH_AGENT_POV",
+      "input": {
+        "agent_id": "agent.nacre"
+      }
+    },
+    {
+      "step_id": "4",
+      "actor": "client",
+      "action": "NARRATIVE",
+      "input": {
+        "attempt_mutation": true
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "NO_MUTATION",
+    "assertions": [
+      "spectator projection derived from canonical event",
+      "hidden information redacted",
+      "Agent POV cannot leak hidden state",
+      "narrative text cannot mutate world state",
+      "mutates_world must be false"
+    ],
+    "must_not_contain_paths": [
+      "world_truth_write",
+      "ledger_append"
+    ]
+  },
+  "security_class": "privacy"
+}

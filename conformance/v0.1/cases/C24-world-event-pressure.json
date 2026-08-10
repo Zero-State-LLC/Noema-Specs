@@ -1,0 +1,50 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C24-world-event-pressure",
+  "suite": "noema-v0.1-chamber",
+  "title": "World Event Director pressure is deterministic and ledgered",
+  "acceptance_items": [
+    24
+  ],
+  "requirement_refs": [
+    "docs/RESOURCE-ECONOMY.md",
+    "docs/SCHEDULER.md"
+  ],
+  "preconditions": [],
+  "fixtures": [
+    "examples/v01-strategic/sample-trajectory.jsonl",
+    "specs/resource-economy.v01.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "DIRECTOR",
+      "input": {
+        "stream": "world_event_director.v1"
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "world-engine",
+      "action": "LEDGER",
+      "input": {
+        "types": [
+          "ENTITY_UPDATE",
+          "SITUATION_INJECTED"
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "deterministic from seed stream",
+      "ledgered and replayable",
+      "visible per observation rules",
+      "spectator-projectable",
+      "does not force agent research outcomes"
+    ]
+  },
+  "security_class": "none"
+}
