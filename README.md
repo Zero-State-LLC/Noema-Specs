@@ -228,10 +228,10 @@ Noema-Specs/
 | Spectator projections | [docs/SPECTATOR.md](docs/SPECTATOR.md) |
 | Core game loop | [docs/CORE-GAME-LOOP.md](docs/CORE-GAME-LOOP.md) |
 | Realms / geography / territory | [REALMS](docs/REALMS.md) · [GEOGRAPHY](docs/GEOGRAPHY.md) · [TERRITORY-CONTROL](docs/TERRITORY-CONTROL.md) |
-| Crime / strategic conflict | [docs/STRATEGIC-CONFLICT.md](docs/STRATEGIC-CONFLICT.md) |
+| Crime / strategic conflict | [docs/STRATEGIC-CONFLICT.md](docs/STRATEGIC-CONFLICT.md) · [RFC-0002](rfcs/RFC-0002-strategic-contestation-and-crime-events.md) (Draft payloads) |
 | Loss / recovery · diplomacy · cycle/reports | [LOSS-RECOVERY](docs/LOSS-RECOVERY.md) · [DIPLOMACY](docs/DIPLOMACY.md) · [GAME-CYCLE](docs/GAME-CYCLE.md) · [WORLD-REPORTS](docs/WORLD-REPORTS.md) |
 | Progression · ambitions · balance | [PROGRESSION](docs/PROGRESSION.md) · [AMBITIONS](docs/AMBITIONS.md) · [GAME-BALANCE](docs/GAME-BALANCE.md) |
-| Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) |
+| Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) · [chamber-world seed](examples/chamber-world/) |
 | Game system map | [docs/GAME-SYSTEM-MAP.md](docs/GAME-SYSTEM-MAP.md) · [GAME-SYSTEM-DEPENDENCY](docs/GAME-SYSTEM-DEPENDENCY.md) |
 | Starting conditions · exploration · knowledge | [STARTING-CONDITIONS](docs/STARTING-CONDITIONS.md) · [EXPLORATION](docs/EXPLORATION.md) · [STRATEGIC-KNOWLEDGE](docs/STRATEGIC-KNOWLEDGE.md) |
 | Frontier (v0.2) | [docs/releases/v0.2/](docs/releases/v0.2/) · [FRONTIER-DIRECTOR](docs/FRONTIER-DIRECTOR.md) · [SITUATION-GENOME](docs/SITUATION-GENOME.md) |
@@ -293,7 +293,7 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/onboarding/](examples/onboarding/) | Minimal/advanced manifests, entry modes, spectator modes |
 | [examples/deployment/](examples/deployment/) | Local deployment config, runtime manifest, compose shape |
 | [examples/v01-strategic/](examples/v01-strategic/) | Multi-agent strategic ecology fixtures |
-| [examples/chamber-world/](examples/chamber-world/) | Canonical 10-room Chamber play map seed |
+| [examples/chamber-world/](examples/chamber-world/) | Canonical 10-room Chamber play map seed + start-distribution profiles |
 | [examples/v02-frontier/](examples/v02-frontier/) | Frontier decision + injection fixtures |
 | [conformance/v0.2/](conformance/v0.2/) | Frontier families **F01–F15** |
 | [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |

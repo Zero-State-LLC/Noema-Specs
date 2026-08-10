@@ -3,7 +3,8 @@
 ## Canonical product map
 
 **10-room starting map (authoritative for play):** [`examples/chamber-world/`](../examples/chamber-world/)  
-Machine seed: [`examples/chamber-world/world-seed.json`](../examples/chamber-world/world-seed.json)
+Machine seed: [`examples/chamber-world/world-seed.json`](../examples/chamber-world/world-seed.json)  
+Start profiles: [`examples/chamber-world/start-distributions.json`](../examples/chamber-world/start-distributions.json)
 
 ## Target size
 

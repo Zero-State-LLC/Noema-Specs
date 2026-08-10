@@ -4,6 +4,16 @@
 
 ### Added
 
+- RFC-0002 expanded to full Draft: payload sketches, reducer preconditions, coupling, observability, worked sequence for seven contestation/crime/agreement events.
+- `examples/chamber-world/start-distributions.json` — ENTER_WORLD assignment profiles.
+- Chamber seed route pressure: `traversal_cost` on edge/vault routes, edge condition tags; richer `map_design` (starts, chokepoints, scarcity).
+
+### Changed
+
+- SPEC-CHECKLIST / README / EVENT-CATALOG-AUDIT / STRATEGIC-CONFLICT / rfcs index for RFC-0002 payload-draft status and chamber-world depth.
+
+### Added
+
 - `examples/chamber-world/` — canonical 10-room Chamber starting map + `world-seed.json`.
 - `rfcs/RFC-0002-strategic-contestation-and-crime-events.md` (Draft skeleton).
 - GAME-DESIGN completed spine table linking all player-facing game docs.

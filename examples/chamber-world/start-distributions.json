@@ -1,0 +1,41 @@
+{
+  "schema_comment": "Chamber World start assignment profiles. Operators pick one profile; engines assign ENTER_WORLD room_id without granting exclusive infra ownership.",
+  "map_seed": "noema-chamber-map-v1",
+  "default_profile": "symmetric_hub",
+  "profiles": [
+    {
+      "profile_id": "symmetric_hub",
+      "description": "All agents enter Civic Exchange (default for 2–4 participants).",
+      "rooms": ["room.civic-exchange"],
+      "recommended_participants": [2, 4],
+      "assignment": "all_to_first_room"
+    },
+    {
+      "profile_id": "light_central_spread",
+      "description": "Round-robin across three central rooms; preserves symmetric opportunity.",
+      "rooms": [
+        "room.civic-exchange",
+        "room.transit-ring",
+        "room.relay-quarter"
+      ],
+      "recommended_participants": [5, 10],
+      "assignment": "round_robin_by_registration_order"
+    },
+    {
+      "profile_id": "dual_pole",
+      "description": "Alternate Civic Exchange vs Foundry Corridor for early trade/production tension.",
+      "rooms": ["room.civic-exchange", "room.foundry-corridor"],
+      "recommended_participants": [4, 8],
+      "assignment": "alternate_registration_order",
+      "constraints": [
+        "no_exclusive_infra_at_genesis",
+        "budget_defaults_identical"
+      ]
+    }
+  ],
+  "invariants": [
+    "No start grants permanent material advantage",
+    "Visibility remains start room + adjacent exits only",
+    "catalog_version remains event-catalog/0.1 until contestation enabled"
+  ]
+}

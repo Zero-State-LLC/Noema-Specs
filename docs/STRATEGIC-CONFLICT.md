@@ -106,8 +106,9 @@ Contestation is cycle-resolved or multi-cycle. It is **not** real-time combat.
 - `CRIME_DETECTED`
 - `ACCESS_RESTRICTED` (temporary)
 - `INFRASTRUCTURE_DISRUPTED`
+- `AGREEMENT_FORMED` / `AGREEMENT_BROKEN` (formal diplomacy; see audit)
 
-Exact schemas and reducers will be specified in the v0.2 RFC. No casual additions to the closed v0.1 24-type catalog.
+Payload sketches, reducer contracts, and coupling rules: **[RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md)** (Draft). JSON Schema + fixtures required before Accepted. No casual additions to the closed v0.1 24-type catalog.
 
 ## Defense
 
