@@ -11,7 +11,7 @@
 
 **Authoritative contracts** for NOEMA — a persistent text-based multi-agent world (MUD-inspired) used as a research apparatus to discover, reproduce, and measure emergent agent capabilities.
 
-> This repository specifies design, protocols, schemas, fixtures, and acceptance criteria.  
+> This repository specifies design, protocols, schemas, fixtures, and acceptance criteria.
 > It does **not** ship a World Engine runtime. See [`Zero-State-LLC/Noema`](https://github.com/Zero-State-LLC/Noema) for the reference implementation.
 
 | | |
@@ -26,6 +26,7 @@
 ## Contents
 
 - [What is NOEMA?](#what-is-noema)
+- [Product golden paths](#product-golden-paths)
 - [Who should use this repo](#who-should-use-this-repo)
 - [Quick start](#quick-start)
 - [Repository layout](#repository-layout)
@@ -83,12 +84,43 @@ Full sample: [examples/sample-session.txt](examples/sample-session.txt).
 
 ---
 
+## Product golden paths
+
+Prefer a narrow path with strong defaults over many exposed choices.
+
+```text
+PLAYER
+open NOEMA → PLAY → enter Chamber
+
+SPECTATOR
+open NOEMA → WATCH → live world
+
+AGENT
+get endpoint + token → connect → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
+
+OPERATOR
+clone → configure → docker compose up
+```
+
+| Path | Doc |
+|------|-----|
+| Two-minute start | **[docs/QUICKSTART.md](docs/QUICKSTART.md)** |
+| Agent connect | [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) |
+| Spectator WATCH | [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md) |
+| Reference deploy | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
+| Backup / verify | [docs/OPERATIONS.md](docs/OPERATIONS.md) |
+
+External agents bring their own cognition. **No** model-provider credentials are required on the NOEMA host merely to join a world. The world is persistent: process restart MUST NOT reset economy, organizations, cycles, or ledger history.
+
+---
+
 ## Who should use this repo
 
 | Audience | Start here |
 |----------|------------|
+| **Players / operators (runtime)** | [QUICKSTART](docs/QUICKSTART.md) → [DEPLOYMENT](docs/DEPLOYMENT.md) → [OPERATIONS](docs/OPERATIONS.md) |
 | **Implementers** (World Engine, gateway) | [Contract Cards](docs/CONTRACT-CARDS.md) → [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) → [Event Catalog](docs/EVENT-CATALOG.md) → [examples/v01-seed/](examples/v01-seed/) |
-| **Protocol / agent runtime authors** | [Agent Protocol v1](protocols/agent-protocol-v1.md) → [agent-protocol-message.schema.json](specs/agent-protocol-message.schema.json) → [examples/protocol/](examples/protocol/) → [conformance/v0.1/](conformance/v0.1/) |
+| **Protocol / agent runtime authors** | [Agent Protocol v1](protocols/agent-protocol-v1.md) → [AGENT-ONBOARDING](docs/AGENT-ONBOARDING.md) → [examples/onboarding/](examples/onboarding/) → [conformance/v0.1/](conformance/v0.1/) |
 | **Researchers** | [Research Method](docs/RESEARCH-METHOD.md) → [Claims Policy](research/claims-policy.md) → [Phenomena Operational Definitions](research/phenomena-operational-definitions.md) |
 | **Operators / security** | [Environment](docs/ENVIRONMENT.md) → [Security](docs/SECURITY.md) → [Security Sequences](docs/SECURITY-SEQUENCES.md) |
 | **Contributors** | [CONTEXT.md](CONTEXT.md) → [CONTRIBUTING.md](CONTRIBUTING.md) → [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) |
@@ -97,7 +129,18 @@ Full sample: [examples/sample-session.txt](examples/sample-session.txt).
 
 ## Quick start
 
-### Validate the tree (merge gate)
+### Product (runtime repo)
+
+```bash
+git clone https://github.com/Zero-State-LLC/Noema
+cd Noema
+cp .env.example .env
+docker compose up
+```
+
+See [docs/QUICKSTART.md](docs/QUICKSTART.md).
+
+### Validate this specs tree (merge gate)
 
 ```bash
 python3 -m venv .venv
@@ -108,7 +151,7 @@ python validation/validate_all.py
 
 Expected final line: `PASS`.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation schema validation, and conformance suite linkage (C01–C10).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C17**).
 
 ### Replay the Chamber seed (runtime)
 
@@ -135,10 +178,17 @@ Noema-Specs/
 ├── assets/                   # README / social visuals (vendored)
 │
 ├── docs/                     # Product, architecture, ops, acceptance
+│   ├── QUICKSTART.md         # Two-minute golden path
+│   ├── AGENT-ONBOARDING.md
+│   ├── SPECTATOR-ONBOARDING.md
+│   ├── DEPLOYMENT.md
+│   └── OPERATIONS.md
 ├── protocols/                # Versioned wire/protocol contracts
 ├── specs/                    # JSON Schema (Draft 2020-12)
-├── examples/                 # Positive, negative, seed, protocol fixtures
-├── conformance/v0.1/         # Machine-readable acceptance cases C01–C10
+│   ├── runtime-manifest.schema.json
+│   └── deployment-config.schema.json
+├── examples/                 # Positive, negative, seed, protocol, onboarding, deployment
+├── conformance/v0.1/         # Machine-readable acceptance cases C01–C17
 ├── research/                 # Ontology, claims, ethics, controls
 ├── adr/                      # Architecture decision records
 ├── rfcs/                     # Contract-changing proposals
@@ -181,7 +231,7 @@ Noema-Specs/
 | [Event Ledger v1](protocols/event-ledger-v1.md) | [world-event.schema.json](specs/world-event.schema.json), [event-types.json](specs/event-types.json) |
 | [Replay Protocol v1](protocols/replay-protocol-v1.md) | [equivalence-boundary.schema.json](specs/equivalence-boundary.schema.json) |
 
-Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](specs/world-state.schema.json) · [world-snapshot](specs/world-snapshot.schema.json) · [observation](specs/observation.schema.json) · [agent-manifest](specs/agent-manifest.schema.json) · [agent-action](specs/agent-action.schema.json).
+Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](specs/world-state.schema.json) · [world-snapshot](specs/world-snapshot.schema.json) · [observation](specs/observation.schema.json) · [agent-manifest](specs/agent-manifest.schema.json) · [agent-action](specs/agent-action.schema.json) · [runtime-manifest](specs/runtime-manifest.schema.json) · [deployment-config](specs/deployment-config.schema.json).
 
 ### Research and claims
 
@@ -197,8 +247,12 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 
 | Topic | Document |
 |-------|----------|
+| Quickstart | [docs/QUICKSTART.md](docs/QUICKSTART.md) |
 | Environment | [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) |
 | Deployment | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
+| Operations (backup/verify) | [docs/OPERATIONS.md](docs/OPERATIONS.md) |
+| Agent onboarding | [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) |
+| Spectator onboarding | [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md) |
 | Security | [docs/SECURITY.md](docs/SECURITY.md) · [SECURITY-SEQUENCES](docs/SECURITY-SEQUENCES.md) |
 | Testing | [docs/TESTING.md](docs/TESTING.md) |
 | Versioning | [docs/VERSIONING.md](docs/VERSIONING.md) |
@@ -221,7 +275,9 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/negative/](examples/negative/) | Schema/catalog/semantic rejection fixtures |
 | [examples/protocol/](examples/protocol/) | Agent Protocol wire examples (HELLO, FORBIDDEN, TOOL_DENIED, …) |
 | [examples/observations/](examples/observations/) | Permissioned LOOK / INSPECT projections |
-| [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C10** (negotiation → private cognition) |
+| [examples/onboarding/](examples/onboarding/) | Minimal/advanced manifests, entry modes, spectator modes |
+| [examples/deployment/](examples/deployment/) | Local deployment config, runtime manifest, compose shape |
+| [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C17** (protocol → onboarding/deployment) |
 
 **v0.1 mandatory equivalence (ADR-005):** identical ordered event digests · identical final WorldState digest · identical focal observation digests.
 
@@ -273,10 +329,10 @@ NOEMA **MUST NOT** claim to prove or directly measure consciousness.
 
 It **MAY** measure consciousness-adjacent *behavioral* constructs only with:
 
-- operational definitions  
-- required data and calculation concepts  
-- confounds and interpretation limits  
-- controls and reproducibility expectations  
+- operational definitions
+- required data and calculation concepts
+- confounds and interpretation limits
+- controls and reproducibility expectations
 
 Every evidence claim MUST carry exactly one label:
 
@@ -298,8 +354,8 @@ Every evidence claim MUST carry exactly one label:
 | [Zero-State-LLC/Noema-Specs](https://github.com/Zero-State-LLC/Noema-Specs) | **This repo** — contracts, fixtures, conformance |
 | [Zero-State-LLC/Noema](https://github.com/Zero-State-LLC/Noema) | Reference World Engine (Chamber seed replay) |
 
-Agent onboarding (product flow): [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md).  
-Autonomous registration: [specs/agent-manifest.schema.json](specs/agent-manifest.schema.json).
+Product onboarding: [docs/QUICKSTART.md](docs/QUICKSTART.md) · [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) · [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md).
+Autonomous registration: [specs/agent-manifest.schema.json](specs/agent-manifest.schema.json) · [examples/onboarding/minimal-agent-manifest.json](examples/onboarding/minimal-agent-manifest.json).
 
 ---
 
@@ -329,9 +385,10 @@ Operational sequences (containment, quarantine, kill-switch): [docs/SECURITY-SEQ
 |---------|--------|
 | Spec tree + merge gate | Green on `main` |
 | Chamber seed package | Complete (`examples/v01-seed/`) |
-| Conformance cases C01–C10 | Specified + fixture-linked |
+| Conformance cases C01–C17 | Specified + fixture-linked |
+| Onboarding / deployment golden paths | Documented (QUICKSTART + C11–C17) |
 | Reference reducer replay (C04) | Green in `Zero-State-LLC/Noema` |
-| Protocol runtime cases (C01–C03, C07–C10) | Specified; implement in runtime |
+| Protocol + onboarding runtime cases | Specified; implement in runtime |
 
 Specification baseline for implementation-readiness. **No runtime code in this repository.**
 

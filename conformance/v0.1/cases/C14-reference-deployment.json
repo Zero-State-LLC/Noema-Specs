@@ -1,0 +1,99 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C14-reference-deployment",
+  "suite": "noema-v0.1-chamber",
+  "title": "Reference Docker Compose modular monolith exposes health surfaces without optional infra",
+  "acceptance_items": [14],
+  "requirement_refs": [
+    "docs/DEPLOYMENT.md",
+    "docs/QUICKSTART.md",
+    "docs/OPERATIONS.md",
+    "specs/deployment-config.schema.json",
+    "examples/deployment/local-deployment-config.json",
+    "examples/deployment/docker-compose.reference.yml"
+  ],
+  "preconditions": [
+    "Runtime implements docker compose golden path",
+    "PostgreSQL is the only required external service for local v0.1"
+  ],
+  "fixtures": [
+    "examples/deployment/local-deployment-config.json",
+    "examples/deployment/docker-compose.reference.yml",
+    "examples/deployment/local-runtime-manifest.json",
+    "examples/negative/invalid-deployment-config-secret-field.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "COMPOSE_UP",
+      "input": { "command": "docker compose up" },
+      "notes": "clone → configure → docker compose up"
+    },
+    {
+      "step_id": "2",
+      "actor": "operator",
+      "action": "HTTP_GET",
+      "input": { "path": "/health" }
+    },
+    {
+      "step_id": "3",
+      "actor": "operator",
+      "action": "HTTP_GET",
+      "input": { "path": "/ready" }
+    },
+    {
+      "step_id": "4",
+      "actor": "operator",
+      "action": "HTTP_GET",
+      "input": { "path": "/version" }
+    },
+    {
+      "step_id": "5",
+      "actor": "operator",
+      "action": "CHECK_SURFACES",
+      "input": {
+        "required": [
+          "application/UI",
+          "agent protocol endpoint",
+          "spectator surface",
+          "/health",
+          "/ready",
+          "/version"
+        ]
+      }
+    },
+    {
+      "step_id": "6",
+      "actor": "operator",
+      "action": "CHECK_ABSENT",
+      "input": {
+        "not_required": [
+          "Kubernetes",
+          "Kafka",
+          "service mesh",
+          "microservices",
+          "separate auth service",
+          "separate event service",
+          "separate Observatory service",
+          "mandatory Redis",
+          "model-provider credentials"
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "Docker Compose reference deployment starts one Chamber world",
+      "Application/UI, agent protocol endpoint, and spectator surface are reachable",
+      "/health, /ready, and /version return success",
+      "PostgreSQL-backed persistent world is active",
+      "Filesystem-backed object storage adapter is acceptable for local mode",
+      "Redis, Sentry, external OTEL collector, external object storage, and provider keys are not required",
+      "Resolved deployment config validates against deployment-config.schema.json",
+      "Resolved config document rejects secret fields (additionalProperties false)"
+    ]
+  },
+  "security_class": "none"
+}

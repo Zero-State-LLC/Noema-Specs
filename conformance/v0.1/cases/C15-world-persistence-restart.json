@@ -1,0 +1,81 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C15-world-persistence-restart",
+  "suite": "noema-v0.1-chamber",
+  "title": "Server restart preserves world identity, cycle/ledger lineage, and durable strategic state",
+  "acceptance_items": [15],
+  "requirement_refs": [
+    "docs/DEPLOYMENT.md",
+    "docs/OPERATIONS.md",
+    "CONTEXT.md",
+    "docs/v0.1-ACCEPTANCE.md"
+  ],
+  "preconditions": [
+    "Chamber world has progressed beyond genesis with at least one accepted action",
+    "Organizations/resources/infrastructure may exist in durable state"
+  ],
+  "fixtures": [
+    "examples/deployment/local-runtime-manifest.json",
+    "examples/v01-seed/genesis-snapshot.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "CAPTURE_PRE_RESTART",
+      "input": {
+        "fields": [
+          "world_id",
+          "current_cycle",
+          "ledger_head",
+          "snapshot_head",
+          "world_state_digest",
+          "economy",
+          "organizations"
+        ]
+      }
+    },
+    {
+      "step_id": "2",
+      "actor": "operator",
+      "action": "RESTART_SERVER",
+      "input": { "mode": "process-restart" },
+      "notes": "Application lifecycle restart only; no world reset"
+    },
+    {
+      "step_id": "3",
+      "actor": "operator",
+      "action": "RELOAD_WORLD",
+      "input": { "world_id": "world-01" }
+    },
+    {
+      "step_id": "4",
+      "actor": "operator",
+      "action": "CAPTURE_POST_RESTART",
+      "input": {
+        "fields": [
+          "world_id",
+          "current_cycle",
+          "ledger_head",
+          "snapshot_head",
+          "world_state_digest",
+          "economy",
+          "organizations"
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "EQUIVALENT",
+    "assertions": [
+      "Same world_id after restart",
+      "Same cycle or defined next cycle (no rewind)",
+      "Same ledger_head (or advanced only by in-flight committed events with explicit provenance)",
+      "Same durable state for economy/resources/organizations/infrastructure",
+      "No duplicate genesis",
+      "No reset of agents, factions, cycles, or ledger history",
+      "Application restart MUST NOT recreate the world"
+    ]
+  },
+  "security_class": "none"
+}

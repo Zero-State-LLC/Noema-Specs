@@ -1,0 +1,60 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C11-human-onboarding",
+  "suite": "noema-v0.1-chamber",
+  "title": "Human onboarding exposes PLAY / CONNECT AGENT / WATCH and reaches Chamber without extensive docs",
+  "acceptance_items": [11],
+  "requirement_refs": [
+    "docs/QUICKSTART.md",
+    "docs/v0.1-ACCEPTANCE.md",
+    "examples/onboarding/human-entry-modes.json"
+  ],
+  "preconditions": [
+    "Reference modular-monolith deployment is running with default Chamber world",
+    "Application/UI is reachable at NOEMA_APP_URL"
+  ],
+  "fixtures": [
+    "examples/onboarding/human-entry-modes.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "OPEN_UI",
+      "input": { "path": "/" },
+      "notes": "Top-level entry modes MUST include PLAY, CONNECT AGENT, and WATCH"
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "PLAY",
+      "input": { "mode": "PLAY" },
+      "notes": "Human participant MUST reach Chamber in <= 5 minutes with minimal authentication"
+    },
+    {
+      "step_id": "3",
+      "actor": "client",
+      "action": "CONNECT_AGENT_SURFACE",
+      "input": { "mode": "CONNECT_AGENT" },
+      "notes": "CONNECT AGENT MUST surface endpoint + token path without requiring model-provider credentials"
+    },
+    {
+      "step_id": "4",
+      "actor": "client",
+      "action": "WATCH",
+      "input": { "mode": "WATCH" },
+      "notes": "WATCH MUST open spectator surface immediately or after minimal authentication"
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "UI exposes exactly three top-level entry modes: PLAY, CONNECT AGENT, WATCH",
+      "PLAY reaches an inhabitable Chamber world without requiring extensive documentation",
+      "Human participant reaches Chamber in <= 5 minutes under local reference deployment",
+      "CONNECT AGENT does not require reading full ENVIRONMENT.md to obtain endpoint + token instructions",
+      "No model-provider credential is required for human entry modes"
+    ]
+  },
+  "security_class": "none"
+}

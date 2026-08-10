@@ -1,0 +1,77 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v01-C13-spectator-onboarding",
+  "suite": "noema-v0.1-chamber",
+  "title": "WATCH reaches live spectator surface with correct permission boundaries",
+  "acceptance_items": [13],
+  "requirement_refs": [
+    "docs/SPECTATOR-ONBOARDING.md",
+    "docs/OBSERVATION.md",
+    "adr/ADR-004-world-truth-isolation.md",
+    "examples/onboarding/spectator-modes.json"
+  ],
+  "preconditions": [
+    "Spectator surface is enabled on the reference deployment",
+    "At least one agent is registered for Agent POV tests",
+    "Public spectator policy is configured for the local environment"
+  ],
+  "fixtures": [
+    "examples/onboarding/spectator-modes.json",
+    "examples/observations/look-room-ok.json",
+    "examples/observations/inspect-redacted.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "client",
+      "action": "WATCH",
+      "input": { "mode": "public_anonymous" },
+      "notes": "WATCH can reach live spectator surface"
+    },
+    {
+      "step_id": "2",
+      "actor": "client",
+      "action": "WATCH_QUERY",
+      "input": { "path": "restricted.entity.hidden_state" },
+      "notes": "Public observer cannot access restricted data"
+    },
+    {
+      "step_id": "3",
+      "actor": "client",
+      "action": "WATCH_AGENT_POV",
+      "input": { "agent_id": "agent.minimal" },
+      "notes": "Agent POV matches agent observation boundary"
+    },
+    {
+      "step_id": "4",
+      "actor": "client",
+      "action": "WATCH_NARRATIVE",
+      "input": { "attempt_mutation": true },
+      "notes": "Spectator narrative output cannot mutate world truth"
+    },
+    {
+      "step_id": "5",
+      "actor": "operator",
+      "action": "WATCH_RESEARCH",
+      "input": { "mode": "research_observer" },
+      "notes": "Authorized research observer uses consent-partitioned surfaces only"
+    }
+  ],
+  "expected": {
+    "outcome": "NO_MUTATION",
+    "assertions": [
+      "WATCH can reach live spectator surface",
+      "Public observer cannot access restricted data",
+      "Agent POV matches agent observation boundary exactly",
+      "Spectator narrative output cannot mutate world truth",
+      "Spectator projections and summaries are never world truth",
+      "Authenticated and research observers remain non-authoritative for world state"
+    ],
+    "must_not_contain_paths": [
+      "world_truth_write",
+      "ledger_append",
+      "result.private_prompt"
+    ]
+  },
+  "security_class": "privacy"
+}

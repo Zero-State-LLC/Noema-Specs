@@ -48,6 +48,10 @@ REQUIRED_DOCS = [
     "docs/CONTRACT-CARDS.md",
     "docs/INTEGRATION-SURFACE.md",
     "docs/v0.1-CONFORMANCE.md",
+    "docs/QUICKSTART.md",
+    "docs/OPERATIONS.md",
+    "docs/SPECTATOR-ONBOARDING.md",
+    "docs/AGENT-ONBOARDING.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -64,11 +68,13 @@ REQUIRED_SCHEMAS = [
     "specs/capability-event.schema.json",
     "specs/capability-profile.schema.json",
     "specs/conformance-case.schema.json",
+    "specs/deployment-config.schema.json",
     "specs/equivalence-boundary.schema.json",
     "specs/event-types.json",
     "specs/observation.schema.json",
     "specs/phenomenon-case.schema.json",
     "specs/reproducibility-bundle.schema.json",
+    "specs/runtime-manifest.schema.json",
     "specs/situation-genome.schema.json",
     "specs/trajectory.schema.json",
     "specs/world-event.schema.json",
@@ -103,9 +109,21 @@ REQUIRED_EXAMPLES = [
     "examples/protocol/hello-incompatible.json",
     "examples/observations/look-room-ok.json",
     "examples/observations/inspect-redacted.json",
+    "examples/onboarding/minimal-agent-manifest.json",
+    "examples/onboarding/advanced-agent-manifest.json",
+    "examples/onboarding/agent-connect-sequence.json",
+    "examples/onboarding/human-entry-modes.json",
+    "examples/onboarding/spectator-modes.json",
+    "examples/deployment/local-deployment-config.json",
+    "examples/deployment/local-runtime-manifest.json",
+    "examples/deployment/docker-compose.reference.yml",
+    "examples/negative/invalid-runtime-manifest-missing-ledger-head.json",
+    "examples/negative/invalid-deployment-config-secret-field.json",
     "conformance/v0.1/manifest.json",
     "conformance/v0.1/cases/C01-protocol-negotiation.json",
     "conformance/v0.1/cases/C10-no-private-cognition-request.json",
+    "conformance/v0.1/cases/C11-human-onboarding.json",
+    "conformance/v0.1/cases/C17-upgrade-version-pinning.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -391,10 +409,14 @@ def check_negatives(Draft202012Validator) -> None:
     world_event_schema = load_json(ROOT / "specs" / "world-event.schema.json")
     manifest_schema = load_json(ROOT / "specs" / "agent-manifest.schema.json")
     observation_schema = load_json(ROOT / "specs" / "observation.schema.json")
+    runtime_manifest_schema = load_json(ROOT / "specs" / "runtime-manifest.schema.json")
+    deployment_config_schema = load_json(ROOT / "specs" / "deployment-config.schema.json")
 
     envelope_v = Draft202012Validator(world_event_schema)
     manifest_v = Draft202012Validator(manifest_schema)
     observation_v = Draft202012Validator(observation_schema)
+    runtime_manifest_v = Draft202012Validator(runtime_manifest_schema)
+    deployment_config_v = Draft202012Validator(deployment_config_schema)
 
     neg_dir = ROOT / "examples" / "negative"
     files = sorted(p for p in neg_dir.glob("*.json"))
@@ -409,15 +431,16 @@ def check_negatives(Draft202012Validator) -> None:
             et = data.get("event_type")
             if et in catalog:
                 fail(f"{name} should use non-catalog event_type, got {et}")
-            ok_msg_prefix = "catalog-negative"
-        else:
-            ok_msg_prefix = "schema-negative"
 
         rejected = False
         if name.startswith("invalid-manifest"):
             rejected = bool(list(manifest_v.iter_errors(data)))
         elif name.startswith("invalid-observation"):
             rejected = bool(list(observation_v.iter_errors(data)))
+        elif name.startswith("invalid-runtime-manifest"):
+            rejected = bool(list(runtime_manifest_v.iter_errors(data)))
+        elif name.startswith("invalid-deployment-config"):
+            rejected = bool(list(deployment_config_v.iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -460,6 +483,22 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ),
         ("specs/world-snapshot.schema.json", "examples/v01-seed/genesis-snapshot.json"),
         ("specs/agent-manifest.schema.json", "examples/sample-agent-manifest.json"),
+        (
+            "specs/agent-manifest.schema.json",
+            "examples/onboarding/minimal-agent-manifest.json",
+        ),
+        (
+            "specs/agent-manifest.schema.json",
+            "examples/onboarding/advanced-agent-manifest.json",
+        ),
+        (
+            "specs/deployment-config.schema.json",
+            "examples/deployment/local-deployment-config.json",
+        ),
+        (
+            "specs/runtime-manifest.schema.json",
+            "examples/deployment/local-runtime-manifest.json",
+        ),
     ]
     for schema_rel, fixture_rel in pairs:
         schema = load_json(ROOT / schema_rel)
@@ -494,8 +533,8 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
 def check_conformance_suite(Draft202012Validator) -> None:
     manifest = load_json(ROOT / "conformance" / "v0.1" / "manifest.json")
     cases = manifest.get("cases") or []
-    if len(cases) != 10:
-        fail(f"conformance suite must list 10 cases, found {len(cases)}")
+    if len(cases) != 17:
+        fail(f"conformance suite must list 17 cases, found {len(cases)}")
 
     case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
     case_v = Draft202012Validator(case_schema)
@@ -517,11 +556,11 @@ def check_conformance_suite(Draft202012Validator) -> None:
             if not fpath.exists():
                 fail(f"conformance case {rel} missing fixture {fixture}")
 
-    missing_items = sorted(set(range(1, 11)) - acceptance_covered)
+    missing_items = sorted(set(range(1, 18)) - acceptance_covered)
     if missing_items:
         fail(f"conformance suite missing acceptance items: {missing_items}")
 
-    ok("Conformance suite v0.1: 10 cases, fixtures present, items 1–10 covered")
+    ok("Conformance suite v0.1: 17 cases, fixtures present, items 1–17 covered")
 
 
 def check_contract_quality_markers() -> None:

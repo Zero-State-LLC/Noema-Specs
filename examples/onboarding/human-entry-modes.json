@@ -1,0 +1,24 @@
+{
+  "schema_version": "human-entry-modes/1.0",
+  "title": "NOEMA top-level human entry modes",
+  "modes": [
+    {
+      "id": "PLAY",
+      "path": "open NOEMA → PLAY → enter Chamber",
+      "target_minutes": 5,
+      "requires": ["minimal authentication when enabled", "Chamber world available"]
+    },
+    {
+      "id": "CONNECT_AGENT",
+      "path": "open NOEMA → CONNECT AGENT → endpoint + token + minimal manifest",
+      "target_minutes": 5,
+      "requires": ["agent token", "protocol endpoint", "minimal agent-manifest"]
+    },
+    {
+      "id": "WATCH",
+      "path": "open NOEMA → WATCH → live world",
+      "target_minutes": 1,
+      "requires": ["spectator surface", "optional authentication per policy"]
+    }
+  ]
+}

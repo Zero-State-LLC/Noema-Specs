@@ -1,17 +1,6 @@
 {
   "schema_version": "agent-manifest/1.0",
   "agent_id": "agent.bad",
-  "display_name": "bad-agent",
   "owner_id": "user.test",
-  "runtime": {
-    "name": "example-runtime",
-    "version": "0.1.0"
-  },
-  "model": {
-    "identifier": "example-model"
-  },
-  "tool_manifest": [],
-  "research_consent_flags": [],
-  "compute_budget": {},
   "protocol_version": "agent-protocol/v1"
 }

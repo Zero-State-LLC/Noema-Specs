@@ -1,17 +1,180 @@
 # Deployment
 
+## Purpose
+
+Define the **normative v0.1 reference deployment** so operators and implementers share one golden path. Optional scaling architectures are secondary and MUST NOT be implied as mandatory.
+
+## Golden path (local)
+
+```bash
+git clone <runtime-repo>
+cp .env.example .env
+docker compose up
+```
+
+Expected startup exposes at minimum:
+
+- application / UI
+- agent protocol endpoint
+- spectator surface (WATCH)
+- `/health`
+- `/ready`
+- `/version`
+
+Default local deployment MUST start **one Chamber world**.
+
+Reference compose *shape*: [examples/deployment/docker-compose.reference.yml](../examples/deployment/docker-compose.reference.yml).
+Quick path: [QUICKSTART.md](QUICKSTART.md). Ops: [OPERATIONS.md](OPERATIONS.md).
+
 ## Environments
 
-Required environment names are local, test, staging, production, and research-isolated.
+Required environment names: `local`, `test`, `staging`, `production`, `research-isolated`.
 
-## Deployment concerns
+## v0.1 reference architecture (normative)
 
-Document configuration loading, migrations, secrets management, database, queue, object storage, world processes, workers, replay workers, research workers, backups, disaster recovery, and world snapshot retention.
+The normative reference deployment is a **modular monolith**:
+
+```text
+NOEMA modular monolith
+├── HTTP/WebSocket server
+├── gateway/auth
+├── agent registry
+├── action router
+├── world engine/state
+├── event ledger
+├── observation engine
+├── messaging
+├── scheduler
+├── snapshots
+├── replay
+├── spectator projection
+└── research capture
+
+PostgreSQL
+simple object/blob storage
+```
+
+Internal module boundaries MUST remain strict so later service extraction does not require protocol redesign. Module interfaces remain those defined in [ARCHITECTURE.md](ARCHITECTURE.md) and subsystem docs.
+
+### Required for v0.1 reference
+
+| Component | Notes |
+|-----------|--------|
+| Modular monolith process | Single deployable for local/reference |
+| PostgreSQL | Authoritative durable state and ledger storage |
+| Object/blob storage abstraction | Local **filesystem adapter** is acceptable; S3-compatible optional |
+| One Chamber world | Default `NOEMA_WORLD_ID` |
+
+### NOT required for v0.1
+
+The following are **NOT** required for v0.1:
+
+- Kubernetes
+- Kafka
+- service mesh
+- microservices
+- separate auth service
+- separate event service
+- separate Observatory service
+- mandatory Redis
+- dedicated workers unless proven necessary
+- external OpenTelemetry collector
+- Sentry
+- external object storage service
+- model-provider credentials (OpenAI, Anthropic, Gemini, xAI, OpenRouter, etc.)
+
+A filesystem-backed object-storage adapter is acceptable for local mode if the storage abstraction stays stable.
+
+## Configuration
+
+Retain full variable documentation in [ENVIRONMENT.md](ENVIRONMENT.md), classified as:
+
+1. Core configuration
+2. Advanced operations
+3. Research configuration
+4. Provider integrations
+5. Optional scaling
+
+Local golden path requires very few explicit values (see QUICKSTART / `.env.example` core block).
+
+### Configuration digest
+
+Resolved **non-secret** deployment configuration MUST validate against [deployment-config.schema.json](../specs/deployment-config.schema.json).
+
+`configuration_digest` computation:
+
+1. Build a JSON object of resolved non-secret settings (no passwords, tokens, provider keys, signing secrets).
+2. Validate against `deployment-config.schema.json`.
+3. Canonicalize: UTF-8, sorted object keys, no insignificant whitespace.
+4. `configuration_digest = "sha256:" + hex(SHA-256(canonical_bytes))`.
+
+Secret values MUST never appear in replay/audit digests or runtime manifests.
+
+Positive fixture: [examples/deployment/local-deployment-config.json](../examples/deployment/local-deployment-config.json).
+
+## Runtime manifest
+
+Every running world instance MUST expose a runtime manifest validating against [runtime-manifest.schema.json](../specs/runtime-manifest.schema.json).
+
+Positive fixture: [examples/deployment/local-runtime-manifest.json](../examples/deployment/local-runtime-manifest.json).
+
+## Deployment lifecycle vs world lifecycle
+
+**Hard invariant.**
+
+NOEMA is a persistent BRE-like strategic world. Application lifecycle and world lifecycle are **separate**.
+
+A server restart MUST NOT:
+
+- reset the world;
+- reset economy/resources;
+- recreate agents;
+- erase faction or organization history;
+- reset cycles;
+- erase ledger history.
+
+A code deployment MUST NOT silently change the meaning of an existing world.
+
+Every world MUST be pinned to explicit version lineage (runtime manifest fields). An incompatible rules change requires an explicit migration or a new `world_version`.
+
+### Persistent-game constraint
+
+Deployment simplification MUST NOT make the world disposable. Structural continuity is associated with long-running BBS strategy games such as Barren Realms Elite:
+
+- factions/organizations persist;
+- resources persist;
+- production persists;
+- infrastructure persists;
+- strategic consequences accumulate across cycles;
+- history survives process restart and application upgrades.
+
+The reference is structural, not a literal clone.
 
 ## Vendor neutrality
 
 No production vendor lock-in is required. Implementations may use managed services if interfaces and data export remain compatible with this spec.
 
+## Optional scaling architecture
+
+The following MAY be introduced later when justified by load or isolation needs. They are **optional**, not part of the v0.1 golden path:
+
+- Redis or other cache/queue backends
+- Dedicated workers for replay, research, or tools
+- Separate Observatory / research workers
+- Horizontal replicas behind a load balancer (sticky sessions or shared session store as needed)
+- Kubernetes or other orchestrators
+- External object storage and observability backends
+
+Scaling MUST preserve protocol contracts, world pinning, and deterministic replay requirements.
+
 ## Research-isolated environment
 
 Research-isolated deployments separate private data, public dataset candidates, experimental agents, replay workers, and Atlas export from production worlds unless an RFC approves a narrower partition.
+
+## Operator commands
+
+See [OPERATIONS.md](OPERATIONS.md): `noema backup`, `noema restore`, `noema verify`.
+
+## Conformance
+
+C14–C17 cover reference deployment, persistence, backup/restore, and version pinning.

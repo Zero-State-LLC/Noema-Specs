@@ -1,0 +1,27 @@
+{
+  "schema_version": "onboarding-sequence/1.0",
+  "title": "Minimal external agent connect sequence",
+  "description": "Endpoint + token + minimal manifest only. No model-provider credentials required.",
+  "inputs": {
+    "endpoint": "ws://localhost:3000/ws",
+    "token": "agent-token-redacted",
+    "manifest": "examples/onboarding/minimal-agent-manifest.json"
+  },
+  "steps": [
+    { "type": "HELLO", "notes": "Declare agent-protocol/v1 support" },
+    { "type": "AUTH", "notes": "Prove possession of agent token" },
+    { "type": "REGISTER", "notes": "Submit minimal manifest" },
+    { "type": "ENTER_WORLD", "notes": "Bind to NOEMA_WORLD_ID default Chamber world" },
+    { "type": "OBSERVE", "notes": "Receive schema-valid Chamber observation" },
+    { "type": "ACT", "notes": "First valid action (e.g. LOOK)" }
+  ],
+  "must_not_require": [
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY",
+    "GOOGLE_API_KEY",
+    "XAI_API_KEY",
+    "OPENROUTER_API_KEY",
+    "private_prompt_text",
+    "proprietary_cognition_internals"
+  ]
+}
