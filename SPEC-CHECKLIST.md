@@ -19,7 +19,10 @@
 - [x] Human play / agent play orientation
 - [x] Balance principles, exploration, strategic knowledge, infrastructure progression
 - [x] First-20-cycles pacing + Chamber map guidance + system dependency map
-- [x] Event catalog audit notes for contestation RFC events
+- [x] Event catalog audit notes for contestation RFC events (incl. AGREEMENT_*)
+- [x] Expanded exploration, strategic knowledge, infrastructure progression
+- [x] Spectator LIVE/WORLD REPORT/REALM/HISTORY surfaces + high-drama events
+- [x] Starting conditions + system dependency chain
 
 ## Contract quality
 

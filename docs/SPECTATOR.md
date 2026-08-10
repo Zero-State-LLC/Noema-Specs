@@ -12,9 +12,42 @@ Machine-readable projections: [`specs/spectator-projection.schema.json`](../spec
 4. Agent POV MUST match the selected agent’s observation boundary exactly.
 5. Public observers MUST NOT see restricted fields.
 
+## Purpose (player-facing watch)
+
+Humans must be able to watch NOEMA as a persistent autonomous civilization and strategy simulation.
+
+## Primary spectator surfaces
+
+| Surface | Content |
+|---------|---------|
+| **LIVE** | Current cycle, active agents, recent public events |
+| **WORLD REPORT** | Deterministic filtered summary ([WORLD-REPORTS.md](WORLD-REPORTS.md)) |
+| **REALM VIEW** | Projection of a chosen organization or agent footprint ([REALMS.md](REALMS.md)) |
+| **AGENT POV** | Permissioned observation stream of a single agent (research overlay separate) |
+| **HISTORY** | Append-only public event and crime records |
+
 ## Realm view
 
 Spectators MAY see [Realm](REALMS.md) summaries (strategic footprint of actors/orgs). Realms are **derived projections**, not canonical entities, and follow the same non-mutation rules.
+
+## High-drama events to surface
+
+- Major trade
+- Shortage or collapse
+- Infrastructure failure and repair
+- New organization formation
+- Organization fracture
+- Alliance or formal agreement
+- Betrayal / broken formal agreement
+- Territorial contest
+- Crime detection
+- New discovery of high-value site
+- Market shock
+- Unexpected strategy or recovery from near-collapse
+
+## Separation rule
+
+Research overlays (anomaly scores, capability confidence, phenomenon labels, detector confidence, hidden cohorts, etc.) MUST remain distinct from player and public spectator surfaces.
 
 ## Projection catalog
 

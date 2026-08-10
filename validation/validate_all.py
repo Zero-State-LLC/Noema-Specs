@@ -118,6 +118,8 @@ REQUIRED_DOCS = [
     "docs/FIRST-20-CYCLES.md",
     "docs/CHAMBER-MAP.md",
     "docs/GAME-SYSTEM-MAP.md",
+    "docs/GAME-SYSTEM-DEPENDENCY.md",
+    "docs/STARTING-CONDITIONS.md",
     "docs/EVENT-CATALOG-AUDIT.md",
 ]
 

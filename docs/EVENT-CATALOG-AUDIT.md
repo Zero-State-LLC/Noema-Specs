@@ -4,17 +4,19 @@
 
 The v0.1 Chamber closed catalog remains **24 types** ([EVENT-CATALOG.md](EVENT-CATALOG.md), `specs/event-types.json`). No casual additions.
 
-## New events required only for v0.2 contestation and crime (RFC)
+## v0.2 RFC candidates required by completed design
 
-| Event type | Purpose |
-|------------|---------|
-| `CONTEST_DECLARED` | Formal contestation start |
-| `CONTEST_RESOLVED` | Contestation outcome |
-| `CRIME_DETECTED` | Crime detection record |
-| `ACCESS_RESTRICTED` | Temporary access/route restriction |
-| `INFRASTRUCTURE_DISRUPTED` | Sabotage/disruption outcome |
+| Event | Purpose |
+|-------|---------|
+| `CONTEST_DECLARED` | Begin strategic contestation |
+| `CONTEST_RESOLVED` | Record outcome and resource commitments |
+| `CRIME_DETECTED` | Ledger detection of unauthorized action |
+| `ACCESS_RESTRICTED` | Temporary or policy-based access change |
+| `INFRASTRUCTURE_DISRUPTED` | Explicit sabotage/contest result on condition |
+| `AGREEMENT_FORMED` | Formal diplomatic contract |
+| `AGREEMENT_BROKEN` | Formal breach with consequences |
 
-Exact schemas and reducers require an accepted RFC before implementation.
+These will be introduced only through the normal RFC process and will not silently expand Chamber acceptance criteria.
 
 ## Interim expressibility
 

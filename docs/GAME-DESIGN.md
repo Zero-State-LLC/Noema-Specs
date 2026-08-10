@@ -134,6 +134,8 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 | Balance / exploration / knowledge | [GAME-BALANCE.md](GAME-BALANCE.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
 | Infrastructure progression | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |
 | First 20 cycles | [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) |
+| Starting conditions | [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) |
+| System dependency | [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) · [GAME-SYSTEM-DEPENDENCY.md](GAME-SYSTEM-DEPENDENCY.md) |
 | Event catalog audit (game) | [EVENT-CATALOG-AUDIT.md](EVENT-CATALOG-AUDIT.md) |
 | Actions | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) |
 | Resources | [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) |
