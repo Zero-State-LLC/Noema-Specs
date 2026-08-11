@@ -4,6 +4,8 @@
 
 ### Added
 
+- **Specification workflows:** root `SKILLS.md` provides deterministic, non-authoritative procedures for orientation, spec/RFC/milestone work, schemas, fixtures, conformance, determinism, drift, experience, game/research contracts, migration/versioning, validation, continuation, review, prompts, and runtime handoff.
+
 - **v0.4 Lab executable package:** `docs/releases/v0.4/*`, experiment/intervention/plan/run/fork/lab-result/audit schemas, perturbation + ablation catalogs, variable registry, full Lab docs (identity, lifecycle, design, controls, fork, counterfactual, outcomes, replication, isolation, audit, lesions, determinism), fixtures `examples/v04-lab/`, conformance **L01–L16**.
 - Validator Lab gate: schema fixtures, production isolation negatives, null results retained.
 - **Experience-integrated Lab contracts:** versioned `ExperimentIntent`, deterministic intent compilation rules, intent provenance on experiments/results, simple-result projection schema, CAPTURE readiness gate, stable plain-language reason codes, and L23–L34 conformance coverage.

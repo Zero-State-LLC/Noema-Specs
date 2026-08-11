@@ -4,6 +4,8 @@
 
 Maintain the canonical NOEMA specification surface for a persistent text-based multi-agent world research apparatus. Prefer durable contracts, machine-readable protocols, reproducible evidence, and implementation-neutral requirements.
 
+For deterministic procedures for recurring specification work, see [SKILLS.md](SKILLS.md). This file remains the behavioral constraint surface.
+
 ## Required first actions
 
 1. Read `CONTEXT.md` before editing.

@@ -14,6 +14,7 @@ REQUIRED_ROOT = [
     "README.md",
     "CONTEXT.md",
     "AGENTS.md",
+    "SKILLS.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
     "CHANGELOG.md",
@@ -1457,6 +1458,29 @@ def check_experience_layer(Draft202012Validator) -> None:
             fail("README lacks clear PLAY/WATCH/STUDY entry points")
     ok("Experience layer: deterministic intents, progressive fixtures, safe disclosure, and error mappings")
 
+
+def check_skills_workflows() -> None:
+    """Keep the operational workflow manual separate and complete."""
+    skills = (ROOT / "SKILLS.md").read_text(encoding="utf-8")
+    required = {
+        "SKILL.ORIENT", "SKILL.SPEC_CHANGE", "SKILL.RFC", "SKILL.MILESTONE",
+        "SKILL.SCHEMA", "SKILL.FIXTURE", "SKILL.CONFORMANCE", "SKILL.DETERMINISM",
+        "SKILL.DRIFT_AUDIT", "SKILL.EXPERIENCE", "SKILL.GAME_SYSTEM",
+        "SKILL.RESEARCH_CONTRACT", "SKILL.MIGRATION", "SKILL.VERSION",
+        "SKILL.VALIDATE", "SKILL.CONTINUATION", "SKILL.PROMPT_BUILD",
+        "SKILL.REVIEW", "SKILL.HANDOFF_RUNTIME", "Missing-signal rule",
+    }
+    missing = sorted(token for token in required if token not in skills)
+    if missing:
+        fail(f"SKILLS.md missing workflow sections: {missing}")
+    for token in ("Skills are repeatable workflows. They do not create new authority.", "Accepted RFC", "versioned protocol/schema", "python3 validation/validate_all.py"):
+        if token not in skills:
+            fail(f"SKILLS.md lacks required authority or validation rule: {token}")
+    for rel in ("AGENTS.md", "CONTRIBUTING.md", "README.md"):
+        if "SKILLS.md" not in (ROOT / rel).read_text(encoding="utf-8"):
+            fail(f"{rel} must cross-link SKILLS.md")
+    ok("SKILLS.md: operational workflows, authority boundary, and cross-links")
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -1476,6 +1500,7 @@ def main() -> None:
     check_strategic_conflict(Draft202012Validator)
     check_lab_v04(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
+    check_skills_workflows()
     print("\nPASS")
 
 

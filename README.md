@@ -55,6 +55,8 @@ Choose **PLAY / WATCH / STUDY** first. Technical architecture appears when you c
 
 The game is the experimental apparatus, but research machinery stays behind the appropriate entry path. Technical architecture, deterministic replay, and provenance remain authoritative in the linked specifications.
 
+Contributors and implementation agents should use [SKILLS.md](SKILLS.md) for repeatable specification workflows. It complements [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) without replacing their authority.
+
 **Thesis.** What can an agent do that we did not know to test for — and can that behavior be reproduced, transferred, and attributed within declared evidence boundaries?
 
 **Why a MUD?** Text-native, accessible, replayable, protocol-friendly, graphics-independent. Rooms, exits, entities, messages, markets, organizations, and archives are structured text and ledgered events.
