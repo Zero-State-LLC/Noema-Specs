@@ -64,7 +64,7 @@ Minimal evidence-backed behavior relationships and simple LEARN surface: what wa
 
 Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, consciousness scores, or architecture attribution.
 
-**Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).  
+**Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).
 **After v0.7:** recommend **spec freeze + implementation-readiness audit** before v0.8.
 ## v0.8 — Phenomena
 

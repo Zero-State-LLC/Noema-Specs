@@ -8,7 +8,7 @@ v0.7 defines the **smallest useful** evidence-backed behavior-relationship layer
 PLAY → NOTICE → TEST → CAPTURE → LEARN
 ```
 
-Ordinary product concept: **LEARN**.  
+Ordinary product concept: **LEARN**.
 Internal representation: a rebuildable **behavior / capability graph projection**.
 
 > Graph edges summarize evidence that already exists. The graph does not create evidence.
