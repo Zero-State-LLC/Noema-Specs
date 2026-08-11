@@ -65,7 +65,7 @@
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L16 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L22 present and linked.
 
 ## Notes
 

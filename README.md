@@ -155,7 +155,7 @@ python validation/validate_all.py
 
 Expected final line: `PASS`.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), strategic catalog 0.2, Lab v0.4 fixtures, negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**, **S01–S18**, **L01–L16**).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), strategic catalog 0.2, Lab v0.4 fixtures, negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**, **S01–S18**, **L01–L22**).
 
 ### Replay the Chamber seed (runtime)
 
@@ -306,7 +306,7 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |
 | [conformance/v0.3/](conformance/v0.3/) | Observatory families **O01–O16** |
 | [examples/v04-lab/](examples/v04-lab/) | Lab experiment/fork/run/result fixtures |
-| [conformance/v0.4/](conformance/v0.4/) | Lab families **L01–L16** |
+| [conformance/v0.4/](conformance/v0.4/) | Lab families **L01–L22** |
 | [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C26** |
 
 **v0.1 mandatory equivalence (ADR-005):** identical ordered event digests · identical final WorldState digest · identical focal observation digests.
