@@ -56,10 +56,16 @@ Prerequisite: C/F/O/S/L/P + RFC-0003 green. No runtime Deep Time engine; no auth
 
 **Recommended follow-ups (not started):** v0.6B Contracts & Markets · v0.6C Semantic Evolution (full).
 
-## v0.7 — Capability Graph
+## v0.7 — Capability Graph / LEARN (minimal)
 
-Boundaries, dependencies, transfer, generalization, genesis, phase transitions, and architecture attribution.
+Minimal evidence-backed behavior relationships and simple LEARN surface: what was reproduced, by whom, dependencies, generalization, failures, and not-yet-tested — derived from captured tests and Lab/regression evidence.
 
+**Executable package:** [docs/releases/v0.7/](releases/v0.7/) · [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) · [LEARN.md](LEARN.md) · [examples/v07-capability-graph/](../examples/v07-capability-graph/) · [conformance/v0.7/](../conformance/v0.7/) (**K01–K12**).
+
+Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, consciousness scores, or architecture attribution.
+
+**Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).
+**After v0.7:** recommend **spec freeze + implementation-readiness audit** before v0.8.
 ## v0.8 — Phenomena
 
 Self-model metrics, temporal continuity, metacognition, integration, autogenous goals, and introspective causal accuracy.

@@ -14,6 +14,9 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | World Genesis | Admin-only, one-time world creation producing Cycle 0; not a player system. |
 | Genesis Profile | Small starting-history posture (3 closed profiles). |
 | Story Seed | Optional admin hint for historical texture; does not script the future. |
+| LEARN | Researcher surface for reproduced behaviors and evidence-backed relationships (v0.7). |
+| Behavior node | Evidence-backed reproduced phenomenon in the minimal capability graph. |
+| Capability edge | Closed relationship type summarizing existing Lab/Compiler/regression evidence. |
 | Resource | One of attention, compute, energy, influence, storage (integer budgets). |
 | Resource node | Entity with extractable stock (`resource_node: true`). |
 | Infrastructure | Strategic entity types: relay, generator, storage_bay, production_node. |

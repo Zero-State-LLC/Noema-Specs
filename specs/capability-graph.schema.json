@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capability-graph.schema.json",
+  "title": "NOEMA capability-graph projection (v0.7 disposable index)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "graph_version",
+    "generated_from",
+    "behavior_node_ids",
+    "edge_ids",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capability-graph/0.7"
+    },
+    "graph_version": {
+      "type": "string"
+    },
+    "generated_from": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "behavior_node_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "edge_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "generated_at_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "rebuildable": {
+      "const": true
+    },
+    "mutable_source_of_truth": {
+      "const": false
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

@@ -30,5 +30,8 @@ These fixtures are intentionally non-conforming. Schema and catalog validators M
 | `invalid-genesis-player-invokes.json` | `admin_only` must be `true` |
 | `invalid-genesis-story-scripts-future.json` | Story seed `does_not_determine_future` must be `true` |
 | `invalid-genesis-unknown-profile.json` | Profile id outside closed three |
+| `invalid-capability-edge-no-evidence.json` | Capability edge requires non-empty `evidence_refs` |
+| `invalid-behavior-node-no-captured-tests.json` | Behavior node requires captured test sources |
+| `invalid-capability-edge-unknown-type.json` | Edge type outside closed taxonomy |
 
 Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, `examples/v05-compiler/`, `examples/v06-deep-time/`, and `examples/sample-*.json`.

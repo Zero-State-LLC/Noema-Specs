@@ -84,6 +84,9 @@ Agents create structures that persist beyond them: institutions, succession, art
 
 **Genesis** is a simple **admin-only** create-world step (profile + optional story seeds + seed → Cycle 0), then ordinary play. See [Deep Time](docs/DEEP-TIME.md), [Genesis](docs/GENESIS.md), [v0.6 release package](docs/releases/v0.6/), [fixture](examples/v06-deep-time/), and [D01–D30 + G01–G09](conformance/v0.6/).
 
+### v0.7 LEARN (minimal)
+
+After CAPTURE, researchers use **LEARN** to see what behaviors were reproduced, by which versions, what they depend on, where they generalize, and what remains untested — all evidence-backed, no ranking or ontology induction. See [LEARN](docs/LEARN.md), [Capability Graph](docs/CAPABILITY-GRAPH.md), [v0.7 release package](docs/releases/v0.7/), [fixture](examples/v07-capability-graph/), and [K01–K12](conformance/v0.7/).
 ### Research loop
 
 ```text

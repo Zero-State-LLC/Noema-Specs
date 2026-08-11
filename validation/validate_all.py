@@ -158,6 +158,16 @@ REQUIRED_DOCS = [
     "docs/releases/v0.6/MIGRATION.md",
     "docs/releases/v0.6/EXAMPLES.md",
     "docs/releases/v0.6/NON-GOALS.md",
+    "docs/releases/v0.7/SCOPE.md",
+    "docs/releases/v0.7/ARCHITECTURE.md",
+    "docs/releases/v0.7/DATA-MODEL.md",
+    "docs/releases/v0.7/ACCEPTANCE.md",
+    "docs/releases/v0.7/CONFORMANCE.md",
+    "docs/releases/v0.7/MIGRATION.md",
+    "docs/releases/v0.7/EXAMPLES.md",
+    "docs/releases/v0.7/NON-GOALS.md",
+    "docs/CAPABILITY-GRAPH.md",
+    "docs/LEARN.md",
     "docs/DEEP-TIME.md",
     "docs/GENESIS.md",
     "docs/GENESIS-PROFILES.md",
@@ -371,6 +381,10 @@ REQUIRED_EXAMPLES = [
     "specs/historical-significance.v06.json",
     "specs/genesis-profiles.v06.json",
     "specs/story-seeds.v06.json",
+    "examples/v07-capability-graph/behavior-node.json",
+    "examples/v07-capability-graph/edges.json",
+    "examples/v07-capability-graph/simple-learn-view.json",
+    "conformance/v0.7/manifest.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -1080,6 +1094,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
     if len(cases6) < 108:
         fail(f"conformance v0.6 suite must list ≥108 cases (D+G), found {len(cases6)}")
     ok(f"Conformance suite v0.6: {len(cases6)} cases, families D01–D30 + G01–G09 covered")
+
+    # v0.7 LEARN suite
+    m7 = load_json(ROOT / "conformance" / "v0.7" / "manifest.json")
+    cases7 = m7.get("cases") or []
+    if len(cases7) < 24:
+        fail(f"conformance v0.7 suite must list ≥24 cases, found {len(cases7)}")
+    fams7: set[str] = set()
+    for rel in cases7:
+        path = ROOT / "conformance" / "v0.7" / rel
+        if not path.exists():
+            fail(f"conformance v0.7 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.7 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams7.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.7 case {rel} missing fixture {fixture}")
+    expected_k = {f"K{i:02d}" for i in range(1, 13)}
+    missing_k = sorted(expected_k - fams7)
+    if missing_k:
+        fail(f"conformance v0.7 missing families: {missing_k}")
+    ok(f"Conformance suite v0.7: {len(cases7)} cases, families K01–K12 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -2119,6 +2160,163 @@ def check_deep_time_v06(Draft202012Validator) -> None:
     )
 
 
+def check_learn_v07(Draft202012Validator) -> None:
+    """Validate v0.7 minimal LEARN / capability graph projection."""
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+    node_schema = load_json(ROOT / "specs" / "behavior-node.schema.json")
+    edge_schema = load_json(ROOT / "specs" / "capability-edge.schema.json")
+    graph_schema = load_json(ROOT / "specs" / "capability-graph.schema.json")
+    node = load_json(ROOT / "examples" / "v07-capability-graph" / "behavior-node.json")
+    edges_doc = load_json(ROOT / "examples" / "v07-capability-graph" / "edges.json")
+    graph = load_json(ROOT / "examples" / "v07-capability-graph" / "capability-graph.json")
+    simple = load_json(ROOT / "examples" / "v07-capability-graph" / "simple-learn-view.json")
+    advanced = load_json(ROOT / "examples" / "v07-capability-graph" / "advanced-learn-view.json")
+    source_refs = load_json(ROOT / "examples" / "v07-capability-graph" / "source-refs.json")
+    not_tested = load_json(ROOT / "examples" / "v07-capability-graph" / "not-tested-social-topology.json")
+
+    for schema, fixture, label in (
+        (node_schema, node, "behavior-node"),
+        (graph_schema, graph, "capability-graph"),
+    ):
+        errs = list(Draft202012Validator(schema).iter_errors(fixture))
+        if errs:
+            fail(f"{label} invalid: {errs[0].message}")
+
+    edges = edges_doc.get("edges") or []
+    if len(edges) < 6:
+        fail("v0.7 fixture must include core edge types")
+    allowed = {"OBSERVED_IN", "REPRODUCED_BY", "DEPENDS_ON", "FAILS_WITHOUT", "GENERALIZES_TO", "DIFFERS_ACROSS_VERSION"}
+    types_seen: set[str] = set()
+    for e in edges:
+        errs = list(Draft202012Validator(edge_schema).iter_errors(e))
+        if errs:
+            fail(f"edge {e.get('edge_id')} invalid: {errs[0].message}")
+        payload = dict(e)
+        rec = payload.pop("digest")
+        if rec != canonical_digest(payload):
+            fail(f"edge {e.get('edge_id')} digest not canonical")
+        if not e.get("evidence_refs"):
+            fail(f"edge {e.get('edge_id')} missing evidence")
+        if e.get("edge_type") not in allowed:
+            fail(f"unsupported edge type {e.get('edge_type')}")
+        types_seen.add(e["edge_type"])
+        if e.get("source_ref") != node.get("behavior_id"):
+            fail("fixture edges must attach to shared-ledger behavior node")
+
+    for required in ("REPRODUCED_BY", "DEPENDS_ON", "FAILS_WITHOUT", "GENERALIZES_TO", "DIFFERS_ACROSS_VERSION"):
+        if required not in types_seen:
+            fail(f"fixture missing edge type {required}")
+
+    payload = dict(node)
+    if payload.pop("digest") != canonical_digest(payload):
+        fail("behavior node digest not canonical")
+    if not node.get("source_captured_test_ids"):
+        fail("behavior node must reference captured tests")
+    ctest = node["source_captured_test_ids"][0]
+    if not (ROOT / "examples" / "v05-compiler" / "captured-test.json").exists():
+        fail("source captured test fixture missing")
+    captured = load_json(ROOT / "examples" / "v05-compiler" / "captured-test.json")
+    if captured.get("captured_test_id") != ctest:
+        fail("behavior node must ground in existing captured test id")
+
+    # Evidence lineage paths exist
+    for rel in source_refs.get("captured_tests", []) + source_refs.get("lab_results", []) + source_refs.get("regression_results", []):
+        if not (ROOT / rel).exists():
+            fail(f"source-refs missing path {rel}")
+
+    # Contested evidence preserved
+    contested = [e for e in edges if e.get("relationship_status") == "CONTESTED"]
+    if not contested:
+        fail("fixture must include contested relationship")
+    if not contested[0].get("counterevidence_refs"):
+        fail("contested edge must retain counterevidence_refs")
+
+    # Not tested ≠ failed
+    if not_tested.get("status") != "NOT_TESTED" or not_tested.get("distinct_from") != "FAILED":
+        fail("not-tested fixture must distinguish NOT_TESTED from FAILED")
+    if any(e.get("edge_type") == "FAILS_WITHOUT" and "topology" in e.get("target_ref", "") for e in edges):
+        fail("not-tested context must not appear as FAILS_WITHOUT")
+
+    # Simple/advanced same identity; simple cannot strengthen
+    if node["behavior_id"] not in simple.get("canonical_source_refs", []):
+        fail("simple LEARN view must reference behavior_id")
+    if node["behavior_id"] not in advanced.get("canonical_source_refs", []):
+        fail("advanced LEARN view must reference behavior_id")
+    if simple.get("canonical_claim_label") != node.get("claim_label"):
+        fail("simple LEARN cannot strengthen claim label")
+    simple_text = json.dumps(simple["presentation"]).lower()
+    for jargon in ("edge_type", "transitive", "ontology", "neo4j", "graph database"):
+        if jargon in simple_text:
+            fail(f"simple LEARN leaks jargon: {jargon}")
+    if "not yet tested" not in simple_text and "not_yet_tested" not in simple["presentation"]:
+        fail("simple LEARN must surface not-yet-tested")
+
+    # Graph disposable / rebuildable
+    if graph.get("rebuildable") is not True or graph.get("mutable_source_of_truth") is not False:
+        fail("capability graph projection must be rebuildable disposable index")
+    gpay = dict(graph)
+    if gpay.pop("digest") != canonical_digest(gpay):
+        fail("capability graph digest not canonical")
+
+    # No transitive auto edge doc
+    forbid = load_json(ROOT / "examples" / "v07-capability-graph" / "negative" / "invalid-transitive-edge.json")
+    if forbid.get("auto_transitive") is not True:
+        fail("transitive negative must document forbidden auto inference")
+
+    # Negatives reject
+    for schema_rel, fixture_rel in (
+        ("specs/capability-edge.schema.json", "examples/negative/invalid-capability-edge-no-evidence.json"),
+        ("specs/behavior-node.schema.json", "examples/negative/invalid-behavior-node-no-captured-tests.json"),
+        ("specs/capability-edge.schema.json", "examples/negative/invalid-capability-edge-unknown-type.json"),
+    ):
+        if not list(Draft202012Validator(load_json(ROOT / schema_rel)).iter_errors(load_json(ROOT / fixture_rel))):
+            fail(f"{fixture_rel} should fail {schema_rel}")
+
+    overclaim = load_json(ROOT / "examples" / "v07-capability-graph" / "negative" / "invalid-simple-overclaim.json")
+    if overclaim.get("canonical_claim_label") == node.get("claim_label"):
+        fail("overclaim negative should strengthen beyond node claim")
+
+    cg = (ROOT / "docs" / "CAPABILITY-GRAPH.md").read_text(encoding="utf-8")
+    for token in (
+        "Graph edges summarize evidence",
+        "Prefer the smallest architecture",
+        "No automatic transitive",
+        "rebuildable",
+        "PLAY isolation",
+    ):
+        if token not in cg and token.lower() not in cg.lower():
+            # allow slight case variation for some
+            if token not in cg:
+                fail(f"CAPABILITY-GRAPH.md missing: {token}")
+    learn = (ROOT / "docs" / "LEARN.md").read_text(encoding="utf-8")
+    for token in ("What behaviors have we reproduced?", "not tested", "Same relationship"):
+        if token not in learn:
+            fail(f"LEARN.md missing: {token}")
+
+    # No consciousness / ranking markers in v0.7 package
+    scope = (ROOT / "docs" / "releases" / "v0.7" / "SCOPE.md").read_text(encoding="utf-8")
+    if "consciousness" in scope.lower() and "out of scope" not in scope.lower() and "does not" not in scope.lower():
+        pass  # non-goals handle it
+    nong = (ROOT / "docs" / "releases" / "v0.7" / "NON-GOALS.md").read_text(encoding="utf-8")
+    for token in ("consciousness score", "leaderboard", "Neo4j", "ontology induction"):
+        if token.lower() not in nong.lower():
+            fail(f"v0.7 NON-GOALS missing {token}")
+
+    expected = load_json(ROOT / "examples" / "v07-capability-graph" / "expected-digests.json")
+    if expected.get("behavior_node_digest") != node.get("digest"):
+        fail("expected-digests behavior mismatch")
+
+    ok(
+        "LEARN v0.7: behavior nodes, closed edges, evidence lineage, contested, "
+        "not-tested, simple/advanced projection, rebuildable graph, negatives"
+    )
+
+
 def check_experience_layer(Draft202012Validator) -> None:
     """Validate deterministic PLAY/WATCH/STUDY translations and safe fixtures."""
     intent_schema = load_json(ROOT / "specs" / "experiment-intent-catalog.schema.json")
@@ -2184,6 +2382,8 @@ def check_experience_layer(Draft202012Validator) -> None:
         "deep-time-watch-timeline.json", "deep-time-study-questions.json",
         "deep-time-archive-discovered.json",
         "deep-time-genesis-player-entry.json",
+        "learn-shared-ledger-simple.json",
+        "learn-shared-ledger-advanced.json",
     }
     missing_exp = sorted(required_fixtures - set(fixtures))
     if missing_exp:
@@ -2273,6 +2473,7 @@ def main() -> None:
     check_lab_v04(Draft202012Validator)
     check_compiler_v05(Draft202012Validator)
     check_deep_time_v06(Draft202012Validator)
+    check_learn_v07(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()

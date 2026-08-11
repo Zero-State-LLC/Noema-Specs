@@ -14,8 +14,7 @@ PLAY → NOTICE → TEST → CAPTURE → LEARN
 | NOTICE | Frontier and Observatory |
 | TEST | Lab |
 | CAPTURE | v0.5 Compiler |
-| LEARN | Capability Graph and Atlas |
-
+| LEARN | v0.7 minimal Capability Graph (Atlas later) |
 Users encounter the left column first. The right column remains available through **How it works** and advanced/reproducibility detail. This is a presentation and translation layer only: it cannot alter canonical world truth, research truth, replay inputs, claims, consent, or authorization.
 
 ## Entry and navigation
@@ -63,3 +62,5 @@ A conforming experience proves all of the following:
 15. Capture failures surface plain-language status, reason, and next action without Compiler jargon.
 16. Deep Time appears as age, scars, institutions, and incomplete local history — not lineage graphs by default.
 17. Derived lore/presentation never overrides canonical historical evidence.
+18. LEARN organizes reproduced behaviors without graph jargon or claim inflation.
+19. PLAY is uncoupled from LEARN; no gameplay buffs, rankings, or research labels.

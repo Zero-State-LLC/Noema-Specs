@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v07-K01-01",
+  "suite": "noema-v0.7-learn",
+  "title": "Behavior Identity: atomic contract 1",
+  "acceptance_items": [
+    1
+  ],
+  "family_id": "K01",
+  "requirement_refs": [
+    "docs/releases/v0.7/ACCEPTANCE.md#1"
+  ],
+  "fixtures": [
+    "examples/v07-capability-graph/behavior-node.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_learn_contract",
+      "input": {
+        "family": "K01",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "K01 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}
