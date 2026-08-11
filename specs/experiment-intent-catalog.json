@@ -8,7 +8,7 @@
       "display_name": "Does it happen again?",
       "question_template": "Does {behavior} repeat under the recorded boundary?",
       "lab_intervention_type": "REPLICATION",
-      "plan_template_id": "lab-plan-template/0.4/repeat_behavior-v1",
+      "plan_template_id": "lab-plan-template.0.4.repeat_behavior-v1",
       "required_plan_nodes": [
         "BASELINE",
         "REPLICATION",
@@ -35,7 +35,7 @@
       "display_name": "Does it require this?",
       "question_template": "Does {behavior} require external {dependency}?",
       "lab_intervention_type": "ABLATION",
-      "plan_template_id": "lab-plan-template/0.4/remove_dependency-v1",
+      "plan_template_id": "lab-plan-template.0.4.remove_dependency-v1",
       "required_plan_nodes": [
         "BASELINE",
         "CONTROL",
@@ -64,7 +64,7 @@
       "display_name": "What if this changes?",
       "question_template": "How does {behavior} change when {condition} changes?",
       "lab_intervention_type": "PERTURBATION",
-      "plan_template_id": "lab-plan-template/0.4/change_condition-v1",
+      "plan_template_id": "lab-plan-template.0.4.change_condition-v1",
       "required_plan_nodes": [
         "BASELINE",
         "CONTROL",
@@ -93,7 +93,7 @@
       "display_name": "Does another version do it?",
       "question_template": "How does {behavior} differ for {agent_version}?",
       "lab_intervention_type": "VERSION_DIFFERENTIAL",
-      "plan_template_id": "lab-plan-template/0.4/compare_version-v1",
+      "plan_template_id": "lab-plan-template.0.4.compare_version-v1",
       "required_plan_nodes": [
         "BASELINE",
         "CONTROL",
@@ -122,7 +122,7 @@
       "display_name": "Does it generalize?",
       "question_template": "Does {behavior} reproduce in declared {context}?",
       "lab_intervention_type": "REPLICATION",
-      "plan_template_id": "lab-plan-template/0.4/test_generalization-v1",
+      "plan_template_id": "lab-plan-template.0.4.test_generalization-v1",
       "required_plan_nodes": [
         "BASELINE",
         "REPLICATION",
