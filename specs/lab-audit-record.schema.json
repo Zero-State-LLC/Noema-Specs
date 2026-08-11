@@ -75,7 +75,8 @@
       "minimum": 0
     },
     "occurred_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "previous_digest": {
       "oneOf": [
