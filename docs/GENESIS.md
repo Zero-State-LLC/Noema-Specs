@@ -100,7 +100,7 @@ Same `(world_seed, genesis_profile, story_seeds, rules versions)` → same Cycle
 
 ## Player / WATCH / STUDY boundaries
 
-- **PLAY** never exposes profile, story seeds, world seed, regeneration, or Cycle 0 acceptance. Players see consequences only.
+- PLAY never exposes profile, story seeds, world seed, regeneration, or Cycle 0 acceptance. Players see consequences only.
 - **WATCH** may show derived world age / known sites / surviving institutions — not admin Story Seeds or undiscovered history.
 - **STUDY** may analyze behavior; Genesis inputs are world provenance only when authorized and MUST NOT be hidden “what to discover” hints.
 
