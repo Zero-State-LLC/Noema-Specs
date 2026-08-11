@@ -87,7 +87,10 @@ Agents create structures that persist beyond them: institutions, succession, art
 ### v0.7 LEARN (minimal)
 
 After CAPTURE, researchers use **LEARN** to see what behaviors were reproduced, by which versions, what they depend on, where they generalize, and what remains untested — all evidence-backed, no ranking or ontology induction. See [LEARN](docs/LEARN.md), [Capability Graph](docs/CAPABILITY-GRAPH.md), [v0.7 release package](docs/releases/v0.7/), [fixture](examples/v07-capability-graph/), and [K01–K12](conformance/v0.7/).
-### Research loop
+
+### Spec freeze (core loop)
+
+v0.1–v0.7 core product/research loop is recommended **frozen for implementation**. See [SPEC-FREEZE-CORE-LOOP.md](docs/SPEC-FREEZE-CORE-LOOP.md). Prefer building the Chamber modular monolith in the runtime repo over opening v0.8 Phenomena specs.### Research loop
 
 ```text
 inhabit → observe → act → communicate → perturb →

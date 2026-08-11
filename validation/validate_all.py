@@ -168,6 +168,7 @@ REQUIRED_DOCS = [
     "docs/releases/v0.7/NON-GOALS.md",
     "docs/CAPABILITY-GRAPH.md",
     "docs/LEARN.md",
+    "docs/SPEC-FREEZE-CORE-LOOP.md",
     "docs/DEEP-TIME.md",
     "docs/GENESIS.md",
     "docs/GENESIS-PROFILES.md",
