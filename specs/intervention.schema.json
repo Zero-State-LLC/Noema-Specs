@@ -22,6 +22,122 @@
     "authorization",
     "digest"
   ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "PERTURBATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "PERTURBATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "ABLATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "ABLATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "LESION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "LESION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "COUNTERFACTUAL"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "COUNTERFACTUAL"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "REPLICATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "REPLICATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "VERSION_DIFFERENTIAL"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "VERSION_DIFFERENTIAL"
+          }
+        }
+      }
+    }
+  ],
   "properties": {
     "schema_version": {
       "const": "intervention/0.4"

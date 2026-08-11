@@ -20,7 +20,8 @@
     "storage_namespace",
     "mutates_production",
     "mid_reducer_fork_forbidden",
-    "fork_digest"
+    "fork_digest",
+    "digest"
   ],
   "properties": {
     "schema_version": {
