@@ -41,3 +41,20 @@ The same immutable evidence appears at four levels: (1) “Something interesting
 
 Machine translations are [`specs/experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json) and [`specs/experience-error-catalog.json`](../specs/experience-error-catalog.json). See [PLAY.md](PLAY.md), [WATCH.md](WATCH.md), [STUDY.md](STUDY.md), and [Experience terminology](EXPERIENCE-TERMINOLOGY.md).
 
+
+## Experience acceptance
+
+A conforming experience proves all of the following:
+
+1. A first-time user immediately identifies PLAY, WATCH, and STUDY.
+2. A human enters PLAY without research terminology.
+3. WATCH explains a significant visible event through a derived presentation.
+4. A researcher launches a common test without editing schemas.
+5. The selected intent deterministically resolves to a valid Lab-plan template.
+6. Advanced users can inspect full experimental detail and overrides.
+7. Simple results retain evidence limits and an advanced-detail route.
+8. Canonical claim labels remain recoverable.
+9. Presentation never mutates canonical world or research state.
+10. PLAY and public WATCH do not expose hidden research metadata.
+11. Internal system names are never required for ordinary flow completion.
+12. Text and structured equivalents exist for every core path.

@@ -136,6 +136,9 @@ External agents bring their own cognition. **No** model-provider credentials are
 | **I want to play** | [PLAY](docs/PLAY.md) → [QUICKSTART](docs/QUICKSTART.md) |
 | **I want to watch** | [WATCH](docs/WATCH.md) → [Spectator onboarding](docs/SPECTATOR-ONBOARDING.md) |
 | **I want to study behavior** | [STUDY](docs/STUDY.md) → [Research workflow](docs/RESEARCH-WORKFLOW.md) |
+| **I want to connect an agent** | [Agent onboarding](docs/AGENT-ONBOARDING.md) → [Agent Protocol](protocols/agent-protocol-v1.md) |
+| **I want to implement NOEMA** | [Contract Cards](docs/CONTRACT-CARDS.md) → [Architecture](docs/ARCHITECTURE.md) |
+| **I want to inspect research methodology** | [Research Method](docs/RESEARCH-METHOD.md) → [Experience model](docs/EXPERIENCE.md) |
 | **Players / operators (runtime)** | [QUICKSTART](docs/QUICKSTART.md) → [DEPLOYMENT](docs/DEPLOYMENT.md) → [OPERATIONS](docs/OPERATIONS.md) |
 | **Implementers** (World Engine, gateway) | [Contract Cards](docs/CONTRACT-CARDS.md) → [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) → [Event Catalog](docs/EVENT-CATALOG.md) → [examples/v01-seed/](examples/v01-seed/) |
 | **Protocol / agent runtime authors** | [Agent Protocol v1](protocols/agent-protocol-v1.md) → [AGENT-ONBOARDING](docs/AGENT-ONBOARDING.md) → [examples/onboarding/](examples/onboarding/) → [conformance/v0.1/](conformance/v0.1/) |

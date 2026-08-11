@@ -1392,9 +1392,9 @@ def check_experience_layer(Draft202012Validator) -> None:
         fail("user-facing error must preserve canonical machine reason code")
 
     experience = (ROOT / "docs" / "EXPERIENCE.md").read_text(encoding="utf-8")
-    for token in ("PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY"):
+    for token in ("PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY", "## Experience acceptance"):
         if token not in experience:
-            fail("experience canonical product model incomplete")
+            fail("experience canonical product model or acceptance criteria incomplete")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for token in ("[PLAY]", "[WATCH]", "[STUDY]"):
         if token not in readme:
