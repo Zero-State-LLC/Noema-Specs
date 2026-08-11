@@ -20,7 +20,7 @@ A valid compile records `source_intent_id`, `intent_catalog_version`, `plan_temp
 | `TEST_GENERALIZATION` | source candidate, declared context dimension | bounded run count | `GENERALIZATION_PROBE` using a `REPLICATION` intervention | cycle boundary, derived seed, baseline control, 5 replications | `UNREGISTERED_VARIABLE`, `NOT_COMPARABLE` |
 | `CUSTOM` | source candidate, complete advanced design | all advanced fields | `ADVANCED_EXPERIMENT_DESIGN` | none beyond safety validation | `INVALID_EXPERIMENT`, `CONTROL_REQUIRED`, `CONSENT_DENIED`, `AUTHORIZATION_DENIED` |
 
-All common intents use the candidate's version-pinned dependent measures and equivalence boundary unless an allowed override explicitly replaces them. `CUSTOM` does not create a new intervention taxonomy. Its completed design MUST choose one or more declared v0.4 intervention types.
+All common intents set `dependent_measure_source=SOURCE_CANDIDATE_PRIMARY_MEASURE` and `equivalence_boundary_source=SOURCE_CANDIDATE_RECORDED_BOUNDARY` unless an allowed override explicitly replaces them. `CUSTOM` requires both values from the complete advanced design. `CUSTOM` does not create a new intervention taxonomy. Its completed design MUST choose one or more declared v0.4 intervention types.
 
 ## Compiler input and output contract
 

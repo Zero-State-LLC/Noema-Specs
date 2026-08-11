@@ -93,7 +93,9 @@
               "seed_policy",
               "fork_point",
               "replication_count",
-              "control_role"
+              "control_role",
+              "dependent_measure_source",
+              "equivalence_boundary_source"
             ],
             "properties": {
               "seed_policy": {
@@ -125,6 +127,18 @@
                   "NEGATIVE_CONTROL",
                   "SHAM_CONTROL",
                   "REPLICATION_CONTROL"
+                ]
+              },
+              "dependent_measure_source": {
+                "enum": [
+                  "SOURCE_CANDIDATE_PRIMARY_MEASURE",
+                  "REQUIRED_ADVANCED_OVERRIDE"
+                ]
+              },
+              "equivalence_boundary_source": {
+                "enum": [
+                  "SOURCE_CANDIDATE_RECORDED_BOUNDARY",
+                  "REQUIRED_ADVANCED_OVERRIDE"
                 ]
               }
             }

@@ -1404,6 +1404,9 @@ def check_experience_layer(Draft202012Validator) -> None:
             fail(f"experience intent {intent_id} lacks deterministic generated experiment kind")
         if "ANALYSIS" not in entry["required_plan_nodes"] or "BASELINE" not in entry["required_plan_nodes"]:
             fail(f"experience intent {intent_id} lacks baseline/analysis plan boundary")
+        defaults = entry["recommended_defaults"]
+        if intent_id != "CUSTOM" and (defaults.get("dependent_measure_source") != "SOURCE_CANDIDATE_PRIMARY_MEASURE" or defaults.get("equivalence_boundary_source") != "SOURCE_CANDIDATE_RECORDED_BOUNDARY"):
+            fail(f"experience intent {intent_id} must pin source measure and equivalence defaults")
         if set(entry["advanced_override_fields"]) != {"fork_point", "seed_policy", "intervention", "controls", "run_count", "equivalence_boundary", "dependent_measures"}:
             fail(f"experience intent {intent_id} lost advanced override escape hatch")
 
