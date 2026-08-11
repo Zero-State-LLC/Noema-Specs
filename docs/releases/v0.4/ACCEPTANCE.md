@@ -2,6 +2,8 @@
 
 A v0.4 implementation is accepted only if all earlier suites remain green and all of these machine checks pass:
 
+Conformance mapping: **L01–L22** in [CONFORMANCE.md](CONFORMANCE.md).
+
 1. stable complete experiment identity
 2. validated design contract
 3. exact source-history fork integrity
