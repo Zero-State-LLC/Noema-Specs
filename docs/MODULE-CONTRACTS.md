@@ -26,13 +26,13 @@ These contracts bind the modular-monolith reference deployment ([DEPLOYMENT.md](
 | `gateway` | connections, framing | no |
 | `auth` | principals, tokens | no |
 | `agent_registry` | agent identity/manifests | no (registry only) |
-| `action_router` | action validation, routing | no (forwards only) |
+| `action_router` | action validation, routing, client action sequence checks | no (forwards only) |
 | `world_engine` | reducers, rules | **yes** (via events) |
 | `world_state` | durable canonical state store | **yes** (under engine) |
 | `event_ledger` | append-only events | append-only |
 | `observation_engine` | permissioned projections | **no** |
-| `message_service` | message queue/delivery indexes | via MESSAGE events only |
-| `scheduler` | cycle freeze, order, deadlines | no (orders inputs) |
+| `message_service` | message queue/delivery indexes | via `MESSAGE` / `MESSAGE_DELIVERED` events only |
+| `scheduler` | cycle freeze, canonical order keys, deadlines | no (orders inputs) |
 | `snapshot_service` | snapshots | no (reads state) |
 | `replay_engine` | replay / equivalence | no (offline) |
 | `spectator_projection` | WATCH surfaces | **no** |

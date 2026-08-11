@@ -113,7 +113,7 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 | ID | `world_id` / `world_version` |
 | immutable | `world_id`, seed digest at genesis |
 | mutable | `cycle`, `status`, live indexes |
-| required | id, version, seed, catalog_version, budget_defaults |
+| required | id, version, seed, catalog_version, state_revision, canonicalization_version, hash_algorithm, budget_defaults |
 | lifecycle | ACTIVE / PAUSED / INCIDENT / ARCHIVED |
 | uniqueness | (`world_id`,`world_version`) lineage |
 | tombstone | ARCHIVED; no ID reuse |
@@ -191,10 +191,10 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 | Aspect | Spec |
 |--------|------|
 | ID | `event_id` |
-| required | envelope fields + digest chain |
+| required | envelope fields + digest chain + catalog-specific payload binding |
 | immutable | append-only |
-| catalog | closed 24 types |
-| schema | world-event.schema.json + event-types.json |
+| catalog | closed 24 types for `event-catalog/0.1`, 31 types for `event-catalog/0.2` |
+| schema | generic envelope `world-event.schema.json` plus composed admission schema `event-catalog-0.1.schema.json` or `event-catalog-0.2.schema.json` |
 
 ### Observation
 
@@ -218,7 +218,7 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 
 | Entity | Spec |
 |--------|------|
-| Snapshot | snapshot_id; world_state digest; cycle; lineage |
+| Snapshot | snapshot_id, world_state digest, cycle, sequence, world_version, catalog_version, state_revision, canonicalization_version, hash_algorithm, lineage |
 | Trajectory | ordered events + observations + versions |
 | RuntimeManifest | runtime-manifest.schema.json |
 

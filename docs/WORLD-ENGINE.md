@@ -8,7 +8,7 @@ This specification refines the [World Model](WORLD-MODEL.md). [Agent Protocol v1
 
 ## Deterministic transition contract
 
-For a world version, genesis state, named seeds, deterministic configuration, prior state, declared external inputs, and ordered accepted actions, the reducer MUST produce the same next state and event sequence.
+For a world version, genesis state, named seeds, deterministic configuration, prior state, declared external inputs, and accepted actions ordered by `(action_priority, agent_id, client_action_sequence, action_id)`, the reducer MUST produce the same next state and event sequence.
 
 ```text
 reduce(world_state, ordered_inputs, reducer_context)
@@ -29,7 +29,7 @@ A cycle resolves in this order:
 8. commit the next state, ledger head, settled reservations, and snapshot head when scheduled in one canonical transaction;
 9. derive permissioned observations and delivery intents from the committed head.
 
-Rejected actions do not mutate canonical state, except that an implementation MAY ledger the rejection as a world event. Duplicate idempotency keys MUST return the original result or a deterministic conflict and MUST NOT consume budgets twice.
+Rejected actions do not mutate canonical state, except that an implementation MAY ledger the rejection as a world event. Duplicate idempotency keys MUST return the original result or a deterministic conflict and MUST NOT consume budgets twice. `client_action_sequence` is required for accepted mutating actions and the frozen order key MUST be replay-recorded; gateway receive order MUST NOT be a reducer input.
 
 ## Canonical persistence contract
 
@@ -238,7 +238,7 @@ Deep Time scheduled processes MAY include decay, succession, archival migration,
 
 ## Events, persistence, and recovery
 
-Every accepted mutation emits one or more records conforming to [World Event Schema](../specs/world-event.schema.json) and [Event Ledger v1](../protocols/event-ledger-v1.md). Events are immutable, contiguous per world, and digest-linked where supported. Corrections append superseding or invalidating events.
+Every accepted mutation emits one or more records conforming to [World Event Schema](../specs/world-event.schema.json) and [Event Ledger v1](../protocols/event-ledger-v1.md). Cycle events, including same-cycle `MESSAGE_DELIVERED` events, are appended as one contiguous atomic batch before observation projection. Events are immutable, contiguous per world, and digest-linked where supported. Corrections append superseding or invalidating events.
 
 Snapshots are derived recovery artifacts. Restoring a snapshot and replaying subsequent events MUST reproduce the same state digest. Delivery failures do not roll back committed world truth. Undelivered observations are retried or marked according to [Agent Interface](AGENT-INTERFACE.md). A crash can only leave canonical state at a previous committed head or at the next committed head; any intermediate state is invalid and MUST be detected by verification.
 
@@ -254,11 +254,11 @@ Snapshots are derived recovery artifacts. Restoring a snapshot and replaying sub
 ## Implementation order
 
 1. Versioned canonical object model for World, Room, Exit, Entity, Organization, Institution, resources, markets, artifacts, and cycle state.
-2. Authenticated action ingestion with schema validation, idempotency, deterministic ordering, and world-scoped authorization.
+2. Authenticated action ingestion with schema validation, idempotency, required `client_action_sequence`, deterministic ordering independent of network jitter, and world-scoped authorization.
 3. Budget reservation and `BUDGET_EXCEEDED` rejection before mutation or queue/tool/model side effects.
 4. Pure movement reducer with the fixed resource, lock, permission, and capacity condition order plus `MOVE` and `MOVE_REJECTED` event emission.
 5. Pure reducers for the closed v0.1 [Event Catalog](EVENT-CATALOG.md), including resource/economy, organization, institution, noise, and observation-generation records.
-6. Deterministic visibility, noise, attention, and observation projection against [Observation](OBSERVATION.md) without exposing hidden canonical fields or private Agent runtime state.
+6. Deterministic same-cycle message delivery, followed by visibility, noise, attention, and observation projection against [Observation](OBSERVATION.md) without exposing hidden canonical fields or private Agent runtime state.
 7. Snapshot, ledger digest, Deep Time retention, and replay boundary integration with [Replay](REPLAY.md).
 8. Conformance tests for schema validity, representative positive and negative events, observation compatibility, world isolation, budget exhaustion, consent gating, and deterministic replay.
 

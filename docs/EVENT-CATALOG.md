@@ -2,14 +2,14 @@
 
 ## Status and scope
 
-| Catalog pin | Machine schema | Types | Product |
-|-------------|----------------|-------|---------|
-| `event-catalog/0.1` | [`event-types.json`](../specs/event-types.json) | **24** closed | Chamber v0.1 acceptance |
-| `event-catalog/0.2` | [`event-types.0.2.json`](../specs/event-types.0.2.json) | **31** = 24 + 7 | Strategic conflict (RFC-0002 **Accepted**) |
+| Catalog pin | Composed ledger schema | Payload binding source | Types | Product |
+|-------------|------------------------|------------------------|-------|---------|
+| `event-catalog/0.1` | [`event-catalog-0.1.schema.json`](../specs/event-catalog-0.1.schema.json) | [`event-types.json`](../specs/event-types.json) | **24** closed | Chamber v0.1 acceptance |
+| `event-catalog/0.2` | [`event-catalog-0.2.schema.json`](../specs/event-catalog-0.2.schema.json) | [`event-types.0.2.json`](../specs/event-types.0.2.json) | **31** = 24 + 7 | Strategic conflict (RFC-0002 **Accepted**) |
 
 A conforming world ledger MUST use only event types from its pinned catalog. Worlds on `0.1` MUST reject the seven 0.2 types. An existing type MUST NOT change meaning across catalog versions.
 
-Schemas compose with [`world-event.schema.json`](../specs/world-event.schema.json) and do not change the `world-event/1.0` envelope.
+Schemas compose with [`world-event.schema.json`](../specs/world-event.schema.json) and do not change the `world-event/1.0` envelope. Ledger admission MUST use the catalog-specific composed schema for the world's pinned catalog, which binds each `event_type` to its exact payload schema.
 
 ---
 
@@ -27,7 +27,7 @@ reduce_<event_type>(state: WorldState, event: WorldEvent) -> WorldState
 
 Reducers MUST be deterministic and pure with respect to `(world_version, seed, deterministic_config, prior_state, ordered_event)`. They MUST validate the event payload and all stated preconditions before mutation. Application is atomic. On validation or precondition failure, the reducer MUST reject the ledger entry, return no state, and perform no side effect. Rejection events in this catalog record a decision already made by command resolution. They do not authorize implementations to invent a second rejection while replaying them.
 
-No reducer may perform network I/O, send a live message, call an agent or model, write a second ledger entry, read wall-clock time, or consume unseeded randomness. Any resulting notification, observation, trigger, or follow-on transition MUST be represented by a separately ordered event. The only permitted effect of applying an event is the state mutation named below.
+No reducer may perform network I/O, send a live message, call an agent or model, write a second ledger entry, read wall-clock time, or consume unseeded randomness. Any resulting notification, observation, trigger, or follow-on transition MUST be represented by a separately ordered event. Cycle-level message delivery events are part of the same atomic cycle batch before observation projection, not transport side effects. The only permitted effect of applying an event is the state mutation named below.
 
 Identifiers use `^[A-Za-z0-9_.:-]+$`. Resource quantities are finite non-negative numbers. Resource deltas are finite non-zero numbers and MUST NOT make a holding negative unless the event type explicitly represents a rejected operation.
 
@@ -63,7 +63,7 @@ Payload: `message_id`, `sender_id`, `recipient_id`, `text`, and `cost_paid`. Red
 
 ### `MESSAGE_DELIVERED`
 
-Payload: `message_id`, `recipient_id`, and `delivered_cycle`. Reducer: require the message to be `QUEUED`, the recipient to match, and delivery cycle to equal the envelope cycle. Mark it `DELIVERED` and add its id to the recipient inbox index. Reject unknown, duplicate, or mismatched delivery. Live notification is outside the reducer.
+Payload: `message_id`, `recipient_id`, and `delivered_cycle`. Reducer: require the message to be `QUEUED`, the recipient to match, and delivery cycle to equal the envelope cycle. Mark it `DELIVERED` and add its id to the recipient inbox index. Reject unknown, duplicate, or mismatched delivery. `MESSAGE_DELIVERED` MUST be emitted in the same atomic cycle event batch before post-cycle observation projection, so permitted same-cycle observations may cite or include it. Live notification is outside the reducer.
 
 ### `TRADE_PROPOSED`
 
@@ -131,7 +131,7 @@ Payload: `observation_id`, `agent_id`, `source_event_ids`, `observation_digest`,
 
 ## Ordering and rejection rules
 
-1. Validate the `world-event/1.0` envelope and the matching payload schema from `event-types.json`.
+1. Validate the `world-event/1.0` envelope and the composed schema for the world's pinned catalog (`event-catalog-0.1.schema.json` or `event-catalog-0.2.schema.json`).
 2. Require the next contiguous sequence for the world and verify digest linkage under the ledger protocol.
 3. Evaluate the reducer preconditions against exactly the prior state.
 4. If any check fails, reject the event before append and leave state unchanged.
@@ -144,7 +144,7 @@ Replay MUST apply only accepted ledger events in sequence order. Replaying the s
 
 ## Catalog 0.2 additions (RFC-0002)
 
-Authoritative payloads: `specs/event-types.0.2.json` `$defs`. Algorithm: [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md). Coupling: [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md). Config: `specs/contest-config.v02.json`.
+Authoritative payloads: `specs/event-types.0.2.json` `$defs`; composed admission schema: `specs/event-catalog-0.2.schema.json`. Algorithm: [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md). Coupling: [STRATEGIC-EVENT-COUPLING.md](STRATEGIC-EVENT-COUPLING.md). Config: `specs/contest-config.v02.json`.
 
 ### `CONTEST_DECLARED`
 

@@ -2,7 +2,7 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v01-C23-deterministic-scheduler-conflicts",
   "suite": "noema-v0.1-chamber",
-  "title": "Same-cycle conflicts resolve by receive sequence, agent_id, action_id",
+  "title": "Same-cycle conflicts resolve by action priority, agent_id, client action sequence, action_id",
   "acceptance_items": [
     23
   ],
@@ -29,7 +29,8 @@
       "actor": "world-engine",
       "action": "ORDER",
       "input": {
-        "key": "(server_receive_sequence, agent_id, action_id)"
+        "key": "(action_priority, agent_id, client_action_sequence, action_id)",
+        "network_jitter_independent": true
       }
     },
     {
@@ -66,7 +67,8 @@
   "expected": {
     "outcome": "EQUIVALENT",
     "assertions": [
-      "same-cycle different agents ordered deterministically",
+      "same-cycle different agents ordered deterministically independent of network jitter",
+      "client_action_sequence is required and replay-recorded in the frozen order key",
       "same resource target: first wins",
       "replay equivalence",
       "duplicate action IDs conflict",

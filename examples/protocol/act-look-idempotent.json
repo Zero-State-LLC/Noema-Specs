@@ -19,7 +19,8 @@
       "parameters": {
         "attention_spend": 1
       },
-      "idempotency_key": "idem-look-chamber-001"
+      "idempotency_key": "idem-look-chamber-001",
+      "client_action_sequence": 1
     }
   }
 }

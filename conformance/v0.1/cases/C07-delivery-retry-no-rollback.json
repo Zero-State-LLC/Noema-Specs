@@ -13,7 +13,7 @@
     "protocols/agent-protocol-v1.md"
   ],
   "preconditions": [
-    "A MESSAGE event is already accepted and MESSAGE_DELIVERED may be pending",
+    "A MESSAGE event is accepted in a cycle batch and same-cycle MESSAGE_DELIVERED is emitted before observation projection when recipient is active",
     "Client disconnects after ACCEPT but before OBSERVE delivery"
   ],
   "fixtures": [
@@ -52,7 +52,8 @@
       "Undelivered observations may redeliver without re-reducing events",
       "No ledger rewrite or sequence reuse",
       "Acknowledgements are cumulative per logical delivery stream and mutate delivery bookkeeping only",
-      "Resume outside the bounded redelivery window returns RESUME_POSITION_EXPIRED or RESUME_POSITION_INVALID without world mutation"
+      "Resume outside the bounded redelivery window returns RESUME_POSITION_EXPIRED or RESUME_POSITION_INVALID without world mutation",
+      "Post-delivery observations from the same cycle may include delivered messages when visibility permits"
     ]
   },
   "security_class": "none"

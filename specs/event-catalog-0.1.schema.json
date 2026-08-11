@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/event-catalog-0.1.schema.json",
+  "title": "NOEMA Closed Event Catalog v0.1 Composed Schema",
+  "description": "Ledger admission schema for worlds pinned to event-catalog/0.1. It composes the reusable world-event/1.0 envelope with the closed v0.1 event_type and exact payload bindings.",
+  "allOf": [
+    {
+      "$ref": "world-event.schema.json"
+    },
+    {
+      "$ref": "event-types.json"
+    }
+  ],
+  "x-noema-catalog-version": "event-catalog/0.1",
+  "x-noema-closed": true,
+  "x-noema-envelope-schema": "world-event.schema.json",
+  "x-noema-event-bindings": "event-types.json"
+}

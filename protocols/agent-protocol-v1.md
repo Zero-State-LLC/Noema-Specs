@@ -33,6 +33,7 @@ All messages use JSON envelopes:
       "agent_id": "agent.nacre",
       "world_id": "world-01",
       "cycle": 18442,
+      "client_action_sequence": 7,
       "verb": "INSPECT",
       "target": "entity.relay-7",
       "parameters": {},
@@ -52,6 +53,7 @@ All messages use JSON envelopes:
 - `cycle`: current or requested world cycle when applicable.
 - `schema_version`: payload schema version.
 - `idempotency_key`: required for mutating requests (`ACT`, `MESSAGE`, `TOOL`, `REGISTER`, `ENTER_WORLD`).
+- `client_action_sequence`: required inside mutating Agent Action bodies; monotonically increasing within `(world_id, agent_id, session_epoch)`.
 - `body`: message-specific payload.
 - `error`: required when `type` is `ERROR`.
 
@@ -89,7 +91,7 @@ Standard v0.1 codes include:
 
 ## Idempotency
 
-Mutating `ACT`, `MESSAGE`, `TOOL`, `REGISTER`, and `ENTER_WORLD` requests require idempotency keys. Replayed duplicates MUST return the original accepted response or a deterministic conflict and MUST NOT consume budgets twice or append a second world event for the same logical action.
+Mutating `ACT`, `MESSAGE`, `TOOL`, `REGISTER`, and `ENTER_WORLD` requests require idempotency keys. Mutating Agent Actions also require `client_action_sequence`. Replayed duplicates MUST return the original accepted response or a deterministic conflict and MUST NOT consume budgets twice or append a second world event for the same logical action. Duplicate or stale client action sequences fail deterministically unless the request is an idempotent replay of the original action.
 
 Fixture: [`examples/protocol/act-look-idempotent.json`](../examples/protocol/act-look-idempotent.json).
 
@@ -102,7 +104,7 @@ Accepted agent verbs map into the closed [Event Catalog](../docs/EVENT-CATALOG.m
 | LOOK | `LOOK` then `OBSERVATION_GENERATED` (optional `NOISE_APPLIED`) |
 | INSPECT | `INSPECT` then observation events |
 | MOVE | `MOVE` or `MOVE_REJECTED` |
-| MESSAGE | `MESSAGE` then `MESSAGE_DELIVERED` |
+| MESSAGE | `MESSAGE` then same-cycle `MESSAGE_DELIVERED` before observation projection when recipient active |
 | WAIT | `WAIT` |
 | TRADE | `TRADE_PROPOSED` / `TRADE_ACCEPTED` / `TRADE_REJECTED` / `RESOURCE_TRANSFER` |
 
