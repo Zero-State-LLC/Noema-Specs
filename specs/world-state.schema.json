@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/world-state.schema.json",
-  "title": "NOEMA World State (v0.1 acceptance projection and canonical snapshot fields)",
+  "title": "NOEMA World State (canonical replay snapshot fields)",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -14,18 +14,26 @@
     },
     "world_version": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "Immutable world ruleset/version identifier for this state."
     },
     "cycle": {
       "type": "integer",
-      "minimum": 0
+      "minimum": 0,
+      "description": "Current committed world cycle represented by this state."
     },
     "sequence": {
       "type": "integer",
-      "minimum": 0
+      "minimum": 0,
+      "description": "Last committed ledger sequence represented by this state."
     },
     "status": {
-      "enum": ["ACTIVE", "PAUSED", "INCIDENT", "ARCHIVED"]
+      "enum": [
+        "ACTIVE",
+        "PAUSED",
+        "INCIDENT",
+        "ARCHIVED"
+      ]
     },
     "infrastructure": {
       "type": "object",
@@ -35,12 +43,27 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "condition": { "type": "integer", "minimum": 0, "maximum": 100 },
-          "infra_type": {
-            "enum": ["relay", "generator", "storage_bay", "production_node"]
+          "condition": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
           },
-          "available": { "type": "number", "minimum": 0 },
-          "capacity": { "type": "number", "minimum": 0 }
+          "infra_type": {
+            "enum": [
+              "relay",
+              "generator",
+              "storage_bay",
+              "production_node"
+            ]
+          },
+          "available": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 0
+          }
         },
         "additionalProperties": true
       }
@@ -53,9 +76,18 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "available": { "type": "number", "minimum": 0 },
-          "capacity": { "type": "number", "minimum": 0 },
-          "regen_per_cycle": { "type": "number", "minimum": 0 }
+          "available": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "regen_per_cycle": {
+            "type": "integer",
+            "minimum": 0
+          }
         },
         "additionalProperties": true
       }
@@ -68,7 +100,10 @@
       "additionalProperties": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["room_id", "budgets"],
+        "required": [
+          "room_id",
+          "budgets"
+        ],
         "properties": {
           "room_id": {
             "type": "string",
@@ -80,7 +115,7 @@
               "pattern": "^[A-Za-z0-9_.:-]+$"
             },
             "additionalProperties": {
-              "type": "number",
+              "type": "integer",
               "minimum": 0
             }
           }
@@ -95,22 +130,40 @@
       "additionalProperties": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["name", "status", "members"],
+        "required": [
+          "name",
+          "status",
+          "members"
+        ],
         "properties": {
-          "name": { "type": "string", "minLength": 1 },
-          "status": { "enum": ["ACTIVE", "DISSOLVED"] },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "ACTIVE",
+              "DISSOLVED"
+            ]
+          },
           "members": {
             "type": "array",
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["agent_id", "role"],
+              "required": [
+                "agent_id",
+                "role"
+              ],
               "properties": {
                 "agent_id": {
                   "type": "string",
                   "pattern": "^[A-Za-z0-9_.:-]+$"
                 },
-                "role": { "type": "string", "minLength": 1 }
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                }
               }
             }
           }
@@ -132,12 +185,37 @@
       }
     },
     "last_event_digest": {
-      "type": ["string", "null"],
-      "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$",
+      "description": "Digest of the last committed accepted world event, or null only at genesis before any accepted event."
     },
     "event_count": {
       "type": "integer",
-      "minimum": 0
+      "minimum": 0,
+      "description": "Count of accepted world events represented by this state."
+    },
+    "catalog_version": {
+      "enum": [
+        "event-catalog/0.1",
+        "event-catalog/0.2"
+      ],
+      "description": "Closed event catalog pin used for every accepted ledger event in this WorldState lineage."
+    },
+    "state_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic canonical state revision. It MUST advance exactly with accepted atomic ledger commits and MUST NOT be reused for a different canonical state."
+    },
+    "canonicalization_version": {
+      "const": "noema-jcs/1",
+      "description": "Canonical JSON profile used for digest-bearing replay artifacts."
+    },
+    "hash_algorithm": {
+      "const": "sha256",
+      "description": "Hash algorithm used for state and ledger-head digest fields."
     }
   },
   "required": [
@@ -149,6 +227,56 @@
     "organizations",
     "entities_present",
     "destroyed_entities",
-    "event_count"
+    "event_count",
+    "world_version",
+    "status",
+    "catalog_version",
+    "state_revision",
+    "canonicalization_version",
+    "hash_algorithm",
+    "last_event_digest"
+  ],
+  "description": "Canonical WorldState snapshot fields required for deterministic replay. Implementation metadata that is not part of the canonical digest-bearing state belongs outside this object or must be excluded by a versioned equivalence boundary.",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "event_count"
+        ],
+        "properties": {
+          "event_count": {
+            "const": 0
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "last_event_digest": {
+            "const": null
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "event_count"
+        ],
+        "properties": {
+          "event_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "last_event_digest": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+          }
+        }
+      }
+    }
   ]
 }

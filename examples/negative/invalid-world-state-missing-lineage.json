@@ -44,8 +44,5 @@
   "event_count": 31,
   "world_version": "world/v1",
   "status": "ACTIVE",
-  "catalog_version": "event-catalog/0.1",
-  "state_revision": 31,
-  "canonicalization_version": "noema-jcs/1",
-  "hash_algorithm": "sha256"
+  "x-noema-expect": "reject_missing_world_state_replay_lineage"
 }

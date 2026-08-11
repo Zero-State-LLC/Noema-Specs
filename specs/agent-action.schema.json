@@ -10,15 +10,15 @@
     },
     "action_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
+      "pattern": "^act\\.[A-Za-z0-9_.-]+$"
     },
     "agent_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
+      "pattern": "^agent\\.[A-Za-z0-9_.-]+$"
     },
     "world_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
+      "pattern": "^(world\\.[A-Za-z0-9_-]+|world-[0-9]+)$"
     },
     "cycle": {
       "type": "integer",
@@ -54,6 +54,11 @@
     "idempotency_key": {
       "type": "string",
       "minLength": 1
+    },
+    "client_action_sequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic per (world_id, agent_id, session_epoch); canonical cycle ordering input."
     }
   },
   "required": [
@@ -62,6 +67,7 @@
     "agent_id",
     "world_id",
     "cycle",
+    "client_action_sequence",
     "verb",
     "parameters",
     "idempotency_key"

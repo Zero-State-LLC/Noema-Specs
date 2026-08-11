@@ -107,5 +107,9 @@
     }
   },
   "last_event_digest": "sha256:6f8fc977b7530450c474fcef9ddc68146496a4f11f7a0f64534037e1035ed8e6",
-  "event_count": 34
+  "event_count": 34,
+  "catalog_version": "event-catalog/0.1",
+  "state_revision": 34,
+  "canonicalization_version": "noema-jcs/1",
+  "hash_algorithm": "sha256"
 }

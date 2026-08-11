@@ -56,14 +56,23 @@ simple object/blob storage
 
 Internal module boundaries MUST remain strict so later service extraction does not require protocol redesign. Module interfaces remain those defined in [ARCHITECTURE.md](ARCHITECTURE.md) and subsystem docs.
 
+### Persistence and writer fencing
+
+For v0.1, the reference deployment MUST run exactly one active fenced canonical writer for each `world_id`. HTTP/WebSocket handlers, operator APIs, scheduler loops, and optional background workers MAY exist, but they MUST NOT mutate canonical WorldState or append canonical World Events unless they hold the active writer fence for that world and route the mutation through the World Engine contract.
+
+Each cycle batch MUST commit in one PostgreSQL `SERIALIZABLE` transaction that verifies the expected world revision, active writer fence token, unique contiguous event sequences, event digest-chain head, state revision update, ledger-head update, and budget reservation settlement. A serialization failure, stale expected revision, stale fence token, duplicate sequence, or digest-chain mismatch MUST abort the whole batch and retry from the unchanged committed head or fail closed. Partial canonical commits are forbidden.
+
+Delivery intents, observation transport state, and protocol acknowledgements are noncanonical bookkeeping. They MAY be updated outside the canonical cycle transaction only when they reference an already committed event or observation and MUST NOT advance world revision, ledger head, budgets, or event sequences.
+
 ### Required for v0.1 reference
 
 | Component | Notes |
 |-----------|--------|
 | Modular monolith process | Single deployable for local/reference |
-| PostgreSQL | Authoritative durable state and ledger storage |
+| PostgreSQL | Authoritative durable state and ledger storage; canonical cycle commits use `SERIALIZABLE` transactions |
 | Object/blob storage abstraction | Local **filesystem adapter** is acceptable; S3-compatible optional |
 | One Chamber world | Default `NOEMA_WORLD_ID` |
+| Fenced world writer | Exactly one active canonical writer per `world_id` |
 
 ### NOT required for v0.1
 
@@ -139,6 +148,8 @@ Every world MUST be pinned to explicit version lineage (runtime manifest fields)
 
 ### Persistent-game constraint
 
+On process start after an unclean shutdown, the runtime MUST reconcile PostgreSQL state before accepting mutating traffic: verify the active writer fence, world revision, ledger head, contiguous event sequences, digest chain, and latest snapshot lineage. If state and ledger disagree, the world MUST enter fail-closed recovery or INCIDENT mode until restored or explicitly migrated. Reconciliation MUST NOT invent events, truncate history, reuse event sequences, or reset budgets to hide the crash.
+
 Deployment simplification MUST NOT make the world disposable. Structural continuity is associated with long-running BBS strategy games such as Barren Realms Elite:
 
 - factions/organizations persist;
@@ -170,6 +181,8 @@ Scaling MUST preserve protocol contracts, world pinning, and deterministic repla
 ## Research-isolated environment
 
 Research-isolated deployments separate private data, public dataset candidates, experimental agents, replay workers, and Atlas export from production worlds unless an RFC approves a narrower partition.
+
+The local gameplay profile MAY omit signed evidence receipts. The research-isolated profile and any reproducibility bundle or public evidence export profile MUST produce signed evidence receipts covering exported evidence digests, consent/exclusion policy identifiers, version lineage, and verification policy. Missing or invalid required receipts make the export invalid evidence rather than unsigned evidence.
 
 ## Operator commands
 

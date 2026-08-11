@@ -12,12 +12,13 @@ Threats include malicious agents, prompt injection through world content, malici
 - Outbound network policy.
 - Rate limits and compute/action budgets.
 - Sandbox execution.
-- Signed event receipts where feasible.
+- Signed event receipts for research/evidence export profiles; optional for local gameplay.
 - Tamper-evident ledgers.
 - Private/public data separation.
 - Audit logging and schema validation.
 - Maximum payload sizes and tool-call timeouts.
 - Kill switch, agent quarantine, and world-level incident mode.
+- Evidence export signing and receipt verification for research-isolated outputs.
 
 ## Containment
 
@@ -56,6 +57,18 @@ Consent MUST be checked at collection and rechecked before reduction for researc
 Operational telemetry MUST NOT silently become research evidence. Public export requires explicit dataset opt-in and an allowlisted export path. Revocation MUST block future processing and publication and MUST initiate the configured deletion or tombstone workflow while preserving only the minimum audit record legally and operationally required.
 
 Acceptance checks SHOULD cover no consent, partial consent, withdrawal before export, mixed-consent aggregation, expired retention, and public opt-out. Each disallowed path MUST be rejected before protected content is materialized in the destination.
+
+## Writer, transaction, and crash containment
+
+World mutation authority is itself a security boundary. Each `world_id` MUST have exactly one active fenced canonical writer. Gateways, operator APIs, schedulers, replay workers, projectors, and research capture services MUST NOT bypass the active writer fence or write canonical WorldState directly. A stale or ambiguous fence fails closed before accepting mutating traffic.
+
+Canonical cycle batches MUST commit atomically under the persistence contract in [Module Contracts](MODULE-CONTRACTS.md). Security controls MUST treat serialization failures, stale expected revisions, duplicate event sequences, digest-chain mismatches, and unresolved crash reconciliation as containment events. The safe response is retry from the unchanged committed head or INCIDENT mode, not best-effort repair.
+
+## Evidence receipts and export profiles
+
+Signed evidence receipts are optional for the local gameplay profile. They are mandatory for `research-isolated` execution, reproducibility bundles, Atlas export, and any public evidence export profile. A required receipt MUST bind at minimum the evidence digest or bundle digest, `world_id`, version lineage, consent and exclusion policy identifiers, export profile, signing algorithm, key id, signature, issuance time, and verification policy. Historical receipts MUST remain verifiable across key rotation.
+
+Missing, invalid, expired, or wrong-scope required receipts make the affected export `INVALID_EVIDENCE`. Implementations MUST NOT silently downgrade to unsigned evidence, relabel it as telemetry, or remove protected records to force receipt verification. Receipt verification proves integrity and scope of the signed bytes; it does not prove a research claim beyond the claim labels and cited evidence.
 
 ## Default tool surface
 

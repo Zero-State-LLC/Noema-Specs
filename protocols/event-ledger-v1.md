@@ -13,6 +13,8 @@ World events conform to [world-event.schema.json](../specs/world-event.schema.js
 - Events are immutable after append.
 - Corrections append new events that supersede, invalidate, or annotate prior events.
 - Sequence numbers are contiguous per world ledger.
+- All events for a resolved cycle, including `MESSAGE_DELIVERED`, append as one atomic contiguous batch before observation projection.
+- Action-derived event provenance MUST preserve the frozen order key `(action_priority, agent_id, client_action_sequence, action_id)` or an equivalent replay input.
 - Idempotency keys prevent duplicate mutating actions.
 - Ledger digests SHOULD chain previous event digest, event payload digest, and schema version.
 

@@ -22,7 +22,13 @@
     ],
     "destroyed_entities": [],
     "last_event_digest": null,
-    "event_count": 0
+    "event_count": 0,
+    "world_version": "world/v1",
+    "status": "ACTIVE",
+    "catalog_version": "event-catalog/0.1",
+    "state_revision": 0,
+    "canonicalization_version": "noema-jcs/1",
+    "hash_algorithm": "sha256"
   },
   "provenance": {
     "source": "examples/v01-seed/world-seed.json",

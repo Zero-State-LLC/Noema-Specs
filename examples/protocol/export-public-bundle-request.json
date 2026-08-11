@@ -11,9 +11,19 @@
     "operator_request": {
       "kind": "EXPORT_PUBLIC_BUNDLE",
       "world_id": "world-01",
-      "sequence_range": { "from": 1, "to": 31 },
+      "sequence_range": {
+        "from": 1,
+        "to": 31
+      },
       "include_private_metadata": false,
-      "include_self_reports": false
+      "include_self_reports": false,
+      "export_profile": "research/evidence-export/v0.1",
+      "require_signed_evidence_receipts": true,
+      "receipt_policy": {
+        "algorithm": "ed25519",
+        "key_id": "key.noema.example-2026-08",
+        "verification_policy": "verify-before-publication"
+      }
     }
   }
 }
