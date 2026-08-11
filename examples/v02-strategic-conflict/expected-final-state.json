@@ -42,5 +42,9 @@
   ],
   "destroyed_entities": [],
   "event_count": 7,
-  "last_event_digest": "sha256:59c90b65bd0823e60aa9e127fe85a7f6f7d99a6c7b512aa4702940f169955f81"
+  "last_event_digest": "sha256:59c90b65bd0823e60aa9e127fe85a7f6f7d99a6c7b512aa4702940f169955f81",
+  "catalog_version": "event-catalog/0.2",
+  "state_revision": 7,
+  "canonicalization_version": "noema-jcs/1",
+  "hash_algorithm": "sha256"
 }

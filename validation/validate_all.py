@@ -1190,6 +1190,103 @@ def check_strategic_conflict(Draft202012Validator) -> None:
     )
 
 
+def check_architecture_hardening() -> None:
+    """Fail when RFC-0003's cross-document interoperability rules regress."""
+    scheduler = (ROOT / "docs" / "SCHEDULER.md").read_text(encoding="utf-8")
+    world_engine = (ROOT / "docs" / "WORLD-ENGINE.md").read_text(encoding="utf-8")
+    canonical_key = (
+        "(action_priority ASC, agent_id ASC, client_action_sequence ASC, "
+        "action_id ASC)"
+    )
+    if canonical_key not in scheduler:
+        fail("RFC-0003 canonical action order missing from SCHEDULER.md")
+    if "action_priority, agent_id, client_action_sequence, action_id" not in world_engine:
+        fail("WORLD-ENGINE.md does not use the RFC-0003 canonical action order")
+    if "server_receive_sequence" in scheduler or "server_receive_sequence" in world_engine:
+        fail("gateway receive order must not remain a canonical reducer input")
+    delivery = scheduler.find("emit deterministic `MESSAGE_DELIVERED`")
+    projection = scheduler.find("derive observations + spectator projections")
+    if delivery < 0 or projection < 0 or delivery > projection:
+        fail("message delivery must precede post-cycle observation projection")
+
+    action_schema = load_json(ROOT / "specs" / "agent-action.schema.json")
+    if "client_action_sequence" not in action_schema.get("required", []):
+        fail("AgentAction must require client_action_sequence")
+    if action_schema["properties"]["action_id"].get("pattern") != r"^act\.[A-Za-z0-9_.-]+$":
+        fail("AgentAction action_id must enforce the typed act. prefix")
+    if action_schema["properties"]["agent_id"].get("pattern") != r"^agent\.[A-Za-z0-9_.-]+$":
+        fail("AgentAction agent_id must enforce the typed agent. prefix")
+
+    state_schema = load_json(ROOT / "specs" / "world-state.schema.json")
+    required_lineage = {
+        "world_version",
+        "catalog_version",
+        "state_revision",
+        "canonicalization_version",
+        "hash_algorithm",
+        "last_event_digest",
+    }
+    missing = sorted(required_lineage - set(state_schema.get("required", [])))
+    if missing:
+        fail(f"WorldState missing canonical lineage requirements: {missing}")
+
+    def find_number_schema(value):
+        if isinstance(value, dict):
+            if value.get("type") == "number":
+                return True
+            return any(find_number_schema(v) for v in value.values())
+        if isinstance(value, list):
+            return any(find_number_schema(v) for v in value)
+        return False
+
+    if find_number_schema(state_schema) or find_number_schema(
+        load_json(ROOT / "specs" / "world-seed.schema.json")
+    ):
+        fail("canonical WorldState/WorldSeed quantities must use integer fixed-point schemas")
+
+    for version in ("0.1", "0.2"):
+        catalog_schema = load_json(
+            ROOT / "specs" / f"event-catalog-{version}.schema.json"
+        )
+        if catalog_schema.get("x-noema-closed") is not True:
+            fail(f"event-catalog/{version} composed schema must be closed")
+        refs = [part.get("$ref") for part in catalog_schema.get("allOf", [])]
+        if "world-event.schema.json" not in refs:
+            fail(f"event-catalog/{version} must compose the WorldEvent envelope")
+
+    protocol = (ROOT / "protocols" / "agent-protocol-v1.md").read_text(
+        encoding="utf-8"
+    )
+    for marker in (
+        "cumulative per logical delivery stream",
+        "RESUME_POSITION_EXPIRED",
+        "RESUME_POSITION_INVALID",
+    ):
+        if marker not in protocol:
+            fail(f"Agent Protocol recovery contract missing: {marker}")
+
+    deployment = (ROOT / "docs" / "DEPLOYMENT.md").read_text(encoding="utf-8")
+    module_contracts = (ROOT / "docs" / "MODULE-CONTRACTS.md").read_text(
+        encoding="utf-8"
+    )
+    security = (ROOT / "docs" / "SECURITY.md").read_text(encoding="utf-8")
+    for marker, text in (
+        ("exactly one active fenced canonical writer", deployment + module_contracts),
+        ("SERIALIZABLE", deployment + module_contracts),
+        ("mandatory for `research-isolated`", security),
+        ("INVALID_EVIDENCE", security),
+    ):
+        if marker not in text:
+            fail(f"RFC-0003 runtime/security contract missing: {marker}")
+
+    rfc = (ROOT / "rfcs" / "RFC-0003-deterministic-contract-hardening.md").read_text(
+        encoding="utf-8"
+    )
+    if "**Accepted**" not in rfc.split("## Summary", 1)[0]:
+        fail("RFC-0003 must be Accepted")
+    ok("RFC-0003 architecture hardening contracts are machine-gated")
+
+
 
 
 def check_lab_v04(Draft202012Validator) -> None:
@@ -1512,6 +1609,7 @@ def main() -> None:
     check_lab_v04(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
+    check_architecture_hardening()
     print("\nPASS")
 
 

@@ -52,6 +52,15 @@
 - [x] Unknown candidates need not map to existing primitives.
 - [x] Research metrics redacted from ordinary spectators.
 - [x] No consciousness / scalar intelligence scores.
+- [x] RFC-0003 canonical action order is independent of network arrival.
+- [x] Same-cycle message delivery commits before observation projection.
+- [x] `noema-jcs/1` canonicalization and integer fixed-point canonical quantities.
+- [x] Typed AgentAction IDs and monotonic `client_action_sequence` enforced.
+- [x] Catalog-specific closed ledger-admission schemas with negative fixtures.
+- [x] Canonical WorldState lineage and ledger-head fields enforced.
+- [x] One fenced writer plus atomic `SERIALIZABLE` cycle transaction contract.
+- [x] Scoped cumulative resume acknowledgements and bounded redelivery.
+- [x] Signed evidence receipts required for research/evidence export profiles.
 
 ## v0.4 Lab
 
@@ -66,6 +75,7 @@
 
 - [x] `python validation/validate_all.py` PASS.
 - [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L22 present and linked.
+- [x] RFC-0003 cross-document architecture hardening gate PASS.
 
 ## Notes
 

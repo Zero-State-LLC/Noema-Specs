@@ -1,0 +1,25 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.v01.009",
+  "event_type": "MOVE",
+  "world_id": "world-01",
+  "cycle": 3,
+  "sequence": 9,
+  "occurred_at": "2026-08-09T16:03:09Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agent_id": "agent.nacre",
+    "exit_id": "exit.rq-east",
+    "from_room_id": "room.relay-quarter",
+    "to_room_id": "room.transit-ring",
+    "cost_paid": {
+      "energy": 1
+    }
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v01-seed"
+  },
+  "previous_digest": "sha256:c81b66c28a0fba342859385331186c47ece8b2c6c4c38e9643dbc8c8283ef487",
+  "digest": "sha256:6c74bfbb18812a36ce32b26ad0181cf6196bf12d92a9c5ed519621556323502d"
+}

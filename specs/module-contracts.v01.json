@@ -24,13 +24,14 @@
       "forbidden_dependencies": [
         "world_state"
       ],
-      "transaction_boundary": "per connection message",
-      "idempotency": "ping/reconnect safe",
+      "transaction_boundary": "per connection message; acknowledgements update delivery bookkeeping only",
+      "idempotency": "ping/reconnect safe; resume tokens scoped by world principal stream and session epoch",
       "failure_modes": [
         "disconnect",
-        "protocol error"
+        "protocol error",
+        "resume position expired"
       ],
-      "observability": "connection metrics",
+      "observability": "connection metrics, per-stream ack cursor, redelivery window status",
       "security_boundary": "TLS/origin checks",
       "determinism_requirements": "no wall-clock reduce input",
       "conformance_cases": [
@@ -116,7 +117,8 @@
       "module": "action_router",
       "purpose": "Validate and route ACT to world engine",
       "owns_state": [
-        "accept receipts"
+        "accept receipts",
+        "client action sequence cursor"
       ],
       "reads": [
         "registry",
@@ -145,7 +147,7 @@
       ],
       "observability": "action metrics",
       "security_boundary": "authz gate",
-      "determinism_requirements": "assign server_receive_sequence",
+      "determinism_requirements": "validate required client_action_sequence; never assign canonical order from receive timing",
       "conformance_cases": [
         "C02",
         "C03",
@@ -166,11 +168,11 @@
         "via events only"
       ],
       "inputs": [
-        "ordered accepted actions",
+        "frozen accepted actions ordered by action_priority, agent_id, client_action_sequence, action_id",
         "director inputs"
       ],
       "outputs": [
-        "world_events",
+        "atomic cycle event batch including same-cycle MESSAGE_DELIVERED",
         "next state intent"
       ],
       "dependencies": [
@@ -183,14 +185,17 @@
         "spectator_projection",
         "research_capture"
       ],
-      "transaction_boundary": "atomic reduce per action",
-      "idempotency": "event idempotency keys",
+      "transaction_boundary": "atomic cycle batch reduce and commit",
+      "idempotency": "event idempotency keys; duplicate logical mutations return original result or deterministic conflict",
       "failure_modes": [
-        "precondition fail"
+        "precondition fail",
+        "serialization failure",
+        "stale revision",
+        "stale writer fence"
       ],
-      "observability": "reduce latency",
-      "security_boundary": "no private cognition",
-      "determinism_requirements": "pure reduce(seed,state,events)",
+      "observability": "reduce latency, committed cycle batch head, aborted transaction reason",
+      "security_boundary": "single fenced canonical writer; no private cognition",
+      "determinism_requirements": "pure reduce(seed,state,ordered actions); message delivery before observation projection",
       "conformance_cases": [
         "C04",
         "C18",
@@ -224,12 +229,14 @@
       "forbidden_dependencies": [
         "observation_engine writes"
       ],
-      "transaction_boundary": "commit with ledger append",
-      "idempotency": "revision monotonic",
+      "transaction_boundary": "state revision commits atomically with ledger head and budget settlement in cycle batch",
+      "idempotency": "expected revision monotonic; stale revision aborts without mutation",
       "failure_modes": [
-        "storage unavailable"
+        "storage unavailable",
+        "revision mismatch",
+        "state/ledger divergence on crash reconciliation"
       ],
-      "observability": "state size metrics",
+      "observability": "state size metrics, revision/head reconciliation status",
       "security_boundary": "DB credentials",
       "determinism_requirements": "byte-stable serialization",
       "conformance_cases": [
@@ -252,7 +259,7 @@
         "append only"
       ],
       "inputs": [
-        "engine events"
+        "atomic engine cycle event batches"
       ],
       "outputs": [
         "event streams"
@@ -263,14 +270,16 @@
       "forbidden_dependencies": [
         "unauthenticated producers"
       ],
-      "transaction_boundary": "append atomic",
-      "idempotency": "event_id unique",
+      "transaction_boundary": "append atomic contiguous cycle batch",
+      "idempotency": "event_id unique; world event sequence unique and contiguous",
       "failure_modes": [
-        "digest break"
+        "digest break",
+        "sequence gap",
+        "duplicate event sequence"
       ],
-      "observability": "ledger integrity",
+      "observability": "ledger integrity, sequence head, digest-chain head",
       "security_boundary": "no agent direct write",
-      "determinism_requirements": "ordered digests",
+      "determinism_requirements": "ordered digests preserve frozen action order provenance",
       "conformance_cases": [
         "C04",
         "C16"
@@ -288,7 +297,7 @@
       ],
       "writes": [],
       "inputs": [
-        "LOOK/INSPECT results"
+        "committed cycle event batch after same-cycle message delivery"
       ],
       "outputs": [
         "Observation documents"
@@ -300,14 +309,15 @@
       "forbidden_dependencies": [
         "world_state writes"
       ],
-      "transaction_boundary": "derive only",
-      "idempotency": "observation_id unique",
+      "transaction_boundary": "derive after committed head; delivery ack is noncanonical bookkeeping",
+      "idempotency": "observation_id unique; per-stream cumulative ack cursor",
       "failure_modes": [
-        "permission deny"
+        "permission deny",
+        "redelivery window expired"
       ],
       "observability": "obs metrics",
       "security_boundary": "redaction",
-      "determinism_requirements": "same inputs \u2192 same observation digest",
+      "determinism_requirements": "same committed batch and policy -> same observation digest",
       "conformance_cases": [
         "C05",
         "C06"
@@ -323,12 +333,13 @@
         "world_state presence"
       ],
       "writes": [
-        "via MESSAGE events"
+        "via MESSAGE and MESSAGE_DELIVERED events"
       ],
       "inputs": [
         "MESSAGE actions"
       ],
       "outputs": [
+        "same-cycle delivery events",
         "delivery intents"
       ],
       "dependencies": [
@@ -337,14 +348,14 @@
       "forbidden_dependencies": [
         "direct world mutation"
       ],
-      "transaction_boundary": "queue then deliver events",
+      "transaction_boundary": "queue during reduce; deliver in same atomic cycle batch before observation projection",
       "idempotency": "message_id unique",
       "failure_modes": [
         "recipient missing"
       ],
       "observability": "queue depth",
       "security_boundary": "content privacy",
-      "determinism_requirements": "delivery cycle deterministic",
+      "determinism_requirements": "delivery cycle deterministic and replay-recorded",
       "conformance_cases": [
         "C07"
       ]
@@ -354,7 +365,7 @@
       "purpose": "Cycle freeze, ordering, timeouts",
       "owns_state": [
         "cycle cursor",
-        "receive sequences"
+        "frozen action order keys"
       ],
       "reads": [
         "gateway accepts"
@@ -373,13 +384,13 @@
         "wall-clock reduce"
       ],
       "transaction_boundary": "freeze set atomic",
-      "idempotency": "receive sequence stable",
+      "idempotency": "client_action_sequence stable under idempotent replay",
       "failure_modes": [
         "timeout pre-accept"
       ],
       "observability": "cycle metrics",
       "security_boundary": "no auth bypass",
-      "determinism_requirements": "order key normative",
+      "determinism_requirements": "order key: action_priority, agent_id, client_action_sequence, action_id; no receive-order input",
       "conformance_cases": [
         "C23"
       ]
@@ -507,7 +518,8 @@
         "eligible records"
       ],
       "outputs": [
-        "trajectory segments"
+        "trajectory segments",
+        "evidence receipt requests"
       ],
       "dependencies": [
         "event_ledger",
@@ -516,13 +528,15 @@
       "forbidden_dependencies": [
         "world_state writes"
       ],
-      "transaction_boundary": "append capture only",
-      "idempotency": "consent re-check",
+      "transaction_boundary": "append capture only; signed receipt mandatory for research/evidence export profile",
+      "idempotency": "consent re-check; evidence digest unique per export profile",
       "failure_modes": [
-        "consent withdrawn"
+        "consent withdrawn",
+        "missing required evidence receipt",
+        "invalid evidence receipt"
       ],
       "observability": "capture metrics",
-      "security_boundary": "fail-closed consent",
+      "security_boundary": "fail-closed consent; signed receipts for research/evidence export",
       "determinism_requirements": "capture not reduce input",
       "conformance_cases": [
         "C09"
@@ -552,12 +566,14 @@
       "forbidden_dependencies": [
         "direct world_engine mutation"
       ],
-      "transaction_boundary": "backup consistent",
+      "transaction_boundary": "backup consistent; restore acquires fresh writer fence after verify",
       "idempotency": "verify checklist",
       "failure_modes": [
-        "verify fail"
+        "verify fail",
+        "ambiguous writer fence",
+        "receipt verification fail"
       ],
-      "observability": "ops audit log",
+      "observability": "ops audit log, verify reconciliation report",
       "security_boundary": "admin auth",
       "determinism_requirements": "no silent world rewrite",
       "conformance_cases": [
@@ -574,6 +590,12 @@
     "Observatory/research interpretation MUST NOT become world truth",
     "Operator surfaces MUST NOT bypass Action Router for world mutations",
     "Event Ledger MUST NOT accept arbitrary unauthenticated producer writes",
-    "World Engine state changes MUST be explainable through canonical events"
+    "World Engine state changes MUST be explainable through canonical events",
+    "Exactly one active fenced canonical writer may mutate a world_id",
+    "Each canonical cycle batch MUST commit in one PostgreSQL SERIALIZABLE transaction with expected revision and unique contiguous event sequences",
+    "Crash reconciliation MUST fail closed on state/ledger divergence, digest break, sequence gap, or ambiguous writer fence",
+    "Protocol acknowledgements are cumulative per stream and MUST NOT mutate world truth",
+    "Research/evidence export profiles MUST include signed evidence receipts; local gameplay MAY omit them",
+    "Message delivery events MUST be in the same atomic cycle event batch before observation projection"
   ]
 }

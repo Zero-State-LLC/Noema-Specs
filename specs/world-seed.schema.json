@@ -34,16 +34,37 @@
     },
     "budget_defaults": {
       "type": "object",
-      "required": ["attention", "compute", "energy", "influence", "storage"],
+      "required": [
+        "attention",
+        "compute",
+        "energy",
+        "influence",
+        "storage"
+      ],
       "properties": {
-        "attention": { "type": "number", "minimum": 0 },
-        "compute": { "type": "number", "minimum": 0 },
-        "energy": { "type": "number", "minimum": 0 },
-        "influence": { "type": "number", "minimum": 0 },
-        "storage": { "type": "number", "minimum": 0 }
+        "attention": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compute": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "energy": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "influence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storage": {
+          "type": "integer",
+          "minimum": 0
+        }
       },
       "additionalProperties": {
-        "type": "number",
+        "type": "integer",
         "minimum": 0
       }
     },
@@ -52,14 +73,23 @@
       "minItems": 3,
       "items": {
         "type": "object",
-        "required": ["room_id", "name", "description"],
+        "required": [
+          "room_id",
+          "name",
+          "description"
+        ],
         "properties": {
           "room_id": {
             "type": "string",
             "pattern": "^[A-Za-z0-9_.:-]+$"
           },
-          "name": { "type": "string", "minLength": 1 },
-          "description": { "type": "string" },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
+          },
           "entity_ids": {
             "type": "array",
             "items": {
@@ -75,7 +105,12 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["exit_id", "from_room_id", "to_room_id", "direction"],
+        "required": [
+          "exit_id",
+          "from_room_id",
+          "to_room_id",
+          "direction"
+        ],
         "properties": {
           "exit_id": {
             "type": "string",
@@ -89,10 +124,15 @@
             "type": "string",
             "pattern": "^[A-Za-z0-9_.:-]+$"
           },
-          "direction": { "type": "string", "minLength": 1 },
+          "direction": {
+            "type": "string",
+            "minLength": 1
+          },
           "conditions": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
@@ -102,7 +142,11 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["entity_id", "entity_type", "location"],
+        "required": [
+          "entity_id",
+          "entity_type",
+          "location"
+        ],
         "properties": {
           "entity_id": {
             "type": "string",
@@ -121,11 +165,20 @@
           },
           "location": {},
           "owner_id": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           },
-          "properties": { "type": "object" },
-          "inventory": { "type": "array" },
-          "state": { "type": "object" }
+          "properties": {
+            "type": "object"
+          },
+          "inventory": {
+            "type": "array"
+          },
+          "state": {
+            "type": "object"
+          }
         }
       }
     },
@@ -134,14 +187,20 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["agent_id"],
+        "required": [
+          "agent_id"
+        ],
         "properties": {
           "agent_id": {
             "type": "string",
             "pattern": "^[A-Za-z0-9_.:-]+$"
           },
-          "display_name": { "type": "string" },
-          "manifest_id": { "type": "string" }
+          "display_name": {
+            "type": "string"
+          },
+          "manifest_id": {
+            "type": "string"
+          }
         }
       }
     }

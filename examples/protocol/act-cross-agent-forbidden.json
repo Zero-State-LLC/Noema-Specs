@@ -17,7 +17,8 @@
       "verb": "LOOK",
       "target": null,
       "parameters": {},
-      "idempotency_key": "idem-xagent-001"
+      "idempotency_key": "idem-xagent-001",
+      "client_action_sequence": 1
     }
   }
 }

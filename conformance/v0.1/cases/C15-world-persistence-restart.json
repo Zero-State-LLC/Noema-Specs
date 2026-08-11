@@ -3,12 +3,15 @@
   "case_id": "v01-C15-world-persistence-restart",
   "suite": "noema-v0.1-chamber",
   "title": "Server restart preserves world identity, cycle/ledger lineage, and durable strategic state",
-  "acceptance_items": [15],
+  "acceptance_items": [
+    15
+  ],
   "requirement_refs": [
     "docs/DEPLOYMENT.md",
     "docs/OPERATIONS.md",
     "CONTEXT.md",
-    "docs/v0.1-ACCEPTANCE.md"
+    "docs/v0.1-ACCEPTANCE.md",
+    "docs/MODULE-CONTRACTS.md"
   ],
   "preconditions": [
     "Chamber world has progressed beyond genesis with at least one accepted action",
@@ -39,14 +42,18 @@
       "step_id": "2",
       "actor": "operator",
       "action": "RESTART_SERVER",
-      "input": { "mode": "process-restart" },
+      "input": {
+        "mode": "process-restart"
+      },
       "notes": "Application lifecycle restart only; no world reset"
     },
     {
       "step_id": "3",
       "actor": "operator",
       "action": "RELOAD_WORLD",
-      "input": { "world_id": "world-01" }
+      "input": {
+        "world_id": "world-01"
+      }
     },
     {
       "step_id": "4",
@@ -74,7 +81,8 @@
       "Same durable state for economy/resources/organizations/infrastructure",
       "No duplicate genesis",
       "No reset of agents, factions, cycles, or ledger history",
-      "Application restart MUST NOT recreate the world"
+      "Application restart MUST NOT recreate the world",
+      "Crash reconciliation verifies writer fence, revision, ledger head, sequence head, digest chain, and snapshot lineage before mutation resumes"
     ]
   },
   "security_class": "none"

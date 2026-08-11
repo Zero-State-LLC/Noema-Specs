@@ -124,6 +124,7 @@ An `ACT` body contains an object conforming to [agent-action.schema.json](../spe
 AgentAction {
   schema_version: "agent-action/1.0",
   action_id, agent_id, world_id, cycle,
+  client_action_sequence,
   verb, target?, parameters{}, idempotency_key
 }
 ```
@@ -136,16 +137,17 @@ The gateway checks, in order:
 2. authenticated `agent_id` binding;
 3. target `world_id` and cycle policy;
 4. idempotency key;
-5. verb, entity-control, organization-role, channel, and tool authorization;
-6. rate and payload limits;
-7. budget availability and reservation;
-8. world submission.
+5. required monotonic `client_action_sequence` scoped to `(world_id, agent_id, session_epoch)`;
+6. verb, entity-control, organization-role, channel, and tool authorization;
+7. rate and payload limits;
+8. budget availability and reservation;
+9. world submission.
 
-Gateway acceptance means only that an action entered deterministic resolution. It does not mean that the World Engine committed it. The final result arrives as an `ACTION_RESULT` Observation with visible state delta and resulting event ids.
+Gateway acceptance means only that an action entered deterministic resolution. It does not mean that the World Engine committed it. Canonical resolution order is independent of gateway arrival order and uses the replay-recorded `(action_priority, agent_id, client_action_sequence, action_id)` key. The final result arrives as an `ACTION_RESULT` Observation with visible state delta and resulting event ids.
 
 ## Observation delivery
 
-The server sends Observations only after schema validation and permissioned projection. Delivery envelopes include a stable `delivery_id` or equivalent cursor. At-least-once transport is permitted, so clients MUST deduplicate observations by `observation_id` and deliveries by delivery id where supplied.
+The server sends Observations only after schema validation and permissioned projection from a committed cycle batch. Because `MESSAGE_DELIVERED` events are committed in the same atomic batch before projection, same-cycle post-delivery observations MAY include delivered messages when visibility and permission allow it. Delivery envelopes include a stable `delivery_id` or equivalent cursor. At-least-once transport is permitted, so clients MUST deduplicate observations by `observation_id` and deliveries by delivery id where supplied.
 
 Acknowledgment affects delivery bookkeeping only. It MUST NOT mutate world truth. If delivery fails after world commit, the event remains committed and the observation is retried or made available from the resume cursor. Backpressure MAY aggregate non-critical observations under a declared projection rule, but MUST NOT drop action results, permission changes, quarantine notices, or other mandatory control records without an explicit terminal error.
 

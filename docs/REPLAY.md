@@ -26,9 +26,20 @@ A replay request MUST resolve the following immutable inputs before execution:
 
 A URI is not sufficient identity. Every referenced input MUST carry a digest over the bytes actually consumed. Missing required bytes, versions, schemas, or digests make the replay `NOT_COMPUTABLE`; the implementation MUST NOT silently substitute a current default.
 
-## Canonicalization and identity
+## Canonical serialization and digest profile
 
-Canonical JSON uses UTF-8, lexicographically sorted object keys, no insignificant whitespace, JSON literals for booleans and null, and repository-defined canonical number serialization. Arrays retain declared order. Binary artifacts are hashed as raw bytes. Timestamps used as evidence are inputs, never freshly generated comparison fields.
+Replay-critical JSON artifacts MUST declare `canonicalization_version` as `noema-cjson-jcs-digest/v1` and `hash_algorithm` as `sha256` when they are used to compute replay input identity, state digests, event digests, boundary digests, or audit-record digests.
+
+`noema-cjson-jcs-digest/v1` is defined as:
+
+1. The input MUST be valid I-JSON before canonicalization. Duplicate object member names, non-Unicode strings, invalid surrogate pairs, non-finite numbers, and numbers outside interoperable JSON precision are invalid.
+2. JSON is serialized with RFC 8785 JSON Canonicalization Scheme (JCS): UTF-8 output, lexicographically sorted object member names, no insignificant whitespace, JSON literals for booleans and null, and JCS number serialization for non-replay-critical numeric metadata.
+3. Replay-critical quantities, including cycles, sequences, resource balances, budgets, stock, capacity, reservations, costs, market amounts, and deterministic configuration numeric values, MUST be JSON integers in the fixed-point scale declared by the resource, currency, world version, or configuration field. Floating-point arithmetic or decimal JSON numbers MUST NOT determine canonical world truth.
+4. Timestamps MUST be RFC3339 UTC strings with trailing `Z`. Offsets other than `Z`, local time, timezone names, leap seconds, and implementation-local formatting are invalid. Timestamps are provenance or declared external inputs, never hidden reducer inputs.
+5. Binary artifacts are digested as the exact raw byte sequence consumed. Base64, hex, or text envelopes are digested only when that envelope is itself the declared artifact bytes.
+6. The digest string is `sha256:` followed by 64 lowercase hexadecimal characters over the canonical UTF-8 bytes for JSON artifacts or over raw bytes for binary artifacts.
+
+Arrays retain declared order.
 
 The replay input identity is:
 
@@ -48,7 +59,7 @@ input_digest = SHA-256(canonical_json({
 }))
 ```
 
-Implementations MUST record the canonicalization version and hash algorithm. Unknown canonicalization versions or algorithms fail closed as `NOT_COMPUTABLE`.
+Implementations MUST record the canonicalization version and hash algorithm. Unknown canonicalization versions, algorithms, non-I-JSON inputs, or mismatched digest string forms fail closed as `NOT_COMPUTABLE`.
 
 ## v0.1 mandatory equivalence profile
 

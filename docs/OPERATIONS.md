@@ -29,6 +29,10 @@ noema verify
 7. Object/blob storage availability (filesystem adapter acceptable in local mode)
 8. Seed / replay fixture load (when present)
 9. Runtime manifest integrity ([runtime-manifest.schema.json](../specs/runtime-manifest.schema.json))
+10. Active writer fence uniqueness per `world_id` (exactly one canonical writer)
+11. Canonical persistence atomicity: world revision, ledger head, contiguous event sequence, digest chain, and budget settlement agree
+12. Resume/ack delivery windows are bounded and reference only committed observations or events
+13. Required signed evidence receipt verification for research/evidence export profile bundles
 
 Successful completion MUST print:
 
@@ -46,6 +50,8 @@ Fixture: [examples/deployment/verify-pass.example.txt](../examples/deployment/ve
 - Runtime manifest at backup time
 - Non-secret configuration digest (never secret values)
 - Object/blob references required for restore
+- Writer fence epoch at backup time, recorded for audit but not reused as an active post-restore fence
+- Evidence receipt records when the bundle is a research/evidence export profile
 
 Secrets (auth keys, provider keys, DB passwords) MUST NOT be embedded in public bundles. Operators MAY store encrypted secret sidecars out of band.
 
@@ -53,8 +59,9 @@ Secrets (auth keys, provider keys, DB passwords) MUST NOT be embedded in public 
 
 1. Target environment MUST be version-compatible with the bundle’s runtime manifest.
 2. Restore MUST NOT invent a new genesis for an existing `world_id` + `world_version`.
-3. After restore, `noema verify` MUST pass.
-4. Replay under ADR-005 MUST remain `EQUIVALENT` for the restored Chamber state when fixtures are included.
+3. Restore MUST install no active canonical writer until `noema verify` passes and a fresh writer fence is acquired for the target world.
+4. After restore, `noema verify` MUST pass.
+5. Replay under ADR-005 MUST remain `EQUIVALENT` for the restored Chamber state when fixtures are included.
 
 ## Upgrade and rollback
 
@@ -109,6 +116,16 @@ Silent semantic adoption is forbidden.
 2. If a failed migration partially applied, restore from the pre-migration backup bundle.
 3. Run `noema verify`.
 4. Do not “fix” history by truncating the ledger except via an RFC-approved disaster procedure with explicit claim labels.
+
+### Crash reconciliation
+
+Startup after crash or process kill MUST acquire or renew the writer fence before serving mutating traffic, then compare the canonical world row, expected revision, ledger head, event sequence head, digest-chain head, latest snapshot head, and unresolved reservation records. The only conforming outcomes are:
+
+1. `CLEAN`: state and ledger agree; traffic MAY resume.
+2. `REDELIVER_ONLY`: canonical state committed and only protocol delivery/ack bookkeeping is incomplete; rebuild delivery windows from committed observations/events without mutating world truth.
+3. `FAIL_CLOSED`: canonical state and ledger disagree, a sequence gap exists, the digest chain is broken, or the active writer fence is ambiguous; enter INCIDENT or refuse boot until restore/migration.
+
+Crash reconciliation MUST NOT synthesize replacement events, reuse skipped event sequences, mark unverified reservations as spent, or accept a blind retry of an ambiguous mutating request. Ambiguous client status is resolved through idempotency lookup against the committed head.
 
 ## Health surfaces
 

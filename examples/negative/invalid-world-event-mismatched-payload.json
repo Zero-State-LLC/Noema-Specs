@@ -1,0 +1,23 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.payload-binding",
+  "event_type": "MOVE",
+  "world_id": "world-01",
+  "cycle": 3,
+  "sequence": 9,
+  "occurred_at": "2026-08-09T16:03:09Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "agent_id": "agent.nacre",
+    "room_id": "room.relay-quarter",
+    "attention_spent": 1,
+    "observation_id": "obs.bad.payload-binding"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "v01-seed"
+  },
+  "previous_digest": "sha256:c81b66c28a0fba342859385331186c47ece8b2c6c4c38e9643dbc8c8283ef487",
+  "digest": "sha256:badpayloadbinding",
+  "x-noema-expect": "reject_on_payload_binding"
+}

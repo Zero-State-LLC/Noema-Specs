@@ -3,11 +3,14 @@
   "case_id": "v01-C16-backup-restore-equivalence",
   "suite": "noema-v0.1-chamber",
   "title": "Backup and restore preserve world-state digest, ledger head, snapshot lineage, and runtime manifest",
-  "acceptance_items": [16],
+  "acceptance_items": [
+    16
+  ],
   "requirement_refs": [
     "docs/OPERATIONS.md",
     "docs/REPLAY.md",
-    "examples/deployment/verify-pass.example.txt"
+    "examples/deployment/verify-pass.example.txt",
+    "docs/MODULE-CONTRACTS.md"
   ],
   "preconditions": [
     "Known Chamber state exists with non-genesis ledger head",
@@ -23,21 +26,27 @@
       "step_id": "1",
       "actor": "operator",
       "action": "BACKUP",
-      "input": { "command": "noema backup" },
+      "input": {
+        "command": "noema backup"
+      },
       "notes": "Backup known Chamber state"
     },
     {
       "step_id": "2",
       "actor": "operator",
       "action": "RESTORE",
-      "input": { "command": "noema restore <bundle>" },
+      "input": {
+        "command": "noema restore <bundle>"
+      },
       "notes": "Restore into clean compatible environment"
     },
     {
       "step_id": "3",
       "actor": "operator",
       "action": "VERIFY",
-      "input": { "command": "noema verify" }
+      "input": {
+        "command": "noema verify"
+      }
     },
     {
       "step_id": "4",
@@ -64,7 +73,9 @@
       "Snapshot lineage matches pre-backup",
       "Runtime manifest matches required version fields",
       "Replay remains equivalent under ADR-005 boundary",
-      "noema verify prints NOEMA VERIFY: PASS"
+      "noema verify prints NOEMA VERIFY: PASS",
+      "Restore does not reuse the old active writer fence and acquires a fresh fence only after verify",
+      "Research/evidence export bundles verify required signed evidence receipts"
     ]
   },
   "security_class": "none"

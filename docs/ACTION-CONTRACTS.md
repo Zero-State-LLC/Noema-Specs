@@ -18,7 +18,21 @@ Event reducers remain authoritative in [EVENT-CATALOG.md](EVENT-CATALOG.md).
 | **v0.2 STRATEGIC** (`event-catalog/0.2`) | `COMMIT.CONTEST_DECLARE`, `COMMIT.CONTEST_DEFEND`, `COMMIT.AGREEMENT_FORM`, `COMMIT.AGREEMENT_TERMINATE`, `COMMIT.ACCESS_POLICY` |
 | **LATER MILESTONE** | full `BUILD` construction trees, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
 
-Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact.
+Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact. Every mutating action carries a required `client_action_sequence`; the server assigns the versioned `action_priority` below and sorts frozen-cycle actions by `(action_priority, agent_id, client_action_sequence, action_id)`.
+
+## Canonical action priorities
+
+Lower priority values resolve first. These values are world-rules metadata and MUST NOT be supplied by clients.
+
+| Priority | Actions | Rationale |
+|----------|---------|-----------|
+| 10 | `WAIT` | no-op scheduling before contested mutations |
+| 20 | `MOVE` | position and capacity establish the cycle's spatial state |
+| 30 | `LOOK`, `INSPECT`, `QUERY` | local sensing after movement contention resolves |
+| 40 | `MESSAGE`, `ASK` | communication observes the resolved addressability state |
+| 50 | `TRADE` | consented exchange after parties and messages are resolved |
+| 60 | `COMMIT.ORG_CREATE`, `COMMIT.ORG_MEMBER_ADD`, `COMMIT.ORG_MEMBER_REMOVE` | institutional mutations after exchange intent |
+| 70 | `COMMIT.HARVEST`, `COMMIT.REPAIR` | resource and infrastructure changes last to make contention explicit |
 
 ---
 
@@ -38,7 +52,7 @@ Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.sc
 | visibility | self observation only |
 | observation_result | room projection |
 | idempotency | key required; replay returns same observation_id binding |
-| ordering | scheduler order |
+| ordering | scheduler order key `(action_priority, agent_id, client_action_sequence, action_id)` |
 | failure_codes | `BUDGET_EXCEEDED`, `FORBIDDEN` |
 | spectator_projection | none (private observe) or public room activity pulse if policy allows |
 | replay_behavior | same digests |
@@ -74,7 +88,7 @@ Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.sc
 | inputs | `recipient_id`, `text` (max `NOEMA_MAX_ACTION_PAYLOAD_BYTES`) |
 | preconditions | sender ACTIVE; recipient addressable same world; compute ≥ 1 |
 | resource_cost | compute 1; if local relay condition &lt; 25, additional compute 1 |
-| events_on_success | `MESSAGE` (QUEUED), later `MESSAGE_DELIVERED` |
+| events_on_success | `MESSAGE` (QUEUED), then same-cycle `MESSAGE_DELIVERED` before observation projection when recipient active |
 | events_on_failure | `BUDGET_EXCEEDED` / FORBIDDEN |
 | visibility | parties only for text |
 | spectator_projection | `message_notice` without text |

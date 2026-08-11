@@ -33,6 +33,7 @@ All messages use JSON envelopes:
       "agent_id": "agent.nacre",
       "world_id": "world-01",
       "cycle": 18442,
+      "client_action_sequence": 7,
       "verb": "INSPECT",
       "target": "entity.relay-7",
       "parameters": {},
@@ -52,6 +53,7 @@ All messages use JSON envelopes:
 - `cycle`: current or requested world cycle when applicable.
 - `schema_version`: payload schema version.
 - `idempotency_key`: required for mutating requests (`ACT`, `MESSAGE`, `TOOL`, `REGISTER`, `ENTER_WORLD`).
+- `client_action_sequence`: required inside mutating Agent Action bodies; monotonically increasing within `(world_id, agent_id, session_epoch)`.
 - `body`: message-specific payload.
 - `error`: required when `type` is `ERROR`.
 
@@ -84,10 +86,12 @@ Standard v0.1 codes include:
 | `BUDGET_EXCEEDED` | Action denied for resources (world may also ledger `BUDGET_EXCEEDED`) |
 | `CONFLICT` | Idempotency conflict |
 | `INVALID_SCHEMA` | Envelope or payload schema failure |
+| `RESUME_POSITION_EXPIRED` | Requested delivery position is outside the retained redelivery window |
+| `RESUME_POSITION_INVALID` | Requested delivery position is non-contiguous or not scoped to the authenticated world/principal/session epoch |
 
 ## Idempotency
 
-Mutating `ACT`, `MESSAGE`, `TOOL`, `REGISTER`, and `ENTER_WORLD` requests require idempotency keys. Replayed duplicates MUST return the original accepted response or a deterministic conflict and MUST NOT consume budgets twice or append a second world event for the same logical action.
+Mutating `ACT`, `MESSAGE`, `TOOL`, `REGISTER`, and `ENTER_WORLD` requests require idempotency keys. Mutating Agent Actions also require `client_action_sequence`. Replayed duplicates MUST return the original accepted response or a deterministic conflict and MUST NOT consume budgets twice or append a second world event for the same logical action. Duplicate or stale client action sequences fail deterministically unless the request is an idempotent replay of the original action.
 
 Fixture: [`examples/protocol/act-look-idempotent.json`](../examples/protocol/act-look-idempotent.json).
 
@@ -100,15 +104,19 @@ Accepted agent verbs map into the closed [Event Catalog](../docs/EVENT-CATALOG.m
 | LOOK | `LOOK` then `OBSERVATION_GENERATED` (optional `NOISE_APPLIED`) |
 | INSPECT | `INSPECT` then observation events |
 | MOVE | `MOVE` or `MOVE_REJECTED` |
-| MESSAGE | `MESSAGE` then `MESSAGE_DELIVERED` |
+| MESSAGE | `MESSAGE` then same-cycle `MESSAGE_DELIVERED` before observation projection when recipient active |
 | WAIT | `WAIT` |
 | TRADE | `TRADE_PROPOSED` / `TRADE_ACCEPTED` / `TRADE_REJECTED` / `RESOURCE_TRANSFER` |
 
 There is no free-form `ACTION_RESULT` world event type in v0.1. Action outcomes are either rejection errors on the wire, catalog rejection events (`MOVE_REJECTED`, `BUDGET_EXCEEDED`, …), or observation content with `observation_type: ACTION_RESULT`.
 
-## Delivery, reconnect, and resume
+## Delivery, acknowledgements, reconnect, and resume
 
-Clients MAY disconnect without rolling back world state. Resume uses `AUTH` with a resume token and last-acked sequence/observation ids. The server MAY redeliver undelivered observations; it MUST NOT rewrite the event ledger or reuse sequences.
+Clients MAY disconnect without rolling back world state. Protocol acknowledgements are cumulative per logical delivery stream. An acknowledgement identifies the highest contiguous delivered position accepted by the client for that stream, such as an observation delivery stream or message delivery stream. Acks update delivery bookkeeping only; they MUST NOT mutate WorldState, advance world revision, append World Events, charge budgets, or change research eligibility.
+
+Resume uses `AUTH` with a resume token and per-stream acknowledged positions. Resume tokens are scoped to the world, principal or agent, stream, and session epoch, and MUST expire. A resume token proves delivery continuity only and MUST NOT authorize mutation without the normal authenticated capability and idempotency checks.
+
+Servers MUST retain a bounded redelivery window per stream. Within the window, the server MAY redeliver from the last acknowledged contiguous position and clients MUST deduplicate by `observation_id` plus delivery id or stream position. If the requested position is older than the retained window, missing, from another world/principal/session epoch, or non-contiguous, the server MUST return a stable resynchronization error and MUST NOT create compensating world events. Redelivery never re-reduces actions or consumes budgets.
 
 Fixture: [`examples/protocol/reconnect-resume.json`](../examples/protocol/reconnect-resume.json).
 

@@ -14,6 +14,8 @@ Machine-readable ID rules: [`specs/id-rules.v01.json`](../specs/id-rules.v01.jso
 
 ## ID and lineage rules
 
+Machine-readable ID rules in [`specs/id-rules.v01.json`](../specs/id-rules.v01.json) are the authority for typed ID patterns. Schema-bound documents MUST use the field-specific typed pattern, such as `agent_id`, `room_id`, `event_id`, or `snapshot_id`, instead of a generic identifier pattern when the semantic type is known. Legacy `world-[0-9]+` world IDs remain valid only where the ID rules explicitly allow them.
+
 ### ID properties
 
 IDs MUST be:
@@ -47,6 +49,14 @@ IDs MUST be:
 | `transfer_id` | `^xfer\.[A-Za-z0-9_.-]+$` | `xfer.v01.001` |
 
 Legacy fixture IDs that already use these forms remain valid. New IDs SHOULD follow the table.
+
+## Canonical serialization, numeric values, timestamps, and bytes
+
+Replay-critical JSON artifacts use `noema-cjson-jcs-digest/v1`, defined in [Replay](REPLAY.md). State, seed, snapshot, action, event, observation, trajectory, and reproducibility artifacts that contribute to replay identity MUST be valid I-JSON and MUST be canonicalized with RFC 8785 JCS before JSON digests are computed.
+
+Replay-critical quantities are JSON integers in a declared fixed-point scale. The scale is declared by the resource type, currency, world version, or deterministic configuration field and MUST NOT be inferred from a decimal literal. Resource balances, budgets, stock, capacity, costs, reservations, cycle counters, sequence counters, and revision counters are replay-critical. Non-replay-critical research metadata such as confidence values MAY use JSON numbers only when they remain valid I-JSON and do not affect world truth or replay equivalence.
+
+Timestamps are RFC3339 UTC strings with trailing `Z`. They record provenance or declared external inputs. They MUST NOT be used as hidden reducer inputs. Binary payload digests are over raw bytes, not over incidental text encodings, unless the text encoding is itself the declared artifact.
 
 ### Causal lineage fields
 
@@ -105,7 +115,7 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 | ID | `world_id` / `world_version` |
 | immutable | `world_id`, seed digest at genesis |
 | mutable | `cycle`, `status`, live indexes |
-| required | id, version, seed, catalog_version, budget_defaults |
+| required | id, version, seed, catalog_version, state_revision, canonicalization_version, hash_algorithm, budget_defaults |
 | lifecycle | ACTIVE / PAUSED / INCIDENT / ARCHIVED |
 | uniqueness | (`world_id`,`world_version`) lineage |
 | tombstone | ARCHIVED; no ID reuse |
@@ -183,10 +193,10 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 | Aspect | Spec |
 |--------|------|
 | ID | `event_id` |
-| required | envelope fields + digest chain |
+| required | envelope fields + digest chain + catalog-specific payload binding |
 | immutable | append-only |
-| catalog | closed 24 types |
-| schema | world-event.schema.json + event-types.json |
+| catalog | closed 24 types for `event-catalog/0.1`, 31 types for `event-catalog/0.2` |
+| schema | generic envelope `world-event.schema.json` plus composed admission schema `event-catalog-0.1.schema.json` or `event-catalog-0.2.schema.json` |
 
 ### Observation
 
@@ -210,7 +220,7 @@ For each: ID format, immutable/mutable fields, required/optional, ownership, vis
 
 | Entity | Spec |
 |--------|------|
-| Snapshot | snapshot_id; world_state digest; cycle; lineage |
+| Snapshot | snapshot_id, world_state digest, cycle, sequence, world_version, catalog_version, state_revision, canonicalization_version, hash_algorithm, lineage |
 | Trajectory | ordered events + observations + versions |
 | RuntimeManifest | runtime-manifest.schema.json |
 

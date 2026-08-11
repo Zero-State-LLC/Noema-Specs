@@ -9,7 +9,24 @@
   "body": {
     "method": "resume_token",
     "resume_token_ref": "token.example-not-secret",
-    "last_acked_sequence": 12,
-    "last_acked_observation_id": "obs.look-1"
+    "session_epoch": "sess.001",
+    "acknowledgements": [
+      {
+        "stream_id": "obs.agent.nacre.world-01",
+        "stream_kind": "observation",
+        "last_acked_position": 12,
+        "last_acked_observation_id": "obs.look-1"
+      },
+      {
+        "stream_id": "msg.agent.nacre.world-01",
+        "stream_kind": "message",
+        "last_acked_position": 4
+      }
+    ],
+    "redelivery_window": {
+      "mode": "bounded",
+      "requested_from": "last_acked_contiguous",
+      "on_expired": "RESUME_POSITION_EXPIRED"
+    }
   }
 }

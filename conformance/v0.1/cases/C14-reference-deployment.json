@@ -3,14 +3,17 @@
   "case_id": "v01-C14-reference-deployment",
   "suite": "noema-v0.1-chamber",
   "title": "Reference Docker Compose modular monolith exposes health surfaces without optional infra",
-  "acceptance_items": [14],
+  "acceptance_items": [
+    14
+  ],
   "requirement_refs": [
     "docs/DEPLOYMENT.md",
     "docs/QUICKSTART.md",
     "docs/OPERATIONS.md",
     "specs/deployment-config.schema.json",
     "examples/deployment/local-deployment-config.json",
-    "examples/deployment/docker-compose.reference.yml"
+    "examples/deployment/docker-compose.reference.yml",
+    "docs/MODULE-CONTRACTS.md"
   ],
   "preconditions": [
     "Runtime implements docker compose golden path",
@@ -27,26 +30,34 @@
       "step_id": "1",
       "actor": "operator",
       "action": "COMPOSE_UP",
-      "input": { "command": "docker compose up" },
-      "notes": "clone → configure → docker compose up"
+      "input": {
+        "command": "docker compose up"
+      },
+      "notes": "clone \u2192 configure \u2192 docker compose up"
     },
     {
       "step_id": "2",
       "actor": "operator",
       "action": "HTTP_GET",
-      "input": { "path": "/health" }
+      "input": {
+        "path": "/health"
+      }
     },
     {
       "step_id": "3",
       "actor": "operator",
       "action": "HTTP_GET",
-      "input": { "path": "/ready" }
+      "input": {
+        "path": "/ready"
+      }
     },
     {
       "step_id": "4",
       "actor": "operator",
       "action": "HTTP_GET",
-      "input": { "path": "/version" }
+      "input": {
+        "path": "/version"
+      }
     },
     {
       "step_id": "5",
@@ -92,7 +103,9 @@
       "Filesystem-backed object storage adapter is acceptable for local mode",
       "Redis, Sentry, external OTEL collector, external object storage, and provider keys are not required",
       "Resolved deployment config validates against deployment-config.schema.json",
-      "Resolved config document rejects secret fields (additionalProperties false)"
+      "Resolved config document rejects secret fields (additionalProperties false)",
+      "Exactly one active fenced canonical writer exists for the Chamber world",
+      "Canonical cycle commits use PostgreSQL SERIALIZABLE semantics with expected revision and unique sequence constraints"
     ]
   },
   "security_class": "none"

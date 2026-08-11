@@ -259,5 +259,32 @@
       "catalog_min": "event-catalog/0.2"
     }
   ],
-  "catalog_version": "event-catalog/0.2"
+  "catalog_version": "event-catalog/0.2",
+  "ordering": {
+    "canonical_order_key": [
+      "action_priority",
+      "agent_id",
+      "client_action_sequence",
+      "action_id"
+    ],
+    "client_action_sequence": "required monotonic integer scoped to (world_id, agent_id, session_epoch)",
+    "network_jitter": "MUST NOT affect canonical resolution",
+    "action_priority_source": "versioned world rules, never client supplied"
+  },
+  "action_priorities": {
+    "WAIT": 10,
+    "MOVE": 20,
+    "LOOK": 30,
+    "INSPECT": 30,
+    "QUERY": 30,
+    "MESSAGE": 40,
+    "ASK": 40,
+    "TRADE": 50,
+    "COMMIT.ORG_CREATE": 60,
+    "COMMIT.ORG_MEMBER_ADD": 60,
+    "COMMIT.ORG_MEMBER_REMOVE": 60,
+    "COMMIT.HARVEST": 70,
+    "COMMIT.REPAIR": 70
+  },
+  "message_delivery": "MESSAGE_DELIVERED is emitted in the same atomic cycle event batch before post-cycle observation projection when recipient active."
 }
