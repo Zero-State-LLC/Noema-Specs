@@ -39,3 +39,7 @@ Canonical observation rules remain in [OBSERVATION.md](OBSERVATION.md). Spectato
 ## Conformance
 
 See **C13** in [v0.1 Conformance](v0.1-CONFORMANCE.md).
+
+## Product entry model
+
+NOEMA’s first choices are **PLAY**, **WATCH**, and **STUDY**. WATCH enters this spectator path. STUDY research detail remains separately authorized; public WATCH never receives it. See [WATCH.md](WATCH.md).

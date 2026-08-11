@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-plan.schema.json",
+  "title": "NOEMA experiment-plan (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "plan_id",
+    "experiment_id",
+    "nodes",
+    "analysis",
+    "max_concurrent_runs",
+    "plan_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-plan/0.4"
+    },
+    "plan_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "node_id",
+          "node_type",
+          "run_id",
+          "order",
+          "depends_on"
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "node_type": {
+            "enum": [
+              "BASELINE",
+              "CONTROL",
+              "INTERVENTION",
+              "REPLICATION",
+              "GENERALIZATION",
+              "ANALYSIS"
+            ]
+          },
+          "run_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "run_role": {
+            "enum": [
+              "BASELINE",
+              "POSITIVE_CONTROL",
+              "NEGATIVE_CONTROL",
+              "SHAM_CONTROL",
+              "REPLICATION_CONTROL",
+              "INTERVENTION",
+              "REPLICATION",
+              "GENERALIZATION"
+            ]
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          "retry_of": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          }
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "max_concurrent_runs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "unexecuted_node_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "plan_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

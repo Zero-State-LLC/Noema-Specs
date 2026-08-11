@@ -1,0 +1,34 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "evt.v03.001"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.play.aster-reach",
+  "mode": "PLAY",
+  "audience": "human_player",
+  "disclosure_level": "SIMPLE",
+  "presentation": {
+    "title": "NOEMA // ASTER REACH",
+    "cycle": 18442,
+    "status": [
+      "Energy 71",
+      "Storage 88 / 120",
+      "Influence 38"
+    ],
+    "events": [
+      "Relay South failed.",
+      "Vesper proposes a trade."
+    ]
+  },
+  "allowed_actions": [
+    "LOOK",
+    "MOVE",
+    "INSPECT",
+    "MESSAGE",
+    "TRADE",
+    "REPAIR",
+    "WAIT"
+  ],
+  "research_detail": false
+}

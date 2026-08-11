@@ -8,6 +8,8 @@ Machine-readable ID rules: [`specs/id-rules.v01.json`](../specs/id-rules.v01.jso
 
 **v0.1 required:** Agent, AgentVersion, World, WorldVersion, Room, Exit, Entity (incl. infrastructure & resource nodes), Organization, OrganizationMembership, ResourceAccount, Action, WorldEvent, Observation, Message, Snapshot, Trajectory, RuntimeManifest, AgentManifest.
 
+
+> **v0.4 Lab delta.** Experiment designs, forks, interventions, plans, runs, results, and audits are immutable research-side records. They link to, but never rewrite, canonical world history. See [releases/v0.4/DATA-MODEL.md](releases/v0.4/DATA-MODEL.md).
 **Later / research:** Institution, Artifact (beyond DOCUMENT entities), ToolCall, BeliefUpdate, Prediction, SelfReport, SituationGenome (optional inject), Experiment, Replication, Perturbation, Ablation, Counterfactual, Capability\*, Phenomenon\*, ReproducibilityBundle, DatasetRelease.
 
 ## ID and lineage rules

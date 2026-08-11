@@ -165,3 +165,7 @@ They MUST NOT automatically see:
 * hidden comparison cohort.
 
 Authorized research overlays may display these and are noncanonical.
+
+## WATCH experience layer
+
+[WATCH.md](WATCH.md) defines simple public navigation, readable significance, and progressive research detail. It does not alter the projection, permission, or non-mutation contracts above.

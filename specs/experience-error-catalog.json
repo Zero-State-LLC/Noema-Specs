@@ -1,0 +1,126 @@
+{
+  "schema_version": "experience-error-catalog/1.0",
+  "catalog_version": "experience-error-catalog/1.1.0",
+  "errors": [
+    {
+      "reason_code": "CONTROL_REQUIRED",
+      "simple_message": "This test needs a control run before the result can be interpreted.",
+      "advanced_message": "CONTROL_REQUIRED: add and complete the required control run.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "NOT_COMPARABLE",
+      "simple_message": "These runs differ in too many important conditions to compare reliably.",
+      "advanced_message": "NOT_COMPARABLE: inspect the equivalence boundary and recorded confounds.",
+      "preserves_outcome": "NOT_COMPARABLE"
+    },
+    {
+      "reason_code": "NOT_COMPUTABLE",
+      "simple_message": "NOEMA cannot determine this with the available authorized evidence.",
+      "advanced_message": "NOT_COMPUTABLE: required authorized input or adapter capability is unavailable.",
+      "preserves_outcome": "NOT_COMPUTABLE"
+    },
+    {
+      "reason_code": "UNAUTHORIZED_RESEARCH_DETAIL",
+      "simple_message": "You do not have permission to view this research detail.",
+      "advanced_message": "UNAUTHORIZED_RESEARCH_DETAIL: research partition access denied.",
+      "preserves_outcome": "DENY"
+    },
+    {
+      "reason_code": "LESION_UNSUPPORTED",
+      "simple_message": "This agent does not declare a safe module-disable interface.",
+      "advanced_message": "LESION_UNSUPPORTED: retain a NOT_COMPUTABLE lesion request.",
+      "preserves_outcome": "NOT_COMPUTABLE"
+    },
+    {
+      "reason_code": "BUDGET_EXHAUSTED",
+      "simple_message": "This test reached its declared budget. Completed evidence is preserved.",
+      "advanced_message": "BUDGET_EXHAUSTED: execution is PARTIAL; inspect unexecuted plan nodes.",
+      "preserves_outcome": "PARTIAL"
+    },
+    {
+      "reason_code": "INVALID_INTENT",
+      "simple_message": "This test request is incomplete or not available in this study.",
+      "advanced_message": "INVALID_INTENT: select a versioned supported intent.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "INVALID_EXPERIMENT",
+      "simple_message": "This test design is incomplete and cannot run.",
+      "advanced_message": "INVALID_EXPERIMENT: inspect the missing machine requirement.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "INVALID_FORK",
+      "simple_message": "This test cannot start from the selected point in history.",
+      "advanced_message": "INVALID_FORK: choose a reproducible fork boundary.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "UNRESOLVED_SOURCE",
+      "simple_message": "The recorded behavior does not have enough source evidence to test.",
+      "advanced_message": "UNRESOLVED_SOURCE: candidate or trajectory version cannot be resolved.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "INVALID_INTERVENTION",
+      "simple_message": "This requested change is not a declared safe test action.",
+      "advanced_message": "INVALID_INTERVENTION: use a versioned intervention contract.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "UNREGISTERED_VARIABLE",
+      "simple_message": "This test condition is not registered for reliable measurement.",
+      "advanced_message": "UNREGISTERED_VARIABLE: declare a registered variable.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "CONTROL_FAILED",
+      "simple_message": "A required control failed, so this result cannot support the requested conclusion.",
+      "advanced_message": "CONTROL_FAILED: result validity is downgraded or invalid.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "UNSUPPORTED_LESION",
+      "simple_message": "This agent does not declare a safe module-disable interface.",
+      "advanced_message": "UNSUPPORTED_LESION: retain a NOT_COMPUTABLE lesion request.",
+      "preserves_outcome": "NOT_COMPUTABLE"
+    },
+    {
+      "reason_code": "SEED_DIVERGENCE",
+      "simple_message": "Randomness diverged after the changed condition, so seed equivalence no longer holds.",
+      "advanced_message": "SEED_DIVERGENCE: record divergence point and downgrade comparison.",
+      "preserves_outcome": "NOT_COMPARABLE"
+    },
+    {
+      "reason_code": "WORLD_STATE_DRIFT",
+      "simple_message": "The world changed outside the declared test boundary.",
+      "advanced_message": "WORLD_STATE_DRIFT: retain a confound or mark runs NOT_COMPARABLE.",
+      "preserves_outcome": "NOT_COMPARABLE"
+    },
+    {
+      "reason_code": "AGENT_VERSION_DRIFT",
+      "simple_message": "The compared agent version changed outside the declared comparison.",
+      "advanced_message": "AGENT_VERSION_DRIFT: retain a confound or mark runs NOT_COMPARABLE.",
+      "preserves_outcome": "NOT_COMPARABLE"
+    },
+    {
+      "reason_code": "AUTHORIZATION_DENIED",
+      "simple_message": "You are not authorized to run this intervention.",
+      "advanced_message": "AUTHORIZATION_DENIED: required authorization class is absent.",
+      "preserves_outcome": "DENY"
+    },
+    {
+      "reason_code": "CONSENT_DENIED",
+      "simple_message": "Consent does not permit this research action.",
+      "advanced_message": "CONSENT_DENIED: do not execute or expose restricted evidence.",
+      "preserves_outcome": "DENY"
+    },
+    {
+      "reason_code": "SOURCE_WORLD_MUTATION_FORBIDDEN",
+      "simple_message": "Tests cannot change the live world.",
+      "advanced_message": "SOURCE_WORLD_MUTATION_FORBIDDEN: create an isolated experimental fork.",
+      "preserves_outcome": "INVALID"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L18-03",
+  "suite": "noema-v0.4-lab",
+  "title": "Nondeterministic Agent Handling: atomic contract 3",
+  "acceptance_items": [
+    18
+  ],
+  "family_id": "L18",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#18"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-result.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_contract",
+      "input": {
+        "family": "L18",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L18 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

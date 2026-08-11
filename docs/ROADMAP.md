@@ -4,7 +4,7 @@
 
 Persistent strategic ecology (2–10 agents): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
 
-**Onboarding and deployment (in-scope):** PLAY / CONNECT AGENT / WATCH; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
+**Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT AGENT inside PLAY; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
@@ -30,7 +30,11 @@ Prerequisite: v0.1 C01–C26 and v0.2 F01–F15 green. Observatory does not muta
 
 ## v0.4 — The Lab
 
-Deterministic replay harness, perturbation, mutation, ablation, lesion studies, counterfactuals, and replication runner.
+Deterministic replay harness, experimental forks, perturbation, ablation, lesion studies (adapter-declared), counterfactuals, controls, replication, and lab-result handoff to Compiler.
+
+**Executable package:** [docs/releases/v0.4/](releases/v0.4/) · [EXPERIMENT-LAB.md](EXPERIMENT-LAB.md) · [examples/v04-lab/](../examples/v04-lab/) · [conformance/v0.4/](../conformance/v0.4/) (**L01–L34**, 146 atomic cases).
+
+Prerequisite: C01–C26, F01–F15, O01–O16 green. Lab does **not** mutate production worlds; does not emit `PROVEN`. STUDY intents compile by versioned rules into the same isolated Lab plan, and simple results preserve Lab limits and capture readiness.
 
 ## v0.5 — The Compiler
 
@@ -55,3 +59,7 @@ Reproducibility bundles, dataset release tooling, public/private partitions, cro
 ## v1.0 — NOEMA
 
 Acceptance: a third party can connect an arbitrary compatible agent, allow it to inhabit NOEMA, discover a candidate capability, reproduce the event, test its generalization and dependencies, and export the evidence as a versioned Reproducibility Bundle.
+
+## Cross-cutting experience requirement
+
+Every future milestone MUST provide a simple user-facing workflow, an advanced technical workflow, and a versioned machine contract. Product navigation uses PLAY / WATCH / STUDY and the explanatory sequence PLAY → NOTICE → TEST → CAPTURE → LEARN. This presentation layer cannot weaken determinism, research isolation, claims discipline, partial observability, agent parity, or conformance.

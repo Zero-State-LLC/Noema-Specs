@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-run.schema.json",
+  "title": "NOEMA experiment-run (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "experiment_id",
+    "run_role",
+    "fork",
+    "agent_version",
+    "agent_determinism",
+    "interventions",
+    "seed_policy",
+    "config_digest",
+    "start_state_digest",
+    "end_state_digest",
+    "trajectory_id",
+    "status",
+    "divergence_markers",
+    "metric_outputs",
+    "confounds",
+    "audit_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-run/0.4"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "run_role": {
+      "enum": [
+        "BASELINE",
+        "POSITIVE_CONTROL",
+        "NEGATIVE_CONTROL",
+        "SHAM_CONTROL",
+        "REPLICATION_CONTROL",
+        "INTERVENTION",
+        "REPLICATION",
+        "GENERALIZATION"
+      ]
+    },
+    "world_fork_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "fork": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "agent_version": {
+      "type": "string"
+    },
+    "agent_determinism": {
+      "enum": [
+        "DETERMINISTIC",
+        "SEED_CONTROLLED",
+        "NONDETERMINISTIC",
+        "UNKNOWN"
+      ]
+    },
+    "intervention_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "interventions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "control_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "control_role": {},
+    "seed_policy": {
+      "enum": [
+        "SAME_SEED",
+        "DERIVED_SEED",
+        "INDEPENDENT_SEED"
+      ]
+    },
+    "seed": {
+      "type": "string"
+    },
+    "config_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "start_state_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "end_state_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "trajectory_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "VALIDATED",
+        "READY",
+        "RUNNING",
+        "COMPLETE",
+        "INVALID",
+        "ABORTED",
+        "PARTIAL",
+        "NOT_COMPUTABLE",
+        "QUARANTINED"
+      ]
+    },
+    "divergence_markers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "metric_outputs": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outcome_class": {
+      "enum": [
+        "PERSISTED",
+        "DEGRADED",
+        "DISAPPEARED",
+        "CHANGED_FORM",
+        "NOT_COMPARABLE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "confounds": {
+      "type": "array",
+      "items": {}
+    },
+    "audit_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

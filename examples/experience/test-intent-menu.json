@@ -1,0 +1,32 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "UNKNOWN_BEHAVIOR_shared-ledger-protocol"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.intent-menu",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "SIMPLE",
+  "presentation": {
+    "title": "What do you want to know?",
+    "intent_ids": [
+      "REPEAT_BEHAVIOR",
+      "REMOVE_DEPENDENCY",
+      "CHANGE_CONDITION",
+      "COMPARE_VERSION",
+      "TEST_GENERALIZATION",
+      "CUSTOM"
+    ]
+  },
+  "allowed_actions": [
+    "REPEAT_BEHAVIOR",
+    "REMOVE_DEPENDENCY",
+    "CHANGE_CONDITION",
+    "COMPARE_VERSION",
+    "TEST_GENERALIZATION",
+    "CUSTOM_EXPERIMENT",
+    "CUSTOM"
+  ],
+  "research_detail": true
+}

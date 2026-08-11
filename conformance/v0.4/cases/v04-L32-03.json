@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L32-03",
+  "suite": "noema-v0.4-lab",
+  "title": "Compiler Readiness: atomic contract 3",
+  "acceptance_items": [
+    32
+  ],
+  "family_id": "L32",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#32"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-result.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L32",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L32 READY, NOT_READY, and REJECTED retain bounded handoff semantics"
+    ]
+  },
+  "security_class": "none"
+}

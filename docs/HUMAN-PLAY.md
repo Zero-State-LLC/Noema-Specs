@@ -31,3 +31,7 @@ open NOEMA → PLAY → enter Chamber
 ```
 
 See [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) for CONNECT AGENT / WATCH.
+
+## Product choice
+
+The first human-facing choice is **PLAY**, **WATCH**, or **STUDY**. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. See [Experience](EXPERIENCE.md).

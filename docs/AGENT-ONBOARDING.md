@@ -108,3 +108,7 @@ PLAY (human in world) and WATCH (spectator) are separate entry modes; see [QUICK
 ## Conformance
 
 **C12** in [v0.1 Conformance](v0.1-CONFORMANCE.md) covers minimal acceptance, protocol rejection, token rejection, idempotent register, first OBSERVE/ACT, and no provider-key / private-prompt requirement.
+
+## Product-language boundary
+
+CONNECT AGENT is the setup route inside PLAY, not a competing research architecture entry. Product navigation remains PLAY / WATCH / STUDY; compatible agents receive PLAY-equivalent world affordances and no research objective metadata.

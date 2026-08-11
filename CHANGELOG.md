@@ -4,12 +4,19 @@
 
 ### Added
 
+- **Specification workflows:** root `SKILLS.md` provides deterministic, non-authoritative procedures for orientation, spec/RFC/milestone work, schemas, fixtures, conformance, determinism, drift, experience, game/research contracts, migration/versioning, validation, continuation, review, prompts, and runtime handoff.
+- **v0.4 Lab executable package:** `docs/releases/v0.4/*`, experiment/intervention/plan/run/fork/lab-result/audit schemas, perturbation + ablation catalogs, variable registry, full Lab docs (identity, lifecycle, design, controls, fork, counterfactual, outcomes, replication, isolation, audit, lesions, determinism), fixtures `examples/v04-lab/`, conformance **L01–L16**.
+- Validator Lab gate: schema fixtures, production isolation negatives, null results retained.
+- **Experience-integrated Lab contracts:** versioned `ExperimentIntent`, deterministic intent compilation rules, intent provenance on experiments/results, simple-result projection schema, CAPTURE readiness gate, stable plain-language reason codes, and L23–L34 conformance coverage.
 - **RFC-0003 Accepted and implemented** — deterministic contract hardening for independent implementations.
 - Catalog-specific ledger-admission schemas for `event-catalog/0.1` and `event-catalog/0.2`, with positive and negative fixtures.
 - Machine validation gate for canonical action ordering, delivery visibility, exact quantities, typed action IDs, state lineage, writer fencing, recovery, and signed evidence profiles.
 
 ### Changed
 
+- ROADMAP/README/VERSIONING/SPEC-CHECKLIST/EXPERIMENT-LAB for executable Lab scope.
+- Expanded v0.4 Lab into a machine-checkable experimental contract: immutable identity, isolated forks, explicit intervention/control/replication rules, audit chain, catalogs, fixtures, and L01–L22 conformance.
+- Added the PLAY / WATCH / STUDY experience layer, progressive disclosure contracts, deterministic experiment-intent templates, error translations, and audience fixtures.
 - Canonical same-cycle order is `(action_priority, agent_id, client_action_sequence, action_id)`; network arrival order is noncanonical.
 - `MESSAGE_DELIVERED` commits before post-cycle observation projection.
 - Replay canonicalization is pinned to `noema-jcs/1` (RFC 8785 JCS over I-JSON with integer fixed-point quantities).

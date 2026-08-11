@@ -14,6 +14,7 @@ REQUIRED_ROOT = [
     "README.md",
     "CONTEXT.md",
     "AGENTS.md",
+    "SKILLS.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
     "CHANGELOG.md",
@@ -40,6 +41,13 @@ REQUIRED_DOCS = [
     "docs/OBSERVABILITY.md",
     "docs/VERSIONING.md",
     "docs/ROADMAP.md",
+    "docs/EXPERIENCE.md",
+    "docs/PLAY.md",
+    "docs/WATCH.md",
+    "docs/STUDY.md",
+    "docs/RESEARCH-WORKFLOW.md",
+    "docs/EXPERIENCE-TERMINOLOGY.md",
+    "docs/EXPERIENCE-ERRORS.md",
     "docs/RESEARCH-METHOD.md",
     "docs/METRICS.md",
     "docs/REPRODUCIBILITY.md",
@@ -126,6 +134,33 @@ REQUIRED_DOCS = [
     "docs/releases/v0.2/STRATEGIC-CONFLICT-ACCEPTANCE.md",
     "docs/releases/v0.2/STRATEGIC-CONFLICT-CONFORMANCE.md",
     "docs/releases/v0.2/STRATEGIC-CONFLICT-MIGRATION.md",
+    "docs/releases/v0.4/SCOPE.md",
+    "docs/releases/v0.4/ARCHITECTURE.md",
+    "docs/releases/v0.4/DATA-MODEL.md",
+    "docs/releases/v0.4/ACCEPTANCE.md",
+    "docs/releases/v0.4/CONFORMANCE.md",
+    "docs/releases/v0.4/MIGRATION.md",
+    "docs/releases/v0.4/EXAMPLES.md",
+    "docs/releases/v0.4/NON-GOALS.md",
+    "docs/EXPERIMENT-LAB.md",
+    "docs/EXPERIMENT-INTENT-COMPILATION.md",
+    "docs/SIMPLE-RESULT-PROJECTION.md",
+    "docs/EXPERIMENT-IDENTITY.md",
+    "docs/EXPERIMENT-LIFECYCLE.md",
+    "docs/EXPERIMENT-DESIGN.md",
+    "docs/INTERVENTIONS.md",
+    "docs/EXPERIMENT-VARIABLES.md",
+    "docs/EXPERIMENT-FORK.md",
+    "docs/COUNTERFACTUAL-REPLAY.md",
+    "docs/EXPERIMENT-CONTROLS.md",
+    "docs/EXPERIMENT-OUTCOMES.md",
+    "docs/REPLICATION.md",
+    "docs/GENERALIZATION-PROBES.md",
+    "docs/CONFOUNDS.md",
+    "docs/EXPERIMENT-ISOLATION.md",
+    "docs/LAB-AUDIT.md",
+    "docs/AGENT-DETERMINISM.md",
+    "docs/LESION-STUDIES.md",
 ]
 
 REQUIRED_PROTOCOLS = [
@@ -149,6 +184,18 @@ REQUIRED_SCHEMAS = [
     "specs/contest-config.schema.json",
     "specs/contest-config.v02.json",
     "specs/action-contracts.v02.json",
+    "specs/experiment.schema.json",
+    "specs/experiment-intent.schema.json",
+    "specs/intervention.schema.json",
+    "specs/experiment-plan.schema.json",
+    "specs/experiment-run.schema.json",
+    "specs/experiment-fork.schema.json",
+    "specs/lab-result.schema.json",
+    "specs/simple-result-projection.schema.json",
+    "specs/lab-audit-record.schema.json",
+    "specs/perturbation-catalog.v04.json",
+    "specs/ablation-catalog.v04.json",
+    "specs/experiment-variable-registry.v04.json",
     "specs/observation.schema.json",
     "specs/phenomenon-case.schema.json",
     "specs/reproducibility-bundle.schema.json",
@@ -262,6 +309,10 @@ REQUIRED_EXAMPLES = [
     "examples/v02-strategic-conflict/world-seed.json",
     "examples/v02-strategic-conflict/resolution-example.json",
     "conformance/v0.2-strategic/manifest.json",
+    "examples/v04-lab/experiment.json",
+    "examples/v04-lab/experiment-fork.json",
+    "examples/v04-lab/lab-result.json",
+    "conformance/v0.4/manifest.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -596,6 +647,12 @@ def check_negatives(Draft202012Validator) -> None:
         elif name.startswith("invalid-anomaly"):
             an_schema = load_json(ROOT / "specs" / "anomaly-candidate.schema.json")
             rejected = bool(list(Draft202012Validator(an_schema).iter_errors(data)))
+        elif name.startswith("invalid-lab-mutates"):
+            fork_schema = load_json(ROOT / "specs" / "experiment-fork.schema.json")
+            rejected = bool(list(Draft202012Validator(fork_schema).iter_errors(data)))
+        elif name.startswith("invalid-lab-result"):
+            lr_schema = load_json(ROOT / "specs" / "lab-result.schema.json")
+            rejected = bool(list(Draft202012Validator(lr_schema).iter_errors(data)))
         elif name == "invalid-budget-exceeded-not-exceeding.json":
             # Semantic reducer rule: requested must be > available.
             payload = data.get("payload") or {}
@@ -745,6 +802,14 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "specs/world-seed.schema.json",
             "examples/chamber-world/world-seed.json",
         ),
+        ("specs/experiment.schema.json", "examples/v04-lab/experiment.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
+        ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-version-differential.json"),
+        ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
+        ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
     ]
 
     spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
@@ -870,6 +935,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
     if missing_o:
         fail(f"conformance v0.3 missing families: {missing_o}")
     ok(f"Conformance suite v0.3: {len(cases3)} cases, families O01–O16 covered")
+
+    # v0.4 Lab suite
+    m4 = load_json(ROOT / "conformance" / "v0.4" / "manifest.json")
+    cases4 = m4.get("cases") or []
+    if len(cases4) < 100:
+        fail(f"conformance v0.4 suite must list ≥100 cases, found {len(cases4)}")
+    fams4: set[str] = set()
+    for rel in cases4:
+        path = ROOT / "conformance" / "v0.4" / rel
+        if not path.exists():
+            fail(f"conformance v0.4 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.4 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams4.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.4 case {rel} missing fixture {fixture}")
+    expected_l = {f"L{i:02d}" for i in range(1, 35)}
+    missing_l = sorted(expected_l - fams4)
+    if missing_l:
+        fail(f"conformance v0.4 missing families: {missing_l}")
+    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L34 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1196,6 +1288,307 @@ def check_architecture_hardening() -> None:
 
 
 
+
+def check_lab_v04(Draft202012Validator) -> None:
+    """Validate v0.4 Lab schemas, fixtures, isolation, null results."""
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+    pairs = [
+        ("specs/experiment-intent.schema.json", "examples/v04-lab/experiment-intent.json"),
+        ("specs/experiment.schema.json", "examples/v04-lab/experiment.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
+        ("specs/intervention.schema.json", "examples/v04-lab/intervention-perturbation.json"),
+        ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-baseline.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-version-differential.json"),
+        ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
+        ("specs/lab-result.schema.json", "examples/v04-lab/lab-result-null.json"),
+        ("specs/simple-result-projection.schema.json", "examples/v04-lab/simple-result-projection.json"),
+        ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
+    ]
+    for schema_rel, fixture_rel in pairs:
+        schema = load_json(ROOT / schema_rel)
+        fixture = load_json(ROOT / fixture_rel)
+        errs = list(Draft202012Validator(schema).iter_errors(fixture))
+        if errs:
+            fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    fork = load_json(ROOT / "examples" / "v04-lab" / "experiment-fork.json")
+    if fork.get("mutates_production") is not False:
+        fail("lab fork must set mutates_production false")
+
+    exp = load_json(ROOT / "examples" / "v04-lab" / "experiment.json")
+    if exp.get("authorization", {}).get("mode") != "EXPERIMENTAL_FORK_ONLY":
+        fail("lab experiment must authorize EXPERIMENTAL_FORK_ONLY")
+    intent = load_json(ROOT / "examples" / "v04-lab" / "experiment-intent.json")
+    if exp.get("source_intent_id") != intent.get("intent_record_id"):
+        fail("compiled experiment must retain its source intent identity")
+
+    result = load_json(ROOT / "examples" / "v04-lab" / "lab-result.json")
+    if result.get("interpretation") == "PROVEN":
+        fail("lab results must not use PROVEN")
+    if result.get("failed_experiments_retained") is not True:
+        fail("lab results must retain failed experiments")
+
+    null = load_json(ROOT / "examples" / "v04-lab" / "lab-result-null.json")
+    if null.get("interpretation") not in ("NOT_SUPPORTED", "INCONCLUSIVE"):
+        fail("null lab result fixture should be NOT_SUPPORTED or INCONCLUSIVE")
+
+    projection = load_json(ROOT / "examples" / "v04-lab" / "simple-result-projection.json")
+    if projection.get("experiment_id") != exp.get("experiment_id") or projection.get("lab_result_id") != result.get("lab_result_id"):
+        fail("simple result projection must resolve to the same experiment and Lab result")
+    if projection.get("source_intent_id") != intent.get("intent_record_id") or result.get("source_intent_id") != intent.get("intent_record_id"):
+        fail("intent provenance must survive compilation through Lab result projection")
+    if projection.get("interpretation") != result.get("interpretation") or projection.get("claim_label") != result.get("claim_label"):
+        fail("simple result projection must not strengthen Lab interpretation or claim label")
+    if projection.get("compiler_readiness") != result.get("compiler_readiness"):
+        fail("simple result projection must preserve compiler readiness")
+
+    def respects_lab_result(simple: dict[str, object], lab: dict[str, object]) -> bool:
+        return all(simple.get(field) == lab.get(field) for field in ("experiment_id", "lab_result_id", "source_intent_id", "interpretation", "claim_label", "compiler_readiness"))
+
+    if not respects_lab_result(projection, result):
+        fail("simple result projection must retain the exact Lab claim boundary")
+    projection_payload = dict(projection)
+    projection_payload.pop("digest", None)
+    if projection.get("digest") != canonical_digest(projection_payload):
+        fail("simple result projection digest is not canonical/stable")
+    if "CAPTURE_AS_TEST" in projection.get("allowed_actions", []):
+        fail("CAPTURE AS TEST must be absent when compiler readiness is NOT_READY")
+
+    # negatives
+    neg_fork = load_json(ROOT / "examples" / "negative" / "invalid-lab-mutates-production.json")
+    fork_schema = load_json(ROOT / "specs" / "experiment-fork.schema.json")
+    if not list(Draft202012Validator(fork_schema).iter_errors(neg_fork)):
+        fail("invalid-lab-mutates-production should fail schema")
+    neg_res = load_json(ROOT / "examples" / "negative" / "invalid-lab-result-proven.json")
+    lr_schema = load_json(ROOT / "specs" / "lab-result.schema.json")
+    if not list(Draft202012Validator(lr_schema).iter_errors(neg_res)):
+        fail("invalid-lab-result-proven should fail schema")
+
+    # Identity and fork content addresses are reproducible from canonical payloads.
+    identity_payload = dict(exp["identity"])
+    identity_payload.pop("input_digest", None)
+    if exp["identity"].get("input_digest") != canonical_digest(identity_payload):
+        fail("Lab experiment identity digest is not canonical/stable")
+    if exp.get("input_digest") != exp["identity"].get("input_digest"):
+        fail("Lab experiment root and identity input digests must agree")
+    fork_payload = {k: v for k, v in fork.items() if k not in ("fork_digest", "digest")}
+    if fork.get("fork_digest") != canonical_digest(fork_payload):
+        fail("Lab fork digest is not canonical/stable")
+    if fork.get("experimental_world_id") == fork.get("source_world_id") or not fork.get("experimental_ledger_id"):
+        fail("Lab fork must use distinct experimental world and ledger identities")
+
+    # Required controls change validity and may not be ignored.
+    controls = load_json(ROOT / "examples" / "v04-lab" / "controls.json")["controls"]
+    required_roles = {c["role"] for c in controls if c.get("required")}
+    if any("relationship_to_experiment" not in c for c in controls):
+        fail("each Lab control needs relationship_to_experiment")
+    if not required_roles.issubset(set(result.get("control_outcomes", {}))):
+        fail("Lab result omits required control outcomes")
+    def control_disposition(outcomes: dict[str, str]) -> str:
+        return "COMPLETE" if all(outcomes.get(role) == "PASS" for role in required_roles) else "INVALID"
+    if control_disposition(result["control_outcomes"]) != "COMPLETE":
+        fail("passing required controls should preserve complete execution")
+    failed_controls = dict(result["control_outcomes"])
+    failed_controls[next(iter(required_roles))] = "FAIL"
+    if control_disposition(failed_controls) != "INVALID":
+        fail("required failed control must invalidate experiment")
+
+    # Counterfactual declarations are complete and an unsupported lesion is retained as NOT_COMPUTABLE.
+    counter = load_json(ROOT / "examples" / "v04-lab" / "counterfactual.json")
+    required_counter = {"counterfactual_id", "source_trajectory_id", "fork_point", "changed_variables", "held_constant_variables", "seed_policy", "agent_version", "world_version", "equivalence_boundary"}
+    if not required_counter.issubset(counter) or not counter["changed_variables"] or not counter["held_constant_variables"]:
+        fail("counterfactual fixture lacks declared changed/held variables")
+    changed = {v.get("variable_id") for v in counter["changed_variables"]}
+    if changed & set(counter["held_constant_variables"]):
+        fail("counterfactual variable cannot be both changed and held constant")
+    lesion = load_json(ROOT / "examples" / "v04-lab" / "intervention-lesion-not-computable.json")
+    lesion_schema = load_json(ROOT / "specs" / "intervention.schema.json")
+    if list(Draft202012Validator(lesion_schema).iter_errors(lesion)):
+        fail("NOT_COMPUTABLE lesion fixture fails intervention schema")
+    if lesion.get("type") != "LESION" or lesion.get("authorization", {}).get("adapter_support") is not False or "NOT_COMPUTABLE" not in lesion.get("expected_mechanical_effect", ""):
+        fail("unsupported lesion must be explicit and NOT_COMPUTABLE")
+
+    # Full audit ledger is schema-valid and hash chained across every Lab stage.
+    audit_schema = load_json(ROOT / "specs" / "lab-audit-record.schema.json")
+    audit_previous = None
+    audit_kinds: set[str] = set()
+    for line in (ROOT / "examples" / "v04-lab" / "lab-audit-ledger.jsonl").read_text(encoding="utf-8").splitlines():
+        record = json.loads(line)
+        if list(Draft202012Validator(audit_schema).iter_errors(record)):
+            fail("Lab audit ledger record fails schema")
+        payload = dict(record)
+        recorded_digest = payload.pop("digest")
+        if recorded_digest != canonical_digest(payload):
+            fail("Lab audit ledger digest is not canonical")
+        if record.get("previous_digest") != audit_previous:
+            fail("Lab audit ledger chain is broken")
+        audit_previous = recorded_digest
+        audit_kinds.add(record["event_kind"])
+    required_audit_kinds = {"DESIGN_VALIDATION", "PLAN_GENERATION", "FORK_CREATION", "INTERVENTION_APPLY", "CONTROL_EXECUTION", "RUN_START", "RUN_END", "DIVERGENCE", "METRIC_CALCULATION", "REPLICATION_COMPARISON", "RESULT_CLASSIFICATION", "CANDIDATE_HANDOFF", "STATE_TRANSITION"}
+    if audit_kinds != required_audit_kinds:
+        fail("Lab audit ledger does not cover all claim-bearing stages")
+
+    # Local negative fixtures prove new design and fork guards reject invalid records.
+    invalid_design = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-experiment-missing-analysis-rule.json")
+    if not list(Draft202012Validator(load_json(ROOT / "specs" / "experiment.schema.json")).iter_errors(invalid_design)):
+        fail("Lab negative missing analysis rule should fail schema")
+    invalid_fork = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-fork-production-mutation.json")
+    if not list(Draft202012Validator(fork_schema).iter_errors(invalid_fork)):
+        fail("Lab negative production mutation should fail schema")
+    invalid_intent = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-experiment-intent-unknown.json")
+    intent_schema = load_json(ROOT / "specs" / "experiment-intent.schema.json")
+    if not list(Draft202012Validator(intent_schema).iter_errors(invalid_intent)):
+        fail("unknown experiment intent should fail schema")
+    projection_schema = load_json(ROOT / "specs" / "simple-result-projection.schema.json")
+    invalid_capture = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-capture-not-ready.json")
+    if not list(Draft202012Validator(projection_schema).iter_errors(invalid_capture)):
+        fail("CAPTURE AS TEST with NOT_READY must fail simple projection schema")
+    invalid_overclaim = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-simple-result-overclaim.json")
+    if respects_lab_result(invalid_overclaim, result):
+        fail("simple result overclaim negative must violate Lab claim boundary")
+
+    # catalogs present
+    for rel in (
+        "specs/perturbation-catalog.v04.json",
+        "specs/ablation-catalog.v04.json",
+        "specs/experiment-variable-registry.v04.json",
+    ):
+        load_json(ROOT / rel)
+
+    ok("Lab v0.4: schemas, intent compilation, stable digests, isolation, controls, projections, counterfactuals, lesions, negatives, catalogs")
+
+
+
+def check_experience_layer(Draft202012Validator) -> None:
+    """Validate deterministic PLAY/WATCH/STUDY translations and safe fixtures."""
+    intent_schema = load_json(ROOT / "specs" / "experiment-intent-catalog.schema.json")
+    intent_catalog = load_json(ROOT / "specs" / "experiment-intent-catalog.json")
+    errors = list(Draft202012Validator(intent_schema).iter_errors(intent_catalog))
+    if errors:
+        fail(f"experience intent catalog invalid: {errors[0].message}")
+    expected = {"REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION", "CUSTOM"}
+    entries = {entry["intent_id"]: entry for entry in intent_catalog["intents"]}
+    if set(entries) != expected:
+        fail("experience intent catalog must provide five common intents and CUSTOM")
+    required_translations = {
+        "REPEAT_BEHAVIOR": "REPLICATION",
+        "REMOVE_DEPENDENCY": "ABLATION",
+        "CHANGE_CONDITION": "PERTURBATION",
+        "COMPARE_VERSION": "VERSION_DIFFERENTIAL",
+        "TEST_GENERALIZATION": "REPLICATION",
+        "CUSTOM": None,
+    }
+    expected_kinds = {
+        "REPEAT_BEHAVIOR": "REPLICATION",
+        "REMOVE_DEPENDENCY": "ABLATION",
+        "CHANGE_CONDITION": "PERTURBATION",
+        "COMPARE_VERSION": "VERSION_DIFFERENTIAL",
+        "TEST_GENERALIZATION": "GENERALIZATION_PROBE",
+        "CUSTOM": "ADVANCED_EXPERIMENT_DESIGN",
+    }
+    for intent_id, intervention in required_translations.items():
+        entry = entries[intent_id]
+        if entry["lab_intervention_type"] != intervention:
+            fail(f"experience intent {intent_id} must deterministically map to {intervention}")
+        if entry.get("generated_experiment_kind") != expected_kinds[intent_id]:
+            fail(f"experience intent {intent_id} lacks deterministic generated experiment kind")
+        if "ANALYSIS" not in entry["required_plan_nodes"] or "BASELINE" not in entry["required_plan_nodes"]:
+            fail(f"experience intent {intent_id} lacks baseline/analysis plan boundary")
+        defaults = entry["recommended_defaults"]
+        if intent_id != "CUSTOM" and (defaults.get("dependent_measure_source") != "SOURCE_CANDIDATE_PRIMARY_MEASURE" or defaults.get("equivalence_boundary_source") != "SOURCE_CANDIDATE_RECORDED_BOUNDARY"):
+            fail(f"experience intent {intent_id} must pin source measure and equivalence defaults")
+        if set(entry["advanced_override_fields"]) != {"fork_point", "seed_policy", "intervention", "controls", "run_count", "equivalence_boundary", "dependent_measures"}:
+            fail(f"experience intent {intent_id} lost advanced override escape hatch")
+
+    error_schema = load_json(ROOT / "specs" / "experience-error-catalog.schema.json")
+    error_catalog = load_json(ROOT / "specs" / "experience-error-catalog.json")
+    errors = list(Draft202012Validator(error_schema).iter_errors(error_catalog))
+    if errors:
+        fail(f"experience error catalog invalid: {errors[0].message}")
+    error_codes = {entry["reason_code"] for entry in error_catalog["errors"]}
+    for code in {"INVALID_INTENT", "INVALID_EXPERIMENT", "INVALID_FORK", "UNRESOLVED_SOURCE", "INVALID_INTERVENTION", "UNREGISTERED_VARIABLE", "CONTROL_REQUIRED", "CONTROL_FAILED", "UNSUPPORTED_LESION", "SEED_DIVERGENCE", "WORLD_STATE_DRIFT", "AGENT_VERSION_DRIFT", "NOT_COMPARABLE", "NOT_COMPUTABLE", "BUDGET_EXHAUSTED", "AUTHORIZATION_DENIED", "CONSENT_DENIED", "SOURCE_WORLD_MUTATION_FORBIDDEN", "UNAUTHORIZED_RESEARCH_DETAIL"}:
+        if code not in error_codes:
+            fail(f"experience error mapping missing {code}")
+
+    view_schema = load_json(ROOT / "specs" / "experience-view.schema.json")
+    fixture_dir = ROOT / "examples" / "experience"
+    fixtures = {path.name: load_json(path) for path in fixture_dir.glob("*.json")}
+    required_fixtures = {"play-view.json", "watch-view.json", "interesting-behavior-card.json", "test-intent-menu.json", "simple-test-result.json", "advanced-test-result.json", "capture-ready.json", "user-facing-error.json"}
+    if set(fixtures) != required_fixtures:
+        fail("experience fixture package is incomplete")
+    for name, fixture in fixtures.items():
+        errors = list(Draft202012Validator(view_schema).iter_errors(fixture))
+        if errors:
+            fail(f"experience fixture {name} invalid: {errors[0].message}")
+    for name in ("play-view.json", "watch-view.json"):
+        view = fixtures[name]
+        if view["research_detail"] is not False:
+            fail(f"{name} leaks research detail")
+        rendered = json.dumps(view["presentation"]).lower()
+        if any(token in rendered for token in ("anomaly_", "candidate_capability", "detector", "lab_result")):
+            fail(f"{name} exposes raw research metadata")
+    menu_intents = set(fixtures["test-intent-menu.json"]["presentation"]["intent_ids"])
+    if menu_intents != expected:
+        fail("simple test intent menu must exactly match deterministic catalog")
+    capture = fixtures["capture-ready.json"]
+    if capture.get("compiler_readiness") != "READY" or "CAPTURE_AS_TEST" not in capture["allowed_actions"]:
+        fail("CAPTURE AS TEST must be enabled only by READY handoff")
+    user_error = fixtures["user-facing-error.json"]
+    if user_error.get("machine_reason_code") not in error_codes:
+        fail("user-facing error must preserve canonical machine reason code")
+
+    experience = (ROOT / "docs" / "EXPERIENCE.md").read_text(encoding="utf-8")
+    for token in ("PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY", "## Experience acceptance"):
+        if token not in experience:
+            fail("experience canonical product model or acceptance criteria incomplete")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for token in ("[PLAY]", "[WATCH]", "[STUDY]"):
+        if token not in readme:
+            fail("README lacks clear PLAY/WATCH/STUDY entry points")
+    ok("Experience layer: deterministic intents, progressive fixtures, safe disclosure, and error mappings")
+
+
+def check_skills_workflows() -> None:
+    """Keep the operational workflow manual separate and complete."""
+    skills = (ROOT / "SKILLS.md").read_text(encoding="utf-8")
+    required = {
+        "SKILL.ORIENT", "SKILL.SPEC_CHANGE", "SKILL.RFC", "SKILL.MILESTONE",
+        "SKILL.SCHEMA", "SKILL.FIXTURE", "SKILL.CONFORMANCE", "SKILL.DETERMINISM",
+        "SKILL.DRIFT_AUDIT", "SKILL.EXPERIENCE", "SKILL.GAME_SYSTEM",
+        "SKILL.RESEARCH_CONTRACT", "SKILL.MIGRATION", "SKILL.VERSION",
+        "SKILL.VALIDATE", "SKILL.CONTINUATION", "SKILL.PROMPT_BUILD",
+        "SKILL.REVIEW", "SKILL.HANDOFF_RUNTIME", "Missing-signal rule",
+    }
+    missing = sorted(token for token in required if token not in skills)
+    if missing:
+        fail(f"SKILLS.md missing workflow sections: {missing}")
+    workflow_names = [
+        "ORIENT", "SPEC_CHANGE", "RFC", "MILESTONE", "SCHEMA", "FIXTURE",
+        "CONFORMANCE", "DETERMINISM", "DRIFT_AUDIT", "EXPERIENCE", "GAME_SYSTEM",
+        "RESEARCH_CONTRACT", "MIGRATION", "VERSION", "VALIDATE", "CONTINUATION",
+        "PROMPT_BUILD", "REVIEW", "HANDOFF_RUNTIME",
+    ]
+    for name in workflow_names:
+        body = skills.split(f"## SKILL.{name}", 1)[1].split("\n## ", 1)[0]
+        for field in ("**Use when**", "**Inputs**", "**Authority to read**", "**Procedure**", "**Outputs**", "**Validation**", "**Stop / escalate when**"):
+            if field not in body:
+                fail(f"SKILLS.md workflow {name} lacks {field}")
+    for token in ("Skills are repeatable workflows. They do not create new authority.", "Accepted RFC", "versioned protocol/schema", "python3 validation/validate_all.py"):
+        if token not in skills:
+            fail(f"SKILLS.md lacks required authority or validation rule: {token}")
+    for rel in ("AGENTS.md", "CONTRIBUTING.md", "README.md"):
+        if "SKILLS.md" not in (ROOT / rel).read_text(encoding="utf-8"):
+            fail(f"{rel} must cross-link SKILLS.md")
+    ok("SKILLS.md: operational workflows, authority boundary, and cross-links")
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -1213,6 +1606,9 @@ def main() -> None:
     check_schema_validated_fixtures(Draft202012Validator)
     check_conformance_suite(Draft202012Validator)
     check_strategic_conflict(Draft202012Validator)
+    check_lab_v04(Draft202012Validator)
+    check_experience_layer(Draft202012Validator)
+    check_skills_workflows()
     check_architecture_hardening()
     print("\nPASS")
 

@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L13-05",
+  "suite": "noema-v0.4-lab",
+  "title": "Experiment Run Identity: atomic contract 5",
+  "acceptance_items": [
+    13
+  ],
+  "family_id": "L13",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#13"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_contract",
+      "input": {
+        "family": "L13",
+        "atomic_case": 5
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "REJECT",
+    "assertions": [
+      "L13 machine rule 5 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

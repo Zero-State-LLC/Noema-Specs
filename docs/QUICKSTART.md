@@ -79,3 +79,11 @@ noema verify
 ```
 
 See [OPERATIONS.md](OPERATIONS.md).
+
+## Study behavior
+
+```text
+open NOEMA → STUDY → Interesting → TEST THIS → choose a question → review result
+```
+
+STUDY is optional and authorized. Its common questions compile through documented deterministic templates, while advanced users retain full experimental controls. Start with [STUDY.md](STUDY.md) and [Research Workflow](RESEARCH-WORKFLOW.md).

@@ -1,0 +1,21 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "run.baseline.1",
+    "run.intervention.1"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.error.not-comparable",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "SIMPLE",
+  "presentation": {
+    "message": "These runs differ in too many important conditions to compare reliably.",
+    "next_action": "Inspect compared conditions."
+  },
+  "allowed_actions": [
+    "ADVANCED_DETAIL"
+  ],
+  "research_detail": true,
+  "machine_reason_code": "NOT_COMPARABLE"
+}

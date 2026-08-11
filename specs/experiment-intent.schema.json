@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-intent.schema.json",
+  "title": "NOEMA Experiment Intent (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "intent_record_id", "intent_id", "source_candidate_id", "question", "experience_level", "created_by", "provenance"],
+  "properties": {
+    "schema_version": {"const": "experiment-intent/0.4"},
+    "intent_record_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]+$"},
+    "intent_id": {"enum": ["REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION", "CUSTOM"]},
+    "source_candidate_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]+$"},
+    "question": {"type": "string", "minLength": 1},
+    "target_dependency_or_condition": {"type": "string", "minLength": 1},
+    "comparison_target": {"type": "string", "minLength": 1},
+    "comparison_mode": {"enum": ["PERTURBATION", "COUNTERFACTUAL"]},
+    "user_overrides": {"type": "object", "additionalProperties": false, "properties": {"fork_point": {}, "seed_policy": {}, "intervention": {}, "controls": {}, "run_count": {}, "equivalence_boundary": {}, "dependent_measures": {}}},
+    "experience_level": {"enum": ["SIMPLE", "RESEARCHER", "ADVANCED", "REPRODUCIBILITY"]},
+    "created_by": {"type": "string", "minLength": 1},
+    "provenance": {"type": "object", "additionalProperties": true}
+  },
+  "allOf": [
+    {"if": {"properties": {"intent_id": {"const": "REMOVE_DEPENDENCY"}}}, "then": {"required": ["target_dependency_or_condition"]}},
+    {"if": {"properties": {"intent_id": {"const": "CHANGE_CONDITION"}}}, "then": {"required": ["target_dependency_or_condition"]}},
+    {"if": {"properties": {"intent_id": {"const": "COMPARE_VERSION"}}}, "then": {"required": ["comparison_target"]}}
+  ]
+}

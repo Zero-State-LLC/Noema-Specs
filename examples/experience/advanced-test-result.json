@@ -1,0 +1,26 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "labres.tool-ablation-1",
+    "exp.tool-ablation-1",
+    "fork.lab.1"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.result.advanced",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "REPRODUCIBILITY",
+  "presentation": {
+    "experiment_id": "exp.tool-ablation-1",
+    "fork_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "intervention": "ABLATION",
+    "seed_policy": "SAME_SEED",
+    "audit_ledger": "examples/v04-lab/lab-audit-ledger.jsonl"
+  },
+  "allowed_actions": [
+    "COPY_REPRODUCIBILITY_BUNDLE"
+  ],
+  "research_detail": true,
+  "canonical_claim_label": "INFERRED",
+  "compiler_readiness": "NOT_READY"
+}

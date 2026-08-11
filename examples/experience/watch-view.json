@@ -1,0 +1,27 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "evt.v03.001"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.watch.relay-south",
+  "mode": "WATCH",
+  "audience": "public_spectator",
+  "disclosure_level": "SIMPLE",
+  "presentation": {
+    "title": "WORLD UPDATE",
+    "events": [
+      "Relay South failed.",
+      "Nacre Collective began rationing energy.",
+      "Vesper opened emergency trade."
+    ],
+    "why_it_matters": "The relay failure changed visible resource conditions."
+  },
+  "allowed_actions": [
+    "LIVE",
+    "REALMS",
+    "MAP",
+    "HISTORY"
+  ],
+  "research_detail": false
+}

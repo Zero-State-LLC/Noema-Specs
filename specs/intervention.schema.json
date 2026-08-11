@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/intervention.schema.json",
+  "title": "NOEMA intervention (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "intervention_id",
+    "type",
+    "target",
+    "target_version",
+    "application_point",
+    "before_reference",
+    "after_reference",
+    "scope",
+    "duration",
+    "restore_rule",
+    "seed_policy",
+    "expected_mechanical_effect",
+    "forbidden_side_effects",
+    "authorization",
+    "digest"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "PERTURBATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "PERTURBATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "ABLATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "ABLATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "LESION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "LESION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "COUNTERFACTUAL"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "COUNTERFACTUAL"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "REPLICATION"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "REPLICATION"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intervention_type": {
+            "const": "VERSION_DIFFERENTIAL"
+          }
+        },
+        "required": [
+          "intervention_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "const": "VERSION_DIFFERENTIAL"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "intervention/0.4"
+    },
+    "intervention_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "intervention_type": {
+      "enum": [
+        "PERTURBATION",
+        "ABLATION",
+        "LESION",
+        "COUNTERFACTUAL",
+        "REPLICATION",
+        "VERSION_DIFFERENTIAL"
+      ]
+    },
+    "type": {
+      "enum": [
+        "PERTURBATION",
+        "ABLATION",
+        "LESION",
+        "COUNTERFACTUAL",
+        "REPLICATION",
+        "VERSION_DIFFERENTIAL"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "target_version": {
+      "type": "string"
+    },
+    "application_point": {
+      "type": "string"
+    },
+    "before_value_or_ref": {},
+    "after_value_or_ref": {},
+    "before_reference": {},
+    "after_reference": {},
+    "scope": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "restore_rule": {
+      "type": "string"
+    },
+    "seed_policy": {
+      "enum": [
+        "SAME_SEED",
+        "DERIVED_SEED",
+        "INDEPENDENT_SEED"
+      ]
+    },
+    "expected_mechanical_effect": {
+      "type": "string"
+    },
+    "forbidden_side_effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "authorization_class": {
+      "enum": [
+        "WORLD_SAFE",
+        "AGENT_EXTERNAL",
+        "AGENT_INTERNAL",
+        "HIGH_RISK"
+      ]
+    },
+    "catalog_entry_id": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

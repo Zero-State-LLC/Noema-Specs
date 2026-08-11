@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experience-view.schema.json",
+  "title": "NOEMA Experience View",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "view_id",
+    "mode",
+    "audience",
+    "disclosure_level",
+    "canonical_source_refs",
+    "presentation",
+    "allowed_actions",
+    "research_detail"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experience-view/1.0"
+    },
+    "view_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "mode": {
+      "enum": [
+        "PLAY",
+        "WATCH",
+        "STUDY"
+      ]
+    },
+    "audience": {
+      "enum": [
+        "human_player",
+        "agent_player",
+        "public_spectator",
+        "authorized_observer",
+        "researcher",
+        "agent_research_proposer"
+      ]
+    },
+    "disclosure_level": {
+      "enum": [
+        "SIMPLE",
+        "RESEARCHER",
+        "ADVANCED",
+        "REPRODUCIBILITY"
+      ]
+    },
+    "canonical_source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "research_detail": {
+      "type": "boolean"
+    },
+    "canonical_claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "compiler_readiness": {
+      "enum": [
+        "READY",
+        "NOT_READY",
+        "REJECTED"
+      ]
+    },
+    "machine_reason_code": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

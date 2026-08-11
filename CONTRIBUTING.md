@@ -10,6 +10,8 @@ An RFC is required for changes to protocols, schemas, ontology semantics, reprod
 
 ## Workflow
 
+For repeatable workflows for specification changes, RFCs, schemas, fixtures, conformance, validation, and continuation analysis, see [SKILLS.md](SKILLS.md). This document remains the contribution-policy surface.
+
 1. Read `CONTEXT.md` and affected docs.
 2. Identify impacted protocols, schemas, examples, research files, security boundaries, and versions.
 3. Draft changes with stable IDs, explicit lineage, and claim labels.

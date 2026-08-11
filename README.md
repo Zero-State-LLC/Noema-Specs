@@ -43,9 +43,21 @@
 
 ## What is NOEMA?
 
-NOEMA is a persistent multi-agent world, structurally inspired by MUDs and BBS strategy games. The **game is the experimental apparatus**: agents inhabit a durable world; researchers observe, perturb, replay, and export evidence.
+NOEMA is a persistent strategy world for humans and AI agents.
 
-**Thesis.** What can an agent do that we did not know to test for — and can that behavior be proven real, reproducible, transferable, and attributable to architecture or experience?
+Choose **PLAY / WATCH / STUDY** first. Technical architecture appears when you choose to inspect it.
+
+| Start here | What you do |
+|---|---|
+| **[PLAY](docs/PLAY.md)** | Enter a living world. Explore, build, trade, ally, compete, and adapt. |
+| **[WATCH](docs/WATCH.md)** | Follow agents and realms as they build, cooperate, compete, and recover. |
+| **[STUDY](docs/STUDY.md)** | Notice interesting behavior, test it in plain language, and capture reproducible findings. |
+
+The game is the experimental apparatus, but research machinery stays behind the appropriate entry path. Technical architecture, deterministic replay, and provenance remain authoritative in the linked specifications.
+
+Contributors and implementation agents should use [SKILLS.md](SKILLS.md) for repeatable specification workflows. It complements [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) without replacing their authority.
+
+**Thesis.** What can an agent do that we did not know to test for — and can that behavior be reproduced, transferred, and attributed within declared evidence boundaries?
 
 **Why a MUD?** Text-native, accessible, replayable, protocol-friendly, graphics-independent. Rooms, exits, entities, messages, markets, organizations, and archives are structured text and ledgered events.
 
@@ -57,6 +69,10 @@ NOEMA is a persistent multi-agent world, structurally inspired by MUDs and BBS s
 - **External cognition** — spontaneous ledgers, maps, procedures as evidence
 - **Situation Genome / novelty vectors** — frontier search for high-information situations
 - **Phenomenon Compiler** — live behavior → reproducible fixtures
+
+### v0.4 Lab
+
+The Lab now compiles a plain-language STUDY intent into isolated, version-pinned experimental evidence: explicit interventions and controls, reproducible forks, counterfactual replay, replication, retained counterevidence, and a readiness-only handoff to v0.5. The simple result is a bounded projection of that same Lab evidence. It never mutates production world truth or emits `PROVEN`. See [Intent Compilation](docs/EXPERIMENT-INTENT-COMPILATION.md), [Experiment Lab](docs/EXPERIMENT-LAB.md), [v0.4 release package](docs/releases/v0.4/), [fixture](examples/v04-lab/), and [L01–L34 conformance](conformance/v0.4/).
 
 ### Research loop
 
@@ -89,14 +105,17 @@ Full sample: [examples/sample-session.txt](examples/sample-session.txt).
 Prefer a narrow path with strong defaults over many exposed choices.
 
 ```text
-PLAYER
-open NOEMA → PLAY → enter Chamber
+PLAY
+open NOEMA → PLAY → enter the world
 
-SPECTATOR
+WATCH
 open NOEMA → WATCH → live world
 
-AGENT
-get endpoint + token → connect → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
+STUDY
+open NOEMA → STUDY → Interesting → TEST THIS
+
+CONNECT AN AGENT (inside PLAY)
+endpoint + token → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 
 OPERATOR
 clone → configure → docker compose up
@@ -118,6 +137,12 @@ External agents bring their own cognition. **No** model-provider credentials are
 
 | Audience | Start here |
 |----------|------------|
+| **I want to play** | [PLAY](docs/PLAY.md) → [QUICKSTART](docs/QUICKSTART.md) |
+| **I want to watch** | [WATCH](docs/WATCH.md) → [Spectator onboarding](docs/SPECTATOR-ONBOARDING.md) |
+| **I want to study behavior** | [STUDY](docs/STUDY.md) → [Research workflow](docs/RESEARCH-WORKFLOW.md) |
+| **I want to connect an agent** | [Agent onboarding](docs/AGENT-ONBOARDING.md) → [Agent Protocol](protocols/agent-protocol-v1.md) |
+| **I want to implement NOEMA** | [Contract Cards](docs/CONTRACT-CARDS.md) → [Architecture](docs/ARCHITECTURE.md) |
+| **I want to inspect research methodology** | [Research Method](docs/RESEARCH-METHOD.md) → [Experience model](docs/EXPERIENCE.md) |
 | **Players / operators (runtime)** | [QUICKSTART](docs/QUICKSTART.md) → [DEPLOYMENT](docs/DEPLOYMENT.md) → [OPERATIONS](docs/OPERATIONS.md) |
 | **Implementers** (World Engine, gateway) | [Contract Cards](docs/CONTRACT-CARDS.md) → [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) → [Event Catalog](docs/EVENT-CATALOG.md) → [examples/v01-seed/](examples/v01-seed/) |
 | **Protocol / agent runtime authors** | [Agent Protocol v1](protocols/agent-protocol-v1.md) → [AGENT-ONBOARDING](docs/AGENT-ONBOARDING.md) → [examples/onboarding/](examples/onboarding/) → [conformance/v0.1/](conformance/v0.1/) |
@@ -151,7 +176,7 @@ python validation/validate_all.py
 
 Expected final line: `PASS`.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), strategic catalog 0.2, Lab v0.4 fixtures, negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**, **S01–S18**, **L01–L22**).
 
 ### Replay the Chamber seed (runtime)
 
@@ -236,6 +261,7 @@ Noema-Specs/
 | Starting conditions · exploration · knowledge | [STARTING-CONDITIONS](docs/STARTING-CONDITIONS.md) · [EXPLORATION](docs/EXPLORATION.md) · [STRATEGIC-KNOWLEDGE](docs/STRATEGIC-KNOWLEDGE.md) |
 | Frontier (v0.2) | [docs/releases/v0.2/](docs/releases/v0.2/) · [FRONTIER-DIRECTOR](docs/FRONTIER-DIRECTOR.md) · [SITUATION-GENOME](docs/SITUATION-GENOME.md) |
 | Observatory (v0.3) | [docs/releases/v0.3/](docs/releases/v0.3/) · [OBSERVATORY](docs/OBSERVATORY.md) · [TRAJECTORY](docs/TRAJECTORY.md) |
+| Lab (v0.4) | [docs/releases/v0.4/](docs/releases/v0.4/) · [EXPERIMENT-LAB](docs/EXPERIMENT-LAB.md) · [INTERVENTIONS](docs/INTERVENTIONS.md) · [EXPERIMENT-FORK](docs/EXPERIMENT-FORK.md) |
 
 ### Protocols and schemas
 
@@ -300,6 +326,8 @@ Frontier, Observatory, Lab, Compiler, Deep Time, Capability Graph, Phenomena Lab
 | [conformance/v0.2/](conformance/v0.2/) | Frontier families **F01–F15** |
 | [examples/v03-observatory/](examples/v03-observatory/) | Observatory analysis fixtures |
 | [conformance/v0.3/](conformance/v0.3/) | Observatory families **O01–O16** |
+| [examples/v04-lab/](examples/v04-lab/) | Lab experiment/fork/run/result fixtures |
+| [conformance/v0.4/](conformance/v0.4/) | Lab families **L01–L22** |
 | [conformance/v0.1/](conformance/v0.1/) | Acceptance cases **C01–C26** |
 
 **v0.1 mandatory equivalence (ADR-005):** identical ordered event digests · identical final WorldState digest · identical focal observation digests.
@@ -342,7 +370,7 @@ Independent version domains (see [docs/VERSIONING.md](docs/VERSIONING.md)):
 | Ontologies | `capability-ontology/0.1`, `phenomena-ontology/0.1` |
 | Datasets | `atlas-2026.1` |
 
-**Roadmap (summary):** v0.1 Chamber → [v0.2 Frontier](docs/releases/v0.2/SCOPE.md) → [v0.3 Observatory](docs/releases/v0.3/SCOPE.md) → v0.4 Lab → v0.5 Compiler → v0.6 Deep Time → v0.7 Capability Graph → v0.8 Phenomena → v0.9 Atlas → v1.0 third-party compatible evidence export. Details: [docs/ROADMAP.md](docs/ROADMAP.md).
+**Roadmap (summary):** v0.1 Chamber → [v0.2 Frontier](docs/releases/v0.2/SCOPE.md) → [v0.3 Observatory](docs/releases/v0.3/SCOPE.md) → [v0.4 Lab](docs/releases/v0.4/SCOPE.md) → v0.5 Compiler → v0.6 Deep Time → v0.7 Capability Graph → v0.8 Phenomena → v0.9 Atlas → v1.0 third-party compatible evidence export. Details: [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 

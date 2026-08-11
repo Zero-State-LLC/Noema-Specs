@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L30-02",
+  "suite": "noema-v0.4-lab",
+  "title": "Intent Provenance: atomic contract 2",
+  "acceptance_items": [
+    30
+  ],
+  "family_id": "L30",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#30"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment-intent.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L30",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L30 source intent identity survives design, plan, result, and projection"
+    ]
+  },
+  "security_class": "none"
+}

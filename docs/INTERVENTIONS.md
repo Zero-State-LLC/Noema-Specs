@@ -1,0 +1,5 @@
+# Interventions
+
+The closed v0.4 taxonomy is `PERTURBATION`, `ABLATION`, `LESION`, `COUNTERFACTUAL`, `REPLICATION`, and `VERSION_DIFFERENTIAL`. A perturbation changes magnitude/distribution of an existing registered condition. An ablation removes an external affordance. A lesion disables an explicitly adapter-declared internal component. A counterfactual forks at a legal point and changes only declared variables while holding the comparison boundary. Replication repeats a declared equivalence class. Version differential compares pinned model/agent/runtime versions.
+
+Every intervention uses `intervention/0.4` and explicitly records target/version, application point, before/after value or reference, scope, duration, restoration, seed policy, expected mechanical effect, forbidden side effects, authorization class, and digest. Authorization classes are `WORLD_SAFE`, `AGENT_EXTERNAL`, `AGENT_INTERNAL`, and `HIGH_RISK`; all remain subject to consent and containment. No mutation is implicit. Unsupported internal lesions are retained `NOT_COMPUTABLE`; model/provider names never imply private architecture.

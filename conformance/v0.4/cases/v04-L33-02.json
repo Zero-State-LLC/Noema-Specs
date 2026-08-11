@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L33-02",
+  "suite": "noema-v0.4-lab",
+  "title": "Study Isolation: atomic contract 2",
+  "acceptance_items": [
+    33
+  ],
+  "family_id": "L33",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#33"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment-fork.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L33",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L33 simple TEST cannot select a production-world intervention"
+    ]
+  },
+  "security_class": "none"
+}

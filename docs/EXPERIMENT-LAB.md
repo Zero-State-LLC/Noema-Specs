@@ -1,18 +1,19 @@
 # Experiment Lab
 
-## Purpose
+The Lab converts Observatory candidates into controlled experimental evidence, never automatic causal truth.
 
-The Experiment Lab turns trajectories into reproducible tests through deterministic replay, mutation, perturbation, ablation, lesion studies, counterfactual replay, architecture comparison, agent-version differential testing, and replication.
+```text
+Observatory Candidate → Experiment Design → Validated Plan → Controlled World Fork / Replay → Intervention → Run → Measurement → Controls / Replication → Lab Result → v0.5 Compiler Handoff
+```
 
-## Required experiment forms
+Lab records are research-layer records. Ordinary experiments MUST run only on isolated forks or explicitly authorized experimental worlds. They MUST NOT mutate a production world, append to its ledger, rewrite source trajectories, or make conclusions canonical world truth. `live_world_experiment` is forbidden. An authorized live observation is an **OBSERVATIONAL STUDY**, not an intervention.
 
-- Replay from seed, world version, protocol versions, deterministic config, and event ledger.
-- Situation Genome mutation.
-- Perturbation of information, timing, incentives, resources, language, tools, and topology.
-- Ablation and lesion studies for tools, memory, context, modules, and delegation.
-- Counterfactual replay with explicit changed variables.
-- Replication across runs and agent versions.
+Claim-bearing behavior is deterministic: pinned schemas/catalogs/metrics, canonical digests, explicit graph ordering, and recorded inputs only. LLMs may summarize or suggest candidates, never decide validation, comparison, or claims. Failed interventions/controls, nulls, non-reproduction, counterevidence, confounds, partials, `NOT_COMPARABLE`, and `NOT_COMPUTABLE` are immutable retained evidence. A v0.5 handoff requires `compiler_readiness: READY`; it does not create a permanent fixture.
 
-## Outputs
+## Experience translation
 
-Experiment outcomes MUST include status, divergence notes, equivalence boundary, metrics, confounds, failed controls, and links to source trajectories.
+Authorized STUDY views present intent-first TEST actions through the versioned [experiment intent catalog](../specs/experiment-intent-catalog.json). The translation is deterministic and does not weaken Lab design, isolation, controls, identity, or audit requirements.
+
+## Intent compiler and result projection
+
+The complete product boundary is **USER INTENT → Intent Compiler → Validated Experiment Design → Experiment Plan → Isolated Lab Execution → Lab Result → Simple Result Projection**. [`EXPERIMENT-INTENT-COMPILATION.md`](EXPERIMENT-INTENT-COMPILATION.md) defines versioned TEST defaults and overrides. [`SIMPLE-RESULT-PROJECTION.md`](SIMPLE-RESULT-PROJECTION.md) defines the claim-preserving return path. `source_intent_id` joins the simple request, experiment, Lab result, and advanced audit detail.

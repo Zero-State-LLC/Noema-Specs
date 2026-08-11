@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experience-error-catalog.schema.json",
+  "title": "NOEMA Experience Error Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experience-error-catalog/1.0"
+    },
+    "catalog_version": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reason_code",
+          "simple_message",
+          "advanced_message",
+          "preserves_outcome"
+        ],
+        "properties": {
+          "reason_code": {
+            "type": "string"
+          },
+          "simple_message": {
+            "type": "string"
+          },
+          "advanced_message": {
+            "type": "string"
+          },
+          "preserves_outcome": {
+            "enum": [
+              "INVALID",
+              "PARTIAL",
+              "NOT_COMPARABLE",
+              "NOT_COMPUTABLE",
+              "DENY"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

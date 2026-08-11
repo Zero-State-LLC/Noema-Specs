@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L29-02",
+  "suite": "noema-v0.4-lab",
+  "title": "Advanced Disclosure Equivalence: atomic contract 2",
+  "acceptance_items": [
+    29
+  ],
+  "family_id": "L29",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#29"
+  ],
+  "fixtures": [
+    "examples/v04-lab/simple-result-projection.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L29",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L29 advanced drill-down is the same experiment and evidence"
+    ]
+  },
+  "security_class": "none"
+}

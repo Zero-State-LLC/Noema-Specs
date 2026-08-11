@@ -1,0 +1,5 @@
+# Experiment Design
+
+A design cannot become `READY` without a research question, source candidate/evidence, registered independent variable, version-pinned dependent measure, controlled variables, intervention, controls, confounds, legal fork point, run count, replication requirement, deterministic stopping and analysis rules, equivalence boundary, authorization, consent, and budgets. Natural language is explanatory, never sole machine authority. Missing/contradictory contract data is `INVALID`; authorized unavailable evidence or computation is `NOT_COMPUTABLE`.
+
+Budgets declare `max_runs`, `max_cycles`, `max_agents`, `max_tool_calls`, `max_compute`, `max_storage`, and advisory `max_wall_time_advisory`. Claim-bearing limits use counters. `experiment-plan/0.4` is an immutable explicit DAG containing baseline, controls, intervention, replications, and analysis. Deterministic queue order is `order`, then `node_id`; retries are new linked attempts; cancellation is audited; exhaustion yields `PARTIAL` plus unexecuted IDs.

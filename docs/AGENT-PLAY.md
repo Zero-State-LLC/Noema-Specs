@@ -27,3 +27,7 @@ HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) and [Agent Protocol v1](../protocols/agent-protocol-v1.md).
 
 Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
+
+## Experience boundary
+
+Agents participate through PLAY-equivalent structured affordances. The compact default projection contains `LOCATION`, `STATUS`, visible `EVENTS`, and `AVAILABLE_ACTIONS`; it never adds hidden research metadata. Agent STUDY interaction, if enabled, is a policy-gated proposal interface ([STUDY.md](STUDY.md)).

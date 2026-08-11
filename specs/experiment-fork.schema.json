@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-fork.schema.json",
+  "title": "NOEMA experiment-fork (v0.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "fork_id",
+    "experiment_id",
+    "source_world_id",
+    "source_world_version",
+    "source_snapshot_id",
+    "source_ledger_head",
+    "fork_cycle",
+    "fork_event_boundary",
+    "experimental_world_id",
+    "fork_point",
+    "experimental_ledger_id",
+    "storage_namespace",
+    "mutates_production",
+    "mid_reducer_fork_forbidden",
+    "fork_digest",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-fork/0.4"
+    },
+    "fork_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_world_version": {
+      "type": "string"
+    },
+    "source_snapshot_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_ledger_head": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "fork_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "fork_event_boundary": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "experimental_world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "fork_point": {
+      "enum": [
+        "CYCLE_BOUNDARY",
+        "BEFORE_OBSERVATION",
+        "AFTER_OBSERVATION",
+        "BEFORE_ACTION",
+        "AFTER_ACTION",
+        "BEFORE_SITUATION_INJECTION",
+        "AFTER_SITUATION_INJECTION"
+      ]
+    },
+    "experimental_ledger_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "storage_namespace": {
+      "type": "string"
+    },
+    "mutates_production": {
+      "const": false
+    },
+    "mid_reducer_fork_forbidden": {
+      "const": true
+    },
+    "fork_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

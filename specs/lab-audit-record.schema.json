@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/lab-audit-record.schema.json",
+  "title": "NOEMA Lab Audit Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "audit_id",
+    "experiment_id",
+    "event_kind",
+    "previous_state",
+    "new_state",
+    "reason_code",
+    "actor",
+    "evidence_refs",
+    "cycle",
+    "previous_digest",
+    "digest",
+    "actor_or_system"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "lab-audit/0.4"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "event_kind": {
+      "enum": [
+        "DESIGN_VALIDATION",
+        "FORK_CREATION",
+        "INTERVENTION_APPLY",
+        "CONTROL_EXECUTION",
+        "RUN_START",
+        "RUN_END",
+        "DIVERGENCE",
+        "METRIC_CALCULATION",
+        "REPLICATION_COMPARISON",
+        "RESULT_CLASSIFICATION",
+        "CANDIDATE_HANDOFF",
+        "STATE_TRANSITION",
+        "PLAN_GENERATION"
+      ]
+    },
+    "previous_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "new_state": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "previous_digest": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "actor_or_system": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

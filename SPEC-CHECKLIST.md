@@ -6,6 +6,7 @@
 - [x] v0.1 Chamber: C01–C26, golden path, executable world contracts.
 - [x] v0.2 Frontier: F01–F15, release package, genome/novelty/mutation contracts.
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
+- [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L34 (146 atomic cases), including deterministic intent compilation, simple result projection, and CAPTURE gating.
 
 ## Core game design (player-facing)
 
@@ -61,12 +62,31 @@
 - [x] Scoped cumulative resume acknowledgements and bounded redelivery.
 - [x] Signed evidence receipts required for research/evidence export profiles.
 
+## v0.4 Lab
+
+- [x] Experimental fork isolation (`mutates_production: false`)
+- [x] Intervention taxonomy + perturbation/ablation catalogs
+- [x] Controls including sham; failed/null results first-class
+- [x] Lifecycle without PROVEN; claim labels separate
+- [x] Lab → Compiler boundary (`compiler_readiness`)
+- [x] Conformance L01–L22 + validator gate
+
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L22 present and linked.
 - [x] RFC-0003 cross-document architecture hardening gate PASS.
 
 ## Notes
 
-Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft. Runtime implementation of O-suite and contest reducers outstanding in the engine repo.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft. Runtime Lab engine outstanding in the Noema repo.
+
+## Experience simplification and progressive disclosure
+
+- [x] Canonical PLAY → NOTICE → TEST → CAPTURE → LEARN model and internal mapping.
+- [x] PLAY / WATCH / STUDY audience paths with text-first equivalents.
+- [x] Ordinary flows do not require internal subsystem terminology.
+- [x] Advanced and reproducibility detail remains accessible.
+- [x] Versioned intent and error translations remain machine-authoritative.
+- [x] Player and public WATCH views do not leak hidden research metadata.
+- [x] Experience fixtures and validation coverage exist.
