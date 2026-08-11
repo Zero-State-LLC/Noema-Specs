@@ -25,11 +25,19 @@ A cycle resolves in this order:
 4. reduce movement and local actions;
 5. reduce communication, trade, construction, organization, market, and institution actions;
 6. apply scheduled infrastructure, resource, economy, and Deep Time processes;
-7. append contiguous immutable World Events;
-8. derive permissioned observations and delivery intents;
-9. commit the next state and snapshot when scheduled.
+7. append one contiguous immutable World Event batch;
+8. commit the next state, ledger head, settled reservations, and snapshot head when scheduled in one canonical transaction;
+9. derive permissioned observations and delivery intents from the committed head.
 
 Rejected actions do not mutate canonical state, except that an implementation MAY ledger the rejection as a world event. Duplicate idempotency keys MUST return the original result or a deterministic conflict and MUST NOT consume budgets twice.
+
+## Canonical persistence contract
+
+For v0.1, each cycle batch commits in exactly one PostgreSQL `SERIALIZABLE` transaction. The transaction MUST verify the expected prior world revision, the active fenced writer token for the `world_id`, unique contiguous event sequences, event id and idempotency uniqueness, digest-chain head update, world_state revision update, ledger-head update, and budget reservation settlement. No observation delivery acknowledgement, spectator projection, research capture record, or operator status write may be part of canonical truth unless it is represented as a valid World Event in the batch.
+
+There is exactly one active fenced canonical writer per world. A process that loses or cannot prove the active writer fence MUST stop accepting mutating work for that world. Serialization failure, stale revision, stale fencing token, duplicate sequence, or digest mismatch aborts the whole batch; retry begins from the unchanged committed head. Partial application of an action, resource transfer leg, scheduled process, state revision, or ledger append is nonconforming.
+
+Crash reconciliation after restart compares the world row, revision, cycle, ledger head, last committed event sequence, digest chain, snapshot lineage, and outstanding reservations. If canonical state committed but delivery bookkeeping did not, the runtime MAY rebuild delivery intents from committed events and observations. If state and ledger diverge or the writer fence is ambiguous, the world MUST fail closed or enter INCIDENT mode without inventing, deleting, reordering, or reusing events.
 
 ## Canonical object model
 
@@ -168,7 +176,7 @@ A `MOVE` action names one `Exit` by id, direction, or unambiguous alias. After r
 4. lock and key conditions succeed;
 5. actor permissions and role requirements permit traversal;
 6. capacity and encumbrance conditions succeed;
-7. simultaneous contention is ordered deterministically by `(cycle, action_priority, actor_id, action_id)` unless the world version declares another total order;
+7. simultaneous contention uses the canonical cycle order `(action_priority, agent_id, client_action_sequence, action_id)` defined by [SCHEDULER.md](SCHEDULER.md); network arrival order is never a tie-breaker;
 8. the transition is applied atomically.
 
 If traversal duration is zero or one reducer step, the actor is removed from the origin and added to the destination atomically. Longer traversal places it in `TRANSIT` with a deterministic `arrival_cycle`. Departure and arrival are separate events. An actor in transit cannot use room-local actions unless a rule explicitly exposes a transit context.
@@ -232,7 +240,7 @@ Deep Time scheduled processes MAY include decay, succession, archival migration,
 
 Every accepted mutation emits one or more records conforming to [World Event Schema](../specs/world-event.schema.json) and [Event Ledger v1](../protocols/event-ledger-v1.md). Events are immutable, contiguous per world, and digest-linked where supported. Corrections append superseding or invalidating events.
 
-Snapshots are derived recovery artifacts. Restoring a snapshot and replaying subsequent events MUST reproduce the same state digest. Delivery failures do not roll back committed world truth. Undelivered observations are retried or marked according to [Agent Interface](AGENT-INTERFACE.md).
+Snapshots are derived recovery artifacts. Restoring a snapshot and replaying subsequent events MUST reproduce the same state digest. Delivery failures do not roll back committed world truth. Undelivered observations are retried or marked according to [Agent Interface](AGENT-INTERFACE.md). A crash can only leave canonical state at a previous committed head or at the next committed head; any intermediate state is invalid and MUST be detected by verification.
 
 ## Boundary invariants
 

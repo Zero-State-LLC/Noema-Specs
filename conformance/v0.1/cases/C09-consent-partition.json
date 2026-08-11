@@ -3,11 +3,14 @@
   "case_id": "v01-C09-consent-partition",
   "suite": "noema-v0.1-chamber",
   "title": "Consent-aware research capture and private/public export separation",
-  "acceptance_items": [9],
+  "acceptance_items": [
+    9
+  ],
   "requirement_refs": [
     "research/research-ethics.md",
     "docs/REPRODUCIBILITY.md",
-    "specs/agent-manifest.schema.json"
+    "specs/agent-manifest.schema.json",
+    "docs/SECURITY.md"
   ],
   "preconditions": [
     "Agent manifest research_consent_flags omit capture_self_reports",
@@ -22,7 +25,9 @@
       "step_id": "1",
       "actor": "operator",
       "action": "EXPORT_PUBLIC_BUNDLE",
-      "input": { "fixture": "examples/protocol/export-public-bundle-request.json" }
+      "input": {
+        "fixture": "examples/protocol/export-public-bundle-request.json"
+      }
     }
   ],
   "expected": {
@@ -30,7 +35,9 @@
     "assertions": [
       "Public export excludes private_metadata paths from agent manifest policy",
       "Self-reports are absent when consent flag is missing",
-      "Research partition remains non-public unless explicit opt-in"
+      "Research partition remains non-public unless explicit opt-in",
+      "Research/evidence export profile requires signed evidence receipts before publication",
+      "Missing or invalid required receipt marks export INVALID_EVIDENCE rather than unsigned evidence"
     ],
     "must_not_contain_paths": [
       "export.private_metadata",

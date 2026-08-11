@@ -8,7 +8,8 @@
   ],
   "requirement_refs": [
     "docs/ACTION-CONTRACTS.md",
-    "docs/EVENT-CATALOG.md"
+    "docs/EVENT-CATALOG.md",
+    "docs/MODULE-CONTRACTS.md"
   ],
   "preconditions": [
     "Two agents with known balances"
@@ -66,7 +67,9 @@
       "duplicate action does not double transfer",
       "concurrent contention ordered deterministically",
       "atomic rollback on accept failure",
-      "observation and spectator trade projection derived only"
+      "observation and spectator trade projection derived only",
+      "cycle batch commits in one PostgreSQL SERIALIZABLE transaction or aborts without partial transfer",
+      "expected revision or unique sequence conflict leaves balances, reservations, and ledger head unchanged"
     ]
   },
   "security_class": "none"

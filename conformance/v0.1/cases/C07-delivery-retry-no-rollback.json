@@ -3,11 +3,14 @@
   "case_id": "v01-C07-delivery-retry-no-rollback",
   "suite": "noema-v0.1-chamber",
   "title": "Delivery retry and reconnect do not roll back world state",
-  "acceptance_items": [7],
+  "acceptance_items": [
+    7
+  ],
   "requirement_refs": [
     "protocols/event-ledger-v1.md",
     "docs/AGENT-INTERFACE.md",
-    "docs/SECURITY-SEQUENCES.md"
+    "docs/SECURITY-SEQUENCES.md",
+    "protocols/agent-protocol-v1.md"
   ],
   "preconditions": [
     "A MESSAGE event is already accepted and MESSAGE_DELIVERED may be pending",
@@ -21,19 +24,25 @@
       "step_id": "1",
       "actor": "client",
       "action": "DISCONNECT",
-      "input": { "reason": "network" }
+      "input": {
+        "reason": "network"
+      }
     },
     {
       "step_id": "2",
       "actor": "client",
       "action": "AUTH",
-      "input": { "resume_token": true }
+      "input": {
+        "resume_token": true
+      }
     },
     {
       "step_id": "3",
       "actor": "client",
       "action": "OBSERVE",
-      "input": { "since_sequence": "last_acked" }
+      "input": {
+        "since_sequence": "last_acked"
+      }
     }
   ],
   "expected": {
@@ -41,7 +50,9 @@
     "assertions": [
       "World sequence and digests unchanged by reconnect alone",
       "Undelivered observations may redeliver without re-reducing events",
-      "No ledger rewrite or sequence reuse"
+      "No ledger rewrite or sequence reuse",
+      "Acknowledgements are cumulative per logical delivery stream and mutate delivery bookkeeping only",
+      "Resume outside the bounded redelivery window returns RESUME_POSITION_EXPIRED or RESUME_POSITION_INVALID without world mutation"
     ]
   },
   "security_class": "none"
