@@ -16,3 +16,13 @@
 Catalogs: `historical-significance.v06.json`, `historical-decay.v06.json`.
 
 Identity continuity classes: `SAME_ENTITY_EVOLVED` · `SUCCESSOR_ENTITY` · `NEW_ENTITY` · `DISPUTED_IDENTITY`.
+
+## Genesis (minimal)
+
+| Record | Schema | Notes |
+|---|---|---|
+| GenesisProfile | `specs/genesis-profile.schema.json` | 3 profiles in `genesis-profiles.v06.json` |
+| StorySeed | `specs/story-seed.schema.json` | closed set in `story-seeds.v06.json` |
+| GenesisResult | `specs/genesis-result.schema.json` | admin Cycle 0 identity + refs |
+
+Cycle 0 live state reuses ordinary world seed/state/snapshot contracts — not a parallel world model.

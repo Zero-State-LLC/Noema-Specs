@@ -159,6 +159,10 @@ REQUIRED_DOCS = [
     "docs/releases/v0.6/EXAMPLES.md",
     "docs/releases/v0.6/NON-GOALS.md",
     "docs/DEEP-TIME.md",
+    "docs/GENESIS.md",
+    "docs/GENESIS-PROFILES.md",
+    "docs/STORY-SEEDS.md",
+    "docs/LORE-BOUNDARY.md",
     "docs/INSTITUTIONS.md",
     "docs/SUCCESSION.md",
     "docs/HISTORICAL-ARTIFACTS.md",
@@ -360,9 +364,13 @@ REQUIRED_EXAMPLES = [
     "examples/v06-deep-time/succession.json",
     "examples/v06-deep-time/artifact-archive.json",
     "examples/v06-deep-time/reconstruction-archaeology.json",
+    "examples/v06-deep-time/genesis-result-a.json",
+    "examples/v06-deep-time/genesis-result-b.json",
     "conformance/v0.6/manifest.json",
     "specs/historical-decay.v06.json",
     "specs/historical-significance.v06.json",
+    "specs/genesis-profiles.v06.json",
+    "specs/story-seeds.v06.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -1065,7 +1073,13 @@ def check_conformance_suite(Draft202012Validator) -> None:
     missing_d = sorted(expected_d - fams6)
     if missing_d:
         fail(f"conformance v0.6 missing families: {missing_d}")
-    ok(f"Conformance suite v0.6: {len(cases6)} cases, families D01–D30 covered")
+    expected_g = {f"G{i:02d}" for i in range(1, 10)}
+    missing_g = sorted(expected_g - fams6)
+    if missing_g:
+        fail(f"conformance v0.6 missing Genesis families: {missing_g}")
+    if len(cases6) < 108:
+        fail(f"conformance v0.6 suite must list ≥108 cases (D+G), found {len(cases6)}")
+    ok(f"Conformance suite v0.6: {len(cases6)} cases, families D01–D30 + G01–G09 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1992,9 +2006,116 @@ def check_deep_time_v06(Draft202012Validator) -> None:
     if era.get("lore_boundary") != "derived_only":
         fail("era timeline must pin derived_only lore boundary")
 
+    # --- Genesis (admin-only, simplified) ---
+    profile_schema = load_json(ROOT / "specs" / "genesis-profile.schema.json")
+    seed_schema = load_json(ROOT / "specs" / "story-seed.schema.json")
+    result_schema = load_json(ROOT / "specs" / "genesis-result.schema.json")
+    profiles = load_json(ROOT / "specs" / "genesis-profiles.v06.json")
+    seeds = load_json(ROOT / "specs" / "story-seeds.v06.json")
+    if len(profiles.get("profiles", [])) != 3:
+        fail("exactly three genesis profiles required")
+    profile_ids = {p["profile_id"] for p in profiles["profiles"]}
+    if profile_ids != {"YOUNG_FRONTIER", "FRACTURED_OLD_WORLD", "RECOVERING_NETWORK"}:
+        fail("genesis profile set must be the closed three")
+    for p in profiles["profiles"]:
+        if list(Draft202012Validator(profile_schema).iter_errors(p)):
+            fail(f"genesis profile {p.get('profile_id')} invalid")
+    seed_ids = {s["seed_id"] for s in seeds.get("seeds", [])}
+    expected_seeds = {
+        "FOUNDING_SPLIT", "OLD_TRADE_NETWORK", "FAILED_SETTLEMENT",
+        "RESOURCE_CRISIS", "LOST_ARCHIVE", "DISPUTED_SUCCESSION",
+    }
+    if seed_ids != expected_seeds:
+        fail("story seed catalog must match closed set")
+    for s in seeds["seeds"]:
+        if list(Draft202012Validator(seed_schema).iter_errors(s)):
+            fail(f"story seed {s.get('seed_id')} invalid")
+        if s.get("does_not_determine_future") is not True:
+            fail("story seeds must not determine the future")
+
+    ga = load_json(ROOT / "examples" / "v06-deep-time" / "genesis-result-a.json")
+    gb = load_json(ROOT / "examples" / "v06-deep-time" / "genesis-result-b.json")
+    for label, g in (("a", ga), ("b", gb)):
+        errs = list(Draft202012Validator(result_schema).iter_errors(g))
+        if errs:
+            fail(f"genesis-result-{label} invalid: {errs[0].message}")
+        payload = dict(g)
+        rec = payload.pop("digest")
+        if rec != canonical_digest(payload):
+            fail(f"genesis-result-{label} digest not canonical")
+        if g.get("admin_only") is not True:
+            fail("genesis result must be admin_only")
+        if g.get("ordinary_world_valid") is not True:
+            fail("cycle 0 must declare ordinary_world_valid")
+        if len(g.get("starting_opportunities", [])) < 3:
+            fail("genesis must provide ≥3 starting opportunities")
+        hidden = g.get("hidden_from_players") or {}
+        for k in ("genesis_profile", "story_seeds", "world_seed", "full_prehistory"):
+            if hidden.get(k) is not True:
+                fail(f"players must not receive {k}")
+        if g.get("rules_versions", {}).get("canonicalization") != "noema-jcs/1":
+            fail("genesis must reuse noema-jcs/1")
+
+    if ga.get("genesis_profile_id") != gb.get("genesis_profile_id") or ga.get("story_seed_ids") != gb.get("story_seed_ids"):
+        fail("A/B fixtures must share profile and story seeds")
+    if ga.get("world_seed") == gb.get("world_seed"):
+        fail("different-seed fixture must change world_seed")
+    if ga.get("cycle0_world_state_digest") == gb.get("cycle0_world_state_digest"):
+        fail("different seeds must produce different Cycle 0 digests")
+    if ga.get("genesis_id") == gb.get("genesis_id"):
+        fail("different claim-bearing runs need distinct genesis_id")
+
+    if ga.get("activated") is not True or ga.get("genesis_config_immutable_after_activation") is not True:
+        fail("activated genesis must freeze configuration")
+    if ga.get("cannot_rerun_on_active_world") is not True:
+        fail("activated genesis cannot be rerun on active world")
+
+    c0a = load_json(ROOT / "examples" / "v06-deep-time" / "genesis-cycle0-a.json")
+    if c0a.get("ordinary_world_valid") is not True or c0a.get("cycle") != 0:
+        fail("cycle0 summary must be cycle 0 and ordinary-valid")
+    for req in ("functioning_relays", "damaged_relays", "dormant_institutions", "archive_fragment", "unresolved_territorial_claim"):
+        if not c0a.get(req):
+            fail(f"fractured genesis cycle0 missing {req}")
+
+    player_entry = load_json(ROOT / "examples" / "v06-deep-time" / "genesis-player-entry.json")
+    if player_entry.get("mode") != "PLAY" or player_entry["presentation"].get("no_genesis_controls") is not True:
+        fail("player entry must forbid genesis controls")
+    rendered = json.dumps(player_entry["presentation"]).lower()
+    for banned in ("story seed", "genesis profile", "world_seed", "regenerate", "activate world"):
+        if banned in rendered:
+            fail(f"player entry leaks genesis control: {banned}")
+
+    gen_doc = (ROOT / "docs" / "GENESIS.md").read_text(encoding="utf-8")
+    for token in (
+        "admin-only",
+        "Genesis configuration = immutable",
+        "rerun against an active world",
+        "Prefer the smallest architecture",
+        "PLAY never exposes",
+    ):
+        if token not in gen_doc:
+            fail(f"GENESIS.md missing token: {token}")
+    lore = (ROOT / "docs" / "LORE-BOUNDARY.md").read_text(encoding="utf-8")
+    if "not canonical world truth" not in lore:
+        fail("LORE-BOUNDARY incomplete")
+
+    gen_negs = [
+        ("specs/genesis-result.schema.json", "examples/negative/invalid-genesis-player-invokes.json"),
+        ("specs/story-seed.schema.json", "examples/negative/invalid-genesis-story-scripts-future.json"),
+        ("specs/genesis-profile.schema.json", "examples/negative/invalid-genesis-unknown-profile.json"),
+    ]
+    for schema_rel, fixture_rel in gen_negs:
+        if not list(Draft202012Validator(load_json(ROOT / schema_rel)).iter_errors(load_json(ROOT / fixture_rel))):
+            fail(f"{fixture_rel} should fail {schema_rel}")
+
+    expected = load_json(ROOT / "examples" / "v06-deep-time" / "expected-digests.json")
+    if expected.get("genesis_result_a_digest") != ga.get("digest"):
+        fail("expected-digests genesis A mismatch")
+
     ok(
         "Deep Time v0.6: institutions, succession, artifacts, claims, archaeology, "
-        "hidden-history protection, renaming, scars, lore boundary, negatives"
+        "hidden-history protection, renaming, scars, lore boundary, "
+        "admin-only Genesis (profiles/seeds/Cycle0/determinism), negatives"
     )
 
 
@@ -2062,6 +2183,7 @@ def check_experience_layer(Draft202012Validator) -> None:
         "deep-time-play-old-relay.json", "deep-time-play-onboarding.json",
         "deep-time-watch-timeline.json", "deep-time-study-questions.json",
         "deep-time-archive-discovered.json",
+        "deep-time-genesis-player-entry.json",
     }
     missing_exp = sorted(required_fixtures - set(fixtures))
     if missing_exp:

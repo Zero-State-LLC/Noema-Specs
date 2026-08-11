@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/genesis-profile.schema.json",
+  "title": "NOEMA genesis-profile (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profile_id",
+    "title",
+    "resource_abundance",
+    "infrastructure_condition",
+    "inhabited_area_count",
+    "abandoned_area_count",
+    "historical_age_band",
+    "institution_presence",
+    "artifact_density",
+    "conflict_pressure",
+    "trade_pressure"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "genesis-profile/0.6"
+    },
+    "profile_id": {
+      "enum": [
+        "YOUNG_FRONTIER",
+        "FRACTURED_OLD_WORLD",
+        "RECOVERING_NETWORK"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "resource_abundance": {
+      "enum": [
+        "SCARCE",
+        "MIXED",
+        "ABUNDANT"
+      ]
+    },
+    "infrastructure_condition": {
+      "enum": [
+        "FRAGILE",
+        "MIXED",
+        "ROBUST"
+      ]
+    },
+    "inhabited_area_count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "abandoned_area_count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "historical_age_band": {
+      "enum": [
+        "YOUNG",
+        "MID",
+        "OLD"
+      ]
+    },
+    "institution_presence": {
+      "enum": [
+        "NONE_OR_EMERGING",
+        "MIXED",
+        "DENSE"
+      ]
+    },
+    "artifact_density": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "conflict_pressure": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "trade_pressure": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    }
+  }
+}

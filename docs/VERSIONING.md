@@ -30,6 +30,7 @@
 - Phenomenon compile receipt: `phenomenon-compile-receipt/v1`
 - Deep Time: `deep-time/0.6`, `institution/0.6`, `succession-record/0.6`, `historical-artifact/0.6`, `historical-reconstruction/0.6`
 - Historical decay/significance catalogs: `historical-decay/0.6.0`, `historical-significance/0.6.0`
+- Genesis: `genesis-profile/0.6`, `story-seed/0.6`, `genesis-result/0.6`, catalogs `genesis-profiles/0.6.0`, `story-seeds/0.6.0`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

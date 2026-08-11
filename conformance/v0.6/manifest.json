@@ -1,7 +1,7 @@
 {
   "schema_version": "conformance-suite/1.0",
   "suite_id": "noema-v0.6-deep-time",
-  "title": "NOEMA v0.6 Deep Time Conformance Suite",
+  "title": "NOEMA v0.6 Deep Time + Genesis Conformance Suite",
   "specs_pin": "v0.6.0-draft",
   "acceptance_doc": "docs/releases/v0.6/ACCEPTANCE.md",
   "conformance_doc": "docs/releases/v0.6/CONFORMANCE.md",
@@ -97,6 +97,24 @@
     "cases/v06-D29-03.json",
     "cases/v06-D30-01.json",
     "cases/v06-D30-02.json",
-    "cases/v06-D30-03.json"
+    "cases/v06-D30-03.json",
+    "cases/v06-G01-01.json",
+    "cases/v06-G01-02.json",
+    "cases/v06-G02-01.json",
+    "cases/v06-G02-02.json",
+    "cases/v06-G03-01.json",
+    "cases/v06-G03-02.json",
+    "cases/v06-G04-01.json",
+    "cases/v06-G04-02.json",
+    "cases/v06-G05-01.json",
+    "cases/v06-G05-02.json",
+    "cases/v06-G06-01.json",
+    "cases/v06-G06-02.json",
+    "cases/v06-G07-01.json",
+    "cases/v06-G07-02.json",
+    "cases/v06-G08-01.json",
+    "cases/v06-G08-02.json",
+    "cases/v06-G09-01.json",
+    "cases/v06-G09-02.json"
   ]
 }

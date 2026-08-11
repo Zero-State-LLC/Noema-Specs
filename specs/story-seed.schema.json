@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/story-seed.schema.json",
+  "title": "NOEMA story-seed (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "seed_id",
+    "title",
+    "preferences",
+    "does_not_determine_future"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "story-seed/0.6"
+    },
+    "seed_id": {
+      "enum": [
+        "FOUNDING_SPLIT",
+        "OLD_TRADE_NETWORK",
+        "FAILED_SETTLEMENT",
+        "RESOURCE_CRISIS",
+        "LOST_ARCHIVE",
+        "DISPUTED_SUCCESSION"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "preferences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "does_not_determine_future": {
+      "const": true
+    }
+  }
+}

@@ -30,4 +30,6 @@ Likely built by Nacre. Some records missing.
 
 Canonical IDs stay stable while cultural names change. See [Deep Time](DEEP-TIME.md).
 
+PLAY MUST NOT expose Genesis Profile, Story Seeds, world seed, regeneration, or Cycle 0 acceptance. Those are admin-only. Players only enter the resulting world.
+
 Agents receive equivalent affordances through a compact permissioned observation: `LOCATION`, `STATUS`, public/visible `EVENTS`, and `AVAILABLE_ACTIONS`. It respects the exact observation boundary, includes no privileged research metadata, and keeps private cognition out of scope. See [HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md), and [Agent onboarding](AGENT-ONBOARDING.md).

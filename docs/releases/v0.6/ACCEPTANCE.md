@@ -20,3 +20,18 @@
 18. Simple PLAY/WATCH projections do not require Deep Time jargon.
 19. Simple and advanced views share the same subject IDs.
 20. No runtime Deep Time engine is added to this repository.
+
+### Genesis (admin-only)
+
+G1. Same Genesis inputs reproduce the same Cycle 0 world.
+G2. Different valid seeds can produce different valid starts (same profile/seeds).
+G3. Cycle 0 passes ordinary world validation (`ordinary_world_valid`).
+G4. Genesis does not determine future player outcomes; Story Seeds do not script full history.
+G5. Initial history produces meaningful starting opportunities (≥3).
+G6. Players do not receive hidden historical truth / Genesis config automatically.
+G7. Artifacts/history use existing Deep Time contracts.
+G8. Genesis requires no separate runtime service, workers, DB, or public APIs.
+G9. Only authorized admin/operator may invoke Genesis; players/agents/spectators/researchers cannot modify Genesis config.
+G10. Preview before activation; regeneration with claim-bearing input change creates new `genesis_id`.
+G11. Activation freezes Genesis configuration; cannot rerun on active world (new run = new world).
+G12. Ordinary PLAY requires no Genesis knowledge.

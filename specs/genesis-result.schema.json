@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/genesis-result.schema.json",
+  "title": "NOEMA genesis-result (v0.6 admin Cycle 0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "genesis_id",
+    "world_id",
+    "world_name",
+    "status",
+    "world_seed",
+    "genesis_profile_id",
+    "story_seed_ids",
+    "rules_versions",
+    "cycle0_snapshot_ref",
+    "ordinary_world_valid",
+    "admin_only",
+    "activated",
+    "starting_opportunities",
+    "player_visible_summary",
+    "hidden_from_players",
+    "provenance",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "genesis-result/0.6"
+    },
+    "genesis_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "world_name": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PREVIEW",
+        "ACCEPTED",
+        "ACTIVATED",
+        "SUPERSEDED"
+      ]
+    },
+    "world_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "genesis_profile_id": {
+      "enum": [
+        "YOUNG_FRONTIER",
+        "FRACTURED_OLD_WORLD",
+        "RECOVERING_NETWORK"
+      ]
+    },
+    "story_seed_ids": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "FOUNDING_SPLIT",
+          "OLD_TRADE_NETWORK",
+          "FAILED_SETTLEMENT",
+          "RESOURCE_CRISIS",
+          "LOST_ARCHIVE",
+          "DISPUTED_SUCCESSION"
+        ]
+      }
+    },
+    "rules_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "required": [
+        "deep_time",
+        "chamber_world",
+        "canonicalization"
+      ]
+    },
+    "cycle0_snapshot_ref": {
+      "type": "string"
+    },
+    "cycle0_world_state_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "ordinary_world_valid": {
+      "const": true
+    },
+    "admin_only": {
+      "const": true
+    },
+    "activated": {
+      "type": "boolean"
+    },
+    "activation_cycle": {
+      "type": "integer",
+      "const": 0
+    },
+    "genesis_config_immutable_after_activation": {
+      "type": "boolean"
+    },
+    "cannot_rerun_on_active_world": {
+      "type": "boolean"
+    },
+    "prehistory_record_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deep_time_refs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "starting_opportunities": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "enum": [
+          "EXPLORE",
+          "REPAIR",
+          "TRADE",
+          "JOIN_OR_REVIVE_INSTITUTION",
+          "INVESTIGATE_RUIN",
+          "CONTEST_CLAIM",
+          "FORM_ALLIANCE",
+          "RECOVER_ARTIFACT"
+        ]
+      }
+    },
+    "player_visible_summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "admin_preview": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "hidden_from_players": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "genesis_profile",
+        "story_seeds",
+        "world_seed",
+        "full_prehistory"
+      ],
+      "properties": {
+        "genesis_profile": {
+          "const": true
+        },
+        "story_seeds": {
+          "const": true
+        },
+        "world_seed": {
+          "const": true
+        },
+        "full_prehistory": {
+          "const": true
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "supersedes_genesis_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

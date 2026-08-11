@@ -61,6 +61,10 @@ This organization survived its founders.
 
 Advanced detail may expose lineage graphs, digests, succession machines, and reconstruction rules.
 
+## World Genesis (admin-only)
+
+New worlds may enter Deep Time through a **one-time admin Genesis** operation: seed + profile + optional story seeds → Cycle 0 ordinary world → activate. Genesis is not a player system and does not remain a runtime control surface. See [GENESIS.md](GENESIS.md) · [LORE-BOUNDARY.md](LORE-BOUNDARY.md).
+
 ## Related contracts
 
-[Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md)
+[Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md) · [Genesis](GENESIS.md)

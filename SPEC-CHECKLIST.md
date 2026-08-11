@@ -9,6 +9,7 @@
 - [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L34 (146 atomic cases), including deterministic intent compilation, simple result projection, and CAPTURE gating.
 - [x] v0.5 Compiler: release package, capture intent/compilation/oracle/captured-test/receipt/audit/regression schemas, defaults + status catalogs, fixtures, P01–P30 (90 atomic cases), STUDY progressive disclosure.
 - [x] v0.6 Deep Time foundation: institutions, succession, artifacts, evidence, archaeology/reconstruction, scars, names, lore boundary, D01–D30 (90 atomic cases).
+- [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 
 ## Core game design (player-facing)
 
@@ -93,6 +94,8 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Archaeology without hidden-ledger leak; contested claims retained
 - [x] Canonical IDs immutable under cultural renaming
 - [x] No silent event-catalog/0.3; audit document present
+- [x] Genesis admin-only; activation freezes config; PLAY has no Genesis controls
+- [x] Same-seed determinism + different-seed validity fixtures
 
 ## v0.5 Compiler
 

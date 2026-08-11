@@ -18,3 +18,5 @@ WATCH never mutates WorldState or appends events. Agent POV exactly matches the 
 ### Deep Time in WATCH (v0.6)
 
 History surfaces as drama, not a raw ledger: `TIMELINE`, foundings, successions, collapses, landmarks, discoveries. Derived significance uses versioned rules (`historical-significance/0.6`). See [Deep Time](DEEP-TIME.md).
+
+WATCH may show derived world age / known historical sites / surviving institutions. It MUST NOT expose administrative Story Seeds, world seeds, or undiscovered Genesis internals by default.

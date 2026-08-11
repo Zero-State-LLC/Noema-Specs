@@ -1,0 +1,33 @@
+{
+  "schema_version": "genesis-result/0.6",
+  "genesis_id": "g.bad",
+  "world_id": "w",
+  "world_name": "X",
+  "status": "PREVIEW",
+  "world_seed": "s",
+  "genesis_profile_id": "YOUNG_FRONTIER",
+  "story_seed_ids": [],
+  "rules_versions": {
+    "deep_time": "deep-time/0.6",
+    "chamber_world": "world/v1",
+    "canonicalization": "noema-jcs/1"
+  },
+  "cycle0_snapshot_ref": "x",
+  "ordinary_world_valid": true,
+  "admin_only": false,
+  "activated": false,
+  "starting_opportunities": [
+    "EXPLORE",
+    "REPAIR",
+    "TRADE"
+  ],
+  "player_visible_summary": {},
+  "hidden_from_players": {
+    "genesis_profile": true,
+    "story_seeds": true,
+    "world_seed": true,
+    "full_prehistory": true
+  },
+  "provenance": {},
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

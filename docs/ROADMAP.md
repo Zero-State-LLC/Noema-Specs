@@ -48,7 +48,9 @@ Prerequisite: C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, RFC-0003 gr
 
 **Foundation (this package):** institutions, succession, historical artifacts, evidence, archaeology/reconstruction, institutional memory, cultural transmission foundations, world scars, historical names — so structures persist beyond agents and lore can later be **derived** from real history (never a second canon).
 
-**Executable package:** [docs/releases/v0.6/](releases/v0.6/) · [DEEP-TIME.md](DEEP-TIME.md) · [examples/v06-deep-time/](../examples/v06-deep-time/) · [conformance/v0.6/](../conformance/v0.6/) (**D01–D30**, 90 atomic cases).
+**Admin-only Genesis (simplified):** one-time world creation from seed + 3 profiles + optional story seeds → valid Cycle 0 → activate; no player Genesis surface, no Genesis runtime service.
+
+**Executable package:** [docs/releases/v0.6/](releases/v0.6/) · [DEEP-TIME.md](DEEP-TIME.md) · [GENESIS.md](GENESIS.md) · [examples/v06-deep-time/](../examples/v06-deep-time/) · [conformance/v0.6/](../conformance/v0.6/) (**D01–D30** + **G01–G09**).
 
 Prerequisite: C/F/O/S/L/P + RFC-0003 green. No runtime Deep Time engine; no authored lore canon; no silent event-catalog expansion.
 

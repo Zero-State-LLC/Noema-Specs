@@ -27,5 +27,8 @@ These fixtures are intentionally non-conforming. Schema and catalog validators M
 | `invalid-reconstruction-invents-narrative.json` | `no_narrative_invention` must be `true` |
 | `invalid-historical-name-mutates-id.json` | `canonical_id_immutable` must be `true` |
 | `invalid-claim-missing-sources.json` | Historical claim requires non-empty `source_refs` |
+| `invalid-genesis-player-invokes.json` | `admin_only` must be `true` |
+| `invalid-genesis-story-scripts-future.json` | Story seed `does_not_determine_future` must be `true` |
+| `invalid-genesis-unknown-profile.json` | Profile id outside closed three |
 
 Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, `examples/v05-compiler/`, `examples/v06-deep-time/`, and `examples/sample-*.json`.

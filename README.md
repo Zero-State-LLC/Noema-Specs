@@ -80,7 +80,9 @@ From a READY Lab result, one ordinary action — **CAPTURE AS TEST** — produce
 
 ### v0.6 Deep Time (foundation)
 
-Agents create structures that persist beyond them: institutions, succession, artifacts, scars, and incomplete evidence later agents can inherit or investigate. **Lore is derived from history**, never a competing canon. PLAY feels old; WATCH shows timeline drama; STUDY asks longitudinal questions. See [Deep Time](docs/DEEP-TIME.md), [v0.6 release package](docs/releases/v0.6/), [fixture](examples/v06-deep-time/), and [D01–D30 conformance](conformance/v0.6/).
+Agents create structures that persist beyond them: institutions, succession, artifacts, scars, and incomplete evidence later agents can inherit or investigate. **Lore is derived from history**, never a competing canon. PLAY feels old; WATCH shows timeline drama; STUDY asks longitudinal questions.
+
+**Genesis** is a simple **admin-only** create-world step (profile + optional story seeds + seed → Cycle 0), then ordinary play. See [Deep Time](docs/DEEP-TIME.md), [Genesis](docs/GENESIS.md), [v0.6 release package](docs/releases/v0.6/), [fixture](examples/v06-deep-time/), and [D01–D30 + G01–G09](conformance/v0.6/).
 
 ### Research loop
 
