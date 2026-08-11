@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P18-01",
+  "suite": "noema-v0.5-compiler",
+  "title": "Required Controls: atomic contract 1",
+  "acceptance_items": [
+    18
+  ],
+  "family_id": "P18",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#18"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/captured-test/controls.json",
+    "examples/v05-compiler/simple-not-ready.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P18",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P18 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

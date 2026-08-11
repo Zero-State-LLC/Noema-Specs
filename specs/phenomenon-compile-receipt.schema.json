@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/phenomenon-compile-receipt.schema.json",
+  "title": "NOEMA phenomenon-compile-receipt (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_version",
+    "compile_id",
+    "status",
+    "compiler_identity",
+    "corpus_identity",
+    "schema_bundle_identity",
+    "provider_adapter_identity",
+    "command",
+    "command_digest",
+    "normalized_input_digest",
+    "source_trajectory_digest",
+    "target_digest",
+    "equivalence_boundary_digest",
+    "minimal_fixture_digest",
+    "audit_root_digest",
+    "canonicalization",
+    "digest"
+  ],
+  "properties": {
+    "receipt_version": {
+      "const": "phenomenon-compile-receipt/v1"
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "COMPILED",
+        "NOT_COMPUTABLE",
+        "INVALID_EVIDENCE",
+        "INCONCLUSIVE",
+        "ABORTED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    "compiler_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "corpus_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "schema_bundle_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "provider_adapter_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "command": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "command_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "normalized_input_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "source_trajectory_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "target_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "equivalence_boundary_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "minimal_fixture_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "audit_root_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "canonicalization": {
+      "const": "noema-jcs/1"
+    },
+    "rfc0003_receipt_profile": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

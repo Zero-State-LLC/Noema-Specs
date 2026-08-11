@@ -1,0 +1,21 @@
+{
+  "schema_version": "compiler-result/0.5",
+  "compiler_result_id": "x",
+  "compile_id": "y",
+  "status": "SUCCESS",
+  "source_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "minimal_fixture_digest": null,
+  "target_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "boundary_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "unit_counts": {},
+  "oracle_counts": {},
+  "minimality_status": "ONE_MINIMAL",
+  "promotion_status": "PROMOTABLE",
+  "reason_codes": [],
+  "supporting_evidence": [],
+  "counterevidence": [],
+  "confounds": [],
+  "audit_root_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "claim_label": "INFERRED",
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

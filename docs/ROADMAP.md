@@ -38,7 +38,11 @@ Prerequisite: C01–C26, F01–F15, O01–O16 green. Lab does **not** mutate pro
 
 ## v0.5 — The Compiler
 
-Phenomenon Compiler, minimal fixture extraction, CAPTURE AS TEST, and behavioral regression suite.
+Phenomenon Compiler executable package: CAPTURE AS TEST, capture-intent compilation, dependency-closed minimization, behavioral oracle, captured-test packages, receipts/audit, STUDY progressive disclosure, and behavioral regression (no scalar ranking).
+
+**Executable package:** [docs/releases/v0.5/](releases/v0.5/) · [PHENOMENON-COMPILER.md](PHENOMENON-COMPILER.md) · [CAPTURE-INTENT-COMPILATION.md](CAPTURE-INTENT-COMPILATION.md) · [examples/v05-compiler/](../examples/v05-compiler/) · [conformance/v0.5/](../conformance/v0.5/) (**P01–P30**, 90 atomic cases).
+
+Prerequisite: C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, RFC-0003 green. Compiler does **not** rewrite Lab/world history; ordinary users see one action — CAPTURE AS TEST — while machine contracts pin full determinism.
 
 ## v0.6 — Deep Time
 

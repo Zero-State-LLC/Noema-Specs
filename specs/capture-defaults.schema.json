@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capture-defaults.schema.json",
+  "title": "NOEMA capture-defaults",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "defaults_version",
+    "minimization_strategy_version",
+    "oracle_policy",
+    "seed_policy",
+    "replication_policy",
+    "budget_profile",
+    "generalization_default",
+    "capture_visibility_default",
+    "budgets",
+    "allowed_override_fields"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capture-defaults/0.5"
+    },
+    "defaults_version": {
+      "type": "string"
+    },
+    "minimization_strategy_version": {
+      "type": "string"
+    },
+    "oracle_policy": {
+      "type": "string"
+    },
+    "seed_policy": {
+      "type": "string"
+    },
+    "replication_policy": {
+      "type": "string"
+    },
+    "budget_profile": {
+      "type": "string"
+    },
+    "generalization_default": {
+      "enum": [
+        "EXACT_SCENARIO",
+        "SCENARIO_FAMILY",
+        "BEHAVIOR_FAMILY"
+      ]
+    },
+    "capture_visibility_default": {
+      "enum": [
+        "PUBLIC",
+        "RESEARCH_ISOLATED",
+        "PRIVATE"
+      ]
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_oracle_calls",
+        "max_replay_cycles",
+        "max_perturbations",
+        "max_storage_bytes",
+        "max_wall_time_advisory_ms"
+      ],
+      "properties": {
+        "max_oracle_calls": {
+          "type": "integer"
+        },
+        "max_replay_cycles": {
+          "type": "integer"
+        },
+        "max_perturbations": {
+          "type": "integer"
+        },
+        "max_storage_bytes": {
+          "type": "integer"
+        },
+        "max_wall_time_advisory_ms": {
+          "type": "integer"
+        }
+      }
+    },
+    "layer_order": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "WORLD_CONFIGURATION",
+          "ENTITIES_AGENTS",
+          "EVENTS_ACTIONS",
+          "OBSERVATIONS_MESSAGES",
+          "TOOLS_RESOURCES",
+          "METADATA"
+        ]
+      }
+    },
+    "allowed_override_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

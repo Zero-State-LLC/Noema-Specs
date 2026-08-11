@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/compiler-audit-record.schema.json",
+  "title": "NOEMA compiler-audit-record (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "audit_version",
+    "compile_id",
+    "record_index",
+    "phase",
+    "proposal_id",
+    "proposal_digest",
+    "removed_unit_ids",
+    "closure_unit_ids",
+    "oracle_identity",
+    "oracle_result",
+    "budget_before",
+    "budget_after",
+    "decision",
+    "reason_code",
+    "previous_record_digest",
+    "record_digest",
+    "occurred_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "compiler-audit-record/0.5"
+    },
+    "audit_version": {
+      "type": "string"
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "record_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "phase": {
+      "enum": [
+        "ADMISSION",
+        "SOURCE_REPLAY",
+        "UNIT_EXTRACTION",
+        "DEPENDENCY_CLOSURE",
+        "MINIMIZATION",
+        "ORACLE",
+        "CONTROLS",
+        "PACKAGING",
+        "PROMOTION",
+        "ABORT"
+      ]
+    },
+    "proposal_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "proposal_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "removed_unit_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "closure_unit_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "oracle_identity": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "oracle_result": {
+      "anyOf": [
+        {
+          "enum": [
+            "PRESERVED",
+            "NOT_PRESERVED",
+            "INCONCLUSIVE",
+            "INVALID"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "replay_request_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "replay_result_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "budget_before": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "budget_after": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "decision": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "previous_record_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "protected_artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

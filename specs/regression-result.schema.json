@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/regression-result.schema.json",
+  "title": "NOEMA regression-result (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "regression_result_id",
+    "captured_test_id",
+    "subject_identity",
+    "outcome",
+    "claim_label",
+    "boundary",
+    "evidence_refs",
+    "simple_message",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "regression-result/0.5"
+    },
+    "regression_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "captured_test_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "subject_identity": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outcome": {
+      "enum": [
+        "PASS",
+        "PARTIAL",
+        "FAIL",
+        "NOT_COMPARABLE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simple_message": {
+      "type": "string"
+    },
+    "not_a_global_ranking": {
+      "const": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

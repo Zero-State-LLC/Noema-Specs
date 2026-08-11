@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P16-03",
+  "suite": "noema-v0.5-compiler",
+  "title": "Over-Minimization Protection: atomic contract 3",
+  "acceptance_items": [
+    16
+  ],
+  "family_id": "P16",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#16"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/over-minimization-proposal.json",
+    "examples/v05-compiler/simple-over-minimization.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P16",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P16 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

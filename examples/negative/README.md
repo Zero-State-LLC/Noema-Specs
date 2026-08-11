@@ -17,5 +17,9 @@ These fixtures are intentionally non-conforming. Schema and catalog validators M
 | `invalid-resource-negative-balance.json` | `BUDGET_CONSUMED.remaining` &lt; 0 |
 | `invalid-world-state-missing-lineage.json` | Canonical WorldState missing replay-critical catalog, revision, canonicalization, and hash fields |
 | `invalid-spectator-mutates-world.json` | `mutates_world` must be `false` |
+| `invalid-compiler-result-unknown-status.json` | Compiler status outside COMPILED/NOT_COMPUTABLE/INVALID_EVIDENCE/INCONCLUSIVE/ABORTED/BUDGET_EXHAUSTED |
+| `invalid-captured-test-missing-title.json` | Captured test missing required `title` |
+| `invalid-capture-intent-wrong-action.json` | `capture_intent` not `CAPTURE_AS_TEST` |
+| `invalid-regression-implies-global-rank.json` | `not_a_global_ranking` must be `true` |
 
-Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, and `examples/sample-*.json`.
+Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, `examples/v05-compiler/`, and `examples/sample-*.json`.

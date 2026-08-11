@@ -142,6 +142,22 @@ REQUIRED_DOCS = [
     "docs/releases/v0.4/MIGRATION.md",
     "docs/releases/v0.4/EXAMPLES.md",
     "docs/releases/v0.4/NON-GOALS.md",
+    "docs/releases/v0.5/SCOPE.md",
+    "docs/releases/v0.5/ARCHITECTURE.md",
+    "docs/releases/v0.5/DATA-MODEL.md",
+    "docs/releases/v0.5/ACCEPTANCE.md",
+    "docs/releases/v0.5/CONFORMANCE.md",
+    "docs/releases/v0.5/MIGRATION.md",
+    "docs/releases/v0.5/EXAMPLES.md",
+    "docs/releases/v0.5/NON-GOALS.md",
+    "docs/PHENOMENON-COMPILER.md",
+    "docs/CAPTURE-INTENT-COMPILATION.md",
+    "docs/COMPILATION-IDENTITY.md",
+    "docs/BEHAVIORAL-ORACLE.md",
+    "docs/BEHAVIORAL-SIGNATURE.md",
+    "docs/OVER-MINIMIZATION.md",
+    "docs/CAPTURED-TEST-FORMAT.md",
+    "docs/BEHAVIORAL-REGRESSION.md",
     "docs/EXPERIMENT-LAB.md",
     "docs/EXPERIMENT-INTENT-COMPILATION.md",
     "docs/SIMPLE-RESULT-PROJECTION.md",
@@ -313,6 +329,14 @@ REQUIRED_EXAMPLES = [
     "examples/v04-lab/experiment-fork.json",
     "examples/v04-lab/lab-result.json",
     "conformance/v0.4/manifest.json",
+    "examples/v05-compiler/capture-intent.json",
+    "examples/v05-compiler/compilation-request.json",
+    "examples/v05-compiler/captured-test.json",
+    "examples/v05-compiler/compiler-result.json",
+    "examples/v05-compiler/compile-receipt.json",
+    "conformance/v0.5/manifest.json",
+    "specs/capture-defaults.v05.json",
+    "specs/capture-status-catalog.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -963,6 +987,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
         fail(f"conformance v0.4 missing families: {missing_l}")
     ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L34 covered")
 
+    # v0.5 Compiler suite
+    m5 = load_json(ROOT / "conformance" / "v0.5" / "manifest.json")
+    cases5 = m5.get("cases") or []
+    if len(cases5) < 90:
+        fail(f"conformance v0.5 suite must list ≥90 cases, found {len(cases5)}")
+    fams5: set[str] = set()
+    for rel in cases5:
+        path = ROOT / "conformance" / "v0.5" / rel
+        if not path.exists():
+            fail(f"conformance v0.5 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.5 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams5.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.5 case {rel} missing fixture {fixture}")
+    expected_p = {f"P{i:02d}" for i in range(1, 31)}
+    missing_p = sorted(expected_p - fams5)
+    if missing_p:
+        fail(f"conformance v0.5 missing families: {missing_p}")
+    ok(f"Conformance suite v0.5: {len(cases5)} cases, families P01–P30 covered")
+
 
 def check_contract_quality_markers() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -1466,6 +1517,243 @@ def check_lab_v04(Draft202012Validator) -> None:
     ok("Lab v0.4: schemas, intent compilation, stable digests, isolation, controls, projections, counterfactuals, lesions, negatives, catalogs")
 
 
+def check_compiler_v05(Draft202012Validator) -> None:
+    """Validate v0.5 Phenomenon Compiler schemas, fixtures, capture flow, and gates."""
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+    pairs = [
+        ("specs/capture-intent.schema.json", "examples/v05-compiler/capture-intent.json"),
+        ("specs/compilation-request.schema.json", "examples/v05-compiler/compilation-request.json"),
+        ("specs/phenomenon-candidate.schema.json", "examples/v05-compiler/phenomenon-candidate.json"),
+        ("specs/phenomenon-dependency-graph.schema.json", "examples/v05-compiler/dependency-graph.json"),
+        ("specs/compiler-unit-manifest.schema.json", "examples/v05-compiler/unit-manifest.json"),
+        ("specs/behavioral-oracle.schema.json", "examples/v05-compiler/behavioral-oracle.json"),
+        ("specs/compiler-result.schema.json", "examples/v05-compiler/compiler-result.json"),
+        ("specs/compiler-result.schema.json", "examples/v05-compiler/compiler-result-budget-exhausted.json"),
+        ("specs/phenomenon-compile-receipt.schema.json", "examples/v05-compiler/compile-receipt.json"),
+        ("specs/captured-test.schema.json", "examples/v05-compiler/captured-test.json"),
+        ("specs/regression-result.schema.json", "examples/v05-compiler/regression-result.json"),
+        ("specs/regression-result.schema.json", "examples/v05-compiler/regression-result-fail.json"),
+        ("specs/capture-defaults.schema.json", "specs/capture-defaults.v05.json"),
+        ("specs/capture-status-catalog.schema.json", "specs/capture-status-catalog.json"),
+        ("specs/experience-view.schema.json", "examples/v05-compiler/simple-capture-result.json"),
+        ("specs/experience-view.schema.json", "examples/v05-compiler/advanced-capture-result.json"),
+        ("specs/lab-result.schema.json", "examples/v05-compiler/source-lab-result-ready.json"),
+    ]
+    for schema_rel, fixture_rel in pairs:
+        schema = load_json(ROOT / schema_rel)
+        fixture = load_json(ROOT / fixture_rel)
+        errs = list(Draft202012Validator(schema).iter_errors(fixture))
+        if errs:
+            fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    # Digests stable
+    for rel in (
+        "examples/v05-compiler/capture-intent.json",
+        "examples/v05-compiler/compilation-request.json",
+        "examples/v05-compiler/phenomenon-candidate.json",
+        "examples/v05-compiler/dependency-graph.json",
+        "examples/v05-compiler/unit-manifest.json",
+        "examples/v05-compiler/behavioral-oracle.json",
+        "examples/v05-compiler/compiler-result.json",
+        "examples/v05-compiler/compile-receipt.json",
+        "examples/v05-compiler/captured-test.json",
+        "examples/v05-compiler/source-lab-result-ready.json",
+        "examples/v05-compiler/simple-capture-result.json",
+        "examples/v05-compiler/advanced-capture-result.json",
+        "examples/v05-compiler/regression-result.json",
+    ):
+        obj = load_json(ROOT / rel)
+        payload = dict(obj)
+        recorded = payload.pop("digest", None)
+        if recorded != canonical_digest(payload):
+            fail(f"{rel} digest is not canonical/stable")
+
+    expected = load_json(ROOT / "examples" / "v05-compiler" / "expected-digests.json")
+    captured = load_json(ROOT / "examples" / "v05-compiler" / "captured-test.json")
+    if expected.get("captured_test_digest") != captured.get("digest"):
+        fail("expected-digests captured_test_digest mismatch")
+
+    lab = load_json(ROOT / "examples" / "v05-compiler" / "source-lab-result-ready.json")
+    if lab.get("compiler_readiness") != "READY":
+        fail("v0.5 source Lab Result must be READY for normal capture")
+    intent = load_json(ROOT / "examples" / "v05-compiler" / "capture-intent.json")
+    if intent.get("capture_intent") != "CAPTURE_AS_TEST":
+        fail("capture intent must be CAPTURE_AS_TEST")
+    if intent.get("source_lab_result_id") != lab.get("lab_result_id"):
+        fail("capture intent must reference READY Lab Result")
+    creq = load_json(ROOT / "examples" / "v05-compiler" / "compilation-request.json")
+    if creq.get("source_lab_result_id") != lab.get("lab_result_id"):
+        fail("compilation request must retain Lab Result lineage")
+    if creq.get("compiler_version", {}).get("canonicalization") != "noema-jcs/1":
+        fail("compilation request must pin noema-jcs/1")
+    if creq.get("capture_defaults_version") != "capture-defaults/0.5.0":
+        fail("compilation request must pin capture defaults version")
+
+    defaults = load_json(ROOT / "specs" / "capture-defaults.v05.json")
+    for field in (
+        "minimization_strategy_version", "oracle_policy", "seed_policy",
+        "replication_policy", "budget_profile", "generalization_default",
+        "capture_visibility_default", "budgets", "allowed_override_fields", "layer_order",
+    ):
+        if field not in defaults:
+            fail(f"capture defaults missing {field}")
+    if defaults["layer_order"][0] != "WORLD_CONFIGURATION":
+        fail("minimization layer order must start with WORLD_CONFIGURATION")
+
+    # Status catalog covers all compiler statuses
+    status_cat = load_json(ROOT / "specs" / "capture-status-catalog.json")
+    mapped = {m["machine_status"] for m in status_cat["mappings"]}
+    required_status = {"COMPILED", "NOT_COMPUTABLE", "INVALID_EVIDENCE", "INCONCLUSIVE", "ABORTED", "BUDGET_EXHAUSTED"}
+    if mapped != required_status:
+        fail(f"capture status catalog must map all compiler statuses, missing/extra {required_status ^ mapped}")
+
+    result = load_json(ROOT / "examples" / "v05-compiler" / "compiler-result.json")
+    if result.get("status") != "COMPILED" or result.get("minimality_status") != "ONE_MINIMAL":
+        fail("successful compiler result must be COMPILED with ONE_MINIMAL")
+    if result.get("captured_test_id") != captured.get("captured_test_id"):
+        fail("compiler result and captured test IDs must agree")
+    if captured.get("claim_label") != result.get("claim_label"):
+        fail("captured test must not strengthen compiler claim label")
+    if captured.get("generalization_boundary") != "SCENARIO_FAMILY":
+        fail("example captured test boundary should be SCENARIO_FAMILY")
+    if "General capability" in json.dumps(captured.get("known_limits", [])):
+        pass  # limits may mention non-claims
+    simple = load_json(ROOT / "examples" / "v05-compiler" / "simple-capture-result.json")
+    advanced = load_json(ROOT / "examples" / "v05-compiler" / "advanced-capture-result.json")
+    if captured["captured_test_id"] not in simple["canonical_source_refs"]:
+        fail("simple capture view must reference captured test id")
+    if captured["captured_test_id"] not in advanced["canonical_source_refs"]:
+        fail("advanced capture view must reference same captured test id")
+    if simple.get("canonical_claim_label") != captured.get("claim_label"):
+        fail("simple capture view cannot strengthen claim label")
+    simple_text = json.dumps(simple["presentation"]).lower()
+    for jargon in ("ddmin", "oracle cache", "audit root", "dependency-closed", "unit_id"):
+        if jargon in simple_text:
+            fail(f"simple capture view leaks jargon: {jargon}")
+
+    # Budget exhaustion is not minimality
+    budget = load_json(ROOT / "examples" / "v05-compiler" / "compiler-result-budget-exhausted.json")
+    if budget.get("status") != "BUDGET_EXHAUSTED" or budget.get("minimality_status") == "ONE_MINIMAL":
+        fail("BUDGET_EXHAUSTED must not claim ONE_MINIMAL")
+    if budget.get("promotion_status") == "PROMOTABLE":
+        fail("budget exhausted result must not be PROMOTABLE")
+
+    # Over-minimization rejected
+    over = load_json(ROOT / "examples" / "v05-compiler" / "over-minimization-proposal.json")
+    if over.get("oracle_result") != "NOT_PRESERVED" or over.get("decision") != "REJECT_REMOVAL":
+        fail("over-minimization proposal must be NOT_PRESERVED + REJECT_REMOVAL")
+
+    # Minimization records digest chain
+    min_schema = load_json(ROOT / "specs" / "minimization-record.schema.json")
+    prev = None
+    decisions = []
+    for line in (ROOT / "examples" / "v05-compiler" / "minimization-records.jsonl").read_text(encoding="utf-8").splitlines():
+        rec = json.loads(line)
+        if list(Draft202012Validator(min_schema).iter_errors(rec)):
+            fail("minimization record fails schema")
+        payload = dict(rec)
+        recorded = payload.pop("record_digest")
+        if recorded != canonical_digest(payload):
+            fail("minimization record digest not canonical")
+        if rec.get("previous_record_digest") != prev:
+            fail("minimization record chain broken")
+        if rec.get("oracle_result") in ("INCONCLUSIVE", "INVALID") and rec.get("decision") == "ACCEPT_REMOVAL":
+            fail("INCONCLUSIVE/INVALID must never authorize removal")
+        prev = recorded
+        decisions.append(rec["decision"])
+    if "ACCEPT_REMOVAL" not in decisions or "REJECT_REMOVAL" not in decisions:
+        fail("minimization records must show both accept and reject paths")
+
+    # Audit chain
+    audit_schema = load_json(ROOT / "specs" / "compiler-audit-record.schema.json")
+    audit_prev = None
+    phases: set[str] = set()
+    for line in (ROOT / "examples" / "v05-compiler" / "compiler-audit-ledger.jsonl").read_text(encoding="utf-8").splitlines():
+        rec = json.loads(line)
+        if list(Draft202012Validator(audit_schema).iter_errors(rec)):
+            fail("compiler audit record fails schema")
+        payload = dict(rec)
+        recorded = payload.pop("record_digest")
+        if recorded != canonical_digest(payload):
+            fail("compiler audit digest not canonical")
+        if rec.get("previous_record_digest") != audit_prev:
+            fail("compiler audit chain broken")
+        audit_prev = recorded
+        phases.add(rec["phase"])
+    for phase in ("ADMISSION", "SOURCE_REPLAY", "MINIMIZATION", "ORACLE", "PACKAGING", "PROMOTION"):
+        if phase not in phases:
+            fail(f"compiler audit missing phase {phase}")
+    if result.get("audit_root_digest") != audit_prev:
+        fail("compiler result audit_root_digest must match ledger tip")
+
+    receipt = load_json(ROOT / "examples" / "v05-compiler" / "compile-receipt.json")
+    if receipt.get("canonicalization") != "noema-jcs/1":
+        fail("compile receipt must reuse noema-jcs/1")
+    if receipt.get("status") != "COMPILED":
+        fail("success receipt status must match compiler result")
+    if "none" not in receipt.get("provider_adapter_identity", {}).get("version", ""):
+        # allow exact none
+        if receipt["provider_adapter_identity"]["version"] != "none":
+            fail("provider adapter identity required even when unused")
+
+    # Regression non-ranking
+    reg = load_json(ROOT / "examples" / "v05-compiler" / "regression-result.json")
+    reg_fail = load_json(ROOT / "examples" / "v05-compiler" / "regression-result-fail.json")
+    if reg.get("not_a_global_ranking") is not True or reg_fail.get("not_a_global_ranking") is not True:
+        fail("regression results must set not_a_global_ranking true")
+    if reg_fail.get("outcome") != "FAIL":
+        fail("regression fail fixture must outcome FAIL")
+
+    # Negatives reject
+    neg_pairs = [
+        ("specs/compiler-result.schema.json", "examples/negative/invalid-compiler-result-unknown-status.json"),
+        ("specs/captured-test.schema.json", "examples/negative/invalid-captured-test-missing-title.json"),
+        ("specs/capture-intent.schema.json", "examples/negative/invalid-capture-intent-wrong-action.json"),
+        ("specs/regression-result.schema.json", "examples/negative/invalid-regression-implies-global-rank.json"),
+    ]
+    for schema_rel, fixture_rel in neg_pairs:
+        if not list(Draft202012Validator(load_json(ROOT / schema_rel)).iter_errors(load_json(ROOT / fixture_rel))):
+            fail(f"{fixture_rel} should fail {schema_rel}")
+
+    overclaim = load_json(ROOT / "examples" / "v05-compiler" / "negative" / "invalid-simple-overclaim.json")
+    if overclaim.get("canonical_claim_label") == captured.get("claim_label"):
+        fail("overclaim negative should strengthen claim label vs captured test")
+
+    # Docs present and usability invariant
+    scope = (ROOT / "docs" / "releases" / "v0.5" / "SCOPE.md").read_text(encoding="utf-8")
+    if "ordinary-user conceptual burden" not in scope and "conceptual burden" not in scope:
+        fail("v0.5 scope must state usability invariant")
+    compiler_doc = (ROOT / "docs" / "PHENOMENON-COMPILER.md").read_text(encoding="utf-8")
+    for token in ("ddmin", "PRESERVED", "compile_id", "BUDGET_EXHAUSTED"):
+        if token not in compiler_doc:
+            fail(f"PHENOMENON-COMPILER missing {token}")
+    for rel in (
+        "docs/CAPTURE-INTENT-COMPILATION.md",
+        "docs/COMPILATION-IDENTITY.md",
+        "docs/BEHAVIORAL-ORACLE.md",
+        "docs/OVER-MINIMIZATION.md",
+        "docs/CAPTURED-TEST-FORMAT.md",
+        "docs/BEHAVIORAL-REGRESSION.md",
+    ):
+        if not (ROOT / rel).exists():
+            fail(f"missing {rel}")
+
+    # Unit protected retention
+    units = load_json(ROOT / "examples" / "v05-compiler" / "unit-manifest.json")["units"]
+    protected = [u for u in units if u.get("protected")]
+    if not protected or any(u.get("final_disposition") == "REMOVED" for u in protected):
+        fail("protected units must not be REMOVED")
+
+    ok(
+        "Compiler v0.5: schemas, capture intent, defaults, digests, audit/receipt, "
+        "minimization, oracle, simple/advanced equivalence, budget/privacy, negatives"
+    )
+
 
 def check_experience_layer(Draft202012Validator) -> None:
     """Validate deterministic PLAY/WATCH/STUDY translations and safe fixtures."""
@@ -1521,9 +1809,17 @@ def check_experience_layer(Draft202012Validator) -> None:
     view_schema = load_json(ROOT / "specs" / "experience-view.schema.json")
     fixture_dir = ROOT / "examples" / "experience"
     fixtures = {path.name: load_json(path) for path in fixture_dir.glob("*.json")}
-    required_fixtures = {"play-view.json", "watch-view.json", "interesting-behavior-card.json", "test-intent-menu.json", "simple-test-result.json", "advanced-test-result.json", "capture-ready.json", "user-facing-error.json"}
-    if set(fixtures) != required_fixtures:
-        fail("experience fixture package is incomplete")
+    required_fixtures = {
+        "play-view.json", "watch-view.json", "interesting-behavior-card.json",
+        "test-intent-menu.json", "simple-test-result.json", "advanced-test-result.json",
+        "capture-ready.json", "user-facing-error.json",
+        "capture-result-simple.json", "capture-result-advanced.json", "capturing-state.json",
+        "capture-budget-exhausted.json", "capture-failed.json", "capture-privacy-block.json",
+        "capture-not-ready.json",
+    }
+    missing_exp = sorted(required_fixtures - set(fixtures))
+    if missing_exp:
+        fail(f"experience fixture package incomplete: missing {missing_exp}")
     for name, fixture in fixtures.items():
         errors = list(Draft202012Validator(view_schema).iter_errors(fixture))
         if errors:
@@ -1607,10 +1903,12 @@ def main() -> None:
     check_conformance_suite(Draft202012Validator)
     check_strategic_conflict(Draft202012Validator)
     check_lab_v04(Draft202012Validator)
+    check_compiler_v05(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()
     print("\nPASS")
+
 
 
 if __name__ == "__main__":

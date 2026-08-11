@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/compilation-request.schema.json",
+  "title": "NOEMA compilation-request (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "compile_id",
+    "candidate_id",
+    "source_trajectory",
+    "candidate_interval",
+    "target_behavior",
+    "equivalence_boundary",
+    "removable_units",
+    "dependency_graph",
+    "required_controls",
+    "perturbation_space",
+    "budgets",
+    "policy_context",
+    "compiler_version",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "compilation-request/0.5"
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_lab_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_trajectory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trajectory_id",
+        "trajectory_digest",
+        "world_seed_digest",
+        "world_version",
+        "protocol_versions",
+        "deterministic_config_digest",
+        "external_inputs_digest"
+      ],
+      "properties": {
+        "trajectory_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "trajectory_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "world_seed_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "world_version": {
+          "type": "string"
+        },
+        "protocol_versions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "deterministic_config_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "external_inputs_digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "candidate_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_event_id",
+        "end_event_id",
+        "start_cycle",
+        "end_cycle"
+      ],
+      "properties": {
+        "start_event_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "end_event_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "start_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_cycle": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "target_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "predicate_version",
+        "predicates",
+        "claim_label",
+        "digest"
+      ],
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "predicate_version": {
+          "type": "string"
+        },
+        "predicates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicate_id",
+              "version"
+            ],
+            "properties": {
+              "predicate_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              },
+              "version": {
+                "type": "string"
+              },
+              "observation_points": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "claim_label": {
+          "enum": [
+            "OBSERVED",
+            "INFERRED",
+            "SPECULATIVE",
+            "NOT_COMPUTABLE"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "equivalence_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_id",
+        "boundary_version",
+        "exact_paths",
+        "ignored_paths",
+        "tolerances",
+        "digest"
+      ],
+      "properties": {
+        "boundary_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "boundary_version": {
+          "type": "string"
+        },
+        "exact_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ignored_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tolerances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "abs"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "abs": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "semantic_predicates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "removable_units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "dependency_graph": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "required_controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "control_id",
+          "role",
+          "required"
+        ],
+        "properties": {
+          "control_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "role": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "perturbation_space": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operators",
+        "enumeration_order"
+      ],
+      "properties": {
+        "operators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "enumeration_order": {
+          "type": "string",
+          "const": "operator_id_then_canonical_parameter_tuple"
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_oracle_calls",
+        "max_replay_cycles",
+        "max_perturbations",
+        "max_storage_bytes",
+        "max_wall_time_advisory_ms"
+      ],
+      "properties": {
+        "max_oracle_calls": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_replay_cycles": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_perturbations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_storage_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_wall_time_advisory_ms": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "policy_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consent_ok",
+        "retention_class",
+        "security_labels",
+        "export_class"
+      ],
+      "properties": {
+        "consent_ok": {
+          "type": "boolean"
+        },
+        "retention_class": {
+          "type": "string"
+        },
+        "security_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "export_class": {
+          "enum": [
+            "PUBLIC",
+            "RESEARCH_ISOLATED",
+            "PRIVATE"
+          ]
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "compiler_version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "compiler",
+        "replay_oracle",
+        "schema_bundle",
+        "ontology",
+        "canonicalization"
+      ],
+      "properties": {
+        "compiler": {
+          "type": "string"
+        },
+        "replay_oracle": {
+          "type": "string"
+        },
+        "schema_bundle": {
+          "type": "string"
+        },
+        "ontology": {
+          "type": "string"
+        },
+        "canonicalization": {
+          "const": "noema-jcs/1"
+        },
+        "digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^sha256:[a-fA-F0-9]{64}$"
+          }
+        }
+      }
+    },
+    "capture_defaults_version": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

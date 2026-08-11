@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P26-02",
+  "suite": "noema-v0.5-compiler",
+  "title": "Regression Result: atomic contract 2",
+  "acceptance_items": [
+    26
+  ],
+  "family_id": "P26",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#26"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/regression-result.json",
+    "examples/v05-compiler/regression-result-fail.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P26",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P26 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

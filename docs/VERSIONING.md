@@ -2,7 +2,7 @@
 
 ## Version domains
 
-- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory), `0.4.0` (Lab)
+- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory), `0.4.0` (Lab), `0.5.0` (Compiler)
 - Spec pin: Noema-Specs release / pin (e.g. `v0.1.0-rc2`, `v0.2.0-draft`)
 - World rules: `world/v1`
 - World instance: `world_id` + `world_version`
@@ -24,6 +24,10 @@
 - Lab: `lab/0.4`, `experiment/0.4`, `experiment-design/0.4`, `intervention-catalog/0.4`, `lab-result/0.4`
 - Perturbation catalog: `perturbation-catalog/0.4.0`
 - Ablation catalog: `ablation-catalog/0.4.0`
+- Compiler: `compiler/0.5`, `compilation-request/0.5`, `captured-test/0.5`, `behavioral-oracle/0.5`, `capture-intent/0.5`
+- Capture defaults: `capture-defaults/0.5.0`
+- Capture status catalog: `capture-status-catalog/0.5.0`
+- Phenomenon compile receipt: `phenomenon-compile-receipt/v1`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

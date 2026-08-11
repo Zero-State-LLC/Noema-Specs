@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P02-02",
+  "suite": "noema-v0.5-compiler",
+  "title": "Admission: atomic contract 2",
+  "acceptance_items": [
+    2
+  ],
+  "family_id": "P02",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#2"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/source-lab-result-ready.json",
+    "examples/v05-compiler/simple-not-ready.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P02",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P02 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

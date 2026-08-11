@@ -29,3 +29,7 @@ A simple result shows Question, answer **within tested conditions**, evidence co
 ## Deterministic compilation boundary
 
 The simple request is a compact [`ExperimentIntent`](../specs/experiment-intent.schema.json), not an informal instruction to invent a study. It compiles by [`EXPERIMENT-INTENT-COMPILATION.md`](EXPERIMENT-INTENT-COMPILATION.md) into the same isolated Lab records used by advanced users. The returned simple result is the deterministic [`Simple Result Projection`](SIMPLE-RESULT-PROJECTION.md), with `CAPTURE AS TEST` available only when the machine Lab result is `READY`.
+
+## CAPTURE (v0.5)
+
+When a Lab result is capture-ready, one action — **CAPTURE AS TEST** — compiles by [`CAPTURE-INTENT-COMPILATION.md`](CAPTURE-INTENT-COMPILATION.md) into a canonical [compilation request](../specs/compilation-request.schema.json) using versioned [capture defaults](../specs/capture-defaults.v05.json). The [Phenomenon Compiler](PHENOMENON-COMPILER.md) emits a [captured test](CAPTURED-TEST-FORMAT.md) with receipt and audit. Simple STUDY views project required/removed conditions and validation without Compiler jargon; advanced views share the same `captured_test_id`.

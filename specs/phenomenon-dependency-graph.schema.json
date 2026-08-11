@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/phenomenon-dependency-graph.schema.json",
+  "title": "NOEMA phenomenon-dependency-graph (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "graph_id",
+    "compile_id",
+    "nodes",
+    "edges",
+    "closure_rules_version",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "phenomenon-dependency-graph/0.5"
+    },
+    "graph_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dependency_id",
+          "class",
+          "source_evidence",
+          "required",
+          "removal_test",
+          "replacement_test",
+          "depends_on",
+          "protected",
+          "simple_label"
+        ],
+        "properties": {
+          "dependency_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "class": {
+            "enum": [
+              "WORLD_STATE",
+              "RESOURCE",
+              "INFORMATION",
+              "TOOL",
+              "SOCIAL",
+              "TEMPORAL",
+              "OBSERVATION",
+              "PROTOCOL",
+              "AGENT",
+              "ENVIRONMENT"
+            ]
+          },
+          "source_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "removal_test": {
+            "type": "string"
+          },
+          "replacement_test": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "simple_label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "closure_rules_version": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}
