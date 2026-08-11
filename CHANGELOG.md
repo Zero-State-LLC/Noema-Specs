@@ -4,6 +4,22 @@
 
 ### Added
 
+- **RFC-0003 Accepted and implemented** — deterministic contract hardening for independent implementations.
+- Catalog-specific ledger-admission schemas for `event-catalog/0.1` and `event-catalog/0.2`, with positive and negative fixtures.
+- Machine validation gate for canonical action ordering, delivery visibility, exact quantities, typed action IDs, state lineage, writer fencing, recovery, and signed evidence profiles.
+
+### Changed
+
+- Canonical same-cycle order is `(action_priority, agent_id, client_action_sequence, action_id)`; network arrival order is noncanonical.
+- `MESSAGE_DELIVERED` commits before post-cycle observation projection.
+- Replay canonicalization is pinned to `noema-jcs/1` (RFC 8785 JCS over I-JSON with integer fixed-point quantities).
+- Canonical WorldState now requires version/catalog lineage, state revision, canonicalization/hash pins, and ledger-head digest.
+- Reference persistence now requires one fenced writer and atomic `SERIALIZABLE` cycle commits with crash reconciliation.
+- Agent Protocol resume uses scoped cumulative acknowledgements and bounded deterministic redelivery.
+- Signed receipts are mandatory for research-isolated and public evidence export profiles.
+
+### Added
+
 - **RFC-0002 Accepted** — strategic conflict executable contracts (`event-catalog/0.2`).
 - `specs/event-types.0.2.json` (31 types), `contest-config.v02.json` + schema, `action-contracts.v02.json`.
 - Docs: CONTEST-RESOLUTION, STRATEGIC-EVENT-COUPLING, strategic conflict acceptance/conformance/migration.
