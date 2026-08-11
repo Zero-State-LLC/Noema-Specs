@@ -1473,6 +1473,17 @@ def check_skills_workflows() -> None:
     missing = sorted(token for token in required if token not in skills)
     if missing:
         fail(f"SKILLS.md missing workflow sections: {missing}")
+    workflow_names = [
+        "ORIENT", "SPEC_CHANGE", "RFC", "MILESTONE", "SCHEMA", "FIXTURE",
+        "CONFORMANCE", "DETERMINISM", "DRIFT_AUDIT", "EXPERIENCE", "GAME_SYSTEM",
+        "RESEARCH_CONTRACT", "MIGRATION", "VERSION", "VALIDATE", "CONTINUATION",
+        "PROMPT_BUILD", "REVIEW", "HANDOFF_RUNTIME",
+    ]
+    for name in workflow_names:
+        body = skills.split(f"## SKILL.{name}", 1)[1].split("\n## ", 1)[0]
+        for field in ("**Use when**", "**Inputs**", "**Authority to read**", "**Procedure**", "**Outputs**", "**Validation**", "**Stop / escalate when**"):
+            if field not in body:
+                fail(f"SKILLS.md workflow {name} lacks {field}")
     for token in ("Skills are repeatable workflows. They do not create new authority.", "Accepted RFC", "versioned protocol/schema", "python3 validation/validate_all.py"):
         if token not in skills:
             fail(f"SKILLS.md lacks required authority or validation rule: {token}")
