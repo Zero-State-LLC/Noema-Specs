@@ -1,0 +1,16 @@
+{
+  "schema_version": "capability-edge/0.7",
+  "edge_id": "e.bad2",
+  "edge_type": "CAUSES",
+  "source_ref": "b",
+  "target_ref": "c",
+  "target_class": "CONDITION",
+  "evidence_refs": [
+    "e"
+  ],
+  "claim_label": "OBSERVED",
+  "relationship_status": "SUPPORTED",
+  "tested_boundary": {},
+  "version": "0.7",
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

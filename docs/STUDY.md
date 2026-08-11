@@ -33,3 +33,7 @@ Exact labels remain authoritative. Simple displays are Observed, Evidence sugges
 Longitudinal questions become addressable: did an institution survive founder departure? did a custom persist across succession? did agents reconstruct a route correctly? Deep Time provides subjects and evidence; Lab/Compiler remain the test/capture machinery. Lore is never STUDY truth.
 
 Genesis Profile / Story Seeds are admin world-creation provenance when authorized. STUDY access alone MUST NOT modify Genesis or turn seeds into hidden “what to discover” hints.
+
+### LEARN (v0.7)
+
+After CAPTURE, open **LEARN** for reproduced behaviors, version coverage, dependencies, failures, generalization, and not-yet-tested contexts. See [LEARN.md](LEARN.md). Simple views derive from the same edges as advanced technical detail.

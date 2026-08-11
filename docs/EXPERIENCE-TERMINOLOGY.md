@@ -31,5 +31,10 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | World scar | Damaged / abandoned / historic site |
 | Succession record | Leadership changed / stewardship continued |
 | Derived lore | Story told about the world (never overrides evidence) |
+| Capability Graph | LEARN — what was reproduced and how it relates |
+| Behavior node | A reproduced behavior |
+| DEPENDS_ON / FAILS_WITHOUT | Depends on / fails when … is removed |
+| GENERALIZES_TO | Works in … |
+| NOT_TESTED | Not yet tested (not a failure) |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.

@@ -1,0 +1,12 @@
+{
+  "schema_version": "behavior-node/0.7",
+  "behavior_id": "b.bad",
+  "title": "x",
+  "description": "y",
+  "behavioral_signature_ref": "z",
+  "source_captured_test_ids": [],
+  "claim_label": "OBSERVED",
+  "known_limits": [],
+  "provenance": {},
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

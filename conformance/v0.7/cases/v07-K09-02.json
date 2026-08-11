@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v07-K09-02",
+  "suite": "noema-v0.7-learn",
+  "title": "Contradictory Evidence: atomic contract 2",
+  "acceptance_items": [
+    9
+  ],
+  "family_id": "K09",
+  "requirement_refs": [
+    "docs/releases/v0.7/ACCEPTANCE.md#9"
+  ],
+  "fixtures": [
+    "examples/v07-capability-graph/edges/edge-dep-messaging-contested.json",
+    "examples/v07-capability-graph/counterevidence-messaging-alt.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_learn_contract",
+      "input": {
+        "family": "K09",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "K09 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

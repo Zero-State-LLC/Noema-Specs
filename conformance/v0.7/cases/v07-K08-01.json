@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v07-K08-01",
+  "suite": "noema-v0.7-learn",
+  "title": "Version Difference Mapping: atomic contract 1",
+  "acceptance_items": [
+    8
+  ],
+  "family_id": "K08",
+  "requirement_refs": [
+    "docs/releases/v0.7/ACCEPTANCE.md#8"
+  ],
+  "fixtures": [
+    "examples/v07-capability-graph/edges/edge-ver-diff-partial.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_learn_contract",
+      "input": {
+        "family": "K08",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "K08 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

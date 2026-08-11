@@ -10,6 +10,7 @@
 - [x] v0.5 Compiler: release package, capture intent/compilation/oracle/captured-test/receipt/audit/regression schemas, defaults + status catalogs, fixtures, P01–P30 (90 atomic cases), STUDY progressive disclosure.
 - [x] v0.6 Deep Time foundation: institutions, succession, artifacts, evidence, archaeology/reconstruction, scars, names, lore boundary, D01–D30 (90 atomic cases).
 - [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
+- [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 
 ## Core game design (player-facing)
 
@@ -77,14 +78,23 @@
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, P01–P30, D01–D30 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, P01–P30, D01–D30, G01–G09, K01–K12 present and linked.
 - [x] RFC-0003 cross-document architecture hardening gate PASS.
 - [x] Compiler v0.5 validator gate PASS.
 - [x] Deep Time v0.6 validator gate PASS.
+- [x] LEARN v0.7 validator gate PASS.
 
 ## Notes
 
-Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft, Compiler 0.5.0-draft, Deep Time 0.6.0-draft. Runtime engines outstanding in the Noema repo.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft, Compiler 0.5.0-draft, Deep Time 0.6.0-draft, LEARN 0.7.0-draft. Runtime engines outstanding in the Noema repo.
+
+## v0.7 LEARN / Capability Graph
+
+- [x] Graph derived from captured/Lab/regression evidence only
+- [x] Closed edge taxonomy; no unsupported/transitive auto-edges
+- [x] Not-tested ≠ fail; contested evidence retained
+- [x] Simple LEARN cannot strengthen claims; PLAY uncoupled
+- [x] Rebuildable disposable projection; no graph DB required
 
 ## v0.6 Deep Time
 

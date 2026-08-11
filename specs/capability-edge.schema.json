@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capability-edge.schema.json",
+  "title": "NOEMA capability-edge (v0.7 LEARN)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "edge_id",
+    "edge_type",
+    "source_ref",
+    "target_ref",
+    "target_class",
+    "evidence_refs",
+    "claim_label",
+    "tested_boundary",
+    "relationship_status",
+    "version",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capability-edge/0.7"
+    },
+    "edge_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "edge_type": {
+      "enum": [
+        "OBSERVED_IN",
+        "REPRODUCED_BY",
+        "DEPENDS_ON",
+        "FAILS_WITHOUT",
+        "GENERALIZES_TO",
+        "DIFFERS_ACROSS_VERSION"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "target_ref": {
+      "type": "string"
+    },
+    "target_class": {
+      "enum": [
+        "AGENT_VERSION",
+        "CONDITION",
+        "CONTEXT",
+        "BEHAVIOR"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "relationship_status": {
+      "enum": [
+        "SUPPORTED",
+        "CONTESTED",
+        "INSUFFICIENT"
+      ]
+    },
+    "tested_boundary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "known_confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simple_label": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}
