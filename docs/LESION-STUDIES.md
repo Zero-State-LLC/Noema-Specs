@@ -1,9 +1,4 @@
 # Lesion Studies
 
-Lesions require agent adapter `lesion_capabilities` declarations (e.g. `memory.module.short_term`, `planner`, `tool.browser`).
+Adapters may declare versioned `lesion_capabilities`, such as `memory.short_term`, `memory.long_term`, `planner`, `retriever`, `delegation`, `tool.browser`, and `tool.code`. A lesion requires that exact declaration, `AGENT_INTERNAL` authorization, isolated/reversible application, pinned adapter/component version, and audit. No provider/model/prompt metadata may imply a lesion capability. External removal is an ablation. Unsupported lesion requests are retained `NOT_COMPUTABLE`; the fixture is schema-only, not fabricated execution.
 
-Permitted only when: declared, authorized, reversible or isolated, versioned, auditable.
-
-Otherwise outcome: **`NOT_COMPUTABLE`** — never inferred from provider/model names.
-
-Lesions are not environmental ablations ([ablation-catalog.v04.json](../specs/ablation-catalog.v04.json)).

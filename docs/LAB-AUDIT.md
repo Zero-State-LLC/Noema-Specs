@@ -1,5 +1,4 @@
 # Lab Audit
 
-Claim-bearing decisions are reconstructable via hash-chained audit records (`specs/lab-audit-record.schema.json`).
+`lab-audit-record/0.4` hash-chains design validation, plan generation, fork creation, intervention application, control execution, run start/completion, divergence detection, feature/metric calculation, replication comparison, result classification, lifecycle transition, and Compiler handoff. It records sequence, previous digest, canonical input/output references, actor/system, cycle/time, reason code, and digest. Replay reconstructs the research-layer history and never emits a world event.
 
-Events: design validation, fork creation, intervention apply, control execution, run start/end, divergence, metric calculation, replication comparison, result classification, candidate handoff, state transition.

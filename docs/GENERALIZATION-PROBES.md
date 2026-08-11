@@ -1,13 +1,4 @@
-# Generalization Probes (bounded, v0.4)
+# Generalization Probes
 
-Dimensions (optional probes, not Capability Graph):
+v0.4 has bounded probe dimensions: `RESOURCE_CONTEXT`, `LOCATION`, `SOCIAL_TOPOLOGY`, `PARTNER_SET`, `OBSERVATION_QUALITY`, `TOOL_SET`, `GOAL_PRESSURE`, and `SITUATION_GENOME`. Each changes only declared dimensions and records a pinned comparison rule, outcome, and confounds. Probes are evidence only and do not create Capability Graph nodes, transfer edges, generalization radii, or validated capability claims.
 
-- new resource condition  
-- new room/region  
-- new social topology  
-- new agent partners  
-- new observation quality  
-- new tool set  
-- new goal pressure  
-
-Results remain experiment evidence. No automatic graph construction.

@@ -1,15 +1,6 @@
 # Experiment Controls
 
-| Role | Purpose |
-|------|---------|
-| `BASELINE` | No claim-bearing intervention |
-| `POSITIVE_CONTROL` | Expected detectable effect |
-| `NEGATIVE_CONTROL` | Effect should be absent |
-| `SHAM_CONTROL` | Full pipeline, no claim-bearing change |
-| `REPLICATION_CONTROL` | Boundary-matched repeat |
+Controls are machine records with `control_id`, `role`, `relationship_to_experiment`, `expected_behavior`, `required`, and `failure_interpretation`. Roles are `BASELINE`, `POSITIVE_CONTROL`, `NEGATIVE_CONTROL`, `SHAM_CONTROL`, and `REPLICATION_CONTROL`. Required controls run before dependent analysis. Their declared failure result must be `INVALID`, `NOT_COMPARABLE`, or `INCONCLUSIVE`, and may never be ignored.
 
-Each control declares: relationship, expected behavior, failure interpretation, required?
+A sham uses the same machinery without changing a claim-bearing variable, such as an exact no-op, applying/restoring an identical value, or an equivalent wrapper path. It detects pipeline artifacts and is not ceremonial. A required sham showing the intervention effect invalidates the comparison.
 
-**Required control failure → experiment `INVALID`.**
-
-Sham example: remove+restore identical configuration, or no-op intervention through the same execution path.

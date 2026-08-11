@@ -1,28 +1,6 @@
 # Experiment Identity
 
-## Purpose
+Experiment identity is immutable and content-addressed. `input_digest` is SHA-256 of canonical JSON of the claim-bearing identity payload, excluding digest fields. It includes `experiment_id`, `experiment_version`, `experiment_design_version`, source candidate/trajectory IDs, world ID/version/rules/catalog versions, agent ID/version, fork point, intervention/control-set digests, feature/metric versions, seed policy, equivalence boundary, consent basis, research-policy version, and authorization. The run boundary also pins source snapshot and ledger head.
 
-Immutable, content-addressable identity for claim-bearing experiments (`lab/0.4`).
+Changing any claim-bearing input, variable definition, intervention semantic, comparison or analysis rule creates a new experiment identity. A correction appends a successor linked by `supersedes_experiment_id`; it never rewrites prior identity. Run IDs are deterministic derivatives of experiment identity, plan-node ID, replicate ordinal, and seed identity.
 
-## Required fields
-
-| Field | Role |
-|-------|------|
-| `experiment_id` | Stable id |
-| `experiment_version` | Design revision |
-| `experiment_design_version` | `experiment-design/0.4` |
-| `source_candidate_ids` | Observatory inputs |
-| `source_trajectory_ids` | Evidence trajectories |
-| `world_version` / `world_rules_version` | World pin |
-| `event_catalog_version` | Catalog pin |
-| `agent_id` / `agent_version` | Subject |
-| `fork_point` | Legal fork enum |
-| `intervention_set_digest` | Interventions hash |
-| `control_set_digest` | Controls hash |
-| `metric_versions` / `feature_catalog_version` | Measures pin |
-| `seed_policy` | SAME / DERIVED / INDEPENDENT |
-| `equivalence_boundary` version | Comparison boundary |
-| `consent_basis` / `research_policy_version` | Ethics |
-| `input_digest` | Content address of identity payload |
-
-Changing any claim-bearing field requires a new identity / digest.

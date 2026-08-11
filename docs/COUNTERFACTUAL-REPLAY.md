@@ -1,23 +1,6 @@
 # Counterfactual Replay
 
-A counterfactual declares:
+Every counterfactual declares `counterfactual_id`, `source_trajectory_id`, `fork_point`, changed variables with before/after values, held-constant variables, seed policy, agent/world versions, and equivalence boundary. “Replay differently” is invalid. Undeclared material divergence is recorded as a confound and a severe boundary failure is `NOT_COMPARABLE`.
 
-- source trajectory;
-- fork point;
-- changed variable set;
-- unchanged variable set;
-- seed relationship;
-- agent version / world version;
-- equivalence boundary.
+`SAME_SEED` repeats the recorded stream while stream structure remains comparable. `DERIVED_SEED` is deterministic from a versioned derivation and pinned inputs. `INDEPENDENT_SEED` is for robustness and cannot support exact seed equivalence. If RNG consumption differs, record stream ID and exact divergence cycle/event and stop claiming seed equivalence.
 
-## Seed policies
-
-| Mode | Use |
-|------|-----|
-| `SAME_SEED` | Preferred for causal comparison when stream structure remains valid |
-| `DERIVED_SEED` | When intervention necessarily retargets streams; derivation function versioned |
-| `INDEPENDENT_SEED` | Exploration / robustness; weaker causal claims |
-
-If RNG consumption diverges, record divergence markers; do not claim seed-equivalence.
-
-Every difference must be declared or classified as uncontrolled divergence.

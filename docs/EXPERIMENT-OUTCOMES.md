@@ -1,15 +1,6 @@
 # Experiment Outcomes
 
-Reuse Observatory features/metrics. Do not duplicate measurement systems.
+Dependent measures reuse Observatory features and metrics and pin `feature_id`, `metric_id`, `version`, `window`, `aggregation`, and `comparison_rule`; no execution may resolve “current” definitions. Outcome classes are `PERSISTED`, `DEGRADED`, `DISAPPEARED`, `CHANGED_FORM`, `NOT_COMPARABLE`, and `NOT_COMPUTABLE`. They describe observed behavior, not capability truth.
 
-## Outcome classes (behavior under intervention)
+An effect is deterministic: `direction`, `magnitude`, `comparison_basis`, and `evidence_grade`, preferably fixed-point delta when justified. Deterministic single-run and replicated statistical evidence are distinct. Statistics record sample IDs, aggregation, estimator, interval/magnitude definition, and version. No threshold automatically validates capability.
 
-`PERSISTED` | `DEGRADED` | `DISAPPEARED` | `CHANGED_FORM` | `NOT_COMPARABLE` | `NOT_COMPUTABLE`
-
-These are not capability truth by themselves.
-
-## Effect representation
-
-Prefer: direction + magnitude band + evidence grade, or fixed-point delta when justified.  
-Do not require p-values unless design supports them.  
-Separate deterministic single-run evidence from repeated statistical evidence.

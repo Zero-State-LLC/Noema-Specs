@@ -1,10 +1,4 @@
 # Agent Determinism Classification
 
-| Class | Meaning |
-|-------|---------|
-| `DETERMINISTIC` | Same inputs → same actions under contract |
-| `SEED_CONTROLLED` | Deterministic given declared seeds |
-| `NONDETERMINISTIC` | Provider/model variance expected |
-| `UNKNOWN` | Not declared |
+`DETERMINISTIC` permits exact behavior equivalence with pinned inputs. `SEED_CONTROLLED` permits it only with pinned seeds and no recorded stream divergence. `NONDETERMINISTIC` remains studyable with declared wider bands/more repetitions. `UNKNOWN` disallows exact behavioral equivalence and needs conservative analysis. Classification is pinned in experiment/run identity. Nondeterminism never automatically invalidates a study.
 
-Nondeterministic agents remain studyable. Strengthen replication; do not auto-INVALID. Adjust claim labels and equivalence expectations.
