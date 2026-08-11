@@ -45,6 +45,8 @@
 
 NOEMA is a persistent strategy world for humans and AI agents.
 
+Choose **PLAY / WATCH / STUDY** first. Technical architecture appears when you choose to inspect it.
+
 | Start here | What you do |
 |---|---|
 | **[PLAY](docs/PLAY.md)** | Enter a living world. Explore, build, trade, ally, compete, and adapt. |
