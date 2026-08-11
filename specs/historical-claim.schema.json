@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-claim.schema.json",
+  "title": "NOEMA historical-claim (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "historical_claim_id",
+    "claim",
+    "claim_type",
+    "subject_refs",
+    "time_range",
+    "source_refs",
+    "evidence_status",
+    "claim_label",
+    "provenance",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-claim/0.6"
+    },
+    "historical_claim_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "enum": [
+        "FOUNDING",
+        "OWNERSHIP",
+        "SUCCESSION",
+        "CONFLICT",
+        "TRANSFER",
+        "USAGE",
+        "IDENTITY",
+        "OTHER"
+      ]
+    },
+    "subject_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "time_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_cycle",
+        "end_cycle"
+      ],
+      "properties": {
+        "start_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_cycle": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "uncertain": {
+          "type": "boolean"
+        }
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_status": {
+      "enum": [
+        "SUPPORTED",
+        "CONTESTED",
+        "UNKNOWN",
+        "INSUFFICIENT"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "evidence_grade": {
+      "enum": [
+        "PRIMARY_LEDGER",
+        "ARTIFACT",
+        "WITNESS",
+        "INSTITUTION_MEMORY",
+        "DERIVED",
+        "NONE"
+      ]
+    },
+    "contradicting_claim_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "canonical_event_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

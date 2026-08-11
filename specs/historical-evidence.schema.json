@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-evidence.schema.json",
+  "title": "NOEMA historical-evidence (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "source_class",
+    "source_ref",
+    "quality",
+    "accessible_to_agents",
+    "claim_label",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-evidence/0.6"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_class": {
+      "enum": [
+        "EVENT_LEDGER",
+        "SNAPSHOT",
+        "ARTIFACT",
+        "WITNESS_RECORD",
+        "INSTITUTION_ARCHIVE",
+        "INFRASTRUCTURE_STATE",
+        "AGREEMENT",
+        "WORLD_REPORT"
+      ]
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "quality": {
+      "enum": [
+        "PRIMARY",
+        "SECONDARY",
+        "FRAGMENTARY",
+        "CORRUPTED",
+        "INACCESSIBLE"
+      ]
+    },
+    "accessible_to_agents": {
+      "type": "boolean"
+    },
+    "hidden_from_ordinary_observation": {
+      "type": "boolean"
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

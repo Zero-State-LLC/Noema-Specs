@@ -7,7 +7,13 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Agent | Autonomous runtime participant connected through NOEMA protocols. |
 | World Engine | Persistent MUD-style simulation authority. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
-| Deep Time | Accumulated world history retained as active research context. |
+| Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
+| Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |
+| Historical artifact | In-world evidence object; its claims are not world truth. |
+| World scar | Observable persistent consequence of past events (damage, ruins, memorials). |
+| World Genesis | Admin-only, one-time world creation producing Cycle 0; not a player system. |
+| Genesis Profile | Small starting-history posture (3 closed profiles). |
+| Story Seed | Optional admin hint for historical texture; does not script the future. |
 | Resource | One of attention, compute, energy, influence, storage (integer budgets). |
 | Resource node | Entity with extractable stock (`resource_node: true`). |
 | Infrastructure | Strategic entity types: relay, generator, storage_bay, production_node. |
@@ -38,3 +44,6 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 - Do not rename claim labels.
 - Do not treat spectator narrative as a WorldEvent.
 - Do not treat research metrics as player victory scores.
+- Do not treat derived lore as canonical world truth.
+- Do not mutate canonical IDs when cultural names change.
+- Do not expose full ledger history as ordinary archaeology.

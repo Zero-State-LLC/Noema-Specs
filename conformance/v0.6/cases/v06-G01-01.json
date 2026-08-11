@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-G01-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Profile Validation: atomic contract 1",
+  "acceptance_items": [
+    21
+  ],
+  "family_id": "G01",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#g1"
+  ],
+  "fixtures": [
+    "specs/genesis-profiles.v06.json",
+    "specs/genesis-profile.schema.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_genesis_contract",
+      "input": {
+        "family": "G01",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "G01 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

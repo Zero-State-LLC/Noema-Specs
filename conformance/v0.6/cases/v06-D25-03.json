@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D25-03",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Inheritance: atomic contract 3",
+  "acceptance_items": [
+    25
+  ],
+  "family_id": "D25",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#25"
+  ],
+  "fixtures": [
+    "examples/v06-deep-time/institution.json",
+    "examples/v06-deep-time/succession.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D25",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D25 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

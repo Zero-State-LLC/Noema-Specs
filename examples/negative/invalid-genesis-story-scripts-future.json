@@ -1,0 +1,9 @@
+{
+  "schema_version": "story-seed/0.6",
+  "seed_id": "LOST_ARCHIVE",
+  "title": "Lost Archive",
+  "preferences": [
+    "script entire chronology"
+  ],
+  "does_not_determine_future": false
+}

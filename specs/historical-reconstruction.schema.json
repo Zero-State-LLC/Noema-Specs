@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-reconstruction.schema.json",
+  "title": "NOEMA historical-reconstruction (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reconstruction_id",
+    "subject_ref",
+    "time_window",
+    "evidence_set",
+    "rules_version",
+    "supported_facts",
+    "inferences",
+    "contradictions",
+    "unknowns",
+    "claim_label",
+    "no_narrative_invention",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-reconstruction/0.6"
+    },
+    "reconstruction_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "subject_ref": {
+      "type": "string"
+    },
+    "time_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_cycle",
+        "end_cycle"
+      ],
+      "properties": {
+        "start_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_cycle": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "evidence_set": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "rules_version": {
+      "type": "string"
+    },
+    "supported_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact",
+          "claim_label",
+          "source_refs"
+        ],
+        "properties": {
+          "fact": {
+            "type": "string"
+          },
+          "claim_label": {
+            "enum": [
+              "OBSERVED",
+              "INFERRED",
+              "SPECULATIVE",
+              "NOT_COMPUTABLE"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "inferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "statement",
+          "claim_label"
+        ],
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "claim_label": {
+            "enum": [
+              "INFERRED",
+              "SPECULATIVE"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "summary",
+          "claim_refs"
+        ],
+        "properties": {
+          "summary": {
+            "type": "string"
+          },
+          "claim_refs": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "no_narrative_invention": {
+      "const": true
+    },
+    "agent_knowledge_only": {
+      "type": "boolean"
+    },
+    "hidden_ledger_not_exposed": {
+      "type": "boolean"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

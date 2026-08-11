@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D04-02",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Institution Lifecycle: atomic contract 2",
+  "acceptance_items": [
+    4
+  ],
+  "family_id": "D04",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#4"
+  ],
+  "fixtures": [
+    "examples/v06-deep-time/era-timeline.json",
+    "docs/INSTITUTIONS.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D04",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D04 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

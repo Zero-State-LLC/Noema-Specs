@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/institution.schema.json",
+  "title": "NOEMA institution (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "institution_id",
+    "origin",
+    "purpose",
+    "persistent_practices",
+    "status",
+    "succession_mechanism",
+    "continuity",
+    "evidence_refs",
+    "provenance",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "institution/0.6"
+    },
+    "institution_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "origin_type",
+        "origin_cycle",
+        "source_refs"
+      ],
+      "properties": {
+        "origin_type": {
+          "enum": [
+            "ORGANIZATION_PRACTICE",
+            "AGREEMENT",
+            "REPEATED_CUSTOM",
+            "ARCHIVE_STEWARDSHIP",
+            "INFRASTRUCTURE_ORDER",
+            "OTHER_DECLARED"
+          ]
+        },
+        "origin_cycle": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_org_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "persistent_practices": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "practice_id",
+          "description"
+        ],
+        "properties": {
+          "practice_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "participant_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "inheritor_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role_id",
+          "role_name"
+        ],
+        "properties": {
+          "role_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "role_name": {
+            "type": "string"
+          },
+          "holder_ref": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "vacant": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "EMERGING",
+        "ESTABLISHED",
+        "ACTIVE",
+        "DORMANT",
+        "TRANSFORMED",
+        "DISSOLVED"
+      ]
+    },
+    "succession_mechanism": {
+      "enum": [
+        "DESIGNATED",
+        "RULE_BASED",
+        "CONSENSUS",
+        "VACANT",
+        "INHERITED_BY_ORGANIZATION"
+      ]
+    },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity_class",
+        "survives_participant_departure"
+      ],
+      "properties": {
+        "identity_class": {
+          "enum": [
+            "SAME_ENTITY_EVOLVED",
+            "SUCCESSOR_ENTITY",
+            "NEW_ENTITY",
+            "DISPUTED_IDENTITY"
+          ]
+        },
+        "survives_participant_departure": {
+          "type": "boolean"
+        },
+        "requires_active_custodian": {
+          "type": "boolean"
+        },
+        "predecessor_institution_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "successor_institution_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "archive_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

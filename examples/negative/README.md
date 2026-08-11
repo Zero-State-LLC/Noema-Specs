@@ -21,5 +21,14 @@ These fixtures are intentionally non-conforming. Schema and catalog validators M
 | `invalid-captured-test-missing-title.json` | Captured test missing required `title` |
 | `invalid-capture-intent-wrong-action.json` | `capture_intent` not `CAPTURE_AS_TEST` |
 | `invalid-regression-implies-global-rank.json` | `not_a_global_ranking` must be `true` |
+| `invalid-institution-no-origin.json` | Institution missing required `origin` |
+| `invalid-succession-mechanism.json` | Succession mechanism outside closed set |
+| `invalid-artifact-claims-as-truth.json` | `claims_are_not_world_truth` must be `true` |
+| `invalid-reconstruction-invents-narrative.json` | `no_narrative_invention` must be `true` |
+| `invalid-historical-name-mutates-id.json` | `canonical_id_immutable` must be `true` |
+| `invalid-claim-missing-sources.json` | Historical claim requires non-empty `source_refs` |
+| `invalid-genesis-player-invokes.json` | `admin_only` must be `true` |
+| `invalid-genesis-story-scripts-future.json` | Story seed `does_not_determine_future` must be `true` |
+| `invalid-genesis-unknown-profile.json` | Profile id outside closed three |
 
-Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, `examples/v05-compiler/`, and `examples/sample-*.json`.
+Positive fixtures live under `examples/v01-seed/`, `examples/v01-strategic/`, `examples/catalog/`, `examples/onboarding/`, `examples/deployment/`, `examples/v05-compiler/`, `examples/v06-deep-time/`, and `examples/sample-*.json`.

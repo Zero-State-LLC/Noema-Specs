@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D21-02",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Semantic Lineage: atomic contract 2",
+  "acceptance_items": [
+    21
+  ],
+  "family_id": "D21",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#21"
+  ],
+  "fixtures": [
+    "examples/v06-deep-time/semantic-lineage.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D21",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D21 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

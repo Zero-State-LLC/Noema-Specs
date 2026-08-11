@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D13-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Artifact Decay: atomic contract 1",
+  "acceptance_items": [
+    13
+  ],
+  "family_id": "D13",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#13"
+  ],
+  "fixtures": [
+    "specs/historical-decay.v06.json",
+    "examples/v06-deep-time/artifact-archive.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D13",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D13 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

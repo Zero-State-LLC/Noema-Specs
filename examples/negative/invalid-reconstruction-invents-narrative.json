@@ -1,0 +1,20 @@
+{
+  "schema_version": "historical-reconstruction/0.6",
+  "reconstruction_id": "r1",
+  "subject_ref": "x",
+  "time_window": {
+    "start_cycle": 0,
+    "end_cycle": 1
+  },
+  "evidence_set": [
+    "e"
+  ],
+  "rules_version": "0.6",
+  "supported_facts": [],
+  "inferences": [],
+  "contradictions": [],
+  "unknowns": [],
+  "claim_label": "OBSERVED",
+  "no_narrative_invention": false,
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

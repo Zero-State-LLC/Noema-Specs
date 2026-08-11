@@ -1,0 +1,71 @@
+{
+  "schema_version": "story-seed-catalog/0.6",
+  "catalog_version": "story-seeds/0.6.0",
+  "seeds": [
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "FOUNDING_SPLIT",
+      "title": "Founding Split",
+      "preferences": [
+        "at least two founding groups with residual tension",
+        "disputed origin narrative"
+      ],
+      "does_not_determine_future": true
+    },
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "OLD_TRADE_NETWORK",
+      "title": "Old Trade Network",
+      "preferences": [
+        "one old market or trade route scar",
+        "partial route continuity",
+        "trade pressure present"
+      ],
+      "does_not_determine_future": true
+    },
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "FAILED_SETTLEMENT",
+      "title": "Failed Settlement",
+      "preferences": [
+        "one abandoned inhabited site",
+        "ruin or world scar",
+        "incomplete settlement records"
+      ],
+      "does_not_determine_future": true
+    },
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "RESOURCE_CRISIS",
+      "title": "Resource Crisis",
+      "preferences": [
+        "uneven resource distribution",
+        "at least one scarce critical resource",
+        "opportunity to stabilize supply"
+      ],
+      "does_not_determine_future": true
+    },
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "LOST_ARCHIVE",
+      "title": "Lost Archive",
+      "preferences": [
+        "one old archive or record site",
+        "missing or incomplete historical evidence",
+        "at least one unresolved historical question"
+      ],
+      "does_not_determine_future": true
+    },
+    {
+      "schema_version": "story-seed/0.6",
+      "seed_id": "DISPUTED_SUCCESSION",
+      "title": "Disputed Succession",
+      "preferences": [
+        "succession vacancy or contested role",
+        "institution continues",
+        "unresolved custodianship tension"
+      ],
+      "does_not_determine_future": true
+    }
+  ]
+}

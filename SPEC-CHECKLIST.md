@@ -8,6 +8,8 @@
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
 - [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L34 (146 atomic cases), including deterministic intent compilation, simple result projection, and CAPTURE gating.
 - [x] v0.5 Compiler: release package, capture intent/compilation/oracle/captured-test/receipt/audit/regression schemas, defaults + status catalogs, fixtures, P01–P30 (90 atomic cases), STUDY progressive disclosure.
+- [x] v0.6 Deep Time foundation: institutions, succession, artifacts, evidence, archaeology/reconstruction, scars, names, lore boundary, D01–D30 (90 atomic cases).
+- [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 
 ## Core game design (player-facing)
 
@@ -75,13 +77,25 @@
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, P01–P30 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, P01–P30, D01–D30 present and linked.
 - [x] RFC-0003 cross-document architecture hardening gate PASS.
 - [x] Compiler v0.5 validator gate PASS.
+- [x] Deep Time v0.6 validator gate PASS.
 
 ## Notes
 
-Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft, Compiler 0.5.0-draft. Runtime Lab/Compiler engines outstanding in the Noema repo.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft, Compiler 0.5.0-draft, Deep Time 0.6.0-draft. Runtime engines outstanding in the Noema repo.
+
+## v0.6 Deep Time
+
+- [x] Lore is derived presentation; canonical evidence wins
+- [x] Institution lifecycle + succession mechanisms closed and deterministic
+- [x] Artifacts: claims ≠ world truth; DESTROYED preserves existence
+- [x] Archaeology without hidden-ledger leak; contested claims retained
+- [x] Canonical IDs immutable under cultural renaming
+- [x] No silent event-catalog/0.3; audit document present
+- [x] Genesis admin-only; activation freezes config; PLAY has no Genesis controls
+- [x] Same-seed determinism + different-seed validity fixtures
 
 ## v0.5 Compiler
 

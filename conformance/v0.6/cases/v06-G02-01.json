@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-G02-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Story Seed Validation: atomic contract 1",
+  "acceptance_items": [
+    22
+  ],
+  "family_id": "G02",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#g2"
+  ],
+  "fixtures": [
+    "specs/story-seeds.v06.json",
+    "specs/story-seed.schema.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_genesis_contract",
+      "input": {
+        "family": "G02",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "G02 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

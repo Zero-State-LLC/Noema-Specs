@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-artifact.schema.json",
+  "title": "NOEMA historical-artifact (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_class",
+    "creator_ref",
+    "creation_cycle",
+    "integrity",
+    "visibility",
+    "content_ref",
+    "claims_are_not_world_truth",
+    "provenance",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-artifact/0.6"
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "artifact_class": {
+      "enum": [
+        "RECORD",
+        "MAP",
+        "MARKER",
+        "CONTRACT_COPY",
+        "LEDGER",
+        "ARCHIVE",
+        "MEMORIAL",
+        "STRUCTURE"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "creator_ref": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "creation_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "custodian_ref": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "location_ref": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "content_ref": {
+      "type": "string"
+    },
+    "integrity": {
+      "enum": [
+        "INTACT",
+        "DEGRADED",
+        "FRAGMENTARY",
+        "CORRUPTED",
+        "DESTROYED"
+      ]
+    },
+    "visibility": {
+      "enum": [
+        "PUBLIC",
+        "RESTRICTED",
+        "HIDDEN_TO_AGENTS",
+        "RESEARCH_ONLY"
+      ]
+    },
+    "historical_claim_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "claims_are_not_world_truth": {
+      "const": true
+    },
+    "existed_fact_preserved": {
+      "type": "boolean"
+    },
+    "decay_profile_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

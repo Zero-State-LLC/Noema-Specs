@@ -27,3 +27,9 @@ NOEMA applies versioned recommended defaults from [`capture-defaults.v05.json`](
 Simple mode selects deterministic, versioned templates from [`experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json). It never creates an opaque AI-designed experiment. Advanced users may inspect or override fork point, seed policy, intervention, controls, run count, equivalence boundary, and dependent measures, subject to normal validation, consent, containment, and Lab rules. Agent research actions, when enabled, are structured NOTICE/TEST/COMPARE/CAPTURE proposals only and never bypass research policy or expose private data.
 
 Exact labels remain authoritative. Simple displays are Observed, Evidence suggests, Possible, and Cannot determine for `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE`; advanced detail shows the canonical label.
+
+### Deep Time in STUDY (v0.6)
+
+Longitudinal questions become addressable: did an institution survive founder departure? did a custom persist across succession? did agents reconstruct a route correctly? Deep Time provides subjects and evidence; Lab/Compiler remain the test/capture machinery. Lore is never STUDY truth.
+
+Genesis Profile / Story Seeds are admin world-creation provenance when authorized. STUDY access alone MUST NOT modify Genesis or turn seeds into hidden “what to discover” hints.

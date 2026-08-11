@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-G09-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Lore Separation Admin Boundary: atomic contract 1",
+  "acceptance_items": [
+    29
+  ],
+  "family_id": "G09",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#g9"
+  ],
+  "fixtures": [
+    "docs/LORE-BOUNDARY.md",
+    "docs/GENESIS.md",
+    "examples/v06-deep-time/genesis-result-a.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_genesis_contract",
+      "input": {
+        "family": "G09",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "G09 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

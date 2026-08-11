@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-G05-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Cycle 0 World Validity: atomic contract 1",
+  "acceptance_items": [
+    25
+  ],
+  "family_id": "G05",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#g5"
+  ],
+  "fixtures": [
+    "examples/v06-deep-time/genesis-cycle0-a.json",
+    "examples/v06-deep-time/genesis-result-a.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_genesis_contract",
+      "input": {
+        "family": "G05",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "G05 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}
