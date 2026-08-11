@@ -1,0 +1,32 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "labres.tool-ablation-1"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.result.simple",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "SIMPLE",
+  "presentation": {
+    "title": "TEST RESULT",
+    "question": "Does the coordination pattern require the shared ledger?",
+    "answer": "Evidence suggests yes, within the tested conditions.",
+    "evidence": [
+      "Baseline reproduced 4/5 times",
+      "Ledger removed: pattern disappeared 5/5"
+    ],
+    "limits": [
+      "One agent version",
+      "One scarcity regime"
+    ]
+  },
+  "allowed_actions": [
+    "TEST_ANOTHER_VERSION",
+    "TEST_ANOTHER_WORLD",
+    "ADVANCED_DETAIL"
+  ],
+  "research_detail": true,
+  "canonical_claim_label": "INFERRED",
+  "compiler_readiness": "NOT_READY"
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/experiment-intent-catalog.schema.json",
+  "title": "NOEMA Experiment Intent Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "defaults_version",
+    "intents"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "experiment-intent-catalog/1.0"
+    },
+    "catalog_version": {
+      "type": "string"
+    },
+    "defaults_version": {
+      "type": "string"
+    },
+    "intents": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "intent_id",
+          "display_name",
+          "question_template",
+          "lab_intervention_type",
+          "plan_template_id",
+          "required_plan_nodes",
+          "recommended_defaults",
+          "advanced_override_fields"
+        ],
+        "properties": {
+          "intent_id": {
+            "enum": [
+              "REPEAT_BEHAVIOR",
+              "REMOVE_DEPENDENCY",
+              "CHANGE_CONDITION",
+              "COMPARE_VERSION",
+              "TEST_GENERALIZATION"
+            ]
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "question_template": {
+            "type": "string"
+          },
+          "lab_intervention_type": {
+            "enum": [
+              "REPLICATION",
+              "ABLATION",
+              "PERTURBATION",
+              "COUNTERFACTUAL",
+              "VERSION_DIFFERENTIAL"
+            ]
+          },
+          "plan_template_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "required_plan_nodes": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "enum": [
+                "BASELINE",
+                "CONTROL",
+                "INTERVENTION",
+                "REPLICATION",
+                "GENERALIZATION",
+                "ANALYSIS"
+              ]
+            }
+          },
+          "recommended_defaults": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "seed_policy",
+              "fork_point",
+              "replication_count",
+              "control_role"
+            ],
+            "properties": {
+              "seed_policy": {
+                "enum": [
+                  "SAME_SEED",
+                  "DERIVED_SEED",
+                  "INDEPENDENT_SEED"
+                ]
+              },
+              "fork_point": {
+                "enum": [
+                  "CYCLE_BOUNDARY",
+                  "BEFORE_OBSERVATION",
+                  "AFTER_OBSERVATION",
+                  "BEFORE_ACTION",
+                  "AFTER_ACTION",
+                  "BEFORE_SITUATION_INJECTION",
+                  "AFTER_SITUATION_INJECTION"
+                ]
+              },
+              "replication_count": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "control_role": {
+                "enum": [
+                  "BASELINE",
+                  "POSITIVE_CONTROL",
+                  "NEGATIVE_CONTROL",
+                  "SHAM_CONTROL",
+                  "REPLICATION_CONTROL"
+                ]
+              }
+            }
+          },
+          "advanced_override_fields": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "fork_point",
+                "seed_policy",
+                "intervention",
+                "controls",
+                "run_count",
+                "equivalence_boundary",
+                "dependent_measures"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "examples/v03-observatory/unknown-candidate.json",
+    "examples/v03-observatory/trajectory.json"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.interesting.shared-ledger",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "RESEARCHER",
+  "presentation": {
+    "title": "Interesting behavior detected",
+    "summary": "Nacre began using a shared ledger after the Relay Quarter shortage.",
+    "why_flagged": [
+      "New behavior for this agent",
+      "Persisted for 14 cycles",
+      "Appeared after resource pressure increased",
+      "Absent in baseline"
+    ]
+  },
+  "allowed_actions": [
+    "TEST_THIS",
+    "ADVANCED_DETAIL"
+  ],
+  "research_detail": true,
+  "canonical_claim_label": "SPECULATIVE"
+}

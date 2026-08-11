@@ -1,0 +1,23 @@
+{
+  "schema_version": "experience-view/1.0",
+  "canonical_source_refs": [
+    "labres.capture-ready.example"
+  ],
+  "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "view_id": "view.study.capture-ready",
+  "mode": "STUDY",
+  "audience": "researcher",
+  "disclosure_level": "RESEARCHER",
+  "presentation": {
+    "title": "Capture as test",
+    "enabled": true,
+    "message": "This result is ready for the v0.5 Compiler handoff."
+  },
+  "allowed_actions": [
+    "CAPTURE_AS_TEST",
+    "ADVANCED_DETAIL"
+  ],
+  "research_detail": true,
+  "canonical_claim_label": "INFERRED",
+  "compiler_readiness": "READY"
+}

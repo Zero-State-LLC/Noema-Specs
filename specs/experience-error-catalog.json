@@ -1,0 +1,42 @@
+{
+  "schema_version": "experience-error-catalog/1.0",
+  "catalog_version": "experience-error-catalog/1.0.0",
+  "errors": [
+    {
+      "reason_code": "CONTROL_REQUIRED",
+      "simple_message": "This test needs a control run before the result can be interpreted.",
+      "advanced_message": "CONTROL_REQUIRED: add and complete the required control run.",
+      "preserves_outcome": "INVALID"
+    },
+    {
+      "reason_code": "NOT_COMPARABLE",
+      "simple_message": "These runs differ in too many important conditions to compare reliably.",
+      "advanced_message": "NOT_COMPARABLE: inspect the equivalence boundary and recorded confounds.",
+      "preserves_outcome": "NOT_COMPARABLE"
+    },
+    {
+      "reason_code": "NOT_COMPUTABLE",
+      "simple_message": "NOEMA cannot determine this with the available authorized evidence.",
+      "advanced_message": "NOT_COMPUTABLE: required authorized input or adapter capability is unavailable.",
+      "preserves_outcome": "NOT_COMPUTABLE"
+    },
+    {
+      "reason_code": "UNAUTHORIZED_RESEARCH_DETAIL",
+      "simple_message": "You do not have permission to view this research detail.",
+      "advanced_message": "UNAUTHORIZED_RESEARCH_DETAIL: research partition access denied.",
+      "preserves_outcome": "DENY"
+    },
+    {
+      "reason_code": "LESION_UNSUPPORTED",
+      "simple_message": "This agent does not declare a safe module-disable interface.",
+      "advanced_message": "LESION_UNSUPPORTED: retain a NOT_COMPUTABLE lesion request.",
+      "preserves_outcome": "NOT_COMPUTABLE"
+    },
+    {
+      "reason_code": "BUDGET_EXHAUSTED",
+      "simple_message": "This test reached its declared budget. Completed evidence is preserved.",
+      "advanced_message": "BUDGET_EXHAUSTED: execution is PARTIAL; inspect unexecuted plan nodes.",
+      "preserves_outcome": "PARTIAL"
+    }
+  ]
+}
