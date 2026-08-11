@@ -1,18 +1,6 @@
-# v0.4 Lab — Migration
+# v0.4 Lab: Migration
 
-## Version domains
+New version domains are `lab/0.4`, `experiment/0.4`, `experiment-design/0.4`, `intervention-catalog/0.4`, `perturbation-catalog/0.4.0`, `ablation-catalog/0.4.0`, and `lab-result/0.4`. Changing claim-bearing intervention, variable, metric, comparison, or canonicalization semantics requires a version/identity change.
 
-| Domain | Value |
-|--------|-------|
-| Lab | `lab/0.4` |
-| Experiment design | `experiment-design/0.4` |
-| Experiment schema | `experiment/0.4` |
-| Perturbation catalog | `perturbation-catalog/0.4.0` |
-| Ablation catalog | `ablation-catalog/0.4.0` |
+v0.4 is additive. Existing trajectories and candidates remain immutable inputs and are linked by ID. Historical candidates may be tested only when evidence/version identity resolves and consent permits. No migration rewrites v0.1–v0.3 world history, Observatory candidate state, or event catalogs.
 
-## Rules
-
-- No production world rewrite.
-- Existing Observatory candidates remain valid inputs.
-- Lab results do not alter historical candidates; they link by id.
-- Downgrade of lab package does not invalidate prior world catalogs.

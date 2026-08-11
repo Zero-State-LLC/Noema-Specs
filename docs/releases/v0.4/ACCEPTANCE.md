@@ -1,22 +1,29 @@
-# v0.4 Lab — Acceptance
+# v0.4 Lab: Acceptance
 
-| # | Family | Requirement |
-|---|--------|-------------|
-| 1 | L01 | Experiment identity complete and digests present |
-| 2 | L02 | Experiment schema validation |
-| 3 | L03 | Lifecycle transitions audited |
-| 4 | L04 | Intervention taxonomy + schema |
-| 5 | L05 | Variable registry |
-| 6 | L06 | Fork preserves history; no production mutation |
-| 7 | L07 | Counterfactual variables declared |
-| 8 | L08 | Controls defined with failure interpretation |
-| 9 | L09 | Design readiness gates |
-| 10 | L10 | Run identity complete |
-| 11 | L11 | Agent determinism classification |
-| 12 | L12 | Perturbation/ablation catalogs |
-| 13 | L13 | Outcomes + replication classes |
-| 14 | L14 | Isolation + audit chain |
-| 15 | L15 | Lab result / compiler boundary; no PROVEN |
-| 16 | L16 | Production isolation negatives |
+A v0.4 implementation is accepted only if all earlier suites remain green and all of these machine checks pass:
 
-Prerequisite: C01–C26, F01–F15, O01–O16 remain green. Strategic S01–S18 unchanged.
+1. stable complete experiment identity  
+2. validated design contract  
+3. exact source-history fork integrity  
+4. legal reproducible fork points  
+5. explicit versioned intervention validation  
+6. deterministic perturbation  
+7. clean isolated external ablation  
+8. unsupported lesion returns `NOT_COMPUTABLE`  
+9. complete counterfactual variable declaration  
+10. seed-policy and divergence handling  
+11. machine-defined controls change validity  
+12. sham detects pipeline artifacts  
+13. immutable run identity  
+14. pinned outcome measurement  
+15. preserved confounds and non-comparability  
+16. deterministic replication classification  
+17. bounded generalization evidence only  
+18. correct nondeterministic-agent treatment  
+19. replayable Lab audit chain  
+20. production-world isolation  
+21. retained failed/null/aborted evidence  
+22. valid READY/NOT_READY/REJECTED Compiler handoff without fixture creation.
+
+No `PROVEN`, consciousness score, automatic capability proof, current mutable baseline, or undeclared causal comparison is permitted.
+

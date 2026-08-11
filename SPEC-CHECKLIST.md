@@ -6,7 +6,7 @@
 - [x] v0.1 Chamber: C01–C26, golden path, executable world contracts.
 - [x] v0.2 Frontier: F01–F15, release package, genome/novelty/mutation contracts.
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
-- [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L16.
+- [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L22 (110 atomic cases).
 
 ## Core game design (player-facing)
 
@@ -60,7 +60,7 @@
 - [x] Controls including sham; failed/null results first-class
 - [x] Lifecycle without PROVEN; claim labels separate
 - [x] Lab → Compiler boundary (`compiler_readiness`)
-- [x] Conformance L01–L16 + validator gate
+- [x] Conformance L01–L22 + validator gate
 
 ## Validation
 

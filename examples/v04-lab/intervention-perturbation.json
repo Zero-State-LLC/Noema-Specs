@@ -25,5 +25,7 @@
     "authorized_by": "system.lab"
   },
   "digest": "sha256:1ac5c34d5994f07b8e95b4ee2f837fd96b439808fdcd82fba56a6ca58fb68091",
-  "catalog_entry_id": "OBSERVATION_NOISE"
+  "catalog_entry_id": "OBSERVATION_NOISE",
+  "target_version": "1.0",
+  "authorization_class": "WORLD_SAFE"
 }

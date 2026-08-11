@@ -2,7 +2,7 @@
 
 ## Version domains
 
-- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory)
+- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory), `0.4.0` (Lab)
 - Spec pin: Noema-Specs release / pin (e.g. `v0.1.0-rc2`, `v0.2.0-draft`)
 - World rules: `world/v1`
 - World instance: `world_id` + `world_version`
@@ -21,7 +21,7 @@
 - Trajectory: `trajectory/0.3` (legacy samples may use `1.0`)
 - Behavior features: `behavior-features/0.3`
 - Observatory: `observatory/0.3`
-- Lab: `lab/0.4`, `experiment/0.4`, `experiment-design/0.4`
+- Lab: `lab/0.4`, `experiment/0.4`, `experiment-design/0.4`, `intervention-catalog/0.4`, `lab-result/0.4`
 - Perturbation catalog: `perturbation-catalog/0.4.0`
 - Ablation catalog: `ablation-catalog/0.4.0`
 - Anomaly detectors: `anomaly-detectors/0.3`

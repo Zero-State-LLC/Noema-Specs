@@ -58,6 +58,10 @@ NOEMA is a persistent multi-agent world, structurally inspired by MUDs and BBS s
 - **Situation Genome / novelty vectors** — frontier search for high-information situations
 - **Phenomenon Compiler** — live behavior → reproducible fixtures
 
+### v0.4 Lab
+
+The Lab now converts Observatory candidates to isolated, version-pinned experimental evidence: explicit interventions and controls, reproducible forks, counterfactual replay, replication, retained counterevidence, and a readiness-only handoff to v0.5. It never mutates production world truth or emits `PROVEN`. See [Experiment Lab](docs/EXPERIMENT-LAB.md), [v0.4 release package](docs/releases/v0.4/), [fixture](examples/v04-lab/), and [L01–L22 conformance](conformance/v0.4/).
+
 ### Research loop
 
 ```text

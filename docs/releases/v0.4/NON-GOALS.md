@@ -1,13 +1,4 @@
-# v0.4 Lab — Non-goals
+# v0.4 Lab: Non-goals
 
-Out of scope for v0.4:
+v0.4 does not specify or implement the v0.5 Phenomenon Compiler, automatic minimal fixture extraction, CAPTURE AS TEST, a behavioral regression repository, Deep Time, Capability Graph, consciousness metrics, Atlas publication, distributed experiment cluster, generalized causal-inference engine, or automated proof of capability. It ends at controlled experimental evidence and replication.
 
-* Phenomenon Compiler permanent fixture extraction (v0.5);
-* full Capability Graph (v0.7);
-* live production-world experiments as default;
-* PROVEN scientific status;
-* scalar intelligence / consciousness scores;
-* automatic world-native rewards from lab outcomes;
-* opaque ML as sole claim-bearing authority;
-* guessing agent-internal lesions without adapter declaration;
-* mid-reducer forks.

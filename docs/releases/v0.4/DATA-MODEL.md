@@ -1,23 +1,15 @@
-# v0.4 Lab — Data Model Delta
+# v0.4 Lab: Data Model Delta
 
-## Core objects
+| Record | Machine authority |
+|---|---|
+| immutable design | `experiment/0.4` |
+| intervention | `intervention/0.4` |
+| execution DAG | `experiment-plan/0.4` |
+| isolated fork | `experiment-fork/0.4` |
+| immutable run | `experiment-run/0.4` |
+| result | `lab-result/0.4` |
+| audit chain | `lab-audit-record/0.4` |
+| variable/catalog pins | v0.4 registries and catalogs |
 
-| Object | Schema |
-|--------|--------|
-| Experiment | `specs/experiment.schema.json` |
-| Intervention | `specs/intervention.schema.json` |
-| Experiment plan | `specs/experiment-plan.schema.json` |
-| Experiment run | `specs/experiment-run.schema.json` |
-| Experiment fork | `specs/experiment-fork.schema.json` |
-| Lab result | `specs/lab-result.schema.json` |
-| Lab audit | `specs/lab-audit-record.schema.json` |
+All are derived research records linked to v0.1–v0.3 evidence. They do not alter historical canonical data. Identity pins candidates, trajectories, world and agent versions, forks, interventions, controls, metrics, seed policy, equivalence boundary, consent, policy, and digest.
 
-## Catalogs
-
-- `specs/perturbation-catalog.v04.json`
-- `specs/ablation-catalog.v04.json`
-- `specs/experiment-variable-registry.v04.json`
-
-## Identity digests
-
-Claim-bearing experiments MUST pin `input_digest` over identity fields. Changing a claim-bearing variable creates a new experiment identity.
