@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capture-intent.schema.json",
+  "title": "NOEMA capture-intent (v0.5 experience)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "capture_intent_id",
+    "source_lab_result_id",
+    "capture_intent",
+    "experience_level",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capture-intent/0.5"
+    },
+    "capture_intent_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_lab_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "capture_intent": {
+      "const": "CAPTURE_AS_TEST"
+    },
+    "optional_title": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "experience_level": {
+      "enum": [
+        "SIMPLE",
+        "RESEARCHER",
+        "ADVANCED",
+        "REPRODUCIBILITY"
+      ]
+    },
+    "user_overrides": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "budget_profile": {
+          "type": "string"
+        },
+        "seed_policy": {
+          "type": "string"
+        },
+        "replication_policy": {
+          "type": "string"
+        },
+        "generalization_boundary": {
+          "enum": [
+            "EXACT_SCENARIO",
+            "SCENARIO_FAMILY",
+            "BEHAVIOR_FAMILY"
+          ]
+        },
+        "max_oracle_calls": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "export_class": {
+          "enum": [
+            "PUBLIC",
+            "RESEARCH_ISOLATED",
+            "PRIVATE"
+          ]
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

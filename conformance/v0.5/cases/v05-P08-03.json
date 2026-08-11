@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P08-03",
+  "suite": "noema-v0.5-compiler",
+  "title": "Minimization Ordering: atomic contract 3",
+  "acceptance_items": [
+    8
+  ],
+  "family_id": "P08",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#8"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/minimization-records.jsonl",
+    "specs/capture-defaults.v05.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P08",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P08 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

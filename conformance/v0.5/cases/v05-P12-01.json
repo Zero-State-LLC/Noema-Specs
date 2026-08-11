@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P12-01",
+  "suite": "noema-v0.5-compiler",
+  "title": "Minimality Status: atomic contract 1",
+  "acceptance_items": [
+    12
+  ],
+  "family_id": "P12",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#12"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/compiler-result.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P12",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P12 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

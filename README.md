@@ -74,6 +74,10 @@ Contributors and implementation agents should use [SKILLS.md](SKILLS.md) for rep
 
 The Lab now compiles a plain-language STUDY intent into isolated, version-pinned experimental evidence: explicit interventions and controls, reproducible forks, counterfactual replay, replication, retained counterevidence, and a readiness-only handoff to v0.5. The simple result is a bounded projection of that same Lab evidence. It never mutates production world truth or emits `PROVEN`. See [Intent Compilation](docs/EXPERIMENT-INTENT-COMPILATION.md), [Experiment Lab](docs/EXPERIMENT-LAB.md), [v0.4 release package](docs/releases/v0.4/), [fixture](examples/v04-lab/), and [L01–L34 conformance](conformance/v0.4/).
 
+### v0.5 Compiler
+
+From a READY Lab result, one ordinary action — **CAPTURE AS TEST** — produces a reusable captured behavioral test. NOEMA applies versioned defaults, runs eligibility, dependency analysis, deterministic minimization, oracle validation, and packaging internally, then returns a plain-language result with limits and next actions. Advanced users can inspect every machine field; implementation agents get full schemas, fixtures, and **P01–P30** conformance. See [Phenomenon Compiler](docs/PHENOMENON-COMPILER.md), [Capture Intent Compilation](docs/CAPTURE-INTENT-COMPILATION.md), [v0.5 release package](docs/releases/v0.5/), [fixture](examples/v05-compiler/), and [conformance](conformance/v0.5/).
+
 ### Research loop
 
 ```text

@@ -4,6 +4,9 @@
 
 ### Added
 
+- **v0.5 Phenomenon Compiler executable package:** `docs/releases/v0.5/*`, capture-intent/compilation-request/phenomenon-candidate/dependency-graph/unit-manifest/minimization-record/behavioral-oracle/compiler-result/compile-receipt/compiler-audit/captured-test/regression schemas, capture defaults + status/reason catalogs, STUDY CAPTURE progressive disclosure, fixtures `examples/v05-compiler/`, conformance **P01–P30** (90 cases).
+- Docs: CAPTURE-INTENT-COMPILATION, COMPILATION-IDENTITY, BEHAVIORAL-ORACLE, BEHAVIORAL-SIGNATURE, OVER-MINIMIZATION, CAPTURED-TEST-FORMAT, BEHAVIORAL-REGRESSION.
+- Validator Compiler gate: schema fixtures, digest/audit chains, simple/advanced identity equivalence, budget/privacy/over-minimization negatives, RFC-0003 receipt reuse.
 - **Specification workflows:** root `SKILLS.md` provides deterministic, non-authoritative procedures for orientation, spec/RFC/milestone work, schemas, fixtures, conformance, determinism, drift, experience, game/research contracts, migration/versioning, validation, continuation, review, prompts, and runtime handoff.
 - **v0.4 Lab executable package:** `docs/releases/v0.4/*`, experiment/intervention/plan/run/fork/lab-result/audit schemas, perturbation + ablation catalogs, variable registry, full Lab docs (identity, lifecycle, design, controls, fork, counterfactual, outcomes, replication, isolation, audit, lesions, determinism), fixtures `examples/v04-lab/`, conformance **L01–L16**.
 - Validator Lab gate: schema fixtures, production isolation negatives, null results retained.

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/capture-status-catalog.schema.json",
+  "title": "NOEMA capture-status-catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "mappings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capture-status-catalog/1.0"
+    },
+    "catalog_version": {
+      "type": "string"
+    },
+    "mappings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "machine_status",
+          "simple_status",
+          "simple_message",
+          "next_actions"
+        ],
+        "properties": {
+          "machine_status": {
+            "enum": [
+              "COMPILED",
+              "NOT_COMPUTABLE",
+              "INVALID_EVIDENCE",
+              "INCONCLUSIVE",
+              "ABORTED",
+              "BUDGET_EXHAUSTED"
+            ]
+          },
+          "simple_status": {
+            "enum": [
+              "Ready to capture",
+              "Capturing",
+              "Captured",
+              "Needs more evidence",
+              "Could not capture",
+              "Cannot determine",
+              "Source evidence is invalid",
+              "Could not fully minimize",
+              "Not ready to capture"
+            ]
+          },
+          "simple_message": {
+            "type": "string"
+          },
+          "next_actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason_codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/minimization-record.schema.json",
+  "title": "NOEMA minimization-record (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_index",
+    "compile_id",
+    "proposal_id",
+    "proposal_digest",
+    "candidate_removed_units",
+    "dependency_closure_units",
+    "source_fixture_digest",
+    "candidate_fixture_digest",
+    "oracle_identity",
+    "oracle_result",
+    "decision",
+    "reason_code",
+    "budget_before",
+    "budget_after",
+    "previous_record_digest",
+    "record_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "minimization-record/0.5"
+    },
+    "record_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "proposal_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "proposal_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "candidate_removed_units": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "dependency_closure_units": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "source_fixture_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "candidate_fixture_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "oracle_identity": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "oracle_result": {
+      "enum": [
+        "PRESERVED",
+        "NOT_PRESERVED",
+        "INCONCLUSIVE",
+        "INVALID"
+      ]
+    },
+    "replay_result_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT_REMOVAL",
+        "REJECT_REMOVAL",
+        "STOP",
+        "CACHE_HIT",
+        "CACHE_INVALIDATED"
+      ]
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "budget_before": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "budget_after": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "previous_record_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

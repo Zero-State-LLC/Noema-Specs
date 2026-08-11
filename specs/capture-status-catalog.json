@@ -1,0 +1,85 @@
+{
+  "schema_version": "capture-status-catalog/1.0",
+  "catalog_version": "capture-status-catalog/0.5.0",
+  "mappings": [
+    {
+      "machine_status": "COMPILED",
+      "simple_status": "Captured",
+      "simple_message": "Captured. NOEMA found the smallest stable test it could verify.",
+      "next_actions": [
+        "RUN_TEST",
+        "VIEW_EVIDENCE",
+        "TECHNICAL_DETAILS"
+      ],
+      "reason_codes": [
+        "COMPILED_OK"
+      ]
+    },
+    {
+      "machine_status": "BUDGET_EXHAUSTED",
+      "simple_status": "Could not fully minimize",
+      "simple_message": "Could not fully reduce the test. NOEMA reached the configured capture limit. The smallest verified version so far was preserved.",
+      "next_actions": [
+        "VIEW_PARTIAL_TEST",
+        "TRY_AGAIN_HIGHER_LIMIT"
+      ],
+      "reason_codes": [
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    {
+      "machine_status": "INCONCLUSIVE",
+      "simple_status": "Needs more evidence",
+      "simple_message": "Needs more evidence. Required checks did not produce a determinate result.",
+      "next_actions": [
+        "RUN_REQUIRED_CONTROL",
+        "ADD_REPLICATION"
+      ],
+      "reason_codes": [
+        "INCONCLUSIVE_SOURCE",
+        "REPLICATION_INDETERMINATE"
+      ]
+    },
+    {
+      "machine_status": "NOT_COMPUTABLE",
+      "simple_status": "Cannot determine",
+      "simple_message": "Cannot capture this yet. A required dependency or predicate is unavailable.",
+      "next_actions": [
+        "RESOLVE_DEPENDENCY",
+        "VIEW_REASON"
+      ],
+      "reason_codes": [
+        "NOT_COMPUTABLE",
+        "MISSING_PREDICATE",
+        "MISSING_DEPENDENCY"
+      ]
+    },
+    {
+      "machine_status": "INVALID_EVIDENCE",
+      "simple_status": "Source evidence is invalid",
+      "simple_message": "Cannot use this evidence. The source lineage failed integrity validation.",
+      "next_actions": [
+        "VIEW_INTEGRITY",
+        "SELECT_OTHER_RESULT"
+      ],
+      "reason_codes": [
+        "INVALID_EVIDENCE",
+        "DIGEST_MISMATCH",
+        "LINEAGE_BREAK"
+      ]
+    },
+    {
+      "machine_status": "ABORTED",
+      "simple_status": "Could not capture",
+      "simple_message": "Capture stopped before completion. Partial provenance is preserved.",
+      "next_actions": [
+        "VIEW_PARTIAL",
+        "RETRY_CAPTURE"
+      ],
+      "reason_codes": [
+        "ABORTED",
+        "CONTAINMENT_SHUTDOWN"
+      ]
+    }
+  ]
+}

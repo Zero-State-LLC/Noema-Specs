@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P10-03",
+  "suite": "noema-v0.5-compiler",
+  "title": "Complement Testing: atomic contract 3",
+  "acceptance_items": [
+    10
+  ],
+  "family_id": "P10",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#10"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/minimization-records.jsonl"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P10",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P10 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

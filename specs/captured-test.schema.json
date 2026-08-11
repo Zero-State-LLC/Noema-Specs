@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/captured-test.schema.json",
+  "title": "NOEMA captured-test (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "captured_test_id",
+    "captured_test_version",
+    "title",
+    "description",
+    "source_compile_id",
+    "source_lab_result_id",
+    "source_experiment_ids",
+    "source_candidate_ids",
+    "fixture_ref",
+    "oracle_ref",
+    "required_versions",
+    "required_agent_capabilities",
+    "seed_policy",
+    "replication_policy",
+    "behavioral_signature",
+    "expected_result",
+    "allowed_variation",
+    "minimality_status",
+    "evidence_refs",
+    "counterevidence_refs",
+    "known_limits",
+    "known_confounds",
+    "generalization_boundary",
+    "claim_label",
+    "provenance",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "captured-test/0.5"
+    },
+    "captured_test_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "captured_test_version": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "source_compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_lab_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_experiment_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "source_candidate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
+    "fixture_ref": {
+      "type": "string"
+    },
+    "oracle_ref": {
+      "type": "string"
+    },
+    "required_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "required_agent_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seed_policy": {
+      "type": "string"
+    },
+    "replication_policy": {
+      "type": "string"
+    },
+    "behavioral_signature": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "expected_result": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "allowed_variation": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "minimality_status": {
+      "enum": [
+        "ONE_MINIMAL",
+        "PARTIALLY_MINIMIZED",
+        "NOT_MINIMIZED"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generalization_boundary": {
+      "enum": [
+        "EXACT_SCENARIO",
+        "SCENARIO_FAMILY",
+        "BEHAVIOR_FAMILY"
+      ]
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "simple_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simple_removed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "promotion_status": {
+      "enum": [
+        "PROMOTABLE",
+        "BLOCKED",
+        "CANDIDATE"
+      ]
+    },
+    "export_class": {
+      "enum": [
+        "PUBLIC",
+        "RESEARCH_ISOLATED",
+        "PRIVATE"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

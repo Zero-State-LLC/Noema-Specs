@@ -7,6 +7,7 @@
 - [x] v0.2 Frontier: F01–F15, release package, genome/novelty/mutation contracts.
 - [x] v0.3 Observatory: release package, trajectory/features/baselines/detectors/candidates, audit, fixtures, O01–O16.
 - [x] v0.4 Lab: release package, experiment/intervention/fork/run/result schemas, catalogs, fixtures, L01–L34 (146 atomic cases), including deterministic intent compilation, simple result projection, and CAPTURE gating.
+- [x] v0.5 Compiler: release package, capture intent/compilation/oracle/captured-test/receipt/audit/regression schemas, defaults + status catalogs, fixtures, P01–P30 (90 atomic cases), STUDY progressive disclosure.
 
 ## Core game design (player-facing)
 
@@ -74,12 +75,25 @@
 ## Validation
 
 - [x] `python validation/validate_all.py` PASS.
-- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L22 present and linked.
+- [x] C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, P01–P30 present and linked.
 - [x] RFC-0003 cross-document architecture hardening gate PASS.
+- [x] Compiler v0.5 validator gate PASS.
 
 ## Notes
 
-Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft. Runtime Lab engine outstanding in the Noema repo.
+Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft, Compiler 0.5.0-draft. Runtime Lab/Compiler engines outstanding in the Noema repo.
+
+## v0.5 Compiler
+
+- [x] Usability invariant: machine precision without ordinary conceptual burden
+- [x] CAPTURE AS TEST → capture-intent → compilation-request (deterministic defaults)
+- [x] Eligibility: `compiler_readiness == READY` + admission gates
+- [x] Dependency-closed hierarchical ddmin pinned; over-minimization guard
+- [x] Behavioral oracle + signature; minimality statuses bounded
+- [x] Captured-test package; compile receipt; audit hash chain
+- [x] Simple/advanced/reproducibility same artifact identity
+- [x] Regression results without global ranking
+- [x] RFC-0003 canonicalization/receipt reuse; no runtime implementation
 
 ## Experience simplification and progressive disclosure
 

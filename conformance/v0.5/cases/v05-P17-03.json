@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P17-03",
+  "suite": "noema-v0.5-compiler",
+  "title": "Budget Exhaustion: atomic contract 3",
+  "acceptance_items": [
+    17
+  ],
+  "family_id": "P17",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#17"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/compiler-result-budget-exhausted.json",
+    "examples/v05-compiler/simple-budget-exhausted.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P17",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P17 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

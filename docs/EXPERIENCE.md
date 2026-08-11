@@ -39,7 +39,7 @@ The same immutable evidence appears at four levels: (1) “Something interesting
 
 ## Authority
 
-Machine translations are [`specs/experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json) and [`specs/experience-error-catalog.json`](../specs/experience-error-catalog.json). See [PLAY.md](PLAY.md), [WATCH.md](WATCH.md), [STUDY.md](STUDY.md), and [Experience terminology](EXPERIENCE-TERMINOLOGY.md).
+Machine translations are [`specs/experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json), [`specs/experience-error-catalog.json`](../specs/experience-error-catalog.json), [`specs/capture-defaults.v05.json`](../specs/capture-defaults.v05.json), and [`specs/capture-status-catalog.json`](../specs/capture-status-catalog.json). CAPTURE projections must reference the same `captured_test_id` at every disclosure level. See [PLAY.md](PLAY.md), [WATCH.md](WATCH.md), [STUDY.md](STUDY.md), [Capture Intent Compilation](CAPTURE-INTENT-COMPILATION.md), and [Experience terminology](EXPERIENCE-TERMINOLOGY.md).
 
 
 ## Experience acceptance
@@ -58,3 +58,6 @@ A conforming experience proves all of the following:
 10. PLAY and public WATCH do not expose hidden research metadata.
 11. Internal system names are never required for ordinary flow completion.
 12. Text and structured equivalents exist for every core path.
+13. A researcher captures a READY result with one primary CAPTURE AS TEST action.
+14. Simple capture cannot strengthen machine claim labels or invent global capability claims.
+15. Capture failures surface plain-language status, reason, and next action without Compiler jargon.

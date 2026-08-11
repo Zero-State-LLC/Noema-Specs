@@ -4,6 +4,12 @@
 
 The Phenomenon Compiler converts interesting live-world behavior into minimal reproducible state, replayable fixture, behavioral regression test, and Reproducibility Bundle. It is delta debugging for autonomous cognition.
 
+**Executable package (v0.5):** [releases/v0.5/](releases/v0.5/) · schemas under `specs/*` · fixtures [`examples/v05-compiler/`](../examples/v05-compiler/) · conformance **P01–P30**. Ordinary product entry is STUDY **CAPTURE AS TEST** via [Capture Intent Compilation](CAPTURE-INTENT-COMPILATION.md). This document remains subsystem authority; release packages define only the delta.
+
+### Usability invariant (v0.5)
+
+v0.5 MUST reduce implementation ambiguity without increasing ordinary-user conceptual burden. Machine concepts remain internal or have plain-language STUDY projections. Complexity may increase internally while conceptual burden decreases externally.
+
 ## Pipeline
 
 1. Ingest candidate event or trajectory.

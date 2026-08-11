@@ -1,0 +1,8 @@
+{
+  "schema_version": "capture-intent/0.5",
+  "capture_intent_id": "c1",
+  "source_lab_result_id": "l1",
+  "capture_intent": "MAKE_ME_A_TEST",
+  "experience_level": "SIMPLE",
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

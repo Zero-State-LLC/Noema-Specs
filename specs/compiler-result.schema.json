@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/compiler-result.schema.json",
+  "title": "NOEMA compiler-result (v0.5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "compiler_result_id",
+    "compile_id",
+    "status",
+    "source_digest",
+    "minimal_fixture_digest",
+    "target_digest",
+    "boundary_digest",
+    "unit_counts",
+    "oracle_counts",
+    "minimality_status",
+    "promotion_status",
+    "reason_codes",
+    "supporting_evidence",
+    "counterevidence",
+    "confounds",
+    "audit_root_digest",
+    "claim_label",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "compiler-result/0.5"
+    },
+    "compiler_result_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "compile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "status": {
+      "enum": [
+        "COMPILED",
+        "NOT_COMPUTABLE",
+        "INVALID_EVIDENCE",
+        "INCONCLUSIVE",
+        "ABORTED",
+        "BUDGET_EXHAUSTED"
+      ]
+    },
+    "source_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "minimal_fixture_digest": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "boundary_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "unit_counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "oracle_counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "minimality_status": {
+      "enum": [
+        "ONE_MINIMAL",
+        "PARTIALLY_MINIMIZED",
+        "NOT_MINIMIZED"
+      ]
+    },
+    "promotion_status": {
+      "enum": [
+        "PROMOTABLE",
+        "BLOCKED",
+        "CANDIDATE",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "captured_test_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_evidence": {
+      "type": "array",
+      "items": {}
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {}
+    },
+    "confounds": {
+      "type": "array",
+      "items": {}
+    },
+    "audit_root_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "claim_label": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "SPECULATIVE",
+        "NOT_COMPUTABLE"
+      ]
+    },
+    "simple_status": {
+      "enum": [
+        "Ready to capture",
+        "Capturing",
+        "Captured",
+        "Needs more evidence",
+        "Could not capture",
+        "Cannot determine",
+        "Source evidence is invalid",
+        "Could not fully minimize",
+        "Not ready to capture"
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

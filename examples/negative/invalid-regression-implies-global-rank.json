@@ -1,0 +1,13 @@
+{
+  "schema_version": "regression-result/0.5",
+  "regression_result_id": "r1",
+  "captured_test_id": "c1",
+  "subject_identity": {},
+  "outcome": "FAIL",
+  "claim_label": "OBSERVED",
+  "boundary": {},
+  "evidence_refs": [],
+  "simple_message": "model is bad",
+  "not_a_global_ranking": false,
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

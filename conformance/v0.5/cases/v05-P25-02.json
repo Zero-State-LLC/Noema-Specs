@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P25-02",
+  "suite": "noema-v0.5-compiler",
+  "title": "Progressive Disclosure Equivalence: atomic contract 2",
+  "acceptance_items": [
+    25
+  ],
+  "family_id": "P25",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#25"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/simple-capture-result.json",
+    "examples/v05-compiler/advanced-capture-result.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P25",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P25 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

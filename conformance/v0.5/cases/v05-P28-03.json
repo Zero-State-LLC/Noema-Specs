@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v05-P28-03",
+  "suite": "noema-v0.5-compiler",
+  "title": "Counterexample Preservation: atomic contract 3",
+  "acceptance_items": [
+    28
+  ],
+  "family_id": "P28",
+  "requirement_refs": [
+    "docs/releases/v0.5/ACCEPTANCE.md#28"
+  ],
+  "fixtures": [
+    "examples/v05-compiler/captured-test.json",
+    "examples/v05-compiler/over-minimization-proposal.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_compiler_contract",
+      "input": {
+        "family": "P28",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "P28 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "none"
+}
