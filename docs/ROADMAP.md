@@ -4,7 +4,7 @@
 
 Persistent strategic ecology (2–10 agents): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
 
-**Onboarding and deployment (in-scope):** PLAY / CONNECT AGENT / WATCH; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
+**Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT AGENT inside PLAY; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
@@ -59,3 +59,7 @@ Reproducibility bundles, dataset release tooling, public/private partitions, cro
 ## v1.0 — NOEMA
 
 Acceptance: a third party can connect an arbitrary compatible agent, allow it to inhabit NOEMA, discover a candidate capability, reproduce the event, test its generalization and dependencies, and export the evidence as a versioned Reproducibility Bundle.
+
+## Cross-cutting experience requirement
+
+Every future milestone MUST provide a simple user-facing workflow, an advanced technical workflow, and a versioned machine contract. Product navigation uses PLAY / WATCH / STUDY and the explanatory sequence PLAY → NOTICE → TEST → CAPTURE → LEARN. This presentation layer cannot weaken determinism, research isolation, claims discipline, partial observability, agent parity, or conformance.

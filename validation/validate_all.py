@@ -40,6 +40,13 @@ REQUIRED_DOCS = [
     "docs/OBSERVABILITY.md",
     "docs/VERSIONING.md",
     "docs/ROADMAP.md",
+    "docs/EXPERIENCE.md",
+    "docs/PLAY.md",
+    "docs/WATCH.md",
+    "docs/STUDY.md",
+    "docs/RESEARCH-WORKFLOW.md",
+    "docs/EXPERIENCE-TERMINOLOGY.md",
+    "docs/EXPERIENCE-ERRORS.md",
     "docs/RESEARCH-METHOD.md",
     "docs/METRICS.md",
     "docs/REPRODUCIBILITY.md",
@@ -1319,6 +1326,81 @@ def check_lab_v04(Draft202012Validator) -> None:
     ok("Lab v0.4: schemas, stable digests, isolation, controls, counterfactuals, lesions, negatives, catalogs")
 
 
+
+def check_experience_layer(Draft202012Validator) -> None:
+    """Validate deterministic PLAY/WATCH/STUDY translations and safe fixtures."""
+    intent_schema = load_json(ROOT / "specs" / "experiment-intent-catalog.schema.json")
+    intent_catalog = load_json(ROOT / "specs" / "experiment-intent-catalog.json")
+    errors = list(Draft202012Validator(intent_schema).iter_errors(intent_catalog))
+    if errors:
+        fail(f"experience intent catalog invalid: {errors[0].message}")
+    expected = {"REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION"}
+    entries = {entry["intent_id"]: entry for entry in intent_catalog["intents"]}
+    if set(entries) != expected:
+        fail("experience intent catalog must provide exactly five common intents")
+    required_translations = {
+        "REPEAT_BEHAVIOR": "REPLICATION",
+        "REMOVE_DEPENDENCY": "ABLATION",
+        "CHANGE_CONDITION": "PERTURBATION",
+        "COMPARE_VERSION": "VERSION_DIFFERENTIAL",
+        "TEST_GENERALIZATION": "REPLICATION",
+    }
+    for intent_id, intervention in required_translations.items():
+        entry = entries[intent_id]
+        if entry["lab_intervention_type"] != intervention:
+            fail(f"experience intent {intent_id} must deterministically map to {intervention}")
+        if "ANALYSIS" not in entry["required_plan_nodes"] or "BASELINE" not in entry["required_plan_nodes"]:
+            fail(f"experience intent {intent_id} lacks baseline/analysis plan boundary")
+        if set(entry["advanced_override_fields"]) != {"fork_point", "seed_policy", "intervention", "controls", "run_count", "equivalence_boundary", "dependent_measures"}:
+            fail(f"experience intent {intent_id} lost advanced override escape hatch")
+
+    error_schema = load_json(ROOT / "specs" / "experience-error-catalog.schema.json")
+    error_catalog = load_json(ROOT / "specs" / "experience-error-catalog.json")
+    errors = list(Draft202012Validator(error_schema).iter_errors(error_catalog))
+    if errors:
+        fail(f"experience error catalog invalid: {errors[0].message}")
+    error_codes = {entry["reason_code"] for entry in error_catalog["errors"]}
+    for code in {"CONTROL_REQUIRED", "NOT_COMPARABLE", "NOT_COMPUTABLE", "UNAUTHORIZED_RESEARCH_DETAIL"}:
+        if code not in error_codes:
+            fail(f"experience error mapping missing {code}")
+
+    view_schema = load_json(ROOT / "specs" / "experience-view.schema.json")
+    fixture_dir = ROOT / "examples" / "experience"
+    fixtures = {path.name: load_json(path) for path in fixture_dir.glob("*.json")}
+    required_fixtures = {"play-view.json", "watch-view.json", "interesting-behavior-card.json", "test-intent-menu.json", "simple-test-result.json", "advanced-test-result.json", "capture-ready.json", "user-facing-error.json"}
+    if set(fixtures) != required_fixtures:
+        fail("experience fixture package is incomplete")
+    for name, fixture in fixtures.items():
+        errors = list(Draft202012Validator(view_schema).iter_errors(fixture))
+        if errors:
+            fail(f"experience fixture {name} invalid: {errors[0].message}")
+    for name in ("play-view.json", "watch-view.json"):
+        view = fixtures[name]
+        if view["research_detail"] is not False:
+            fail(f"{name} leaks research detail")
+        rendered = json.dumps(view["presentation"]).lower()
+        if any(token in rendered for token in ("anomaly_", "candidate_capability", "detector", "lab_result")):
+            fail(f"{name} exposes raw research metadata")
+    menu_intents = set(fixtures["test-intent-menu.json"]["presentation"]["intent_ids"])
+    if menu_intents != expected:
+        fail("simple test intent menu must exactly match deterministic catalog")
+    capture = fixtures["capture-ready.json"]
+    if capture.get("compiler_readiness") != "READY" or "CAPTURE_AS_TEST" not in capture["allowed_actions"]:
+        fail("CAPTURE AS TEST must be enabled only by READY handoff")
+    user_error = fixtures["user-facing-error.json"]
+    if user_error.get("machine_reason_code") not in error_codes:
+        fail("user-facing error must preserve canonical machine reason code")
+
+    experience = (ROOT / "docs" / "EXPERIENCE.md").read_text(encoding="utf-8")
+    for token in ("PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY"):
+        if token not in experience:
+            fail("experience canonical product model incomplete")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for token in ("[PLAY]", "[WATCH]", "[STUDY]"):
+        if token not in readme:
+            fail("README lacks clear PLAY/WATCH/STUDY entry points")
+    ok("Experience layer: deterministic intents, progressive fixtures, safe disclosure, and error mappings")
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -1337,6 +1419,7 @@ def main() -> None:
     check_conformance_suite(Draft202012Validator)
     check_strategic_conflict(Draft202012Validator)
     check_lab_v04(Draft202012Validator)
+    check_experience_layer(Draft202012Validator)
     print("\nPASS")
 
 

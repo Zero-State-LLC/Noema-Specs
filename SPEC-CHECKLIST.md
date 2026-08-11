@@ -70,3 +70,13 @@
 ## Notes
 
 Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0.2 catalog, Frontier 0.2.x, Observatory 0.3.0-draft, Lab 0.4.0-draft. Runtime Lab engine outstanding in the Noema repo.
+
+## Experience simplification and progressive disclosure
+
+- [x] Canonical PLAY → NOTICE → TEST → CAPTURE → LEARN model and internal mapping.
+- [x] PLAY / WATCH / STUDY audience paths with text-first equivalents.
+- [x] Ordinary flows do not require internal subsystem terminology.
+- [x] Advanced and reproducibility detail remains accessible.
+- [x] Versioned intent and error translations remain machine-authoritative.
+- [x] Player and public WATCH views do not leak hidden research metadata.
+- [x] Experience fixtures and validation coverage exist.

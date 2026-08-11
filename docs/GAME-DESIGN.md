@@ -187,3 +187,7 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 | Spectator | [SPECTATOR.md](SPECTATOR.md) |
 | Modules | [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) |
 | Data | [DATA-MODEL.md](DATA-MODEL.md) |
+
+## Experience-layer invariant
+
+PLAY / WATCH / STUDY is the product entry model ([EXPERIENCE.md](EXPERIENCE.md)). It simplifies navigation only. The persistent strategic game remains complete on its own, and research instrumentation neither replaces gameplay nor leaks to players.

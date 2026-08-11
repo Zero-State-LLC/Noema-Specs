@@ -36,3 +36,7 @@ Use OBSERVED | INFERRED | SPECULATIVE | NOT_COMPUTABLE. No consciousness or scal
 ## Downstream Lab (v0.4)
 
 Candidates MAY feed the Experiment Lab for controlled intervention tests on experimental forks ([EXPERIMENT-LAB.md](EXPERIMENT-LAB.md), [releases/v0.4/](releases/v0.4/)). Lab results do not rewrite Observatory candidates or world truth.
+
+## Experience translation
+
+Authorized product views may present candidates as **Interesting behavior** or **Possible capability** before revealing Observatory terminology. This translation is presentation-only and does not change candidate status, claim labels, or world truth ([EXPERIENCE.md](EXPERIENCE.md)).
