@@ -78,6 +78,10 @@ The Lab now compiles a plain-language STUDY intent into isolated, version-pinned
 
 From a READY Lab result, one ordinary action — **CAPTURE AS TEST** — produces a reusable captured behavioral test. NOEMA applies versioned defaults, runs eligibility, dependency analysis, deterministic minimization, oracle validation, and packaging internally, then returns a plain-language result with limits and next actions. Advanced users can inspect every machine field; implementation agents get full schemas, fixtures, and **P01–P30** conformance. See [Phenomenon Compiler](docs/PHENOMENON-COMPILER.md), [Capture Intent Compilation](docs/CAPTURE-INTENT-COMPILATION.md), [v0.5 release package](docs/releases/v0.5/), [fixture](examples/v05-compiler/), and [conformance](conformance/v0.5/).
 
+### v0.6 Deep Time (foundation)
+
+Agents create structures that persist beyond them: institutions, succession, artifacts, scars, and incomplete evidence later agents can inherit or investigate. **Lore is derived from history**, never a competing canon. PLAY feels old; WATCH shows timeline drama; STUDY asks longitudinal questions. See [Deep Time](docs/DEEP-TIME.md), [v0.6 release package](docs/releases/v0.6/), [fixture](examples/v06-deep-time/), and [D01–D30 conformance](conformance/v0.6/).
+
 ### Research loop
 
 ```text

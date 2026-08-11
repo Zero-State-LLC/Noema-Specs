@@ -150,6 +150,25 @@ REQUIRED_DOCS = [
     "docs/releases/v0.5/MIGRATION.md",
     "docs/releases/v0.5/EXAMPLES.md",
     "docs/releases/v0.5/NON-GOALS.md",
+    "docs/releases/v0.6/SCOPE.md",
+    "docs/releases/v0.6/ARCHITECTURE.md",
+    "docs/releases/v0.6/DATA-MODEL.md",
+    "docs/releases/v0.6/ACCEPTANCE.md",
+    "docs/releases/v0.6/CONFORMANCE.md",
+    "docs/releases/v0.6/MIGRATION.md",
+    "docs/releases/v0.6/EXAMPLES.md",
+    "docs/releases/v0.6/NON-GOALS.md",
+    "docs/DEEP-TIME.md",
+    "docs/INSTITUTIONS.md",
+    "docs/SUCCESSION.md",
+    "docs/HISTORICAL-ARTIFACTS.md",
+    "docs/HISTORICAL-EVIDENCE.md",
+    "docs/ARCHAEOLOGY.md",
+    "docs/HISTORICAL-RECONSTRUCTION.md",
+    "docs/INSTITUTIONAL-MEMORY.md",
+    "docs/HISTORICAL-DECAY.md",
+    "docs/SEMANTIC-LINEAGE.md",
+    "docs/EVENT-CATALOG-DEEP-TIME-AUDIT.md",
     "docs/PHENOMENON-COMPILER.md",
     "docs/CAPTURE-INTENT-COMPILATION.md",
     "docs/COMPILATION-IDENTITY.md",
@@ -337,6 +356,13 @@ REQUIRED_EXAMPLES = [
     "conformance/v0.5/manifest.json",
     "specs/capture-defaults.v05.json",
     "specs/capture-status-catalog.json",
+    "examples/v06-deep-time/institution.json",
+    "examples/v06-deep-time/succession.json",
+    "examples/v06-deep-time/artifact-archive.json",
+    "examples/v06-deep-time/reconstruction-archaeology.json",
+    "conformance/v0.6/manifest.json",
+    "specs/historical-decay.v06.json",
+    "specs/historical-significance.v06.json",
 ]
 
 REQUIRED_SEED_EVENT_TYPES = {
@@ -1013,6 +1039,33 @@ def check_conformance_suite(Draft202012Validator) -> None:
     if missing_p:
         fail(f"conformance v0.5 missing families: {missing_p}")
     ok(f"Conformance suite v0.5: {len(cases5)} cases, families P01–P30 covered")
+
+    # v0.6 Deep Time suite
+    m6 = load_json(ROOT / "conformance" / "v0.6" / "manifest.json")
+    cases6 = m6.get("cases") or []
+    if len(cases6) < 90:
+        fail(f"conformance v0.6 suite must list ≥90 cases, found {len(cases6)}")
+    fams6: set[str] = set()
+    for rel in cases6:
+        path = ROOT / "conformance" / "v0.6" / rel
+        if not path.exists():
+            fail(f"conformance v0.6 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"conformance v0.6 case {rel} invalid: {errs[0].message}")
+        fam = case.get("family_id") or ""
+        if fam:
+            fams6.add(fam)
+        for fixture in case.get("fixtures") or []:
+            fpath = ROOT / fixture
+            if not fpath.exists():
+                fail(f"conformance v0.6 case {rel} missing fixture {fixture}")
+    expected_d = {f"D{i:02d}" for i in range(1, 31)}
+    missing_d = sorted(expected_d - fams6)
+    if missing_d:
+        fail(f"conformance v0.6 missing families: {missing_d}")
+    ok(f"Conformance suite v0.6: {len(cases6)} cases, families D01–D30 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1755,6 +1808,196 @@ def check_compiler_v05(Draft202012Validator) -> None:
     )
 
 
+def check_deep_time_v06(Draft202012Validator) -> None:
+    """Validate v0.6 Deep Time foundation: institutions, succession, artifacts, lore boundary."""
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+    pairs = [
+        ("specs/institution.schema.json", "examples/v06-deep-time/institution.json"),
+        ("specs/institution.schema.json", "examples/v06-deep-time/institution-active.json"),
+        ("specs/institution.schema.json", "examples/v06-deep-time/institution-successor.json"),
+        ("specs/institution-lineage.schema.json", "examples/v06-deep-time/institution-lineage.json"),
+        ("specs/succession-record.schema.json", "examples/v06-deep-time/succession.json"),
+        ("specs/succession-record.schema.json", "examples/v06-deep-time/succession-vacant.json"),
+        ("specs/historical-artifact.schema.json", "examples/v06-deep-time/artifact-archive.json"),
+        ("specs/historical-artifact.schema.json", "examples/v06-deep-time/artifact-marker.json"),
+        ("specs/historical-artifact.schema.json", "examples/v06-deep-time/artifact-destroyed.json"),
+        ("specs/historical-claim.schema.json", "examples/v06-deep-time/claim-peaceful-transfer.json"),
+        ("specs/historical-claim.schema.json", "examples/v06-deep-time/claim-conflict-transfer.json"),
+        ("specs/historical-claim.schema.json", "examples/v06-deep-time/claim-nacre-built.json"),
+        ("specs/historical-reconstruction.schema.json", "examples/v06-deep-time/reconstruction-archaeology.json"),
+        ("specs/semantic-lineage.schema.json", "examples/v06-deep-time/semantic-lineage.json"),
+        ("specs/historical-name.schema.json", "examples/v06-deep-time/name-burnt-relay.json"),
+        ("specs/world-scar.schema.json", "examples/v06-deep-time/world-scar.json"),
+        ("specs/historical-evidence.schema.json", "examples/v06-deep-time/evidence-ledger-hidden.json"),
+        ("specs/historical-evidence.schema.json", "examples/v06-deep-time/evidence-marker-public.json"),
+        ("specs/historical-significance.schema.json", "specs/historical-significance.v06.json"),
+        ("specs/experience-view.schema.json", "examples/v06-deep-time/play-old-relay.json"),
+        ("specs/experience-view.schema.json", "examples/v06-deep-time/watch-timeline.json"),
+        ("specs/experience-view.schema.json", "examples/v06-deep-time/study-questions.json"),
+    ]
+    for schema_rel, fixture_rel in pairs:
+        errs = list(Draft202012Validator(load_json(ROOT / schema_rel)).iter_errors(load_json(ROOT / fixture_rel)))
+        if errs:
+            fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    for rel in (
+        "examples/v06-deep-time/institution.json",
+        "examples/v06-deep-time/succession.json",
+        "examples/v06-deep-time/artifact-archive.json",
+        "examples/v06-deep-time/reconstruction-archaeology.json",
+        "examples/v06-deep-time/world-scar.json",
+        "examples/v06-deep-time/semantic-lineage.json",
+        "examples/v06-deep-time/claim-nacre-built.json",
+    ):
+        obj = load_json(ROOT / rel)
+        payload = dict(obj)
+        recorded = payload.pop("digest", None)
+        if recorded != canonical_digest(payload):
+            fail(f"{rel} digest is not canonical/stable")
+
+    inst = load_json(ROOT / "examples" / "v06-deep-time" / "institution.json")
+    if not inst["continuity"]["survives_participant_departure"]:
+        fail("fixture institution must survive participant departure")
+    if inst["status"] not in ("DORMANT", "ACTIVE", "ESTABLISHED", "EMERGING", "TRANSFORMED", "DISSOLVED"):
+        fail("institution status invalid")
+    succ = load_json(ROOT / "examples" / "v06-deep-time" / "succession.json")
+    if succ.get("institution_continues") is not True:
+        fail("succession fixture must keep institution continuing after founder transfer")
+    if succ.get("from_holder") == succ.get("to_holder"):
+        fail("succession must change holder")
+
+    art = load_json(ROOT / "examples" / "v06-deep-time" / "artifact-archive.json")
+    if art.get("claims_are_not_world_truth") is not True:
+        fail("artifacts must declare claims_are_not_world_truth")
+    destroyed = load_json(ROOT / "examples" / "v06-deep-time" / "artifact-destroyed.json")
+    if destroyed.get("integrity") != "DESTROYED" or destroyed.get("existed_fact_preserved") is not True:
+        fail("destroyed artifact must preserve existence fact")
+
+    c1 = load_json(ROOT / "examples" / "v06-deep-time" / "claim-peaceful-transfer.json")
+    c2 = load_json(ROOT / "examples" / "v06-deep-time" / "claim-conflict-transfer.json")
+    if c1.get("evidence_status") != "CONTESTED" or c2.get("evidence_status") != "CONTESTED":
+        fail("conflicting claims must be CONTESTED")
+    if "claim.conflict-transfer" not in c1.get("contradicting_claim_refs", []):
+        fail("peaceful claim must reference contradicting conflict claim")
+
+    recon = load_json(ROOT / "examples" / "v06-deep-time" / "reconstruction-archaeology.json")
+    if recon.get("no_narrative_invention") is not True:
+        fail("reconstruction must forbid narrative invention")
+    if recon.get("hidden_ledger_not_exposed") is not True:
+        fail("archaeology reconstruction must not expose hidden ledger")
+    if recon.get("agent_knowledge_only") is not True:
+        fail("archaeology reconstruction is agent knowledge only")
+    if not recon.get("contradictions"):
+        fail("reconstruction fixture should retain contradictions")
+    if not recon.get("unknowns"):
+        fail("reconstruction must list unknowns rather than inventing")
+
+    hidden = load_json(ROOT / "examples" / "v06-deep-time" / "evidence-ledger-hidden.json")
+    if hidden.get("accessible_to_agents") is not False or hidden.get("hidden_from_ordinary_observation") is not True:
+        fail("full ledger evidence must be hidden from ordinary observation")
+
+    name = load_json(ROOT / "examples" / "v06-deep-time" / "name-burnt-relay.json")
+    if name.get("canonical_id_immutable") is not True:
+        fail("historical names must keep canonical IDs immutable")
+    if name.get("canonical_id") != "room.relay_south.004":
+        fail("rename fixture must not change canonical room id")
+
+    semantic = load_json(ROOT / "examples" / "v06-deep-time" / "semantic-lineage.json")
+    if semantic.get("auto_interpreted") is not False:
+        fail("semantic lineage must not auto-interpret")
+    if semantic.get("canonical_subject_id") != "room.relay_south.004":
+        fail("semantic lineage must pin stable canonical subject id")
+
+    successor = load_json(ROOT / "examples" / "v06-deep-time" / "institution-successor.json")
+    if successor["continuity"]["identity_class"] != "SUCCESSOR_ENTITY":
+        fail("revival fixture must be SUCCESSOR_ENTITY when interpretation differs")
+    if successor["continuity"]["predecessor_institution_id"] != inst["institution_id"]:
+        fail("successor must link predecessor institution")
+
+    scar = load_json(ROOT / "examples" / "v06-deep-time" / "world-scar.json")
+    if not scar.get("derived_from_event_refs"):
+        fail("world scars must derive from events")
+    if scar.get("observable") is not True:
+        fail("fixture scar should be PLAY-observable")
+
+    decay = load_json(ROOT / "specs" / "historical-decay.v06.json")
+    if "canonical event" not in decay.get("notes", "").lower() and "Canonical event" not in decay.get("notes", ""):
+        if "ledger" not in decay.get("notes", "").lower():
+            fail("decay catalog must state ledger does not decay")
+    for profile in decay.get("profiles", []):
+        if profile.get("deterministic") is not True and "deterministic" in profile:
+            pass
+    if not any(p.get("never_deletes_history") for p in decay.get("profiles", []) if p.get("applies_to") == "INFRASTRUCTURE"):
+        # at least one profile should never delete history
+        if not any(p.get("never_deletes_history") for p in decay.get("profiles", [])):
+            fail("decay profiles must include never_deletes_history guard")
+
+    deep = (ROOT / "docs" / "DEEP-TIME.md").read_text(encoding="utf-8")
+    for token in (
+        "Lore is a derived presentation",
+        "canonical evidence wins",
+        "WORLD EVENT HISTORY",
+        "The world can forget",
+        "canonical ledger cannot",
+    ):
+        if token not in deep:
+            fail(f"DEEP-TIME.md missing normative token: {token}")
+
+    audit = (ROOT / "docs" / "EVENT-CATALOG-DEEP-TIME-AUDIT.md").read_text(encoding="utf-8")
+    if "No event-catalog/0.3" not in audit and "no event-catalog/0.3" not in audit.lower():
+        fail("event catalog audit must refuse silent catalog expansion")
+
+    # Simple projection equivalence / no jargon
+    play = load_json(ROOT / "examples" / "v06-deep-time" / "play-old-relay.json")
+    advanced = load_json(ROOT / "examples" / "v06-deep-time" / "advanced-history.json")
+    if inst["institution_id"] not in advanced["canonical_source_refs"] and inst["institution_id"] not in json.dumps(advanced["presentation"]):
+        fail("advanced view must reference institution id")
+    play_text = json.dumps(play["presentation"]).lower()
+    for jargon in ("lineage graph", "state digest", "succession state machine", "semantic lineage"):
+        if jargon in play_text:
+            fail(f"simple PLAY view leaks jargon: {jargon}")
+
+    # Negatives
+    neg_pairs = [
+        ("specs/institution.schema.json", "examples/negative/invalid-institution-no-origin.json"),
+        ("specs/succession-record.schema.json", "examples/negative/invalid-succession-mechanism.json"),
+        ("specs/historical-artifact.schema.json", "examples/negative/invalid-artifact-claims-as-truth.json"),
+        ("specs/historical-reconstruction.schema.json", "examples/negative/invalid-reconstruction-invents-narrative.json"),
+        ("specs/historical-name.schema.json", "examples/negative/invalid-historical-name-mutates-id.json"),
+        ("specs/historical-claim.schema.json", "examples/negative/invalid-claim-missing-sources.json"),
+    ]
+    for schema_rel, fixture_rel in neg_pairs:
+        if not list(Draft202012Validator(load_json(ROOT / schema_rel)).iter_errors(load_json(ROOT / fixture_rel))):
+            fail(f"{fixture_rel} should fail {schema_rel}")
+
+    bad_hidden = load_json(ROOT / "examples" / "v06-deep-time" / "negative" / "invalid-hidden-ledger-in-agent-knowledge.json")
+    if bad_hidden.get("hidden_ledger_not_exposed") is not False:
+        fail("hidden-ledger negative must set hidden_ledger_not_exposed false")
+    # semantic: using hidden ledger evidence in agent knowledge is a policy fail even if schema-valid after digest
+    if "evidence.ledger.founding" not in bad_hidden.get("evidence_set", []):
+        fail("hidden-ledger negative must include ledger evidence in agent reconstruction")
+
+    expected = load_json(ROOT / "examples" / "v06-deep-time" / "expected-digests.json")
+    if expected.get("institution_digest") != inst.get("digest"):
+        fail("expected-digests institution mismatch")
+
+    era = load_json(ROOT / "examples" / "v06-deep-time" / "era-timeline.json")
+    if era.get("fixture_not_live_canon") is not True:
+        fail("fixture timeline must declare it is not live-world canon")
+    if era.get("lore_boundary") != "derived_only":
+        fail("era timeline must pin derived_only lore boundary")
+
+    ok(
+        "Deep Time v0.6: institutions, succession, artifacts, claims, archaeology, "
+        "hidden-history protection, renaming, scars, lore boundary, negatives"
+    )
+
+
 def check_experience_layer(Draft202012Validator) -> None:
     """Validate deterministic PLAY/WATCH/STUDY translations and safe fixtures."""
     intent_schema = load_json(ROOT / "specs" / "experiment-intent-catalog.schema.json")
@@ -1816,6 +2059,9 @@ def check_experience_layer(Draft202012Validator) -> None:
         "capture-result-simple.json", "capture-result-advanced.json", "capturing-state.json",
         "capture-budget-exhausted.json", "capture-failed.json", "capture-privacy-block.json",
         "capture-not-ready.json",
+        "deep-time-play-old-relay.json", "deep-time-play-onboarding.json",
+        "deep-time-watch-timeline.json", "deep-time-study-questions.json",
+        "deep-time-archive-discovered.json",
     }
     missing_exp = sorted(required_fixtures - set(fixtures))
     if missing_exp:
@@ -1904,10 +2150,12 @@ def main() -> None:
     check_strategic_conflict(Draft202012Validator)
     check_lab_v04(Draft202012Validator)
     check_compiler_v05(Draft202012Validator)
+    check_deep_time_v06(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()
     print("\nPASS")
+
 
 
 

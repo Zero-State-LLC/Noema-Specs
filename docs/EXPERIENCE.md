@@ -61,3 +61,5 @@ A conforming experience proves all of the following:
 13. A researcher captures a READY result with one primary CAPTURE AS TEST action.
 14. Simple capture cannot strengthen machine claim labels or invent global capability claims.
 15. Capture failures surface plain-language status, reason, and next action without Compiler jargon.
+16. Deep Time appears as age, scars, institutions, and incomplete local history — not lineage graphs by default.
+17. Derived lore/presentation never overrides canonical historical evidence.

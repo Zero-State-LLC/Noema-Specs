@@ -2,7 +2,7 @@
 
 ## Version domains
 
-- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory), `0.4.0` (Lab), `0.5.0` (Compiler)
+- Product: NOEMA `0.1.0` (Chamber), `0.2.0` (Frontier), `0.3.0` (Observatory), `0.4.0` (Lab), `0.5.0` (Compiler), `0.6.0` (Deep Time foundation)
 - Spec pin: Noema-Specs release / pin (e.g. `v0.1.0-rc2`, `v0.2.0-draft`)
 - World rules: `world/v1`
 - World instance: `world_id` + `world_version`
@@ -28,6 +28,8 @@
 - Capture defaults: `capture-defaults/0.5.0`
 - Capture status catalog: `capture-status-catalog/0.5.0`
 - Phenomenon compile receipt: `phenomenon-compile-receipt/v1`
+- Deep Time: `deep-time/0.6`, `institution/0.6`, `succession-record/0.6`, `historical-artifact/0.6`, `historical-reconstruction/0.6`
+- Historical decay/significance catalogs: `historical-decay/0.6.0`, `historical-significance/0.6.0`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

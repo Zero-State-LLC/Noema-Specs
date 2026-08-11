@@ -1,0 +1,46 @@
+{
+  "schema_version": "historical-significance/0.6",
+  "rules_version": "historical-significance/0.6.0",
+  "rules": [
+    {
+      "rule_id": "sig.duration.institution",
+      "predicate": "institution_active_span_cycles",
+      "threshold": {
+        "min_cycles": 500
+      },
+      "simple_label": "long-lived institution"
+    },
+    {
+      "rule_id": "sig.ownership.churn",
+      "predicate": "ownership_change_count",
+      "threshold": {
+        "min_changes": 2
+      },
+      "simple_label": "repeated ownership change"
+    },
+    {
+      "rule_id": "sig.artifact.multi_era",
+      "predicate": "artifact_spans_eras",
+      "threshold": {
+        "min_eras": 2
+      },
+      "simple_label": "artifact survived multiple eras"
+    },
+    {
+      "rule_id": "sig.agreement.multi_org",
+      "predicate": "agreement_org_count",
+      "threshold": {
+        "min_orgs": 2
+      },
+      "simple_label": "multi-organization agreement"
+    },
+    {
+      "rule_id": "sig.infra.through_succession",
+      "predicate": "infrastructure_survived_succession",
+      "threshold": {
+        "min_successions": 1
+      },
+      "simple_label": "infrastructure outlived succession"
+    }
+  ]
+}

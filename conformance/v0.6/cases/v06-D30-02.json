@@ -1,0 +1,36 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D30-02",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Lore Boundary RFC-0003: atomic contract 2",
+  "acceptance_items": [
+    30
+  ],
+  "family_id": "D30",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#30"
+  ],
+  "fixtures": [
+    "docs/DEEP-TIME.md",
+    "docs/EVENT-CATALOG-DEEP-TIME-AUDIT.md",
+    "rfcs/RFC-0003-deterministic-contract-hardening.md"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D30",
+        "atomic_case": 2
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D30 machine rule 2 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

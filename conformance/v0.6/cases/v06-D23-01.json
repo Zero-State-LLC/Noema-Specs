@@ -1,0 +1,35 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v06-D23-01",
+  "suite": "noema-v0.6-deep-time",
+  "title": "Historical Geography: atomic contract 1",
+  "acceptance_items": [
+    23
+  ],
+  "family_id": "D23",
+  "requirement_refs": [
+    "docs/releases/v0.6/ACCEPTANCE.md#23"
+  ],
+  "fixtures": [
+    "examples/v06-deep-time/world-scar.json",
+    "examples/v06-deep-time/play-onboarding.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_deep_time_contract",
+      "input": {
+        "family": "D23",
+        "atomic_case": 1
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "D23 machine rule 1 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

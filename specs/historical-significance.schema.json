@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-significance.schema.json",
+  "title": "NOEMA historical-significance rules (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "rules_version",
+    "rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-significance/0.6"
+    },
+    "rules_version": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "predicate",
+          "threshold",
+          "simple_label"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "predicate": {
+            "type": "string"
+          },
+          "threshold": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "simple_label": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

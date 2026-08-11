@@ -1,0 +1,13 @@
+{
+  "schema_version": "historical-name/0.6",
+  "name_record_id": "n1",
+  "canonical_id": "room.x",
+  "surface_name": "New",
+  "used_by_ref": "g",
+  "from_cycle": 1,
+  "source_refs": [
+    "e"
+  ],
+  "canonical_id_immutable": false,
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

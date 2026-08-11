@@ -1,0 +1,13 @@
+{
+  "schema_version": "historical-artifact/0.6",
+  "artifact_id": "a1",
+  "artifact_class": "RECORD",
+  "creator_ref": null,
+  "creation_cycle": 1,
+  "integrity": "INTACT",
+  "visibility": "PUBLIC",
+  "content_ref": "c",
+  "claims_are_not_world_truth": false,
+  "provenance": {},
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -4,6 +4,7 @@
 
 ### Added
 
+- **v0.6 Deep Time foundation:** `docs/releases/v0.6/*`, institutions/succession/historical-artifact/claim/reconstruction/semantic-lineage/name/scar/evidence schemas, decay + significance catalogs, multi-era fixtures `examples/v06-deep-time/`, conformance **D01–D30**, lore-boundary and hidden-history gates. Lore is derived presentation only — not a second source of truth.
 - **v0.5 Phenomenon Compiler executable package:** `docs/releases/v0.5/*`, capture-intent/compilation-request/phenomenon-candidate/dependency-graph/unit-manifest/minimization-record/behavioral-oracle/compiler-result/compile-receipt/compiler-audit/captured-test/regression schemas, capture defaults + status/reason catalogs, STUDY CAPTURE progressive disclosure, fixtures `examples/v05-compiler/`, conformance **P01–P30** (90 cases).
 - Docs: CAPTURE-INTENT-COMPILATION, COMPILATION-IDENTITY, BEHAVIORAL-ORACLE, BEHAVIORAL-SIGNATURE, OVER-MINIMIZATION, CAPTURED-TEST-FORMAT, BEHAVIORAL-REGRESSION.
 - Validator Compiler gate: schema fixtures, digest/audit chains, simple/advanced identity equivalence, budget/privacy/over-minimization negatives, RFC-0003 receipt reuse.

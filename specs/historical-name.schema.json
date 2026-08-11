@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/historical-name.schema.json",
+  "title": "NOEMA historical-name (v0.6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "name_record_id",
+    "canonical_id",
+    "surface_name",
+    "used_by_ref",
+    "from_cycle",
+    "source_refs",
+    "canonical_id_immutable",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "historical-name/0.6"
+    },
+    "name_record_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "canonical_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "surface_name": {
+      "type": "string"
+    },
+    "used_by_ref": {
+      "type": "string"
+    },
+    "from_cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "to_cycle": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_id_immutable": {
+      "const": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}

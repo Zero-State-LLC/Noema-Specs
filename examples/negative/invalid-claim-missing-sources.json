@@ -1,0 +1,18 @@
+{
+  "schema_version": "historical-claim/0.6",
+  "historical_claim_id": "c1",
+  "claim": "x",
+  "claim_type": "OTHER",
+  "subject_refs": [
+    "s"
+  ],
+  "time_range": {
+    "start_cycle": 0,
+    "end_cycle": 1
+  },
+  "source_refs": [],
+  "evidence_status": "UNKNOWN",
+  "claim_label": "SPECULATIVE",
+  "provenance": {},
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

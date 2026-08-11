@@ -1,0 +1,22 @@
+{
+  "schema_version": "institution/0.6",
+  "institution_id": "inst.bad",
+  "purpose": "x",
+  "persistent_practices": [
+    {
+      "practice_id": "p",
+      "description": "d"
+    }
+  ],
+  "status": "ACTIVE",
+  "succession_mechanism": "VACANT",
+  "continuity": {
+    "identity_class": "SAME_ENTITY_EVOLVED",
+    "survives_participant_departure": true
+  },
+  "evidence_refs": [
+    "e"
+  ],
+  "provenance": {},
+  "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

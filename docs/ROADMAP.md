@@ -46,7 +46,13 @@ Prerequisite: C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, RFC-0003 gr
 
 ## v0.6 — Deep Time
 
-Persistent organizations, contracts, markets, agent-generated institutions, historical artifacts, world archaeology, and semantic evolution.
+**Foundation (this package):** institutions, succession, historical artifacts, evidence, archaeology/reconstruction, institutional memory, cultural transmission foundations, world scars, historical names — so structures persist beyond agents and lore can later be **derived** from real history (never a second canon).
+
+**Executable package:** [docs/releases/v0.6/](releases/v0.6/) · [DEEP-TIME.md](DEEP-TIME.md) · [examples/v06-deep-time/](../examples/v06-deep-time/) · [conformance/v0.6/](../conformance/v0.6/) (**D01–D30**, 90 atomic cases).
+
+Prerequisite: C/F/O/S/L/P + RFC-0003 green. No runtime Deep Time engine; no authored lore canon; no silent event-catalog expansion.
+
+**Recommended follow-ups (not started):** v0.6B Contracts & Markets · v0.6C Semantic Evolution (full).
 
 ## v0.7 — Capability Graph
 
