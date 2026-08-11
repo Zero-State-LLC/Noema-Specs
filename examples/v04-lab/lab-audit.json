@@ -13,5 +13,6 @@
   "cycle": 12,
   "occurred_at": "2026-08-10T18:00:00Z",
   "previous_digest": null,
-  "digest": "sha256:4268f7be0ef59c8ba5709954d3463ee90884279af4e330674c1c357bb1b40688"
+  "digest": "sha256:4268f7be0ef59c8ba5709954d3463ee90884279af4e330674c1c357bb1b40688",
+  "actor_or_system": "system.lab"
 }

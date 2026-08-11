@@ -122,11 +122,6 @@
   "stopping_rule": {
     "kind": "ALL_PLANNED_NODES_COMPLETE_OR_BUDGET_EXHAUSTED"
   },
-  "analysis_rule": {
-    "kind": "FIXED_POINT_DELTA",
-    "version": "1.0",
-    "required_controls_pass": true
-  },
   "budgets": {
     "max_runs": 8,
     "max_cycles": 80,

@@ -926,8 +926,8 @@ def check_conformance_suite(Draft202012Validator) -> None:
     # v0.4 Lab suite
     m4 = load_json(ROOT / "conformance" / "v0.4" / "manifest.json")
     cases4 = m4.get("cases") or []
-    if len(cases4) < 45:
-        fail(f"conformance v0.4 suite must list ≥45 cases, found {len(cases4)}")
+    if len(cases4) < 100:
+        fail(f"conformance v0.4 suite must list ≥100 cases, found {len(cases4)}")
     fams4: set[str] = set()
     for rel in cases4:
         path = ROOT / "conformance" / "v0.4" / rel
@@ -944,11 +944,11 @@ def check_conformance_suite(Draft202012Validator) -> None:
             fpath = ROOT / fixture
             if not fpath.exists():
                 fail(f"conformance v0.4 case {rel} missing fixture {fixture}")
-    expected_l = {f"L{i:02d}" for i in range(1, 17)}
+    expected_l = {f"L{i:02d}" for i in range(1, 23)}
     missing_l = sorted(expected_l - fams4)
     if missing_l:
         fail(f"conformance v0.4 missing families: {missing_l}")
-    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L16 covered")
+    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L22 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1228,6 +1228,62 @@ def check_lab_v04(Draft202012Validator) -> None:
     if not list(Draft202012Validator(lr_schema).iter_errors(neg_res)):
         fail("invalid-lab-result-proven should fail schema")
 
+    # Identity and fork content addresses are reproducible from canonical payloads.
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+    identity_payload = dict(exp["identity"])
+    identity_payload.pop("input_digest", None)
+    if exp["identity"].get("input_digest") != canonical_digest(identity_payload):
+        fail("Lab experiment identity digest is not canonical/stable")
+    if exp.get("input_digest") != exp["identity"].get("input_digest"):
+        fail("Lab experiment root and identity input digests must agree")
+    fork_payload = {k: v for k, v in fork.items() if k not in ("fork_digest", "digest")}
+    if fork.get("fork_digest") != canonical_digest(fork_payload):
+        fail("Lab fork digest is not canonical/stable")
+    if fork.get("experimental_world_id") == fork.get("source_world_id") or not fork.get("experimental_ledger_id"):
+        fail("Lab fork must use distinct experimental world and ledger identities")
+
+    # Required controls change validity and may not be ignored.
+    controls = load_json(ROOT / "examples" / "v04-lab" / "controls.json")
+    required_roles = {c["role"] for c in controls if c.get("required")}
+    if not required_roles.issubset(set(result.get("control_outcomes", {}))):
+        fail("Lab result omits required control outcomes")
+    def control_disposition(outcomes: dict[str, str]) -> str:
+        return "COMPLETE" if all(outcomes.get(role) == "PASS" for role in required_roles) else "INVALID"
+    if control_disposition(result["control_outcomes"]) != "COMPLETE":
+        fail("passing required controls should preserve complete execution")
+    failed_controls = dict(result["control_outcomes"])
+    failed_controls[next(iter(required_roles))] = "FAIL"
+    if control_disposition(failed_controls) != "INVALID":
+        fail("required failed control must invalidate experiment")
+
+    # Counterfactual declarations are complete and an unsupported lesion is retained as NOT_COMPUTABLE.
+    counter = load_json(ROOT / "examples" / "v04-lab" / "counterfactual.json")
+    required_counter = {"counterfactual_id", "source_trajectory_id", "fork_point", "changed_variables", "held_constant_variables", "seed_policy", "agent_version", "world_version", "equivalence_boundary"}
+    if not required_counter.issubset(counter) or not counter["changed_variables"] or not counter["held_constant_variables"]:
+        fail("counterfactual fixture lacks declared changed/held variables")
+    changed = {v.get("variable_id") for v in counter["changed_variables"]}
+    if changed & set(counter["held_constant_variables"]):
+        fail("counterfactual variable cannot be both changed and held constant")
+    lesion = load_json(ROOT / "examples" / "v04-lab" / "intervention-lesion-not-computable.json")
+    lesion_schema = load_json(ROOT / "specs" / "intervention.schema.json")
+    if list(Draft202012Validator(lesion_schema).iter_errors(lesion)):
+        fail("NOT_COMPUTABLE lesion fixture fails intervention schema")
+    if lesion.get("type") != "LESION" or lesion.get("authorization", {}).get("adapter_support") is not False or "NOT_COMPUTABLE" not in lesion.get("expected_mechanical_effect", ""):
+        fail("unsupported lesion must be explicit and NOT_COMPUTABLE")
+
+    # Local negative fixtures prove new design and fork guards reject invalid records.
+    invalid_design = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-experiment-missing-analysis-rule.json")
+    if not list(Draft202012Validator(load_json(ROOT / "specs" / "experiment.schema.json")).iter_errors(invalid_design)):
+        fail("Lab negative missing analysis rule should fail schema")
+    invalid_fork = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-fork-production-mutation.json")
+    if not list(Draft202012Validator(fork_schema).iter_errors(invalid_fork)):
+        fail("Lab negative production mutation should fail schema")
+
     # catalogs present
     for rel in (
         "specs/perturbation-catalog.v04.json",
@@ -1236,7 +1292,7 @@ def check_lab_v04(Draft202012Validator) -> None:
     ):
         load_json(ROOT / rel)
 
-    ok("Lab v0.4: schemas, fixtures, isolation, null results, catalogs")
+    ok("Lab v0.4: schemas, stable digests, isolation, controls, counterfactuals, lesions, negatives, catalogs")
 
 
 def main() -> None:
