@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L05-01",
   "suite": "noema-v0.4-lab",
-  "family_id": "L05",
-  "title": "Variable registry case 1",
+  "title": "Intervention Validation: atomic contract 1",
   "acceptance_items": [
     5
   ],
+  "family_id": "L05",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#5"
   ],
   "fixtures": [
-    "specs/experiment-variable-registry.v04.json",
-    "docs/EXPERIMENT-VARIABLES.md"
+    "examples/v04-lab/experiment.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "specs/experiment-variable-registry.v04.json"
+        "family": "L05",
+        "atomic_case": 1
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Variable registry"
+      "L05 machine rule 1 is enforced"
     ]
   },
   "security_class": "none"

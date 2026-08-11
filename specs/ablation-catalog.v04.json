@@ -1,62 +1,59 @@
 {
-  "schema_version": "ablation-catalog/0.4",
-  "catalog_version": "ablation-catalog/0.4.0",
-  "entries": {
-    "TOOL_ACCESS": {
-      "removes": "declared tool capability",
+  "schema_version": "ablation-catalog/0.4.0",
+  "entries": [
+    {
+      "affordance_id": "TOOL_ACCESS",
+      "target_kind": "EXTERNAL",
       "allowed_targets": [
-        "agent.tools"
+        "experimental_fork"
       ],
       "restore_behavior": "AUTO_ON_RUN_END",
-      "risk": "HIGH",
-      "architecture_internal": false
+      "authorization_class": "AGENT_EXTERNAL"
     },
-    "MESSAGE_CHANNEL": {
-      "removes": "message routing",
+    {
+      "affordance_id": "MESSAGE_CHANNEL",
+      "target_kind": "EXTERNAL",
       "allowed_targets": [
-        "message.channel"
-      ],
-      "restore_behavior": "NONE_FORK_DISCARD",
-      "risk": "HIGH",
-      "architecture_internal": false
-    },
-    "MAP_ACCESS": {
-      "removes": "map knowledge projection",
-      "allowed_targets": [
-        "knowledge.map"
+        "experimental_fork"
       ],
       "restore_behavior": "AUTO_ON_RUN_END",
-      "risk": "MEDIUM",
-      "architecture_internal": false
+      "authorization_class": "AGENT_EXTERNAL"
     },
-    "EXTERNAL_MEMORY_ARTIFACT": {
-      "removes": "external cognition document",
+    {
+      "affordance_id": "MAP_ACCESS",
+      "target_kind": "EXTERNAL",
       "allowed_targets": [
-        "entity.document"
+        "experimental_fork"
       ],
-      "restore_behavior": "NONE_FORK_DISCARD",
-      "risk": "MEDIUM",
-      "architecture_internal": false
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "authorization_class": "AGENT_EXTERNAL"
     },
-    "ORGANIZATION_SUPPORT": {
-      "removes": "org support",
+    {
+      "affordance_id": "EXTERNAL_MEMORY_ARTIFACT",
+      "target_kind": "EXTERNAL",
       "allowed_targets": [
-        "org.membership"
+        "experimental_fork"
       ],
-      "restore_behavior": "NONE_FORK_DISCARD",
-      "risk": "HIGH",
-      "architecture_internal": false
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "authorization_class": "AGENT_EXTERNAL"
     },
-    "INFORMATION_SOURCE": {
-      "removes": "named information source",
+    {
+      "affordance_id": "ORGANIZATION_SUPPORT",
+      "target_kind": "EXTERNAL",
       "allowed_targets": [
-        "entity.infra",
-        "report"
+        "experimental_fork"
       ],
-      "restore_behavior": "NONE_FORK_DISCARD",
-      "risk": "MEDIUM",
-      "architecture_internal": false
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "authorization_class": "AGENT_EXTERNAL"
+    },
+    {
+      "affordance_id": "INFORMATION_SOURCE",
+      "target_kind": "EXTERNAL",
+      "allowed_targets": [
+        "experimental_fork"
+      ],
+      "restore_behavior": "AUTO_ON_RUN_END",
+      "authorization_class": "AGENT_EXTERNAL"
     }
-  },
-  "note": "Architecture lesions are NOT in this catalog; see LESION-STUDIES.md"
+  ]
 }

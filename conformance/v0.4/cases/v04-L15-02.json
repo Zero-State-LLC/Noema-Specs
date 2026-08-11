@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L15-02",
   "suite": "noema-v0.4-lab",
-  "family_id": "L15",
-  "title": "Lab result / compiler boundary case 2",
+  "title": "Confound Handling: atomic contract 2",
   "acceptance_items": [
     15
   ],
+  "family_id": "L15",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#15"
   ],
   "fixtures": [
-    "examples/v04-lab/lab-result.json",
-    "specs/lab-result.schema.json"
+    "examples/v04-lab/intervention-lesion-not-computable.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/lab-result.json"
+        "family": "L15",
+        "atomic_case": 2
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Lab result / compiler boundary"
+      "L15 machine rule 2 is enforced"
     ]
   },
   "security_class": "none"

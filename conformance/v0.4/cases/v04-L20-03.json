@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L20-03",
+  "suite": "noema-v0.4-lab",
+  "title": "Production-World Isolation: atomic contract 3",
+  "acceptance_items": [
+    20
+  ],
+  "family_id": "L20",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#20"
+  ],
+  "fixtures": [
+    "examples/v04-lab/intervention-lesion-not-computable.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_contract",
+      "input": {
+        "family": "L20",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "NO_MUTATION",
+    "assertions": [
+      "L20 machine rule 3 is enforced"
+    ]
+  },
+  "security_class": "consent"
+}

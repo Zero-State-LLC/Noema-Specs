@@ -31,5 +31,10 @@
   },
   "outcome_class": "DEGRADED",
   "confounds": [],
-  "audit_digest": "sha256:3e63c2969f90355312d15eab0e05e0574c56e5cd1963fe5cb32917894c37481c"
+  "audit_digest": "sha256:3e63c2969f90355312d15eab0e05e0574c56e5cd1963fe5cb32917894c37481c",
+  "world_fork_id": "fork.lab.1",
+  "intervention_ids": [
+    "int.ablate-tool-1"
+  ],
+  "control_roles": []
 }

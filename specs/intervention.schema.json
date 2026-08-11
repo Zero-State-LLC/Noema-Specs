@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/intervention.schema.json",
-  "title": "NOEMA Intervention (v0.4 Lab)",
+  "title": "NOEMA intervention (v0.4)",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,7 +9,10 @@
     "intervention_id",
     "type",
     "target",
+    "target_version",
     "application_point",
+    "before_reference",
+    "after_reference",
     "scope",
     "duration",
     "restore_rule",
@@ -27,6 +30,16 @@
       "type": "string",
       "pattern": "^[A-Za-z0-9_.:-]+$"
     },
+    "intervention_type": {
+      "enum": [
+        "PERTURBATION",
+        "ABLATION",
+        "LESION",
+        "COUNTERFACTUAL",
+        "REPLICATION",
+        "VERSION_DIFFERENTIAL"
+      ]
+    },
     "type": {
       "enum": [
         "PERTURBATION",
@@ -39,84 +52,27 @@
     },
     "target": {
       "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "kind",
-        "id"
-      ],
-      "properties": {
-        "kind": {
-          "enum": [
-            "VARIABLE",
-            "TOOL",
-            "MODULE",
-            "CHANNEL",
-            "ARTIFACT",
-            "AGENT_VERSION",
-            "WORLD_PARAM"
-          ]
-        },
-        "id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        },
-        "version": {
-          "type": "string"
-        }
-      }
+      "additionalProperties": true
     },
     "target_version": {
       "type": "string"
     },
     "application_point": {
-      "enum": [
-        "BEFORE_OBSERVATION",
-        "AFTER_OBSERVATION",
-        "BEFORE_ACTION",
-        "AFTER_ACTION",
-        "CYCLE_BOUNDARY",
-        "BEFORE_FRONTIER_INJECTION",
-        "AFTER_FRONTIER_INJECTION",
-        "FORK_BOUNDARY"
-      ]
+      "type": "string"
     },
+    "before_value_or_ref": {},
+    "after_value_or_ref": {},
     "before_reference": {},
     "after_reference": {},
     "scope": {
-      "enum": [
-        "RUN",
-        "FORK",
-        "AGENT",
-        "ROOM",
-        "WORLD_FORK"
-      ]
+      "type": "string"
     },
     "duration": {
       "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "properties": {
-        "kind": {
-          "enum": [
-            "PERMANENT_UNTIL_RESTORE",
-            "CYCLES",
-            "UNTIL_RUN_END"
-          ]
-        },
-        "cycles": {
-          "type": "integer",
-          "minimum": 0
-        }
-      }
+      "additionalProperties": true
     },
     "restore_rule": {
-      "enum": [
-        "AUTO_ON_RUN_END",
-        "EXPLICIT",
-        "NONE_FORK_DISCARD"
-      ]
+      "type": "string"
     },
     "seed_policy": {
       "enum": [
@@ -126,44 +82,32 @@
       ]
     },
     "expected_mechanical_effect": {
-      "type": "string",
-      "maxLength": 1024
+      "type": "string"
     },
     "forbidden_side_effects": {
       "type": "array",
       "items": {
-        "enum": [
-          "PRODUCTION_WORLD_MUTATION",
-          "LEDGER_APPEND_TO_SOURCE",
-          "UNDECLARED_RNG",
-          "PRIVATE_COGNITION_READ",
-          "REWARD_INJECTION"
-        ]
+        "type": "string"
       }
     },
     "authorization": {
       "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "authorized_by"
-      ],
-      "properties": {
-        "authorized_by": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        },
-        "lesion_capability": {
-          "type": "string"
-        }
-      }
+      "additionalProperties": true
+    },
+    "authorization_class": {
+      "enum": [
+        "WORLD_SAFE",
+        "AGENT_EXTERNAL",
+        "AGENT_INTERNAL",
+        "HIGH_RISK"
+      ]
+    },
+    "catalog_entry_id": {
+      "type": "string"
     },
     "digest": {
       "type": "string",
       "pattern": "^sha256:[a-fA-F0-9]{64}$"
-    },
-    "catalog_entry_id": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9_.:-]+$"
     }
   }
 }

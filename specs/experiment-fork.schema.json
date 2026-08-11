@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/experiment-fork.schema.json",
-  "title": "NOEMA Experimental World Fork",
+  "title": "NOEMA experiment-fork (v0.4)",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -16,7 +16,11 @@
     "fork_event_boundary",
     "experimental_world_id",
     "fork_point",
-    "mutates_production"
+    "experimental_ledger_id",
+    "storage_namespace",
+    "mutates_production",
+    "mid_reducer_fork_forbidden",
+    "fork_digest"
   ],
   "properties": {
     "schema_version": {
@@ -59,20 +63,31 @@
     },
     "fork_point": {
       "enum": [
+        "CYCLE_BOUNDARY",
         "BEFORE_OBSERVATION",
         "AFTER_OBSERVATION",
         "BEFORE_ACTION",
         "AFTER_ACTION",
-        "CYCLE_BOUNDARY",
-        "BEFORE_FRONTIER_INJECTION",
-        "AFTER_FRONTIER_INJECTION"
+        "BEFORE_SITUATION_INJECTION",
+        "AFTER_SITUATION_INJECTION"
       ]
+    },
+    "experimental_ledger_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "storage_namespace": {
+      "type": "string"
     },
     "mutates_production": {
       "const": false
     },
     "mid_reducer_fork_forbidden": {
       "const": true
+    },
+    "fork_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
     },
     "digest": {
       "type": "string",

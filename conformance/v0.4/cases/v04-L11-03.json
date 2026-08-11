@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L11-03",
   "suite": "noema-v0.4-lab",
-  "family_id": "L11",
-  "title": "Agent determinism case 3",
+  "title": "Controls: atomic contract 3",
   "acceptance_items": [
     11
   ],
+  "family_id": "L11",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#11"
   ],
   "fixtures": [
-    "docs/AGENT-DETERMINISM.md",
-    "examples/v04-lab/run-baseline.json"
+    "examples/v04-lab/experiment-fork.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "docs/AGENT-DETERMINISM.md"
+        "family": "L11",
+        "atomic_case": 3
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Agent determinism"
+      "L11 machine rule 3 is enforced"
     ]
   },
   "security_class": "none"

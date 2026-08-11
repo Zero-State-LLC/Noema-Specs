@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L02-02",
   "suite": "noema-v0.4-lab",
-  "family_id": "L02",
-  "title": "Experiment schema case 2",
+  "title": "Experiment Validation: atomic contract 2",
   "acceptance_items": [
     2
   ],
+  "family_id": "L02",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#2"
   ],
   "fixtures": [
-    "examples/v04-lab/experiment.json",
-    "specs/experiment.schema.json"
+    "examples/v04-lab/counterfactual.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/experiment.json"
+        "family": "L02",
+        "atomic_case": 2
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Experiment schema"
+      "L02 machine rule 2 is enforced"
     ]
   },
   "security_class": "none"

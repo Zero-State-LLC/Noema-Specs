@@ -1,0 +1,9 @@
+{
+  "candidate_capability_id": "cand.cap.shared-ledger-1",
+  "class": "UNKNOWN_CAPABILITY_shared_allocation_ledger",
+  "trajectory_refs": [
+    "traj.world-01.agent.nacre.1"
+  ],
+  "claim_label": "SPECULATIVE",
+  "replication_required": true
+}

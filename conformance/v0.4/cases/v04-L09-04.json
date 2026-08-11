@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L09-04",
+  "suite": "noema-v0.4-lab",
+  "title": "Counterfactual Replay: atomic contract 4",
+  "acceptance_items": [
+    9
+  ],
+  "family_id": "L09",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#9"
+  ],
+  "fixtures": [
+    "examples/v04-lab/experiment-plan.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_contract",
+      "input": {
+        "family": "L09",
+        "atomic_case": 4
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L09 machine rule 4 is enforced"
+    ]
+  },
+  "security_class": "none"
+}

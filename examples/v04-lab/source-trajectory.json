@@ -1,0 +1,8 @@
+{
+  "trajectory_id": "traj.world-01.agent.nacre.1",
+  "world_id": "world-01",
+  "world_version": "world/v1",
+  "agent_id": "agent.nacre",
+  "agent_version": "agent.nacre@1.2.0",
+  "digest": "sha256:000000000000000000000000000000000000000000000000000000000000002d"
+}

@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L14-01",
   "suite": "noema-v0.4-lab",
-  "family_id": "L14",
-  "title": "Isolation and audit case 1",
+  "title": "Outcome Measurement: atomic contract 1",
   "acceptance_items": [
     14
   ],
+  "family_id": "L14",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#14"
   ],
   "fixtures": [
-    "docs/EXPERIMENT-ISOLATION.md",
-    "examples/v04-lab/lab-audit.json"
+    "examples/v04-lab/lab-result.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "docs/EXPERIMENT-ISOLATION.md"
+        "family": "L14",
+        "atomic_case": 1
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Isolation and audit"
+      "L14 machine rule 1 is enforced"
     ]
   },
   "security_class": "none"

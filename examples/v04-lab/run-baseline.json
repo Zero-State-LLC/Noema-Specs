@@ -29,5 +29,10 @@
   },
   "outcome_class": "PERSISTED",
   "confounds": [],
-  "audit_digest": "sha256:29773b68aec605b30c3249b9479e69d8d8a4c9cb8d48e2cafe5bb4565ba66e7e"
+  "audit_digest": "sha256:29773b68aec605b30c3249b9479e69d8d8a4c9cb8d48e2cafe5bb4565ba66e7e",
+  "world_fork_id": "fork.lab.1",
+  "intervention_ids": [],
+  "control_roles": [
+    "BASELINE"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/lab-result.schema.json",
-  "title": "NOEMA Lab Result (v0.4)",
+  "title": "NOEMA lab-result (v0.4)",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -13,14 +13,16 @@
     "control_outcomes",
     "intervention_outcomes",
     "replication_outcomes",
+    "generalization_outcomes",
     "supporting_evidence",
     "counterevidence",
     "confounds",
+    "execution_status",
     "interpretation",
     "claim_label",
     "compiler_readiness",
-    "digest",
-    "failed_experiments_retained"
+    "failed_experiments_retained",
+    "digest"
   ],
   "properties": {
     "schema_version": {
@@ -36,65 +38,60 @@
     },
     "source_candidate_ids": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "string",
         "pattern": "^[A-Za-z0-9_.:-]+$"
-      },
-      "minItems": 1
+      }
     },
     "run_ids": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "string",
         "pattern": "^[A-Za-z0-9_.:-]+$"
-      },
-      "minItems": 1
+      }
     },
     "control_outcomes": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": true
     },
     "intervention_outcomes": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": true
     },
     "replication_outcomes": {
       "type": "object",
-      "additionalProperties": {
-        "enum": [
-          "REPRODUCED",
-          "PARTIALLY_REPRODUCED",
-          "NOT_REPRODUCED",
-          "NOT_COMPARABLE",
-          "NOT_COMPUTABLE"
-        ]
-      }
+      "additionalProperties": true
     },
     "generalization_outcomes": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": true
     },
     "supporting_evidence": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "counterevidence": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "confounds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "execution_status": {
       "enum": [
+        "DRAFT",
+        "VALIDATED",
+        "READY",
+        "RUNNING",
         "COMPLETE",
-        "PARTIAL",
+        "INVALID",
         "ABORTED",
-        "INVALID"
+        "PARTIAL",
+        "NOT_COMPUTABLE",
+        "QUARANTINED"
       ]
     },
     "interpretation": {
@@ -120,12 +117,12 @@
         "REJECTED"
       ]
     },
+    "failed_experiments_retained": {
+      "const": true
+    },
     "digest": {
       "type": "string",
       "pattern": "^sha256:[a-fA-F0-9]{64}$"
-    },
-    "failed_experiments_retained": {
-      "const": true
     }
   }
 }

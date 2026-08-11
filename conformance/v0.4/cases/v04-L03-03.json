@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L03-03",
   "suite": "noema-v0.4-lab",
-  "family_id": "L03",
-  "title": "Lifecycle states case 3",
+  "title": "World Fork Integrity: atomic contract 3",
   "acceptance_items": [
     3
   ],
+  "family_id": "L03",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#3"
   ],
   "fixtures": [
-    "examples/v04-lab/lab-audit.json",
-    "docs/EXPERIMENT-LIFECYCLE.md"
+    "examples/v04-lab/experiment.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/lab-audit.json"
+        "family": "L03",
+        "atomic_case": 3
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Lifecycle states"
+      "L03 machine rule 3 is enforced"
     ]
   },
   "security_class": "none"

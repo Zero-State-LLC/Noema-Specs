@@ -2,37 +2,33 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L08-03",
   "suite": "noema-v0.4-lab",
-  "family_id": "L08",
-  "title": "Controls case 3",
+  "title": "Lesion Support / NOT_COMPUTABLE: atomic contract 3",
   "acceptance_items": [
     8
   ],
+  "family_id": "L08",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#8"
   ],
   "fixtures": [
-    "examples/v04-lab/controls.json",
-    "docs/EXPERIMENT-CONTROLS.md"
+    "examples/v04-lab/intervention-lesion-not-computable.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/controls.json"
+        "family": "L08",
+        "atomic_case": 3
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Controls"
+      "L08 machine rule 3 is enforced"
     ]
   },
-  "security_class": "none"
+  "security_class": "consent"
 }

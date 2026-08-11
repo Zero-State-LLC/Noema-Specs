@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L06-03",
   "suite": "noema-v0.4-lab",
-  "family_id": "L06",
-  "title": "Fork semantics case 3",
+  "title": "Perturbation Determinism: atomic contract 3",
   "acceptance_items": [
     6
   ],
+  "family_id": "L06",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#6"
   ],
   "fixtures": [
-    "examples/v04-lab/experiment-fork.json",
-    "docs/EXPERIMENT-FORK.md"
+    "examples/v04-lab/lab-result.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/experiment-fork.json"
+        "family": "L06",
+        "atomic_case": 3
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Fork semantics"
+      "L06 machine rule 3 is enforced"
     ]
   },
   "security_class": "none"

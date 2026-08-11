@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/experiment-run.schema.json",
-  "title": "NOEMA Experiment Run (v0.4)",
+  "title": "NOEMA experiment-run (v0.4)",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -11,12 +11,17 @@
     "run_role",
     "fork",
     "agent_version",
+    "agent_determinism",
     "interventions",
     "seed_policy",
-    "seed",
     "config_digest",
     "start_state_digest",
+    "end_state_digest",
+    "trajectory_id",
     "status",
+    "divergence_markers",
+    "metric_outputs",
+    "confounds",
     "audit_digest"
   ],
   "properties": {
@@ -43,45 +48,13 @@
         "GENERALIZATION"
       ]
     },
+    "world_fork_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
     "fork": {
       "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "source_world_id",
-        "source_snapshot_id",
-        "source_ledger_head",
-        "fork_cycle",
-        "experimental_world_id"
-      ],
-      "properties": {
-        "source_world_id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        },
-        "source_world_version": {
-          "type": "string"
-        },
-        "source_snapshot_id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        },
-        "source_ledger_head": {
-          "type": "string",
-          "pattern": "^sha256:[a-fA-F0-9]{64}$"
-        },
-        "fork_cycle": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "fork_event_boundary": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "experimental_world_id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        }
-      }
+      "additionalProperties": true
     },
     "agent_version": {
       "type": "string"
@@ -94,6 +67,13 @@
         "UNKNOWN"
       ]
     },
+    "intervention_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.:-]+$"
+      }
+    },
     "interventions": {
       "type": "array",
       "items": {
@@ -101,12 +81,13 @@
         "pattern": "^[A-Za-z0-9_.:-]+$"
       }
     },
-    "control_role": {
-      "type": [
-        "string",
-        "null"
-      ]
+    "control_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
+    "control_role": {},
     "seed_policy": {
       "enum": [
         "SAME_SEED",
@@ -126,46 +107,37 @@
       "pattern": "^sha256:[a-fA-F0-9]{64}$"
     },
     "end_state_digest": {
-      "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^sha256:[a-fA-F0-9]{64}$"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
     },
     "trajectory_id": {
-      "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9_.:-]+$"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
     },
     "status": {
       "enum": [
-        "PLANNED",
+        "DRAFT",
+        "VALIDATED",
+        "READY",
         "RUNNING",
         "COMPLETE",
-        "PARTIAL",
-        "ABORTED",
         "INVALID",
-        "NOT_COMPUTABLE"
+        "ABORTED",
+        "PARTIAL",
+        "NOT_COMPUTABLE",
+        "QUARANTINED"
       ]
     },
     "divergence_markers": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "object",
+        "additionalProperties": true
       }
     },
     "metric_outputs": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": true
     },
     "outcome_class": {
       "enum": [
@@ -179,9 +151,7 @@
     },
     "confounds": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {}
     },
     "audit_digest": {
       "type": "string",

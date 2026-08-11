@@ -12,5 +12,8 @@
   "fork_point": "CYCLE_BOUNDARY",
   "mutates_production": false,
   "mid_reducer_fork_forbidden": true,
-  "digest": "sha256:9be72fd2e3e47fdfd09bc3bab1f969b8b9091b2e39cd967eb5307dbd29564521"
+  "digest": "sha256:9be72fd2e3e47fdfd09bc3bab1f969b8b9091b2e39cd967eb5307dbd29564521",
+  "experimental_ledger_id": "ledger.world-01.exp.tool-ablation-1",
+  "storage_namespace": "research/lab/exp.tool-ablation-1",
+  "fork_digest": "sha256:9be72fd2e3e47fdfd09bc3bab1f969b8b9091b2e39cd967eb5307dbd29564521"
 }

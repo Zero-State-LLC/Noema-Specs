@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L10-02",
   "suite": "noema-v0.4-lab",
-  "family_id": "L10",
-  "title": "Run identity case 2",
+  "title": "Seed Policy: atomic contract 2",
   "acceptance_items": [
     10
   ],
+  "family_id": "L10",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#10"
   ],
   "fixtures": [
-    "examples/v04-lab/run-intervention.json",
-    "specs/experiment-run.schema.json"
+    "examples/v04-lab/experiment.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/run-intervention.json"
+        "family": "L10",
+        "atomic_case": 2
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Run identity"
+      "L10 machine rule 2 is enforced"
     ]
   },
   "security_class": "none"

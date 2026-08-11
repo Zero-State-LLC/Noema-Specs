@@ -26,7 +26,9 @@
     "equivalence_boundary_version": "equivalence-boundary/v1",
     "consent_basis": "research-export-consent.agent.nacre",
     "research_policy_version": "claims-policy/0.1",
-    "input_digest": "sha256:6efa883bc2fd40c22c657701f3c54dae390b9475c463bb43b1ab068754738ac6"
+    "input_digest": "sha256:6efa883bc2fd40c22c657701f3c54dae390b9475c463bb43b1ab068754738ac6",
+    "world_id": "world-01",
+    "equivalence_boundary": "equivalence-boundary/v1"
   },
   "hypothesis": {
     "natural_language": "If browser tool access is removed, tool-use features degrade.",
@@ -113,5 +115,25 @@
   "provenance": {
     "created_from": "observatory.cand.cap.tool-use-1"
   },
-  "input_digest": "sha256:6efa883bc2fd40c22c657701f3c54dae390b9475c463bb43b1ab068754738ac6"
+  "input_digest": "sha256:6efa883bc2fd40c22c657701f3c54dae390b9475c463bb43b1ab068754738ac6",
+  "source_candidates": [
+    "cand.cap.tool-use-1"
+  ],
+  "stopping_rule": {
+    "kind": "ALL_PLANNED_NODES_COMPLETE_OR_BUDGET_EXHAUSTED"
+  },
+  "analysis_rule": {
+    "kind": "FIXED_POINT_DELTA",
+    "version": "1.0",
+    "required_controls_pass": true
+  },
+  "budgets": {
+    "max_runs": 8,
+    "max_cycles": 80,
+    "max_agents": 2,
+    "max_tool_calls": 16,
+    "max_compute": 1000,
+    "max_storage": 100000,
+    "max_wall_time_advisory": "PT10M"
+  }
 }

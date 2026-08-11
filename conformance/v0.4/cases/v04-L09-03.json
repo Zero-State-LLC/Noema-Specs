@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L09-03",
   "suite": "noema-v0.4-lab",
-  "family_id": "L09",
-  "title": "Design readiness case 3",
+  "title": "Counterfactual Replay: atomic contract 3",
   "acceptance_items": [
     9
   ],
+  "family_id": "L09",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#9"
   ],
   "fixtures": [
-    "examples/v04-lab/experiment.json",
-    "docs/EXPERIMENT-DESIGN.md"
+    "examples/v04-lab/experiment.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/experiment.json"
+        "family": "L09",
+        "atomic_case": 3
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Design readiness"
+      "L09 machine rule 3 is enforced"
     ]
   },
   "security_class": "none"

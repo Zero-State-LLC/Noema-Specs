@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L04-02",
   "suite": "noema-v0.4-lab",
-  "family_id": "L04",
-  "title": "Interventions case 2",
+  "title": "Fork-Point Semantics: atomic contract 2",
   "acceptance_items": [
     4
   ],
+  "family_id": "L04",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#4"
   ],
   "fixtures": [
-    "examples/v04-lab/intervention-ablation.json",
-    "specs/intervention.schema.json"
+    "examples/v04-lab/experiment.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "examples/v04-lab/intervention-ablation.json"
+        "family": "L04",
+        "atomic_case": 2
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Interventions"
+      "L04 machine rule 2 is enforced"
     ]
   },
   "security_class": "none"

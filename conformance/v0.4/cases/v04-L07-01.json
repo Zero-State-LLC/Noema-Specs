@@ -2,36 +2,32 @@
   "schema_version": "conformance-case/1.0",
   "case_id": "v04-L07-01",
   "suite": "noema-v0.4-lab",
-  "family_id": "L07",
-  "title": "Counterfactual replay case 1",
+  "title": "Ablation: atomic contract 1",
   "acceptance_items": [
     7
   ],
+  "family_id": "L07",
   "requirement_refs": [
-    "docs/releases/v0.4/ACCEPTANCE.md",
-    "docs/EXPERIMENT-LAB.md"
-  ],
-  "preconditions": [
-    "lab_version=lab/0.4"
+    "docs/releases/v0.4/ACCEPTANCE.md#7"
   ],
   "fixtures": [
-    "docs/COUNTERFACTUAL-REPLAY.md",
-    "examples/v04-lab/intervention-perturbation.json"
+    "examples/v04-lab/experiment-fork.json"
   ],
   "steps": [
     {
       "step_id": "1",
-      "actor": "server",
-      "action": "VALIDATE",
+      "actor": "operator",
+      "action": "validate_lab_contract",
       "input": {
-        "fixture": "docs/COUNTERFACTUAL-REPLAY.md"
+        "family": "L07",
+        "atomic_case": 1
       }
     }
   ],
   "expected": {
     "outcome": "ACCEPT",
     "assertions": [
-      "Counterfactual replay"
+      "L07 machine rule 1 is enforced"
     ]
   },
   "security_class": "none"
