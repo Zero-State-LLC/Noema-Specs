@@ -1248,8 +1248,10 @@ def check_lab_v04(Draft202012Validator) -> None:
         fail("Lab fork must use distinct experimental world and ledger identities")
 
     # Required controls change validity and may not be ignored.
-    controls = load_json(ROOT / "examples" / "v04-lab" / "controls.json")
+    controls = load_json(ROOT / "examples" / "v04-lab" / "controls.json")["controls"]
     required_roles = {c["role"] for c in controls if c.get("required")}
+    if any("relationship_to_experiment" not in c for c in controls):
+        fail("each Lab control needs relationship_to_experiment")
     if not required_roles.issubset(set(result.get("control_outcomes", {}))):
         fail("Lab result omits required control outcomes")
     def control_disposition(outcomes: dict[str, str]) -> str:
