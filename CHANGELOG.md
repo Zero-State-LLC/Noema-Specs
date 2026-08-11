@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Core-loop spec freeze & implementation readiness audit:** `docs/SPEC-FREEZE-CORE-LOOP.md` freezes v0.1–v0.7 for runtime implementation priority (Chamber first; no v0.8 yet).
 - **v0.7 Minimal LEARN / Capability Graph:** `docs/releases/v0.7/*`, behavior-node + capability-edge (+ disposable graph projection) schemas, LEARN surface, fixtures from v0.5 shared-ledger evidence, **K01–K12**, contested/not-tested distinctions, no graph DB or ranking.
 - **v0.6 Deep Time foundation:** `docs/releases/v0.6/*`, institutions/succession/historical-artifact/claim/reconstruction/semantic-lineage/name/scar/evidence schemas, decay + significance catalogs, multi-era fixtures `examples/v06-deep-time/`, conformance **D01–D30**, lore-boundary and hidden-history gates. Lore is derived presentation only — not a second source of truth.
 - **v0.6 admin-only Genesis (simplified):** profile + story-seed + genesis-result contracts, 3 profiles, closed story seeds, Cycle 0 fixtures with same/different seed determinism, **G01–G09**, no player Genesis surface and no Genesis runtime service.

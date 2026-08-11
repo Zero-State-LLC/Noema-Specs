@@ -11,7 +11,7 @@
 - [x] v0.6 Deep Time foundation: institutions, succession, artifacts, evidence, archaeology/reconstruction, scars, names, lore boundary, D01–D30 (90 atomic cases).
 - [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
-
+- [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
@@ -73,7 +73,7 @@
 - [x] Controls including sham; failed/null results first-class
 - [x] Lifecycle without PROVEN; claim labels separate
 - [x] Lab → Compiler boundary (`compiler_readiness`)
-- [x] Conformance L01–L22 + validator gate
+- [x] Conformance L01–L34 + validator gate
 
 ## Validation
 

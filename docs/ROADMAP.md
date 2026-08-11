@@ -65,7 +65,9 @@ Minimal evidence-backed behavior relationships and simple LEARN surface: what wa
 Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, consciousness scores, or architecture attribution.
 
 **Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).
-**After v0.7:** recommend **spec freeze + implementation-readiness audit** before v0.8.
+
+**Core-loop freeze:** [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) — freeze v0.1–v0.7 for implementation; do not open v0.8 until runtime feedback demands it.
+
 ## v0.8 — Phenomena
 
 Self-model metrics, temporal continuity, metacognition, integration, autogenous goals, and introspective causal accuracy.
