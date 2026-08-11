@@ -25,4 +25,3 @@ Internal lesions are only an advanced, adapter-authorized extension and return `
 ## Result
 
 A simple result shows Question, answer **within tested conditions**, evidence counts, limits, and next valid actions. It never replaces the complete Lab result or claims automatic causality/capability. See [EXPERIMENT-LAB.md](EXPERIMENT-LAB.md).
-
