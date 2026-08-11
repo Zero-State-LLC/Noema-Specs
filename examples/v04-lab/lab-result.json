@@ -3,13 +3,14 @@
   "lab_result_id": "labres.tool-ablation-1",
   "experiment_id": "exp.tool-ablation-1",
   "source_candidate_ids": [
-    "cand.cap.tool-use-1"
+    "UNKNOWN_BEHAVIOR_shared-ledger-protocol"
   ],
   "run_ids": [
     "run.baseline.1",
     "run.sham.1",
     "run.intervention.1",
-    "run.replication.1"
+    "run.replication.1",
+    "run.version-differential.1"
   ],
   "control_outcomes": {
     "BASELINE": "PASS",
@@ -20,7 +21,8 @@
   },
   "replication_outcomes": {
     "EXACT_REPLAY": "REPRODUCED",
-    "SAME_AGENT_VERSION": "REPRODUCED"
+    "SAME_AGENT_VERSION": "REPRODUCED",
+    "CROSS_AGENT_VERSION": "PARTIALLY_REPRODUCED"
   },
   "generalization_outcomes": {
     "new_tool_set": "NOT_COMPARABLE"
@@ -30,7 +32,8 @@
     "replication matched degraded band"
   ],
   "counterevidence": [
-    "sham control showed no degradation"
+    "sham control showed no degradation",
+    "agentver.nacre.2 created the ledger less frequently; this is bounded version-differential evidence"
   ],
   "confounds": [
     "provider nondeterminism residual"

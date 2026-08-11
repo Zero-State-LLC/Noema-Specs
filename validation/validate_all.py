@@ -794,6 +794,7 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
         ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
         ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-version-differential.json"),
         ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
         ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
@@ -1188,6 +1189,7 @@ def check_lab_v04(Draft202012Validator) -> None:
         ("specs/experiment-plan.schema.json", "examples/v04-lab/experiment-plan.json"),
         ("specs/experiment-run.schema.json", "examples/v04-lab/run-baseline.json"),
         ("specs/experiment-run.schema.json", "examples/v04-lab/run-intervention.json"),
+        ("specs/experiment-run.schema.json", "examples/v04-lab/run-version-differential.json"),
         ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result-null.json"),
@@ -1277,6 +1279,26 @@ def check_lab_v04(Draft202012Validator) -> None:
         fail("NOT_COMPUTABLE lesion fixture fails intervention schema")
     if lesion.get("type") != "LESION" or lesion.get("authorization", {}).get("adapter_support") is not False or "NOT_COMPUTABLE" not in lesion.get("expected_mechanical_effect", ""):
         fail("unsupported lesion must be explicit and NOT_COMPUTABLE")
+
+    # Full audit ledger is schema-valid and hash chained across every Lab stage.
+    audit_schema = load_json(ROOT / "specs" / "lab-audit-record.schema.json")
+    audit_previous = None
+    audit_kinds: set[str] = set()
+    for line in (ROOT / "examples" / "v04-lab" / "lab-audit-ledger.jsonl").read_text(encoding="utf-8").splitlines():
+        record = json.loads(line)
+        if list(Draft202012Validator(audit_schema).iter_errors(record)):
+            fail("Lab audit ledger record fails schema")
+        payload = dict(record)
+        recorded_digest = payload.pop("digest")
+        if recorded_digest != canonical_digest(payload):
+            fail("Lab audit ledger digest is not canonical")
+        if record.get("previous_digest") != audit_previous:
+            fail("Lab audit ledger chain is broken")
+        audit_previous = recorded_digest
+        audit_kinds.add(record["event_kind"])
+    required_audit_kinds = {"DESIGN_VALIDATION", "PLAN_GENERATION", "FORK_CREATION", "INTERVENTION_APPLY", "CONTROL_EXECUTION", "RUN_START", "RUN_END", "DIVERGENCE", "METRIC_CALCULATION", "REPLICATION_COMPARISON", "RESULT_CLASSIFICATION", "CANDIDATE_HANDOFF", "STATE_TRANSITION"}
+    if audit_kinds != required_audit_kinds:
+        fail("Lab audit ledger does not cover all claim-bearing stages")
 
     # Local negative fixtures prove new design and fork guards reject invalid records.
     invalid_design = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-experiment-missing-analysis-rule.json")

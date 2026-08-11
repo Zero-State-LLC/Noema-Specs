@@ -3,7 +3,7 @@
   "lab_result_id": "labres.null-1",
   "experiment_id": "exp.null-1",
   "source_candidate_ids": [
-    "cand.cap.tool-use-1"
+    "UNKNOWN_BEHAVIOR_shared-ledger-protocol"
   ],
   "run_ids": [
     "run.null.1"

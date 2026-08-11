@@ -5,16 +5,16 @@
   "experiment_design_version": "experiment-design/0.4",
   "identity": {
     "source_candidate_ids": [
-      "cand.cap.tool-use-1"
+      "UNKNOWN_BEHAVIOR_shared-ledger-protocol"
     ],
     "source_trajectory_ids": [
-      "traj.world-01.agent.nacre.1"
+      "traj.v03.nacre.001"
     ],
     "world_version": "world/v1",
     "world_rules_version": "world/v1",
     "event_catalog_version": "event-catalog/0.1",
     "agent_id": "agent.nacre",
-    "agent_version": "agent.nacre@1.2.0",
+    "agent_version": "agentver.nacre.1",
     "fork_point": "CYCLE_BOUNDARY",
     "intervention_set_digest": "sha256:1fae34c27f77460d9f46556707496ba77519f375dc31d3da881a0a6a66b6a879",
     "control_set_digest": "sha256:ab399b5d2b73dbbbccf96d799aab9559e5b176fa172e6af76d78934290c2aba0",
@@ -26,7 +26,7 @@
     "equivalence_boundary_version": "equivalence-boundary/v1",
     "consent_basis": "research-export-consent.agent.nacre",
     "research_policy_version": "claims-policy/0.1",
-    "input_digest": "sha256:a6cc5ba645d4f5ebe71a303888a84cec44b9e61b964087031a172abca6d5e8d9",
+    "input_digest": "sha256:a0471721addb6a75e64e83f636fa91a528790dca01c40c3309013daa3bdb7437",
     "world_id": "world-01",
     "equivalence_boundary": "equivalence-boundary/v1"
   },
@@ -77,12 +77,14 @@
     "run.baseline.1",
     "run.sham.1",
     "run.intervention.1",
-    "run.replication.1"
+    "run.replication.1",
+    "run.version-differential.1"
   ],
   "replication": {
     "classes": [
       "EXACT_REPLAY",
-      "SAME_AGENT_VERSION"
+      "SAME_AGENT_VERSION",
+      "CROSS_AGENT_VERSION"
     ],
     "min_runs": 2
   },
@@ -113,11 +115,11 @@
   "status": "COMPLETE",
   "interpretation": "SUPPORTED",
   "provenance": {
-    "created_from": "observatory.cand.cap.tool-use-1"
+    "created_from": "observatory.UNKNOWN_BEHAVIOR_shared-ledger-protocol"
   },
-  "input_digest": "sha256:a6cc5ba645d4f5ebe71a303888a84cec44b9e61b964087031a172abca6d5e8d9",
+  "input_digest": "sha256:a0471721addb6a75e64e83f636fa91a528790dca01c40c3309013daa3bdb7437",
   "source_candidates": [
-    "cand.cap.tool-use-1"
+    "UNKNOWN_BEHAVIOR_shared-ledger-protocol"
   ],
   "stopping_rule": {
     "kind": "ALL_PLANNED_NODES_COMPLETE_OR_BUDGET_EXHAUSTED"

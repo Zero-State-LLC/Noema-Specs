@@ -80,15 +80,26 @@
       ]
     },
     {
+      "node_id": "node.version-differential",
+      "node_type": "REPLICATION",
+      "run_id": "run.version-differential.1",
+      "run_role": "REPLICATION",
+      "order": 4,
+      "depends_on": [
+        "node.ablation"
+      ]
+    },
+    {
       "node_id": "node.analysis",
       "node_type": "ANALYSIS",
       "run_id": "run.analysis.1",
-      "order": 4,
+      "order": 5,
       "depends_on": [
         "node.baseline",
         "node.sham",
         "node.ablation",
-        "node.replication"
+        "node.replication",
+        "node.version-differential"
       ]
     }
   ],
