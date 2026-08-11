@@ -9,4 +9,3 @@ Observatory Candidate → Experiment Design → Validated Plan → Controlled Wo
 Lab records are research-layer records. Ordinary experiments MUST run only on isolated forks or explicitly authorized experimental worlds. They MUST NOT mutate a production world, append to its ledger, rewrite source trajectories, or make conclusions canonical world truth. `live_world_experiment` is forbidden. An authorized live observation is an **OBSERVATIONAL STUDY**, not an intervention.
 
 Claim-bearing behavior is deterministic: pinned schemas/catalogs/metrics, canonical digests, explicit graph ordering, and recorded inputs only. LLMs may summarize or suggest candidates, never decide validation, comparison, or claims. Failed interventions/controls, nulls, non-reproduction, counterevidence, confounds, partials, `NOT_COMPARABLE`, and `NOT_COMPUTABLE` are immutable retained evidence. A v0.5 handoff requires `compiler_readiness: READY`; it does not create a permanent fixture.
-

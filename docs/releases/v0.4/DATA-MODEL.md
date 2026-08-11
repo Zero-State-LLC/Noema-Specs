@@ -12,4 +12,3 @@
 | variable/catalog pins | v0.4 registries and catalogs |
 
 All are derived research records linked to v0.1–v0.3 evidence. They do not alter historical canonical data. Identity pins candidates, trajectories, world and agent versions, forks, interventions, controls, metrics, seed policy, equivalence boundary, consent, policy, and digest.
-
