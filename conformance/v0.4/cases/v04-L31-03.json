@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L31-03",
+  "suite": "noema-v0.4-lab",
+  "title": "Lab Result Boundary: atomic contract 3",
+  "acceptance_items": [
+    31
+  ],
+  "family_id": "L31",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#31"
+  ],
+  "fixtures": [
+    "examples/v04-lab/lab-result.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L31",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L31 Lab result remains research-layer and does not create a fixture"
+    ]
+  },
+  "security_class": "none"
+}

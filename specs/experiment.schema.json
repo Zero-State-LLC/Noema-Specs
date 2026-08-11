@@ -10,6 +10,7 @@
     "experiment_version",
     "experiment_design_version",
     "identity",
+    "source_intent_id",
     "question",
     "hypothesis",
     "independent_variables",
@@ -184,6 +185,10 @@
       "pattern": "^sha256:[a-fA-F0-9]{64}$"
     },
     "supersedes_experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "source_intent_id": {
       "type": "string",
       "pattern": "^[A-Za-z0-9_.:-]+$"
     }

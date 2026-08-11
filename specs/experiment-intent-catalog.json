@@ -1,7 +1,7 @@
 {
   "schema_version": "experiment-intent-catalog/1.0",
-  "catalog_version": "experiment-intent-catalog/1.0.0",
-  "defaults_version": "experience-defaults/1.0.0",
+  "catalog_version": "experiment-intent-catalog/1.1.0",
+  "defaults_version": "experience-defaults/1.1.0",
   "intents": [
     {
       "intent_id": "REPEAT_BEHAVIOR",
@@ -28,7 +28,8 @@
         "run_count",
         "equivalence_boundary",
         "dependent_measures"
-      ]
+      ],
+      "generated_experiment_kind": "REPLICATION"
     },
     {
       "intent_id": "REMOVE_DEPENDENCY",
@@ -57,7 +58,8 @@
         "run_count",
         "equivalence_boundary",
         "dependent_measures"
-      ]
+      ],
+      "generated_experiment_kind": "ABLATION"
     },
     {
       "intent_id": "CHANGE_CONDITION",
@@ -86,7 +88,8 @@
         "run_count",
         "equivalence_boundary",
         "dependent_measures"
-      ]
+      ],
+      "generated_experiment_kind": "PERTURBATION"
     },
     {
       "intent_id": "COMPARE_VERSION",
@@ -115,7 +118,8 @@
         "run_count",
         "equivalence_boundary",
         "dependent_measures"
-      ]
+      ],
+      "generated_experiment_kind": "VERSION_DIFFERENTIAL"
     },
     {
       "intent_id": "TEST_GENERALIZATION",
@@ -133,6 +137,36 @@
         "seed_policy": "DERIVED_SEED",
         "fork_point": "CYCLE_BOUNDARY",
         "replication_count": 5,
+        "control_role": "BASELINE"
+      },
+      "advanced_override_fields": [
+        "fork_point",
+        "seed_policy",
+        "intervention",
+        "controls",
+        "run_count",
+        "equivalence_boundary",
+        "dependent_measures"
+      ],
+      "generated_experiment_kind": "GENERALIZATION_PROBE"
+    },
+    {
+      "intent_id": "CUSTOM",
+      "display_name": "Custom experiment",
+      "question_template": "Define a controlled experiment for {behavior}.",
+      "lab_intervention_type": null,
+      "generated_experiment_kind": "ADVANCED_EXPERIMENT_DESIGN",
+      "plan_template_id": "lab-plan-template.0.4.custom-advanced-v1",
+      "required_plan_nodes": [
+        "BASELINE",
+        "CONTROL",
+        "INTERVENTION",
+        "ANALYSIS"
+      ],
+      "recommended_defaults": {
+        "seed_policy": "SAME_SEED",
+        "fork_point": "CYCLE_BOUNDARY",
+        "replication_count": 1,
         "control_role": "BASELINE"
       },
       "advanced_override_fields": [

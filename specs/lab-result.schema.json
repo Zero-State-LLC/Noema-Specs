@@ -8,6 +8,7 @@
     "schema_version",
     "lab_result_id",
     "experiment_id",
+    "source_intent_id",
     "source_candidate_ids",
     "run_ids",
     "control_outcomes",
@@ -123,6 +124,10 @@
     "digest": {
       "type": "string",
       "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "source_intent_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$"
     }
   }
 }

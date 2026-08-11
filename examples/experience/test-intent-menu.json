@@ -15,7 +15,8 @@
       "REMOVE_DEPENDENCY",
       "CHANGE_CONDITION",
       "COMPARE_VERSION",
-      "TEST_GENERALIZATION"
+      "TEST_GENERALIZATION",
+      "CUSTOM"
     ]
   },
   "allowed_actions": [
@@ -24,7 +25,8 @@
     "CHANGE_CONDITION",
     "COMPARE_VERSION",
     "TEST_GENERALIZATION",
-    "CUSTOM_EXPERIMENT"
+    "CUSTOM_EXPERIMENT",
+    "CUSTOM"
   ],
   "research_detail": true
 }

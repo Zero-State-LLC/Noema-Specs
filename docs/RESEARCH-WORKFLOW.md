@@ -25,3 +25,7 @@ Internal lesions are only an advanced, adapter-authorized extension and return `
 ## Result
 
 A simple result shows Question, answer **within tested conditions**, evidence counts, limits, and next valid actions. It never replaces the complete Lab result or claims automatic causality/capability. See [EXPERIMENT-LAB.md](EXPERIMENT-LAB.md).
+
+## Deterministic compilation boundary
+
+The simple request is a compact [`ExperimentIntent`](../specs/experiment-intent.schema.json), not an informal instruction to invent a study. It compiles by [`EXPERIMENT-INTENT-COMPILATION.md`](EXPERIMENT-INTENT-COMPILATION.md) into the same isolated Lab records used by advanced users. The returned simple result is the deterministic [`Simple Result Projection`](SIMPLE-RESULT-PROJECTION.md), with `CAPTURE AS TEST` available only when the machine Lab result is `READY`.

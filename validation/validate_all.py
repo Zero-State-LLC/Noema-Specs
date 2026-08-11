@@ -142,6 +142,8 @@ REQUIRED_DOCS = [
     "docs/releases/v0.4/EXAMPLES.md",
     "docs/releases/v0.4/NON-GOALS.md",
     "docs/EXPERIMENT-LAB.md",
+    "docs/EXPERIMENT-INTENT-COMPILATION.md",
+    "docs/SIMPLE-RESULT-PROJECTION.md",
     "docs/EXPERIMENT-IDENTITY.md",
     "docs/EXPERIMENT-LIFECYCLE.md",
     "docs/EXPERIMENT-DESIGN.md",
@@ -182,11 +184,13 @@ REQUIRED_SCHEMAS = [
     "specs/contest-config.v02.json",
     "specs/action-contracts.v02.json",
     "specs/experiment.schema.json",
+    "specs/experiment-intent.schema.json",
     "specs/intervention.schema.json",
     "specs/experiment-plan.schema.json",
     "specs/experiment-run.schema.json",
     "specs/experiment-fork.schema.json",
     "specs/lab-result.schema.json",
+    "specs/simple-result-projection.schema.json",
     "specs/lab-audit-record.schema.json",
     "specs/perturbation-catalog.v04.json",
     "specs/ablation-catalog.v04.json",
@@ -952,11 +956,11 @@ def check_conformance_suite(Draft202012Validator) -> None:
             fpath = ROOT / fixture
             if not fpath.exists():
                 fail(f"conformance v0.4 case {rel} missing fixture {fixture}")
-    expected_l = {f"L{i:02d}" for i in range(1, 23)}
+    expected_l = {f"L{i:02d}" for i in range(1, 35)}
     missing_l = sorted(expected_l - fams4)
     if missing_l:
         fail(f"conformance v0.4 missing families: {missing_l}")
-    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L22 covered")
+    ok(f"Conformance suite v0.4: {len(cases4)} cases, families L01–L34 covered")
 
 
 def check_contract_quality_markers() -> None:
@@ -1189,7 +1193,14 @@ def check_strategic_conflict(Draft202012Validator) -> None:
 
 def check_lab_v04(Draft202012Validator) -> None:
     """Validate v0.4 Lab schemas, fixtures, isolation, null results."""
+    import hashlib
+
+    def canonical_digest(value: object) -> str:
+        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        return "sha256:" + hashlib.sha256(payload).hexdigest()
+
     pairs = [
+        ("specs/experiment-intent.schema.json", "examples/v04-lab/experiment-intent.json"),
         ("specs/experiment.schema.json", "examples/v04-lab/experiment.json"),
         ("specs/intervention.schema.json", "examples/v04-lab/intervention-ablation.json"),
         ("specs/intervention.schema.json", "examples/v04-lab/intervention-perturbation.json"),
@@ -1200,6 +1211,7 @@ def check_lab_v04(Draft202012Validator) -> None:
         ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result-null.json"),
+        ("specs/simple-result-projection.schema.json", "examples/v04-lab/simple-result-projection.json"),
         ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
     ]
     for schema_rel, fixture_rel in pairs:
@@ -1216,6 +1228,9 @@ def check_lab_v04(Draft202012Validator) -> None:
     exp = load_json(ROOT / "examples" / "v04-lab" / "experiment.json")
     if exp.get("authorization", {}).get("mode") != "EXPERIMENTAL_FORK_ONLY":
         fail("lab experiment must authorize EXPERIMENTAL_FORK_ONLY")
+    intent = load_json(ROOT / "examples" / "v04-lab" / "experiment-intent.json")
+    if exp.get("source_intent_id") != intent.get("intent_record_id"):
+        fail("compiled experiment must retain its source intent identity")
 
     result = load_json(ROOT / "examples" / "v04-lab" / "lab-result.json")
     if result.get("interpretation") == "PROVEN":
@@ -1226,6 +1241,28 @@ def check_lab_v04(Draft202012Validator) -> None:
     null = load_json(ROOT / "examples" / "v04-lab" / "lab-result-null.json")
     if null.get("interpretation") not in ("NOT_SUPPORTED", "INCONCLUSIVE"):
         fail("null lab result fixture should be NOT_SUPPORTED or INCONCLUSIVE")
+
+    projection = load_json(ROOT / "examples" / "v04-lab" / "simple-result-projection.json")
+    if projection.get("experiment_id") != exp.get("experiment_id") or projection.get("lab_result_id") != result.get("lab_result_id"):
+        fail("simple result projection must resolve to the same experiment and Lab result")
+    if projection.get("source_intent_id") != intent.get("intent_record_id") or result.get("source_intent_id") != intent.get("intent_record_id"):
+        fail("intent provenance must survive compilation through Lab result projection")
+    if projection.get("interpretation") != result.get("interpretation") or projection.get("claim_label") != result.get("claim_label"):
+        fail("simple result projection must not strengthen Lab interpretation or claim label")
+    if projection.get("compiler_readiness") != result.get("compiler_readiness"):
+        fail("simple result projection must preserve compiler readiness")
+
+    def respects_lab_result(simple: dict[str, object], lab: dict[str, object]) -> bool:
+        return all(simple.get(field) == lab.get(field) for field in ("experiment_id", "lab_result_id", "source_intent_id", "interpretation", "claim_label", "compiler_readiness"))
+
+    if not respects_lab_result(projection, result):
+        fail("simple result projection must retain the exact Lab claim boundary")
+    projection_payload = dict(projection)
+    projection_payload.pop("digest", None)
+    if projection.get("digest") != canonical_digest(projection_payload):
+        fail("simple result projection digest is not canonical/stable")
+    if "CAPTURE_AS_TEST" in projection.get("allowed_actions", []):
+        fail("CAPTURE AS TEST must be absent when compiler readiness is NOT_READY")
 
     # negatives
     neg_fork = load_json(ROOT / "examples" / "negative" / "invalid-lab-mutates-production.json")
@@ -1238,12 +1275,6 @@ def check_lab_v04(Draft202012Validator) -> None:
         fail("invalid-lab-result-proven should fail schema")
 
     # Identity and fork content addresses are reproducible from canonical payloads.
-    import hashlib
-
-    def canonical_digest(value: object) -> str:
-        payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")
-        return "sha256:" + hashlib.sha256(payload).hexdigest()
-
     identity_payload = dict(exp["identity"])
     identity_payload.pop("input_digest", None)
     if exp["identity"].get("input_digest") != canonical_digest(identity_payload):
@@ -1314,6 +1345,17 @@ def check_lab_v04(Draft202012Validator) -> None:
     invalid_fork = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-fork-production-mutation.json")
     if not list(Draft202012Validator(fork_schema).iter_errors(invalid_fork)):
         fail("Lab negative production mutation should fail schema")
+    invalid_intent = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-experiment-intent-unknown.json")
+    intent_schema = load_json(ROOT / "specs" / "experiment-intent.schema.json")
+    if not list(Draft202012Validator(intent_schema).iter_errors(invalid_intent)):
+        fail("unknown experiment intent should fail schema")
+    projection_schema = load_json(ROOT / "specs" / "simple-result-projection.schema.json")
+    invalid_capture = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-capture-not-ready.json")
+    if not list(Draft202012Validator(projection_schema).iter_errors(invalid_capture)):
+        fail("CAPTURE AS TEST with NOT_READY must fail simple projection schema")
+    invalid_overclaim = load_json(ROOT / "examples" / "v04-lab" / "negative" / "invalid-simple-result-overclaim.json")
+    if respects_lab_result(invalid_overclaim, result):
+        fail("simple result overclaim negative must violate Lab claim boundary")
 
     # catalogs present
     for rel in (
@@ -1323,7 +1365,7 @@ def check_lab_v04(Draft202012Validator) -> None:
     ):
         load_json(ROOT / rel)
 
-    ok("Lab v0.4: schemas, stable digests, isolation, controls, counterfactuals, lesions, negatives, catalogs")
+    ok("Lab v0.4: schemas, intent compilation, stable digests, isolation, controls, projections, counterfactuals, lesions, negatives, catalogs")
 
 
 
@@ -1334,21 +1376,32 @@ def check_experience_layer(Draft202012Validator) -> None:
     errors = list(Draft202012Validator(intent_schema).iter_errors(intent_catalog))
     if errors:
         fail(f"experience intent catalog invalid: {errors[0].message}")
-    expected = {"REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION"}
+    expected = {"REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION", "CUSTOM"}
     entries = {entry["intent_id"]: entry for entry in intent_catalog["intents"]}
     if set(entries) != expected:
-        fail("experience intent catalog must provide exactly five common intents")
+        fail("experience intent catalog must provide five common intents and CUSTOM")
     required_translations = {
         "REPEAT_BEHAVIOR": "REPLICATION",
         "REMOVE_DEPENDENCY": "ABLATION",
         "CHANGE_CONDITION": "PERTURBATION",
         "COMPARE_VERSION": "VERSION_DIFFERENTIAL",
         "TEST_GENERALIZATION": "REPLICATION",
+        "CUSTOM": None,
+    }
+    expected_kinds = {
+        "REPEAT_BEHAVIOR": "REPLICATION",
+        "REMOVE_DEPENDENCY": "ABLATION",
+        "CHANGE_CONDITION": "PERTURBATION",
+        "COMPARE_VERSION": "VERSION_DIFFERENTIAL",
+        "TEST_GENERALIZATION": "GENERALIZATION_PROBE",
+        "CUSTOM": "ADVANCED_EXPERIMENT_DESIGN",
     }
     for intent_id, intervention in required_translations.items():
         entry = entries[intent_id]
         if entry["lab_intervention_type"] != intervention:
             fail(f"experience intent {intent_id} must deterministically map to {intervention}")
+        if entry.get("generated_experiment_kind") != expected_kinds[intent_id]:
+            fail(f"experience intent {intent_id} lacks deterministic generated experiment kind")
         if "ANALYSIS" not in entry["required_plan_nodes"] or "BASELINE" not in entry["required_plan_nodes"]:
             fail(f"experience intent {intent_id} lacks baseline/analysis plan boundary")
         if set(entry["advanced_override_fields"]) != {"fork_point", "seed_policy", "intervention", "controls", "run_count", "equivalence_boundary", "dependent_measures"}:
@@ -1360,7 +1413,7 @@ def check_experience_layer(Draft202012Validator) -> None:
     if errors:
         fail(f"experience error catalog invalid: {errors[0].message}")
     error_codes = {entry["reason_code"] for entry in error_catalog["errors"]}
-    for code in {"CONTROL_REQUIRED", "NOT_COMPARABLE", "NOT_COMPUTABLE", "UNAUTHORIZED_RESEARCH_DETAIL"}:
+    for code in {"INVALID_INTENT", "INVALID_EXPERIMENT", "INVALID_FORK", "UNRESOLVED_SOURCE", "INVALID_INTERVENTION", "UNREGISTERED_VARIABLE", "CONTROL_REQUIRED", "CONTROL_FAILED", "UNSUPPORTED_LESION", "SEED_DIVERGENCE", "WORLD_STATE_DRIFT", "AGENT_VERSION_DRIFT", "NOT_COMPARABLE", "NOT_COMPUTABLE", "BUDGET_EXHAUSTED", "AUTHORIZATION_DENIED", "CONSENT_DENIED", "SOURCE_WORLD_MUTATION_FORBIDDEN", "UNAUTHORIZED_RESEARCH_DETAIL"}:
         if code not in error_codes:
             fail(f"experience error mapping missing {code}")
 

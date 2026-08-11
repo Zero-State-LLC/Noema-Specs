@@ -34,7 +34,8 @@
           "plan_template_id",
           "required_plan_nodes",
           "recommended_defaults",
-          "advanced_override_fields"
+          "advanced_override_fields",
+          "generated_experiment_kind"
         ],
         "properties": {
           "intent_id": {
@@ -43,7 +44,8 @@
               "REMOVE_DEPENDENCY",
               "CHANGE_CONDITION",
               "COMPARE_VERSION",
-              "TEST_GENERALIZATION"
+              "TEST_GENERALIZATION",
+              "CUSTOM"
             ]
           },
           "display_name": {
@@ -53,12 +55,17 @@
             "type": "string"
           },
           "lab_intervention_type": {
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "REPLICATION",
               "ABLATION",
               "PERTURBATION",
               "COUNTERFACTUAL",
-              "VERSION_DIFFERENTIAL"
+              "VERSION_DIFFERENTIAL",
+              null
             ]
           },
           "plan_template_id": {
@@ -135,6 +142,17 @@
                 "dependent_measures"
               ]
             }
+          },
+          "generated_experiment_kind": {
+            "enum": [
+              "REPLICATION",
+              "ABLATION",
+              "PERTURBATION",
+              "COUNTERFACTUAL",
+              "VERSION_DIFFERENTIAL",
+              "GENERALIZATION_PROBE",
+              "ADVANCED_EXPERIMENT_DESIGN"
+            ]
           }
         }
       }

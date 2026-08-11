@@ -13,3 +13,7 @@ Claim-bearing behavior is deterministic: pinned schemas/catalogs/metrics, canoni
 ## Experience translation
 
 Authorized STUDY views present intent-first TEST actions through the versioned [experiment intent catalog](../specs/experiment-intent-catalog.json). The translation is deterministic and does not weaken Lab design, isolation, controls, identity, or audit requirements.
+
+## Intent compiler and result projection
+
+The complete product boundary is **USER INTENT → Intent Compiler → Validated Experiment Design → Experiment Plan → Isolated Lab Execution → Lab Result → Simple Result Projection**. [`EXPERIMENT-INTENT-COMPILATION.md`](EXPERIMENT-INTENT-COMPILATION.md) defines versioned TEST defaults and overrides. [`SIMPLE-RESULT-PROJECTION.md`](SIMPLE-RESULT-PROJECTION.md) defines the claim-preserving return path. `source_intent_id` joins the simple request, experiment, Lab result, and advanced audit detail.

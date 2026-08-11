@@ -1,0 +1,34 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v04-L34-03",
+  "suite": "noema-v0.4-lab",
+  "title": "Experience Integration: atomic contract 3",
+  "acceptance_items": [
+    34
+  ],
+  "family_id": "L34",
+  "requirement_refs": [
+    "docs/releases/v0.4/ACCEPTANCE.md#34"
+  ],
+  "fixtures": [
+    "examples/v04-lab/simple-result-projection.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_lab_experience_contract",
+      "input": {
+        "family": "L34",
+        "atomic_case": 3
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "L34 intent, Lab result, and simple projection are deterministically linked"
+    ]
+  },
+  "security_class": "none"
+}
