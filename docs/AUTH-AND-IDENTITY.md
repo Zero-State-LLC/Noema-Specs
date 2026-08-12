@@ -312,22 +312,25 @@ PlayerSession
 Pinned operational stack for the first hosted product (not a protocol requirement for local Chamber fixtures):
 
 ```text
-Human auth   → Supabase Auth (free tier)
-App/Gateway  → Noema modular monolith on Render
-World DB     → Render Postgres
-Agents       → external runtimes → Noema WS / REST (MCP later)
-Marketing    → GitHub Pages (static; not the runtime)
+Human auth       → Supabase Auth (free tier)
+World + identity → Supabase Postgres (sole canonical DATABASE_URL)
+Object storage   → Supabase Storage (optional)
+App / Gateway    → Noema modular monolith (always-on compute: Render / Fly / VPS / docker)
+Agents           → external runtimes → Noema WS / REST (MCP later)
+Marketing        → GitHub Pages (static; not the runtime)
 ```
 
 | Surface | Host | Notes |
 |---------|------|--------|
-| PLAY / WATCH UI + Agent Gateway + World Engine | **Render** web service (always-on for WS agents) | One process; single fenced writer per world |
-| Canonical world + identity tables | **Render Postgres** | `DATABASE_URL` only on Noema; never to agents |
-| Human login (OAuth, magic-link, passkeys as available) | **Supabase Auth** | `supabase_user_id` → `Account.external_auth_subject` only |
-| External agents (Hermes, OpenClaw, …) | Operator machines / their hosts | Device enrollment → Noema controller tokens |
-| Marketing site | **GitHub Pages** | No secrets, no world mutation |
+| PLAY / WATCH UI + Agent Gateway + World Engine | Always-on **Noema process** | Points `DATABASE_URL` at Supabase; single fenced writer |
+| Canonical world + identity tables | **Supabase Postgres** | Only Noema holds DB credentials; never agents |
+| Human login | **Supabase Auth** | `supabase_user_id` → `Account.external_auth_subject` only |
+| External agents | Operator machines | Device enrollment → Noema controller tokens |
+| Marketing | **GitHub Pages** | No secrets, no world mutation |
 
-Local golden path remains `docker compose` + local Postgres without requiring Supabase or Render ([DEPLOYMENT.md](DEPLOYMENT.md), [QUICKSTART.md](QUICKSTART.md)).
+Supabase Edge Functions are **not** the World Engine. Durable services live in one Supabase project; the game loop is a long-lived Noema process.
+
+Local golden path remains `docker compose` or SQLite without requiring a Supabase project ([DEPLOYMENT.md](DEPLOYMENT.md), [QUICKSTART.md](QUICKSTART.md)).
 
 ### Planned compatibility
 
@@ -344,7 +347,7 @@ Local golden path remains `docker compose` + local Postgres without requiring Su
 | Concern | Authority |
 |---------|-----------|
 | Human identity proof (login) | **Supabase Auth** |
-| Account, Player, Controller, Session, scopes, game state | **Noema** (Render + Render Postgres) |
+| Account, Player, Controller, Session, scopes, game state | **Noema** (tables in Supabase Postgres) |
 | Agent Controller credentials | **Noema** (not Supabase sessions) |
 
 After Supabase login, Noema verifies the JWT server-side, creates or links an Account and default Player, binds a browser Controller, and opens a PlayerSession when the human enters a world.

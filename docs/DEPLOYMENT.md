@@ -32,15 +32,18 @@ Required environment names: `local`, `test`, `staging`, `production`, `research-
 
 ## Hosted product stack (pinned MVP)
 
-The first **hosted** product deployment uses this stack. It does not replace local `docker compose`; it is the normative **public/staging** shape.
+The first **hosted** product deployment uses a **Supabase-backed** data and auth plane. It does not replace local `docker compose`; it is the normative **public/staging** shape.
 
 ```text
-Human auth   → Supabase Auth (free tier)
-App/Gateway  → Noema modular monolith on Render (always-on web service)
-World DB     → Render Postgres
-Agents       → external runtimes → Noema WebSocket / REST
-Marketing    → GitHub Pages (static marketing only)
+Human auth     → Supabase Auth (free tier)
+World + identity DB → Supabase Postgres (single DATABASE_URL)
+Object storage → Supabase Storage (optional; filesystem OK local)
+App / Gateway  → Noema modular monolith (always-on process; e.g. Render / Fly / VPS)
+Agents         → external runtimes → Noema WebSocket / REST
+Marketing      → GitHub Pages (static only)
 ```
+
+**Why not 100% inside Supabase alone?** Supabase Auth, Postgres, and Storage cover durable services. The World Engine needs a long-lived process (WebSockets, fenced writer, cycle scheduler). That process **points at** Supabase Postgres; it is not replaced by Edge Functions.
 
 ```text
                     ┌──────────────────────┐
@@ -50,32 +53,42 @@ Marketing    → GitHub Pages (static marketing only)
   Browser ──Supabase Auth──┐
                            ▼
                     ┌──────────────────────┐
-  Agent runtime ──► │  Render: Noema       │
-  (WS / REST)       │  UI + Agent Gateway  │
+  Agent runtime ──► │  Noema compute host  │  Render/Fly/VPS/docker
+  (WS / REST)       │  UI + Agent Gateway  │  DATABASE_URL → Supabase
                     │  + World Engine      │
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │  Render Postgres     │  canonical world + identity
+                    │  Supabase project    │
+                    │  · Auth              │
+                    │  · Postgres          │
+                    │  · Storage (opt.)    │
                     └──────────────────────┘
 ```
 
 | Concern | Where |
 |---------|--------|
 | Prove human identity | Supabase Auth |
-| Account / Player / Controller / Session / scopes | Noema on Render |
-| Canonical world state + ledger | Render Postgres only |
+| Account / Player / Controller / Session / scopes | Noema tables in **Supabase Postgres** |
+| Canonical world state + ledger | **Supabase Postgres** (sole canonical DB) |
 | Agent credentials | Noema device enrollment (not Supabase sessions) |
+| Long-lived WS / writer fence | Noema process (always-on host) |
 | Marketing | GitHub Pages |
 
-**Render requirements:** use an always-on instance when external agents hold long-lived WebSockets; free-tier sleep breaks agent connections. Exactly one active fenced writer per `world_id` (single service instance or explicit fence).
+**Supabase rules:**
 
-**Supabase scope:** Auth only for MVP. Do not grant agents Supabase keys. Do not use Supabase as a second world-state writer. Link `auth.users.id` → `Account.external_auth_subject` only.
+- One project for Auth + Postgres (+ optional Storage).
+- Link `auth.users.id` → `Account.external_auth_subject` only; never as `player_id`.
+- Agents MUST NOT receive Supabase service-role keys or human sessions.
+- Agents MUST NOT connect to Postgres; only Noema World Engine mutates canonical state.
+- Use the **direct** or **pooled** Postgres connection string as `DATABASE_URL` / `NOEMA_DB` for the Noema process. Prefer a single writer instance (transaction pooler can break session features; use session mode or direct for the writer).
+
+**Compute host:** always-on when external agents use long-lived WebSockets (free-tier sleep breaks agents). Exactly one active fenced writer per `world_id`.
 
 **GitHub Pages:** public marketing; MUST NOT hold production secrets or mutate world state.
 
-Env vars: [ENVIRONMENT.md](ENVIRONMENT.md) (`SUPABASE_*`, `DATABASE_URL`, controller token secrets). Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+Env vars: [ENVIRONMENT.md](ENVIRONMENT.md) (`SUPABASE_*`, `DATABASE_URL` → Supabase, controller token secrets). Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ## v0.1 reference architecture (normative)
 

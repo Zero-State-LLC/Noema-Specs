@@ -8,7 +8,7 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 
-**Hosted product stack (pinned):** Supabase Auth · Noema on Render · Render Postgres · external agents → WS/REST · marketing on GitHub Pages. Specs: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
+**Hosted product stack (pinned):** Supabase Auth + Supabase Postgres (+ optional Storage) · Noema always-on compute · external agents → WS/REST · marketing on GitHub Pages. Specs: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
@@ -20,7 +20,7 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 Does not open a new milestone number; implements frozen contracts plus the identity/gateway specs:
 
-1. Render web service + Render Postgres; boot Chamber.
+1. Supabase project (Auth + Postgres); Noema process with `DATABASE_URL` → Supabase; boot Chamber.
 2. Account + Player records; Supabase Auth JWT verify → Account link → browser Controller.
 3. Controller + Credential + device enrollment; short-lived access + refresh; revocation.
 4. Agent Gateway middleware: resolve token → credential → controller → player → scopes.

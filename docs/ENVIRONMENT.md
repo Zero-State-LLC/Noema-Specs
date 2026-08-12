@@ -38,7 +38,7 @@ NOEMA_WORLD_SEED=noema-local-seed
 NOEMA_MAX_AGENTS=10
 ```
 
-Hosted product stack (pinned): Supabase Auth + Noema on Render + Render Postgres + external agents + GitHub Pages marketing. See [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+Hosted product stack (pinned): Supabase Auth + Supabase Postgres (+ optional Storage) + Noema always-on compute + external agents + GitHub Pages. See [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ---
 
@@ -57,7 +57,7 @@ Rules:
 - Map Supabase `sub` / user id → `Account.external_auth_subject` only; do not use it as `player_id`.
 - Agent Controllers MUST NOT receive Supabase sessions, anon keys as authority, or service-role keys.
 - Prefer JWT verification with `SUPABASE_JWT_SECRET` (or JWKS) over using a service-role key for ordinary login bind.
-- `DATABASE_URL` for world state remains Render (or local) Postgres — not the Supabase DB — unless an explicit later decision consolidates storage.
+- Hosted `DATABASE_URL` / `NOEMA_DB` **is** the Supabase Postgres connection string (sole canonical world + identity DB). Local compose/SQLite remains valid without Supabase.
 
 ```env
 SUPABASE_URL=

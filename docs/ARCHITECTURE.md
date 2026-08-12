@@ -79,12 +79,15 @@ v0.1 **reference deployment** is a modular monolith with PostgreSQL and simple o
 ### Hosted product stack (pinned)
 
 ```text
-Human auth   → Supabase Auth (free)
-App/Gateway  → Noema on Render
-World DB     → Render Postgres
-Agents       → external → Noema WS / REST
-Marketing    → GitHub Pages
+Human auth     → Supabase Auth
+World + identity → Supabase Postgres
+Object storage → Supabase Storage (optional)
+App / Gateway  → Noema always-on process (Render / Fly / VPS)
+Agents         → external → Noema WS / REST
+Marketing      → GitHub Pages
 ```
+
+Supabase holds Auth + canonical DB. Noema remains the sole world mutator (process not replaceable by Edge Functions alone).
 
 Identity/auth MVP (additive to Chamber play):
 

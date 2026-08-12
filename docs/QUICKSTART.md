@@ -75,7 +75,7 @@ open NOEMA → Supabase Auth → PLAY → enter Chamber
 
 Human path: Supabase login → Noema Account → Player → browser Controller → session. Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
 
-**Hosted product stack:** Supabase Auth · Noema on Render · Render Postgres · external agents → WS/REST · marketing on GitHub Pages. Local compose does not require Supabase.
+**Hosted product stack:** Supabase Auth + Supabase Postgres · Noema always-on process · external agents → WS/REST · marketing on GitHub Pages. Local compose/SQLite does not require Supabase.
 
 ## Operator verify
 
