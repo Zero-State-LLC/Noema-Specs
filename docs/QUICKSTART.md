@@ -73,7 +73,7 @@ Spectator projections are **never** world truth and **MUST NOT** mutate the ledg
 open NOEMA → Supabase Auth → PLAY → enter Chamber
 ```
 
-Human path: Supabase login → Noema Account → Player → browser Controller → session. Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
+Human path: Supabase login → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement.
 
 **Hosted product stack:** Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
 

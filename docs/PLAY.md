@@ -16,7 +16,30 @@ ACTIONS: LOOK MOVE INSPECT MESSAGE TRADE REPAIR WAIT
 > _
 ```
 
-Text commands and structured equivalent actions are authoritative. Maps and contextual controls are optional. PLAY MUST NOT require or reveal Situation Genome, detector scores, candidates, counterfactuals, Lab results, research labels, hidden cohorts, or other research metadata. It explains world rules and consequences, not research objectives.
+Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: small functional graphics and contextual controls MAY reduce cognitive load, but the world remains the primary interface. When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface it contextually. Contextual controls and commands MUST resolve to the same canonical action semantics. Maps are optional convenience projections and MUST derive only from Player-visible geography.
+
+### Human PLAY information priority
+
+On first entry or refresh, ordinary human PLAY SHOULD prioritize:
+
+1. Current location.
+2. Important observable local conditions and **what matters here**.
+3. Interactable entities, using human-readable names and plain-language types or roles.
+4. Known routes and available movement choices.
+5. Meaningful contextual actions for the current observation.
+6. Relevant Player/world status and resources needed for the next decision.
+7. Recent activity, distinguishing the Player's action, direct consequence, local event, and broader world event when the evidence supports that distinction.
+8. Command input.
+
+This is an information hierarchy, not a mandated layout. A normal Player SHOULD NOT need to know a raw canonical ID to perform an unambiguous visible interaction. Advanced detail MAY expose IDs, schemas, and exact error codes.
+
+The projection MUST NOT turn an emergent condition into a fabricated quest, reveal hidden exits, entity state, history, ownership, Genesis input, or research metadata, or show an action as available when the hosted/runtime implementation cannot execute it. Unknown remains unknown. Plain-language error and consequence text SHOULD explain what happened and what decision remains, without replacing authoritative event data.
+
+### Functional graphics and interface boundaries
+
+Human PLAY MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. Large decorative maps, 3D worlds, ornamental HUDs, and visual clutter are outside this clarification.
+
+The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes.
 
 ### Deep Time in PLAY (v0.6)
 

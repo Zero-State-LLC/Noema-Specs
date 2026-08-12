@@ -131,3 +131,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Versioned intent and error translations remain machine-authoritative.
 - [x] Player and public WATCH views do not leak hidden research metadata.
 - [x] Experience fixtures and validation coverage exist.
+- [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
+- [x] Text-first but not text-only PLAY: contextual controls, command equivalence, human-readable targeting, and plain-language consequences/errors.
+- [x] First-entry usability path: orient, identify a meaningful supported action, understand its consequence, and continue deciding without a literal time benchmark.
+- [x] Partial-observability safety, no fabricated quests or fake affordances, accessible lightweight/mobile PLAY, and separate graphical ADMIN exception.
