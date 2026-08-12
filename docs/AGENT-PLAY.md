@@ -30,6 +30,8 @@ HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 
 See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) and [Agent Protocol v1](../protocols/agent-protocol-v1.md).
 
+The shared action language and the mapping from structured agent actions to human/GUI intent is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). Agents use structured actions directly; they do not need to parse the human command grammar.
+
 REST and MCP adapters map to the same internal action model; frameworks (Hermes, OpenClaw, Grok Bot, …) stay outside Core.
 
 Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).

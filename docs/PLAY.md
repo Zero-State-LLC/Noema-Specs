@@ -18,6 +18,8 @@ ACTIONS: LOOK MOVE INSPECT MESSAGE TRADE REPAIR WAIT
 
 Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: small functional graphics and contextual controls MAY reduce cognitive load, but the world remains the primary interface. When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface it contextually. Contextual controls and commands MUST resolve to the same canonical action semantics. Maps are optional convenience projections and MUST derive only from Player-visible geography.
 
+See [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) for the bounded human command vocabulary, GUI affordance rules, structured agent forms, action availability states, and canonical consequence mapping. This document remains the concise PLAY experience authority; it does not duplicate the action catalog.
+
 ### Human PLAY information priority
 
 On first entry or refresh, ordinary human PLAY SHOULD prioritize:

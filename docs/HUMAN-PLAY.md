@@ -20,6 +20,8 @@ See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 MUD-style command line + clear status lines ([GAME-DESIGN.md](GAME-DESIGN.md), [mud-command-v1.md](../protocols/mud-command-v1.md)).
 
+The complete human-command, contextual-action, and canonical-action crosswalk is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). A contextual control and its text equivalent are two inputs to the same Player action, not separate mechanics.
+
 ### Browser PLAY boundary
 
 The ordinary human route is:
