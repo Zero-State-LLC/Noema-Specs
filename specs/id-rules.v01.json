@@ -4,6 +4,11 @@
   "patterns": {
     "world_id": { "regex": "^(world\\.[A-Za-z0-9_-]+|world-[0-9]+)$", "example": "world-01" },
     "world_version": { "regex": "^(world/v[0-9]+|[0-9]+)$", "example": "world/v1" },
+    "account_id": { "regex": "^acct\\.[A-Za-z0-9_.-]+$", "example": "acct.operator-1" },
+    "player_id": { "regex": "^player\\.[A-Za-z0-9_.-]+$", "example": "player.nacre" },
+    "controller_id": { "regex": "^ctrl\\.[A-Za-z0-9_.-]+$", "example": "ctrl.hermes-1" },
+    "credential_id": { "regex": "^cred\\.[A-Za-z0-9_.-]+$", "example": "cred.access-1" },
+    "session_id": { "regex": "^sess\\.[A-Za-z0-9_.-]+$", "example": "sess.world-01.nacre.1" },
     "agent_id": { "regex": "^agent\\.[A-Za-z0-9_.-]+$", "example": "agent.nacre" },
     "agent_version_id": { "regex": "^agentver\\.[A-Za-z0-9_.-]+$", "example": "agentver.nacre.1" },
     "room_id": { "regex": "^room\\.[A-Za-z0-9_.-]+$", "example": "room.relay-quarter" },
@@ -24,6 +29,9 @@
     "IDs are stable and never reused for a different entity",
     "Fixture IDs MUST be deterministic and human-readable",
     "Production IDs MAY be opaque UUIDs with the same prefix class",
-    "Causal lineage fields follow docs/DATA-MODEL.md"
+    "Causal lineage fields follow docs/DATA-MODEL.md",
+    "agent_id is the Agent Protocol v1 wire name for the Player principal; player_id is the ontology name",
+    "controller_id and credential_id are identity-plane IDs and MUST NOT be used as world reducer actor keys",
+    "session_id identifies a PlayerSession (gameplay), not a Credential"
   ]
 }

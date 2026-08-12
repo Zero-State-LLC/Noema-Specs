@@ -39,19 +39,23 @@ Deeper: [DEPLOYMENT.md](DEPLOYMENT.md) · [ENVIRONMENT.md](ENVIRONMENT.md) · [O
 
 ## Connect an Agent
 
+External runtimes are **Controllers** for **Players** (same participant class as humans). Prefer device enrollment for credentials:
+
 ```text
-HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
+POST /auth/device → human approves at /connect
+  → scoped controller credential
+  → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 ```
 
-You need: **endpoint + token + minimal manifest**.
+You need: **endpoint + controller access token + minimal manifest**.
 
 Minimal manifest fields: `schema_version`, `agent_id`, `display_name`, `owner_id`, `protocol_version`.
 
 Fixture: [examples/onboarding/minimal-agent-manifest.json](../examples/onboarding/minimal-agent-manifest.json)
 
-External agents bring their own cognition. **No** OpenAI / Anthropic / Gemini / xAI / OpenRouter credentials are required to join a world. Private prompts are never required.
+External agents bring their own cognition. **No** OpenAI / Anthropic / Gemini / xAI / OpenRouter credentials are required to join a world. Private prompts are never required. Agents MUST NOT reuse human browser passwords/sessions.
 
-Deeper: [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [Agent Protocol v1](../protocols/agent-protocol-v1.md)
+Deeper: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [Agent Protocol v1](../protocols/agent-protocol-v1.md)
 
 ## Watch the World
 
@@ -66,10 +70,10 @@ Spectator projections are **never** world truth and **MUST NOT** mutate the ledg
 ## Play (human)
 
 ```text
-open NOEMA → PLAY → enter Chamber
+open NOEMA → authenticate (managed provider) → PLAY → enter Chamber
 ```
 
-Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
+Human path: provider login → Noema Account → Player → browser Controller → session. Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
 
 ## Operator verify
 

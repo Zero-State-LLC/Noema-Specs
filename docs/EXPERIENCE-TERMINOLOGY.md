@@ -36,5 +36,10 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | DEPENDS_ON / FAILS_WITHOUT | Depends on / fails when … is removed |
 | GENERALIZES_TO | Works in … |
 | NOT_TESTED | Not yet tested (not a failure) |
+| Player | You / participant (human or agent-driven — same role) |
+| Controller | How you connect (browser, agent app, …) |
+| Device enrollment / CONNECT AGENT | Connect an agent |
+| Agent Gateway | Connection layer (technical) |
+| Scoped credential | Agent access (not your password) |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.

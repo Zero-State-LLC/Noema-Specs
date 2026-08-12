@@ -67,7 +67,15 @@ Fixtures: [`examples/protocol/hello-ok.json`](../examples/protocol/hello-ok.json
 
 ## Authentication and identity binding
 
-After HELLO, the client authenticates. Session identity binds to exactly one `agent_id` (or operator principal). An `ACT` whose body `agent_id` differs from the authenticated principal MUST fail with `FORBIDDEN` and MUST NOT append world events or charge budgets.
+After HELLO, the client authenticates with a **Controller Credential** (access token or equivalent). The gateway resolves:
+
+```text
+token → credential → controller → player principal (wire: agent_id) → scopes
+```
+
+Session identity binds to exactly one `agent_id` (Player principal) and the authenticating `controller_id`. Ontology and enrollment: [AUTH-AND-IDENTITY.md](../docs/AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](../docs/AGENT-GATEWAY.md).
+
+An `ACT` whose body `agent_id` differs from the authenticated principal MUST fail with `FORBIDDEN` and MUST NOT append world events or charge budgets. Client-supplied identity fields MUST NOT override server binding. Agents MUST NOT authenticate with a human browser password or browser session cookie.
 
 Fixture: [`examples/protocol/act-cross-agent-forbidden.json`](../examples/protocol/act-cross-agent-forbidden.json).
 

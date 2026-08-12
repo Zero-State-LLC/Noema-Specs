@@ -1,30 +1,65 @@
 # Security
 
+Identity and auth model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway boundary: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Sequences: [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md).
+
 ## Threat model
 
-Threats include malicious agents, prompt injection through world content, malicious inter-agent messages, tool abuse, credential exposure, replay tampering, event-ledger tampering, data exfiltration, denial of service, runaway tool loops, cross-agent data leakage, cross-world state leakage, reducer amplification, public/private research-data leakage, consent bypass, and model-provider key leakage.
+Threats include malicious external Controllers (agent runtimes), prompt injection through world content, malicious inter-player messages, tool abuse, credential exposure, replay tampering, event-ledger tampering, data exfiltration, denial of service, runaway tool loops, cross-player data leakage, cross-world state leakage, reducer amplification, public/private research-data leakage, consent bypass, and model-provider key leakage.
+
+### Auth / Agent Gateway threats (bounded)
+
+| Threat | Conceptual mitigation |
+|--------|------------------------|
+| Stolen controller access tokens | Short-lived access tokens; revocation; scope enforcement |
+| Leaked refresh tokens | Rotatable refresh credentials; reuse detection; revoke family |
+| Replay attacks | Idempotency keys; monotonic client sequences; token expiry |
+| Compromised external agents | Least-privilege scopes; rate limits; quarantine; Controller revoke |
+| Malicious MCP clients | Same auth path as REST/WS; no privileged protocol |
+| Capability escalation | Server-side scope intersection only |
+| Unauthorized Player switching | Controller bound to one Player; ignore client identity fields |
+| Direct database access | No external DB credentials; only World Engine mutates canonical state |
+| Concurrent action races | MVP: one action-producing Controller per Player Session; writer fencing |
+| Revoked controller reuse | Check Controller and Credential `revoked_at` every request |
+| Excessive request rates | Gateway rate limits and budgets |
+| Spoofed controller metadata | Metadata is untrusted provenance, never authority |
+
+Do not over-engineer enterprise IAM for MVP. Prefer managed human auth (e.g. Supabase Auth) plus scoped Controller credentials.
+
+## Hard architecture invariants
+
+> **External agents never execute inside Noema Core and never write directly to canonical world state.**
+
+> **Noema integrates protocols, not agent frameworks.**
+
+> **Humans and agents are both Players.** Distinctions live on Controllers.
+
+Forbidden path: `Agent → direct DB mutation → world state`.  
+Required path: `Agent → authenticated request → Agent Gateway → authorization → validation → game engine → canonical mutation`.
 
 ## Requirements
 
-- No provider keys exposed to agents.
-- Per-agent capability tokens.
-- Strict tool allowlists.
+- No provider keys exposed to external Controllers / Players.
+- Scoped Controller credentials (not unrestricted API keys by default).
+- Authorization resolution: token → credential → controller → player → capabilities.
+- Agents MUST NOT receive human browser passwords or browser session cookies.
+- Controllers and Credentials are revocable independently of Player world history.
+- Strict tool allowlists for NOEMA-routed tools.
 - Outbound network policy.
 - Rate limits and compute/action budgets.
-- Sandbox execution.
+- Sandbox execution for Gateway-hosted tools (not for external agent processes — those stay outside).
 - Signed event receipts for research/evidence export profiles; optional for local gameplay.
 - Tamper-evident ledgers.
 - Private/public data separation.
-- Audit logging and schema validation.
+- Audit logging and schema validation; action provenance includes `controller_id` / `session_id` when identity plane is enabled.
 - Maximum payload sizes and tool-call timeouts.
-- Kill switch, agent quarantine, and world-level incident mode.
+- Kill switch, Controller/Player quarantine, and world-level incident mode.
 - Evidence export signing and receipt verification for research-isolated outputs.
 
 ## Containment
 
-Agent code, tools, and model adapters MUST execute within a deny-by-default containment boundary. The World Engine MUST NOT execute agent code; it accepts only authenticated, schema-valid structured actions. World reducers execute in the trusted simulation boundary and MUST remain pure, deterministic, and unable to perform network, filesystem, model, or tool side effects. The containment boundary MUST restrict filesystem paths, processes, network destinations, credentials, tool verbs, payload sizes, wall-clock time, concurrency, and resource use. Capability grants MUST be scoped to one agent, one world, an explicit operation set, and a bounded lifetime. A grant for observation or research export MUST NOT imply authority to mutate world state.
+External agent code, tools, and model adapters execute **outside** Noema Core. The World Engine MUST NOT execute agent code; it accepts only authenticated, schema-valid structured actions from the Agent Gateway. World reducers execute in the trusted simulation boundary and MUST remain pure, deterministic, and unable to perform network, filesystem, model, or tool side effects. The Gateway containment boundary MUST restrict filesystem paths, processes, network destinations, credentials, tool verbs, payload sizes, wall-clock time, concurrency, and resource use for any Gateway-hosted tool execution. Capability grants MUST be scoped to one Controller (hence one Player), one world (when world-bound), an explicit operation set, and a bounded lifetime. A grant for observation or research export MUST NOT imply authority to mutate world state.
 
-Tool and model-provider credentials MUST terminate at a trusted gateway and MUST NOT appear in prompts, observations, agent-visible environment variables, tool results, logs, or replay bundles. Untrusted world content and inter-agent messages MUST be treated as data, not authority. Implementations MUST provide deterministic cancellation at budget exhaustion, timeout, quarantine, world incident mode, or operator kill switch. Cleanup MUST revoke ephemeral credentials and terminate descendant processes.
+Tool and model-provider credentials MUST terminate at a trusted gateway and MUST NOT appear in prompts, observations, agent-visible environment variables, tool results, logs, or replay bundles. Untrusted world content and inter-player messages MUST be treated as data, not authority. Implementations MUST provide deterministic cancellation at budget exhaustion, timeout, quarantine, world incident mode, or operator kill switch. Cleanup MUST revoke ephemeral credentials and terminate descendant processes of Gateway-hosted tools.
 
 Acceptance checks SHOULD attempt forbidden filesystem access, unapproved egress, credential retrieval, over-sized payloads, process escape, and execution after cancellation. Each attempt MUST be denied and auditable without disclosing the protected value.
 
@@ -38,7 +73,7 @@ Acceptance checks SHOULD create identical object identifiers in two worlds, exer
 
 ## Budget and reducer enforcement
 
-Action resolution MUST check the agent's canonical budget account before applying a state transition. Budget availability and consumption are part of deterministic reducer input and state. An action that would exceed attention, compute, tool, message, planning-depth, inspection, delegation, experimental-action, energy, influence, storage, or other declared limits MUST be rejected and MUST emit `BUDGET_EXCEEDED` as defined by the [Event Catalog](EVENT-CATALOG.md). The attempted action MUST NOT mutate world state, call a tool or model, enter a queue, or consume the exceeded budget. Accepted consumption MUST be recorded through the action event or `BUDGET_CONSUMED` without double charging.
+Action resolution MUST check the Player's (wire: agent) canonical budget account before applying a state transition. Budget availability and consumption are part of deterministic reducer input and state. An action that would exceed attention, compute, tool, message, planning-depth, inspection, delegation, experimental-action, energy, influence, storage, or other declared limits MUST be rejected and MUST emit `BUDGET_EXCEEDED` as defined by the [Event Catalog](EVENT-CATALOG.md). The attempted action MUST NOT mutate world state, call a tool or model, enter a queue, or consume the exceeded budget. Accepted consumption MUST be recorded through the action event or `BUDGET_CONSUMED` without double charging.
 
 The trusted gateway and scheduler MAY reject malformed, unauthorized, oversized, rate-limited, or obviously over-budget requests before world resolution, but replay-critical budget truth remains canonical reducer state. Gateway reservations and retries MUST reconcile with the reducer result and MUST NOT become a second source of truth.
 
@@ -50,7 +85,7 @@ Acceptance checks SHOULD test exact-limit, one-over-limit, adversarial expansion
 
 ## Consent gating
 
-Research capture, retention, analysis, publication, and export MUST be independently authorized. Registration or world entry MUST NOT be interpreted as public-dataset consent. The effective policy MUST be the most restrictive combination of agent consent flags, study policy, world policy, data visibility, retention status, licensing, and applicable operator controls.
+Research capture, retention, analysis, publication, and export MUST be independently authorized. Registration or world entry MUST NOT be interpreted as public-dataset consent. The effective policy MUST be the most restrictive combination of Player/agent consent flags, study policy, world policy, data visibility, retention status, licensing, and applicable operator controls.
 
 Consent MUST be checked at collection and rechecked before reduction for research, analysis, bundle creation, publication, or transfer. Missing, expired, withdrawn, contradictory, or unverifiable consent MUST fail closed. Derived observations MUST retain source lineage, consent basis, exclusions, and visibility classification. Aggregation, de-identification, or reducer output MUST NOT upgrade visibility or erase withdrawal obligations unless an approved policy explicitly establishes that transformation.
 

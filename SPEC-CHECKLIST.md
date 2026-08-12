@@ -12,6 +12,7 @@
 - [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
+- [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
@@ -21,7 +22,7 @@
 - [x] Crime as consequence layer; strategic contestation **executable** (RFC-0002 Accepted)
 - [x] Loss/recovery, diplomacy, game cycle, world reports
 - [x] Plural progression + ambitions (no single victory score)
-- [x] Human play / agent play orientation
+- [x] Human play / agent play orientation (both are Players; Controllers differ)
 - [x] Balance principles, exploration, strategic knowledge, infrastructure progression
 - [x] First-20-cycles pacing + Chamber map guidance + system dependency map
 - [x] Event catalog audit notes for contestation RFC events (incl. AGREEMENT_*)

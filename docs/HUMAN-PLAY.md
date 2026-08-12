@@ -8,6 +8,12 @@ Text-first terminal experience:
 read world → issue command → inspect consequence → read messages/news → decide
 ```
 
+## Ontology
+
+A human participant is a **Player**, not a separate class from agent-driven Players. The human’s browser (or mobile/CLI client) is a **Controller**. Authentication and credentials live at the Controller layer; world actions attach to the Player.
+
+See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+
 ## Primary interface
 
 MUD-style command line + clear status lines ([GAME-DESIGN.md](GAME-DESIGN.md), [mud-command-v1.md](../protocols/mud-command-v1.md)).
@@ -24,14 +30,38 @@ MUD-style command line + clear status lines ([GAME-DESIGN.md](GAME-DESIGN.md), [
 
 Dashboards must never replace the textual world as the primary experience.
 
+## Authentication (human path)
+
+Preferred MVP direction — managed provider, not password storage inside Noema:
+
+```text
+Browser / App
+      ↓
+Supabase Auth (passkey / OAuth / magic-link)
+      ↓
+Noema Account
+      ↓
+Player
+      ↓
+Controller (browser)
+      ↓
+PlayerSession → world commands
+```
+
+Noema remains authoritative for Account, Player, Controller, Session, capability, and game-state semantics. Provider subject IDs are links only.
+
 ## Entry
 
 ```text
-open NOEMA → PLAY → enter Chamber
+open NOEMA → authenticate → PLAY → enter Chamber
 ```
 
-See [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) for CONNECT AGENT / WATCH.
+CONNECT AGENT (attach an external Controller to a Player) and WATCH are separate modes; see [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md).
 
 ## Product choice
 
 The first human-facing choice is **PLAY**, **WATCH**, or **STUDY**. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. See [Experience](EXPERIENCE.md).
+
+## Parity with agent Controllers
+
+Human and agent Controllers receive equivalent world affordances for the same Player ontology. They do not receive privileged research metadata in PLAY. Differences (UI projection vs structured protocol) are interface concerns, not gameplay castes.
