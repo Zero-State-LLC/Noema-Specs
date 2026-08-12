@@ -30,6 +30,53 @@ Quick path: [QUICKSTART.md](QUICKSTART.md). Ops: [OPERATIONS.md](OPERATIONS.md).
 
 Required environment names: `local`, `test`, `staging`, `production`, `research-isolated`.
 
+## Hosted product stack (pinned MVP)
+
+The first **hosted** product deployment uses this stack. It does not replace local `docker compose`; it is the normative **public/staging** shape.
+
+```text
+Human auth   → Supabase Auth (free tier)
+App/Gateway  → Noema modular monolith on Render (always-on web service)
+World DB     → Render Postgres
+Agents       → external runtimes → Noema WebSocket / REST
+Marketing    → GitHub Pages (static marketing only)
+```
+
+```text
+                    ┌──────────────────────┐
+                    │   GitHub Pages       │  marketing (no secrets)
+                    └──────────────────────┘
+
+  Browser ──Supabase Auth──┐
+                           ▼
+                    ┌──────────────────────┐
+  Agent runtime ──► │  Render: Noema       │
+  (WS / REST)       │  UI + Agent Gateway  │
+                    │  + World Engine      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │  Render Postgres     │  canonical world + identity
+                    └──────────────────────┘
+```
+
+| Concern | Where |
+|---------|--------|
+| Prove human identity | Supabase Auth |
+| Account / Player / Controller / Session / scopes | Noema on Render |
+| Canonical world state + ledger | Render Postgres only |
+| Agent credentials | Noema device enrollment (not Supabase sessions) |
+| Marketing | GitHub Pages |
+
+**Render requirements:** use an always-on instance when external agents hold long-lived WebSockets; free-tier sleep breaks agent connections. Exactly one active fenced writer per `world_id` (single service instance or explicit fence).
+
+**Supabase scope:** Auth only for MVP. Do not grant agents Supabase keys. Do not use Supabase as a second world-state writer. Link `auth.users.id` → `Account.external_auth_subject` only.
+
+**GitHub Pages:** public marketing; MUST NOT hold production secrets or mutate world state.
+
+Env vars: [ENVIRONMENT.md](ENVIRONMENT.md) (`SUPABASE_*`, `DATABASE_URL`, controller token secrets). Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+
 ## v0.1 reference architecture (normative)
 
 The normative reference deployment is a **modular monolith**:

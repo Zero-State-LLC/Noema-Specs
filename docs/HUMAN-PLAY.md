@@ -32,23 +32,23 @@ Dashboards must never replace the textual world as the primary experience.
 
 ## Authentication (human path)
 
-Preferred MVP direction — managed provider, not password storage inside Noema:
+Pinned MVP human path — Supabase Auth, not password storage inside Noema:
 
 ```text
 Browser / App
       ↓
 Supabase Auth (passkey / OAuth / magic-link)
       ↓
-Noema Account
+Noema Account (on Render)
       ↓
 Player
       ↓
 Controller (browser)
       ↓
-PlayerSession → world commands
+PlayerSession → world commands (Render Postgres)
 ```
 
-Noema remains authoritative for Account, Player, Controller, Session, capability, and game-state semantics. Provider subject IDs are links only.
+Hosted stack: Supabase Auth · Noema on Render · Render Postgres · agents external · marketing GitHub Pages. Noema remains authoritative for Account, Player, Controller, Session, capability, and game-state semantics. Supabase user ids are links only (`external_auth_subject`).
 
 ## Entry
 

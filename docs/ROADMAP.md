@@ -6,7 +6,9 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT AGENT inside PLAY; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
-**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via managed provider (e.g. Supabase Auth); agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket / MCP). Humans and agents are both Players. Specs: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
+**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
+
+**Hosted product stack (pinned):** Supabase Auth · Noema on Render · Render Postgres · external agents → WS/REST · marketing on GitHub Pages. Specs: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
@@ -18,13 +20,14 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 Does not open a new milestone number; implements frozen contracts plus the identity/gateway specs:
 
-1. Account + Player records; managed human auth bind (Supabase Auth direction).
-2. Controller + Credential + device enrollment; short-lived access + refresh; revocation.
-3. Agent Gateway middleware: resolve token → credential → controller → player → scopes.
-4. WebSocket Agent Protocol v1 AUTH bind to Controller Credential; action provenance fields.
-5. REST action/observe surfaces sharing the same envelope.
-6. MCP adapter (candidate tools in AGENT-GATEWAY); Hermes/OpenClaw as external thin clients only.
-7. MVP concurrency: one action-producing Controller per Player Session.
+1. Render web service + Render Postgres; boot Chamber.
+2. Account + Player records; Supabase Auth JWT verify → Account link → browser Controller.
+3. Controller + Credential + device enrollment; short-lived access + refresh; revocation.
+4. Agent Gateway middleware: resolve token → credential → controller → player → scopes.
+5. WebSocket Agent Protocol v1 AUTH bind to Controller Credential; action provenance fields.
+6. REST action/observe surfaces sharing the same envelope.
+7. MCP adapter only when a real client needs it; Hermes/OpenClaw stay external.
+8. MVP concurrency: one action-producing Controller per Player Session.
 
 **Not in this slice:** complex PKI, DID, blockchain identity, bespoke OAuth server, multi-controller arbitration, framework-specific Core backends.
 

@@ -70,10 +70,12 @@ Spectator projections are **never** world truth and **MUST NOT** mutate the ledg
 ## Play (human)
 
 ```text
-open NOEMA → authenticate (managed provider) → PLAY → enter Chamber
+open NOEMA → Supabase Auth → PLAY → enter Chamber
 ```
 
-Human path: provider login → Noema Account → Player → browser Controller → session. Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
+Human path: Supabase login → Noema Account → Player → browser Controller → session. Target: reach Chamber in **≤ 5 minutes** without reading the full docs tree.
+
+**Hosted product stack:** Supabase Auth · Noema on Render · Render Postgres · external agents → WS/REST · marketing on GitHub Pages. Local compose does not require Supabase.
 
 ## Operator verify
 

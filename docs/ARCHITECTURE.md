@@ -76,16 +76,26 @@ Hermes, OpenClaw, Grok Bot, Claude/Codex-style agents, Ollama/Qwen, and future r
 
 v0.1 **reference deployment** is a modular monolith with PostgreSQL and simple object/blob storage (filesystem adapter acceptable locally). Module boundaries and interfaces MUST still be explicit so later deployments can split services without protocol changes.
 
+### Hosted product stack (pinned)
+
+```text
+Human auth   → Supabase Auth (free)
+App/Gateway  → Noema on Render
+World DB     → Render Postgres
+Agents       → external → Noema WS / REST
+Marketing    → GitHub Pages
+```
+
 Identity/auth MVP (additive to Chamber play):
 
 ```text
-Human auth (managed provider, e.g. Supabase Auth) → Account + Player
+Supabase Auth → Account + Player + browser Controller
 Agent device enrollment → scoped Controller credential
-Agent Gateway → REST + WebSocket + MCP adapter
+Agent Gateway → REST + WebSocket (MCP adapter when needed)
 ```
 
-Normative module list and non-requirements (no K8s/Kafka/mandatory Redis/separate auth-event-Observatory services): [DEPLOYMENT.md](DEPLOYMENT.md).
+Normative module list and non-requirements (no K8s/Kafka/mandatory Redis/separate auth-event-Observatory services): [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 Spectator projection and research capture are in-process modules in the reference shape; they MUST NOT become alternative world-truth authorities.
 
-Out of MVP identity scope: complex PKI, blockchain identity, bespoke OAuth server, DID, multi-controller arbitration, custom password cryptography in Noema. Details: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+Out of MVP identity scope: complex PKI, blockchain identity, bespoke OAuth server, DID, multi-controller arbitration, custom password cryptography in Noema, running agent frameworks inside Core.

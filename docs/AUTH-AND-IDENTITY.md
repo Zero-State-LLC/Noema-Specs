@@ -307,23 +307,47 @@ Controller (type: browser | mobile | cli)
 PlayerSession
 ```
 
+### Canonical hosted stack (MVP product)
+
+Pinned operational stack for the first hosted product (not a protocol requirement for local Chamber fixtures):
+
+```text
+Human auth   → Supabase Auth (free tier)
+App/Gateway  → Noema modular monolith on Render
+World DB     → Render Postgres
+Agents       → external runtimes → Noema WS / REST (MCP later)
+Marketing    → GitHub Pages (static; not the runtime)
+```
+
+| Surface | Host | Notes |
+|---------|------|--------|
+| PLAY / WATCH UI + Agent Gateway + World Engine | **Render** web service (always-on for WS agents) | One process; single fenced writer per world |
+| Canonical world + identity tables | **Render Postgres** | `DATABASE_URL` only on Noema; never to agents |
+| Human login (OAuth, magic-link, passkeys as available) | **Supabase Auth** | `supabase_user_id` → `Account.external_auth_subject` only |
+| External agents (Hermes, OpenClaw, …) | Operator machines / their hosts | Device enrollment → Noema controller tokens |
+| Marketing site | **GitHub Pages** | No secrets, no world mutation |
+
+Local golden path remains `docker compose` + local Postgres without requiring Supabase or Render ([DEPLOYMENT.md](DEPLOYMENT.md), [QUICKSTART.md](QUICKSTART.md)).
+
 ### Planned compatibility
 
 | Method | Status |
 |--------|--------|
-| Passkeys / WebAuthn | Supported direction via provider |
-| OAuth (Google, GitHub, …) | Supported direction via provider |
-| Email magic-link | Supported direction via provider |
+| Passkeys / WebAuthn | Supported direction via Supabase Auth |
+| OAuth (Google, GitHub, …) | Supported direction via Supabase Auth |
+| Email magic-link | Supported direction via Supabase Auth |
 | Direct password storage in Noema | **Out of MVP**; do not build custom password cryptography |
+| Clerk / other managed IdPs | Compatible with the same Account-link pattern; not the default stack |
 
 **Authority split:**
 
 | Concern | Authority |
 |---------|-----------|
-| Human identity proof (login) | Managed auth provider (e.g. Supabase Auth) |
-| Account, Player, Controller, Session, scopes, game state | **Noema** |
+| Human identity proof (login) | **Supabase Auth** |
+| Account, Player, Controller, Session, scopes, game state | **Noema** (Render + Render Postgres) |
+| Agent Controller credentials | **Noema** (not Supabase sessions) |
 
-After provider login, Noema creates or links an Account and default Player, issues a browser Controller Credential (or binds a short-lived session cookie equivalent), and opens a PlayerSession when the human enters a world.
+After Supabase login, Noema verifies the JWT server-side, creates or links an Account and default Player, binds a browser Controller, and opens a PlayerSession when the human enters a world.
 
 ---
 

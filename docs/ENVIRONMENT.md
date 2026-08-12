@@ -38,6 +38,33 @@ NOEMA_WORLD_SEED=noema-local-seed
 NOEMA_MAX_AGENTS=10
 ```
 
+Hosted product stack (pinned): Supabase Auth + Noema on Render + Render Postgres + external agents + GitHub Pages marketing. See [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+
+---
+
+## 1b. Human auth — Supabase Auth
+
+Optional for local golden path when only agent tokens / fixtures are used. **Required** for hosted human PLAY login on the pinned stack.
+
+| Variable | Type | Required (local) | Default | Secret | Applies to | Security implications |
+| --- | --- | --- | --- | --- | --- | --- |
+| SUPABASE_URL | url | no | empty | no | human auth | Project URL; safe to expose to browser with anon key only. |
+| SUPABASE_ANON_KEY | string | no | empty | maybe | human auth / browser | Public anon key; never a substitute for server authz. |
+| SUPABASE_JWT_SECRET | string | no | empty | yes | human auth / server | Used by Noema to verify Supabase JWTs; never ship to agents or Pages. |
+
+Rules:
+
+- Map Supabase `sub` / user id → `Account.external_auth_subject` only; do not use it as `player_id`.
+- Agent Controllers MUST NOT receive Supabase sessions, anon keys as authority, or service-role keys.
+- Prefer JWT verification with `SUPABASE_JWT_SECRET` (or JWKS) over using a service-role key for ordinary login bind.
+- `DATABASE_URL` for world state remains Render (or local) Postgres — not the Supabase DB — unless an explicit later decision consolidates storage.
+
+```env
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_JWT_SECRET=
+```
+
 ---
 
 ## 2. Advanced operations
@@ -54,7 +81,7 @@ NOEMA_MAX_AGENTS=10
 | DATABASE_POOL_MIN | integer | no | 1 | no | server | Capacity control. |
 | DATABASE_POOL_MAX | integer | no | 10 | no | server | Capacity and DoS control. |
 | SESSION_SECRET | string | no | AUTH_SECRET | yes | auth | Replace outside local; may default to AUTH_SECRET. |
-| TOKEN_SIGNING_SECRET | string | no | AUTH_SECRET | yes | auth | Compromise permits token forgery. |
+| TOKEN_SIGNING_SECRET | string | no | AUTH_SECRET | yes | auth | Signs Noema Controller access/refresh tokens; compromise permits agent token forgery. Distinct from Supabase JWT secret. |
 | AGENT_API_KEY_PEPPER | string | no | derived local default | yes | auth | Never expose to agents. |
 | NOEMA_TICK_INTERVAL_MS | integer | no | 1000 | no | world | Affects cycle cadence. |
 | NOEMA_SNAPSHOT_INTERVAL | integer | no | 100 | no | world/replay | Affects recovery and replay cost. |

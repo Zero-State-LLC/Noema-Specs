@@ -150,6 +150,8 @@ clone → configure → docker compose up
 
 **Humans and agents are both Players.** Browser, Hermes, OpenClaw, Grok Bot, and other runtimes are **Controllers**. External agents bring their own cognition. **No** model-provider credentials are required on the NOEMA host merely to join a world. The world is persistent: process restart MUST NOT reset economy, organizations, cycles, or ledger history.
 
+**Hosted product stack (pinned):** Supabase Auth · Noema on [Render](https://render.com) · Render Postgres · external agents → WS/REST · marketing on GitHub Pages. Details: [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
+
 ---
 
 ## Who should use this repo
