@@ -1,6 +1,8 @@
 # Noema Agent Gateway
 
-**Authority.** This document defines the **Agent Gateway** — the bounded architecture component that isolates external runtimes from Noema Core (World Engine, BRE/game reducers, canonical persistence).
+**Authority.** This document defines the **Agent Gateway** — the bounded edge that isolates external runtimes from the live World Engine and durable store.
+
+**Hosted mapping:** Cloudflare **Worker** = Agent Gateway; Cloudflare **Durable Object** = live World Engine; **Supabase** = durable identity/history. See [PLATFORM.md](PLATFORM.md).
 
 Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
 
@@ -10,35 +12,40 @@ Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AG
 
 The Agent Gateway:
 
-- authenticates Controllers and binds them to Players;
+- authenticates Controllers and binds them to Players (**PlayerPrincipal**);
 - enforces capabilities, rate limits, and budgets at the edge;
 - opens and tracks Sessions;
-- adapts external protocols (REST, WebSocket, MCP) into one internal action model;
+- adapts external protocols (REST, WebSocket, MCP) into one internal command model;
+- routes to the World Durable Object;
 - delivers permissioned observations and event streams;
-- **never** allows external code to execute inside Noema Core or write canonical world state directly.
+- **never** allows external code to execute inside Core or write Postgres world state directly.
+
+Workers stay **thin**. Reducers live in the World DO (or settled offline modules), not in unbounded Worker script sprawl.
 
 ---
 
 ## Canonical architecture
 
 ```text
-                ┌─────────────────────┐
-                │      NOEMA CORE     │
-                │                     │
-                │ World / BRE / Game  │
-                └──────────┬──────────┘
-                           │
+                ┌─────────────────────────┐
+                │  World Durable Object   │
+                │  live BRE / game state  │
+                └──────────┬──────────────┘
+                           │ settlement
+                ┌──────────▼──────────────┐
+                │  Supabase Postgres      │
+                │  durable ledger/history │
+                └─────────────────────────┘
+                           ▲
                     Action Protocol
                            │
                 ┌──────────▼──────────┐
-                │    AGENT GATEWAY    │
-                │                     │
-                │ Auth                │
-                │ Sessions            │
+                │  AGENT GATEWAY      │
+                │  (CF Worker)        │
+                │ Auth / Sessions     │
                 │ Capabilities        │
                 │ Rate limits         │
-                │ Event streams       │
-                │ Tool translation    │
+                │ Protocol adapters   │
                 └───────┬───┬───┬────┘
                         │   │   │
               ┌─────────┘   │   └─────────┐
@@ -48,12 +55,14 @@ The Agent Gateway:
 
 ```mermaid
 flowchart TB
-  subgraph core [Noema Core]
-    WE[World Engine / BRE]
-    L[Event Ledger]
-    O[Observation Projector]
+  subgraph live [Live]
+    DO[World Durable Object]
   end
-  subgraph gw [Agent Gateway]
+  subgraph durable [Durable]
+    PG[(Supabase Postgres)]
+    ST[(Storage)]
+  end
+  subgraph gw [Agent Gateway / Worker]
     AUTH[Auth / Credentials]
     CAP[Capabilities]
     SESS[Sessions]
@@ -67,8 +76,10 @@ flowchart TB
   WS --> XLAT
   MCP --> XLAT
   XLAT --> AUTH --> CAP --> SESS --> RL
-  RL -->|authorized Agent Action| WE
-  WE --> L --> O --> XLAT
+  RL -->|PlayerPrincipal + command| DO
+  DO -->|settle durable events| PG
+  DO -->|artifact_ref| ST
+  DO -->|observations| XLAT
 ```
 
 ---
@@ -101,7 +112,8 @@ Framework-specific integrations become **thin adapters** that speak those protoc
 | Session bind (player, controller, world) | Yes | Uses player/agent principal |
 | Idempotency lookup (edge) | Yes | Deterministic commit authority |
 | Action schema validation | Yes | Yes (reducer preconditions) |
-| Canonical state mutation | **No** | **Yes only** |
+| Live state transition | **No** | **Yes (Durable Object)** |
+| Durable ledger write | Settlement path only | DO → settle → Postgres |
 | Deterministic cycle order | No | Yes |
 | Observation projection | Delivery | Projection authority |
 | Tool sandbox for NOEMA-routed tools | Yes | — |

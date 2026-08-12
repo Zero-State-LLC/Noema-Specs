@@ -4,11 +4,13 @@ Storage-neutral canonical entities for NOEMA. v0.1 Chamber entities below are **
 
 Machine-readable ID rules: [`specs/id-rules.v01.json`](../specs/id-rules.v01.json).
 
-Identity and auth ontology (Account, Player, Controller, Credential, PlayerSession): [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Agent Gateway boundary: [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
+Identity and auth ontology (Account, Player, Controller / ControllerBinding, Credential, PlayerSession, PlayerPrincipal): [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Platform: [PLATFORM.md](PLATFORM.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
+
+**Authority note:** Live coordinated world state is operationally owned by the World Durable Object; Postgres holds durable settled history, identity, and research records. See settlement model in PLATFORM.md.
 
 ## Canonical entity inventory
 
-**Identity plane (auth/gateway; MVP-required for multi-controller and human login):** Account, Player, Controller, Credential, PlayerSession.
+**Identity plane (auth/gateway; MVP-required for multi-controller and human login):** Account (identity), Player, Controller / ControllerBinding, Credential, PlayerSession.
 
 **v0.1 world plane required:** Agent (wire/world principal; maps to Player), AgentVersion, World, WorldVersion, Room, Exit, Entity (incl. infrastructure & resource nodes), Organization, OrganizationMembership, ResourceAccount, Action, WorldEvent, Observation, Message, Snapshot, Trajectory, RuntimeManifest, AgentManifest.
 
@@ -320,7 +322,30 @@ The **Agent** registry record is the world/wire principal for a Player under fro
 
 ## Append-only preference
 
-Research-critical and world events use append-only ledgers. Corrections are new events.
+Research-critical and **settled** world events use append-only ledgers. Corrections are new events. Transient DO operations (heartbeats, redundant polls) are not required to become durable events.
+
+## Conceptual durable tables (platform)
+
+Minimum relational surface (names indicative; implement in Supabase):
+
+```text
+identities / accounts
+players
+controller_bindings
+credentials          # fingerprints / metadata; not raw secrets when avoidable
+sessions
+worlds
+locations / rooms
+player_state         # settled snapshots as needed
+inventory
+events               # settled durable GameEvents / WorldEvents
+experiments
+observations
+metrics
+artifacts            # Storage refs
+```
+
+Authoritative vs derived: live DO state is operational; Postgres events/snapshots are durable truth for replay/research after settlement.
 
 ## Public/private separation
 

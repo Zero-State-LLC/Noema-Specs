@@ -48,7 +48,7 @@ Controller (browser)
 PlayerSession → world commands (Render Postgres)
 ```
 
-Hosted stack: Supabase Auth + Supabase Postgres · Noema always-on process · agents external · marketing GitHub Pages. Noema remains authoritative for Account, Player, Controller, Session, capability, and game-state semantics. Supabase user ids are links only (`external_auth_subject`).
+Hosted stack: Supabase Auth + Cloudflare (Pages/Workers/DO) + Supabase Postgres. Noema remains authoritative for Account, Player, Controller, Session, capability, and game semantics. Supabase user ids are links only (`external_auth_subject`). See [PLATFORM.md](PLATFORM.md).
 
 ## Entry
 

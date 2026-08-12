@@ -309,28 +309,31 @@ PlayerSession
 
 ### Canonical hosted stack (MVP product)
 
-Pinned operational stack for the first hosted product (not a protocol requirement for local Chamber fixtures):
+Pinned operational stack ([PLATFORM.md](PLATFORM.md)):
 
 ```text
 Human auth       → Supabase Auth (free tier)
-World + identity → Supabase Postgres (sole canonical DATABASE_URL)
-Object storage   → Supabase Storage (optional)
-App / Gateway    → Noema modular monolith (always-on compute: Render / Fly / VPS / docker)
-Agents           → external runtimes → Noema WS / REST (MCP later)
-Marketing        → GitHub Pages (static; not the runtime)
+Identity + history → Supabase Postgres
+Large artifacts  → Supabase Storage
+API / Gateway    → Cloudflare Workers
+Live world       → Cloudflare Durable Objects
+Static web       → Cloudflare Pages
+Agents           → external → Worker WS/REST → World DO
 ```
 
 | Surface | Host | Notes |
 |---------|------|--------|
-| PLAY / WATCH UI + Agent Gateway + World Engine | Always-on **Noema process** | Points `DATABASE_URL` at Supabase; single fenced writer |
-| Canonical world + identity tables | **Supabase Postgres** | Only Noema holds DB credentials; never agents |
-| Human login | **Supabase Auth** | `supabase_user_id` → `Account.external_auth_subject` only |
-| External agents | Operator machines | Device enrollment → Noema controller tokens |
-| Marketing | **GitHub Pages** | No secrets, no world mutation |
+| PLAY / WATCH UI | Cloudflare Pages | Text-first product shells |
+| Agent Gateway | Cloudflare Worker | Authn/z, protocol, rate limits |
+| Live World Engine | Durable Object | Authoritative operational state NOW |
+| Identity + settled ledger | Supabase Postgres | Durable history; RLS as appropriate |
+| Human login | Supabase Auth | `sub` → `Account.external_auth_subject` only |
+| External agents | Operator machines | Device enrollment → controller tokens |
+| Large research blobs | Supabase Storage | `artifact_ref` from events |
 
-Supabase Edge Functions are **not** the World Engine. Durable services live in one Supabase project; the game loop is a long-lived Noema process.
+Supabase Realtime is **not** the multiplayer sync engine. Supabase Edge Functions are **not** the World Engine.
 
-Local golden path remains `docker compose` or SQLite without requiring a Supabase project ([DEPLOYMENT.md](DEPLOYMENT.md), [QUICKSTART.md](QUICKSTART.md)).
+Local golden path may use modular monolith + SQLite/Postgres without Cloudflare ([DEPLOYMENT.md](DEPLOYMENT.md), [QUICKSTART.md](QUICKSTART.md)).
 
 ### Planned compatibility
 
@@ -347,8 +350,10 @@ Local golden path remains `docker compose` or SQLite without requiring a Supabas
 | Concern | Authority |
 |---------|-----------|
 | Human identity proof (login) | **Supabase Auth** |
-| Account, Player, Controller, Session, scopes, game state | **Noema** (tables in Supabase Postgres) |
-| Agent Controller credentials | **Noema** (not Supabase sessions) |
+| Account, Player, Controller, Session, scopes | **Noema** (tables in Supabase Postgres) |
+| Live game transitions | **World Durable Object** (via Worker + PlayerPrincipal) |
+| Settled world history | **Supabase Postgres** |
+| Agent Controller credentials | **Noema** (not Supabase sessions / service role) |
 
 After Supabase login, Noema verifies the JWT server-side, creates or links an Account and default Player, binds a browser Controller, and opens a PlayerSession when the human enters a world.
 
@@ -472,6 +477,25 @@ Treat as research/telemetry provenance for comparative analysis across models, f
 
 ---
 
+## PlayerPrincipal
+
+After authentication, the edge resolves a **PlayerPrincipal** consumed by the World runtime:
+
+```text
+PlayerPrincipal {
+  player_id
+  identity_id | account_id
+  session_id
+  controller_id
+  controller_type    // human | agent | hybrid — metadata only
+  permissions | scopes
+  protocol_version
+  authentication_context
+}
+```
+
+The World Engine MUST derive gameplay authority from this principal (and scopes), not from client-supplied `player_id` / framework labels.
+
 ## Integration principle
 
 > **Noema integrates protocols, not agent frameworks.**
@@ -486,7 +510,7 @@ WebSocket
 MCP
 ```
 
-Framework-specific integrations are thin adapters at the Agent Gateway. See [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
+Framework-specific integrations are thin adapters at the Worker / Agent Gateway. Hosted edge is Cloudflare Workers; live world is Durable Objects. See [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [PLATFORM.md](PLATFORM.md).
 
 ---
 

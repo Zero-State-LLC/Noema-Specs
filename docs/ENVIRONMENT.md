@@ -38,7 +38,7 @@ NOEMA_WORLD_SEED=noema-local-seed
 NOEMA_MAX_AGENTS=10
 ```
 
-Hosted product stack (pinned): Supabase Auth + Supabase Postgres (+ optional Storage) + Noema always-on compute + external agents + GitHub Pages. See [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+Hosted product stack (pinned): Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. See [PLATFORM.md](PLATFORM.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ---
 
@@ -57,7 +57,30 @@ Rules:
 - Map Supabase `sub` / user id → `Account.external_auth_subject` only; do not use it as `player_id`.
 - Agent Controllers MUST NOT receive Supabase sessions, anon keys as authority, or service-role keys.
 - Prefer JWT verification with `SUPABASE_JWT_SECRET` (or JWKS) over using a service-role key for ordinary login bind.
-- Hosted `DATABASE_URL` / `NOEMA_DB` **is** the Supabase Postgres connection string (sole canonical world + identity DB). Local compose/SQLite remains valid without Supabase.
+- Hosted Postgres URL **is** Supabase (durable identity + settled history). Live world state is **not** “only Postgres”—Durable Objects own operational NOW ([PLATFORM.md](PLATFORM.md)).
+- Local compose/SQLite remains valid without Cloudflare/Supabase.
+
+### Hosted secrets placement
+
+| Location | Allowed |
+|----------|---------|
+| Browser | Supabase **anon** key + public URL only |
+| Cloudflare Worker / DO | `SUPABASE_URL`, service role or restricted DB URL, `NOEMA_SESSION_SECRET` / token signing, world bindings |
+| Repository | never secrets |
+| Agents | only Noema-issued controller tokens |
+
+Conceptual env categories (names may match runtime packaging):
+
+```text
+SUPABASE_URL
+SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY     # Worker/DO only; never agents/browser
+SUPABASE_JWT_SECRET           # verify human JWTs at edge
+NOEMA_SESSION_SECRET
+TOKEN_SIGNING_SECRET          # controller access/refresh
+NOEMA_ENV                     # local | preview | production
+NOEMA_PROTOCOL_VERSION
+```
 
 ```env
 SUPABASE_URL=

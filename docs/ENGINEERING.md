@@ -19,9 +19,27 @@ Later modules (not required for Chamber play): frontier-director, observatory, e
 
 Do not force microservices for v0.1. A modular monolith is acceptable if interfaces, schemas, protocol versions, lineage, and event boundaries are explicit. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
-## Preferred stack for Zero State
+## Preferred stack for Zero State (hosted)
 
-Zero State implementations may prefer Next.js for operator/admin UI, TypeScript, Node.js, PostgreSQL or equivalent durable relational store, optional Redis, WebSocket for live text-world connection, REST or RPC for management APIs, structured JSON protocol for agent actions, filesystem or object storage for trajectory/replay bundles, and OpenTelemetry for traces/metrics. **None** of Redis, OTEL collector, Sentry, or model-provider keys are required for local Chamber boot.
+**Pinned product platform** ([PLATFORM.md](PLATFORM.md)):
+
+```text
+Cloudflare Workers + Durable Objects + Pages
+Supabase Auth + PostgreSQL + Storage
+```
+
+- Live multiplayer / ticks / command ordering: **Durable Objects**
+- Durable identity and history: **Supabase Postgres**
+- Large artifacts: **Supabase Storage**
+- Human auth: **Supabase Auth**
+- Edge API / Agent Gateway: **Workers**
+- Text-first product UI: **Pages** (or local static shells)
+
+**None** of Redis, Kafka, Kubernetes, dedicated WebSocket fleets, OTEL collector, Sentry, or model-provider keys are required for Chamber boot.
+
+### Local / offline
+
+Modular monolith (reference Python runtime) with SQLite or Postgres remains acceptable for conformance fixtures and developer loops, provided module contracts match [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Interface contracts
 
