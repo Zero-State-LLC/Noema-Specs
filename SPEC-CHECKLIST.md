@@ -13,7 +13,8 @@
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
 - [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
-- [x] Hosted product stack pinned: Supabase Auth + Supabase Postgres · Noema always-on compute · external agents WS/REST · GitHub Pages marketing.
+- [x] Hosted product stack pinned: Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`).
+- [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)

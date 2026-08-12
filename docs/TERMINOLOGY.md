@@ -10,8 +10,10 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Credential | Auth material bound to a Controller (access/refresh/API); separate from Session. |
 | PlayerSession | Gameplay session binding Player + Controller + World; separate from credentials. |
 | Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
-| Agent Gateway | Boundary isolating external Controllers from Noema Core; REST / WebSocket / MCP adapters. |
-| World Engine | Persistent MUD-style simulation authority; sole canonical state mutator. |
+| Agent Gateway | Public edge isolating external Controllers; hosted as Cloudflare Worker; REST / WebSocket / MCP adapters. |
+| World Engine | Simulation authority. Live: Durable Object operational state; durable history: settled Postgres ledger. |
+| PlayerPrincipal | Authenticated edge principal (player + session + controller + scopes) consumed by the World Engine. |
+| Platform | Cloudflare (live) + Supabase (durable identity/history). See PLATFORM.md. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
 | Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
 | Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |

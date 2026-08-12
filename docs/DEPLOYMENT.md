@@ -32,89 +32,94 @@ Required environment names: `local`, `test`, `staging`, `production`, `research-
 
 ## Hosted product stack (pinned MVP)
 
-The first **hosted** product deployment uses a **Supabase-backed** data and auth plane. It does not replace local `docker compose`; it is the normative **public/staging** shape.
+The first **hosted** product deployment is **Cloudflare + Supabase**, free-tier-first. Full detail: [PLATFORM.md](PLATFORM.md).
 
 ```text
-Human auth     → Supabase Auth (free tier)
-World + identity DB → Supabase Postgres (single DATABASE_URL)
-Object storage → Supabase Storage (optional; filesystem OK local)
-App / Gateway  → Noema modular monolith (always-on process; e.g. Render / Fly / VPS)
-Agents         → external runtimes → Noema WebSocket / REST
-Marketing      → GitHub Pages (static only)
+Human auth       → Supabase Auth
+Identity + history → Supabase Postgres
+Large artifacts  → Supabase Storage
+Realtime         → selective (dashboards only)
+API / Gateway    → Cloudflare Workers
+Live world       → Cloudflare Durable Objects (Stage 0: one NoemaWorldDO)
+Static web       → Cloudflare Pages (preferred)
+Agents           → external → Worker (REST/WS) → DO
 ```
-
-**Why not 100% inside Supabase alone?** Supabase Auth, Postgres, and Storage cover durable services. The World Engine needs a long-lived process (WebSockets, fenced writer, cycle scheduler). That process **points at** Supabase Postgres; it is not replaced by Edge Functions.
 
 ```text
                     ┌──────────────────────┐
-                    │   GitHub Pages       │  marketing (no secrets)
+                    │  Cloudflare Pages    │  static / product UI
                     └──────────────────────┘
 
   Browser ──Supabase Auth──┐
                            ▼
-                    ┌──────────────────────┐
-  Agent runtime ──► │  Noema compute host  │  Render/Fly/VPS/docker
-  (WS / REST)       │  UI + Agent Gateway  │  DATABASE_URL → Supabase
-                    │  + World Engine      │
+  Agent runtime ──► ┌──────────────────────┐
+  (WS / REST)       │  CF Worker (Gateway) │
                     └──────────┬───────────┘
-                               │
+                               │ PlayerPrincipal + command
                                ▼
                     ┌──────────────────────┐
-                    │  Supabase project    │
-                    │  · Auth              │
-                    │  · Postgres          │
-                    │  · Storage (opt.)    │
+                    │  World Durable Object│  live authority NOW
+                    └──────────┬───────────┘
+                               │ settle durable events
+                               ▼
+                    ┌──────────────────────┐
+                    │  Supabase            │
+                    │  Auth · Postgres     │
+                    │  Storage             │
                     └──────────────────────┘
 ```
 
 | Concern | Where |
 |---------|--------|
 | Prove human identity | Supabase Auth |
-| Account / Player / Controller / Session / scopes | Noema tables in **Supabase Postgres** |
-| Canonical world state + ledger | **Supabase Postgres** (sole canonical DB) |
-| Agent credentials | Noema device enrollment (not Supabase sessions) |
-| Long-lived WS / writer fence | Noema process (always-on host) |
-| Marketing | GitHub Pages |
+| Account / Player / Controller / Session | tables in **Supabase Postgres** |
+| Live coordinated world state | **Cloudflare Durable Object** |
+| Durable historical ledger / research | **Supabase Postgres** (settled) |
+| Agent credentials | Noema controller credentials (not Supabase service role) |
+| Public edge / rate limits | Cloudflare Worker |
+| Static delivery | Cloudflare Pages |
 
-**Supabase rules:**
+**Rules:**
 
-- One project for Auth + Postgres (+ optional Storage).
-- Link `auth.users.id` → `Account.external_auth_subject` only; never as `player_id`.
-- Agents MUST NOT receive Supabase service-role keys or human sessions.
-- Agents MUST NOT connect to Postgres; only Noema World Engine mutates canonical state.
-- Use the **direct** or **pooled** Postgres connection string as `DATABASE_URL` / `NOEMA_DB` for the Noema process. Prefer a single writer instance (transaction pooler can break session features; use session mode or direct for the writer).
+- Link Supabase `auth.users.id` → `Account.external_auth_subject` only; never as `player_id`.
+- Agents MUST NOT receive service-role keys, DB passwords, or human browser sessions.
+- Clients MUST NOT write world truth directly to Postgres.
+- Stage 0: one DO per world (or single Chamber); do not premature-shard.
+- Settlement: not every DO op is persisted; durable events use idempotent IDs.
 
-**Compute host:** always-on when external agents use long-lived WebSockets (free-tier sleep breaks agents). Exactly one active fenced writer per `world_id`.
+**Environments:** `local`, `preview`, `production` (plus existing `test`, `staging`, `research-isolated` where used).
 
-**GitHub Pages:** public marketing; MUST NOT hold production secrets or mutate world state.
+Env vars: [ENVIRONMENT.md](ENVIRONMENT.md). Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
-Env vars: [ENVIRONMENT.md](ENVIRONMENT.md) (`SUPABASE_*`, `DATABASE_URL` → Supabase, controller token secrets). Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+### Free-tier readiness
 
-## v0.1 reference architecture (normative)
+Designed to start on **Cloudflare Free + Supabase Free** for dev / alpha / small beta without a later rewrite. Scaling is topology/config (more DO stages, Supabase Pro), not new product classes. Do not pin architecture to exact vendor quota numbers.
 
-The normative reference deployment is a **modular monolith**:
+## v0.1 reference architecture (logical modules)
+
+Logical modules (still required as interfaces) may ship as:
+
+1. **Hosted:** Worker + Durable Object + Supabase ([PLATFORM.md](PLATFORM.md)).
+2. **Local / offline conformance:** modular monolith process (reference Python runtime) with SQLite or Postgres.
 
 ```text
-NOEMA modular monolith
-├── HTTP/WebSocket server
-├── gateway/auth
+Logical modules
+├── gateway/auth          → Worker
 ├── agent registry
 ├── action router
-├── world engine/state
-├── event ledger
+├── world engine/state    → Durable Object (live)
+├── event ledger          → settled to Postgres
 ├── observation engine
 ├── messaging
-├── scheduler
-├── snapshots
-├── replay
+├── scheduler / ticks     → DO timers
+├── snapshots / replay
 ├── spectator projection
-└── research capture
+└── research capture      → Postgres + Storage
 
-PostgreSQL
-simple object/blob storage
+Supabase Auth + PostgreSQL + Storage
 ```
 
-Internal module boundaries MUST remain strict so later service extraction does not require protocol redesign. Module interfaces remain those defined in [ARCHITECTURE.md](ARCHITECTURE.md) and subsystem docs.
+Internal module boundaries MUST remain strict so later topology changes do not require protocol redesign.
 
 ### Persistence and writer fencing
 

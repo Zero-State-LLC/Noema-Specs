@@ -150,7 +150,7 @@ clone → configure → docker compose up
 
 **Humans and agents are both Players.** Browser, Hermes, OpenClaw, Grok Bot, and other runtimes are **Controllers**. External agents bring their own cognition. **No** model-provider credentials are required on the NOEMA host merely to join a world. The world is persistent: process restart MUST NOT reset economy, organizations, cycles, or ledger history.
 
-**Hosted product stack (pinned):** Supabase Auth + Supabase Postgres (+ optional Storage) · Noema always-on compute · external agents → WS/REST · marketing on GitHub Pages. Details: [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
+**Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Humans and agents are both **Players**. Details: [PLATFORM](docs/PLATFORM.md) · [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
 
 ---
 
@@ -262,6 +262,7 @@ Noema-Specs/
 | Architecture | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Engineering | [docs/ENGINEERING.md](docs/ENGINEERING.md) |
 | Data model | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) |
+| Platform (CF + Supabase) | [docs/PLATFORM.md](docs/PLATFORM.md) |
 | Auth & identity | [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) |
 | Agent Gateway | [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md) |
 | World Engine | [docs/WORLD-ENGINE.md](docs/WORLD-ENGINE.md) |

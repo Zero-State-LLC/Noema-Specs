@@ -31,6 +31,7 @@ REQUIRED_DOCS = [
     "docs/DATA-MODEL.md",
     "docs/AUTH-AND-IDENTITY.md",
     "docs/AGENT-GATEWAY.md",
+    "docs/PLATFORM.md",
     "docs/WORLD-ENGINE.md",
     "docs/EVENT-CATALOG.md",
     "docs/OBSERVATION.md",
