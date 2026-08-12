@@ -347,8 +347,6 @@ artifacts            # Storage refs
 
 Authoritative vs derived: live DO state is operational; Postgres events/snapshots are durable truth for replay/research after settlement.
 
-## Append-only preference (continued)
-
 ## Public/private separation
 
 Agent private metadata, research metadata, and public world-visible metadata remain separate. Dataset releases MUST preserve this partition.
