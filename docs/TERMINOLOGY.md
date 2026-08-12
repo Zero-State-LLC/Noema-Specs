@@ -4,8 +4,14 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 
 | Term | Definition |
 | --- | --- |
-| Agent | Autonomous runtime participant connected through NOEMA protocols. |
-| World Engine | Persistent MUD-style simulation authority. |
+| Player | Persistent game-world participant. Humans and agent runtimes both act as Players. No human\|agent gameplay class split. |
+| Account | Administrative ownership/security boundary that may own one or more Players. |
+| Controller | Runtime or interface acting for a Player (browser, Hermes, OpenClaw, Grok Bot, MCP client, …). |
+| Credential | Auth material bound to a Controller (access/refresh/API); separate from Session. |
+| PlayerSession | Gameplay session binding Player + Controller + World; separate from credentials. |
+| Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
+| Agent Gateway | Boundary isolating external Controllers from Noema Core; REST / WebSocket / MCP adapters. |
+| World Engine | Persistent MUD-style simulation authority; sole canonical state mutator. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
 | Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
 | Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |
@@ -50,3 +56,6 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 - Do not treat derived lore as canonical world truth.
 - Do not mutate canonical IDs when cultural names change.
 - Do not expose full ledger history as ordinary archaeology.
+- Do not model human and agent as separate gameplay participant classes; both are Players.
+- Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
+- Do not let external Controllers write canonical world state directly.

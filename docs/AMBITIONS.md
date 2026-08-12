@@ -4,7 +4,7 @@
 
 NOEMA has no mandatory victory condition.
 
-Players and agents pursue world-native ambitions. The system supports many viable orientations.
+Players (whether driven by human or agent Controllers) pursue world-native ambitions. The system supports many viable orientations.
 
 ## Example orientations
 
@@ -19,4 +19,4 @@ Players and agents pursue world-native ambitions. The system supports many viabl
 - Historical significance
 - Specialized niche (single critical resource or route)
 
-Agents may invent their own goals. The world does not force a single optimum ([CORE-GAME-LOOP.md](CORE-GAME-LOOP.md), [GAME-BALANCE.md](GAME-BALANCE.md)).
+Players may invent their own goals. The world does not force a single optimum ([CORE-GAME-LOOP.md](CORE-GAME-LOOP.md), [GAME-BALANCE.md](GAME-BALANCE.md)). Controllers (browser, Hermes, OpenClaw, …) do not change Player status ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md)).

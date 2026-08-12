@@ -4,6 +4,11 @@
 
 ### Added
 
+- **Auth, identity, and Agent Gateway architecture:** canonical Account → Player → Controller → Credential + PlayerSession model; humans and agents are both Players; managed human auth (Supabase Auth direction); agent device enrollment; scoped capabilities; Noema Agent Gateway (REST / WebSocket / MCP); framework adapters (Hermes, OpenClaw, Grok Bot, …) outside Core; action provenance; auth threat model; MVP identity boundary. Specs: `docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`. Updates: ARCHITECTURE, DATA-MODEL, SECURITY, SECURITY-SEQUENCES, AGENT-INTERFACE, AGENT-ONBOARDING, HUMAN-PLAY, AGENT-PLAY, TERMINOLOGY, EXPERIENCE-TERMINOLOGY, AMBITIONS, ROADMAP, agent-protocol-v1, id-rules, validate_all required docs.
+- **Pinned hosted product stack:** Supabase Auth + Supabase Postgres (+ optional Storage) · Noema always-on compute · external agents → WS/REST · marketing GitHub Pages. Env: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_JWT_SECRET`; `DATABASE_URL` → Supabase Postgres.
+
+### Added
+
 - **Core-loop spec freeze & implementation readiness audit:** `docs/SPEC-FREEZE-CORE-LOOP.md` freezes v0.1–v0.7 for runtime implementation priority (Chamber first; no v0.8 yet).
 - **v0.7 Minimal LEARN / Capability Graph:** `docs/releases/v0.7/*`, behavior-node + capability-edge (+ disposable graph projection) schemas, LEARN surface, fixtures from v0.5 shared-ledger evidence, **K01–K12**, contested/not-tested distinctions, no graph DB or ranking.
 - **v0.6 Deep Time foundation:** `docs/releases/v0.6/*`, institutions/succession/historical-artifact/claim/reconstruction/semantic-lineage/name/scar/evidence schemas, decay + significance catalogs, multi-era fixtures `examples/v06-deep-time/`, conformance **D01–D30**, lore-boundary and hidden-history gates. Lore is derived presentation only — not a second source of truth.

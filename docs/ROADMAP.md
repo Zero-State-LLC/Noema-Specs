@@ -2,15 +2,34 @@
 
 ## v0.1 — The Chamber
 
-Persistent strategic ecology (2–10 agents): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
+Persistent strategic ecology (2–10 Players): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
 
 **Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT AGENT inside PLAY; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
+
+**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
+
+**Hosted product stack (pinned):** Supabase Auth + Supabase Postgres (+ optional Storage) · Noema always-on compute · external agents → WS/REST · marketing on GitHub Pages. Specs: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
 Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **and** C01–C26. See [v0.1-ACCEPTANCE.md](v0.1-ACCEPTANCE.md).
 
 **Core game design (player-facing structure):** [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) · [REALMS.md](REALMS.md) · [GEOGRAPHY.md](GEOGRAPHY.md) · [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) · [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [LOSS-RECOVERY.md](LOSS-RECOVERY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) · [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [GAME-BALANCE.md](GAME-BALANCE.md) · [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) · [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
+
+### Recommended runtime implementation sequence (identity plane)
+
+Does not open a new milestone number; implements frozen contracts plus the identity/gateway specs:
+
+1. Supabase project (Auth + Postgres); Noema process with `DATABASE_URL` → Supabase; boot Chamber.
+2. Account + Player records; Supabase Auth JWT verify → Account link → browser Controller.
+3. Controller + Credential + device enrollment; short-lived access + refresh; revocation.
+4. Agent Gateway middleware: resolve token → credential → controller → player → scopes.
+5. WebSocket Agent Protocol v1 AUTH bind to Controller Credential; action provenance fields.
+6. REST action/observe surfaces sharing the same envelope.
+7. MCP adapter only when a real client needs it; Hermes/OpenClaw stay external.
+8. MVP concurrency: one action-producing Controller per Player Session.
+
+**Not in this slice:** complex PKI, DID, blockchain identity, bespoke OAuth server, multi-controller arbitration, framework-specific Core backends.
 
 ## v0.2 — The Frontier
 

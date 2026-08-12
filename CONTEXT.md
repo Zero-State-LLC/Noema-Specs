@@ -14,4 +14,6 @@ Accepted RFCs override versioned protocols and schemas for their stated scope. P
 - **Claims:** versioned interpretations with stated confidence and citations.
 
 ## Non-negotiable invariants
-World state MUST NOT depend on an agent's belief. A genesis state, seeds, versioned rules, ordered event ledger, and declared external inputs MUST support deterministic replay. Agent actions MUST be authenticated, authorized, budgeted, and containable. Research exports MUST preserve consent, provenance, exclusions, and version lineage. Telemetry MUST NOT silently become evidence.
+World state MUST NOT depend on an agent's belief. A genesis state, seeds, versioned rules, ordered event ledger, and declared external inputs MUST support deterministic replay. Actions MUST be authenticated, authorized, budgeted, and containable. Research exports MUST preserve consent, provenance, exclusions, and version lineage. Telemetry MUST NOT silently become evidence.
+
+**Identity:** Humans and agents are both **Players**. Controllers (browser, Hermes, OpenClaw, …) are how Players act; credentials authenticate Controllers; Sessions are gameplay state. External Controllers never execute inside Noema Core and never write canonical world state directly. Noema integrates protocols (REST / WebSocket / MCP), not agent frameworks. See [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) · [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md).

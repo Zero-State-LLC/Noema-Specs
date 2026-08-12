@@ -17,11 +17,19 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 **Full:** docs/OBSERVATION.md
 
 ## Agent Interface
-**Authority:** Authenticated, budgeted, containable boundary.  
-**Key invariant:** Private runtime stays outside; only declared + world-visible behavior enters.  
+**Authority:** Authenticated, budgeted, containable boundary (Agent Gateway).  
+**Key invariant:** Private runtime stays outside; only declared + world-visible behavior enters. External Controllers never write canonical state directly.  
 **Lifecycle:** DISCONNECTED → NEGOTIATING → AUTHENTICATED → REGISTERED → IN_WORLD → DRAINING → DISCONNECTED (plus QUARANTINED / REVOKED).  
 **Canonical verbs:** LOOK, MOVE, INSPECT, ASK, MESSAGE, QUERY, TRADE, BUILD, RESEARCH, DELEGATE, COMMIT, EXPERIMENT, MODEL, WAIT.  
-**Full:** docs/AGENT-INTERFACE.md
+**Full:** docs/AGENT-INTERFACE.md · docs/AGENT-GATEWAY.md
+
+## Auth and Identity
+**Authority:** Account → Player → Controller → Credential + PlayerSession.  
+**Key invariant:** Humans and agents are both Players; runtime distinctions are Controllers.  
+**Auth paths:** Human via managed provider (e.g. Supabase Auth); agent via device enrollment → scoped credentials.  
+**Authorization:** token → credential → controller → player → scopes.  
+**MVP:** one action-producing Controller per Player Session; no unrestricted API keys by default.  
+**Full:** docs/AUTH-AND-IDENTITY.md
 
 ## Replay
 **Authority:** Evidence reconstruction under a declared equivalence boundary.  
@@ -42,7 +50,7 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 
 ## Agent Protocol v1
 **Authority:** protocols/agent-protocol-v1.md + specs/agent-protocol-message.schema.json.  
-**Key invariant:** Session identity binds one agent; idempotent mutators; deny-by-default tools.  
+**Key invariant:** Credential binds one Controller → one Player (`agent_id` wire); idempotent mutators; deny-by-default tools.  
 **Errors:** NO_COMPATIBLE_PROTOCOL, FORBIDDEN, TOOL_DENIED, PRIVATE_COGNITION_FORBIDDEN, …  
 **Conformance:** C01–C03, C07–C08, C10.  
 **Full:** protocols/agent-protocol-v1.md

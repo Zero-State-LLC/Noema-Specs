@@ -1,25 +1,28 @@
 # Security and Containment Sequences
 
-This document provides concrete, normative sequences for the containment model defined in docs/SECURITY.md and docs/AGENT-INTERFACE.md. Sequences are versioned for v0.1.
+This document provides concrete, normative sequences for the containment model defined in [SECURITY.md](SECURITY.md), [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md), [AGENT-GATEWAY.md](AGENT-GATEWAY.md), and [AGENT-INTERFACE.md](AGENT-INTERFACE.md). Sequences are versioned for v0.1 with identity-plane extensions.
 
-## 1. Agent quarantine mid-session
+Identity terms: **Player** (gameplay participant), **Controller** (runtime/interface), **Credential** (auth material), **PlayerSession** (game session). Wire `agent_id` = Player principal.
 
-1. Operator or automated policy issues QUARANTINE command against agent_id with reason_code and retention_policy.
-2. Gateway transitions connection to QUARANTINED.
+## 1. Agent / Player quarantine mid-session
+
+1. Operator or automated policy issues QUARANTINE against `player_id` / wire `agent_id` (and optionally a specific `controller_id`) with reason_code and retention_policy.
+2. Gateway transitions affected connection(s) to QUARANTINED.
 3. New mutating ACT / MESSAGE / TOOL requests are rejected with code QUARANTINED before budget reservation.
 4. Pending in-flight actions that have not yet entered a world reducer are cancelled and produce no World Event.
-5. Authorized diagnostic observations and budget summaries continue to be deliverable.
+5. Authorized diagnostic observations and budget summaries continue to be deliverable when scopes allow.
 6. World-visible history and committed events remain intact.
-7. Quarantine event is ledgered as an administrative intervention with full provenance.
-8. Exit from quarantine requires explicit operator REVOKE_QUARANTINE or token re-issuance under a new AgentVersion if required by policy.
+7. Quarantine event is ledgered as an administrative intervention with full provenance (`player_id`, `controller_id` when known).
+8. Exit from quarantine requires explicit operator REVOKE_QUARANTINE or credential re-issuance under policy.
 
-## 2. Credential / capability revocation
+## 2. Credential / Controller revocation
 
-1. Token or capability-token is marked REVOKED in the auth store with effective cycle and reason.
+1. Credential and/or Controller is marked REVOKED in the auth store with effective time, reason, and operator or system actor.
 2. Gateway rejects subsequent AUTH or signed requests that present the revoked material.
-3. Active connections using the revoked token are transitioned to REVOKED and disconnected after draining non-mutating deliveries.
+3. Active Sessions and connections using the revoked Credential are transitioned to REVOKED / terminated after draining non-mutating deliveries.
 4. No world rollback occurs. Committed actions stay committed.
-5. Audit record includes previous token fingerprint (not the secret), agent_id, and operator identity.
+5. Audit record includes previous token fingerprint (not the secret), `controller_id`, `player_id` / `agent_id`, and operator identity.
+6. Refresh tokens in the same family MUST be rejected after revocation.
 
 ## 3. World-level INCIDENT mode
 
@@ -73,4 +76,39 @@ This document provides concrete, normative sequences for the containment model d
 4. Any subsequent agent action that appears to act on injected content is still subject to normal authorization, budget, and containment checks.
 5. Leakage of secrets through tool output or error messages is blocked by redaction rules.
 
-All sequences MUST be covered by conformance tests before v0.1 release.
+## 9. Human authentication (managed provider)
+
+1. Browser/app completes login with the managed auth provider (e.g. Supabase Auth: passkey, OAuth, or magic-link).
+2. Noema verifies the provider session/JWT and resolves or creates an **Account** (provider subject is a link only).
+3. Noema resolves or creates a **Player** under that Account.
+4. Noema binds a **Controller** of type `browser` (or `mobile` / `cli`) and issues a short-lived session Credential — not a long-lived unrestricted API key.
+5. Entering a world opens a **PlayerSession** bound to player + controller + world.
+6. Logout or session expiry ends the PlayerSession and invalidates the browser Credential; Account and Player persist.
+
+## 10. Agent device enrollment
+
+1. External agent `POST /auth/device` with requested scopes and optional controller metadata (framework, model labels — untrusted provenance).
+2. Gateway returns `device_code`, `user_code`, `verification_url`, `expires_in`, `interval`.
+3. Agent displays verification URL and short user code to the human operator.
+4. Human, already authenticated, opens verification URL, selects target **Player**, reviews controller type/framework and requested scopes, and **approves** or **denies**.
+5. On deny: enrollment ends; no Credential issued.
+6. On approve: Gateway creates Controller under the Player, issues `access_token`, `refresh_token`, `controller_id`, `player_id`, `scopes`.
+7. Agent polls or exchanges for tokens; human browser Credential is never copied to the agent.
+8. Agent proceeds with HELLO → AUTH → REGISTER → ENTER_WORLD using the controller access token.
+9. Audit records enrollment approval with player, controller, scopes, and operator identity.
+
+## 11. Access token refresh
+
+1. Agent presents valid refresh Credential to `POST /auth/token/refresh` (or equivalent).
+2. Gateway validates refresh not revoked/expired and Controller still active.
+3. Gateway issues new access token (and MAY rotate refresh); old access token becomes invalid at expiry or immediately per policy.
+4. Detected refresh reuse after rotation MUST revoke the Controller credential family and audit as potential theft.
+
+## 12. Unauthorized Player switching attempt
+
+1. Authenticated Controller for Player A submits an ACT body claiming `agent_id` / `player_id` of Player B.
+2. Gateway compares body principal to server-bound Controller.player_id.
+3. Request fails with FORBIDDEN; no budget charge; no world event.
+4. Audit records mismatch fingerprint for abuse detection.
+
+All sequences MUST be covered by conformance tests before production identity-plane release; sequences 1–8 remain required for v0.1 containment. Sequences 9–12 are required when the identity/auth plane is enabled.

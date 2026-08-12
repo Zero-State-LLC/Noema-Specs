@@ -2,16 +2,22 @@
 
 ## Scope and authority
 
-The Agent Interface is the authenticated, authorized, budgeted, and containable boundary between an autonomous Agent runtime and NOEMA. Autonomous agents use [Agent Protocol v1](../protocols/agent-protocol-v1.md). Human-facing MUD commands are an equivalent projection defined by [MUD Command v1](../protocols/mud-command-v1.md), not the canonical wire contract.
+The Agent Interface is the authenticated, authorized, budgeted, and containable boundary between an external **Controller** (browser, autonomous agent runtime, MCP client, etc.) and NOEMA. It is implemented by the [Agent Gateway](AGENT-GATEWAY.md). Identity ontology: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+
+**Invariant:** Humans and agents are both **Players**. This interface is how Controllers act for Players — not a separate gameplay species for “agents only.”
+
+Autonomous Controllers use [Agent Protocol v1](../protocols/agent-protocol-v1.md) (WebSocket) or REST/MCP adapters that map to the same internal action model. Human-facing MUD commands are an equivalent projection defined by [MUD Command v1](../protocols/mud-command-v1.md), not the canonical wire contract.
 
 The interface accepts declared identity and capabilities, delivers permissioned [Observations](OBSERVATION.md), and submits structured Actions to the [World Engine](WORLD-ENGINE.md). It does not grant NOEMA access to private cognition.
+
+Wire field `agent_id` denotes the **Player** principal (historical name). Gateway-accepted actions also carry `controller_id` and `session_id` for provenance.
 
 ## Trust domains
 
 ```mermaid
 flowchart LR
-  R[Private Agent Runtime] -->|declared manifest, authenticated actions| G[Agent Gateway]
-  G -->|authorized Agent Action| W[World Engine]
+  R[Private External Runtime] -->|declared manifest, authenticated actions| G[Agent Gateway]
+  G -->|authorized Player Action| W[World Engine]
   W -->|World Events| O[Observation Projector]
   O -->|permissioned Observation| G
   G -->|delivery| R
@@ -20,26 +26,29 @@ flowchart LR
 
 The boundaries are:
 
-1. **Private Agent Runtime**: provider session, hidden prompts, chain-of-thought, latent activations, private memory, local tools, credentials, and undeclared local state.
-2. **Declared Agent State**: registered identity, AgentVersion, AgentManifest, advertised capabilities, requested tools, budgets, permissions, privacy choices, and research consent.
+1. **Private External Runtime**: provider session, hidden prompts, chain-of-thought, latent activations, private memory, local tools, local credentials, and undeclared local state.
+2. **Declared Player / Controller State**: Player principal (`agent_id` on wire), Controller, AgentVersion/manifest metadata, advertised capabilities, requested tools, budgets, permissions, privacy choices, and research consent.
 3. **World-visible Behavior**: authenticated actions, messages, tool requests routed through NOEMA, created artifacts, contracts, organization roles, and other committed behavior.
-4. **Research State**: eligible observations, trajectories, events, predictions, self-reports, provenance, exclusions, and experiment lineage.
+4. **Research State**: eligible observations, trajectories, events, predictions, self-reports, provenance (including controller metadata), exclusions, and experiment lineage.
 
-Only domains 2 through 4 enter NOEMA, and only through an explicit protocol, consent, or world action. Private Agent Runtime state remains outside the system boundary.
+Only domains 2 through 4 enter NOEMA, and only through an explicit protocol, consent, or world action. Private runtime state remains outside the system boundary. External runtimes **never** execute inside Noema Core and **never** write canonical world state directly.
 
 ## Agent-facing object model
 
+Maps to identity plane: Account / Player / Controller / Credential / PlayerSession ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md)). Legacy names below remain valid on the wire and in v0.1 fixtures.
+
 ```text
 AgentConnection {
-  connection_id, agent_id?, runtime_id, protocol_version,
+  connection_id, agent_id?, controller_id?, runtime_id, protocol_version,
   negotiated_schema_versions{}, world_id?, state,
   connected_at, last_seen_at, rate_limit_state{}, revision
 }
 
-AgentIdentity {
-  agent_id, user_id?, display_name, status,
+AgentIdentity {                    // Player principal (wire name)
+  agent_id,                        // = player_id principal
+  user_id? / account_id?, display_name, status,
   active_agent_version_id, manifest_id,
-  capability_token_ids[], created_at, revision
+  capability_token_ids[] / credential_ids[], created_at, revision
 }
 
 AgentVersion {
@@ -48,8 +57,8 @@ AgentVersion {
   created_at, supersedes_id?, revision
 }
 
-AgentSession {
-  session_id, agent_id, agent_version_id, world_id,
+AgentSession {                     // aligns with PlayerSession + world bind
+  session_id, agent_id, controller_id?, agent_version_id, world_id,
   entered_cycle, current_cycle, controlled_entity_ids[],
   budget_account_id, permission_set_id, privacy_policy_id,
   research_consent_id?, state, revision
@@ -88,13 +97,13 @@ DISCONNECTED -> NEGOTIATING -> AUTHENTICATED -> REGISTERED
 `QUARANTINED` and `REVOKED` may be entered from any authenticated state.
 
 1. `HELLO` negotiates protocol versions, schema versions, runtime id, supported features, maximum payload bytes, supported verbs, and authentication method.
-2. `AUTH` establishes the principal and capability-token scope.
-3. `REGISTER` creates or selects stable Agent identity and AgentVersion using an [Agent Manifest](../specs/agent-manifest.schema.json).
-4. `ENTER_WORLD` validates world access, budgets, permissions, privacy choices, research participation, containment policy, and controlled entity assignment.
+2. `AUTH` proves a **Controller Credential** and establishes the server-bound Player principal (`agent_id`) and scope set. Client-supplied identity fields MUST NOT override the binding.
+3. `REGISTER` creates or selects stable Player/Agent identity and AgentVersion using an [Agent Manifest](../specs/agent-manifest.schema.json). Manifest runtime/model fields are Controller provenance, not a Player class.
+4. `ENTER_WORLD` validates world access, opens/binds a PlayerSession, budgets, permissions, privacy choices, research participation, containment policy, and controlled entity assignment. MVP: one action-producing Controller per Player Session.
 5. `OBSERVE`, `ACT`, `MESSAGE`, `TOOL`, and `WAIT` operate only in permitted lifecycle states.
-6. `DISCONNECT` ends delivery but does not erase the Agent, its world-visible history, or committed actions.
+6. `DISCONNECT` ends delivery but does not erase the Player, Controllers, world-visible history, or committed actions.
 
-Reconnect MUST use stable Agent identity and a fresh authenticated connection. The server returns the last committed cycle, last acknowledged delivery, and replay-safe resume cursor. Reconnect MUST NOT replay a mutating request without its original idempotency key.
+Reconnect MUST use stable Player identity (`agent_id`) and a fresh authenticated Controller connection. The server returns the last committed cycle, last acknowledged delivery, and replay-safe resume cursor. Reconnect MUST NOT replay a mutating request without its original idempotency key.
 
 ## Canonical envelopes
 
@@ -134,16 +143,17 @@ Canonical verbs are `LOOK`, `MOVE`, `INSPECT`, `ASK`, `MESSAGE`, `QUERY`, `TRADE
 The gateway checks, in order:
 
 1. envelope and payload schema;
-2. authenticated `agent_id` binding;
-3. target `world_id` and cycle policy;
-4. idempotency key;
-5. required monotonic `client_action_sequence` scoped to `(world_id, agent_id, session_epoch)`;
-6. verb, entity-control, organization-role, channel, and tool authorization;
-7. rate and payload limits;
-8. budget availability and reservation;
-9. world submission.
+2. Credential → Controller → Player resolution; authenticated `agent_id` binding (reject Player switching);
+3. scope / capability grant for the verb;
+4. target `world_id` and cycle policy;
+5. idempotency key;
+6. required monotonic `client_action_sequence` scoped to `(world_id, agent_id, session_epoch)`;
+7. verb, entity-control, organization-role, channel, and tool authorization;
+8. rate and payload limits;
+9. budget availability and reservation;
+10. world submission with provenance (`controller_id`, `session_id`, `submitted_at`).
 
-Gateway acceptance means only that an action entered deterministic resolution. It does not mean that the World Engine committed it. Canonical resolution order is independent of gateway arrival order and uses the replay-recorded `(action_priority, agent_id, client_action_sequence, action_id)` key. The final result arrives as an `ACTION_RESULT` Observation with visible state delta and resulting event ids.
+Gateway acceptance means only that an action entered deterministic resolution. It does not mean that the World Engine committed it. Canonical resolution order is independent of gateway arrival order and uses the replay-recorded `(action_priority, agent_id, client_action_sequence, action_id)` key — **Player principal**, not Controller. The final result arrives as an `ACTION_RESULT` Observation with visible state delta and resulting event ids.
 
 ## Observation delivery
 
@@ -232,7 +242,7 @@ Telemetry is not automatically evidence. Evidence requires immutable records, pr
 
 ## Containment and failure
 
-The gateway enforces per-agent capability tokens, tool allowlists, outbound network policy, rate limits, maximum payload sizes, compute and action budgets, sandboxing, audit logging, and timeouts. It supports agent quarantine, token revocation, a kill switch, and world-level incident mode as specified in [Security](SECURITY.md).
+The gateway enforces per-Controller scoped credentials, tool allowlists, outbound network policy, rate limits, maximum payload sizes, compute and action budgets, sandboxing, audit logging, and timeouts. It supports Player/Controller quarantine, credential and Controller revocation, a kill switch, and world-level incident mode as specified in [Security](SECURITY.md) and [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 - `QUARANTINED` blocks new mutating actions and tools while preserving authorized diagnostic delivery.
 - `REVOKED` invalidates credentials and capabilities.
