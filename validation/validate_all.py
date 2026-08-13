@@ -196,6 +196,7 @@ REQUIRED_DOCS = [
     "docs/EMERGENT-CULTURE.md",
     "docs/WORLD-EVENT-DIRECTOR.md",
     "docs/NOTION-RECONCILIATION-2026-08-13.md",
+    "docs/REDUCER-REGISTRY.md",
     "docs/GC1-FIRST-SLICE.md",
     "docs/GC1-S1-RECOGNITION.md",
     "docs/GC2-FIRST-SLICE.md",
@@ -1533,6 +1534,53 @@ def check_architecture_hardening() -> None:
     if "**Accepted**" not in rfc.split("## Summary", 1)[0]:
         fail("RFC-0003 must be Accepted")
     ok("RFC-0003 architecture hardening contracts are machine-gated")
+
+
+def check_reducer_registry() -> None:
+    text = (ROOT / "docs" / "REDUCER-REGISTRY.md").read_text(encoding="utf-8")
+    types_01 = [
+        "AGENT_ENTERED_WORLD",
+        "AGENT_LEFT_WORLD",
+        "MOVE",
+        "MOVE_REJECTED",
+        "LOOK",
+        "INSPECT",
+        "MESSAGE",
+        "MESSAGE_DELIVERED",
+        "TRADE_PROPOSED",
+        "TRADE_ACCEPTED",
+        "TRADE_REJECTED",
+        "RESOURCE_TRANSFER",
+        "ORG_CREATE",
+        "ORG_MEMBER_ADD",
+        "ORG_MEMBER_REMOVE",
+        "ENTITY_CREATE",
+        "ENTITY_DESTROY",
+        "ENTITY_UPDATE",
+        "WAIT",
+        "BUDGET_CONSUMED",
+        "BUDGET_EXCEEDED",
+        "SITUATION_INJECTED",
+        "NOISE_APPLIED",
+        "OBSERVATION_GENERATED",
+    ]
+    types_02 = [
+        "CONTEST_DECLARED",
+        "CONTEST_RESOLVED",
+        "CRIME_DETECTED",
+        "ACCESS_RESTRICTED",
+        "INFRASTRUCTURE_DISRUPTED",
+        "AGREEMENT_FORMED",
+        "AGREEMENT_BROKEN",
+    ]
+    missing = [t for t in types_01 + types_02 if f"`{t}`" not in text]
+    if missing:
+        fail(f"REDUCER-REGISTRY.md missing event types: {missing}")
+    if "Rebuild from committed events" not in text:
+        fail("REDUCER-REGISTRY.md must mark GC projections as rebuild-only")
+    if "WED" not in text:
+        fail("REDUCER-REGISTRY.md must separate SITUATION_INJECTED from WED")
+    ok("Reducer registry lists 0.1/0.2 events and non-writer projections")
 
 
 
@@ -3567,6 +3615,7 @@ def main() -> None:
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()
+    check_reducer_registry()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)

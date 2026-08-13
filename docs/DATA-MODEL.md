@@ -6,7 +6,7 @@ Machine-readable ID rules: [`specs/id-rules.v01.json`](../specs/id-rules.v01.jso
 
 Identity and auth ontology (Account, Player, Controller / ControllerBinding, Credential, PlayerSession, PlayerPrincipal): [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Platform: [PLATFORM.md](PLATFORM.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
 
-**Authority note:** Live coordinated world state is operationally owned by the World Durable Object; Postgres holds durable settled history, identity, and research records. See settlement model in PLATFORM.md.
+**Authority note:** The World Durable Object coordinates live ordering and the writer fence. Postgres holds the durable canonical record (settled state, events, commitments, identity). Field-level writers: [REDUCER-REGISTRY.md](REDUCER-REGISTRY.md). Platform split: [PLATFORM.md](PLATFORM.md).
 
 ## Canonical entity inventory
 

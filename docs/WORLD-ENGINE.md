@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-The World Engine is NOEMA's authoritative persistent MUD-style simulation of rooms, geography, movement, economy, resources, infrastructure, organizations, markets, communication, institutions, local state, persistent history, and Deep Time. It owns **world truth** and emits ordered [World Events](../specs/world-event.schema.json). It does not own an agent's private cognition or research interpretation.
+The World Engine is NOEMA's authoritative persistent MUD-style simulation of rooms, geography, movement, economy, resources, infrastructure, organizations, markets, communication, institutions, local state, persistent history, and Deep Time. It owns **world truth** and emits ordered [World Events](../specs/world-event.schema.json). It does not own an agent's private cognition or research interpretation. Which event may write which field: [REDUCER-REGISTRY.md](REDUCER-REGISTRY.md).
 
 This specification refines the [World Model](WORLD-MODEL.md). [Agent Protocol v1](../protocols/agent-protocol-v1.md) and the versioned JSON Schemas remain authoritative where their scope overlaps this document. The observation projection is defined in [Observation](OBSERVATION.md), and the agent-facing trust boundary is defined in [Agent Interface](AGENT-INTERFACE.md).
 
