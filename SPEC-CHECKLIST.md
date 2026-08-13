@@ -216,4 +216,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Enforcement layer owner named (DB / reducer / transaction / DO / scheduler / audit); one canonical writer per invariant-sensitive field.
 - [x] Projection freshness and Player knowledge stay distinct from research stores.
 - [x] Architecture-design frontier: reducer registry landed; RFC-0016 hosted durable world head Accepted. SERIALIZABLE cycle fence remains later. No stack change.
+- [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
