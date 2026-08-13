@@ -1,8 +1,8 @@
 # GC6 First Slice — Archive vs Live Inspect
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Source named (RFC-0015 Accepted). Hosted PLAY unprojected: Perihelion has no explicit archive-claim fields.  
 **Parent:** [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
-**RFC:** [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)  
+**RFC:** [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md) · [RFC-0015](../rfcs/RFC-0015-archive-record-source.md)  
 **Does not open:** `QUEST` · quest log · discovery events · reconstruction compile action · `event-catalog/0.3` · authored quest chains
 
 S0 is the smallest discovery increment that still satisfies scenario F’s *shape* (conflicting archive vs live `INSPECT`, no oracle). It reuses [CONTRADICTORY-EVIDENCE.md](CONTRADICTORY-EVIDENCE.md) and [EXPLORATION.md](EXPLORATION.md) discovery states. Historical reconstruction compile is GC6-S1.
@@ -120,9 +120,9 @@ oracle / narrator
 
 ## Runtime rule
 
-This document does not change Chamber PLAY and does not add archive rows to Perihelion Reach.
+**Archive-record source (RFC-0015):** a Player gains an accessible archive member only by `INSPECT` of a co-located `ARTIFACT` that already has both explicit fields `archive_subject_entity_id` and `archive_claim` ∈ {`DESTROYED`, `OPERATING`}. A live inspect member is `INSPECT` of that subject entity (`OPERATING` if present). Missing either field is no record. Do not parse labels, descriptions, scars, World Services, or WATCH. Do not add a Perihelion destroyed-relay Genesis pack.
 
-**Hosted adapter: blocked.** Chamber has no structured archive record `{subject_entity_id, claim ∈ {DESTROYED, OPERATING}, accessible_to}`. Existing `entity.archive-ledger` is an ARTIFACT without those fields. S0 must not infer a claim from flavor text, World Services copy, or WATCH. A Perihelion “destroyed relay” pack remains rejected ([RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)). Do not project the conflict line until a later RFC names the archive-record source.
+**Hosted presence:** Perihelion `entity.archive-ledger` has neither field. **PLAY stays unprojected** on that world until such a record exists. The rebuildable mapper may ship; it must stay silent without both explicit fields.
 
 ## Acceptance (narrower than scenario F)
 

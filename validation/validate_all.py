@@ -3191,6 +3191,26 @@ def check_gc6_s0(Draft202012Validator) -> None:
     rfc = (ROOT / "rfcs" / "RFC-0010-discovery-contradiction.md").read_text(encoding="utf-8")
     if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
         fail("RFC-0010 must be Accepted after GC6-S0 machine contracts land")
+    src = (ROOT / "rfcs" / "RFC-0015-archive-record-source.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in src.split("## Status", 1)[-1][:240]:
+        fail("RFC-0015 must be Accepted to name the GC6-S0 archive-record source")
+    src_l = src.lower()
+    for token in (
+        "archive_subject_entity_id",
+        "archive_claim",
+        "destroyed",
+        "operating",
+        "flavor-text",
+        "genesis",
+        "unprojected",
+    ):
+        if token not in src_l:
+            fail(f"RFC-0015 must name archive source pin ({token})")
+    slice_txt = (ROOT / "docs" / "GC6-FIRST-SLICE.md").read_text(encoding="utf-8")
+    if "PLAY stays unprojected" not in slice_txt and "PLAY unprojected" not in slice_txt:
+        fail("GC6-FIRST-SLICE must say hosted PLAY is unprojected while Perihelion has no claim fields")
+    if "destroyed-relay" not in slice_txt.lower() and "destroyed relay" not in slice_txt.lower():
+        fail("GC6-FIRST-SLICE must still reject a destroyed-relay Genesis pack")
     rebuild_v = Draft202012Validator(rebuild_schema)
     forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
     names = [
@@ -3230,7 +3250,7 @@ def check_gc6_s0(Draft202012Validator) -> None:
             fail("Relay Seven pair must project the conflict line")
         if got["discovery_state"] == "understood":
             fail(f"{name} must not project understood")
-    ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010 Accepted, no quest oracle")
+    ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010/0015 Accepted, no quest oracle")
 
 
 def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:

@@ -143,6 +143,8 @@ It MUST NOT automatically teleport, spawn loot, or complete a quest flag.
 
 ```text
 GC6-S0 closed: archive vs live INSPECT contradiction; no QUEST; no oracle
+GC6-S0 source closed (RFC-0015): INSPECT ARTIFACT with explicit archive_subject_entity_id + archive_claim
+hosted Perihelion: those fields absent → PLAY unprojected
 whether any later event is needed beyond existing evidence / contradiction / reconstruction
 how PLAY presents a compiled reconstruction without a quest UI (GC6-S1)
 settled-for-Player vs settled-for-world

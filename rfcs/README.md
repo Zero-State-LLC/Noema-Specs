@@ -24,6 +24,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0012](RFC-0012-distance-interdependence.md) | **Accepted** | GC8-S0 distance interdependence; not v0.6B |
 | [RFC-0013](RFC-0013-maintenance-custom.md) | **Accepted** | GC9-S0 maintenance custom; lore cannot override ledger |
 | [RFC-0014](RFC-0014-wed-schedule-pressure.md) | **Accepted** | GC10-S0 seeded mild relay pressure; no Frontier ID share |
+| [RFC-0015](RFC-0015-archive-record-source.md) | **Accepted** | GC6-S0 archive-record source: explicit ARTIFACT claim fields; no Genesis pack |
 
 ## Required review lenses
 
