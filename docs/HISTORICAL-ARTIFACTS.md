@@ -24,6 +24,8 @@ artifact claims X happened
 
 Artifacts may be accurate, incomplete, misleading, forged, corrupted, or misunderstood. Canonical event history remains independent.
 
+GC6-S0 hosted source ([RFC-0015](../rfcs/RFC-0015-archive-record-source.md)): Chamber reads only explicit `archive_subject_entity_id` + `archive_claim` ∈ {`DESTROYED`, `OPERATING`} on an `ARTIFACT`. It does not parse `content_ref` or presentation text.
+
 ## Integrity
 
 `INTACT` → `DEGRADED` → `FRAGMENTARY` → `CORRUPTED` → `DESTROYED`

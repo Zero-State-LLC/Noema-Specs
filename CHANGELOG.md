@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0015 Accepted:** GC6-S0 archive-record source. Accessible archive member only from `INSPECT` of an `ARTIFACT` that already has `archive_subject_entity_id` and `archive_claim` ∈ {DESTROYED, OPERATING}. Perihelion `entity.archive-ledger` has neither field, so PLAY stays unprojected. Flavor-text inference and a destroyed-relay Genesis pack remain rejected. No catalog 0.3. No frozen contract rewrite.
+
+### Added
+
 - **GC6-S0 hosted adapter blocked:** Chamber has no structured archive `{subject_entity_id, claim, accessible_to}`. Flavor-text inference and a Perihelion destroyed-relay pack remain rejected. Architecture pause footer aligned: reducer registry already landed.
 
 ### Added
