@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0004 Accepted:** GC1-S0 derived practice projection. Catalog `specs/mastery-catalog.gc1-s0.json`, rebuild schema, executed fixtures, conformance M01–M03. No `event-catalog` change. No mechanical benefits.
+
+### Added
+
 - **GC1-S0 slice audit:** `docs/GC1-FIRST-SLICE.md` selects the smallest later runtime slice (derived explorer/surveyor/broker/engineer practice, self-only PLAY lines, no benefits). Draft `rfcs/RFC-0004-derived-mastery-projection.md`. No schemas, no event-catalog change, no runtime code.
 
 ### Added

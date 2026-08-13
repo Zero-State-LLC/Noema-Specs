@@ -128,7 +128,7 @@ These pins close the S0 portion of the parent SPEC GAP. They do not close recogn
 
 ### PLAY projection (self only)
 
-After ordinary observation projection, the PLAY adapter MAY append at most **three** practice lines, ordered by `track_id` ascending, using only tracks in `PRACTICING`:
+After ordinary observation projection, the PLAY adapter MAY append at most **three** practice lines, ordered by catalog `display_order` ascending, using only tracks in `PRACTICING`:
 
 | `track_id` | Line |
 |------------|------|

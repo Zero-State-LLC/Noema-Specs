@@ -257,7 +257,7 @@ Rationale:
 
 ### First later runtime slice
 
-**GC1-S0 — Derived Practice Projection.** Audit: [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md). RFC: [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (Draft).
+**GC1-S0 — Derived Practice Projection.** Audit: [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md). RFC: [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (**Accepted**).
 
 Why this slice, not all of GC1 and not GC2/GC3:
 

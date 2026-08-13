@@ -1,0 +1,45 @@
+{
+  "schema_version": "mastery-catalog/gc1-s0",
+  "catalog_id": "mastery-catalog/gc1-s0",
+  "slice_id": "gc1-s0",
+  "authority": "docs/GC1-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0004-derived-mastery-projection.md",
+  "max_play_lines": 3,
+  "recognition_enabled": false,
+  "decay_enabled": false,
+  "benefits_enabled": false,
+  "tracks": [
+    {
+      "track_id": "track.explorer.01",
+      "display_order": 1,
+      "practice_family": "OBSERVE",
+      "unit": "room_id",
+      "play_line": "You have been learning the rooms.",
+      "qualifying_event_types": ["LOOK"]
+    },
+    {
+      "track_id": "track.surveyor.01",
+      "display_order": 2,
+      "practice_family": "OBSERVE",
+      "unit": "entity_id",
+      "play_line": "You have been doing survey work.",
+      "qualifying_event_types": ["INSPECT"]
+    },
+    {
+      "track_id": "track.broker.01",
+      "display_order": 3,
+      "practice_family": "TRADE",
+      "unit": "trade_id",
+      "play_line": "You have been closing exchanges.",
+      "qualifying_event_types": ["TRADE_ACCEPTED"]
+    },
+    {
+      "track_id": "track.engineer.01",
+      "display_order": 4,
+      "practice_family": "INFRASTRUCTURE",
+      "unit": "event_id",
+      "play_line": "You have been keeping infrastructure alive.",
+      "qualifying_event_types": ["ENTITY_UPDATE"]
+    }
+  ]
+}

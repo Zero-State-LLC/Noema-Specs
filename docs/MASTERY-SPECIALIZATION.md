@@ -5,7 +5,7 @@
 **Does not replace:** [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md)  
 **Must not become:** [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) · [LEARN.md](LEARN.md) · [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md)
 
-This document is **not** an executable package. The first implementable slice is [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) under Draft [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md). Recognition, benefits, and new events remain **SPEC GAP**.
+This document is **not** an executable package. The first implementable slice is [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) under Accepted [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md). Recognition, benefits, and new events remain **SPEC GAP**.
 
 ---
 
@@ -266,7 +266,7 @@ fixtures and conformance (recommended M01)
 S1 PLAY/WATCH recognition strings
 ```
 
-An implementation MAY ship GC1-S0 derived self-lines after RFC-0004 is Accepted. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
+An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
 
 ---
 

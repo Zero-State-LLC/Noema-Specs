@@ -1,0 +1,26 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "gc1-M03-01",
+  "suite": "noema-gc1-s0-mastery",
+  "title": "PLAY line cap is three and omits the fourth display_order track",
+  "acceptance_items": [4],
+  "family_id": "M03",
+  "requirement_refs": ["docs/GC1-FIRST-SLICE.md"],
+  "fixtures": ["examples/gc1-mastery/rebuild-positive.json"],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "project_mastery_play_lines",
+      "input": { "fixture": "examples/gc1-mastery/rebuild-positive.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "at most three play_lines",
+      "engineer line omitted when all four tracks are PRACTICING"
+    ]
+  },
+  "security_class": "none"
+}

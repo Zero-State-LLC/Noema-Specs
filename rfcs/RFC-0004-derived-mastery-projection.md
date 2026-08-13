@@ -2,9 +2,9 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
-Specification-only. Not Accepted. Not a catalog expansion. Not v0.8 Phenomena.
+Approved for specification-only implementation on 2026-08-13. Does not expand `event-catalog`. Not v0.8 Phenomena. Runtime implementation of GC1-S0 may now follow [GC1-FIRST-SLICE.md](../docs/GC1-FIRST-SLICE.md).
 
 ## Problem
 
@@ -72,13 +72,10 @@ Existing worlds start `UNTRACKED` and accumulate S0 counts from qualifying event
 
 ## Validation
 
-Before **Accepted**:
-
-- Positive rebuild examples for each of the four tracks
-- Negatives: `TRADE_REJECTED`, missing `actor_id`, other-Player non-leak
-- Link and claim-label validation
-
-This Draft does **not** add those machine fixtures yet.
+- Catalog: [`specs/mastery-catalog.gc1-s0.json`](../specs/mastery-catalog.gc1-s0.json)
+- Rebuild fixtures: [`examples/gc1-mastery/`](../examples/gc1-mastery/)
+- Conformance: [`conformance/gc1-s0/`](../conformance/gc1-s0/) families M01–M03
+- Validator: `check_gc1_s0` in `validation/validate_all.py` executes the rebuild
 
 ## Rollback
 

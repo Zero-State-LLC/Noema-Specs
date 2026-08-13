@@ -818,6 +818,9 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "examples/deployment/local-runtime-manifest.json",
         ),
         ("specs/module-contracts.schema.json", "specs/module-contracts.v01.json"),
+        ("specs/mastery-catalog.schema.json", "specs/mastery-catalog.gc1-s0.json"),
+        ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-positive.json"),
+        ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-negative.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2481,6 +2484,142 @@ def check_skills_workflows() -> None:
             fail(f"{rel} must cross-link SKILLS.md")
     ok("SKILLS.md: operational workflows, authority boundary, and cross-links")
 
+def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict:
+    player_id = fixture["player_id"]
+    trades = fixture.get("trades") or {}
+    tracks = {
+        t["track_id"]: {"state": "UNTRACKED", "count": 0, "units": set()}
+        for t in catalog["tracks"]
+    }
+    seen_event_ids: dict[str, set[str]] = {tid: set() for tid in tracks}
+
+    def credit(track_id: str, event_id: str, unit: str) -> None:
+        if event_id in seen_event_ids[track_id]:
+            return
+        seen_event_ids[track_id].add(event_id)
+        bucket = tracks[track_id]
+        if unit in bucket["units"]:
+            return
+        bucket["units"].add(unit)
+        bucket["count"] += 1
+        bucket["state"] = "PRACTICING"
+
+    def payload_player(payload: dict) -> str | None:
+        for key in ("agent_id", "player_id"):
+            value = payload.get(key)
+            if isinstance(value, str) and value:
+                return value
+        return None
+
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        event_type = ev.get("event_type")
+        event_id = ev.get("event_id")
+        payload = ev.get("payload") or {}
+        actor_id = ev.get("actor_id")
+        if not event_id:
+            continue
+        if event_type == "LOOK":
+            if payload_player(payload) == player_id and payload.get("room_id"):
+                credit("track.explorer.01", event_id, str(payload["room_id"]))
+        elif event_type == "INSPECT":
+            if payload_player(payload) == player_id and payload.get("entity_id"):
+                credit("track.surveyor.01", event_id, str(payload["entity_id"]))
+        elif event_type == "TRADE_ACCEPTED":
+            trade_id = payload.get("trade_id")
+            trade = trades.get(trade_id) if isinstance(trade_id, str) else None
+            if not trade:
+                continue
+            parties = {trade.get("proposer_id"), trade.get("counterparty_id"), payload.get("accepted_by")}
+            if player_id in parties:
+                credit("track.broker.01", event_id, str(trade_id))
+        elif event_type == "ENTITY_UPDATE":
+            if actor_id != player_id:
+                continue
+            sett = payload.get("set") if isinstance(payload.get("set"), dict) else {}
+            if "condition" in sett:
+                credit("track.engineer.01", event_id, event_id)
+
+    by_order = sorted(catalog["tracks"], key=lambda t: int(t["display_order"]))
+    play_lines: list[str] = []
+    for track in by_order:
+        if tracks[track["track_id"]]["state"] == "PRACTICING":
+            play_lines.append(track["play_line"])
+        if len(play_lines) >= int(catalog["max_play_lines"]):
+            break
+    return {
+        "tracks": {tid: {"state": rec["state"], "count": rec["count"]} for tid, rec in tracks.items()},
+        "play_lines": play_lines,
+    }
+
+
+def check_gc1_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "mastery-rebuild.schema.json")
+    case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
+    catalog_errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if catalog_errs:
+        fail(f"mastery catalog invalid: {catalog_errs[0].message}")
+    if catalog.get("recognition_enabled") or catalog.get("decay_enabled") or catalog.get("benefits_enabled"):
+        fail("GC1-S0 catalog must disable recognition, decay, and benefits")
+
+    manifest = load_json(ROOT / "conformance" / "gc1-s0" / "manifest.json")
+    cases = manifest.get("cases") or []
+    if len(cases) < 4:
+        fail(f"GC1-S0 conformance must list ≥4 cases, found {len(cases)}")
+    case_v = Draft202012Validator(case_schema)
+    fams: set[str] = set()
+    for rel in cases:
+        path = ROOT / "conformance" / "gc1-s0" / rel
+        if not path.exists():
+            fail(f"GC1-S0 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"GC1-S0 case {rel} invalid: {errs[0].message}")
+        if case.get("family_id"):
+            fams.add(case["family_id"])
+        for fixture in case.get("fixtures") or []:
+            if not (ROOT / fixture).exists():
+                fail(f"GC1-S0 case {rel} missing fixture {fixture}")
+    if {"M01", "M02", "M03"} - fams:
+        fail(f"GC1-S0 missing families: {sorted({'M01', 'M02', 'M03'} - fams)}")
+
+    rfc = (ROOT / "rfcs" / "RFC-0004-derived-mastery-projection.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc:
+        fail("RFC-0004 must be Accepted after GC1-S0 machine contracts land")
+
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    for name in ("rebuild-positive.json", "rebuild-negative.json"):
+        fixture = load_json(ROOT / "examples" / "gc1-mastery" / name)
+        errs = list(rebuild_v.iter_errors(fixture))
+        if errs:
+            fail(f"{name} invalid: {errs[0].message}")
+        got = rebuild_gc1_s0(fixture, catalog)
+        expected = fixture["expected"]
+        for track_id in (
+            "track.explorer.01",
+            "track.surveyor.01",
+            "track.broker.01",
+            "track.engineer.01",
+        ):
+            if got["tracks"][track_id] != expected[track_id]:
+                fail(f"{name} {track_id}: got {got['tracks'][track_id]} expected {expected[track_id]}")
+        if got["play_lines"] != expected["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {expected['play_lines']}")
+        if len(got["play_lines"]) > int(catalog["max_play_lines"]):
+            fail(f"{name} exceeded max_play_lines")
+    if "You have been keeping infrastructure alive." in load_json(
+        ROOT / "examples" / "gc1-mastery" / "rebuild-positive.json"
+    )["expected"]["play_lines"]:
+        fail("positive fixture must omit the fourth display_order line")
+    ok("GC1-S0 mastery: catalog, rebuild fixtures, M01–M03, RFC-0004 Accepted")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2505,6 +2644,7 @@ def main() -> None:
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()
+    check_gc1_s0(Draft202012Validator)
     print("\nPASS")
 
 
