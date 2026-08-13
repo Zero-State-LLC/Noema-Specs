@@ -136,8 +136,10 @@ Catalog types `MOVE_REJECTED`, `TRADE_REJECTED`, `BUDGET_EXCEEDED` remain the fr
 Worker
   → NoemaWorldDO   (order, fence, in-flight)
   → event reducers (meaning)
-  → Postgres SERIALIZABLE batch (durable truth)
+  → Postgres event sink + world head (RFC-0016)
 ```
+
+Hosted first resume: upsert `noema_world_heads` after mutating PLAY; restore that head if DO storage has no world; retry `unsettled` idempotently. Live DO state is not clobbered by an older head. Full `SERIALIZABLE` cycle-fence remains later.
 
 Simple paths that already settle in one Postgres transaction without extra DO hops remain legal if they keep the same protocol, fence, receipts, and determinism. Do not add a DO for doctrine purity. Do not bypass the World DO where the current runtime already centralizes mutations.
 

@@ -25,6 +25,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0013](RFC-0013-maintenance-custom.md) | **Accepted** | GC9-S0 maintenance custom; lore cannot override ledger |
 | [RFC-0014](RFC-0014-wed-schedule-pressure.md) | **Accepted** | GC10-S0 seeded mild relay pressure; no Frontier ID share |
 | [RFC-0015](RFC-0015-archive-record-source.md) | **Accepted** | GC6-S0 archive-record source: explicit ARTIFACT claim fields; no Genesis pack |
+| [RFC-0016](RFC-0016-hosted-durable-world-head.md) | **Accepted** | Hosted durable world head in Postgres; restore if DO world missing; no Genesis reseed |
 
 ## Required review lenses
 
