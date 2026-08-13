@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/pressure-attempt.schema.json",
+  "title": "NOEMA GC10-S0 pressure attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc10-s0" },
+    "catalog_id": { "const": "pressure-catalog/gc10-s0" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorizer",
+        "cycle",
+        "entity_id",
+        "condition_before",
+        "activate_event"
+      ],
+      "properties": {
+        "authorizer": { "type": "string" },
+        "cycle": { "type": "integer", "minimum": 0 },
+        "entity_id": { "type": "string", "minLength": 1 },
+        "condition_before": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "preview_after": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "activate_after": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "activate_event": { "type": "string" },
+        "wed_id": { "type": "string" },
+        "frontier_request_id": { "type": "string" },
+        "forced_response": { "type": ["string", "null"] },
+        "play_lines": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "favor_grant": { "type": "boolean" },
+        "rewrite_history": { "type": "boolean" },
+        "new_entity": { "type": "boolean" },
+        "admin_spawn": { "type": "boolean" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "condition_after": { "type": "integer" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

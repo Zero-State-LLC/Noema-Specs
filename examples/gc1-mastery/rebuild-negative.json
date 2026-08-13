@@ -1,0 +1,77 @@
+{
+  "slice_id": "gc1-s0",
+  "catalog_id": "mastery-catalog/gc1-s0",
+  "player_id": "player.nacre",
+  "events": [
+    {
+      "event_id": "evt.s0.n01",
+      "event_type": "TRADE_REJECTED",
+      "cycle": 20,
+      "sequence": 1,
+      "actor_id": "player.vesper",
+      "payload": {
+        "trade_id": "trade.s0.n01",
+        "rejected_by": "player.vesper",
+        "reason": "DECLINED"
+      }
+    },
+    {
+      "event_id": "evt.s0.n02",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 21,
+      "sequence": 2,
+      "actor_id": null,
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "set": { "condition": 40 },
+        "unset": []
+      }
+    },
+    {
+      "event_id": "evt.s0.n03",
+      "event_type": "LOOK",
+      "cycle": 22,
+      "sequence": 3,
+      "actor_id": "player.vesper",
+      "payload": {
+        "agent_id": "player.vesper",
+        "room_id": "room.transit-ring",
+        "attention_spent": 1,
+        "observation_id": "obs.s0.n03"
+      }
+    },
+    {
+      "event_id": "evt.s0.n04",
+      "event_type": "BUDGET_EXCEEDED",
+      "cycle": 23,
+      "sequence": 4,
+      "actor_id": "player.nacre",
+      "payload": {
+        "agent_id": "player.nacre",
+        "resource": "attention",
+        "requested": 2,
+        "available": 0,
+        "action_id": "act.s0.n04"
+      }
+    }
+  ],
+  "trades": {
+    "trade.s0.n01": {
+      "proposer_id": "player.nacre",
+      "counterparty_id": "player.vesper"
+    }
+  },
+  "expected": {
+    "track.explorer.01": { "state": "UNTRACKED", "count": 0 },
+    "track.surveyor.01": { "state": "UNTRACKED", "count": 0 },
+    "track.broker.01": { "state": "UNTRACKED", "count": 0 },
+    "track.engineer.01": { "state": "UNTRACKED", "count": 0 },
+    "play_lines": [],
+    "reasons": [
+      "TRADE_REJECTED is not broker evidence",
+      "ENTITY_UPDATE with null actor_id is not engineer evidence",
+      "another Player LOOK is not this Player explorer evidence",
+      "BUDGET_EXCEEDED is not a successful LOOK or INSPECT"
+    ]
+  }
+}

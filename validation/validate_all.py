@@ -183,6 +183,40 @@ REQUIRED_DOCS = [
     "docs/CAPABILITY-GRAPH.md",
     "docs/LEARN.md",
     "docs/SPEC-FREEZE-CORE-LOOP.md",
+    "docs/MUD-DESIGN-CANON.md",
+    "docs/GAME-COMPLETENESS-PLAN.md",
+    "docs/COMPLEXITY-DOCTRINE.md",
+    "docs/MASTERY-SPECIALIZATION.md",
+    "docs/CONSTRUCTION.md",
+    "docs/SOCIAL-MEMORY.md",
+    "docs/INSTITUTIONAL-AUTHORITY.md",
+    "docs/COMMUNICATION-ECOLOGY.md",
+    "docs/SYSTEMIC-DISCOVERY.md",
+    "docs/ECONOMIC-SPECIALIZATION.md",
+    "docs/EMERGENT-CULTURE.md",
+    "docs/WORLD-EVENT-DIRECTOR.md",
+    "docs/GC1-FIRST-SLICE.md",
+    "docs/GC1-S1-RECOGNITION.md",
+    "docs/GC2-FIRST-SLICE.md",
+    "rfcs/RFC-0006-construction-existing-events.md",
+    "docs/GC3-FIRST-SLICE.md",
+    "rfcs/RFC-0007-dyadic-trade-memory.md",
+    "docs/GC4-FIRST-SLICE.md",
+    "rfcs/RFC-0008-office-authority-pins.md",
+    "docs/GC5-FIRST-SLICE.md",
+    "rfcs/RFC-0009-relay-message-delivery.md",
+    "docs/GC6-FIRST-SLICE.md",
+    "rfcs/RFC-0010-discovery-contradiction.md",
+    "docs/GC7-FIRST-SLICE.md",
+    "rfcs/RFC-0011-contest-rhythm.md",
+    "docs/GC8-FIRST-SLICE.md",
+    "rfcs/RFC-0012-distance-interdependence.md",
+    "docs/GC9-FIRST-SLICE.md",
+    "rfcs/RFC-0013-maintenance-custom.md",
+    "docs/GC10-FIRST-SLICE.md",
+    "rfcs/RFC-0014-wed-schedule-pressure.md",
+    "rfcs/RFC-0004-derived-mastery-projection.md",
+    "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
     "docs/GENESIS.md",
     "docs/GENESIS-PROFILES.md",
@@ -805,6 +839,45 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
             "examples/deployment/local-runtime-manifest.json",
         ),
         ("specs/module-contracts.schema.json", "specs/module-contracts.v01.json"),
+        ("specs/mastery-catalog.schema.json", "specs/mastery-catalog.gc1-s0.json"),
+        ("specs/mastery-catalog-s1.schema.json", "specs/mastery-catalog.gc1-s1.json"),
+        ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-positive.json"),
+        ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-negative.json"),
+        ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-recognized.json"),
+        ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-below-threshold.json"),
+        ("specs/construction-catalog.schema.json", "specs/construction-catalog.gc2-s0.json"),
+        ("specs/construction-attempt.schema.json", "examples/gc2-construction/construct-relay-ok.json"),
+        ("specs/construction-attempt.schema.json", "examples/gc2-construction/dismantle-not-owner.json"),
+        ("specs/social-memory-catalog.schema.json", "specs/social-memory-catalog.gc3-s0.json"),
+        ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-reliable.json"),
+        ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-rejects-ignored.json"),
+        ("specs/authority-catalog.schema.json", "specs/authority-catalog.gc4-s0.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/officer-add-member-ok.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/member-add-forbidden.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/steward-title-member-add-forbidden.json"),
+        ("specs/communication-catalog.schema.json", "specs/communication-catalog.gc5-s0.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/local-dead-relay-ok.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/long-range-below-band-unreachable.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/hidden-room-unreachable-no-leak.json"),
+        ("specs/discovery-catalog.schema.json", "specs/discovery-catalog.gc6-s0.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-relay-seven-open.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-inspect-only.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-agreeing.json"),
+        ("specs/conflict-catalog.schema.json", "specs/conflict-catalog.gc7-s0.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/rhythm-infra-ok.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/attack-verb-forbidden.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/death-forbidden.json"),
+        ("specs/economy-catalog.schema.json", "specs/economy-catalog.gc8-s0.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/pair-two-rooms-ok.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/lone-one-hop-ok.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/wallet-forbidden.json"),
+        ("specs/culture-catalog.schema.json", "specs/culture-catalog.gc9-s0.json"),
+        ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-repair-custom.json"),
+        ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-lore-cannot-override.json"),
+        ("specs/pressure-catalog.schema.json", "specs/pressure-catalog.gc10-s0.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/schedule-mild-ok.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/forced-response-forbidden.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/frontier-id-forbidden.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2468,6 +2541,1007 @@ def check_skills_workflows() -> None:
             fail(f"{rel} must cross-link SKILLS.md")
     ok("SKILLS.md: operational workflows, authority boundary, and cross-links")
 
+def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict:
+    player_id = fixture["player_id"]
+    trades = fixture.get("trades") or {}
+    tracks = {
+        t["track_id"]: {"state": "UNTRACKED", "count": 0, "units": set(), "recognition_units": set()}
+        for t in catalog["tracks"]
+    }
+    seen_event_ids: dict[str, set[str]] = {tid: set() for tid in tracks}
+
+    def credit(track_id: str, event_id: str, unit: str, recognition_unit: str | None = None) -> None:
+        if event_id in seen_event_ids[track_id]:
+            return
+        seen_event_ids[track_id].add(event_id)
+        bucket = tracks[track_id]
+        if unit not in bucket["units"]:
+            bucket["units"].add(unit)
+            bucket["count"] += 1
+            bucket["state"] = "PRACTICING"
+        if recognition_unit:
+            bucket["recognition_units"].add(recognition_unit)
+
+    def payload_player(payload: dict) -> str | None:
+        for key in ("agent_id", "player_id"):
+            value = payload.get(key)
+            if isinstance(value, str) and value:
+                return value
+        return None
+
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        event_type = ev.get("event_type")
+        event_id = ev.get("event_id")
+        payload = ev.get("payload") or {}
+        actor_id = ev.get("actor_id")
+        if not event_id:
+            continue
+        if event_type == "LOOK":
+            if payload_player(payload) == player_id and payload.get("room_id"):
+                room = str(payload["room_id"])
+                credit("track.explorer.01", event_id, room, room)
+        elif event_type == "INSPECT":
+            if payload_player(payload) == player_id and payload.get("entity_id"):
+                entity = str(payload["entity_id"])
+                credit("track.surveyor.01", event_id, entity, entity)
+        elif event_type == "TRADE_ACCEPTED":
+            trade_id = payload.get("trade_id")
+            trade = trades.get(trade_id) if isinstance(trade_id, str) else None
+            if not trade:
+                continue
+            parties = {trade.get("proposer_id"), trade.get("counterparty_id"), payload.get("accepted_by")}
+            if player_id in parties:
+                credit("track.broker.01", event_id, str(trade_id), str(trade_id))
+        elif event_type == "ENTITY_UPDATE":
+            if actor_id != player_id:
+                continue
+            sett = payload.get("set") if isinstance(payload.get("set"), dict) else {}
+            if "condition" in sett:
+                entity = payload.get("entity_id")
+                recog = str(entity) if isinstance(entity, str) and entity else None
+                credit("track.engineer.01", event_id, event_id, recog)
+
+    track_meta = {t["track_id"]: t for t in catalog["tracks"]}
+    if catalog.get("recognition_enabled"):
+        for tid, rec in tracks.items():
+            threshold = int(track_meta[tid].get("recognition_threshold") or 0)
+            if rec["count"] >= 1 and len(rec["recognition_units"]) >= threshold > 0:
+                rec["state"] = "RECOGNIZED"
+
+    by_order = sorted(catalog["tracks"], key=lambda t: int(t["display_order"]))
+    play_lines: list[str] = []
+    recognized = [t for t in by_order if tracks[t["track_id"]]["state"] == "RECOGNIZED"]
+    practicing = [t for t in by_order if tracks[t["track_id"]]["state"] == "PRACTICING"]
+    for track in recognized + practicing:
+        rec = tracks[track["track_id"]]
+        if rec["state"] == "RECOGNIZED":
+            play_lines.append(track.get("recognized_play_line") or track["play_line"])
+        else:
+            play_lines.append(track["play_line"])
+        if len(play_lines) >= int(catalog["max_play_lines"]):
+            break
+    out_tracks = {}
+    for tid, rec in tracks.items():
+        row = {"state": rec["state"], "count": rec["count"]}
+        if catalog.get("recognition_enabled"):
+            row["recognition_count"] = len(rec["recognition_units"])
+        out_tracks[tid] = row
+    return {"tracks": out_tracks, "play_lines": play_lines}
+
+
+def check_gc1_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "mastery-rebuild.schema.json")
+    case_schema = load_json(ROOT / "specs" / "conformance-case.schema.json")
+    catalog_errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if catalog_errs:
+        fail(f"mastery catalog invalid: {catalog_errs[0].message}")
+    if catalog.get("recognition_enabled") or catalog.get("decay_enabled") or catalog.get("benefits_enabled"):
+        fail("GC1-S0 catalog must disable recognition, decay, and benefits")
+
+    manifest = load_json(ROOT / "conformance" / "gc1-s0" / "manifest.json")
+    cases = manifest.get("cases") or []
+    if len(cases) < 4:
+        fail(f"GC1-S0 conformance must list ≥4 cases, found {len(cases)}")
+    case_v = Draft202012Validator(case_schema)
+    fams: set[str] = set()
+    for rel in cases:
+        path = ROOT / "conformance" / "gc1-s0" / rel
+        if not path.exists():
+            fail(f"GC1-S0 missing case: {rel}")
+        case = load_json(path)
+        errs = list(case_v.iter_errors(case))
+        if errs:
+            fail(f"GC1-S0 case {rel} invalid: {errs[0].message}")
+        if case.get("family_id"):
+            fams.add(case["family_id"])
+        for fixture in case.get("fixtures") or []:
+            if not (ROOT / fixture).exists():
+                fail(f"GC1-S0 case {rel} missing fixture {fixture}")
+    if {"M01", "M02", "M03"} - fams:
+        fail(f"GC1-S0 missing families: {sorted({'M01', 'M02', 'M03'} - fams)}")
+
+    rfc = (ROOT / "rfcs" / "RFC-0004-derived-mastery-projection.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc:
+        fail("RFC-0004 must be Accepted after GC1-S0 machine contracts land")
+
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    for name in ("rebuild-positive.json", "rebuild-negative.json"):
+        fixture = load_json(ROOT / "examples" / "gc1-mastery" / name)
+        errs = list(rebuild_v.iter_errors(fixture))
+        if errs:
+            fail(f"{name} invalid: {errs[0].message}")
+        got = rebuild_gc1_s0(fixture, catalog)
+        expected = fixture["expected"]
+        for track_id in (
+            "track.explorer.01",
+            "track.surveyor.01",
+            "track.broker.01",
+            "track.engineer.01",
+        ):
+            if got["tracks"][track_id] != expected[track_id]:
+                fail(f"{name} {track_id}: got {got['tracks'][track_id]} expected {expected[track_id]}")
+        if got["play_lines"] != expected["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {expected['play_lines']}")
+        if len(got["play_lines"]) > int(catalog["max_play_lines"]):
+            fail(f"{name} exceeded max_play_lines")
+    if "You have been keeping infrastructure alive." in load_json(
+        ROOT / "examples" / "gc1-mastery" / "rebuild-positive.json"
+    )["expected"]["play_lines"]:
+        fail("positive fixture must omit the fourth display_order line")
+    ok("GC1-S0 mastery: catalog, rebuild fixtures, M01–M03, RFC-0004 Accepted")
+
+
+def check_gc1_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog-s1.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "mastery-rebuild-s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S1 catalog invalid: {errs[0].message}")
+    if not catalog.get("recognition_enabled"):
+        fail("GC1-S1 catalog must enable recognition")
+    if catalog.get("decay_enabled") or catalog.get("benefits_enabled"):
+        fail("GC1-S1 catalog must disable decay and benefits")
+    rfc = (ROOT / "rfcs" / "RFC-0005-mastery-recognition.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:200]:
+        fail("RFC-0005 must be Accepted after GC1-S1 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    for name in ("rebuild-s1-recognized.json", "rebuild-s1-below-threshold.json"):
+        fixture = load_json(ROOT / "examples" / "gc1-mastery" / name)
+        ferrs = list(rebuild_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = rebuild_gc1_s0(fixture, catalog)
+        expected = fixture["expected"]
+        for track_id in (
+            "track.explorer.01",
+            "track.surveyor.01",
+            "track.broker.01",
+            "track.engineer.01",
+        ):
+            if got["tracks"][track_id] != expected[track_id]:
+                fail(f"{name} {track_id}: got {got['tracks'][track_id]} expected {expected[track_id]}")
+        if got["play_lines"] != expected["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {expected['play_lines']}")
+    spam = load_json(ROOT / "examples" / "gc1-mastery" / "rebuild-s1-below-threshold.json")
+    if spam["expected"]["track.engineer.01"]["state"] != "PRACTICING":
+        fail("same-entity repair spam must stay PRACTICING")
+    if spam["expected"]["track.engineer.01"]["recognition_count"] != 1:
+        fail("same-entity repair spam must have recognition_count 1")
+    rec = load_json(ROOT / "examples" / "gc1-mastery" / "rebuild-s1-recognized.json")
+    if "You have been" in " ".join(rec["expected"]["play_lines"]):
+        fail("recognized fixture must use recognized lines, not practicing lines")
+    ok("GC1-S1 mastery: catalog, recognition fixtures, RFC-0005 Accepted")
+
+
+def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    classes = {c["class_id"]: c for c in catalog["classes"]}
+    op = attempt.get("operation")
+    actor_room = attempt.get("actor_room_id") or attempt.get("room_id")
+    if attempt.get("hidden_room"):
+        return "REJECT", "NOT_OBSERVABLE"
+    if actor_room != attempt.get("room_id"):
+        return "REJECT", "NOT_COLOCATED"
+    budgets = attempt.get("budgets") or {}
+    if op == "CONSTRUCT":
+        class_id = attempt.get("class_id")
+        spec = classes.get(class_id)
+        if not spec:
+            return "REJECT", "CLASS_FORBIDDEN"
+        if class_id in (attempt.get("live_classes_in_room") or []):
+            return "REJECT", "SLOT_OCCUPIED"
+        cost = spec["construct_cost"]
+        for key, need in cost.items():
+            if int(budgets.get(key) or 0) < int(need):
+                return "REJECT", "BUDGET_EXCEEDED"
+        return "ACCEPT", None
+    if op == "DISMANTLE":
+        target = attempt.get("target") or {}
+        if not target.get("live"):
+            return "REJECT", "NOT_FOUND"
+        if target.get("owner_id") != attempt.get("actor_id"):
+            return "REJECT", "NOT_OWNER"
+        spec = classes.get(target.get("class_id") or "")
+        if not spec:
+            return "REJECT", "CLASS_FORBIDDEN"
+        cost = spec["dismantle_cost"]
+        for key, need in cost.items():
+            if int(budgets.get(key) or 0) < int(need):
+                return "REJECT", "BUDGET_EXCEEDED"
+        return "ACCEPT", None
+    return "REJECT", "CLASS_FORBIDDEN"
+
+
+def check_gc2_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC2-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("benefits_enabled"):
+        fail("GC2-S0 must not enable mastery/build benefits")
+    if catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC2-S0 must reuse event-catalog/0.1")
+    forbidden_events = {"STRUCTURE_CONSTRUCTED", "STRUCTURE_DISMANTLED"}
+    used = set(catalog.get("construct_events") or []) | set(catalog.get("dismantle_events") or [])
+    if used & forbidden_events:
+        fail("GC2-S0 must not introduce STRUCTURE_* events")
+    for cls in catalog["classes"]:
+        if len(cls.get("couples") or []) < 2:
+            fail(f"{cls['class_id']} must couple at least two systems")
+    rfc = (ROOT / "rfcs" / "RFC-0006-construction-existing-events.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0006 must be Accepted after GC2-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "construct-relay-ok.json",
+        "construct-slot-occupied.json",
+        "construct-budget-exceeded.json",
+        "construct-hidden-room.json",
+        "dismantle-owner-ok.json",
+        "dismantle-not-owner.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc2-construction" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc2_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+    ok("GC2-S0 construction: catalog, attempt fixtures, RFC-0006 Accepted, no STRUCTURE_* events")
+
+
+def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    trades = fixture.get("trades") or {}
+    handles = fixture.get("handles") or {}
+    counts: dict[str, set[str]] = {}
+    seen_events: set[str] = set()
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        if ev.get("event_type") != catalog["evidence_event"]:
+            continue
+        eid = ev.get("event_id")
+        if not eid or eid in seen_events:
+            continue
+        seen_events.add(eid)
+        payload = ev.get("payload") or {}
+        trade_id = payload.get("trade_id")
+        trade = trades.get(trade_id) if isinstance(trade_id, str) else None
+        if not trade:
+            continue
+        parties = {trade.get("proposer_id"), trade.get("counterparty_id")}
+        if subject not in parties:
+            continue
+        other = next((p for p in parties if p and p != subject), None)
+        if not other:
+            continue
+        counts.setdefault(other, set()).add(str(trade_id))
+    edges = {}
+    play_lines = []
+    traded_at = int(catalog["traded_threshold"])
+    reliable_at = int(catalog["reliable_threshold"])
+    for other, tids in sorted(counts.items()):
+        n = len(tids)
+        if n >= reliable_at:
+            state = "RELIABLE"
+            template = catalog["reliable_line"]
+        elif n >= traded_at:
+            state = "TRADED"
+            template = catalog["traded_line"]
+        else:
+            state = "UNKNOWN"
+            template = None
+        edges[other] = {"state": state, "count": n}
+        if template:
+            name = handles.get(other) or other
+            play_lines.append(template.replace("{name}", name))
+    return {
+        "edges": edges,
+        "play_lines": play_lines,
+        "watch_lines": [],
+        "third_party_lines": [],
+    }
+
+
+def check_gc3_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("public_projection") or catalog.get("watch_projection"):
+        fail("GC3-S0 must not enable a reputation scalar or public/WATCH projection")
+    if catalog.get("new_verbs"):
+        fail("GC3-S0 must not add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0007-dyadic-trade-memory.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0007 must be Accepted after GC3-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in ("rebuild-reliable.json", "rebuild-rejects-ignored.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-social-memory" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if got["edges"] != exp["edges"]:
+            fail(f"{name} edges: got {got['edges']} expected {exp['edges']}")
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {exp['play_lines']}")
+        if got["watch_lines"] or exp["watch_lines"]:
+            fail(f"{name} WATCH must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        if "72" in blob or "reputation" in blob:
+            fail(f"{name} must not project a reputation scalar")
+    ok("GC3-S0 social memory: catalog, rebuild fixtures, RFC-0007 Accepted, no reputation scalar")
+
+
+def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not attempt.get("org_active"):
+        return "REJECT", "NOT_FOUND"
+    op = attempt.get("operation")
+    actor_role = attempt.get("actor_role")
+    # Cosmetic titles never authorize; only actor_role is consulted.
+    if op == "ORG_MEMBER_ADD":
+        if actor_role not in (catalog.get("invite_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("target_is_member"):
+            return "REJECT", "FORBIDDEN"
+        assigned = attempt.get("assigned_role")
+        if assigned in (catalog.get("forbidden_assign_roles") or []):
+            return "REJECT", "FORBIDDEN"
+        if assigned not in (catalog.get("assignable_roles") or []):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "ORG_MEMBER_REMOVE":
+        if not attempt.get("target_is_member"):
+            return "REJECT", "NOT_FOUND"
+        self_leave = attempt.get("actor_id") == attempt.get("target_id")
+        if not self_leave and actor_role not in (catalog.get("remove_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if (
+            catalog.get("last_founder_guard")
+            and attempt.get("target_role") == "founder"
+            and int(attempt.get("founder_count") or 0) <= 1
+            and int(attempt.get("member_count") or 0) > 1
+        ):
+            return "REJECT", "FORBIDDEN"
+        if self_leave and not catalog.get("self_leave"):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    return "REJECT", "FORBIDDEN"
+
+
+def check_gc4_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "authority-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("office_names_frozen") or catalog.get("llm_authority") or catalog.get("cosmetic_titles_have_authority"):
+        fail("GC4-S0 must not freeze office names, grant LLM authority, or treat titles as grants")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S0 must not add verbs or events")
+    if catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC4-S0 must reuse event-catalog/0.1")
+    used = set(catalog.get("membership_events") or [])
+    if any(name.startswith("ROLE_") or name.startswith("STRUCTURE_") for name in used):
+        fail("GC4-S0 must not introduce ROLE_* or STRUCTURE_* events")
+    rfc = (ROOT / "rfcs" / "RFC-0008-office-authority-pins.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0008 must be Accepted after GC4-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "officer-add-member-ok.json",
+        "member-add-forbidden.json",
+        "member-self-leave-ok.json",
+        "advisor-add-forbidden.json",
+        "founder-add-founder-forbidden.json",
+        "officer-remove-last-founder-forbidden.json",
+        "steward-title-member-add-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-authority" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc4_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if fixture["attempt"].get("cosmetic_title") and outcome != "REJECT":
+            fail(f"{name}: cosmetic title must not authorize")
+    ok("GC4-S0 authority: catalog, attempt fixtures, RFC-0008 Accepted, no ROLE_* events")
+
+
+def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not attempt.get("recipient_addressable"):
+        return "REJECT", "FORBIDDEN"
+    sender_room = attempt.get("sender_room_id")
+    recipient_room = attempt.get("recipient_room_id")
+    local = sender_room == recipient_room
+    best: int | None = None
+    for relay in attempt.get("relays") or []:
+        if not relay.get("live"):
+            continue
+        if relay.get("class_id") != catalog.get("relay_class"):
+            continue
+        cond = int(relay.get("condition") or 0)
+        if best is None or cond > best:
+            best = cond
+    if local:
+        return "ACCEPT", None
+    threshold = int(catalog["long_range_min_condition"])
+    if best is None or best < threshold:
+        return "REJECT", catalog.get("long_range_failure") or "UNREACHABLE"
+    return "ACCEPT", None
+
+
+def check_gc5_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC5-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("delay_enabled") or catalog.get("rumor_enabled") or catalog.get("watch_text"):
+        fail("GC5-S0 must not enable delay, rumor, or WATCH text")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC5-S0 must not add verbs or events")
+    if catalog.get("verb") != "MESSAGE" or catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC5-S0 must reuse MESSAGE and event-catalog/0.1")
+    if int(catalog.get("long_range_min_condition") or 0) != 25:
+        fail("GC5-S0 must reuse the existing MESSAGE stressed-relay threshold 25")
+    rfc = (ROOT / "rfcs" / "RFC-0009-relay-message-delivery.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0009 must be Accepted after GC5-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_reason") or []]
+    names = [
+        "local-dead-relay-ok.json",
+        "long-range-at-band-ok.json",
+        "long-range-below-band-unreachable.json",
+        "long-range-no-relay-unreachable.json",
+        "hidden-room-unreachable-no-leak.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc5-communication" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc5_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("watch_text"):
+            fail(f"{name}: WATCH must not carry DM text")
+        if outcome == "ACCEPT" and expected.get("events") != catalog.get("success_events"):
+            fail(f"{name}: success events must be MESSAGE then MESSAGE_DELIVERED")
+        if outcome == "REJECT" and expected.get("events"):
+            fail(f"{name}: UNREACHABLE must emit no events")
+        if reason:
+            for token in forbidden:
+                if token in reason.lower():
+                    fail(f"{name} reason leaked {token}")
+        attempt = fixture["attempt"]
+        if attempt.get("recipient_room_hidden") and reason:
+            hidden_room = str(attempt.get("recipient_room_id") or "")
+            if hidden_room and hidden_room in reason:
+                fail(f"{name} reason leaked hidden room id")
+            for relay in attempt.get("relays") or []:
+                eid = relay.get("entity_id")
+                if eid and eid in reason:
+                    fail(f"{name} reason leaked relay entity_id")
+    ok("GC5-S0 communication: catalog, attempt fixtures, RFC-0009 Accepted, no new verbs")
+
+
+def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    archive = fixture.get("archive") or {}
+    inspect = fixture.get("inspect") or {}
+    archive_ok = subject in (archive.get("accessible_to") or [])
+    inspect_ok = subject in (inspect.get("accessible_to") or [])
+    same = archive.get("subject_entity_id") == inspect.get("subject_entity_id")
+    if archive_ok and inspect_ok and same:
+        conflict = archive.get("claim") != inspect.get("observation")
+        if conflict:
+            return {
+                "play_lines": [catalog["conflict_line"]],
+                "watch_lines": [],
+                "third_party_lines": [],
+                "discovery_state": catalog["conflict_discovery_state"],
+                "resolution_status": catalog["resolution_status"],
+                "quest_log": [],
+            }
+        return {
+            "play_lines": [],
+            "watch_lines": [],
+            "third_party_lines": [],
+            "discovery_state": "investigated",
+            "resolution_status": "none",
+            "quest_log": [],
+        }
+    if inspect_ok:
+        state = "observed"
+    elif archive_ok:
+        state = "discovered"
+    else:
+        state = "unknown"
+    return {
+        "play_lines": [],
+        "watch_lines": [],
+        "third_party_lines": [],
+        "discovery_state": state,
+        "resolution_status": "none",
+        "quest_log": [],
+    }
+
+
+def check_gc6_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "discovery-catalog.gc6-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "discovery-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "discovery-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC6-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("quest_ui") or catalog.get("oracle") or catalog.get("ledger_write"):
+        fail("GC6-S0 must not enable a quest UI, oracle, or ledger write")
+    if catalog.get("watch_projection") or catalog.get("public_projection"):
+        fail("GC6-S0 must not enable a public or WATCH projection")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC6-S0 must not add verbs or events")
+    if catalog.get("understood_on_conflict"):
+        fail("GC6-S0 must not mark a conflict as understood")
+    if catalog.get("contradiction_schema") != "contradiction-set/0.2":
+        fail("GC6-S0 must reuse contradiction-set/0.2")
+    rfc = (ROOT / "rfcs" / "RFC-0010-discovery-contradiction.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0010 must be Accepted after GC6-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "rebuild-relay-seven-open.json",
+        "rebuild-inspect-only.json",
+        "rebuild-archive-only.json",
+        "rebuild-agreeing.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc6-discovery" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc6_s0(fixture, catalog)
+        exp = fixture["expected"]
+        for key in (
+            "play_lines",
+            "watch_lines",
+            "third_party_lines",
+            "discovery_state",
+            "resolution_status",
+            "quest_log",
+        ):
+            if got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if got["watch_lines"] or got["third_party_lines"] or got["quest_log"]:
+            fail(f"{name} WATCH, third party, and quest log must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        known = fixture.get("known_truth_relationship") or {}
+        for leak in ("matches_world_truth", "research partition", "INFERRED"):
+            if leak.lower() in blob:
+                fail(f"{name} play line leaked research truth ({leak})")
+        if known and name == "rebuild-relay-seven-open.json" and not got["play_lines"]:
+            fail("Relay Seven pair must project the conflict line")
+        if got["discovery_state"] == "understood":
+            fail(f"{name} must not project understood")
+    ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010 Accepted, no quest oracle")
+
+
+def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if attempt.get("character_dead"):
+        return "REJECT", "DEATH_FORBIDDEN"
+    if attempt.get("hp_combat"):
+        return "REJECT", "HP_FORBIDDEN"
+    form = attempt.get("contest_form")
+    if form and form not in (catalog.get("forms") or []):
+        return "REJECT", "FORM_FORBIDDEN"
+    projection = str(attempt.get("projection") or "")
+    for token in catalog.get("forbidden_in_projection") or []:
+        if token.lower() in projection.lower():
+            return "REJECT", "LEAK"
+    forbidden_verbs = set(catalog.get("forbidden_verbs") or [])
+    stages = catalog.get("stages") or {}
+    for step in attempt.get("sequence") or []:
+        verb = step.get("verb")
+        stage = step.get("stage")
+        if verb in forbidden_verbs:
+            return "REJECT", "VERB_FORBIDDEN"
+        if verb == "CONTEST_RESOLVE" and step.get("actor_kind") != "system":
+            return "REJECT", "VERB_FORBIDDEN"
+        allowed = (stages.get(stage) or {}).get("verbs") or []
+        if verb not in allowed:
+            return "REJECT", "VERB_FORBIDDEN"
+    return "ACCEPT", None
+
+
+def check_gc7_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC7-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("mutate_catalog") or catalog.get("hp_combat") or catalog.get("character_death"):
+        fail("GC7-S0 must not mutate the event catalog or enable HP/death")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_forms"):
+        fail("GC7-S0 must not add verbs, events, or forms")
+    if catalog.get("event_catalog") != "event-catalog/0.2":
+        fail("GC7-S0 must keep event-catalog/0.2")
+    if catalog.get("withdraw"):
+        fail("GC7-S0 must not add withdraw")
+    rfc = (ROOT / "rfcs" / "RFC-0011-contest-rhythm.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0011 must be Accepted after GC7-S0 machine contracts land")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    for form in catalog["forms"]:
+        if f'"{form}"' not in types_text:
+            fail(f"event-types.0.2.json must still contain {form}")
+    if '"HP_DUEL"' in types_text or '"ATTACK"' in types_text:
+        fail("event-catalog/0.2 must not grow combat types")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "rhythm-infra-ok.json",
+        "attack-verb-forbidden.json",
+        "unknown-form-forbidden.json",
+        "hidden-leak-forbidden.json",
+        "death-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc7-conflict" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc7_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+    ok("GC7-S0 conflict: catalog, rhythm fixtures, RFC-0011 Accepted, event-catalog/0.2 unchanged")
+
+
+def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    claimed = attempt.get("claimed") or {}
+    if claimed.get("mastery_yield_bonus") or (
+        attempt.get("recognition") not in (None, "none") and int(attempt.get("harvest_amount") or 1) > 1
+    ):
+        return "REJECT", "BONUS_FORBIDDEN", None
+    for flag in (
+        "currency",
+        "order_book",
+        "global_price_index",
+        "v06b",
+        "wallet",
+        "crypto",
+    ):
+        if claimed.get(flag):
+            return "REJECT", "FEATURE_FORBIDDEN", None
+    rooms = int(attempt.get("rooms") or 0)
+    hops = int(attempt.get("hops") or 0)
+    harvest_e = int(catalog["harvest_energy"])
+    move_e = int(catalog["move_energy"])
+    pattern = attempt.get("pattern")
+    if pattern == "pair":
+        return "ACCEPT", None, rooms * harvest_e
+    if pattern == "lone":
+        return "ACCEPT", None, rooms * harvest_e + hops * move_e
+    return "REJECT", "FEATURE_FORBIDDEN", None
+
+
+def check_gc8_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "economy-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "economy-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC8-S0 catalog invalid: {cerrs[0].message}")
+    for flag in (
+        "currency",
+        "order_book",
+        "global_price_index",
+        "v06b",
+        "mastery_yield_bonus",
+        "lot_quality",
+        "storage_loss",
+        "wallet",
+        "crypto",
+        "npc_shop",
+    ):
+        if catalog.get(flag):
+            fail(f"GC8-S0 must not enable {flag}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC8-S0 must not add verbs or events")
+    if catalog.get("trade_requires_colocation"):
+        fail("GC8-S0 must keep TRADE remote (existing v0.1 contract)")
+    if int(catalog.get("harvest_energy") or 0) != 2 or int(catalog.get("move_energy") or 0) != 1:
+        fail("GC8-S0 must reuse existing HARVEST/MOVE energy costs")
+    rfc = (ROOT / "rfcs" / "RFC-0012-distance-interdependence.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0012 must be Accepted after GC8-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "pair-two-rooms-ok.json",
+        "lone-one-hop-ok.json",
+        "yield-bonus-forbidden.json",
+        "currency-forbidden.json",
+        "order-book-forbidden.json",
+        "wallet-forbidden.json",
+    ]
+    energies = {}
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc8-economy" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, energy = evaluate_gc8_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("energy") is not None and energy != expected["energy"]:
+            fail(f"{name}: energy {energy} expected {expected['energy']}")
+        energies[name] = energy
+    if energies["pair-two-rooms-ok.json"] >= energies["lone-one-hop-ok.json"]:
+        fail("pair energy must be strictly less than lone energy on one hop")
+    ok("GC8-S0 economy: catalog, pair-vs-lone fixtures, RFC-0012 Accepted, no currency/v0.6B")
+
+
+def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
+    if ev.get("event_type") != catalog.get("evidence_event"):
+        return False
+    payload = ev.get("payload") or {}
+    if payload.get("entity_id") != entity_id:
+        return False
+    if payload.get("operation") == catalog.get("practice"):
+        return True
+    if payload.get("field") == "condition":
+        return True
+    sett = payload.get("set") or {}
+    return "condition" in sett
+
+
+def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict:
+    entity_id = fixture["subject_entity_id"]
+    subject = fixture["subject_id"]
+    seen: set[str] = set()
+    access = False
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        payload = ev.get("payload") or {}
+        if payload.get("entity_id") == entity_id and ev.get("actor_id") == subject:
+            access = True
+        if not _gc9_is_repair_update(ev, catalog, entity_id):
+            continue
+        eid = ev.get("event_id")
+        if not eid or eid in seen:
+            continue
+        seen.add(eid)
+    n = len(seen)
+    if n >= int(catalog["custom_threshold"]):
+        state = "CUSTOM"
+        line = catalog["custom_line"]
+    elif n >= int(catalog["practicing_threshold"]):
+        state = "PRACTICING"
+        line = None
+    else:
+        state = "UNKNOWN"
+        line = None
+    play = [line] if line and access else []
+    return {
+        "play_lines": play,
+        "watch_lines": [],
+        "third_party_lines": [],
+        "state": state,
+        "ledger_mutated": False,
+        "lore_wins": False,
+    }
+
+
+def check_gc9_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "culture-catalog.gc9-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "culture-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "culture-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC9-S0 catalog invalid: {cerrs[0].message}")
+    if (
+        catalog.get("ledger_write")
+        or catalog.get("lore_overrides_ledger")
+        or catalog.get("v06c")
+        or catalog.get("procedural_generator")
+    ):
+        fail("GC9-S0 must not write the ledger, let lore win, or open v0.6C/lore gen")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC9-S0 must not add verbs or events")
+    if catalog.get("watch_projection") or catalog.get("public_projection"):
+        fail("GC9-S0 must not enable public/WATCH culture")
+    rfc = (ROOT / "rfcs" / "RFC-0013-maintenance-custom.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0013 must be Accepted after GC9-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "rebuild-repair-custom.json",
+        "rebuild-below-threshold.json",
+        "rebuild-no-access.json",
+        "rebuild-lore-cannot-override.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc9-culture" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc9_s0(fixture, catalog)
+        exp = fixture["expected"]
+        for key in ("play_lines", "watch_lines", "third_party_lines", "state", "ledger_mutated"):
+            if got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if got["watch_lines"] or got["third_party_lines"] or got["ledger_mutated"] or got["lore_wins"]:
+            fail(f"{name} WATCH/third-party/ledger/lore-win must be empty/false")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        lore = fixture.get("lore_claim") or ""
+        if lore and lore.lower() in blob:
+            fail(f"{name} lore claim overrode PLAY")
+    ok("GC9-S0 culture: catalog, rebuild fixtures, RFC-0013 Accepted, lore cannot override ledger")
+
+
+def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    authorizer = attempt.get("authorizer")
+    if authorizer in (catalog.get("forbidden_authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", None
+    if authorizer not in (catalog.get("authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", None
+    activate = attempt.get("activate_event")
+    wed_id = attempt.get("wed_id")
+    frontier_id = attempt.get("frontier_request_id")
+    if activate == catalog.get("forbidden_activate_event") or (
+        wed_id and frontier_id and wed_id == frontier_id
+    ):
+        return "REJECT", "FRONTIER_ID_FORBIDDEN", None
+    if activate != catalog.get("activate_event"):
+        return "REJECT", "FRONTIER_ID_FORBIDDEN", None
+    if attempt.get("admin_spawn"):
+        return "REJECT", "SPAWN_FORBIDDEN", None
+    if attempt.get("favor_grant"):
+        return "REJECT", "FAVOR_FORBIDDEN", None
+    if attempt.get("rewrite_history"):
+        return "REJECT", "HISTORY_FORBIDDEN", None
+    if attempt.get("new_entity"):
+        return "REJECT", "ENTITY_FORBIDDEN", None
+    if attempt.get("forced_response"):
+        return "REJECT", "FORCED_OUTCOME", None
+    leak_tokens = [
+        "event:",
+        "wed",
+        str(catalog.get("pressure_class") or "").lower(),
+        "research",
+    ]
+    for line in attempt.get("play_lines") or []:
+        blob = line.lower()
+        if any(tok and tok in blob for tok in leak_tokens):
+            return "REJECT", "LABEL_LEAK", None
+    before = int(attempt.get("condition_before") or 0)
+    expected_after = before - int(catalog["condition_delta"])
+    preview = attempt.get("preview_after")
+    activate_after = attempt.get("activate_after")
+    if preview is not None and activate_after is not None and int(preview) != int(activate_after):
+        return "REJECT", "PREVIEW_MISMATCH", None
+    if activate_after is not None and int(activate_after) != expected_after:
+        return "REJECT", "PREVIEW_MISMATCH", None
+    if expected_after < int(catalog["min_condition_after"]):
+        return "REJECT", "NOT_MILD", None
+    if authorizer == "schedule" and int(attempt.get("cycle") or 0) < int(catalog["first_cycle"]):
+        return "REJECT", "SCHEDULE_TOO_EARLY", None
+    return "ACCEPT", None, expected_after
+
+
+def check_gc10_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "pressure-catalog.gc10-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "pressure-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "pressure-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC10-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("required_response") or catalog.get("play_research_labels") or catalog.get("admin_spawn"):
+        fail("GC10-S0 must not force a response, leak research labels, or enable Admin spawn")
+    if catalog.get("share_frontier_ids"):
+        fail("GC10-S0 must not share Frontier IDs")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC10-S0 must not add verbs or events")
+    if catalog.get("activate_event") != "ENTITY_UPDATE":
+        fail("GC10-S0 must reuse ENTITY_UPDATE")
+    rfc = (ROOT / "rfcs" / "RFC-0014-wed-schedule-pressure.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0014 must be Accepted after GC10-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "schedule-mild-ok.json",
+        "forced-response-forbidden.json",
+        "play-label-forbidden.json",
+        "player-author-forbidden.json",
+        "frontier-id-forbidden.json",
+        "preview-mismatch-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc10-pressure" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, after = evaluate_gc10_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("condition_after") is not None and after != expected["condition_after"]:
+            fail(f"{name}: condition_after {after} expected {expected['condition_after']}")
+    ok("GC10-S0 pressure: catalog, schedule fixtures, RFC-0014 Accepted, no Frontier ID share")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2492,6 +3566,17 @@ def main() -> None:
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_architecture_hardening()
+    check_gc1_s0(Draft202012Validator)
+    check_gc1_s1(Draft202012Validator)
+    check_gc2_s0(Draft202012Validator)
+    check_gc3_s0(Draft202012Validator)
+    check_gc4_s0(Draft202012Validator)
+    check_gc5_s0(Draft202012Validator)
+    check_gc6_s0(Draft202012Validator)
+    check_gc7_s0(Draft202012Validator)
+    check_gc8_s0(Draft202012Validator)
+    check_gc9_s0(Draft202012Validator)
+    check_gc10_s0(Draft202012Validator)
     print("\nPASS")
 
 

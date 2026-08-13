@@ -16,7 +16,10 @@ NOEMA is now specified as a full persistent strategic text game.
 
 | Document | Role |
 |----------|------|
-| [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) | Primary and strategic loops |
+| [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) | Primary and strategic loops; nested completeness loops |
+| [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) | Structural MUD ancestry (inspiration, not cloning) |
+| [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) | Post-core PLAY-depth campaign (not v0.8) |
+| [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Model causes, not industries; A–J rejection tests |
 | [REALMS.md](REALMS.md) | Derived strategic footprint |
 | [GEOGRAPHY.md](GEOGRAPHY.md) | World structure and status terms |
 | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) | Emergent control |
@@ -98,7 +101,7 @@ Exact transitions: [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md).
 
 ### LATER MILESTONE
 
-Full `BUILD` trees, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, deep governance `COMMIT`.
+Full `BUILD` trees — product contract now in [CONSTRUCTION.md](CONSTRUCTION.md); still **not** a frozen v0.1 verb. `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, deep governance `COMMIT`.
 
 Wire verb list remains in [mud-command-v1.md](../protocols/mud-command-v1.md) and [agent-action.schema.json](../specs/agent-action.schema.json); scope tags above govern Chamber acceptance.
 
@@ -139,6 +142,8 @@ Simple durable identity: create, join/leave, roles (founder/officer/member/advis
 
 Small deterministic pressure (degradation, shortage, situation inject). Changes **conditions**, never forces agent research outcomes. Distinct from later Frontier Director.
 
+Product authority: [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md). Not [FRONTIER-DIRECTOR.md](FRONTIER-DIRECTOR.md) and not Admin Live world-edit.
+
 ## Status surfaces (plural, no victory score)
 
 Player-visible, state-grounded only:
@@ -173,7 +178,11 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 | Loss / recovery | [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
 | Diplomacy | [DIPLOMACY.md](DIPLOMACY.md) |
 | Cycle / reports | [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) |
-| Progression / ambitions | [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) |
+| Progression / ambitions / mastery | [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) |
+| Construction / social memory / offices | [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
+| Communication / discovery / culture | [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) |
+| Economic specialization / World Event Director | [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) |
+| Game completeness campaign | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) |
 | Human / agent play | [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) |
 | Balance / exploration / knowledge | [GAME-BALANCE.md](GAME-BALANCE.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
 | Infrastructure progression | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |

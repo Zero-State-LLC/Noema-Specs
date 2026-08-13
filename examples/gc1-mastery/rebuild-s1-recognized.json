@@ -1,0 +1,40 @@
+{
+  "slice_id": "gc1-s1",
+  "catalog_id": "mastery-catalog/gc1-s1",
+  "player_id": "player.nacre",
+  "trades": {
+    "trade.s1.001": { "proposer_id": "player.nacre", "counterparty_id": "player.vesper" },
+    "trade.s1.002": { "proposer_id": "player.nacre", "counterparty_id": "player.vesper" },
+    "trade.s1.003": { "proposer_id": "player.nacre", "counterparty_id": "player.vesper" }
+  },
+  "events": [
+    { "event_id": "evt.s1.l1", "event_type": "LOOK", "cycle": 0, "sequence": 1, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "attention_spent": 1, "observation_id": "obs.s1.l1" } },
+    { "event_id": "evt.s1.l2", "event_type": "LOOK", "cycle": 0, "sequence": 2, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.b", "attention_spent": 1, "observation_id": "obs.s1.l2" } },
+    { "event_id": "evt.s1.l3", "event_type": "LOOK", "cycle": 0, "sequence": 3, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.c", "attention_spent": 1, "observation_id": "obs.s1.l3" } },
+    { "event_id": "evt.s1.l4", "event_type": "LOOK", "cycle": 0, "sequence": 4, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.d", "attention_spent": 1, "observation_id": "obs.s1.l4" } },
+    { "event_id": "evt.s1.l5", "event_type": "LOOK", "cycle": 0, "sequence": 5, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.e", "attention_spent": 1, "observation_id": "obs.s1.l5" } },
+    { "event_id": "evt.s1.i1", "event_type": "INSPECT", "cycle": 0, "sequence": 6, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "entity_id": "entity.one", "attention_spent": 2, "observation_id": "obs.s1.i1" } },
+    { "event_id": "evt.s1.i2", "event_type": "INSPECT", "cycle": 0, "sequence": 7, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "entity_id": "entity.two", "attention_spent": 2, "observation_id": "obs.s1.i2" } },
+    { "event_id": "evt.s1.i3", "event_type": "INSPECT", "cycle": 0, "sequence": 8, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "entity_id": "entity.three", "attention_spent": 2, "observation_id": "obs.s1.i3" } },
+    { "event_id": "evt.s1.i4", "event_type": "INSPECT", "cycle": 0, "sequence": 9, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "entity_id": "entity.four", "attention_spent": 2, "observation_id": "obs.s1.i4" } },
+    { "event_id": "evt.s1.i5", "event_type": "INSPECT", "cycle": 0, "sequence": 10, "actor_id": "player.nacre", "payload": { "agent_id": "player.nacre", "room_id": "room.a", "entity_id": "entity.five", "attention_spent": 2, "observation_id": "obs.s1.i5" } },
+    { "event_id": "evt.s1.t1", "event_type": "TRADE_ACCEPTED", "cycle": 0, "sequence": 11, "actor_id": "player.vesper", "payload": { "trade_id": "trade.s1.001", "accepted_by": "player.vesper" } },
+    { "event_id": "evt.s1.t2", "event_type": "TRADE_ACCEPTED", "cycle": 0, "sequence": 12, "actor_id": "player.vesper", "payload": { "trade_id": "trade.s1.002", "accepted_by": "player.vesper" } },
+    { "event_id": "evt.s1.t3", "event_type": "TRADE_ACCEPTED", "cycle": 0, "sequence": 13, "actor_id": "player.vesper", "payload": { "trade_id": "trade.s1.003", "accepted_by": "player.vesper" } },
+    { "event_id": "evt.s1.r1", "event_type": "ENTITY_UPDATE", "cycle": 0, "sequence": 14, "actor_id": "player.nacre", "payload": { "entity_id": "entity.relay-a", "set": { "condition": 80 }, "unset": [] } },
+    { "event_id": "evt.s1.r2", "event_type": "ENTITY_UPDATE", "cycle": 0, "sequence": 15, "actor_id": "player.nacre", "payload": { "entity_id": "entity.relay-b", "set": { "condition": 80 }, "unset": [] } },
+    { "event_id": "evt.s1.r3", "event_type": "ENTITY_UPDATE", "cycle": 0, "sequence": 16, "actor_id": "player.nacre", "payload": { "entity_id": "entity.relay-c", "set": { "condition": 80 }, "unset": [] } }
+  ],
+  "expected": {
+    "track.explorer.01": { "state": "RECOGNIZED", "count": 5, "recognition_count": 5 },
+    "track.surveyor.01": { "state": "RECOGNIZED", "count": 5, "recognition_count": 5 },
+    "track.broker.01": { "state": "RECOGNIZED", "count": 3, "recognition_count": 3 },
+    "track.engineer.01": { "state": "RECOGNIZED", "count": 3, "recognition_count": 3 },
+    "play_lines": [
+      "You know these rooms.",
+      "You are known for survey work.",
+      "You are known for closing exchanges."
+    ],
+    "note": "Recognized tracks first by display_order; engineer recognized line omitted by the 3-line cap."
+  }
+}

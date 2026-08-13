@@ -13,6 +13,17 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0001](RFC-0001-phenomena-self-reference-integration.md) | (see file) | Phenomena self-reference integration |
 | [RFC-0002](RFC-0002-strategic-contestation-and-crime-events.md) | **Accepted** | Contestation, crime, agreement events → `event-catalog/0.2` |
 | [RFC-0003](RFC-0003-deterministic-contract-hardening.md) | **Accepted / Implemented** | Ordering, canonicalization, catalog admission, persistence, recovery, evidence integrity |
+| [RFC-0004](RFC-0004-derived-mastery-projection.md) | **Accepted** | GC1-S0 derived practice projection; no catalog expansion |
+| [RFC-0005](RFC-0005-mastery-recognition.md) | **Accepted** | GC1-S1 self-only recognition; no benefits |
+| [RFC-0006](RFC-0006-construction-existing-events.md) | **Accepted** | GC2-S0 construct/dismantle via existing ENTITY_* events |
+| [RFC-0007](RFC-0007-dyadic-trade-memory.md) | **Accepted** | GC3-S0 dyadic trade memory; no reputation scalar |
+| [RFC-0008](RFC-0008-office-authority-pins.md) | **Accepted** | GC4-S0 existing roles as bounded authority; no ROLE_* events |
+| [RFC-0009](RFC-0009-relay-message-delivery.md) | **Accepted** | GC5-S0 relay bands on existing MESSAGE; no new verbs |
+| [RFC-0010](RFC-0010-discovery-contradiction.md) | **Accepted** | GC6-S0 archive vs live INSPECT; no quest oracle |
+| [RFC-0011](RFC-0011-contest-rhythm.md) | **Accepted** | GC7-S0 existing contest rhythm; no event-catalog/0.3 |
+| [RFC-0012](RFC-0012-distance-interdependence.md) | **Accepted** | GC8-S0 distance interdependence; not v0.6B |
+| [RFC-0013](RFC-0013-maintenance-custom.md) | **Accepted** | GC9-S0 maintenance custom; lore cannot override ledger |
+| [RFC-0014](RFC-0014-wed-schedule-pressure.md) | **Accepted** | GC10-S0 seeded mild relay pressure; no Frontier ID share |
 
 ## Required review lenses
 

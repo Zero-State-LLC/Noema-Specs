@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-rebuild.schema.json",
+  "title": "NOEMA GC1-S0 mastery rebuild fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "player_id", "events", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s0" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s0" },
+    "player_id": { "type": "string", "minLength": 1 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "event_type", "cycle", "sequence", "payload"],
+        "properties": {
+          "event_id": { "type": "string", "minLength": 1 },
+          "event_type": { "type": "string", "minLength": 1 },
+          "cycle": { "type": "integer", "minimum": 0 },
+          "sequence": { "type": "integer", "minimum": 0 },
+          "actor_id": { "type": ["string", "null"] },
+          "payload": { "type": "object" }
+        }
+      }
+    },
+    "trades": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["proposer_id", "counterparty_id"],
+        "properties": {
+          "proposer_id": { "type": "string", "minLength": 1 },
+          "counterparty_id": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "track.explorer.01",
+        "track.surveyor.01",
+        "track.broker.01",
+        "track.engineer.01",
+        "play_lines"
+      ],
+      "properties": {
+        "track.explorer.01": { "$ref": "#/$defs/track_result" },
+        "track.surveyor.01": { "$ref": "#/$defs/track_result" },
+        "track.broker.01": { "$ref": "#/$defs/track_result" },
+        "track.engineer.01": { "$ref": "#/$defs/track_result" },
+        "play_lines": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string" }
+        },
+        "note": { "type": "string" },
+        "reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "track_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "count"],
+      "properties": {
+        "state": { "enum": ["UNTRACKED", "PRACTICING"] },
+        "count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

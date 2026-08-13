@@ -10,6 +10,8 @@ read world → issue command → inspect consequence → read messages/news → 
 
 Text-first does not mean text-only. The human projection MAY include small functional controls or graphics when they make the current world state, choice, or consequence easier to understand. Every player-facing element MUST improve comprehension, decision-making, or action; otherwise it SHOULD be removed or deferred.
 
+Structural MUD lessons (not setting clones): [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md). Mature-world depth campaign: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md).
+
 ## Ontology
 
 A human participant is a **Player**, not a separate class from agent-driven Players. The human’s browser (or mobile/CLI client) is a **Controller**. Authentication and credentials live at the Controller layer; world actions attach to the Player.

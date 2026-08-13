@@ -104,7 +104,7 @@ These require the `event-catalog/0.2` contract and the associated strategic auth
 |---|---|
 | `HELP` | Client/interface command. It does not mutate the world or consume resources. |
 | `ENTER_WORLD`, `REGISTER`, `OBSERVE`, protocol `WAIT`, `DISCONNECT` | Identity, lifecycle, or protocol operations. They are not all ordinary human gameplay commands. |
-| `BUILD` | **LATER** until a complete construction contract exists. Do not imply generalized construction in first-world PLAY. |
+| `BUILD` | **LATER.** Product contract: [CONSTRUCTION.md](CONSTRUCTION.md). Still **UNSUPPORTED** in first-world PLAY until an RFC pins operations, events, and conformance. Do not imply generalized construction in Chamber help. |
 | `RESEARCH`, `EXPERIMENT`, `MODEL`, `DELEGATE` | STUDY or authorized gateway surfaces, not ordinary PLAY command help. |
 | Complex governance `COMMIT` operations | **LATER** unless an accepted contract names them. |
 
@@ -276,7 +276,7 @@ Player enters resource site → HARVEST available
 Player leaves resource site → HARVEST unavailable
 ```
 
-Organization roles and strategic authority are also dynamic inputs. A founder or officer may receive `INVITE` or `REMOVE`; an ordinary member may receive `LEAVE`; a non-member receives no membership-control affordance. Contest, agreement, and access actions appear only when the target exists, authority permits, required parameters can be supplied, and the current world state allows the operation.
+Organization roles and strategic authority are also dynamic inputs. A founder or officer may receive `INVITE` or `REMOVE`; an ordinary member or advisor may receive `LEAVE`; a non-member receives no membership-control affordance. A displayed title is not a grant ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)). Contest, agreement, and access actions appear only when the target exists, authority permits, required parameters can be supplied, and the current world state allows the operation.
 
 ### Partial-observability and known requirements
 
@@ -426,7 +426,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Canonical action and target/parameters | `MESSAGE` with `recipient_id` and text. |
 | Availability and preconditions | Sender active; recipient addressable in the same world; payload within the configured limit; compute available. Relay condition may change the contract-defined cost or delivery behavior. |
 | Resource cost | Compute 1; the existing relay-condition rule applies. |
-| Success and failure semantics | `MESSAGE` queued, then same-cycle `MESSAGE_DELIVERED` before observation projection when the recipient is active. Failure is the existing budget or authorization failure. |
+| Success and failure semantics | `MESSAGE` queued, then same-cycle `MESSAGE_DELIVERED` before observation projection when the recipient is active and the GC5-S0 delivery class allows it. Same-room always delivers. Different-room requires a live relay at condition ≥ 25 or fails `UNREACHABLE` with no events and no topology leak ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md)). Budget and addressability failures are unchanged. |
 | Player-visible consequence | Sender sees queued/delivery status; recipient receives the message when delivery conditions are met. |
 | WATCH visibility | `message_notice` may be public without message text. Text privacy remains parties-only. |
 | Milestone and hosted status | v0.1 required; hosted router path present, but its current cost handling requires alignment with the Specs contract before it is treated as conformant. |
@@ -558,7 +558,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Contextual GUI | `[ INVITE ]` on a visible Player and organization where the current Player has authority. |
 | Agent / structured form | `verb: COMMIT`, `parameters.operation: "ORG_MEMBER_ADD"`, `org_id`, `agent_id`, `role`. |
 | Canonical action and target/parameters | `COMMIT.ORG_MEMBER_ADD`. |
-| Availability and preconditions | Organization active; authorizer is founder or officer; target is not a member; compute ≥ 2; authorizer influence ≥ 1. |
+| Availability and preconditions | Organization active; authorizer is founder or officer; target is not a member; assigned role is officer, member, or advisor (never founder); compute ≥ 2; authorizer influence ≥ 1. Displayed titles do not authorize ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)). |
 | Resource cost | Compute 2 and influence 1 on the authorizer. |
 | Success and failure semantics | `ORG_MEMBER_ADD`. |
 | Player-visible consequence | Organization membership and role change. |
@@ -574,7 +574,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Contextual GUI | `[ LEAVE ]` for self; `[ REMOVE ]` for an authorized founder/officer. |
 | Agent / structured form | `verb: COMMIT`, `parameters.operation: "ORG_MEMBER_REMOVE"`, `org_id`, `agent_id`, `reason`; self-leave uses the Player’s own principal. |
 | Canonical action and target/parameters | `COMMIT.ORG_MEMBER_REMOVE`. |
-| Availability and preconditions | Membership exists; authorizer is permitted or the action is self-leave. Organization resources do not move implicitly. No dissolution or elections in v0.1. |
+| Availability and preconditions | Membership exists; authorizer is founder or officer, or the action is self-leave. Cannot remove the only founder while other members remain. Organization resources do not move implicitly. No dissolution or elections in v0.1 ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)). |
 | Resource cost | Compute 1 under the v0.1 machine action contract; no additional human-side cost is invented. |
 | Success and failure semantics | `ORG_MEMBER_REMOVE`. |
 | Player-visible consequence | Membership and organization status change; the Player’s other holdings do not move automatically. |
@@ -737,7 +737,7 @@ Only advertise these when the world is pinned to the v0.2 strategic catalog and 
 
 ```text
 ASK  QUERY       optional v0.1
-BUILD           later
+BUILD           later — see CONSTRUCTION.md; unsupported in first-world PLAY
 RESEARCH       STUDY / authorized surface
 EXPERIMENT      STUDY / authorized surface
 MODEL           STUDY / authorized surface

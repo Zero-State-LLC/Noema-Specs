@@ -18,7 +18,7 @@ The player-facing crosswalk between these semantic contracts, human commands, co
 | **v0.1 REQUIRED** | `LOOK`, `MOVE`, `INSPECT`, `MESSAGE`, `WAIT`, `TRADE` (propose/accept/reject), `COMMIT` with `operation` ∈ `ORG_CREATE`, `ORG_MEMBER_ADD`, `ORG_MEMBER_REMOVE`, `HARVEST`, `REPAIR` |
 | **v0.1 OPTIONAL** | `QUERY` (read-only records), `ASK` (implemented as MESSAGE with ask semantics) |
 | **v0.2 STRATEGIC** (`event-catalog/0.2`) | `COMMIT.CONTEST_DECLARE`, `COMMIT.CONTEST_DEFEND`, `COMMIT.AGREEMENT_FORM`, `COMMIT.AGREEMENT_TERMINATE`, `COMMIT.ACCESS_POLICY` |
-| **LATER MILESTONE** | full `BUILD` construction trees, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
+| **LATER MILESTONE** | full `BUILD` construction trees — product contract [CONSTRUCTION.md](CONSTRUCTION.md); still not v0.1-required. `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
 
 Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact. Every mutating action carries a required `client_action_sequence`; the server assigns the versioned `action_priority` below and sorts frozen-cycle actions by `(action_priority, agent_id, client_action_sequence, action_id)`.
 
@@ -93,9 +93,11 @@ Lower priority values resolve first. These values are world-rules metadata and M
 | preconditions | sender ACTIVE; recipient addressable same world; compute ≥ 1 |
 | resource_cost | compute 1; if local relay condition &lt; 25, additional compute 1 |
 | events_on_success | `MESSAGE` (QUEUED), then same-cycle `MESSAGE_DELIVERED` before observation projection when recipient active |
-| events_on_failure | `BUDGET_EXCEEDED` / FORBIDDEN |
+| events_on_failure | `BUDGET_EXCEEDED` / FORBIDDEN; long-range path failure is `UNREACHABLE` with no events ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md)) |
 | visibility | parties only for text |
 | spectator_projection | `message_notice` without text |
+
+Same-room `MESSAGE` stays the v0.1 same-cycle path even when every relay is dead. Different-room `MESSAGE` requires a live `relay` at condition ≥ 25 (the existing stressed-relay number). Frozen `action-contracts.v01.json` is not rewritten by GC5-S0.
 
 ## ASK (optional; not a separate mutation class)
 
@@ -217,7 +219,7 @@ Two-phase offer/accept is the **smallest** mechanism that permits negotiation an
 | Field | Contract |
 |-------|----------|
 | parameters | `operation=ORG_MEMBER_ADD`, `org_id`, `agent_id`, `role` |
-| preconditions | org ACTIVE; authorizer role ∈ {founder, officer}; target not member; compute ≥ 2; influence ≥ 1 on authorizer |
+| preconditions | org ACTIVE; authorizer role ∈ {founder, officer}; target not member; assigned `role` ∈ {officer, member, advisor}; compute ≥ 2; influence ≥ 1 on authorizer |
 | resource_cost | compute 2, influence 1 (authorizer) |
 | events_on_success | `ORG_MEMBER_ADD` |
 
@@ -226,13 +228,13 @@ Two-phase offer/accept is the **smallest** mechanism that permits negotiation an
 | Field | Contract |
 |-------|----------|
 | parameters | `operation=ORG_MEMBER_REMOVE`, `org_id`, `agent_id`, `reason` |
-| preconditions | membership exists; authorizer permitted or self-leave |
+| preconditions | membership exists; authorizer role ∈ {founder, officer} or self-leave; last-founder guard ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)) |
 | events_on_success | `ORG_MEMBER_REMOVE` |
 | note | org resources not moved implicitly |
 
 ### Organization v0.1 scope
 
-Roles: `founder`, `officer`, `member`, `advisor`. No elections, laws, or multi-step governance. Dissolution: not automated; status may become `DISSOLVED` only via future RFC or operator injection ledgered as `ENTITY_UPDATE`/`ORG_*` extension — **v0.1 agents cannot dissolve** (record as LATER). Self-leave via ORG_MEMBER_REMOVE with self as agent_id is REQUIRED.
+Roles: `founder`, `officer`, `member`, `advisor`. These four are the GC4-S0 authority configurations ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)); display titles are not roles. `ORG_MEMBER_ADD` may assign officer/member/advisor only — never founder. No elections, laws, or multi-step governance. Dissolution: not automated; status may become `DISSOLVED` only via future RFC or operator injection ledgered as `ENTITY_UPDATE`/`ORG_*` extension — **v0.1 agents cannot dissolve** (record as LATER). Self-leave via ORG_MEMBER_REMOVE with self as agent_id is REQUIRED. Cannot remove the only founder while other members remain.
 
 ## COMMIT / HARVEST
 

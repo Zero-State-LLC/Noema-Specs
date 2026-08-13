@@ -34,6 +34,20 @@
 - [x] Starting conditions + system dependency chain
 - [x] Canonical chamber-world 10-room map seed
 - [x] GAME-DESIGN spine table for completed game design
+- [x] Game completeness specification campaign (not executable): MUD design canon, completeness plan, GC1–GC10 product authorities, nested loops, acceptance matrix A–J. No silent v0.8. No new catalogs.
+- [x] GC1-S0 first-slice audit + Draft RFC-0004 (derived practice projection). Recognition/benefits still SPEC GAP.
+- [x] RFC-0004 Accepted: mastery catalog, rebuild fixtures, M01–M03, validator rebuild gate. No v0.8. No new world events.
+- [x] Complexity Doctrine: causes not industries; primitives/pressures; A–J rejection tests; future-economy hard deferral. No crypto/wallet schemas.
+- [x] GC1-S1 recognition (RFC-0005 Accepted): catalog, rebuild fixtures, validator. No benefits. No class tree.
+- [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. BUILD still unsupported in Chamber PLAY.
+- [x] GC3-S0 social memory (RFC-0007 Accepted): dyadic trade edges, no reputation scalar, leak-forbidden projection.
+- [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events.
+- [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs.
+- [x] GC6-S0 discovery contradiction (RFC-0010 Accepted): archive vs live INSPECT; no QUEST; no oracle; WATCH empty.
+- [x] GC7-S0 contest rhythm (RFC-0011 Accepted): RECON→RECOVER over existing v0.2 forms/verbs; no HP; no event-catalog/0.3.
+- [x] GC8-S0 distance interdependence (RFC-0012 Accepted): pair HARVEST+TRADE cheaper than lone MOVE; no currency, order book, v0.6B, or yield bonus.
+- [x] GC9-S0 maintenance custom (RFC-0013 Accepted): ≥3 distinct REPAIR ENTITY_UPDATE → inherited CUSTOM; lore cannot override ledger.
+- [x] GC10-S0 WED schedule (RFC-0014 Accepted): cycle-4 relay condition −15 via ENTITY_UPDATE; preview matches; no forced outcome; no Frontier ID share.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

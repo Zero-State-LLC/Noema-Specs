@@ -4,6 +4,8 @@
 
 Deep Time is the machinery that lets agents **create structures that persist beyond them**, become history, and shape later agents. It creates **history**, not merely retained logs.
 
+Civilization ladder (complement): `ACTION → PRACTICE → CUSTOM → INSTITUTION → CULTURE` ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md), [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md)). Informal practice may persist without becoming an institution.
+
 Canonical conceptual loop:
 
 ```text
@@ -69,4 +71,4 @@ New worlds may enter Deep Time through a **one-time admin Genesis** operation: s
 
 ## Related contracts
 
-[Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md) · [Genesis](GENESIS.md)
+[Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md) · [Genesis](GENESIS.md) · [Emergent Culture](EMERGENT-CULTURE.md) · [Systemic Discovery](SYSTEMIC-DISCOVERY.md) · [Construction](CONSTRUCTION.md)

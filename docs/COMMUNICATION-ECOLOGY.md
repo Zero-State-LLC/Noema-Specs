@@ -1,0 +1,131 @@
+# Communication Ecology (GC5)
+
+**Status:** Product authority for civilization-scale communication. P1. Phase GC-B.  
+**Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
+**Preserves:** `MESSAGE` as the stable verb ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).  
+**Does not replace:** [WORLD-REPORTS.md](WORLD-REPORTS.md) (derived news) · [OBSERVATION.md](OBSERVATION.md)
+
+This package expands **surfaces, routing, and failure** around `MESSAGE`. It does not create `SHOUT`, `BOARD`, or `RUMOR` verbs unless an RFC proves a distinct transition that `MESSAGE` + target/scope cannot express.
+
+**Doctrine:** communication is information + infrastructure, not a minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
+GC5-S0 machine pins: [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md). Delay, rumor records, and extra surfaces remain **SPEC GAP**.
+
+---
+
+## Thesis
+
+Communication infrastructure MUST be able to produce, deterministically:
+
+```text
+information asymmetry
+coordination advantage
+regional isolation
+delayed information
+rumor propagation
+communication failure
+```
+
+without nondeterministic hand-waving.
+
+Relay condition, route existence, and addressability are world state. They are not flavor text.
+
+---
+
+## Surfaces
+
+All surfaces are **projections or addressability classes** of `MESSAGE` (and existing reports/archives), unless marked later-RFC.
+
+| Surface | Addressability | Default visibility |
+|---------|----------------|--------------------|
+| Direct message | One Player | Private to parties |
+| Organization channel | Org members (current) | Members; history may persist for members |
+| Public board | Room or designated board entity | Locally observable |
+| Trade notice | Public or market-local | Public within scope |
+| Institution notice | Issued by scoped office | Institution-defined audience |
+| Local notice | Current room / adjacent if relay allows | Local |
+| Contract / agreement text | Parties + authorized auditors | Parties |
+| Rumor | No guaranteed recipient; provenance required | Uncertain; never presented as fact |
+| Relay-dependent long-range | Requires path of relays above a condition band | As addressed, subject to delay/failure |
+| Archive | Stored message/document retrieve via `INSPECT` / optional `QUERY` | Permissioned |
+
+World Reports remain a **derived** cycle product, not a Player-composed board.
+
+---
+
+## Settled routing semantics
+
+| Concern | Rule |
+|---------|------|
+| Addressability | Recipient or surface must be in-scope **at send time** under current observation/org/institution/relay state |
+| Scope | `MESSAGE.parameters` carry surface/scope; unknown scope → fail closed |
+| Locality | Local surfaces ignore distant relays. Long-range requires a relay path |
+| Delivery | Same-cycle local delivery remains as current `MESSAGE_DELIVERED` before observation projection |
+| Latency | Long-range or damaged-relay paths MAY deliver on a later cycle. Delay is a deterministic function of path condition, not RNG theater |
+| Ordering | Per existing scheduler and message-delivery rules. Delayed messages keep send-cycle identity |
+| Failure | No path, recipient unknown, scope forbidden, budget fail → typed failure. No silent drop without a failure event or sender-visible reason **that does not leak hidden topology** |
+| Retry | Sender may resend; new idempotency key. Delayed-in-flight messages are not double-delivered |
+| Retention | Versioned per surface. Archives outlive channels. Deletion of a Player-visible copy MUST NOT erase the ledger |
+| Deletion | Soft-hide for the requester only, unless a later moderation scope exists |
+| Privacy | Private DM text stays private. Public boards are public. Institution notices follow office scope |
+| Public/private projection | WATCH sees public surfaces and delivery pulses permitted by spectator policy, never DM text |
+| Organization authority | Channel post/moderation requires membership or office scope ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)) |
+| Relay dependency | Relay condition bands map to: full / delayed / local-only / failed. Exact table is SPEC GAP |
+| Historical archiving | Opt-in or institution policy copies to archive entities ([DEEP-TIME.md](DEEP-TIME.md)) |
+| Searchability | `INSPECT` / optional `QUERY` on archives the Player may access. No omniscient search |
+| Partial observability | Failure reasons use coarse codes (`UNREACHABLE`, `DELAYED`, `NOT_ADDRESSABLE`) that do not reveal hidden rooms or hidden members |
+| False / uncertain information | Allowed in Player text. The engine does not certify truth |
+| Rumor provenance | A rumor surface MUST carry `source_class` (player, report, archive fragment, unknown) and MUST present uncertainty |
+| Moderation / system authority | No free-form Admin edit of Player speech. Control-plane removal is [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) only |
+
+---
+
+## Rumors
+
+Rumors are **not** World Reports and **not** lore canon.
+
+```text
+Player or damaged archive / conflicting report
+  → rumor record with provenance + uncertainty
+  → others may INSPECT or hear via local/relay surfaces
+  → beliefs diverge
+  → investigation uses ordinary actions ([SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md))
+```
+
+The engine MUST NOT upgrade a rumor to fact because it is popular.
+
+---
+
+## Infrastructure coupling
+
+| Relay / route state | Communication effect |
+|---------------------|----------------------|
+| High condition path | Same-cycle or low-delay long-range |
+| Degraded | Added cycle delay |
+| Broken / missing | Long-range fail; local still works |
+| New `route_link` / restored relay ([CONSTRUCTION.md](CONSTRUCTION.md)) | Path recalculated next eligible cycle |
+
+This is the substrate for acceptance scenario E. Ordinary `MESSAGE` semantics (schema, budgets, idempotency) do not change; **delivery outcome** changes with world state.
+
+---
+
+## SPEC GAP
+
+```text
+GC5-S0 closed: local = same room; long-range needs best live relay condition ≥ 25
+scope/surface parameter enum on MESSAGE vs later operations
+deterministic delay function (DELAYED)
+rumor record schema (or reuse contradiction / document entities)
+retention defaults
+fixtures: degraded-path delay then repair restores delay class
+conformance
+WATCH redaction of private text (S0: no WATCH text)
+```
+
+Prefer extending `MESSAGE` parameters over a new verb.
+
+---
+
+## Acceptance (scenario E)
+
+A relay’s condition falls below the versioned band. Long-range messages to another region are delayed or fail with a non-leaking reason. Local `MESSAGE` still works. Repair or reconstruction restores the prior delivery class. Replay matches.

@@ -40,4 +40,6 @@ Infrastructure has `controller_id` / `owner_id`. Control contributes to Territor
 
 ## Degradation and maintenance
 
-World Event Director degradation continues. Neglect is a strategic choice with visible consequences. Repair is always available but costly in energy, compute, and storage ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).
+World Event Director degradation continues ([WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md)). Neglect is a strategic choice with visible consequences. Repair is always available but costly in energy, compute, and storage ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).
+
+Generalized construction, upgrade, connect, fortify, dismantle, and restore are specified in [CONSTRUCTION.md](CONSTRUCTION.md). They are not v0.1-required verbs. `COMMIT.REPAIR` remains the repair transition.

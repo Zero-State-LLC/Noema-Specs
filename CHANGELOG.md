@@ -8,6 +8,63 @@
 
 ### Added
 
+- **RFC-0014 Accepted:** GC10-S0 seeded mild relay pressure. Cycle 4 schedule drops a named relay by 15 via `ENTITY_UPDATE`; preview matches activation; no forced Player response; no Frontier ID share. No runtime.
+
+### Added
+
+- **RFC-0013 Accepted:** GC9-S0 maintenance custom. ≥3 distinct `ENTITY_UPDATE` repairs on one site become a derived `CUSTOM`; later `INSPECT` inherits; lore cannot override the ledger. No v0.6C. No runtime.
+
+### Added
+
+- **RFC-0012 Accepted:** GC8-S0 distance interdependence. Two-Player `HARVEST`+`TRADE` spends less energy than a lone `MOVE` between rooms. No currency, order book, v0.6B, mastery yield, or wallets. No runtime.
+
+### Added
+
+- **RFC-0011 Accepted:** GC7-S0 existing contest rhythm. Stage table over `event-catalog/0.2` verbs and the four v0.2 forms. No HP, no death, no fifth form, no catalog mutation. No runtime.
+
+### Added
+
+- **RFC-0010 Accepted:** GC6-S0 archive vs live `INSPECT` contradiction. Relay Seven pattern as derived PLAY line; no quest UI; `known_truth_relationship` stays off PLAY; WATCH empty. No new verbs. No runtime.
+
+### Added
+
+- **RFC-0009 Accepted:** GC5-S0 relay bands on existing `MESSAGE`. Same-room delivery ignores relay condition; different-room requires best live relay ≥ 25; `UNREACHABLE` emits no events and no topology leak. No new verbs. No runtime.
+
+### Added
+
+- **RFC-0008 Accepted:** GC4-S0 existing roles as bounded authority. Pins founder/officer invite and remove, member/advisor self-leave only, no founder invite, last-founder guard, cosmetic titles have zero authority. No `ROLE_*` events. No runtime.
+
+### Added
+
+- **RFC-0007 Accepted:** GC3-S0 dyadic trade memory. Derived edges from `TRADE_ACCEPTED`; RELIABLE at 3 distinct trades; no reputation scalar; WATCH empty; leak tokens forbidden. No runtime.
+
+### Added
+
+- **RFC-0006 Accepted:** GC2-S0 construction pins. `CONSTRUCT`/`DISMANTLE` on existing infrastructure classes; reuses `ENTITY_CREATE`/`ENTITY_DESTROY`; no `event-catalog/0.3`. Attempt fixtures + `check_gc2_s0`. No runtime BUILD.
+
+### Added
+
+- **RFC-0005 Accepted:** GC1-S1 recognition catalog `mastery-catalog/gc1-s1`, rebuild fixtures (cross-threshold and same-entity repair spam), `check_gc1_s1`. No benefits, no event-catalog change.
+
+### Added
+
+- **Complexity Doctrine:** `docs/COMPLEXITY-DOCTRINE.md` — model causes, not industries; seven primitives; four pressures; noun-stable verbs; civilization ladder; decision/coupling density; A–J acceptance tests; hard deferral of crypto/x402/wallets/external settlement. Completeness campaign and system map now cite it. No runtime, no new schemas for deferred economy.
+- **GC1-S1 Recognition (Draft):** `docs/GC1-S1-RECOGNITION.md` + `rfcs/RFC-0005-mastery-recognition.md`. Distinct-unit recognition thresholds; self-only line replacement; no benefits; cycle-0 safe. Not executable until RFC-0005 is Accepted with fixtures.
+
+### Added
+
+- **RFC-0004 Accepted:** GC1-S0 derived practice projection. Catalog `specs/mastery-catalog.gc1-s0.json`, rebuild schema, executed fixtures, conformance M01–M03. No `event-catalog` change. No mechanical benefits.
+
+### Added
+
+- **GC1-S0 slice audit:** `docs/GC1-FIRST-SLICE.md` selects the smallest later runtime slice (derived explorer/surveyor/broker/engineer practice, self-only PLAY lines, no benefits). Draft `rfcs/RFC-0004-derived-mastery-projection.md`. No schemas, no event-catalog change, no runtime code.
+
+### Added
+
+- **NOEMA MUD Completeness Expansion (specification campaign):** parallel PLAY-depth track beside the frozen v0.1–v0.7 core loop. Does not open v0.8 Phenomena and does not redefine v0.6B/v0.6C. Campaign: `docs/GAME-COMPLETENESS-PLAN.md`. Ancestry: `docs/MUD-DESIGN-CANON.md`. Domain authorities: `docs/MASTERY-SPECIALIZATION.md` (GC1), `docs/CONSTRUCTION.md` (GC2; closes generalized BUILD deferral at spec level), `docs/SOCIAL-MEMORY.md` (GC3), `docs/INSTITUTIONAL-AUTHORITY.md` (GC4), `docs/COMMUNICATION-ECOLOGY.md` (GC5), `docs/SYSTEMIC-DISCOVERY.md` (GC6), Strategic Conflict GC7 v2 section, `docs/ECONOMIC-SPECIALIZATION.md` (GC8), `docs/EMERGENT-CULTURE.md` (GC9), `docs/WORLD-EVENT-DIRECTOR.md` (GC10). No new schemas, event types, or conformance suites. Machine contracts remain SPEC GAP until RFC. Preferred later runtime slice: GC1 Mastery.
+
+### Added
+
 - **Hosted experience alignment:** the reference Worker now projects the Specs entry model with Player email entry and PLAY primary at `/`, WATCH/STUDY/CONNECT as secondary doors, and ADMIN as a separate allowlisted control-plane route. `docs/EXPERIENCE.md` defines CONNECT as Controller onboarding rather than a Player mode; `docs/QUICKSTART.md` records current hosted routes as non-normative implementation guidance.
 - **Operator Digests:** `docs/OPERATOR-DIGESTS.md` — configurable periodic Admin summaries of settled gameplay (15m–24h presets, default 30m STANDARD). Distinct from immediate operational alerts, Admin Live, WATCH, and World Reports. Observational only.
 

@@ -1,0 +1,13 @@
+{
+  "schema_version": "conformance-suite/1.0",
+  "suite_id": "noema-gc1-s1-mastery",
+  "title": "NOEMA GC1-S1 Recognition Projection",
+  "specs_pin": "game-completeness/gc1-s1",
+  "acceptance_doc": "docs/GC1-S1-RECOGNITION.md",
+  "conformance_doc": "docs/GC1-S1-RECOGNITION.md",
+  "fixture_package": "examples/gc1-mastery/",
+  "cases": [
+    "cases/M04-01.json",
+    "cases/M04-02.json"
+  ]
+}

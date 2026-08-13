@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-attempt.schema.json",
+  "title": "NOEMA GC8-S0 economy attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc8-s0" },
+    "catalog_id": { "const": "economy-catalog/gc8-s0" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pattern", "rooms", "hops"],
+      "properties": {
+        "pattern": { "enum": ["pair", "lone", "feature"] },
+        "rooms": { "type": "integer", "minimum": 1 },
+        "hops": { "type": "integer", "minimum": 0 },
+        "recognition": {
+          "enum": ["explorer", "surveyor", "broker", "engineer", "none"]
+        },
+        "harvest_amount": { "type": "integer", "minimum": 1 },
+        "claimed": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "currency": { "type": "boolean" },
+            "order_book": { "type": "boolean" },
+            "global_price_index": { "type": "boolean" },
+            "v06b": { "type": "boolean" },
+            "mastery_yield_bonus": { "type": "boolean" },
+            "wallet": { "type": "boolean" },
+            "crypto": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "energy": { "type": "integer", "minimum": 0 },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

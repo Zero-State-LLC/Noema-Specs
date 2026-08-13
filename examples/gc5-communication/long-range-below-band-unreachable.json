@@ -1,0 +1,26 @@
+{
+  "slice_id": "gc5-s0",
+  "catalog_id": "communication-catalog/gc5-s0",
+  "attempt": {
+    "sender_id": "player.nacre",
+    "recipient_id": "player.vesper",
+    "sender_room_id": "room.civic-exchange",
+    "recipient_room_id": "room.frontier-gate",
+    "recipient_addressable": true,
+    "text": "Hold the gate.",
+    "relays": [
+      {
+        "entity_id": "entity.relay-7",
+        "class_id": "relay",
+        "live": true,
+        "condition": 24
+      }
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "UNREACHABLE",
+    "watch_text": false,
+    "note": "Condition 24 is below the existing 25 band."
+  }
+}

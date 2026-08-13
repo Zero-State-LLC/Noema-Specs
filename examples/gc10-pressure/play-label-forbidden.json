@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc10-s0",
+  "catalog_id": "pressure-catalog/gc10-s0",
+  "attempt": {
+    "authorizer": "schedule",
+    "cycle": 4,
+    "entity_id": "entity.relay-7",
+    "condition_before": 70,
+    "preview_after": 55,
+    "activate_after": 55,
+    "activate_event": "ENTITY_UPDATE",
+    "play_lines": ["Event: infrastructure_failure #1"]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "LABEL_LEAK",
+    "note": "PLAY must not show the research class."
+  }
+}

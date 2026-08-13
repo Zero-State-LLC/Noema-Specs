@@ -1,0 +1,21 @@
+{
+  "schema_version": "authority-catalog/gc4-s0",
+  "catalog_id": "authority-catalog/gc4-s0",
+  "slice_id": "gc4-s0",
+  "authority": "docs/GC4-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0008-office-authority-pins.md",
+  "event_catalog": "event-catalog/0.1",
+  "membership_events": ["ORG_CREATE", "ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE"],
+  "new_verbs": [],
+  "new_events": [],
+  "office_names_frozen": false,
+  "llm_authority": false,
+  "cosmetic_titles_have_authority": false,
+  "roles": ["founder", "officer", "member", "advisor"],
+  "invite_authorizers": ["founder", "officer"],
+  "remove_authorizers": ["founder", "officer"],
+  "assignable_roles": ["officer", "member", "advisor"],
+  "forbidden_assign_roles": ["founder"],
+  "self_leave": true,
+  "last_founder_guard": true
+}

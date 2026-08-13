@@ -1,0 +1,13 @@
+{
+  "slice_id": "gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "attempt": {
+    "contest_form": "HP_DUEL",
+    "sequence": [{ "stage": "COMMIT", "verb": "CONTEST_DECLARE", "actor_kind": "live" }]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORM_FORBIDDEN",
+    "note": "Fifth form strings are closed."
+  }
+}

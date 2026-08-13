@@ -16,3 +16,5 @@
 ## Coupling requirement
 
 Isolated mechanics that do not affect other strategic systems are defects ([CORE-GAME-LOOP.md](CORE-GAME-LOOP.md), [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md)).
+
+**Decision density** and **coupling density** are qualitative gates in [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Prefer friction that creates decisions over repetitive labor. Prefer one infrastructure concept with many consequences over a private progression tree.

@@ -14,7 +14,11 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **and** C01–C26. See [v0.1-ACCEPTANCE.md](v0.1-ACCEPTANCE.md).
 
+**Complexity doctrine (all future game systems):** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — model causes, not industries; seven primitives; four pressures; A–J rejection tests. Future crypto / x402 / wallets / external settlement are hard-deferred.
+
 **Core game design (player-facing structure):** [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) · [REALMS.md](REALMS.md) · [GEOGRAPHY.md](GEOGRAPHY.md) · [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) · [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [LOSS-RECOVERY.md](LOSS-RECOVERY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) · [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [GAME-BALANCE.md](GAME-BALANCE.md) · [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) · [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
+
+**Game completeness (specification campaign, not executable):** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md).
 
 ### Recommended implementation sequence (platform + identity)
 
@@ -92,6 +96,47 @@ Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, co
 **Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).
 
 **Core-loop freeze:** [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) — freeze v0.1–v0.7 for implementation; do not open v0.8 until runtime feedback demands it.
+
+## Game Completeness — parallel PLAY-depth campaign (not a release tag)
+
+Post-core **specification** campaign for mature Player-world depth. It does **not** reopen v0.1–v0.7 machine contracts, does **not** redefine v0.6B Contracts & Markets or v0.6C Semantic Evolution, and does **not** open **v0.8 Phenomena**.
+
+Authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · ancestry [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md).
+
+```text
+GC-A  Identity and Persistence     GC1 Mastery · GC2 Construction · GC3 Social Memory
+GC-B  Society and Information      GC4 Offices · GC5 Communication · GC6 Discovery
+GC-C  Strategic Depth              GC7 Conflict v2 · GC8 Economic specialization
+GC-D  Civilization                 GC9 Emergent culture · GC10 World Event Director
+```
+
+These phases are design authorities. They are **not** executable packages. Machine contracts, fixtures, and conformance remain **SPEC GAP** until RFC.
+
+**Shipped:** **GC1-S0 Derived Practice Projection** ([GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md), Accepted [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md)).
+
+**GC1-S1 Recognition** ([GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md), Accepted [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md)): self-only recognized lines at distinct-unit thresholds. No benefits. No new events.
+
+Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in the same cut as S0.
+
+**GC2-S0 construction pins** ([GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), Accepted [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)): `CONSTRUCT` / `DISMANTLE` on the four v0.1 infrastructure classes using existing `ENTITY_*` events. `BUILD` stays unsupported in Chamber PLAY until a later implementation pass.
+
+**GC3-S0 social memory** ([GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), Accepted [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)): derived Player→Player reliability from accepted trades. No reputation integer. No Chamber runtime yet.
+
+**GC4-S0 office authority** ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), Accepted [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)): existing v0.1 roles as membership grants. No Steward/Treasurer freeze. No `ROLE_*` events. No Chamber runtime change in this RFC.
+
+**GC5-S0 relay MESSAGE bands** ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), Accepted [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)): long-range delivery requires a live relay at the existing condition 25 band. Local same-room `MESSAGE` is unchanged. No Chamber runtime in this RFC.
+
+**GC6-S0 discovery contradiction** ([GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md), Accepted [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)): archive vs live `INSPECT` as a self-only PLAY line. No quest log. No Chamber runtime in this RFC.
+
+**GC7-S0 contest rhythm** ([GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md), Accepted [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)): RECON→RECOVER composed from existing v0.2 forms and verbs. No HP. No `event-catalog/0.3`. No Chamber contest thaw.
+
+**GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Not v0.6B. No currency. No Chamber runtime.
+
+**GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Lore cannot override the ledger. Not v0.6C. No Chamber runtime.
+
+**GC10-S0 WED schedule** ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md), Accepted [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md)): cycle-4 mild relay condition drop via existing `ENTITY_UPDATE`. No forced outcome. No Chamber runtime.
+
+v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
 

@@ -17,6 +17,8 @@ first-world operational freeze
 
 Related: [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
+The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign is **not** first-world thaw. It does not add verbs, profiles, seeds, or runtime construction to Perihelion Reach.
+
 ---
 
 ## Authority set

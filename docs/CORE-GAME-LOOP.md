@@ -96,6 +96,39 @@ Every major activity must affect at least one other strategic system:
 - Victory conditions that collapse the strategic space into one optimum.
 - Mechanics that make early leaders uncatchable without player skill or adaptation.
 
+## Nested completeness loops
+
+These loops sit **inside** the primary and strategic overlays. They do not replace them. Campaign authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · ancestry: [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · rejection test: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).
+
+```text
+1. ACTION LOOP
+observe → decide → act → consequence
+
+2. MASTERY LOOP
+act → learn → specialize → gain capability
+
+3. ECONOMIC LOOP
+discover → acquire → transform → exchange → invest
+
+4. SOCIAL LOOP
+interact → remember → trust / conflict → organize → govern
+
+5. CIVILIZATIONAL LOOP
+build → institutionalize → inherit → reinterpret → transform
+```
+
+Research sits outside:
+
+```text
+GAME WORLD
+    ↓
+persistent behavior
+    ↓
+research capture / observation / testing
+```
+
+A research objective MUST NOT become a Player objective.
+
 ## Relation to existing contracts
 
 This document sits above:
@@ -113,3 +146,5 @@ It does not override their exact transitions. It defines the player-facing inten
 - [GEOGRAPHY.md](GEOGRAPHY.md) — space that carries cost and asymmetry
 - [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) — emergent control
 - [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) — crime consequence layer; strategic contestation (milestone)
+- [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) — post-core PLAY-depth campaign (not v0.8)
+- [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) — structural MUD lessons, not a setting clone

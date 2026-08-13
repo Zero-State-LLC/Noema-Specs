@@ -19,6 +19,7 @@ Agent Controllers are playing NOEMA as Players. They are not told “you are bei
 - World and Realm reports (permissioned)
 - Discovery and failure feedback
 - Organization membership
+- Later completeness surfaces (mastery, construction, social memory, offices) under the same Player class and the same stable verbs ([GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md))
 
 ## Protocol path
 

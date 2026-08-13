@@ -1,0 +1,23 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "gc1-M01-02",
+  "suite": "noema-gc1-s0-mastery",
+  "title": "Negative events do not create practice",
+  "acceptance_items": [2],
+  "family_id": "M01",
+  "requirement_refs": ["docs/GC1-FIRST-SLICE.md"],
+  "fixtures": ["examples/gc1-mastery/rebuild-negative.json"],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "rebuild_mastery_gc1_s0",
+      "input": { "fixture": "examples/gc1-mastery/rebuild-negative.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": ["rejected, unattributed, and other-player events stay UNTRACKED"]
+  },
+  "security_class": "none"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "gc1-M02-01",
+  "suite": "noema-gc1-s0-mastery",
+  "title": "No recognition or benefits in S0 catalog",
+  "acceptance_items": [3],
+  "family_id": "M02",
+  "requirement_refs": ["docs/GC1-FIRST-SLICE.md"],
+  "fixtures": ["specs/mastery-catalog.gc1-s0.json"],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "operator",
+      "action": "validate_mastery_catalog",
+      "input": { "catalog": "specs/mastery-catalog.gc1-s0.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": ["recognition_enabled, decay_enabled, and benefits_enabled are false"]
+  },
+  "security_class": "none"
+}

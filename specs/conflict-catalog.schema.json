@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-catalog.schema.json",
+  "title": "NOEMA Conflict Catalog (GC7-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "contest_rules_version",
+    "mutate_catalog",
+    "new_verbs",
+    "new_events",
+    "new_forms",
+    "hp_combat",
+    "character_death",
+    "withdraw",
+    "forms",
+    "commit_event",
+    "resolve_event",
+    "stages",
+    "forbidden_verbs",
+    "forbidden_in_projection"
+  ],
+  "properties": {
+    "schema_version": { "const": "conflict-catalog/gc7-s0" },
+    "catalog_id": { "const": "conflict-catalog/gc7-s0" },
+    "slice_id": { "const": "gc7-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "contest_rules_version": { "const": "contest-rules/0.2.0" },
+    "action_contracts": { "type": "string" },
+    "mutate_catalog": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "new_forms": { "type": "array", "maxItems": 0 },
+    "hp_combat": { "const": false },
+    "character_death": { "const": false },
+    "withdraw": { "const": false },
+    "forms": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [
+        { "const": "RESOURCE_SEIZURE" },
+        { "const": "INFRASTRUCTURE_DISRUPTION" },
+        { "const": "ACCESS_CONTEST" },
+        { "const": "PRESENCE_PRESSURE" }
+      ],
+      "items": false
+    },
+    "commit_event": { "const": "CONTEST_DECLARED" },
+    "resolve_event": { "const": "CONTEST_RESOLVED" },
+    "stages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "RECON",
+        "POSITION",
+        "PRESSURE",
+        "COUNTER",
+        "ESCALATE",
+        "COMMIT",
+        "RESOLVE",
+        "RECOVER"
+      ],
+      "properties": {
+        "RECON": { "$ref": "#/$defs/stage" },
+        "POSITION": { "$ref": "#/$defs/stage" },
+        "PRESSURE": { "$ref": "#/$defs/stage" },
+        "COUNTER": { "$ref": "#/$defs/stage" },
+        "ESCALATE": { "$ref": "#/$defs/stage" },
+        "COMMIT": { "$ref": "#/$defs/stage" },
+        "RESOLVE": { "$ref": "#/$defs/stage" },
+        "RECOVER": { "$ref": "#/$defs/stage" }
+      }
+    },
+    "forbidden_verbs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "forbidden_in_projection": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verbs"],
+      "properties": {
+        "verbs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -27,4 +27,6 @@ The engine MUST NOT automatically tell the agent which signal is correct unless 
 
 `known_truth_relationship` is research partition only.
 
+GC6-S0 PLAY pin for archive vs live `INSPECT`: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md).
+
 Schema: [`specs/contradiction-set.schema.json`](../specs/contradiction-set.schema.json).

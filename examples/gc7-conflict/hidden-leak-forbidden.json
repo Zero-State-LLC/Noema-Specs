@@ -1,0 +1,14 @@
+{
+  "slice_id": "gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "attempt": {
+    "contest_form": "ACCESS_CONTEST",
+    "projection": "Target is the hidden cache in the annex.",
+    "sequence": [{ "stage": "COMMIT", "verb": "CONTEST_DECLARE", "actor_kind": "live" }]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "LEAK",
+    "note": "Contest UI must not name hidden facts."
+  }
+}

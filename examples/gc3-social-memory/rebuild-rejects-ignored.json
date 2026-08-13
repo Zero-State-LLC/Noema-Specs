@@ -1,0 +1,30 @@
+{
+  "slice_id": "gc3-s0",
+  "catalog_id": "social-memory-catalog/gc3-s0",
+  "subject_id": "player.nacre",
+  "handles": {
+    "player.vesper": "Vesper"
+  },
+  "trades": {
+    "trade.sm.n01": { "proposer_id": "player.nacre", "counterparty_id": "player.vesper" },
+    "trade.sm.n02": { "proposer_id": "player.nacre", "counterparty_id": "player.vesper" }
+  },
+  "events": [
+    { "event_id": "evt.sm.n1", "event_type": "TRADE_PROPOSED", "cycle": 0, "sequence": 1, "actor_id": "player.nacre", "payload": { "trade_id": "trade.sm.n01", "proposer_id": "player.nacre", "counterparty_id": "player.vesper" } },
+    { "event_id": "evt.sm.n2", "event_type": "TRADE_REJECTED", "cycle": 0, "sequence": 2, "actor_id": "player.vesper", "payload": { "trade_id": "trade.sm.n01", "rejected_by": "player.vesper", "reason": "DECLINED" } },
+    { "event_id": "evt.sm.n3", "event_type": "TRADE_REJECTED", "cycle": 0, "sequence": 3, "actor_id": "player.vesper", "payload": { "trade_id": "trade.sm.n01", "rejected_by": "player.vesper", "reason": "DECLINED" } },
+    { "event_id": "evt.sm.n4", "event_type": "TRADE_ACCEPTED", "cycle": 0, "sequence": 4, "actor_id": "player.vesper", "payload": { "trade_id": "trade.sm.n02", "accepted_by": "player.vesper" } }
+  ],
+  "expected": {
+    "edges": {
+      "player.vesper": { "state": "TRADED", "count": 1 }
+    },
+    "play_lines": ["You have traded with Vesper."],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "reasons": [
+      "TRADE_REJECTED does not create deceptive memory",
+      "one accept is TRADED not RELIABLE"
+    ]
+  }
+}

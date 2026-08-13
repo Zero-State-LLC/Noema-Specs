@@ -1,0 +1,15 @@
+{
+  "schema_version": "conformance-suite/1.0",
+  "suite_id": "noema-gc1-s0-mastery",
+  "title": "NOEMA GC1-S0 Derived Practice Projection",
+  "specs_pin": "game-completeness/gc1-s0",
+  "acceptance_doc": "docs/GC1-FIRST-SLICE.md",
+  "conformance_doc": "docs/GC1-FIRST-SLICE.md",
+  "fixture_package": "examples/gc1-mastery/",
+  "cases": [
+    "cases/M01-01.json",
+    "cases/M01-02.json",
+    "cases/M02-01.json",
+    "cases/M03-01.json"
+  ]
+}
