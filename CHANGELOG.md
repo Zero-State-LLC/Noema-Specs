@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC10-S0 hosted:** cycle-4 schedule drops a live relay by 15 via `ENTITY_UPDATE` when the preview stays ≥ 25. One fire in cycles 1–20. PLAY omits WED. No Admin spawn. No Genesis reseed.
+
+### Added
+
 - **GC7-S0 hosted:** isolated `CONTEST_DECLARE` → world-side `CONTEST_RESOLVED` on RFC-0019 cycle commit. Four existing forms. No HP. Chamber help still omits CONTEST. No `event-catalog/0.3`.
 
 ### Added
