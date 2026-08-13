@@ -5,7 +5,9 @@
 **Not** v0.8 Phenomena.  
 **Does not mutate** frozen v0.1–v0.7 machine contracts.
 
-Related: [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-DESIGN.md](GAME-DESIGN.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [ROADMAP.md](ROADMAP.md)
+Related: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-DESIGN.md](GAME-DESIGN.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [ROADMAP.md](ROADMAP.md)
+
+**Doctrine gate.** Every GC package and later mechanic MUST pass [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) tests A–J. Model causes, not industries. Isolated progression trees, class/skill frameworks, and future crypto/wallet infrastructure are **DEFER**.
 
 ---
 
@@ -208,6 +210,8 @@ A World Event Director pressure, Frontier situation, Lab fork, or LEARN graph MU
 | GC8 | Economic specialization | P2 | C | [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) |
 | GC9 | Emergent culture | P2 | D | [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) |
 | GC10 | World Steward pressure | P2 | D | [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) |
+
+Each package MUST reuse the seven primitives and four pressures. Do not add a bank, shipper, market engine, or quest engine because the noun exists.
 
 Do **not** make all ten executable in one release.
 

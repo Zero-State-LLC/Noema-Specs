@@ -37,6 +37,7 @@
 - [x] Game completeness specification campaign (not executable): MUD design canon, completeness plan, GC1–GC10 product authorities, nested loops, acceptance matrix A–J. No silent v0.8. No new catalogs.
 - [x] GC1-S0 first-slice audit + Draft RFC-0004 (derived practice projection). Recognition/benefits still SPEC GAP.
 - [x] RFC-0004 Accepted: mastery catalog, rebuild fixtures, M01–M03, validator rebuild gate. No v0.8. No new world events.
+- [x] Complexity Doctrine: causes not industries; primitives/pressures; A–J rejection tests; future-economy hard deferral. No crypto/wallet schemas.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

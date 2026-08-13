@@ -137,7 +137,8 @@ Strategic conflict and crime are **world/game mechanics**. Observatory may later
 
 **Status:** Design extension for later strategic depth. P1. Phase GC-C.  
 **Does not change** executable `event-catalog/0.2`, [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md), [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), or `action-contracts.v02.json`.  
-**Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)
+**Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
+**Doctrine:** operate through resources, assets, information, territory, relationships, agreements, and organizations. No hit-point combat subsystem ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
 v0.2 remains the implementation contract. v2 deepens **Player-facing rhythm and coupling** without converting NOEMA into hit-point combat and without a second conflict canon.
 

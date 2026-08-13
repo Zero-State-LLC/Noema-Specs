@@ -5,6 +5,8 @@
 **Does not replace:** [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [INFRASTRUCTURE.md](INFRASTRUCTURE.md)  
 **Does not silently become:** roadmap **v0.6B Contracts & Markets** (still a distinct, not-started follow-up).
 
+**Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Ground in scarcity, distance, dependency, and uncertainty. Do not add transport companies, warehouses, banks, or markets as independent engines. Those nouns emerge from primitives and practices.
+
 This package deepens:
 
 ```text

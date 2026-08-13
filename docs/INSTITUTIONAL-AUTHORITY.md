@@ -11,6 +11,8 @@ Core rule:
 
 No free-form LLM authority.
 
+**Doctrine:** offices are authority configurations over existing primitives, not a new codebase per title ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 ---
 
 ## Thesis

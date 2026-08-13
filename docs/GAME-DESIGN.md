@@ -19,6 +19,7 @@ NOEMA is now specified as a full persistent strategic text game.
 | [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) | Primary and strategic loops; nested completeness loops |
 | [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) | Structural MUD ancestry (inspiration, not cloning) |
 | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) | Post-core PLAY-depth campaign (not v0.8) |
+| [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Model causes, not industries; A–J rejection tests |
 | [REALMS.md](REALMS.md) | Derived strategic footprint |
 | [GEOGRAPHY.md](GEOGRAPHY.md) | World structure and status terms |
 | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) | Emergent control |
@@ -181,7 +182,7 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 | Construction / social memory / offices | [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
 | Communication / discovery / culture | [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) |
 | Economic specialization / World Event Director | [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) |
-| Game completeness campaign | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) |
+| Game completeness campaign | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) |
 | Human / agent play | [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) |
 | Balance / exploration / knowledge | [GAME-BALANCE.md](GAME-BALANCE.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
 | Infrastructure progression | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |

@@ -41,7 +41,7 @@ PLAY → NOTICE → TEST → CAPTURE → LEARN
 
 **Recommendation:** Treat v0.1–v0.7 core-loop contracts as the **implementation target set**. Prefer implementation feedback over opening v0.8.
 
-**Game Completeness** is a **parallel PLAY-depth specification campaign**, not a thaw of this freeze and not v0.8 Phenomena. See [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md). Those documents settle product behavior; they do not make GC1–GC10 executable and they do not authorize runtime construction or new catalogs without RFC.
+**Game Completeness** is a **parallel PLAY-depth specification campaign**, not a thaw of this freeze and not v0.8 Phenomena. See [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md). Those documents settle product behavior; they do not make GC1–GC10 executable and they do not authorize runtime construction or new catalogs without RFC. New systems must also pass [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Crypto, x402, wallets, and external settlement remain unauthorized.
 
 First-world operational freeze (identity, ops, Admin, Perihelion pin): [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md).
 

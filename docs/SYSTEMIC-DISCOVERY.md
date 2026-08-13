@@ -6,6 +6,8 @@
 
 No authored omniscient quest narrator. No second lore canon.
 
+**Doctrine:** mysteries are world-state + partial observability + evidence. No quest engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 ---
 
 ## Thesis

@@ -7,6 +7,8 @@
 
 v0.1 already requires a small deterministic pressure schedule. This document is that missing authority. It does **not** implement Frontier, Lab perturbations, or Admin world-edit.
 
+**Doctrine:** pressure changes existing conditions. A relay failure must propagate through movement, communication, trade, territory, conflict, institutions, and history — not open a relay-crisis minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 ---
 
 ## Thesis

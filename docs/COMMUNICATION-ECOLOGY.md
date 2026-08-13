@@ -7,6 +7,8 @@
 
 This package expands **surfaces, routing, and failure** around `MESSAGE`. It does not create `SHOUT`, `BOARD`, or `RUMOR` verbs unless an RFC proves a distinct transition that `MESSAGE` + target/scope cannot express.
 
+**Doctrine:** communication is information + infrastructure, not a minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 ---
 
 ## Thesis
