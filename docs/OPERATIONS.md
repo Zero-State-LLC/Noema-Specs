@@ -1,6 +1,8 @@
 # Operations
 
-Normative small ops surface for v0.1 reference deployments. Runtime CLI names MAY vary in presentation but MUST provide equivalent semantics.
+Normative small ops surface for v0.1 reference deployments: **backup, restore, verify**, upgrade/rollback, and crash reconciliation. Runtime CLI names MAY vary in presentation but MUST provide equivalent semantics.
+
+World lifecycle, Admin Live, governed interventions, and incident classes are specified in [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md), [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md), [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md), and [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md). This document remains the backup/restore/verify authority. Do not create a second backup system.
 
 ## Commands
 

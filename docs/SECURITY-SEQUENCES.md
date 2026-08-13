@@ -24,6 +24,8 @@ Identity terms: **Player** (gameplay participant), **Controller** (runtime/inter
 5. Audit record includes previous token fingerprint (not the secret), `controller_id`, `player_id` / `agent_id`, and operator identity.
 6. Refresh tokens in the same family MUST be rejected after revocation.
 
+First-world operational overlay (status vs health, settlement bound, DO/auth outages): [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md). These sequences remain the containment procedures.
+
 ## 3. World-level INCIDENT mode
 
 1. Operator sets world status to INCIDENT with declared incident_id and policy version.

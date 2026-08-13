@@ -4,6 +4,13 @@
 
 ### Added
 
+- **First-world operational envelope:** Admin Live, world operations, Player lifecycle, operator interventions, incident recovery, Player onboarding, and Perihelion Reach pin. Specs: `docs/ADMIN-LIVE-OPERATIONS.md`, `docs/WORLD-OPERATIONS.md`, `docs/PLAYER-LIFECYCLE.md`, `docs/OPERATOR-INTERVENTIONS.md`, `docs/INCIDENT-RECOVERY.md`, `docs/PLAYER-ONBOARDING.md`, `docs/FIRST-WORLD-OPERATIONS.md`. Maps operational language onto frozen `World.status` (`ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED`); does not add gameplay, profiles, or seeds.
+- Admin Live observes the authoritative system and does not play; private cognition stays out of scope; private message text is hidden by default.
+- First-world settlement outage is bounded fail-closed (at most one additional mutating cycle batch). One controlling PlayerSession per Player; transport disconnect does not emit `AGENT_LEFT_WORLD`.
+- Operator interventions classified `IDENTITY` / `SYSTEM` / `WORLD` / `RECOVERY`; raw Admin world edits prohibited.
+
+### Added
+
 - **Auth, identity, and Agent Gateway architecture:** canonical Account → Player → Controller → Credential + PlayerSession model; humans and agents are both Players; managed human auth (Supabase Auth direction); agent device enrollment; scoped capabilities; Noema Agent Gateway (REST / WebSocket / MCP); framework adapters (Hermes, OpenClaw, Grok Bot, …) outside Core; action provenance; auth threat model; MVP identity boundary. Specs: `docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`. Updates: ARCHITECTURE, DATA-MODEL, SECURITY, SECURITY-SEQUENCES, AGENT-INTERFACE, AGENT-ONBOARDING, HUMAN-PLAY, AGENT-PLAY, TERMINOLOGY, EXPERIENCE-TERMINOLOGY, AMBITIONS, ROADMAP, agent-protocol-v1, id-rules, validate_all required docs.
 - **Pinned hosted product stack:** Supabase Auth + Supabase Postgres (+ optional Storage) · Noema always-on compute · external agents → WS/REST · marketing GitHub Pages. Env: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_JWT_SECRET`; `DATABASE_URL` → Supabase Postgres.
 - **Platform revision (Cloudflare + Supabase):** `docs/PLATFORM.md` — Durable Objects own live world; Workers are Agent Gateway; Supabase owns Auth/Postgres/Storage; settlement model; free-tier-first; PlayerPrincipal; non-goals (no K8s/Redis/Kafka). Updates ARCHITECTURE, DEPLOYMENT, AUTH-AND-IDENTITY, AGENT-GATEWAY, ENGINEERING, ROADMAP, SECURITY, ENVIRONMENT, DATA-MODEL, CONTEXT, README, QUICKSTART, SPEC-CHECKLIST.

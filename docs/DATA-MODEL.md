@@ -163,6 +163,7 @@ Timestamps are RFC3339 UTC strings with trailing `Z`. They record provenance or 
 | ownership | Player + Controller |
 | lifecycle | active → paused → terminated |
 | MVP rule | one **action-producing** Controller per active Session |
+| first-world | one controlling Session per Player; see [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) |
 | distinct from | Credential (auth material) and connection transport id |
 
 ## Entity contracts (v0.1 world plane)
@@ -210,7 +211,7 @@ The **Agent** registry record is the world/wire principal for a Player under fro
 | immutable | `world_id`, seed digest at genesis |
 | mutable | `cycle`, `status`, live indexes |
 | required | id, version, seed, catalog_version, state_revision, canonicalization_version, hash_algorithm, budget_defaults |
-| lifecycle | ACTIVE / PAUSED / INCIDENT / ARCHIVED |
+| lifecycle | ACTIVE / PAUSED / INCIDENT / ARCHIVED; transitions in [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) |
 | uniqueness | (`world_id`,`world_version`) lineage |
 | tombstone | ARCHIVED; no ID reuse |
 | serialization | world-seed, world-state, runtime-manifest |

@@ -141,3 +141,9 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Available actions are derived and recomputable, distinguish `KNOWN COMMAND` from `AVAILABLE ACTION`, and remain safe under partial observability without runtime verb generation.
 - [x] Human and agent affordances preserve the same canonical semantics; theme/content nouns and emergent outcomes do not inflate the verb taxonomy.
 - [x] New-action extension rule and removal test require distinct canonical semantics and versioned Specs governance before any new Player verb is accepted.
+- [x] First-world operational envelope: Admin Live, world lifecycle mapped to frozen `ACTIVE`/`PAUSED`/`INCIDENT`/`ARCHIVED`, Player lifecycle, operator interventions, incident recovery, Player onboarding, Perihelion Reach pin (`docs/FIRST-WORLD-OPERATIONS.md` and siblings).
+- [x] Admin is a separate control-plane principal; no ADMIN_PLAYER / GM_PLAYER; Admin Live observes and does not play.
+- [x] First-world pause is `PAUSED` (reject mutating PLAY; WATCH may continue with a marker).
+- [x] Settlement outage is bounded fail-closed (at most one additional mutating cycle batch).
+- [x] One controlling PlayerSession per Player; disconnect does not delete the Player or rewrite location via transport close.
+- [x] Operator interventions are IDENTITY / SYSTEM / WORLD / RECOVERY; no raw world edits.

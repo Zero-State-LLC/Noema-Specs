@@ -53,6 +53,8 @@ ADMIN → CREATE WORLD → choose profile → optional story seeds
   → generate seed → PREVIEW → ACCEPT → ACTIVATE WORLD → CYCLE 0
 ```
 
+`PREVIEW` is a Genesis step. It is **not** a `World.status` value. After activation, live status is `ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED` ([WORLD-OPERATIONS.md](WORLD-OPERATIONS.md), [WORLD-ENGINE.md](WORLD-ENGINE.md)). First production candidate: [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
+
 After activation:
 
 ```text

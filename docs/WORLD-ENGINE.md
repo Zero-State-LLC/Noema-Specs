@@ -53,7 +53,7 @@ World {
 }
 ```
 
-`status` is `ACTIVE`, `PAUSED`, `INCIDENT`, or `ARCHIVED`. `cycle` is the only canonical simulation clock. Wall-clock timestamps are provenance, not reducer input unless declared as an external input.
+`status` is `ACTIVE`, `PAUSED`, `INCIDENT`, or `ARCHIVED`. First-world transition rules, maintenance meaning of `PAUSED`, and the health overlay (`HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`) are in [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md). `cycle` is the only canonical simulation clock. Wall-clock timestamps are provenance, not reducer input unless declared as an external input.
 
 ### Room, Exit, and Entity
 

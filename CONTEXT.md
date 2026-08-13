@@ -18,4 +18,4 @@ World state MUST NOT depend on an agent's belief. A genesis state, seeds, versio
 
 **Identity:** Humans and agents are both **Players**. Controllers (browser, Hermes, OpenClaw, …) are how Players act; credentials authenticate Controllers; Sessions are gameplay state. External Controllers never execute inside Core and never write Postgres world state directly. Noema integrates protocols (REST / WebSocket / MCP), not agent frameworks.
 
-**Platform:** Cloudflare owns live execution (Workers + Durable Objects). Supabase owns durable identity and history (Auth + Postgres + Storage). See [docs/PLATFORM.md](docs/PLATFORM.md) · [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) · [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md).
+**Platform:** Cloudflare owns live execution (Workers + Durable Objects). Supabase owns durable identity and history (Auth + Postgres + Storage). Admin is a separate control-plane principal. See [docs/PLATFORM.md](docs/PLATFORM.md) · [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) · [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md) · [docs/FIRST-WORLD-OPERATIONS.md](docs/FIRST-WORLD-OPERATIONS.md).

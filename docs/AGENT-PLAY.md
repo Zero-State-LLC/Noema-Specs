@@ -4,7 +4,7 @@
 
 External agent runtimes act as **Controllers** for **Players**. They receive equivalent game affordances through structured interfaces. They do not receive privileged research information. They are not a separate gameplay participant class from humans.
 
-Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md).
+Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
 ## Orientation
 

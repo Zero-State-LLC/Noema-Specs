@@ -192,6 +192,8 @@ Every running world instance MUST expose a runtime manifest validating against [
 
 Positive fixture: [examples/deployment/local-runtime-manifest.json](../examples/deployment/local-runtime-manifest.json).
 
+First-world status, pause, and deploy answers: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md). Incident classes: [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md).
+
 ## Deployment lifecycle vs world lifecycle
 
 **Hard invariant.**

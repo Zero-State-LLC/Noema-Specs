@@ -19,6 +19,9 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | World Engine | Simulation authority. Live: Durable Object operational state; durable history: settled Postgres ledger. |
 | PlayerPrincipal | Authenticated edge principal (player + session + controller + scopes) consumed by the World Engine. |
 | Platform | Cloudflare (live) + Supabase (durable identity/history). See PLATFORM.md. |
+| Admin Live | Control-plane surface that asks whether the world is operating correctly. Not PLAY. See ADMIN-LIVE-OPERATIONS.md. |
+| World health overlay | Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value. |
+| Operator intervention | Governed IDENTITY / SYSTEM / WORLD / RECOVERY action. Not Lab INTERVENTIONS.md. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
 | Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
 | Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |
@@ -66,3 +69,6 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 - Do not model human and agent as separate gameplay participant classes; both are Players.
 - Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
 - Do not let external Controllers write canonical world state directly.
+- Do not treat Admin as a Player privilege or introduce ADMIN_PLAYER / GM_PLAYER.
+- Do not add PREVIEW / MAINTENANCE / DEGRADED / RECOVERING to `World.status`; PREVIEW is Genesis-only and the others are health or procedures.
+- Do not expose private cognition or casual private-message text on Admin Live.

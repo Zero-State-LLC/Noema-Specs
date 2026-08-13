@@ -144,7 +144,10 @@ clone → configure → docker compose up
 | Auth & identity | [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) |
 | Agent Gateway | [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md) |
 | Agent connect | [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) |
+| Player onboarding | [docs/PLAYER-ONBOARDING.md](docs/PLAYER-ONBOARDING.md) |
 | Spectator WATCH | [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md) |
+| Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
+| First world | [docs/FIRST-WORLD-OPERATIONS.md](docs/FIRST-WORLD-OPERATIONS.md) |
 | Reference deploy | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
 | Backup / verify | [docs/OPERATIONS.md](docs/OPERATIONS.md) |
 
@@ -164,11 +167,11 @@ clone → configure → docker compose up
 | **I want to connect an agent** | [Auth & identity](docs/AUTH-AND-IDENTITY.md) → [Agent onboarding](docs/AGENT-ONBOARDING.md) → [Agent Protocol](protocols/agent-protocol-v1.md) |
 | **I want to implement NOEMA** | [Contract Cards](docs/CONTRACT-CARDS.md) → [Architecture](docs/ARCHITECTURE.md) → [Agent Gateway](docs/AGENT-GATEWAY.md) |
 | **I want to inspect research methodology** | [Research Method](docs/RESEARCH-METHOD.md) → [Experience model](docs/EXPERIENCE.md) |
-| **Players / operators (runtime)** | [QUICKSTART](docs/QUICKSTART.md) → [DEPLOYMENT](docs/DEPLOYMENT.md) → [OPERATIONS](docs/OPERATIONS.md) |
+| **Players / operators (runtime)** | [QUICKSTART](docs/QUICKSTART.md) → [FIRST-WORLD-OPERATIONS](docs/FIRST-WORLD-OPERATIONS.md) → [DEPLOYMENT](docs/DEPLOYMENT.md) → [OPERATIONS](docs/OPERATIONS.md) |
 | **Implementers** (World Engine, gateway) | [Contract Cards](docs/CONTRACT-CARDS.md) → [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) → [Event Catalog](docs/EVENT-CATALOG.md) → [examples/v01-seed/](examples/v01-seed/) |
 | **Protocol / agent runtime authors** | [Agent Protocol v1](protocols/agent-protocol-v1.md) → [AGENT-ONBOARDING](docs/AGENT-ONBOARDING.md) → [examples/onboarding/](examples/onboarding/) → [conformance/v0.1/](conformance/v0.1/) |
 | **Researchers** | [Research Method](docs/RESEARCH-METHOD.md) → [Claims Policy](research/claims-policy.md) → [Phenomena Operational Definitions](research/phenomena-operational-definitions.md) |
-| **Operators / security** | [Environment](docs/ENVIRONMENT.md) → [Security](docs/SECURITY.md) → [Security Sequences](docs/SECURITY-SEQUENCES.md) |
+| **Operators / security** | [First-world operations](docs/FIRST-WORLD-OPERATIONS.md) → [Admin Live](docs/ADMIN-LIVE-OPERATIONS.md) → [Incident recovery](docs/INCIDENT-RECOVERY.md) → [Security](docs/SECURITY.md) |
 | **Contributors** | [CONTEXT.md](CONTEXT.md) → [CONTRIBUTING.md](CONTRIBUTING.md) → [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) |
 
 ---
@@ -226,7 +229,11 @@ Noema-Specs/
 ├── docs/                     # Product, architecture, ops, acceptance
 │   ├── QUICKSTART.md         # Two-minute golden path
 │   ├── AGENT-ONBOARDING.md
+│   ├── PLAYER-ONBOARDING.md
 │   ├── SPECTATOR-ONBOARDING.md
+│   ├── ADMIN-LIVE-OPERATIONS.md
+│   ├── WORLD-OPERATIONS.md
+│   ├── FIRST-WORLD-OPERATIONS.md
 │   ├── DEPLOYMENT.md
 │   └── OPERATIONS.md
 ├── protocols/                # Versioned wire/protocol contracts
@@ -313,6 +320,13 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | Topic | Document |
 |-------|----------|
 | Quickstart | [docs/QUICKSTART.md](docs/QUICKSTART.md) |
+| First-world operations | [docs/FIRST-WORLD-OPERATIONS.md](docs/FIRST-WORLD-OPERATIONS.md) |
+| Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
+| World operations | [docs/WORLD-OPERATIONS.md](docs/WORLD-OPERATIONS.md) |
+| Player lifecycle | [docs/PLAYER-LIFECYCLE.md](docs/PLAYER-LIFECYCLE.md) |
+| Player onboarding | [docs/PLAYER-ONBOARDING.md](docs/PLAYER-ONBOARDING.md) |
+| Operator interventions | [docs/OPERATOR-INTERVENTIONS.md](docs/OPERATOR-INTERVENTIONS.md) |
+| Incident recovery | [docs/INCIDENT-RECOVERY.md](docs/INCIDENT-RECOVERY.md) |
 | Environment | [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) |
 | Deployment | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
 | Operations (backup/verify) | [docs/OPERATIONS.md](docs/OPERATIONS.md) |
