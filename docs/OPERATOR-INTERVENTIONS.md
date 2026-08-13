@@ -12,15 +12,16 @@ Related: [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [WORLD-OPERATIO
 
 > Administrative authority is not arbitrary world-edit authority.
 
-Default Admin Live is:
+Admin Live supports `OBSERVE` / `INSPECT` / `DIAGNOSE` / `OPERATE` / `AUDIT` ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Default Admin Live is observational:
 
 ```text
 OBSERVE
 INSPECT
 DIAGNOSE
+AUDIT (read-only)
 ```
 
-World-changing operations require an explicit governed path. Operator surfaces MUST NOT bypass the Action Router / declared external-input path for world mutations ([MODULE-CONTRACTS.md](MODULE-CONTRACTS.md)).
+`OPERATE` is never the landing mode. World-changing operations require an explicit governed path. Operator surfaces MUST NOT bypass the Action Router / declared external-input path for world mutations ([MODULE-CONTRACTS.md](MODULE-CONTRACTS.md)).
 
 ---
 

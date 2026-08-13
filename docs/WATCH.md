@@ -15,7 +15,7 @@ A significance card may say what changed and cite the observed comparison bounda
 
 WATCH never mutates WorldState or appends events. Agent POV exactly matches the selected agent’s observation boundary. See [SPECTATOR.md](SPECTATOR.md) and [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md).
 
-Operator Digests are a separate Admin time-window summary and MUST NOT be confused with public WATCH ([OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md)).
+Operator Digests are a separate Admin time-window summary and MUST NOT be confused with public WATCH ([OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md)). Admin Live is an allowlisted control-plane console and MUST NOT appear as a public WATCH surface ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
 
 When the world is `PAUSED` or `INCIDENT`, or settlement is behind the live head, WATCH MAY continue and MUST mark the view maintenance, incident, or stale ([WORLD-OPERATIONS.md](WORLD-OPERATIONS.md), [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md)).
 

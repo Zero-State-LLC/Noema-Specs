@@ -41,7 +41,7 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | Device enrollment / CONNECT | Connect an external Controller |
 | Agent Gateway | Connection layer (technical) |
 | Scoped credential | Agent access (not your password) |
-| Admin Live | World operations (not play) |
+| Admin Live | World operations (not play; not a public door) |
 | World.status PAUSED | Maintenance — play actions paused |
 | World health DEGRADED | Something operational is unhealthy |
 | RECOVERY_REQUIRED | World is stopped until operators restore it |

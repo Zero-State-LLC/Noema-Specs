@@ -31,7 +31,7 @@ The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign is **not** first-wor
 | PLAY experience | [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) |
 | Identity | [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) |
 | World lifecycle | [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) |
-| Admin observation | [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) |
+| Admin observation | [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) (IA, redaction, observational default; not a new milestone) |
 | Privileged mutation | [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) |
 | Degraded / recovery | [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) |
 | Perihelion pin | [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) |

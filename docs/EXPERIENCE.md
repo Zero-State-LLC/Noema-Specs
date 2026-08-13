@@ -29,10 +29,10 @@ NOEMA
 │   ├── Results
 │   └── Captured
 ├── CONNECT       (Controller onboarding; not a Player mode)
-└── ADMIN LIVE    (separate control-plane principal; not a Player mode)
+└── ADMIN LIVE    (allowlisted control-plane; not a public product door)
 ```
 
-PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection. STUDY is an authorized research workflow. CONNECT is a controller-onboarding path that attaches an external runtime to a Player; it MUST NOT imply that agents are a second participant class. Admin Live asks whether the world is operating correctly and MUST remain outside ordinary PLAY ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose only information required for the next meaningful decision, with a text/structured route for every core action on desktop, mobile, terminal, and agent API.
+PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection. STUDY is an authorized research workflow. CONNECT is a controller-onboarding path that attaches an external runtime to a Player; it MUST NOT imply that agents are a second participant class. Admin Live asks whether the world is operating correctly, MUST remain outside ordinary PLAY, and MUST NOT be exposed as a public WATCH/PLAY door ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose only information required for the next meaningful decision, with a text/structured route for every core action on desktop, mobile, terminal, and agent API.
 
 ### Hosted reference projection (non-normative)
 

@@ -19,7 +19,8 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | World Engine | Simulation authority. Live: Durable Object operational state; durable history: settled Postgres ledger. |
 | PlayerPrincipal | Authenticated edge principal (player + session + controller + scopes) consumed by the World Engine. |
 | Platform | Cloudflare (live) + Supabase (durable identity/history). See PLATFORM.md. |
-| Admin Live | Control-plane surface that asks whether the world is operating correctly. Not PLAY. See ADMIN-LIVE-OPERATIONS.md. |
+| Admin Live | Control-plane surface that asks whether the world is operating correctly. Not PLAY. Capabilities: OBSERVE, INSPECT, DIAGNOSE, OPERATE, AUDIT. See ADMIN-LIVE-OPERATIONS.md. |
+| Admin Live redaction class | Closed control-plane projection class: `WORLD_PUBLIC`, `WORLD_PRIVATE`, `PLAYER_PRIVATE`, `RESEARCH_PRIVATE`, `ADMIN_PRIVATE`, `SECRET`. Not observation visibility and not a protocol field. `SECRET` never reaches the browser. |
 | World health overlay | Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value. |
 | Operator intervention | Governed CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY action. Not Lab INTERVENTIONS.md. |
 | World Service | Deterministic institutional interface (not a Player). Closed capabilities; writes only via Player-confirmed canonical actions. See WORLD-SERVICES.md. |
@@ -79,3 +80,5 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 - Do not treat World Services as Players, NPC citizens, or LLM authorities.
 - Do not add PREVIEW / MAINTENANCE / DEGRADED / RECOVERING to `World.status`; PREVIEW is Genesis-only and the others are health or procedures.
 - Do not expose private cognition or casual private-message text on Admin Live.
+- Do not send `SECRET` material to the Admin Live browser.
+- Do not treat Admin Live as a public WATCH/PLAY door.
