@@ -1,8 +1,9 @@
 # GC1 First Slice — Derived Practice Projection
 
-**Status:** Selected executable *specification* slice for later runtime. Not an executable release package.  
+**Status:** Shipped as derived PLAY projection (RFC-0004 Accepted; reference runtime PR #68).  
 **Parent:** [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
-**RFC:** [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (**Draft**)  
+**RFC:** [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (**Accepted**)  
+**Next slice:** [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md)  
 **Does not open:** v0.8 · `event-catalog/0.3` · mechanical benefits · recognition  
 **Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — evidence trajectory, not a skill tree.
 
@@ -270,6 +271,4 @@ Full scenario A waits for a later GC1-S1 (recognition + one benefit family) with
 
 ## 6. Recommended next implementation work
 
-**One bounded slice:** implement GC1-S0 as derived PLAY projection in the runtime, with fixtures added to Specs when RFC-0004 is accepted.
-
-Do not implement GC2–GC10. Do not grant Engineer cost discounts. Do not add `BUILD`.
+S0 is shipped. The next bounded *spec* slice is [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). Do not implement recognition until RFC-0005 is Accepted. Do not implement GC2–GC10. Do not grant Engineer cost discounts. Do not add `BUILD`.

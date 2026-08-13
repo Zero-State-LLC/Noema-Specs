@@ -255,17 +255,24 @@ WATCH = none
 PRACTICING at count >= 1; recognition disabled
 ```
 
-### Still open (blocks GC1-S1 and any mechanical benefit)
+### Closed for GC1-S1 (Draft — [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md))
 
 ```text
-recognition thresholds and anti-spike rule
+recognition thresholds (distinct units; cycle-independent)
+S1 self-only recognized PLAY lines
+no WATCH recognition
+no mechanical benefit in S1
+```
+
+### Still open (blocks GC1-S2 and any mechanical benefit)
+
+```text
 decay / latent windows
 focus as ledgered declaration (if ever)
-benefit magnitudes
-event types if recognition is ledgered
-JSON catalog + schema
-fixtures and conformance (recommended M01)
-S1 PLAY/WATCH recognition strings
+benefit magnitudes (S2 candidate: Engineer REPAIR quality)
+event types if recognition is ever ledgered
+S1 fixtures / RFC-0005 acceptance
+WATCH / public titles
 ```
 
 An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
