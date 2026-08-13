@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0007 Accepted:** GC3-S0 dyadic trade memory. Derived edges from `TRADE_ACCEPTED`; RELIABLE at 3 distinct trades; no reputation scalar; WATCH empty; leak tokens forbidden. No runtime.
+
+### Added
+
 - **RFC-0006 Accepted:** GC2-S0 construction pins. `CONSTRUCT`/`DISMANTLE` on existing infrastructure classes; reuses `ENTITY_CREATE`/`ENTITY_DESTROY`; no `event-catalog/0.3`. Attempt fixtures + `check_gc2_s0`. No runtime BUILD.
 
 ### Added

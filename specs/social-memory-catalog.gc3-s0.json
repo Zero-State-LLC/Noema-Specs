@@ -1,0 +1,18 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s0",
+  "catalog_id": "social-memory-catalog/gc3-s0",
+  "slice_id": "gc3-s0",
+  "authority": "docs/GC3-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0007-dyadic-trade-memory.md",
+  "evidence_event": "TRADE_ACCEPTED",
+  "public_projection": false,
+  "watch_projection": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "reliable_threshold": 3,
+  "traded_threshold": 1,
+  "unknown_line": null,
+  "traded_line": "You have traded with {name}.",
+  "reliable_line": "You have found {name} reliable in trade.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden"]
+}

@@ -120,6 +120,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC2-S0 construction pins** ([GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), Accepted [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)): `CONSTRUCT` / `DISMANTLE` on the four v0.1 infrastructure classes using existing `ENTITY_*` events. `BUILD` stays unsupported in Chamber PLAY until a later implementation pass.
 
+**GC3-S0 social memory** ([GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), Accepted [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)): derived Player→Player reliability from accepted trades. No reputation integer. No Chamber runtime yet.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena

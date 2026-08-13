@@ -199,6 +199,8 @@ REQUIRED_DOCS = [
     "docs/GC1-S1-RECOGNITION.md",
     "docs/GC2-FIRST-SLICE.md",
     "rfcs/RFC-0006-construction-existing-events.md",
+    "docs/GC3-FIRST-SLICE.md",
+    "rfcs/RFC-0007-dyadic-trade-memory.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -832,6 +834,9 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/construction-catalog.schema.json", "specs/construction-catalog.gc2-s0.json"),
         ("specs/construction-attempt.schema.json", "examples/gc2-construction/construct-relay-ok.json"),
         ("specs/construction-attempt.schema.json", "examples/gc2-construction/dismantle-not-owner.json"),
+        ("specs/social-memory-catalog.schema.json", "specs/social-memory-catalog.gc3-s0.json"),
+        ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-reliable.json"),
+        ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-rejects-ignored.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2776,6 +2781,100 @@ def check_gc2_s0(Draft202012Validator) -> None:
     ok("GC2-S0 construction: catalog, attempt fixtures, RFC-0006 Accepted, no STRUCTURE_* events")
 
 
+def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    trades = fixture.get("trades") or {}
+    handles = fixture.get("handles") or {}
+    counts: dict[str, set[str]] = {}
+    seen_events: set[str] = set()
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        if ev.get("event_type") != catalog["evidence_event"]:
+            continue
+        eid = ev.get("event_id")
+        if not eid or eid in seen_events:
+            continue
+        seen_events.add(eid)
+        payload = ev.get("payload") or {}
+        trade_id = payload.get("trade_id")
+        trade = trades.get(trade_id) if isinstance(trade_id, str) else None
+        if not trade:
+            continue
+        parties = {trade.get("proposer_id"), trade.get("counterparty_id")}
+        if subject not in parties:
+            continue
+        other = next((p for p in parties if p and p != subject), None)
+        if not other:
+            continue
+        counts.setdefault(other, set()).add(str(trade_id))
+    edges = {}
+    play_lines = []
+    traded_at = int(catalog["traded_threshold"])
+    reliable_at = int(catalog["reliable_threshold"])
+    for other, tids in sorted(counts.items()):
+        n = len(tids)
+        if n >= reliable_at:
+            state = "RELIABLE"
+            template = catalog["reliable_line"]
+        elif n >= traded_at:
+            state = "TRADED"
+            template = catalog["traded_line"]
+        else:
+            state = "UNKNOWN"
+            template = None
+        edges[other] = {"state": state, "count": n}
+        if template:
+            name = handles.get(other) or other
+            play_lines.append(template.replace("{name}", name))
+    return {
+        "edges": edges,
+        "play_lines": play_lines,
+        "watch_lines": [],
+        "third_party_lines": [],
+    }
+
+
+def check_gc3_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("public_projection") or catalog.get("watch_projection"):
+        fail("GC3-S0 must not enable a reputation scalar or public/WATCH projection")
+    if catalog.get("new_verbs"):
+        fail("GC3-S0 must not add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0007-dyadic-trade-memory.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0007 must be Accepted after GC3-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in ("rebuild-reliable.json", "rebuild-rejects-ignored.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-social-memory" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if got["edges"] != exp["edges"]:
+            fail(f"{name} edges: got {got['edges']} expected {exp['edges']}")
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {exp['play_lines']}")
+        if got["watch_lines"] or exp["watch_lines"]:
+            fail(f"{name} WATCH must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        if "72" in blob or "reputation" in blob:
+            fail(f"{name} must not project a reputation scalar")
+    ok("GC3-S0 social memory: catalog, rebuild fixtures, RFC-0007 Accepted, no reputation scalar")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2803,6 +2902,7 @@ def main() -> None:
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
+    check_gc3_s0(Draft202012Validator)
     print("\nPASS")
 
 

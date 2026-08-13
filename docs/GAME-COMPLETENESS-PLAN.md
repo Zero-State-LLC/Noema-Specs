@@ -267,6 +267,8 @@ Rationale:
 
 **GC2-S0 — Construct/dismantle existing infrastructure.** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md). RFC: [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md) (**Accepted**). No `event-catalog/0.3`. No Chamber `BUILD` yet.
 
+**GC3-S0 — Dyadic trade memory.** [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md). RFC: [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md) (**Accepted**). No reputation integer.
+
 Why this slice, not all of GC1 and not GC2/GC3:
 
 - Explorer / Surveyor / Broker evidence is already in `event-catalog/0.1`.
