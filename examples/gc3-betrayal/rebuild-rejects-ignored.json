@@ -1,0 +1,33 @@
+{
+  "slice_id": "gc3-s1",
+  "catalog_id": "social-memory-catalog/gc3-s1",
+  "subject_id": "player.nacre",
+  "handles": { "player.vesper": "Vesper" },
+  "events": [
+    {
+      "event_id": "evt.b.r1",
+      "event_type": "TRADE_REJECTED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": { "trade_id": "trade.x", "reason": "DECLINED" }
+    },
+    {
+      "event_id": "evt.b.r2",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": {
+        "contest_id": "contest.0002",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "danger": {},
+    "play_lines": [],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "note": "Declarer does not remember the defender as dangerous. Rejected trades ignored."
+  }
+}
