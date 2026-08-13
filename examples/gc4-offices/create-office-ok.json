@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_CREATE",
+    "actor_id": "player.nacre",
+    "actor_role": "founder",
+    "org_active": true,
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "events": ["ENTITY_CREATE"],
+    "office_status": "VACANT",
+    "note": "Founder may create a vacant named office."
+  }
+}

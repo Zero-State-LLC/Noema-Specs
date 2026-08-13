@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_VACATE",
+    "actor_id": "player.vesper",
+    "actor_role": "member",
+    "actor_is_holder": true,
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "OCCUPIED"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "events": ["ENTITY_UPDATE"],
+    "office_status": "VACANT",
+    "note": "Holder resignation vacates; office remains."
+  }
+}

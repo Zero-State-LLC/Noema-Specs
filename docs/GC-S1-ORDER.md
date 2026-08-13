@@ -13,7 +13,7 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 | 1 | Archive-claim attestation | Hosted (RFC-0020). Unblocks GC6 after a Player attests. | Not `INSPECT`. Not a content pack |
 | 2 | GC5-S1 delay | [RFC-0021](../rfcs/RFC-0021-relay-message-delay.md). Existing `MESSAGE` + world-time. Rumor is GC5-S2 | Not `SHOUT` / `BOARD` / `RUMOR` |
 | 3 | GC3-S1 betrayal | [RFC-0022](../rfcs/RFC-0022-betrayal-dangerous.md). Hosted from `CONTEST_RESOLVED`. Agreement/crime rebuild when those events exist | Not a reputation integer |
-| 4 | GC4-S1 named offices | Extends existing org roles | Not `ROLE_*` events |
+| 4 | GC4-S1 named offices | [RFC-0023](../rfcs/RFC-0023-named-offices.md). Persistent vacant/occupied seats on the org. Not membership | Not `ROLE_*` events |
 | 5 | GC6-S1 reconstruction | Compile after claims exist | Not `QUEST` |
 | 6 | GC9-S1 tradition | After custom + time | Lore cannot override ledger |
 | 7 | GC7-S1 withdraw / GC10-S1 more classes | After isolated contest and one schedule exist | No HP; no Admin spawn |
@@ -32,4 +32,4 @@ GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or 
 
 ## Runtime rule
 
-Ranks 1–3 are hosted. Later ranks still need their own RFC and an explicit implementation pass. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–4 are hosted. Later ranks still need their own RFC and an explicit implementation pass. Help still omits ATTEST / BUILD / CONTEST / WED.

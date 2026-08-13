@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_ACT",
+    "actor_id": "player.vesper",
+    "actor_role": "member",
+    "actor_is_holder": true,
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "RETIRED",
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Retired office cannot authorize."
+  }
+}

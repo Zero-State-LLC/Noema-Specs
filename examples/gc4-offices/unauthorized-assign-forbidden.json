@@ -1,0 +1,23 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_ASSIGN",
+    "actor_id": "player.vesper",
+    "actor_role": "advisor",
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "VACANT",
+    "target_id": "player.oriole",
+    "target_in_world": true,
+    "target_is_member": true,
+    "same_world": true,
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Advisor cannot assign offices."
+  }
+}

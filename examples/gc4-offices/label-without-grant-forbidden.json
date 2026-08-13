@@ -1,0 +1,21 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_ACT",
+    "actor_id": "player.vesper",
+    "actor_role": "member",
+    "actor_is_holder": false,
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "OCCUPIED",
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true,
+    "cosmetic_title": "Treasurer"
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Displayed Treasurer without the holder relation is presentation."
+  }
+}

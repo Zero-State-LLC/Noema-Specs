@@ -1,0 +1,25 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_ASSIGN",
+    "actor_id": "player.nacre",
+    "actor_role": "founder",
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "VACANT",
+    "target_id": "player.oriole",
+    "target_in_world": true,
+    "target_is_member": true,
+    "same_world": true,
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true,
+    "replace": false
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "events": ["ENTITY_UPDATE"],
+    "office_status": "OCCUPIED",
+    "note": "Same office_id can receive a new holder after vacancy."
+  }
+}

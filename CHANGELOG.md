@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0023 Accepted / GC4-S1:** named institutional offices as persistent vacant/occupied seats on an organization. Membership roles unchanged. Evidence is `ENTITY_CREATE` / `ENTITY_UPDATE`. No `ROLE_*`. Hosted exercise is `PUBLISH_NOTICE` only.
+
+### Added
+
 - **RFC-0022 Accepted / GC3-S1:** private danger edge from `CONTEST_RESOLVED` (and `AGREEMENT_BROKEN` / `CRIME_DETECTED` when those events exist). Line `You have found {name} dangerous.` Self only. No reputation scalar. `TRADE_REJECTED` still ignored. Does not thaw `AGREEMENT_FORM`.
 
 ### Added
