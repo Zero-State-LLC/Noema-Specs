@@ -93,7 +93,13 @@ After CAPTURE, researchers use **LEARN** to see what behaviors were reproduced, 
 
 ### Spec freeze (core loop)
 
-v0.1–v0.7 core product/research loop is recommended **frozen for implementation**. See [SPEC-FREEZE-CORE-LOOP.md](docs/SPEC-FREEZE-CORE-LOOP.md). Prefer building the Chamber modular monolith in the runtime repo over opening v0.8 Phenomena specs.### Research loop
+v0.1–v0.7 core product/research loop is recommended **frozen for implementation**. See [SPEC-FREEZE-CORE-LOOP.md](docs/SPEC-FREEZE-CORE-LOOP.md). Prefer building the Chamber modular monolith in the runtime repo over opening v0.8 Phenomena specs.
+
+### Game completeness (specification campaign)
+
+A parallel PLAY-depth campaign settles mastery, construction, social memory, offices, communication ecology, systemic discovery, conflict v2, economic specialization, emergent culture, and the World Event Director. It is **not** an executable release and **not** v0.8. See [GAME-COMPLETENESS-PLAN.md](docs/GAME-COMPLETENESS-PLAN.md).
+
+### Research loop
 
 ```text
 inhabit → observe → act → communicate → perturb →
@@ -310,6 +316,7 @@ Noema-Specs/
 | Crime / strategic conflict | [STRATEGIC-CONFLICT](docs/STRATEGIC-CONFLICT.md) · [CONTEST-RESOLUTION](docs/CONTEST-RESOLUTION.md) · [RFC-0002 Accepted](rfcs/RFC-0002-strategic-contestation-and-crime-events.md) · [`event-catalog/0.2`](specs/event-types.0.2.json) |
 | Loss / recovery · diplomacy · cycle/reports | [LOSS-RECOVERY](docs/LOSS-RECOVERY.md) · [DIPLOMACY](docs/DIPLOMACY.md) · [GAME-CYCLE](docs/GAME-CYCLE.md) · [WORLD-REPORTS](docs/WORLD-REPORTS.md) |
 | Progression · ambitions · balance | [PROGRESSION](docs/PROGRESSION.md) · [AMBITIONS](docs/AMBITIONS.md) · [GAME-BALANCE](docs/GAME-BALANCE.md) |
+| Game completeness (spec campaign, not v0.8) | [GAME-COMPLETENESS-PLAN](docs/GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON](docs/MUD-DESIGN-CANON.md) · [MASTERY](docs/MASTERY-SPECIALIZATION.md) · [CONSTRUCTION](docs/CONSTRUCTION.md) · [SOCIAL-MEMORY](docs/SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY](docs/INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY](docs/COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY](docs/SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION](docs/ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE](docs/EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR](docs/WORLD-EVENT-DIRECTOR.md) |
 | Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) · [chamber-world seed](examples/chamber-world/) |
 | Game system map | [docs/GAME-SYSTEM-MAP.md](docs/GAME-SYSTEM-MAP.md) · [GAME-SYSTEM-DEPENDENCY](docs/GAME-SYSTEM-DEPENDENCY.md) |
 | Starting conditions · exploration · knowledge | [STARTING-CONDITIONS](docs/STARTING-CONDITIONS.md) · [EXPLORATION](docs/EXPLORATION.md) · [STRATEGIC-KNOWLEDGE](docs/STRATEGIC-KNOWLEDGE.md) |

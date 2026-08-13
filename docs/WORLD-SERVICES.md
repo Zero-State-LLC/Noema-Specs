@@ -26,6 +26,8 @@ WORLD SERVICE
 
 World Services are **not** Players. Do not add `NPC_PLAYER`, `SERVICE_PLAYER`, `BANKER_PLAYER`, or `SHOPKEEPER_PLAYER`.
 
+A Player **office** (Steward, Archivist, …) is a different thing: bounded institutional authority held by a Player ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)). Services remain desks.
+
 They are not autonomous NPC citizens, free-running LLM agents, or a second population metric.
 
 A service is an interface to existing world systems: exchange, registry, storage, infrastructure operations, archives, contracts. It has no independent gameplay authority outside this contract.

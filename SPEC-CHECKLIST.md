@@ -34,6 +34,7 @@
 - [x] Starting conditions + system dependency chain
 - [x] Canonical chamber-world 10-room map seed
 - [x] GAME-DESIGN spine table for completed game design
+- [x] Game completeness specification campaign (not executable): MUD design canon, completeness plan, GC1–GC10 product authorities, nested loops, acceptance matrix A–J. No silent v0.8. No new catalogs.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

@@ -41,6 +41,8 @@ PLAY → NOTICE → TEST → CAPTURE → LEARN
 
 **Recommendation:** Treat v0.1–v0.7 core-loop contracts as the **implementation target set**. Prefer implementation feedback over opening v0.8.
 
+**Game Completeness** is a **parallel PLAY-depth specification campaign**, not a thaw of this freeze and not v0.8 Phenomena. See [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md). Those documents settle product behavior; they do not make GC1–GC10 executable and they do not authorize runtime construction or new catalogs without RFC.
+
 First-world operational freeze (identity, ops, Admin, Perihelion pin): [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md).
 
 ---
@@ -195,6 +197,7 @@ Do **not** start as first code:
 - Full markets/constitutional law (v0.6B)
 - Procedural lore generators
 - Architecture attribution or phase-transition engines
+- Game-completeness runtime (GC1–GC10) before Chamber play is stable and before each package’s Spec Completion Contract is machine-closed
 
 ---
 

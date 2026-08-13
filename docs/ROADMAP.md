@@ -16,6 +16,8 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 **Core game design (player-facing structure):** [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) · [REALMS.md](REALMS.md) · [GEOGRAPHY.md](GEOGRAPHY.md) · [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) · [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [LOSS-RECOVERY.md](LOSS-RECOVERY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) · [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [GAME-BALANCE.md](GAME-BALANCE.md) · [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) · [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
 
+**Game completeness (specification campaign, not executable):** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md).
+
 ### Recommended implementation sequence (platform + identity)
 
 Dependency order (does not open v0.8 game content):
@@ -92,6 +94,25 @@ Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, co
 **Deferred beyond v0.7:** phase transitions, automatic ontology induction, architecture attribution (later research).
 
 **Core-loop freeze:** [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) — freeze v0.1–v0.7 for implementation; do not open v0.8 until runtime feedback demands it.
+
+## Game Completeness — parallel PLAY-depth campaign (not a release tag)
+
+Post-core **specification** campaign for mature Player-world depth. It does **not** reopen v0.1–v0.7 machine contracts, does **not** redefine v0.6B Contracts & Markets or v0.6C Semantic Evolution, and does **not** open **v0.8 Phenomena**.
+
+Authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · ancestry [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md).
+
+```text
+GC-A  Identity and Persistence     GC1 Mastery · GC2 Construction · GC3 Social Memory
+GC-B  Society and Information      GC4 Offices · GC5 Communication · GC6 Discovery
+GC-C  Strategic Depth              GC7 Conflict v2 · GC8 Economic specialization
+GC-D  Civilization                 GC9 Emergent culture · GC10 World Event Director
+```
+
+These phases are design authorities. They are **not** executable packages. Machine contracts, fixtures, and conformance remain **SPEC GAP** until RFC.
+
+**Not started as runtime.** Preferred first later implementation slice: **GC1 Mastery** (derived from existing action evidence; no new verb). Chamber modular-monolith implementation remains the highest-value runtime work.
+
+v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
 
