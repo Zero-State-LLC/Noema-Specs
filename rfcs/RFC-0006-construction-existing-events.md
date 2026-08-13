@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only. Does **not** expand `event-catalog`. Does **not** thaw first-world `BUILD` help. Runtime implementation remains a separate authorized pass.
+Hosted runtime shipped (Noema #79). Does **not** expand `event-catalog`. Does **not** add `BUILD` to Chamber help.
 
 ## Problem
 

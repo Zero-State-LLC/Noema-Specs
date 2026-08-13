@@ -1,6 +1,6 @@
 # GC2 thaw readiness — 2026-08-13
 
-**Status:** Ready for an **explicit** thaw instruction. This document does **not** authorize `BUILD`.  
+**Status:** Thawed. Hosted `BUILD` CONSTRUCT/DISMANTLE shipped (Noema #79). Chamber help still omits `BUILD`.  
 **Authority:** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md) · [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)
 
 | Topic | Status |
@@ -12,6 +12,6 @@
 | Asset lineage | `owner_id` = constructing Player; one live class per room |
 | Location | Co-located; hidden rooms not targets |
 | Events reused | `BUDGET_CONSUMED`, `ENTITY_CREATE`, `ENTITY_DESTROY` |
-| Remaining runtime gaps | Chamber help still omits BUILD (required until thaw). No hosted CONSTRUCT/DISMANTLE yet |
+| Remaining runtime gaps | Chamber help still omits BUILD (required for S0). Contest / WED still frozen |
 
-Architecture is not a GC2 blocker once world-heads SQL is applied. Do not implement BUILD without an explicit thaw.
+Hosted CONSTRUCT/DISMANTLE is live. Do not add BUILD to Chamber help. Do not thaw contest/WED from this document.

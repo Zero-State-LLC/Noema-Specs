@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC2-S0 hosted:** Chamber `BUILD` CONSTRUCT/DISMANTLE on the four existing infrastructure classes (Noema #79). Existing `ENTITY_CREATE` / `ENTITY_DESTROY` / `BUDGET_CONSUMED` only. Chamber help still omits BUILD. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0017 Accepted:** hosted cycle fence and durable settlement recovery. `STALE_HEAD` on revision mismatch; no last-write-wins; no Genesis recovery. No gameplay.
 - **RFC-0018 Accepted:** archive-claim writer is `ENTITY_CREATE` / allowlisted `ENTITY_UPDATE` only. `INSPECT` is not a writer. No Chamber verb. No Genesis pack.
 - **GC2 thaw readiness:** `docs/GC2-THAW-READINESS.md` — architecture not a blocker; BUILD still unauthorized.

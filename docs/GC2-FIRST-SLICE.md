@@ -1,6 +1,6 @@
 # GC2 First Slice — Construct and Dismantle Existing Infrastructure
 
-**Status:** Executable *specification* slice. Runtime MUST NOT accept `BUILD` until RFC-0006 is Accepted **and** a later implementation pass is authorized.  
+**Status:** Shipped as hosted `BUILD` CONSTRUCT/DISMANTLE (RFC-0006 Accepted; reference runtime PR #79). Chamber help still omits `BUILD`.  
 **Parent:** [CONSTRUCTION.md](CONSTRUCTION.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)  
 **Does not open:** `event-catalog/0.3` · new infrastructure classes · crafting · multi-cycle projects
@@ -112,4 +112,4 @@ first-world PLAY help advertising BUILD
 
 ## Runtime rule
 
-`BUILD` stays **UNSUPPORTED** in ordinary Chamber PLAY until an implementation RFC-authorized pass. This document does not thaw first-world verb freeze by itself.
+Hosted Chamber accepts `BUILD` CONSTRUCT/DISMANTLE (human `construct` / `build` / `dismantle`). Help and `AVAILABLE HERE` still omit `BUILD`. Repair stays `COMMIT.REPAIR`. Contest / WED remain frozen.

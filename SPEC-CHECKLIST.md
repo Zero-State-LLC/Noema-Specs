@@ -39,7 +39,7 @@
 - [x] RFC-0004 Accepted: mastery catalog, rebuild fixtures, M01–M03, validator rebuild gate. No v0.8. No new world events.
 - [x] Complexity Doctrine: causes not industries; primitives/pressures; A–J rejection tests; future-economy hard deferral. No crypto/wallet schemas.
 - [x] GC1-S1 recognition (RFC-0005 Accepted): catalog, rebuild fixtures, validator. No benefits. No class tree. Hosted PLAY shipped (Noema #69).
-- [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. BUILD still unsupported in Chamber PLAY.
+- [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. Hosted PLAY shipped (Noema #79). Chamber help still omits BUILD.
 - [x] GC3-S0 social memory (RFC-0007 Accepted): dyadic trade edges, no reputation scalar, leak-forbidden projection. Hosted PLAY shipped (Noema #70).
 - [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events. Hosted PLAY pin (Noema #71).
 - [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs. Hosted PLAY shipped (Noema #72).
@@ -219,5 +219,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
 - [x] RFC-0017 Accepted: hosted cycle fence / STALE_HEAD / crash-retry. No event-catalog/0.3.
 - [x] RFC-0018 Accepted: archive-claim writer pin. INSPECT not a writer. No Genesis pack.
-- [x] GC2 thaw readiness note. BUILD still unauthorized.
+- [x] GC2 thaw readiness note. Hosted BUILD CONSTRUCT/DISMANTLE shipped (Noema #79). Help still omits BUILD.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
