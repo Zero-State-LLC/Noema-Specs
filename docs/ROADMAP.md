@@ -4,7 +4,7 @@
 
 Persistent strategic ecology (2–10 Players): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.
 
-**Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT AGENT inside PLAY; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
+**Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT as a separate Controller-onboarding path; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
 **Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 

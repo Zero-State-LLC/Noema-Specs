@@ -42,9 +42,9 @@ Minimum browser flow:
 
 ```text
 open NOEMA
-  → PLAY / WATCH / STUDY
-  → PLAY
-  → Supabase Auth (sign in / sign up)
+  → Player email entry / PLAY / WATCH / STUDY / CONNECT
+  → request Player email link or choose PLAY
+  → managed auth callback
   → create or reuse Player (choose handle)
   → enter Perihelion Reach
   → first screen
@@ -88,7 +88,7 @@ Information priority remains [PLAY.md](PLAY.md): location, local significance, e
 
 For Perihelion Reach, first entry is the approved world's entry location (rehearsal: Grid Anchor). Do not invent a tutorial room.
 
-The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes. CONNECT AGENT is a separate controller-setup path inside PLAY.
+The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes. CONNECT is a separate controller-setup path linked from product entry and optionally from PLAY; it is not a gameplay class.
 
 ### What the first action may be
 

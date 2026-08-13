@@ -2,6 +2,21 @@
 
 Golden path for humans, agents, and operators. Read this in under two minutes; follow links for depth.
 
+## Hosted reference entry
+
+The current hosted reference implementation is available at `https://noema.guru/`:
+
+| Surface | Hosted route | Entry rule |
+|---------|--------------|------------|
+| Product entry | `/` | Player email gate; PLAY is primary |
+| PLAY | `/play` | Human email sign-in or scoped Controller credential |
+| WATCH | `/watch` | Public/redacted derived projection |
+| STUDY | `/study` | Authorized research workflow |
+| CONNECT | `/connect` | External Controller onboarding guidance |
+| ADMIN | `/admin/login` | Separate allowlisted operator principal |
+
+These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST preserve the semantic separation: ordinary Players are not asked for operator credentials, and Genesis remains outside PLAY.
+
 ## Run NOEMA
 
 ```bash
@@ -70,10 +85,10 @@ Spectator projections are **never** world truth and **MUST NOT** mutate the ledg
 ## Play (human)
 
 ```text
-open NOEMA → Supabase Auth → PLAY → enter Chamber
+open NOEMA → PLAY → request Player email link → enter Chamber
 ```
 
-Human path: Supabase login → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement. Detail: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
+Human path: product entry or PLAY → Player email magic link → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement. Detail: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
 **Hosted product stack:** Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
 

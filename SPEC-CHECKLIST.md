@@ -15,6 +15,7 @@
 - [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
 - [x] Hosted product stack pinned: Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`).
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
+- [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
@@ -125,7 +126,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 ## Experience simplification and progressive disclosure
 
 - [x] Canonical PLAY → NOTICE → TEST → CAPTURE → LEARN model and internal mapping.
-- [x] PLAY / WATCH / STUDY audience paths with text-first equivalents.
+- [x] PLAY / WATCH / STUDY audience paths with text-first equivalents; CONNECT remains a separate Controller-onboarding path rather than a Player mode.
 - [x] Ordinary flows do not require internal subsystem terminology.
 - [x] Advanced and reproducibility detail remains accessible.
 - [x] Versioned intent and error translations remain machine-authoritative.

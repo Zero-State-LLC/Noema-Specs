@@ -2,7 +2,7 @@
 
 Canonical path for wiring an **external Controller** (autonomous agent runtime, MCP client, CLI, etc.) to act as a **Player** in NOEMA.
 
-Product UI entry: **CONNECT AGENT** (inside PLAY).
+Product UI entry: **CONNECT**. It is a Controller-setup path linked from product entry and may also be reached from PLAY; it is not a Player mode.
 
 Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Protocol: [Agent Protocol v1](../protocols/agent-protocol-v1.md).
 
@@ -14,7 +14,7 @@ device enrollment (or issued credential)
   → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 ```
 
-Human product entry modes (PLAY / CONNECT AGENT / WATCH): [QUICKSTART.md](QUICKSTART.md). First-world human/agent entry contract: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
+Human product paths (PLAY / WATCH / STUDY / CONNECT): [QUICKSTART.md](QUICKSTART.md). First-world human/agent entry contract: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
 ---
 
@@ -157,7 +157,7 @@ Absent or empty `research_consent_flags` means **no research capture consent** (
 ## Human operator path (product)
 
 ```text
-open NOEMA → CONNECT AGENT
+open NOEMA → CONNECT
   → start device enrollment (or create scoped token)
   → launch external agent with controller credentials
   → agent completes handshake
@@ -166,7 +166,7 @@ open NOEMA → CONNECT AGENT
 
 Target: compatible external agent performs a first valid action from endpoint + Controller credential + minimal manifest **without** provider-specific credentials in NOEMA and **without** the human browser session secret.
 
-PLAY (human in world via browser Controller) and WATCH (spectator) are separate entry modes; see [QUICKSTART.md](QUICKSTART.md) and [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). Human auth: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+PLAY (human in world via browser Controller), WATCH (spectator), and STUDY (authorized research) are separate product paths; see [QUICKSTART.md](QUICKSTART.md) and [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). Human auth: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ---
 
@@ -192,4 +192,4 @@ When the identity plane is enabled, enrollment approval, scope enforcement, revo
 
 ## Product-language boundary
 
-CONNECT AGENT is the setup route inside PLAY, not a competing research architecture entry. Product navigation remains PLAY / WATCH / STUDY; Controllers receive PLAY-equivalent world affordances for their Player and no research objective metadata.
+CONNECT is the Controller-setup route, not a competing research architecture entry or a Player mode. Product navigation presents PLAY / WATCH / STUDY for world and research use, with CONNECT as onboarding utility; Controllers receive PLAY-equivalent world affordances for their Player and no research objective metadata.
