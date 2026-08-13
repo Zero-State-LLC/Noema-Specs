@@ -264,7 +264,7 @@ No superseding RFC is opened in this pass. Accepted RFC-0002…RFC-0014 remain.
 ## Pause
 
 ```text
-Architecture-design frontier PAUSED.
-First resumed slice landed: REDUCER-REGISTRY.md.
-Do not open a further architecture slice unless explicitly resumed.
+Architecture-design frontier: second resumed slice landed.
+See REDUCER-REGISTRY.md and RFC-0016 hosted durable world head.
+Further architecture (SERIALIZABLE cycle fence) waits for an explicit RFC.
 ```

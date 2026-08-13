@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0016 Accepted:** hosted durable world head. Postgres `noema_world_heads` is the reconstructable WorldRuntime copy; DO remains live ordering. Restore only when DO world is missing. No Genesis reseed. No new events. SERIALIZABLE cycle fence remains later.
+
+### Added
+
 - **Hosted readiness pointer:** SPEC-CHECKLIST architecture pause notes that Postgres reconstructable world record is unimplemented; evidence in Noema `docs/RUNTIME-READINESS-2026-08-13.md`. No contract change.
 
 ### Added

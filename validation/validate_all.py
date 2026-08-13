@@ -1583,6 +1583,21 @@ def check_reducer_registry() -> None:
     ok("Reducer registry lists 0.1/0.2 events and non-writer projections")
 
 
+def check_rfc_0016() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0016-hosted-durable-world-head.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0016 must be Accepted")
+    low = rfc.lower()
+    for token in (
+        "noema_world_heads",
+        "restore",
+        "unsettled",
+        "genesis",
+        "serializable",
+    ):
+        if token not in low:
+            fail(f"RFC-0016 must pin hosted durable head ({token})")
+    ok("RFC-0016 hosted durable world head: Accepted, restore-if-missing, no Genesis pack")
 
 
 def check_lab_v04(Draft202012Validator) -> None:
@@ -3636,6 +3651,7 @@ def main() -> None:
     check_skills_workflows()
     check_architecture_hardening()
     check_reducer_registry()
+    check_rfc_0016()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
