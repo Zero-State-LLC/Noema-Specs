@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s0",
+  "catalog_id": "authority-catalog/gc4-s0",
+  "attempt": {
+    "operation": "ORG_MEMBER_ADD",
+    "actor_id": "player.vesper",
+    "actor_role": "member",
+    "target_id": "player.oriole",
+    "assigned_role": "member",
+    "org_active": true,
+    "target_is_member": false,
+    "founder_count": 1,
+    "member_count": 3
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Member has no invite grant."
+  }
+}

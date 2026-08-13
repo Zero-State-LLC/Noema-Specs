@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s0",
+  "catalog_id": "authority-catalog/gc4-s0",
+  "attempt": {
+    "operation": "ORG_MEMBER_ADD",
+    "actor_id": "player.quill",
+    "actor_role": "advisor",
+    "target_id": "player.oriole",
+    "assigned_role": "member",
+    "org_active": true,
+    "target_is_member": false,
+    "founder_count": 1,
+    "member_count": 4
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Advisor is not an invite authorizer."
+  }
+}

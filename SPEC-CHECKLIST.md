@@ -41,6 +41,7 @@
 - [x] GC1-S1 recognition (RFC-0005 Accepted): catalog, rebuild fixtures, validator. No benefits. No class tree.
 - [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. BUILD still unsupported in Chamber PLAY.
 - [x] GC3-S0 social memory (RFC-0007 Accepted): dyadic trade edges, no reputation scalar, leak-forbidden projection.
+- [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

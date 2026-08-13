@@ -201,6 +201,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0006-construction-existing-events.md",
     "docs/GC3-FIRST-SLICE.md",
     "rfcs/RFC-0007-dyadic-trade-memory.md",
+    "docs/GC4-FIRST-SLICE.md",
+    "rfcs/RFC-0008-office-authority-pins.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -837,6 +839,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/social-memory-catalog.schema.json", "specs/social-memory-catalog.gc3-s0.json"),
         ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-reliable.json"),
         ("specs/social-memory-rebuild.schema.json", "examples/gc3-social-memory/rebuild-rejects-ignored.json"),
+        ("specs/authority-catalog.schema.json", "specs/authority-catalog.gc4-s0.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/officer-add-member-ok.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/member-add-forbidden.json"),
+        ("specs/authority-attempt.schema.json", "examples/gc4-authority/steward-title-member-add-forbidden.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2875,6 +2881,87 @@ def check_gc3_s0(Draft202012Validator) -> None:
     ok("GC3-S0 social memory: catalog, rebuild fixtures, RFC-0007 Accepted, no reputation scalar")
 
 
+def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not attempt.get("org_active"):
+        return "REJECT", "NOT_FOUND"
+    op = attempt.get("operation")
+    actor_role = attempt.get("actor_role")
+    # Cosmetic titles never authorize; only actor_role is consulted.
+    if op == "ORG_MEMBER_ADD":
+        if actor_role not in (catalog.get("invite_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("target_is_member"):
+            return "REJECT", "FORBIDDEN"
+        assigned = attempt.get("assigned_role")
+        if assigned in (catalog.get("forbidden_assign_roles") or []):
+            return "REJECT", "FORBIDDEN"
+        if assigned not in (catalog.get("assignable_roles") or []):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "ORG_MEMBER_REMOVE":
+        if not attempt.get("target_is_member"):
+            return "REJECT", "NOT_FOUND"
+        self_leave = attempt.get("actor_id") == attempt.get("target_id")
+        if not self_leave and actor_role not in (catalog.get("remove_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if (
+            catalog.get("last_founder_guard")
+            and attempt.get("target_role") == "founder"
+            and int(attempt.get("founder_count") or 0) <= 1
+            and int(attempt.get("member_count") or 0) > 1
+        ):
+            return "REJECT", "FORBIDDEN"
+        if self_leave and not catalog.get("self_leave"):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    return "REJECT", "FORBIDDEN"
+
+
+def check_gc4_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "authority-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("office_names_frozen") or catalog.get("llm_authority") or catalog.get("cosmetic_titles_have_authority"):
+        fail("GC4-S0 must not freeze office names, grant LLM authority, or treat titles as grants")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S0 must not add verbs or events")
+    if catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC4-S0 must reuse event-catalog/0.1")
+    used = set(catalog.get("membership_events") or [])
+    if any(name.startswith("ROLE_") or name.startswith("STRUCTURE_") for name in used):
+        fail("GC4-S0 must not introduce ROLE_* or STRUCTURE_* events")
+    rfc = (ROOT / "rfcs" / "RFC-0008-office-authority-pins.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0008 must be Accepted after GC4-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "officer-add-member-ok.json",
+        "member-add-forbidden.json",
+        "member-self-leave-ok.json",
+        "advisor-add-forbidden.json",
+        "founder-add-founder-forbidden.json",
+        "officer-remove-last-founder-forbidden.json",
+        "steward-title-member-add-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-authority" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc4_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if fixture["attempt"].get("cosmetic_title") and outcome != "REJECT":
+            fail(f"{name}: cosmetic title must not authorize")
+    ok("GC4-S0 authority: catalog, attempt fixtures, RFC-0008 Accepted, no ROLE_* events")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2903,6 +2990,7 @@ def main() -> None:
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
+    check_gc4_s0(Draft202012Validator)
     print("\nPASS")
 
 

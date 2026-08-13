@@ -217,7 +217,7 @@ Two-phase offer/accept is the **smallest** mechanism that permits negotiation an
 | Field | Contract |
 |-------|----------|
 | parameters | `operation=ORG_MEMBER_ADD`, `org_id`, `agent_id`, `role` |
-| preconditions | org ACTIVE; authorizer role ∈ {founder, officer}; target not member; compute ≥ 2; influence ≥ 1 on authorizer |
+| preconditions | org ACTIVE; authorizer role ∈ {founder, officer}; target not member; assigned `role` ∈ {officer, member, advisor}; compute ≥ 2; influence ≥ 1 on authorizer |
 | resource_cost | compute 2, influence 1 (authorizer) |
 | events_on_success | `ORG_MEMBER_ADD` |
 
@@ -226,13 +226,13 @@ Two-phase offer/accept is the **smallest** mechanism that permits negotiation an
 | Field | Contract |
 |-------|----------|
 | parameters | `operation=ORG_MEMBER_REMOVE`, `org_id`, `agent_id`, `reason` |
-| preconditions | membership exists; authorizer permitted or self-leave |
+| preconditions | membership exists; authorizer role ∈ {founder, officer} or self-leave; last-founder guard ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)) |
 | events_on_success | `ORG_MEMBER_REMOVE` |
 | note | org resources not moved implicitly |
 
 ### Organization v0.1 scope
 
-Roles: `founder`, `officer`, `member`, `advisor`. No elections, laws, or multi-step governance. Dissolution: not automated; status may become `DISSOLVED` only via future RFC or operator injection ledgered as `ENTITY_UPDATE`/`ORG_*` extension — **v0.1 agents cannot dissolve** (record as LATER). Self-leave via ORG_MEMBER_REMOVE with self as agent_id is REQUIRED.
+Roles: `founder`, `officer`, `member`, `advisor`. These four are the GC4-S0 authority configurations ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md)); display titles are not roles. `ORG_MEMBER_ADD` may assign officer/member/advisor only — never founder. No elections, laws, or multi-step governance. Dissolution: not automated; status may become `DISSOLVED` only via future RFC or operator injection ledgered as `ENTITY_UPDATE`/`ORG_*` extension — **v0.1 agents cannot dissolve** (record as LATER). Self-leave via ORG_MEMBER_REMOVE with self as agent_id is REQUIRED. Cannot remove the only founder while other members remain.
 
 ## COMMIT / HARVEST
 
