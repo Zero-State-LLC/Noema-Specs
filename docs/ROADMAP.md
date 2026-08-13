@@ -110,7 +110,7 @@ GC-D  Civilization                 GC9 Emergent culture · GC10 World Event Dire
 
 These phases are design authorities. They are **not** executable packages. Machine contracts, fixtures, and conformance remain **SPEC GAP** until RFC.
 
-**Not started as runtime.** Preferred first later implementation slice: **GC1 Mastery** (derived from existing action evidence; no new verb). Chamber modular-monolith implementation remains the highest-value runtime work.
+**Not started as runtime.** Selected first later implementation slice: **GC1-S0 Derived Practice Projection** ([GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md), Draft [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md)). Four tracks, self-only PLAY lines, no benefits, no new events. Chamber modular-monolith implementation remains the highest-value runtime work.
 
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 

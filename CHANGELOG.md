@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC1-S0 slice audit:** `docs/GC1-FIRST-SLICE.md` selects the smallest later runtime slice (derived explorer/surveyor/broker/engineer practice, self-only PLAY lines, no benefits). Draft `rfcs/RFC-0004-derived-mastery-projection.md`. No schemas, no event-catalog change, no runtime code.
+
+### Added
+
 - **NOEMA MUD Completeness Expansion (specification campaign):** parallel PLAY-depth track beside the frozen v0.1–v0.7 core loop. Does not open v0.8 Phenomena and does not redefine v0.6B/v0.6C. Campaign: `docs/GAME-COMPLETENESS-PLAN.md`. Ancestry: `docs/MUD-DESIGN-CANON.md`. Domain authorities: `docs/MASTERY-SPECIALIZATION.md` (GC1), `docs/CONSTRUCTION.md` (GC2; closes generalized BUILD deferral at spec level), `docs/SOCIAL-MEMORY.md` (GC3), `docs/INSTITUTIONAL-AUTHORITY.md` (GC4), `docs/COMMUNICATION-ECOLOGY.md` (GC5), `docs/SYSTEMIC-DISCOVERY.md` (GC6), Strategic Conflict GC7 v2 section, `docs/ECONOMIC-SPECIALIZATION.md` (GC8), `docs/EMERGENT-CULTURE.md` (GC9), `docs/WORLD-EVENT-DIRECTOR.md` (GC10). No new schemas, event types, or conformance suites. Machine contracts remain SPEC GAP until RFC. Preferred later runtime slice: GC1 Mastery.
 
 ### Added

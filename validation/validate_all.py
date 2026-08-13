@@ -194,6 +194,8 @@ REQUIRED_DOCS = [
     "docs/ECONOMIC-SPECIALIZATION.md",
     "docs/EMERGENT-CULTURE.md",
     "docs/WORLD-EVENT-DIRECTOR.md",
+    "docs/GC1-FIRST-SLICE.md",
+    "rfcs/RFC-0004-derived-mastery-projection.md",
     "docs/DEEP-TIME.md",
     "docs/GENESIS.md",
     "docs/GENESIS-PROFILES.md",

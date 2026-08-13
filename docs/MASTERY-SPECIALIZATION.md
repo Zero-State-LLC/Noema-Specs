@@ -5,7 +5,7 @@
 **Does not replace:** [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md)  
 **Must not become:** [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) · [LEARN.md](LEARN.md) · [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md)
 
-This document is **not** an executable package. Machine contracts are **SPEC GAP** until an RFC pins schemas, events, fixtures, and conformance.
+This document is **not** an executable package. The first implementable slice is [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) under Draft [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md). Recognition, benefits, and new events remain **SPEC GAP**.
 
 ---
 
@@ -238,20 +238,35 @@ Until accepted, implementations MUST NOT emit uncatalogued world events.
 
 ---
 
-## SPEC GAP (blocks runtime until filled)
+## SPEC GAP
+
+### Closed for GC1-S0 ([GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md))
 
 ```text
-track catalog (IDs, evidence weights, thresholds, decay window)
-whether proficiency cache is derived-only or canonical
-focus declaration action vs client preference
-exact benefit magnitudes
-event types if any
-fixtures (positive / negative)
-conformance cases
-PLAY/WATCH projection strings
+S0 track ids (explorer, surveyor, broker, engineer)
+derived-only (not WorldState)
+focus disabled
+benefits disabled (magnitude = 0)
+no new event types
+S0 PLAY lines
+WATCH = none
+PRACTICING at count >= 1; recognition disabled
 ```
 
-An implementation MAY prototype derived counters behind a feature flag for design feedback, but MUST NOT ship Player-visible recognition or mechanical benefits until this gap is closed by RFC.
+### Still open (blocks GC1-S1 and any mechanical benefit)
+
+```text
+recognition thresholds and anti-spike rule
+decay / latent windows
+focus as ledgered declaration (if ever)
+benefit magnitudes
+event types if recognition is ledgered
+JSON catalog + schema
+fixtures and conformance (recommended M01)
+S1 PLAY/WATCH recognition strings
+```
+
+An implementation MAY ship GC1-S0 derived self-lines after RFC-0004 is Accepted. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
 
 ---
 

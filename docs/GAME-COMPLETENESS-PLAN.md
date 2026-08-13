@@ -257,17 +257,17 @@ Rationale:
 
 ### First later runtime slice
 
-**GC1 — Mastery and Specialization**, unless a later audit proves Construction or Social Memory must precede it.
+**GC1-S0 — Derived Practice Projection.** Audit: [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md). RFC: [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (Draft).
 
-Why GC1 first:
+Why this slice, not all of GC1 and not GC2/GC3:
 
-- it can be derived from **existing** action evidence (`LOOK`, `INSPECT`, `HARVEST`, `REPAIR`, `TRADE`, `MESSAGE`, org and contest ops);
-- it does not require a new verb or map mutation;
-- it does not reopen `event-catalog/0.1` or `0.2` if implemented first as rebuildable derived state;
-- Construction (GC2) needs new transitions and is a larger catalog change;
-- Social Memory (GC3) needs visibility and leak-prevention machinery that is easier after proficiency identity exists.
+- Explorer / Surveyor / Broker evidence is already in `event-catalog/0.1`.
+- Engineer is conditional on envelope `actor_id` (payload has no actor).
+- No new verb, no map mutation, no mechanical benefit.
+- Construction still needs `BUILD`. Social Memory still needs leak-safe edges.
+- Full scenario A (recognition + benefit) is **GC1-S1**, later.
 
-Construction and Social Memory remain P0 **specification** work. They are not the first **runtime** slice.
+The hosted Worker currently has no complete in-DO ledger. The first runtime increment is therefore an incremental derived cache projected from `buildObservation`, not a digest-log scrape.
 
 ---
 
