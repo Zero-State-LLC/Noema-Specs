@@ -5,6 +5,7 @@
 ### Added
 
 - **Complexity Doctrine:** `docs/COMPLEXITY-DOCTRINE.md` — model causes, not industries; seven primitives; four pressures; noun-stable verbs; civilization ladder; decision/coupling density; A–J acceptance tests; hard deferral of crypto/x402/wallets/external settlement. Completeness campaign and system map now cite it. No runtime, no new schemas for deferred economy.
+- **GC1-S1 Recognition (Draft):** `docs/GC1-S1-RECOGNITION.md` + `rfcs/RFC-0005-mastery-recognition.md`. Distinct-unit recognition thresholds; self-only line replacement; no benefits; cycle-0 safe. Not executable until RFC-0005 is Accepted with fixtures.
 
 ### Added
 
