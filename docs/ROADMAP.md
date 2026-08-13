@@ -114,15 +114,15 @@ These phases are design authorities. They are **not** executable packages. Machi
 
 **Shipped:** **GC1-S0 Derived Practice Projection** ([GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md), Accepted [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md)).
 
-**GC1-S1 Recognition** ([GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md), Accepted [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md)): self-only recognized lines at distinct-unit thresholds. No benefits. No new events.
+**GC1-S1 Recognition** ([GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md), Accepted [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md)): self-only recognized lines at distinct-unit thresholds. Hosted Chamber PLAY (runtime PR #69). No benefits. No new events.
 
 Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in the same cut as S0.
 
 **GC2-S0 construction pins** ([GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), Accepted [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)): `CONSTRUCT` / `DISMANTLE` on the four v0.1 infrastructure classes using existing `ENTITY_*` events. `BUILD` stays unsupported in Chamber PLAY until a later implementation pass.
 
-**GC3-S0 social memory** ([GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), Accepted [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)): derived Player→Player reliability from accepted trades. No reputation integer. No Chamber runtime yet.
+**GC3-S0 social memory** ([GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), Accepted [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)): derived Player→Player reliability from accepted trades. Hosted Chamber PLAY (runtime PR #70). No reputation integer.
 
-**GC4-S0 office authority** ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), Accepted [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)): existing v0.1 roles as membership grants. No Steward/Treasurer freeze. No `ROLE_*` events. No Chamber runtime change in this RFC.
+**GC4-S0 office authority** ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), Accepted [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)): existing v0.1 roles as membership grants. Hosted Chamber PLAY pin (runtime PR #71). No Steward/Treasurer freeze. No `ROLE_*` events.
 
 **GC5-S0 relay MESSAGE bands** ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), Accepted [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)): long-range delivery requires a live relay at the existing condition 25 band. Local same-room `MESSAGE` is unchanged. Hosted Chamber PLAY (runtime PR #72).
 
@@ -130,7 +130,7 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC7-S0 contest rhythm** ([GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md), Accepted [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)): RECON→RECOVER composed from existing v0.2 forms and verbs. No HP. No `event-catalog/0.3`. No Chamber contest thaw.
 
-**GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Not v0.6B. No currency. No Chamber runtime.
+**GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Already true in hosted v0.1 costs. Not v0.6B. No currency.
 
 **GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Hosted Chamber PLAY (runtime PR #71). Lore cannot override the ledger. Not v0.6C.
 

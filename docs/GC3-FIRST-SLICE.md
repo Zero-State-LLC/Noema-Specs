@@ -1,6 +1,6 @@
 # GC3 First Slice — Dyadic Trade Memory
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as derived PLAY projection (RFC-0007 Accepted; reference runtime PR #70).  
 **Parent:** [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)  
 **Does not open:** `reputation = 72` · new verbs · `event-catalog/0.3` · public titles · institution edges
@@ -104,6 +104,10 @@ MESSAGE-derived private notes as public reputation
 ```
 
 ---
+
+## Runtime rule
+
+Hosted Chamber PLAY projects dyadic trade-memory lines from accepted trades (Noema #70). Cache is rebuildable and is not WorldState. `TRADE_REJECTED` does not create a deceptive descriptor. WATCH is empty.
 
 ## Acceptance (narrower than scenario B)
 

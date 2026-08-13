@@ -1,6 +1,6 @@
 # GC8 First Slice — Distance Interdependence
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Already true in hosted v0.1 costs (RFC-0012 Accepted). No runtime change.  
 **Parent:** [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)  
 **Does not open:** currency · order book · v0.6B · lot quality · storage spoilage · mastery yield bonuses · wallets / x402 / crypto
@@ -108,7 +108,7 @@ wallets x402 NFTs tokens
 
 ## Runtime rule
 
-This document does not change Chamber `HARVEST` / `TRADE` / `MOVE` magnitudes and does not implement mastery yield. Hosted v0.1 already contains the comparison. Do not add economy fields to production Genesis.
+Hosted v0.1 already contains the comparison: pair `HARVEST`+`TRADE` spends energy 4; lone `HARVEST`+`MOVE`+`HARVEST` spends 5. Magnitudes are unchanged. No mastery yield. No economy fields added to production Genesis.
 
 ## Acceptance (narrower than scenario H)
 

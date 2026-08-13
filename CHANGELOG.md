@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Hosted slice status reconciliation:** GC1-S1 (#69), GC3-S0 (#70), and GC4-S0 pin (#71) marked shipped. GC8-S0 recorded as already true in hosted `HARVEST`/`MOVE`/`TRADE` costs. No catalog change. No new runtime behavior.
+
+### Added
+
 - **GC5-S0 hosted:** Chamber `MESSAGE` applies relay delivery bands (Noema #72). Same-room always delivers; long-range needs best live relay ≥ 25 or fails `UNREACHABLE` with no events. Specs status updated to shipped. No catalog change.
 
 ### Added
