@@ -1,0 +1,34 @@
+{
+  "slice_id": "gc9-s1",
+  "catalog_id": "culture-catalog/gc9-s1",
+  "subject_id": "player.nacre",
+  "subject_entity_id": "entity.relay-7",
+  "world_cycle": 2,
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "operation": "REPAIR" }
+    }
+  ],
+  "reconstructions": [
+    {
+      "reconstruction_id": "recon.pub",
+      "visibility": "PUBLIC",
+      "subject_ref": "entity.relay-7",
+      "claim": "The archive and the site disagree.",
+      "epistemic": "CONTESTED"
+    }
+  ],
+  "expected": {
+    "play_lines": [],
+    "watch_lines": ["A public account is contested."],
+    "state": "PRACTICING",
+    "ledger_mutated": false,
+    "bonus": false,
+    "note": "Public contested reconstruction pulses WATCH without private evidence."
+  }
+}

@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC6-S1 (RFC-0024) is authorized with this pass. Later S1s remain SPEC GAP.
+Use this file to analyze what is left. GC9-S1 (RFC-0025) is authorized with this pass. Later S1s remain SPEC GAP.
 
 ---
 
@@ -25,6 +25,7 @@ Use this file to analyze what is left. GC6-S1 (RFC-0024) is authorized with this
 | GC7-S0 contest | RFC-0011 | Yes (#81). Help omits CONTEST |
 | GC8-S0 costs | RFC-0012 | Already true |
 | GC9-S0 custom | RFC-0013 | Yes (#71) |
+| GC9-S1 tradition | **RFC-0025** | Hosted this run. CUSTOM plus persistence/transmission. No bonus |
 | GC10-S0 pressure | RFC-0014 | Yes (#82). Silent if drop would go below 25 |
 | World-time | **RFC-0019** | WAIT quorum (#80) |
 | Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
@@ -51,18 +52,19 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0024. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
+None remaining from RFC-0025. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
 
 ---
 
 ## SPEC GAP (later RFC)
 
 ```text
+GC7-S1 withdraw
+GC10-S1 more pressure classes
 GC5-S2 rumor provenance
-GC9-S1 tradition
-GC7-S1 withdraw / GC10-S1 more pressure classes
 GC1-S2 mechanical benefits (doctrine DEFER)
 GC4 follow-through: institution TRADE/REPAIR, emergency scopes, designated succession
+world-heads SQL apply (operator)
 ```
 
 ---
@@ -81,5 +83,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC9-S1 tradition). Leave unnamed slices as SPEC GAP.  
+2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC7-S1 withdraw). Leave unnamed slices as SPEC GAP.  
 3. Do not implement GC1-S2 benefits.

@@ -117,4 +117,4 @@ Hosted Chamber PLAY projects the custom line on the current room for accessors. 
 4. A lore sentence “this relay was never repaired” does not remove the events or the custom.
 5. WATCH is empty. No events are written.
 
-Full scenario I (named tradition, institutional adoption, founding story as derived lore) is **GC9-S1**.
+Named tradition, dormancy, and public WATCH pulses are **GC9-S1**. v0.6C remains later.

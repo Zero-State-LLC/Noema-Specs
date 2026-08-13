@@ -1,0 +1,25 @@
+{
+  "slice_id": "gc9-s1",
+  "catalog_id": "culture-catalog/gc9-s1",
+  "subject_id": "player.nacre",
+  "subject_entity_id": "entity.relay-7",
+  "world_cycle": 1,
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "operation": "REPAIR" }
+    }
+  ],
+  "expected": {
+    "play_lines": [],
+    "watch_lines": [],
+    "state": "PRACTICING",
+    "ledger_mutated": false,
+    "bonus": false,
+    "note": "A single action cannot create a tradition."
+  }
+}

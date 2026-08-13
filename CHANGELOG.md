@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0025 Accepted / GC9-S1:** tradition from persistent transmitted custom (or public reconstruction citation). Dormant/revived. No bonus. Bounded public WATCH pulses. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0024 Accepted / GC6-S1:** Player-authored historical reconstruction from accessible `ARCHIVE_CLAIM` / `LIVE_INSPECT` evidence. Contradiction may be recorded. Not canonical truth. No `QUEST`. No `event-catalog/0.3`.
 
 ### Added

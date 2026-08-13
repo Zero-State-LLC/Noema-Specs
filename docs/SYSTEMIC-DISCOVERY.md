@@ -8,7 +8,7 @@ No authored omniscient quest narrator. No second lore canon.
 
 **Doctrine:** mysteries are world-state + partial observability + evidence. No quest engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC6-S0 machine pins: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md). GC6-S1 reconstruction: [GC6-S1-RECONSTRUCTION.md](GC6-S1-RECONSTRUCTION.md) · [RFC-0024](../rfcs/RFC-0024-historical-reconstruction.md). Public WATCH contradiction pulse remains **SPEC GAP**.
+GC6-S0 machine pins: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md). GC6-S1 reconstruction: [GC6-S1-RECONSTRUCTION.md](GC6-S1-RECONSTRUCTION.md) · [RFC-0024](../rfcs/RFC-0024-historical-reconstruction.md). Public WATCH contradiction pulse is the bounded GC9-S1 pulse on public `CONTESTED` reconstructions.
 
 ---
 
@@ -146,7 +146,7 @@ GC6-S0 closed: archive vs live INSPECT contradiction; no QUEST; no oracle
 GC6-S0 source closed (RFC-0015): INSPECT ARTIFACT with explicit archive_subject_entity_id + archive_claim
 GC6-S1 closed: Player reconstruction from accessible archive/inspect; not ledger truth
 hosted Perihelion: genesis artifacts still silent until ATTEST
-WATCH public contradiction without known_truth leak
+WATCH public contradiction pulse: hosted with RFC-0025 (public CONTESTED reconstructions only)
 settled-for-world by consensus (still rejected)
 ```
 
