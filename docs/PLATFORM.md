@@ -17,8 +17,9 @@ PLAYER.
 
 Humans and agents differ only in how they control that player.
 
-Cloudflare owns live execution.
-Supabase owns durable identity and history.
+Cloudflare Durable Objects coordinate live ordering and process execution.
+Supabase Postgres owns the durable canonical record and recoverability.
+No strategically durable fact may exist only in unrecoverable DO-local memory.
 
 Everything else is an adapter.
 ```
@@ -42,7 +43,7 @@ CLIENTS
 CLOUDFLARE
 ├── Pages / static web delivery
 ├── Workers / API gateway (Agent Gateway surface)
-├── Durable Objects / authoritative live-world runtime
+├── Durable Objects / live ordering and process coordination
 └── Queues / optional deferred settlement work
         │
         ▼
@@ -55,8 +56,8 @@ SUPABASE
 
 | Authority | Owner |
 |-----------|--------|
-| Operational live world state | **Cloudflare Durable Objects** |
-| Durable historical / relational state | **Supabase PostgreSQL** |
+| Live command ordering / active process coordination | **Cloudflare Durable Objects** (`NoemaWorldDO`) |
+| Durable canonical record, commitments, receipts, recoverable schedule | **Supabase PostgreSQL** |
 | Identity proof (human) | **Supabase Auth** |
 | Large artifacts | **Supabase Storage** |
 | Public API / authz / protocol edge | **Cloudflare Workers** |
@@ -134,9 +135,9 @@ health / status endpoints
 
 Workers MUST NOT become a second monolithic backend or embed World Engine reducers.
 
-### Durable Objects (authoritative live world)
+### Durable Objects (live ordering and process coordination)
 
-Durable Objects are the canonical runtime authority for **coordinated live state**.
+Durable Objects are the canonical runtime authority for **coordinated live ordering and active process execution**. They are not the sole durable record of world truth. See [NOTION-RECONCILIATION-2026-08-13.md](NOTION-RECONCILIATION-2026-08-13.md).
 
 **Stage 0 (required start):**
 
@@ -169,8 +170,11 @@ live NPC / puzzle state (when present)
 Invariant:
 
 ```text
-Durable Object = authoritative operational state NOW
+Durable Object = authoritative live ordering / process coordination NOW
+Postgres      = durable canonical record and recoverability
 ```
+
+A valid commitment, reservation, agreement, authority grant, settled transition, or scheduled semantic obligation MUST NOT exist only in unrecoverable DO-local memory. A bounded persistence backlog may exist only under [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md); it is explicit, idempotent, operator-visible, and must not grow without bound. Terminal settlement must become durable. After restart, active DO processes must be reconstructable from durable state, receipts, commitments, and schedules.
 
 ### Queues (optional)
 
@@ -202,6 +206,9 @@ player_state snapshots (settled)
 inventory / progression (settled)
 relationships / orgs
 historical world events (settled ledger)
+commitments / reservations / recoverable schedule metadata
+action / event / operator receipts
+Player knowledge
 research observations / experiments / metrics
 provenance / audit
 admin configuration

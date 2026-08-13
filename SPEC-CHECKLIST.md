@@ -198,3 +198,21 @@ Bounded checks from `docs/ADMIN-LIVE-OPERATIONS.md`. Not a new milestone.
 - [x] Redaction classes `WORLD_PUBLIC` / `WORLD_PRIVATE` / `PLAYER_PRIVATE` / `RESEARCH_PRIVATE` / `ADMIN_PRIVATE` / `SECRET`; `SECRET` never reaches the browser.
 - [x] Admin Live is not a public WATCH/PLAY door; session termination does not relocate or delete the Player.
 - [x] System health and world condition remain distinct; no new schema, milestone, or v0.8 package.
+
+## Notion ↔ Specs reconciliation (2026-08-13)
+
+Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-RECONCILIATION-2026-08-13.md). Not a new milestone. Frozen v0.1–v0.7 wire contracts unchanged.
+
+- [x] Player / Controller parity; humans and agents use equivalent facts, actions, commitments, and consequences.
+- [x] Player identity is never an owned Asset; employment/delegation is Agreement + grant, not personhood transfer.
+- [x] Canonical facts ≠ legal interpretation ≠ social judgment.
+- [x] Player-visible facts have a knowledge pathway; backend-omniscience is not a valid path.
+- [x] Research metrics never become Player rewards, preconditions, or authority.
+- [x] Consequential operator actions carry a causal receipt; rollback repairs invalid state, not undesirable history.
+- [x] World DO coordinates live ordering; Postgres is the durable canonical record; no strategically durable fact may exist only in unrecoverable DO memory.
+- [x] Action receipt ≠ world event ≠ platform audit; REJECTED ≠ FAILED as a forward distinction (frozen `*_REJECTED` names kept).
+- [x] World time ≠ platform/worker clock; scheduler/queue is wakeup, not sole future-obligation authority.
+- [x] If stale data could authorize an invalid mutation, require authoritative current state.
+- [x] Enforcement layer owner named (DB / reducer / transaction / DO / scheduler / audit); one canonical writer per invariant-sensitive field.
+- [x] Projection freshness and Player knowledge stay distinct from research stores.
+- [x] Architecture-design frontier paused; next resumed frontier is reducer registry + mutation ownership map.
