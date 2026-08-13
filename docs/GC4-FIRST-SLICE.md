@@ -1,6 +1,6 @@
 # GC4 First Slice — Existing Roles as Bounded Authority
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as hosted membership pin (RFC-0008 Accepted; reference runtime PR #71).  
 **Parent:** [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)  
 **Does not open:** Steward / Treasurer / Marshal name freeze · `ROLE_*` events · `event-catalog/0.3` · LLM authority · institution-owned TRADE/REPAIR

@@ -1,6 +1,6 @@
 # GC1-S1 — Recognition Projection
 
-**Status:** Executable specification (RFC-0005 Accepted). Runtime may project recognized self-lines.  
+**Status:** Shipped as derived PLAY projection (RFC-0005 Accepted; reference runtime PR #69).  
 **Depends on:** [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) (GC1-S0, shipped)  
 **RFC:** [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Accepted**)  
 **Does not implement:** mechanical benefits · new verbs · `event-catalog/0.3` · WATCH recognition  
