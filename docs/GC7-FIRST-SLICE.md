@@ -117,7 +117,7 @@ Chamber PLAY advertising CONTEST as required first-world help
 
 ## Runtime rule
 
-Hosted Chamber accepts `CONTEST_DECLARE` / `CONTEST_DEFEND`. `CONTEST_RESOLVE` is world-side on RFC-0019 cycle commit when `cycle >= expires_cycle`. Help and `AVAILABLE HERE` still omit CONTEST. `AGREEMENT_FORM`, `ACCESS_POLICY`, WED, and Genesis reseed remain frozen.
+Hosted Chamber accepts `CONTEST_DECLARE` / `CONTEST_DEFEND`. `CONTEST_RESOLVE` is world-side on RFC-0019 cycle commit when `cycle >= expires_cycle`. Help and `AVAILABLE HERE` still omit CONTEST. `AGREEMENT_FORM` and `ACCESS_POLICY` remain out of required help. Genesis reseed remains frozen. WED shipped separately (GC10-S0).
 
 ## Acceptance (narrower than scenario G)
 

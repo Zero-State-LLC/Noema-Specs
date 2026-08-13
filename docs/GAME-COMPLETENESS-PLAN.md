@@ -276,17 +276,17 @@ Rationale:
 
 **GC2-S0 — Construct/dismantle existing infrastructure.** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md). RFC: [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md) (**Accepted**). Hosted PLAY shipped (Noema #79). No `event-catalog/0.3`. Chamber help still omits `BUILD`.
 
-**GC3-S0 — Dyadic trade memory.** [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md). RFC: [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md) (**Accepted**). No reputation integer.
+**GC3-S0 — Dyadic trade memory.** [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md). RFC: [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md) (**Accepted**). Hosted PLAY shipped (Noema #70). No reputation integer.
 
-Why this slice, not all of GC1 and not GC2/GC3:
+**GC4–GC10 S0** are specified and hosted. Closeout: [GC-S0-CLOSEOUT-2026-08-13.md](GC-S0-CLOSEOUT-2026-08-13.md). Next specification order: [GC-S1-ORDER.md](GC-S1-ORDER.md). `COMMIT.ATTEST` is RFC-0020 (spec only).
+
+Why GC1-S0 was first, historically:
 
 - Explorer / Surveyor / Broker evidence is already in `event-catalog/0.1`.
-- Engineer is conditional on envelope `actor_id` (payload has no actor).
 - No new verb, no map mutation, no mechanical benefit.
-- Construction still needs `BUILD`. Social Memory still needs leak-safe edges.
-- Full scenario A (recognition + benefit) is **GC1-S2**, later. S1 is recognition only.
+- Full scenario A (recognition + benefit) is **GC1-S2**, still deferred.
 
-The hosted Worker currently has no complete in-DO ledger. The first runtime increment is therefore an incremental derived cache projected from `buildObservation`, not a digest-log scrape.
+The hosted Worker now has S0 PLAY slices plus RFC-0019 world-time. It still has no complete reconstructable Postgres head until operator SQL is applied.
 
 ---
 

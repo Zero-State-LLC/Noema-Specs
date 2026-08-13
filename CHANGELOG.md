@@ -4,6 +4,10 @@
 
 ### Added
 
+- **S0 closeout + RFC-0020 Accepted:** `docs/GC-S0-CLOSEOUT-2026-08-13.md` and `docs/GC-S1-ORDER.md`. Later `COMMIT.ATTEST` is specified only; runtime unsupported. No Genesis pack. No Chamber help. Readiness snapshot updated in Noema.
+
+### Added
+
 - **GC10-S0 hosted:** cycle-4 schedule drops a live relay by 15 via `ENTITY_UPDATE` when the preview stays ≥ 25. One fire in cycles 1–20. PLAY omits WED. No Admin spawn. No Genesis reseed.
 
 ### Added

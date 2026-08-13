@@ -49,4 +49,4 @@ Omit the writer pin. RFC-0015 source remains; adapter stays silent without field
 
 ## Unresolved
 
-Which later Player action (if any) may emit the allowlisted `ENTITY_UPDATE`. Not GC2-S0.
+Closed for naming: [RFC-0020](RFC-0020-archive-claim-attest.md) specifies later `COMMIT.ATTEST`. Runtime for that operation is still unauthorized.
