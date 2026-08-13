@@ -1,0 +1,60 @@
+{
+  "slice_id": "gc9-s1",
+  "catalog_id": "culture-catalog/gc9-s1",
+  "subject_id": "player.nacre",
+  "subject_entity_id": "entity.relay-7",
+  "world_cycle": 4,
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "operation": "REPAIR" }
+    },
+    {
+      "event_id": "e2",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 2,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "operation": "REPAIR" }
+    },
+    {
+      "event_id": "e3",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 3,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "operation": "REPAIR" }
+    }
+  ],
+  "reconstructions": [
+    {
+      "reconstruction_id": "recon.a",
+      "visibility": "PUBLIC",
+      "subject_ref": "entity.relay-7",
+      "claim": "We keep the relay.",
+      "epistemic": "OPEN"
+    },
+    {
+      "reconstruction_id": "recon.b",
+      "visibility": "PUBLIC",
+      "subject_ref": "entity.relay-7",
+      "claim": "The keepers still tend it.",
+      "epistemic": "OPEN"
+    }
+  ],
+  "expected": {
+    "play_lines": [
+      "This site has a maintenance tradition.",
+      "Accounts of this site differ."
+    ],
+    "watch_lines": ["A maintenance custom has become widely observed."],
+    "state": "TRADITION",
+    "ledger_mutated": false,
+    "bonus": false,
+    "note": "CUSTOM plus two public reconstructions is tradition via citation."
+  }
+}

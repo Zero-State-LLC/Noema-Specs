@@ -34,6 +34,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0022](RFC-0022-betrayal-dangerous.md) | **Accepted** | GC3-S1: danger from CONTEST_RESOLVED / breach; no reputation scalar |
 | [RFC-0023](RFC-0023-named-offices.md) | **Accepted** | GC4-S1: named offices as persistent seats; no ROLE_* |
 | [RFC-0024](RFC-0024-historical-reconstruction.md) | **Accepted** | GC6-S1: Player reconstruction from accessible evidence; not truth |
+| [RFC-0025](RFC-0025-tradition.md) | **Accepted** | GC9-S1: tradition from persistent custom; no culture score |
 
 ## Required review lenses
 

@@ -7,7 +7,7 @@
 
 **Doctrine:** culture is the top of the practice → custom → institution ladder. No procedural lore generator ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC9-S0 machine pins: [GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md) · [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md). Tradition, institution adoption, and v0.6C remain **SPEC GAP**.
+GC9-S0 machine pins: [GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md) · [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md). GC9-S1 tradition: [GC9-S1-TRADITION.md](GC9-S1-TRADITION.md) · [RFC-0025](../rfcs/RFC-0025-tradition.md). v0.6C remains **SPEC GAP**.
 
 Hard invariant:
 
@@ -90,10 +90,9 @@ v0.6C, if later specified, MAY deepen semantic lineage. GC9 MUST NOT implement a
 
 ```text
 GC9-S0 closed: ≥3 distinct REPAIR ENTITY_UPDATE on one entity → CUSTOM; later INSPECT inherits
-tradition / institution adoption
-mutation, extinction, revival classes
-PLAY names and founding stories without a second canon
+GC9-S1 closed: CUSTOM + persistence/transmission or public citation → TRADITION; dormant/revived
 v0.6C semantic evolution engine
+holiday / ritual engines
 ```
 
 ---

@@ -3994,6 +3994,174 @@ def check_gc9_s0(Draft202012Validator) -> None:
     ok("GC9-S0 culture: catalog, rebuild fixtures, RFC-0013 Accepted, lore cannot override ledger")
 
 
+def _gc9_s1_is_repair(ev: dict, entity_id: str) -> bool:
+    if ev.get("event_type") != "ENTITY_UPDATE":
+        return False
+    payload = ev.get("payload") or {}
+    if payload.get("entity_id") != entity_id:
+        return False
+    return payload.get("operation") == "REPAIR" or payload.get("field") == "condition" or (
+        isinstance(payload.get("set"), dict) and "condition" in payload["set"]
+    )
+
+
+def rebuild_gc9_s1(fixture: dict, catalog: dict) -> dict:
+    entity_id = fixture["subject_entity_id"]
+    subject = fixture["subject_id"]
+    third = fixture.get("third_party_id")
+    world_cycle = int(fixture.get("world_cycle") or 0)
+    institutional = bool(fixture.get("institutional_member"))
+    repair_ids: set[str] = set()
+    cycles: set[int] = set()
+    accessors: set[str] = set()
+    last_obs = -1
+    obs_cycles: list[int] = []
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        payload = ev.get("payload") or {}
+        if payload.get("entity_id") != entity_id:
+            continue
+        actor = ev.get("actor_id")
+        cyc = int(ev.get("cycle") or 0)
+        if ev.get("event_type") in ("INSPECT", "ENTITY_UPDATE") and actor:
+            accessors.add(str(actor))
+            last_obs = max(last_obs, cyc)
+            obs_cycles.append(cyc)
+        if not _gc9_s1_is_repair(ev, entity_id):
+            continue
+        eid = ev.get("event_id")
+        if not eid or eid in repair_ids:
+            continue
+        repair_ids.add(str(eid))
+        cycles.add(cyc)
+    public_recons = [
+        r
+        for r in (fixture.get("reconstructions") or [])
+        if r.get("subject_ref") == entity_id and r.get("visibility") == "PUBLIC"
+    ]
+    private_or_research = [
+        r
+        for r in (fixture.get("reconstructions") or [])
+        if r.get("visibility") != "PUBLIC" or r.get("evidence_class") == "RESEARCH"
+    ]
+    n = len(repair_ids)
+    custom_n = int(catalog["custom_threshold"])
+    if n >= custom_n:
+        base = "CUSTOM"
+    elif n >= 1:
+        base = "PRACTICING"
+    else:
+        base = "UNKNOWN"
+    tradition = base == "CUSTOM" and (
+        (
+            len(cycles) >= int(catalog["tradition_min_cycles"])
+            and len(accessors) >= int(catalog["tradition_min_accessors"])
+        )
+        or len(public_recons) >= int(catalog.get("tradition_min_public_recons") or 2)
+    )
+    state = base
+    if tradition:
+        gap = int(catalog["dormant_gap_cycles"])
+        dormant = last_obs >= 0 and (world_cycle - last_obs) >= gap
+        obs_sorted = sorted(set(obs_cycles))
+        has_gap = any(obs_sorted[i] - obs_sorted[i - 1] >= gap for i in range(1, len(obs_sorted)))
+        if dormant:
+            state = "DORMANT"
+        elif has_gap:
+            state = "REVIVED"
+        else:
+            state = "TRADITION"
+    access = subject in accessors or (
+        institutional and any(r.get("visibility") == "INSTITUTIONAL" for r in (fixture.get("reconstructions") or []))
+    )
+    play: list[str] = []
+    if access:
+        if state == "CUSTOM":
+            play.append(catalog["custom_line"])
+        elif state == "TRADITION":
+            play.append(catalog["tradition_line"])
+        elif state == "DORMANT":
+            play.append(catalog["dormant_line"])
+        elif state == "REVIVED":
+            play.append(catalog["revived_line"])
+        claims = {r.get("claim") for r in public_recons if r.get("claim")}
+        if len(claims) >= 2 and state in ("TRADITION", "REVIVED", "CUSTOM"):
+            play.append(catalog["competing_line"])
+    watch: list[str] = []
+    if state in ("TRADITION", "REVIVED"):
+        watch.append(catalog["watch_tradition_pulse"])
+    if any(r.get("epistemic") == "CONTESTED" for r in public_recons):
+        watch.append(catalog["watch_contested_pulse"])
+    third_lines: list[str] = []
+    if third and third in accessors and state in ("TRADITION", "REVIVED", "CUSTOM", "DORMANT"):
+        third_lines = []
+    void = private_or_research  # counted only as non-public; must not affect watch contested
+    del void
+    return {
+        "play_lines": play,
+        "watch_lines": watch,
+        "third_party_lines": third_lines,
+        "state": state,
+        "ledger_mutated": False,
+        "bonus": False,
+    }
+
+
+def check_gc9_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "culture-catalog.gc9-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "culture-catalog.gc9-s1.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "culture-rebuild.gc9-s1.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC9-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("ledger_write") or catalog.get("lore_overrides_ledger") or catalog.get("gameplay_bonus"):
+        fail("GC9-S1 must not write the ledger, let lore win, or grant a bonus")
+    if catalog.get("culture_score") or catalog.get("auto_promote_custom") or catalog.get("watch_oracle"):
+        fail("GC9-S1 must not create a culture score, auto-promote customs, or make WATCH an oracle")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC9-S1 must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0025-tradition.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0025 must be Accepted")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "custom-not-tradition.json",
+        "custom-to-tradition.json",
+        "reconstruction-citation.json",
+        "competing-accounts.json",
+        "dormant-tradition.json",
+        "revived-tradition.json",
+        "single-action-forbidden.json",
+        "private-recon-no-watch.json",
+        "public-contested-watch.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc9-tradition" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc9_s1(fixture, catalog)
+        exp = fixture["expected"]
+        for key in ("play_lines", "watch_lines", "state", "ledger_mutated"):
+            if key in exp and got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if exp.get("third_party_lines") is not None and got["third_party_lines"] != exp["third_party_lines"]:
+            fail(f"{name} third_party_lines: got {got['third_party_lines']} expected {exp['third_party_lines']}")
+        if got.get("bonus") or exp.get("bonus"):
+            fail(f"{name} must not grant a gameplay bonus")
+        blob = " ".join(got["play_lines"] + got["watch_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+        if "known_truth" in blob or "entity." in blob:
+            fail(f"{name} WATCH/PLAY leaked internals")
+    ok("GC9-S1 tradition: catalog, rebuild fixtures, RFC-0025 Accepted, no culture score")
+
+
 def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     authorizer = attempt.get("authorizer")
     if authorizer in (catalog.get("forbidden_authorizers") or []):
@@ -4131,6 +4299,7 @@ def main() -> None:
     check_gc7_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
+    check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
     print("\nPASS")
 
