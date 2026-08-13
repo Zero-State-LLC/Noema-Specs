@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC7-S0 hosted:** isolated `CONTEST_DECLARE` → world-side `CONTEST_RESOLVED` on RFC-0019 cycle commit. Four existing forms. No HP. Chamber help still omits CONTEST. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0019 Accepted:** hosted world-time. `WAIT` still does not advance `World.cycle` alone; present-player wait quorum is the cycle commit. No contest. No WED. No Genesis reseed. GC7 thaw-readiness (`docs/GC7-THAW-READINESS.md`) is not a thaw.
 
 ### Added
