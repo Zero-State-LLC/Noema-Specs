@@ -1,8 +1,8 @@
 # GC1-S1 — Recognition Projection
 
-**Status:** Product authority for the second mastery slice. Not implemented.  
+**Status:** Executable specification (RFC-0005 Accepted). Runtime may project recognized self-lines.  
 **Depends on:** [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) (GC1-S0, shipped)  
-**RFC:** [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Draft**)  
+**RFC:** [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Accepted**)  
 **Does not implement:** mechanical benefits · new verbs · `event-catalog/0.3` · WATCH recognition  
 **Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — self-only evidence identity, not a class or repair percent. Passes A–J as projection-only.
 

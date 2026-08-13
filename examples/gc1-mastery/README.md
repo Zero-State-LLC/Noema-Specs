@@ -1,10 +1,10 @@
-# GC1-S0 examples
+# GC1 mastery examples
 
-Non-authoritative worked examples for [GC1-FIRST-SLICE.md](../../docs/GC1-FIRST-SLICE.md).
-
-They are **not** a conformance suite and do not define a schema. RFC-0004 is Draft.
+Executed by `validation/validate_all.py` (`check_gc1_s0`, `check_gc1_s1`).
 
 | File | Role |
 |------|------|
-| [rebuild-positive.json](rebuild-positive.json) | Four-track PRACTICING rebuild from catalog-shaped events |
-| [rebuild-negative.json](rebuild-negative.json) | Rejected trade, missing actor_id, and other-Player events do not count |
+| [rebuild-positive.json](rebuild-positive.json) | S0 four-track PRACTICING |
+| [rebuild-negative.json](rebuild-negative.json) | S0 rejected / unattributed / other-Player |
+| [rebuild-s1-recognized.json](rebuild-s1-recognized.json) | S1 all four tracks RECOGNIZED; three recognized lines |
+| [rebuild-s1-below-threshold.json](rebuild-s1-below-threshold.json) | S1 below thresholds; five repairs of one relay stay PRACTICING |

@@ -2,9 +2,9 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
-Not Accepted. Not a catalog expansion. Not a mechanical-benefit RFC.
+Approved for specification-only implementation on 2026-08-13. Not a world-event catalog expansion. Not a mechanical-benefit RFC. Runtime may project recognized PLAY lines under [GC1-S1-RECOGNITION.md](../docs/GC1-S1-RECOGNITION.md).
 
 ## Problem
 
@@ -60,14 +60,9 @@ S0 caches remain valid for practicing. Recognition starts empty until enough dis
 
 ## Validation
 
-Before **Accepted**:
-
-- Rebuild fixtures that cross and miss each threshold
-- Engineer same-entity spam stays PRACTICING
-- Line replacement fixtures
-- No benefit / cost assertions
-
-This Draft does not add those fixtures yet.
+- Catalog: [`specs/mastery-catalog.gc1-s1.json`](../specs/mastery-catalog.gc1-s1.json)
+- Fixtures: [`examples/gc1-mastery/rebuild-s1-recognized.json`](../examples/gc1-mastery/rebuild-s1-recognized.json), [`examples/gc1-mastery/rebuild-s1-below-threshold.json`](../examples/gc1-mastery/rebuild-s1-below-threshold.json)
+- Validator: `check_gc1_s1` executes the rebuild and forbids Engineer recognition from one-entity spam
 
 ## Rollback
 
@@ -75,5 +70,4 @@ Leave Draft or Reject. Runtime omits recognized lines.
 
 ## Unresolved questions
 
-1. Should recognized tracks outrank practicing tracks in the 3-line cap? (this Draft: yes)
-2. When to open GC1-S2 REPAIR quality?
+1. When to open GC1-S2, and only as a world-mechanism (tools/procedure), never a level percent.
