@@ -4,6 +4,12 @@
 
 ### Added
 
+- **RFC-0017 Accepted:** hosted cycle fence and durable settlement recovery. `STALE_HEAD` on revision mismatch; no last-write-wins; no Genesis recovery. No gameplay.
+- **RFC-0018 Accepted:** archive-claim writer is `ENTITY_CREATE` / allowlisted `ENTITY_UPDATE` only. `INSPECT` is not a writer. No Chamber verb. No Genesis pack.
+- **GC2 thaw readiness:** `docs/GC2-THAW-READINESS.md` — architecture not a blocker; BUILD still unauthorized.
+
+### Added
+
 - **Remaining-work snapshot:** `docs/REMAINING-WORK-2026-08-13.md` lists shipped S0, operator SQL, thaw-gated GC2/GC7/GC10, and SPEC GAP S1s. Not a thaw.
 
 ### Added

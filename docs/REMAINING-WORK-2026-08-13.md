@@ -51,14 +51,13 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 ## SPEC GAP (needs a later RFC)
 
 ```text
-who may write archive_subject_entity_id + archive_claim (no Genesis pack)
-SERIALIZABLE cycle fence + writer-fence token + replay after a stale head
 GC1-S2 mechanical benefits
 GC3-S1 betrayal / GC4-S1 named offices / GC5-S1 delay-rumor
 GC6-S1 reconstruction / GC9-S1 tradition
-WAIT must not increment World.cycle (hosted still does)
-presence idle without AGENT_LEFT_WORLD
+Player action that may emit allowlisted archive ENTITY_UPDATE (RFC-0018: none in v0.1)
 ```
+
+Closed this integrity run: RFC-0017 fence/STALE_HEAD; RFC-0018 archive writer (INSPECT not a writer); hosted WAIT no longer advances World.cycle; idle no longer clears `entered`.
 
 ---
 
