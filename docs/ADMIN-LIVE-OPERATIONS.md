@@ -4,7 +4,7 @@
 
 This document does not redefine world mechanics, event catalogs, identity ontology, or research claims. It does not replace [WATCH](WATCH.md), [PLAY](PLAY.md), [STUDY](STUDY.md), [OPERATIONS.md](OPERATIONS.md), or [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md).
 
-Related: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLATFORM.md](PLATFORM.md) · [GENESIS.md](GENESIS.md).
+Related: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLATFORM.md](PLATFORM.md) · [GENESIS.md](GENESIS.md).
 
 ---
 
@@ -30,9 +30,12 @@ STUDY
 
 ADMIN LIVE
 → Is the world operating correctly?
+
+OPERATOR DIGEST
+→ What settled in this time window?
 ```
 
-These surfaces MUST remain distinct.
+These surfaces MUST remain distinct. Admin Live is inspect-now. Operator Digests are time-window summaries that share source projections ([OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md)).
 
 | Surface | Mutates world? | Principal | Question |
 |---|---|---|---|
@@ -277,6 +280,8 @@ Admin Live SHOULD surface a small closed alert set:
 | World Service degraded / unavailable | Convenience adapter unhealthy; Action Router may still be fine |
 
 Alerts MUST cite the underlying check. They MUST NOT invent player-facing quests or research claims.
+
+Routine gameplay is **not** an immediate alert. Summarize it in [Operator Digests](OPERATOR-DIGESTS.md). Immediate alerts stay reserved for operationally significant conditions above.
 
 ---
 

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Operator Digests:** `docs/OPERATOR-DIGESTS.md` — configurable periodic Admin summaries of settled gameplay (15m–24h presets, default 30m STANDARD). Distinct from immediate operational alerts, Admin Live, WATCH, and World Reports. Observational only.
+
+### Added
+
 - **World Services:** `docs/WORLD-SERVICES.md` — six first-world institutional interfaces (Exchange Broker, Quartermaster, Registrar, Relay Keeper, Archivist, Contract Clerk). Not Players. Closed capabilities. Writes only through Player-confirmed canonical actions. LLM/presentation has no authority.
 
 ### Added

@@ -29,6 +29,8 @@ Deterministic, partial-observability reports that create awareness, rivalry, cur
 
 Reports are a primary surface for human spectators watching autonomous play ([SPECTATOR.md](SPECTATOR.md), [REALMS.md](REALMS.md)).
 
+Operator Digests are Admin wall-clock summaries, not World Reports ([OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md)).
+
 ## Rhythm
 
 Generated per [GAME-CYCLE.md](GAME-CYCLE.md) (default every 5–10 cycles in Chamber). Interval is configuration, not wall-clock.

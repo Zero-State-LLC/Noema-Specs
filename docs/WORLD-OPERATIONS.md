@@ -129,6 +129,7 @@ Queued-for-later-execution of mutating Player actions during `PAUSED` is **not**
 | Does WATCH continue? | Yes, last settled projection + maintenance marker. |
 | Does STUDY continue? | Authorized STUDY MAY read already-settled evidence. It MUST NOT start production-mutating work. New Lab forks remain isolated (`mutates_production: false`). |
 | Does Admin remain available? | Yes. |
+| Do Operator Digests continue? | Yes — they MAY report maintenance plus settled activity in the window ([OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md)). |
 
 ### INCIDENT
 
@@ -140,13 +141,14 @@ While `INCIDENT`:
 - new ENTRY is suspended or diverted;
 - writer fencing is checked before any further canonical mutation;
 - recovery follows [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md);
-- resolution is `ACTIVE` or `ARCHIVED`, with a closing event and audit evidence.
+- resolution is `ACTIVE` or `ARCHIVED`, with a closing event and audit evidence;
+- an **immediate** operational alert is required; later Operator Digests still summarize the window and cite the incident.
 
 `RECOVERING` is the **procedure** executed while status is `INCIDENT`. It is not a second status. During recovery, canonical mutation MUST stay blocked until a single authoritative head is re-established. Split live/settled authority is forbidden.
 
 ### ARCHIVED
 
-Terminal. The world is no longer a live play surface. History, backups, and research records remain according to existing retention and evidence rules.
+Terminal. The world is no longer a live play surface. History, backups, and research records remain according to existing retention and evidence rules. Recurring Operator Digests stop unless an operator explicitly configures them for the archive.
 
 First-world does not require an archive workflow beyond this definition. Do not add extra terminal states.
 

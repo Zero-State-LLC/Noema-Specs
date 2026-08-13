@@ -23,6 +23,11 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | World health overlay | Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value. |
 | Operator intervention | Governed CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY action. Not Lab INTERVENTIONS.md. |
 | World Service | Deterministic institutional interface (not a Player). Closed capabilities; writes only via Player-confirmed canonical actions. See WORLD-SERVICES.md. |
+| Operator Digest | Derived Admin time-window summary of settled gameplay. Not world truth. See OPERATOR-DIGESTS.md. |
+| Digest Window | Non-overlapping `[window_start, window_end]` evidence range for one digest. |
+| Digest Cadence | Operator preset interval (`OFF`, `PT15M`…`PT24H`). |
+| Digest Depth | `BRIEF` / `STANDARD` / `DETAILED` presentation only. |
+| Operational Alert | Immediate operator notice of a significant operational condition. Not a digest. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
 | Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
 | Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |

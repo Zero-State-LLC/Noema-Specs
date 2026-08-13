@@ -73,6 +73,7 @@ REQUIRED_DOCS = [
     "docs/FIRST-WORLD-OPERATIONS.md",
     "docs/FIRST-WORLD-SPEC-FREEZE.md",
     "docs/WORLD-SERVICES.md",
+    "docs/OPERATOR-DIGESTS.md",
     "docs/MODULE-CONTRACTS.md",
     "docs/RESOURCE-ECONOMY.md",
     "docs/ACTION-CONTRACTS.md",
