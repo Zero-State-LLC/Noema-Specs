@@ -1,6 +1,6 @@
 # GC6 First Slice — Archive vs Live Inspect
 
-**Status:** Source named (RFC-0015 Accepted). Hosted PLAY unprojected: Perihelion has no explicit archive-claim fields.  
+**Status:** Source named (RFC-0015). Writer is `COMMIT.ATTEST` (RFC-0020; Noema #84). Perihelion genesis artifacts still have no fields until a Player attests. `INSPECT` is not a writer.  
 **Parent:** [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md) · [RFC-0015](../rfcs/RFC-0015-archive-record-source.md)  
 **Does not open:** `QUEST` · quest log · discovery events · reconstruction compile action · `event-catalog/0.3` · authored quest chains

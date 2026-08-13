@@ -1636,15 +1636,15 @@ def check_rfc_0020() -> None:
             fail(f"RFC-0020 must pin archive attestation ({token})")
     if "not a writer" not in low and "must not" not in low:
         fail("RFC-0020 must keep INSPECT from writing claims")
-    if "specification-only" not in low and "does **not** implement runtime" not in low:
-        fail("RFC-0020 must remain specification-only")
+    if "help" not in low:
+        fail("RFC-0020 must keep ATTEST out of Chamber help")
     order = (ROOT / "docs" / "GC-S1-ORDER.md").read_text(encoding="utf-8")
     if "gc1-s2" not in order.lower() or "defer" not in order.lower():
         fail("GC-S1 order must defer GC1-S2 benefits")
     closeout = (ROOT / "docs" / "GC-S0-CLOSEOUT-2026-08-13.md").read_text(encoding="utf-8")
     if "not a thaw" not in closeout.lower():
         fail("S0 closeout must not be a thaw")
-    ok("RFC-0020 archive ATTEST: Accepted, spec-only, INSPECT not a writer")
+    ok("RFC-0020 archive ATTEST: Accepted, INSPECT not a writer")
 
 
 def check_rfc_0018() -> None:

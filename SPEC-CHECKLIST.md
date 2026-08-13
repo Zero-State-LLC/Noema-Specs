@@ -224,5 +224,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0019 Accepted: hosted WAIT-quorum cycle commit. No new verbs. Contest/WED still unauthorized from that RFC.
 - [x] GC7-S0 hosted isolated contest (RFC-0011). Help still omits CONTEST.
 - [x] GC10-S0 hosted cycle-4 mild relay pressure (RFC-0014). PLAY omits WED. No Admin spawn. No Genesis reseed.
-- [x] RFC-0020 Accepted: later `COMMIT.ATTEST` for archive-claim fields. INSPECT not a writer. Runtime not authorized. No Genesis pack.
+- [x] RFC-0020 Accepted: later `COMMIT.ATTEST` for archive-claim fields. INSPECT not a writer. Hosted PLAY shipped. Help omits ATTEST. No Genesis pack.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
