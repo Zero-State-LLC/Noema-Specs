@@ -169,3 +169,18 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] FW14 no v0.8 scope creep
 - [x] World Services: six first-world institutional interfaces, not Players; closed capabilities; writes only via Player-confirmed canonical actions; no LLM authority (`docs/WORLD-SERVICES.md`).
 - [x] Operator Digests: periodic vs immediate; cadence presets (min 15m, default 30m STANDARD); one Player population; private messages/cognition excluded; Admin-only config; derived from settled evidence; no gameplay coupling; deterministic fallback (`docs/OPERATOR-DIGESTS.md`).
+
+## Admin Live operations surface
+
+Bounded checks from `docs/ADMIN-LIVE-OPERATIONS.md`. Not a new milestone.
+
+- [x] Admin is a separate control-plane principal; no `ADMIN_PLAYER` / `GM_PLAYER` / `SUPER_PLAYER`.
+- [x] Default Live is observational (`OBSERVE` / `INSPECT` / `DIAGNOSE`); `OPERATE` is explicit; `AUDIT` is read-only navigation.
+- [x] Pulse shows canonical status, cycle, Player count (not controller count), and health; controller type is not a headline population split.
+- [x] Event feed cites settled events and does not infer motives; drill-down reaches actor, target, cycle, costs, result, ledger, and settlement when those fields exist.
+- [x] Topology is an Admin graphics exception and is not the Player/WATCH map.
+- [x] Private cognition is absent; MESSAGE text is hidden by default.
+- [x] World-changing controls go through Action Router / declared recovery; no direct WorldState edits (`GIVE ENERGY`, `SET LOCATION`, and similar are forbidden).
+- [x] Redaction classes `WORLD_PUBLIC` / `WORLD_PRIVATE` / `PLAYER_PRIVATE` / `RESEARCH_PRIVATE` / `ADMIN_PRIVATE` / `SECRET`; `SECRET` never reaches the browser.
+- [x] Admin Live is not a public WATCH/PLAY door; session termination does not relocate or delete the Player.
+- [x] System health and world condition remain distinct; no new schema, milestone, or v0.8 package.

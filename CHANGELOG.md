@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Admin Live operations surface:** `docs/ADMIN-LIVE-OPERATIONS.md` is the canonical control-plane observation contract. Admin remains a separate principal (not `ADMIN_PLAYER` / `GM_PLAYER`). Default Live is observational (`OBSERVE` / `INSPECT` / `DIAGNOSE`); `OPERATE` is explicit and audited through existing Action Router / intervention paths; `AUDIT` navigates the existing ledger. Covers world pulse, settled event feed, progressive inspection, operational topology, inspectors, redaction classes, secret status-only handling, Overview vs Live IA, freshness, bounded polling, and PLAY/WATCH separation. No new schema, milestone, or gameplay. Updates: TERMINOLOGY, EXPERIENCE, WATCH, OPERATOR-INTERVENTIONS, FIRST-WORLD-SPEC-FREEZE, SPEC-CHECKLIST.
+
+### Added
+
 - **Hosted experience alignment:** the reference Worker now projects the Specs entry model with Player email entry and PLAY primary at `/`, WATCH/STUDY/CONNECT as secondary doors, and ADMIN as a separate allowlisted control-plane route. `docs/EXPERIENCE.md` defines CONNECT as Controller onboarding rather than a Player mode; `docs/QUICKSTART.md` records current hosted routes as non-normative implementation guidance.
 - **Operator Digests:** `docs/OPERATOR-DIGESTS.md` — configurable periodic Admin summaries of settled gameplay (15m–24h presets, default 30m STANDARD). Distinct from immediate operational alerts, Admin Live, WATCH, and World Reports. Observational only.
 
