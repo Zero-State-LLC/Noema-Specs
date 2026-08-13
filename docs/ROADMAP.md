@@ -134,6 +134,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Lore cannot override the ledger. Not v0.6C. No Chamber runtime.
 
+**GC10-S0 WED schedule** ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md), Accepted [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md)): cycle-4 mild relay condition drop via existing `ENTITY_UPDATE`. No forced outcome. No Chamber runtime.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena

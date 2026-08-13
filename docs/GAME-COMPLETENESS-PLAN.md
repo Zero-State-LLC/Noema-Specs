@@ -148,6 +148,7 @@ Produced before writing new authorities. Status values:
 | [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) | EXISTS (control plane) | Ops ≠ steward pressure |
 | [INTERVENTIONS.md](INTERVENTIONS.md) | EXISTS (Lab taxonomy) | Research-only |
 | Bounded player-world pressure | ABSENT | New: [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) |
+| Seeded mild relay condition drop | PINNED S0 | [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) · [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md) |
 
 ### Do not create duplicate authorities
 

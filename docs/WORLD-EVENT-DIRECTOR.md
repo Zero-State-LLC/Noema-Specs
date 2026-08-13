@@ -9,6 +9,8 @@ v0.1 already requires a small deterministic pressure schedule. This document is 
 
 **Doctrine:** pressure changes existing conditions. A relay failure must propagate through movement, communication, trade, territory, conflict, institutions, and history — not open a relay-crisis minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
+GC10-S0 machine pins: [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) · [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md). Other pressure classes and operator storms remain **SPEC GAP**.
+
 ---
 
 ## Thesis
@@ -139,13 +141,11 @@ Seed + Director version + ordered activations determine all WED effects. Preview
 ## SPEC GAP
 
 ```text
-pressure catalog vs reuse of existing events
-preview / receipt schema
-schedule config (Chamber defaults)
-authorization roles
-fixtures: scarcity + divergent Player responses + replay
-conformance: no forced outcome; PLAY has no research labels
-rollback / irreversible handling table
+GC10-S0 closed: cycle-4 schedule ENTITY_UPDATE −15 on a named relay; preview matches; no forced response
+other product classes (scarcity, outage, artifact, institutional crisis, unknown signal)
+operator confirm / receipt schema beyond S0 attempt fields
+irreversible scar class
+first-20 later bands (13–16 cross-agent)
 ```
 
 Do not invent a second Frontier schema. If `SITUATION_INJECTED` can carry a WED class, prefer extension by RFC over a parallel catalog.
