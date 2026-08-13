@@ -9,6 +9,8 @@ Each action is an exact transition.
 
 Event reducers remain authoritative in [EVENT-CATALOG.md](EVENT-CATALOG.md).
 
+The player-facing crosswalk between these semantic contracts, human commands, contextual GUI controls, and structured agent actions is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). This map does not replace the exact transitions below.
+
 ## Verb scope
 
 | Scope | Verbs / operations |

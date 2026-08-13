@@ -34,6 +34,23 @@ parameter      = key "=" value
 
 Implementations MAY accept aliases, but logs and agent-facing actions MUST normalize to canonical verbs.
 
+## Player Action Map boundary
+
+The human command grammar is an input adapter. The canonical crosswalk is [PLAYER-ACTION-MAP.md](../docs/PLAYER-ACTION-MAP.md); exact transitions remain in [ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md).
+
+Human convenience verbs such as `harvest`, `repair`, `form`, `invite`, `leave`, `remove`, `contest`, `defend`, `agreement`, `terminate`, `access`, `accept`, `reject`, and `cancel` normalize to existing canonical actions. They do not add new wire verbs or world mechanics:
+
+| Human convenience | Canonical structured form |
+|---|---|
+| `harvest` / `repair` | `verb=COMMIT` with `parameters.operation=HARVEST` / `REPAIR` |
+| `form` / `invite` / `leave` / `remove` | `verb=COMMIT` with the corresponding `ORG_*` operation |
+| `accept` / `reject` / `cancel` | `verb=TRADE` with the corresponding phase; cancel uses the existing `CANCELLED` rejection reason |
+| `contest` / `defend` / `form agreement` / `terminate agreement` / `access` | v0.2 `verb=COMMIT` with the corresponding strategic operation, only on a pinned v0.2 world |
+
+`COMMIT` is an internal/wire grouping, not an ordinary human gameplay command. `HELP` is a client/interface command and MUST NOT consume world resources or append a world event unless a future accepted contract explicitly changes that rule. `BUILD`, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, and `MODEL` remain later or authorized-surface verbs and MUST NOT appear in ordinary first-world PLAY help merely because they are present in the broad seed grammar.
+
+Adapters MAY accept the bounded aliases `l → LOOK`, `go <direction> → MOVE`, and `msg → MESSAGE`. Target resolution MUST use exact visible name, unique normalized visible name, then explicit canonical ID. Ambiguous targets require a choice; adapters MUST NOT guess. Unsupported actions MUST be omitted from contextual controls, command help, and capability advertisement.
+
 ## Semantics
 
 - `LOOK`: request current room or scoped surroundings.

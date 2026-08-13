@@ -135,3 +135,5 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Text-first but not text-only PLAY: contextual controls, command equivalence, human-readable targeting, and plain-language consequences/errors.
 - [x] First-entry usability path: orient, identify a meaningful supported action, understand its consequence, and continue deciding without a literal time benchmark.
 - [x] Partial-observability safety, no fabricated quests or fake affordances, accessible lightweight/mobile PLAY, and separate graphical ADMIN exception.
+- [x] [Canonical Player Action Map](docs/PLAYER-ACTION-MAP.md) crosswalks human commands, contextual GUI actions, structured agent actions, canonical operations, preconditions, costs, consequences, and WATCH visibility for v0.1/v0.2.
+- [x] Player Action Map preserves human/agent parity, internal `COMMIT` grouping, deterministic target resolution, bounded aliases, action availability states, and explicit SPEC GAP/runtime-status boundaries without adding a machine catalog.

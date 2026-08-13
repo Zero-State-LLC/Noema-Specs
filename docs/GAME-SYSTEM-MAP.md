@@ -43,6 +43,7 @@ HISTORY + REPORTS + REALMS
 |------|------|
 | Geography | [GEOGRAPHY.md](GEOGRAPHY.md), [CHAMBER-MAP.md](CHAMBER-MAP.md), [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) |
 | Resources / production | [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md), [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |
+| Player actions / adapters | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), [../protocols/mud-command-v1.md](../protocols/mud-command-v1.md), [../protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) |
 | Exploration / knowledge | [EXPLORATION.md](EXPLORATION.md), [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
 | Trade / orgs | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [DIPLOMACY.md](DIPLOMACY.md) |
 | Territory / conflict | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
