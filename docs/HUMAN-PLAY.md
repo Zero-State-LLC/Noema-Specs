@@ -22,6 +22,26 @@ MUD-style command line + clear status lines ([GAME-DESIGN.md](GAME-DESIGN.md), [
 
 The complete human-command, contextual-action, and canonical-action crosswalk is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). A contextual control and its text equivalent are two inputs to the same Player action, not separate mechanics.
 
+### Stable commands, dynamic availability
+
+The human command vocabulary is intentionally small and stable. PLAY should not become an ever-growing command dictionary as the world accumulates new artifacts, institutions, roles, or lore. Those nouns and situations are expressed through existing actions, targets, parameters, and consequences.
+
+The interface SHOULD emphasize the actions available in the current observation:
+
+```text
+AVAILABLE HERE
+inspect relay
+repair relay
+move east
+
+MORE
+help
+help trade
+help organizations
+```
+
+`KNOWN COMMAND` means the command belongs to the stable Player language. `AVAILABLE ACTION` means the command is valid and relevant here, for this visible target, Player authority, resources, and known state. The available set may change when the Player moves, a target changes condition, resources change, or authority changes. Aliases normalize to the same stable canonical action and never create new mechanics.
+
 ### Browser PLAY boundary
 
 The ordinary human route is:

@@ -20,6 +20,8 @@ Text commands and structured equivalent actions are authoritative. PLAY is text-
 
 See [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) for the bounded human command vocabulary, GUI affordance rules, structured agent forms, action availability states, and canonical consequence mapping. This document remains the concise PLAY experience authority; it does not duplicate the action catalog.
 
+NOEMA's action language is intentionally small; strategic depth emerges from context and composition. Stable verbs gain dynamic play through visible targets, parameters, authority, resources, knowledge, relationships, and consequences. PLAY SHOULD show `AVAILABLE HERE` actions derived from the current observation rather than expanding the command language for every new world concept.
+
 ### Human PLAY information priority
 
 On first entry or refresh, ordinary human PLAY SHOULD prioritize:

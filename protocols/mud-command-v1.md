@@ -34,6 +34,14 @@ parameter      = key "=" value
 
 Implementations MAY accept aliases, but logs and agent-facing actions MUST normalize to canonical verbs.
 
+## Stable verbs and dynamic affordances
+
+The `mud-command/v1` verb grammar is intentionally bounded. The seed grammar includes later and authorized-surface verbs for protocol compatibility, but it is not an instruction to expose every verb in ordinary first-world PLAY help. Human aliases are adapter conveniences, not new Player actions.
+
+Targets, parameters, authority, resources, relationships, known information, and world conditions determine which stable action is available in the current observation. The same `REPAIR` verb can address different compatible infrastructure; the same `TRADE` verb can carry different counterparties, balances, terms, and expiry values. Implementations MUST NOT generate new canonical verbs from world content, history, roles, or theme at runtime.
+
+`AVAILABLE HERE` is a contextual projection, not a replacement for the known command vocabulary. Help SHOULD distinguish current affordances from other known commands. An unsupported or not-observable action MUST be omitted rather than represented in a way that leaks hidden state. These clarifications do not change the `mud-command/v1` grammar or wire protocol.
+
 ## Player Action Map boundary
 
 The human command grammar is an input adapter. The canonical crosswalk is [PLAYER-ACTION-MAP.md](../docs/PLAYER-ACTION-MAP.md); exact transitions remain in [ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md).

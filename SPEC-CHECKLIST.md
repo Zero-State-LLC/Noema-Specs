@@ -137,3 +137,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Partial-observability safety, no fabricated quests or fake affordances, accessible lightweight/mobile PLAY, and separate graphical ADMIN exception.
 - [x] [Canonical Player Action Map](docs/PLAYER-ACTION-MAP.md) crosswalks human commands, contextual GUI actions, structured agent actions, canonical operations, preconditions, costs, consequences, and WATCH visibility for v0.1/v0.2.
 - [x] Player Action Map preserves human/agent parity, internal `COMMIT` grouping, deterministic target resolution, bounded aliases, action availability states, and explicit SPEC GAP/runtime-status boundaries without adding a machine catalog.
+- [x] Stable action taxonomy: canonical verbs remain bounded while dynamic affordances vary by observation, target, parameters, authority, resources, relationships, known information, and consequences.
+- [x] Available actions are derived and recomputable, distinguish `KNOWN COMMAND` from `AVAILABLE ACTION`, and remain safe under partial observability without runtime verb generation.
+- [x] Human and agent affordances preserve the same canonical semantics; theme/content nouns and emergent outcomes do not inflate the verb taxonomy.
+- [x] New-action extension rule and removal test require distinct canonical semantics and versioned Specs governance before any new Player verb is accepted.

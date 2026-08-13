@@ -63,6 +63,8 @@ All messages use JSON envelopes:
 2. Server replies with `HELLO_ACK` selecting protocol, schemas, server time, supported verbs, maximum payload bytes, and required auth methods.
 3. If no compatible version exists, server returns `ERROR` with code `NO_COMPATIBLE_PROTOCOL` and MUST NOT proceed to `AUTH`.
 
+The `supported verbs` returned by `HELLO_ACK` advertise the stable protocol vocabulary and deployment capability. They are not a fixed list of actions currently available to a Player. Current affordances remain derived from the permissioned observation, visible targets, parameters, resources, authority, and canonical action contracts.
+
 Fixtures: [`examples/protocol/hello-ok.json`](../examples/protocol/hello-ok.json), [`hello-incompatible.json`](../examples/protocol/hello-incompatible.json), [`error-no-compatible-protocol.json`](../examples/protocol/error-no-compatible-protocol.json).
 
 ## Authentication and identity binding
