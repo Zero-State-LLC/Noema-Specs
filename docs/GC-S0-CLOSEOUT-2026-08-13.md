@@ -25,7 +25,7 @@ Integrity pins used by S0: RFC-0016 head, RFC-0017 fence, RFC-0018 archive write
 
 ## Still silent / operator
 
-- GC6 on Perihelion: genesis `entity.archive-ledger` has no claim fields. RFC-0018: no v0.1 verb writes them.  
+- GC6 on Perihelion: genesis `entity.archive-ledger` has no claim fields until a Player `COMMIT.ATTEST`s (RFC-0020). `INSPECT` is not a writer.  
 - GC10 on Perihelion: schedule skips a drop that would land below condition 25. Scarred genesis relay may stay silent until repaired or a healthier relay exists.  
 - World-heads SQL may be unapplied (both RFC-0016 and RFC-0017 files).
 

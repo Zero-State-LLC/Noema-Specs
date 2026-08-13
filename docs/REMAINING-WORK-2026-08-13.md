@@ -26,7 +26,7 @@ Use this file to analyze what is left. Do not treat it as authorization to imple
 | World-time | **RFC-0019** | WAIT quorum (#80) |
 | Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
-| Attest spec | **RFC-0020** | Spec only. Runtime unsupported |
+| Attest spec | **RFC-0020** | Hosted `COMMIT.ATTEST`. Help omits ATTEST |
 
 Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are unchanged.
 
@@ -47,9 +47,7 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-| Item | Authority | Why blocked |
-|------|-----------|-------------|
-| `COMMIT.ATTEST` | RFC-0020 | Specification-only. Help must omit ATTEST. No Genesis pack |
+None remaining from RFC-0020. Next S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
 
 ---
 
@@ -79,5 +77,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Later implementation pass for RFC-0020 only if explicitly authorized.  
-3. Then the rest of [GC-S1-ORDER.md](GC-S1-ORDER.md).
+2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC5-S1 delay/rumor is next spec).  
+3. Do not implement GC1-S2 benefits.

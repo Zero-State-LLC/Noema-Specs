@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0020 hosted:** `COMMIT.ATTEST` writes paired archive-claim fields on a visible ARTIFACT. `INSPECT` remains a reader. Chamber help omits ATTEST. No Genesis pack.
+
+### Added
+
 - **S0 closeout + RFC-0020 Accepted:** `docs/GC-S0-CLOSEOUT-2026-08-13.md` and `docs/GC-S1-ORDER.md`. Later `COMMIT.ATTEST` is specified only; runtime unsupported. No Genesis pack. No Chamber help. Readiness snapshot updated in Noema.
 
 ### Added

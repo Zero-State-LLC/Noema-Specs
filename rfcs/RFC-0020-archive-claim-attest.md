@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only. Does **not** implement runtime. Does **not** thaw Chamber help. Does **not** reseed Genesis. Does **not** make `INSPECT` a writer.
+Hosted runtime shipped (Noema ATTEST pass). Does **not** thaw Chamber help. Does **not** reseed Genesis. Does **not** make `INSPECT` a writer.
 
 ## Problem
 
@@ -53,11 +53,11 @@ No wallet fields. Hidden rooms are not attest targets. WATCH stays empty of clai
 
 ## Validation
 
-`check_rfc_0020`: Accepted; `ATTEST` on `COMMIT`; `INSPECT` not a writer; no Genesis pack; runtime not authorized here.
+`check_rfc_0020`: Accepted; `ATTEST` on `COMMIT`; `INSPECT` not a writer; no Genesis pack.
 
 ## Rollback
 
-Leave unused. `COMMIT.ATTEST` stays unsupported. GC6 remains silent on Perihelion.
+Stop accepting `COMMIT.ATTEST`. Existing claims remain immutable. GC6 stays silent without fields.
 
 ## Unresolved
 

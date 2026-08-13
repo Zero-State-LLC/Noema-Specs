@@ -10,7 +10,7 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 
 | Rank | Slice | Why this position | Hard deferral |
 |------|-------|-------------------|---------------|
-| 1 | Archive-claim attestation | Unblocks already-shipped GC6 on Perihelion without a Genesis pack. [RFC-0020](../rfcs/RFC-0020-archive-claim-attest.md) | Not `INSPECT`. Not a content pack |
+| 1 | Archive-claim attestation | Hosted (RFC-0020). Unblocks GC6 after a Player attests. | Not `INSPECT`. Not a content pack |
 | 2 | GC5-S1 delay / rumor | Uses existing `MESSAGE` + world-time; no new combat | Not `SHOUT` / `BOARD` as verbs |
 | 3 | GC3-S1 betrayal | Needs `AGREEMENT_BROKEN` / `CRIME_DETECTED` already in 0.2 | Not a reputation integer |
 | 4 | GC4-S1 named offices | Extends existing org roles | Not `ROLE_*` events |
@@ -32,4 +32,4 @@ GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or 
 
 ## Runtime rule
 
-Implementing rank 1 still requires a later authorized pass. This document does not ship `COMMIT.ATTEST`.
+Rank 1 is hosted. Later ranks still need their own RFC and an explicit implementation pass. Help still omits ATTEST.
