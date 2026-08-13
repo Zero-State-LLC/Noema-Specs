@@ -108,6 +108,7 @@ Produced before writing new authorities. Status values:
 | [HISTORICAL-EVIDENCE.md](HISTORICAL-EVIDENCE.md), [HISTORICAL-RECONSTRUCTION.md](HISTORICAL-RECONSTRUCTION.md), [ARCHAEOLOGY.md](ARCHAEOLOGY.md), [CONTRADICTORY-EVIDENCE.md](CONTRADICTORY-EVIDENCE.md) | EXISTS | Compose; do not fork a second evidence canon |
 | [LORE-BOUNDARY.md](LORE-BOUNDARY.md) / [STORY-SEEDS.md](STORY-SEEDS.md) | EXISTS | Genesis may leave unresolved questions; no authored quests |
 | Player-facing mystery origin / settlement | PARTIAL | New: [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) |
+| Archive vs live INSPECT contradiction | PINNED S0 | [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md) |
 
 ### GC7 Strategic conflict v2 — P1
 

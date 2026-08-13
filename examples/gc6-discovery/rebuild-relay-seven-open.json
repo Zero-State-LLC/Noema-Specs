@@ -1,0 +1,32 @@
+{
+  "slice_id": "gc6-s0",
+  "catalog_id": "discovery-catalog/gc6-s0",
+  "subject_id": "player.nacre",
+  "third_party_id": "player.vesper",
+  "archive": {
+    "evidence_id": "archive.relay-7.destroyed",
+    "subject_entity_id": "entity.relay-7",
+    "claim": "DESTROYED",
+    "accessible_to": ["player.nacre"]
+  },
+  "inspect": {
+    "evidence_id": "obs.relay-7.operating",
+    "subject_entity_id": "entity.relay-7",
+    "observation": "OPERATING",
+    "accessible_to": ["player.nacre"]
+  },
+  "known_truth_relationship": {
+    "matches_world_truth": ["obs.relay-7.operating"],
+    "claim_label": "INFERRED",
+    "note": "research partition only"
+  },
+  "expected": {
+    "play_lines": ["The archive and the live site do not agree."],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "discovery_state": "investigated",
+    "resolution_status": "open",
+    "quest_log": [],
+    "note": "Relay Seven pattern. Research truth must not appear in PLAY."
+  }
+}

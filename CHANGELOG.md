@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0010 Accepted:** GC6-S0 archive vs live `INSPECT` contradiction. Relay Seven pattern as derived PLAY line; no quest UI; `known_truth_relationship` stays off PLAY; WATCH empty. No new verbs. No runtime.
+
+### Added
+
 - **RFC-0009 Accepted:** GC5-S0 relay bands on existing `MESSAGE`. Same-room delivery ignores relay condition; different-room requires best live relay ≥ 25; `UNREACHABLE` emits no events and no topology leak. No new verbs. No runtime.
 
 ### Added

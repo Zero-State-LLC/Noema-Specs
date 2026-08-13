@@ -1,0 +1,26 @@
+{
+  "slice_id": "gc6-s0",
+  "catalog_id": "discovery-catalog/gc6-s0",
+  "subject_id": "player.nacre",
+  "archive": {
+    "evidence_id": "archive.relay-7.destroyed",
+    "subject_entity_id": "entity.relay-7",
+    "claim": "DESTROYED",
+    "accessible_to": ["player.nacre"]
+  },
+  "inspect": {
+    "evidence_id": "obs.relay-7.operating",
+    "subject_entity_id": "entity.relay-7",
+    "observation": "OPERATING",
+    "accessible_to": []
+  },
+  "expected": {
+    "play_lines": [],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "discovery_state": "discovered",
+    "resolution_status": "none",
+    "quest_log": [],
+    "note": "Second-hand archive is discovered, not a quest."
+  }
+}

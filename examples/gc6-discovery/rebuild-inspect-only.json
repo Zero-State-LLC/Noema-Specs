@@ -1,0 +1,27 @@
+{
+  "slice_id": "gc6-s0",
+  "catalog_id": "discovery-catalog/gc6-s0",
+  "subject_id": "player.nacre",
+  "third_party_id": "player.vesper",
+  "archive": {
+    "evidence_id": "archive.relay-7.destroyed",
+    "subject_entity_id": "entity.relay-7",
+    "claim": "DESTROYED",
+    "accessible_to": []
+  },
+  "inspect": {
+    "evidence_id": "obs.relay-7.operating",
+    "subject_entity_id": "entity.relay-7",
+    "observation": "OPERATING",
+    "accessible_to": ["player.nacre"]
+  },
+  "expected": {
+    "play_lines": [],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "discovery_state": "observed",
+    "resolution_status": "none",
+    "quest_log": [],
+    "note": "Inspect-only is not a quest prompt."
+  }
+}
