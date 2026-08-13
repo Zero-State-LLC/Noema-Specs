@@ -1600,6 +1600,31 @@ def check_rfc_0016() -> None:
     ok("RFC-0016 hosted durable world head: Accepted, restore-if-missing, no Genesis pack")
 
 
+def check_rfc_0017() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0017-hosted-cycle-fence.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0017 must be Accepted")
+    low = rfc.lower()
+    for token in ("stale_head", "serializable", "revision", "genesis", "unsettled"):
+        if token not in low:
+            fail(f"RFC-0017 must pin fence recovery ({token})")
+    ok("RFC-0017 hosted cycle fence: Accepted, STALE_HEAD, no Genesis")
+
+
+def check_rfc_0018() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0018-archive-claim-writer.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0018 must be Accepted")
+    low = rfc.lower()
+    if "inspect" not in low or "must not mutate" not in low and "not a writer" not in low:
+        fail("RFC-0018 must forbid INSPECT as archive-claim writer")
+    if "entity_update" not in low or "entity_create" not in low:
+        fail("RFC-0018 must name ENTITY_CREATE/UPDATE as sole writers")
+    if "genesis" not in low:
+        fail("RFC-0018 must reject a Genesis pack")
+    ok("RFC-0018 archive-claim writer: Accepted, INSPECT not a writer")
+
+
 def check_lab_v04(Draft202012Validator) -> None:
     """Validate v0.4 Lab schemas, fixtures, isolation, null results."""
     import hashlib
@@ -3652,6 +3677,8 @@ def main() -> None:
     check_architecture_hardening()
     check_reducer_registry()
     check_rfc_0016()
+    check_rfc_0017()
+    check_rfc_0018()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
