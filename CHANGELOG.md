@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Remaining-work snapshot:** `docs/REMAINING-WORK-2026-08-13.md` lists shipped S0, operator SQL, thaw-gated GC2/GC7/GC10, and SPEC GAP S1s. Not a thaw.
+
+### Added
+
 - **RFC-0016 Accepted:** hosted durable world head. Postgres `noema_world_heads` is the reconstructable WorldRuntime copy; DO remains live ordering. Restore only when DO world is missing. No Genesis reseed. No new events. SERIALIZABLE cycle fence remains later.
 
 ### Added
