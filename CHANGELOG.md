@@ -4,6 +4,10 @@
 
 ### Added
 
+- **2026-08-13 — Notion ↔ Specs reconciliation:** `docs/NOTION-RECONCILIATION-2026-08-13.md` assimilates cross-cutting doctrine (parity, labor/delegation, law, privacy, decay, measurement membrane, operator receipts, invariants, action/event/state/time/schema/enforcement). Clarifies hosted authority **inside** the existing Cloudflare + Supabase stack: DO = live ordering/process coordination; Postgres = durable canonical record and recoverability. Architecture-design frontier **paused**. No runtime implementation. No crypto/future-economy activation. Frozen v0.1–v0.7 wire contracts unchanged.
+
+### Added
+
 - **Admin Live operations surface:** `docs/ADMIN-LIVE-OPERATIONS.md` is the canonical control-plane observation contract. Admin remains a separate principal (not `ADMIN_PLAYER` / `GM_PLAYER`). Default Live is observational (`OBSERVE` / `INSPECT` / `DIAGNOSE`); `OPERATE` is explicit and audited through existing Action Router / intervention paths; `AUDIT` navigates the existing ledger. Covers world pulse, settled event feed, progressive inspection, operational topology, inspectors, redaction classes, secret status-only handling, Overview vs Live IA, freshness, bounded polling, and PLAY/WATCH separation. No new schema, milestone, or gameplay. Updates: TERMINOLOGY, EXPERIENCE, WATCH, OPERATOR-INTERVENTIONS, FIRST-WORLD-SPEC-FREEZE, SPEC-CHECKLIST.
 
 ### Added

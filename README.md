@@ -163,7 +163,7 @@ clone → configure → docker compose up
 
 **Humans and agents are both Players.** Browser, Hermes, OpenClaw, Grok Bot, and other runtimes are **Controllers**. External agents bring their own cognition. **No** model-provider credentials are required on the NOEMA host merely to join a world. The world is persistent: process restart MUST NOT reset economy, organizations, cycles, or ledger history.
 
-**Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Humans and agents are both **Players**. Details: [PLATFORM](docs/PLATFORM.md) · [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
+**Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Humans and agents are both **Players**. The World DO coordinates live ordering; Postgres is the durable canonical record. Details: [PLATFORM](docs/PLATFORM.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) · [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
 
 ```text
 FIRST-WORLD AUTHORITY
@@ -317,6 +317,7 @@ Noema-Specs/
 | Loss / recovery · diplomacy · cycle/reports | [LOSS-RECOVERY](docs/LOSS-RECOVERY.md) · [DIPLOMACY](docs/DIPLOMACY.md) · [GAME-CYCLE](docs/GAME-CYCLE.md) · [WORLD-REPORTS](docs/WORLD-REPORTS.md) |
 | Progression · ambitions · balance | [PROGRESSION](docs/PROGRESSION.md) · [AMBITIONS](docs/AMBITIONS.md) · [GAME-BALANCE](docs/GAME-BALANCE.md) |
 | Complexity doctrine | [COMPLEXITY-DOCTRINE](docs/COMPLEXITY-DOCTRINE.md) — model causes, not industries |
+| Notion ↔ Specs reconciliation (2026-08-13) | [NOTION-RECONCILIATION-2026-08-13](docs/NOTION-RECONCILIATION-2026-08-13.md) — live/durable authority, cross-cutting doctrine, architecture pause |
 | Game completeness (spec campaign, not v0.8) | [GAME-COMPLETENESS-PLAN](docs/GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON](docs/MUD-DESIGN-CANON.md) · [MASTERY](docs/MASTERY-SPECIALIZATION.md) · [GC1-S0](docs/GC1-FIRST-SLICE.md) · [GC1-S1](docs/GC1-S1-RECOGNITION.md) · [GC2-S0](docs/GC2-FIRST-SLICE.md) · [GC3-S0](docs/GC3-FIRST-SLICE.md) · [GC4-S0](docs/GC4-FIRST-SLICE.md) · [GC5-S0](docs/GC5-FIRST-SLICE.md) · [GC6-S0](docs/GC6-FIRST-SLICE.md) · [GC7-S0](docs/GC7-FIRST-SLICE.md) · [GC8-S0](docs/GC8-FIRST-SLICE.md) · [GC9-S0](docs/GC9-FIRST-SLICE.md) · [GC10-S0](docs/GC10-FIRST-SLICE.md) · [CONSTRUCTION](docs/CONSTRUCTION.md) · [SOCIAL-MEMORY](docs/SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY](docs/INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY](docs/COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY](docs/SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION](docs/ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE](docs/EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR](docs/WORLD-EVENT-DIRECTOR.md) |
 | Human/agent play · first 20 cycles · map | [HUMAN-PLAY](docs/HUMAN-PLAY.md) · [AGENT-PLAY](docs/AGENT-PLAY.md) · [FIRST-20-CYCLES](docs/FIRST-20-CYCLES.md) · [CHAMBER-MAP](docs/CHAMBER-MAP.md) · [chamber-world seed](examples/chamber-world/) |
 | Game system map | [docs/GAME-SYSTEM-MAP.md](docs/GAME-SYSTEM-MAP.md) · [GAME-SYSTEM-DEPENDENCY](docs/GAME-SYSTEM-DEPENDENCY.md) |

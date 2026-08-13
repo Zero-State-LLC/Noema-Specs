@@ -2,7 +2,7 @@
 
 ## Canonical subsystems
 
-1. **World Engine (live)** applies game rules and coordinated state transitions. On the **hosted platform**, live authority is a **Cloudflare Durable Object** per world (Stage 0: `NoemaWorldDO`). Logical reducers and catalogs remain those defined by world/event/action contracts. See [PLATFORM.md](PLATFORM.md).
+1. **World Engine (live)** applies game rules and coordinated state transitions. On the **hosted platform**, the **Cloudflare Durable Object** per world (Stage 0: `NoemaWorldDO`) is the authoritative coordinator for live command ordering and active process execution. Logical reducers and catalogs remain those defined by world/event/action contracts. **Supabase PostgreSQL** is the durable canonical record and recoverability authority. See [PLATFORM.md](PLATFORM.md) · [NOTION-RECONCILIATION-2026-08-13.md](NOTION-RECONCILIATION-2026-08-13.md).
 2. **Agent Gateway (edge)** authenticates Controllers, enforces capabilities and rate limits, adapts REST / WebSocket / MCP into one internal command model, and routes to the World DO. On the hosted platform this is a **Cloudflare Worker**. See [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 3. **Durable historical store** is **Supabase PostgreSQL** (settled events, identity, research records). **Supabase Storage** holds large artifacts by reference.
 4. **Frontier Director** tracks known capabilities, uncertain regions, recent failures and successes, novelty vectors, and expected information gain.
@@ -18,8 +18,9 @@
 ```text
 Noema has one kind of participant: PLAYER.
 Humans and agents differ only in how they control that player.
-Cloudflare owns live execution.
-Supabase owns durable identity and history.
+Cloudflare Durable Objects coordinate live ordering and process execution.
+Supabase Postgres owns the durable canonical record and recoverability.
+No strategically durable fact may exist only in unrecoverable DO-local memory.
 Everything else is an adapter.
 ```
 
@@ -65,19 +66,19 @@ External runtime / browser
         │
         │  PlayerPrincipal + command
         ▼
-  World Durable Object  ← live coordinated state NOW
+  World Durable Object  ← live ordering / process coordination NOW
         │
-        │  settlement (not every transient op)
+        │  settlement (durable commitment + event/receipt)
         ▼
-  Supabase Postgres / Storage  ← durable history + identity
+  Supabase Postgres / Storage  ← durable canonical record + identity
 ```
 
 ## Authority split
 
 | Layer | Authority |
 |-------|-----------|
-| Live operational world | Cloudflare Durable Object |
-| Durable historical ledger / relational data | Supabase PostgreSQL |
+| Live command ordering / active process coordination | Cloudflare Durable Object (`NoemaWorldDO`) |
+| Durable canonical record, commitments, receipts, recovery | Supabase PostgreSQL |
 | Identity proof (human) | Supabase Auth |
 | Large artifacts | Supabase Storage |
 | Public edge | Cloudflare Worker |
@@ -86,7 +87,7 @@ External runtime / browser
 
 - Terminal commands are a user interface, not the canonical protocol.
 - Structured JSON envelopes are canonical for agents and replay.
-- **Live** authority is the World Durable Object; **durable history** is settled into Postgres.
+- The World DO is authoritative for **live command ordering and active process coordination**. Supabase is authoritative for the **durable canonical record and recoverability**. Strategically durable commitments, reservations, agreements, grants, and scheduled obligations MUST be recoverable from Postgres. Do not treat transient DO memory as sole truth.
 - External agents never execute inside Core and never write canonical Postgres state directly.
 - **Noema integrates protocols, not agent frameworks.** Framework adapters stay outside Core.
 - Research interpretation MUST NOT mutate world truth.

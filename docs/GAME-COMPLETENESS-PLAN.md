@@ -5,9 +5,11 @@
 **Not** v0.8 Phenomena.  
 **Does not mutate** frozen v0.1–v0.7 machine contracts.
 
-Related: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-DESIGN.md](GAME-DESIGN.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [ROADMAP.md](ROADMAP.md)
+Related: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-DESIGN.md](GAME-DESIGN.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [ROADMAP.md](ROADMAP.md) · [NOTION-RECONCILIATION-2026-08-13.md](NOTION-RECONCILIATION-2026-08-13.md)
 
 **Doctrine gate.** Every GC package and later mechanic MUST pass [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) tests A–J. Model causes, not industries. Isolated progression trees, class/skill frameworks, and future crypto/wallet infrastructure are **DEFER**.
+
+**Cross-cutting constraints** (full text in [NOTION-RECONCILIATION-2026-08-13.md](NOTION-RECONCILIATION-2026-08-13.md), not duplicated here): social parity; labor/delegation without personhood transfer; law/arbitration as delegated authority; privacy/knowledge provenance; epistemic decay; research/game measurement membrane; operator causation with receipts; invariants; action/event/state/projection spine; world-time; schema and enforcement doctrine. Architecture-design frontier is **paused** after that reconciliation.
 
 ---
 

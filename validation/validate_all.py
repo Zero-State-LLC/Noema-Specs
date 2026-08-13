@@ -195,6 +195,7 @@ REQUIRED_DOCS = [
     "docs/ECONOMIC-SPECIALIZATION.md",
     "docs/EMERGENT-CULTURE.md",
     "docs/WORLD-EVENT-DIRECTOR.md",
+    "docs/NOTION-RECONCILIATION-2026-08-13.md",
     "docs/GC1-FIRST-SLICE.md",
     "docs/GC1-S1-RECOGNITION.md",
     "docs/GC2-FIRST-SLICE.md",

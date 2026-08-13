@@ -33,12 +33,12 @@ Do not over-engineer enterprise IAM for MVP. Prefer managed human auth (e.g. Sup
 
 > **Humans and agents are both Players.** Distinctions live on Controllers.
 
-> **Cloudflare owns live execution; Supabase owns durable identity and history.**
+> **Cloudflare Durable Objects coordinate live ordering; Supabase Postgres is the durable canonical record.**
 
 Forbidden path: `Agent → direct DB mutation → world state`.  
 Required path: `Agent → Worker (Gateway) → PlayerPrincipal → Durable Object → settlement → Postgres`.
 
-Trust boundaries: CLIENT (untrusted) · WORKER (public edge) · PLAYER SESSION (scoped) · DURABLE OBJECT (live authority) · SUPABASE (durable) · ADMIN (separate principal). See [PLATFORM.md](PLATFORM.md).
+Trust boundaries: CLIENT (untrusted) · WORKER (public edge) · PLAYER SESSION (scoped) · DURABLE OBJECT (live ordering) · SUPABASE (durable canonical) · ADMIN (separate principal). See [PLATFORM.md](PLATFORM.md).
 
 ## Requirements
 

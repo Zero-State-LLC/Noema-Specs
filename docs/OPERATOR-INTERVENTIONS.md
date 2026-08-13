@@ -38,6 +38,8 @@ RECOVERY
 
 Do not add arbitrary editing classes. Earlier IDENTITY / SYSTEM / WORLD labels map onto this closed set; do not keep a second taxonomy.
 
+Consequential operator **receipts** (id, actor, cycle, class, reason, target, pre/post, authority, incident/experiment) map `class` onto these four. Causal labels MAINTENANCE / EXPERIMENTAL / EMERGENCY in [NOTION-RECONCILIATION-2026-08-13.md](NOTION-RECONCILIATION-2026-08-13.md) are receipt semantics, not a fifth closed taxonomy.
+
 ### CONTROL_PLANE
 
 Access, session, and operational mode. Does **not** rewrite world history.
