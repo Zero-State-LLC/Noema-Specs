@@ -5,7 +5,7 @@
 **Does not replace:** [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [PROGRESSION.md](PROGRESSION.md)  
 **Influence** remains a Chamber resource ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)). It is not reputation.
 
-This document is **not** an executable package. Machine contracts are **SPEC GAP**.
+GC3-S0 machine pins: [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md) · [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md). Remaining descriptors and betrayal are **SPEC GAP**.
 
 **Doctrine:** evidence-backed edges, not a reputation industry or `reputation = 72` engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Memory must be able to change trade, access, agreements, authority, cooperation, conflict, or information sharing — or it is presentation.
 
@@ -169,14 +169,26 @@ No `REMEMBER` or `REPUTE` verb.
 
 ## SPEC GAP
 
+### Closed for GC3-S0
+
 ```text
-edge schema vs derived rebuild
-descriptor catalog and mapping rules
-weights, decay windows, rehabilitation thresholds
-whether any new event type is required
-fixtures (cooperation → trust → betrayal without leak)
-conformance for hidden-fact non-leak
-PLAY/WATCH projection rules
+derived Player→Player edges from TRADE_ACCEPTED
+thresholds TRADED=1 RELIABLE=3
+self PLAY lines only
+no reputation scalar
+no new verbs or events
+WATCH empty
+leak tokens forbidden in projection
+```
+
+### Still open
+
+```text
+dangerous / deceptive from AGREEMENT_BROKEN / CRIME_DETECTED (GC3-S1)
+institution edges
+decay / rehabilitation bands
+trade-friction mechanics
+WATCH public descriptors
 ```
 
 ---

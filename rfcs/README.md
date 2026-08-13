@@ -16,6 +16,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0004](RFC-0004-derived-mastery-projection.md) | **Accepted** | GC1-S0 derived practice projection; no catalog expansion |
 | [RFC-0005](RFC-0005-mastery-recognition.md) | **Accepted** | GC1-S1 self-only recognition; no benefits |
 | [RFC-0006](RFC-0006-construction-existing-events.md) | **Accepted** | GC2-S0 construct/dismantle via existing ENTITY_* events |
+| [RFC-0007](RFC-0007-dyadic-trade-memory.md) | **Accepted** | GC3-S0 dyadic trade memory; no reputation scalar |
 
 ## Required review lenses
 

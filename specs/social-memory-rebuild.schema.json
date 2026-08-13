@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/social-memory-rebuild.schema.json",
+  "title": "NOEMA GC3-S0 social memory rebuild fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "subject_id", "events", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc3-s0" },
+    "catalog_id": { "const": "social-memory-catalog/gc3-s0" },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "handles": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "event_type", "cycle", "sequence", "payload"],
+        "properties": {
+          "event_id": { "type": "string" },
+          "event_type": { "type": "string" },
+          "cycle": { "type": "integer", "minimum": 0 },
+          "sequence": { "type": "integer", "minimum": 0 },
+          "actor_id": { "type": ["string", "null"] },
+          "payload": { "type": "object" }
+        }
+      }
+    },
+    "trades": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["proposer_id", "counterparty_id"],
+        "properties": {
+          "proposer_id": { "type": "string" },
+          "counterparty_id": { "type": "string" }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edges", "play_lines", "watch_lines"],
+      "properties": {
+        "edges": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["state", "count"],
+            "properties": {
+              "state": { "enum": ["UNKNOWN", "TRADED", "RELIABLE"] },
+              "count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "play_lines": { "type": "array", "items": { "type": "string" } },
+        "watch_lines": { "type": "array", "maxItems": 0, "items": { "type": "string" } },
+        "third_party_lines": { "type": "array", "maxItems": 0, "items": { "type": "string" } },
+        "note": { "type": "string" },
+        "reasons": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
