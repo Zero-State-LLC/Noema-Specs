@@ -203,6 +203,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0007-dyadic-trade-memory.md",
     "docs/GC4-FIRST-SLICE.md",
     "rfcs/RFC-0008-office-authority-pins.md",
+    "docs/GC5-FIRST-SLICE.md",
+    "rfcs/RFC-0009-relay-message-delivery.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -843,6 +845,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/authority-attempt.schema.json", "examples/gc4-authority/officer-add-member-ok.json"),
         ("specs/authority-attempt.schema.json", "examples/gc4-authority/member-add-forbidden.json"),
         ("specs/authority-attempt.schema.json", "examples/gc4-authority/steward-title-member-add-forbidden.json"),
+        ("specs/communication-catalog.schema.json", "specs/communication-catalog.gc5-s0.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/local-dead-relay-ok.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/long-range-below-band-unreachable.json"),
+        ("specs/communication-attempt.schema.json", "examples/gc5-communication/hidden-room-unreachable-no-leak.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2962,6 +2968,89 @@ def check_gc4_s0(Draft202012Validator) -> None:
     ok("GC4-S0 authority: catalog, attempt fixtures, RFC-0008 Accepted, no ROLE_* events")
 
 
+def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not attempt.get("recipient_addressable"):
+        return "REJECT", "FORBIDDEN"
+    sender_room = attempt.get("sender_room_id")
+    recipient_room = attempt.get("recipient_room_id")
+    local = sender_room == recipient_room
+    best: int | None = None
+    for relay in attempt.get("relays") or []:
+        if not relay.get("live"):
+            continue
+        if relay.get("class_id") != catalog.get("relay_class"):
+            continue
+        cond = int(relay.get("condition") or 0)
+        if best is None or cond > best:
+            best = cond
+    if local:
+        return "ACCEPT", None
+    threshold = int(catalog["long_range_min_condition"])
+    if best is None or best < threshold:
+        return "REJECT", catalog.get("long_range_failure") or "UNREACHABLE"
+    return "ACCEPT", None
+
+
+def check_gc5_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC5-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("delay_enabled") or catalog.get("rumor_enabled") or catalog.get("watch_text"):
+        fail("GC5-S0 must not enable delay, rumor, or WATCH text")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC5-S0 must not add verbs or events")
+    if catalog.get("verb") != "MESSAGE" or catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC5-S0 must reuse MESSAGE and event-catalog/0.1")
+    if int(catalog.get("long_range_min_condition") or 0) != 25:
+        fail("GC5-S0 must reuse the existing MESSAGE stressed-relay threshold 25")
+    rfc = (ROOT / "rfcs" / "RFC-0009-relay-message-delivery.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0009 must be Accepted after GC5-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_reason") or []]
+    names = [
+        "local-dead-relay-ok.json",
+        "long-range-at-band-ok.json",
+        "long-range-below-band-unreachable.json",
+        "long-range-no-relay-unreachable.json",
+        "hidden-room-unreachable-no-leak.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc5-communication" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc5_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("watch_text"):
+            fail(f"{name}: WATCH must not carry DM text")
+        if outcome == "ACCEPT" and expected.get("events") != catalog.get("success_events"):
+            fail(f"{name}: success events must be MESSAGE then MESSAGE_DELIVERED")
+        if outcome == "REJECT" and expected.get("events"):
+            fail(f"{name}: UNREACHABLE must emit no events")
+        if reason:
+            for token in forbidden:
+                if token in reason.lower():
+                    fail(f"{name} reason leaked {token}")
+        attempt = fixture["attempt"]
+        if attempt.get("recipient_room_hidden") and reason:
+            hidden_room = str(attempt.get("recipient_room_id") or "")
+            if hidden_room and hidden_room in reason:
+                fail(f"{name} reason leaked hidden room id")
+            for relay in attempt.get("relays") or []:
+                eid = relay.get("entity_id")
+                if eid and eid in reason:
+                    fail(f"{name} reason leaked relay entity_id")
+    ok("GC5-S0 communication: catalog, attempt fixtures, RFC-0009 Accepted, no new verbs")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2991,6 +3080,7 @@ def main() -> None:
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
+    check_gc5_s0(Draft202012Validator)
     print("\nPASS")
 
 

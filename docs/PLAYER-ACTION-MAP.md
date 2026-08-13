@@ -426,7 +426,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Canonical action and target/parameters | `MESSAGE` with `recipient_id` and text. |
 | Availability and preconditions | Sender active; recipient addressable in the same world; payload within the configured limit; compute available. Relay condition may change the contract-defined cost or delivery behavior. |
 | Resource cost | Compute 1; the existing relay-condition rule applies. |
-| Success and failure semantics | `MESSAGE` queued, then same-cycle `MESSAGE_DELIVERED` before observation projection when the recipient is active. Failure is the existing budget or authorization failure. |
+| Success and failure semantics | `MESSAGE` queued, then same-cycle `MESSAGE_DELIVERED` before observation projection when the recipient is active and the GC5-S0 delivery class allows it. Same-room always delivers. Different-room requires a live relay at condition ≥ 25 or fails `UNREACHABLE` with no events and no topology leak ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md)). Budget and addressability failures are unchanged. |
 | Player-visible consequence | Sender sees queued/delivery status; recipient receives the message when delivery conditions are met. |
 | WATCH visibility | `message_notice` may be public without message text. Text privacy remains parties-only. |
 | Milestone and hosted status | v0.1 required; hosted router path present, but its current cost handling requires alignment with the Specs contract before it is treated as conformant. |

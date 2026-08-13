@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0009 Accepted:** GC5-S0 relay bands on existing `MESSAGE`. Same-room delivery ignores relay condition; different-room requires best live relay ≥ 25; `UNREACHABLE` emits no events and no topology leak. No new verbs. No runtime.
+
+### Added
+
 - **RFC-0008 Accepted:** GC4-S0 existing roles as bounded authority. Pins founder/officer invite and remove, member/advisor self-leave only, no founder invite, last-founder guard, cosmetic titles have zero authority. No `ROLE_*` events. No runtime.
 
 ### Added

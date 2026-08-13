@@ -1,0 +1,22 @@
+{
+  "schema_version": "communication-catalog/gc5-s0",
+  "catalog_id": "communication-catalog/gc5-s0",
+  "slice_id": "gc5-s0",
+  "authority": "docs/GC5-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0009-relay-message-delivery.md",
+  "event_catalog": "event-catalog/0.1",
+  "verb": "MESSAGE",
+  "success_events": ["MESSAGE", "MESSAGE_DELIVERED"],
+  "new_verbs": [],
+  "new_events": [],
+  "surfaces": ["direct"],
+  "local_definition": "same_room",
+  "relay_class": "relay",
+  "relay_selection": "best_live",
+  "long_range_min_condition": 25,
+  "delay_enabled": false,
+  "rumor_enabled": false,
+  "watch_text": false,
+  "long_range_failure": "UNREACHABLE",
+  "forbidden_in_reason": ["entity_id", "hidden", "topology"]
+}

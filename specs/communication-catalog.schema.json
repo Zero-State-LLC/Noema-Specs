@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/communication-catalog.schema.json",
+  "title": "NOEMA Communication Catalog (GC5-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "verb",
+    "success_events",
+    "new_verbs",
+    "new_events",
+    "surfaces",
+    "local_definition",
+    "relay_class",
+    "relay_selection",
+    "long_range_min_condition",
+    "delay_enabled",
+    "rumor_enabled",
+    "watch_text",
+    "long_range_failure",
+    "forbidden_in_reason"
+  ],
+  "properties": {
+    "schema_version": { "const": "communication-catalog/gc5-s0" },
+    "catalog_id": { "const": "communication-catalog/gc5-s0" },
+    "slice_id": { "const": "gc5-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "verb": { "const": "MESSAGE" },
+    "success_events": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "MESSAGE" }, { "const": "MESSAGE_DELIVERED" }],
+      "items": false
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "surfaces": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "prefixItems": [{ "const": "direct" }],
+      "items": false
+    },
+    "local_definition": { "const": "same_room" },
+    "relay_class": { "const": "relay" },
+    "relay_selection": { "const": "best_live" },
+    "long_range_min_condition": { "const": 25 },
+    "delay_enabled": { "const": false },
+    "rumor_enabled": { "const": false },
+    "watch_text": { "const": false },
+    "long_range_failure": { "const": "UNREACHABLE" },
+    "forbidden_in_reason": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  }
+}
