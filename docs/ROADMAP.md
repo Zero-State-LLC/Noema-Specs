@@ -130,6 +130,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC7-S0 contest rhythm** ([GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md), Accepted [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)): RECON→RECOVER composed from existing v0.2 forms and verbs. No HP. No `event-catalog/0.3`. No Chamber contest thaw.
 
+**GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Not v0.6B. No currency. No Chamber runtime.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena

@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc8-s0",
+  "catalog_id": "economy-catalog/gc8-s0",
+  "attempt": {
+    "pattern": "lone",
+    "rooms": 2,
+    "hops": 1,
+    "recognition": "none",
+    "harvest_amount": 1
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "energy": 5,
+    "note": "One Player pays MOVE energy 1 between the two nodes."
+  }
+}

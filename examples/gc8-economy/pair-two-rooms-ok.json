@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc8-s0",
+  "catalog_id": "economy-catalog/gc8-s0",
+  "attempt": {
+    "pattern": "pair",
+    "rooms": 2,
+    "hops": 1,
+    "recognition": "none",
+    "harvest_amount": 1
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "energy": 4,
+    "note": "Two Players harvest in place and TRADE. No MOVE."
+  }
+}

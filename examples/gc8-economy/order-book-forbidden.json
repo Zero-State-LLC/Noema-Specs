@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc8-s0",
+  "catalog_id": "economy-catalog/gc8-s0",
+  "attempt": {
+    "pattern": "feature",
+    "rooms": 2,
+    "hops": 1,
+    "claimed": { "order_book": true, "v06b": true }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FEATURE_FORBIDDEN",
+    "note": "Order book and v0.6B stay closed."
+  }
+}

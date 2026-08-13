@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc8-s0",
+  "catalog_id": "economy-catalog/gc8-s0",
+  "attempt": {
+    "pattern": "feature",
+    "rooms": 2,
+    "hops": 1,
+    "claimed": { "currency": true }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FEATURE_FORBIDDEN",
+    "note": "No Chamber currency in GC8-S0."
+  }
+}
