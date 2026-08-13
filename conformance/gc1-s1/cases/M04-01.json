@@ -1,0 +1,23 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "gc1-M04-01",
+  "suite": "noema-gc1-s1-mastery",
+  "title": "Crossing distinct-unit thresholds produces recognized PLAY lines",
+  "acceptance_items": [1],
+  "family_id": "M04",
+  "requirement_refs": ["docs/GC1-S1-RECOGNITION.md"],
+  "fixtures": ["examples/gc1-mastery/rebuild-s1-recognized.json"],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "world-engine",
+      "action": "rebuild_mastery_gc1_s1",
+      "input": { "fixture": "examples/gc1-mastery/rebuild-s1-recognized.json" }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": ["recognized lines replace practicing lines; no integers"]
+  },
+  "security_class": "none"
+}

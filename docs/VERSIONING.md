@@ -33,6 +33,7 @@
 - Genesis: `genesis-profile/0.6`, `story-seed/0.6`, `genesis-result/0.6`, catalogs `genesis-profiles/0.6.0`, `story-seeds/0.6.0`
 - Capability Graph / LEARN: `capability-graph/0.7`, `behavior-node/0.7`, `capability-edge/0.7`
 - Mastery catalog (GC1-S0, derived only): `mastery-catalog/gc1-s0`
+- Mastery catalog (GC1-S1 recognition, derived only): `mastery-catalog/gc1-s1`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

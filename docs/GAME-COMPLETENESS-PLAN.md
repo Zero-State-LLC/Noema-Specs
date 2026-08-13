@@ -263,7 +263,7 @@ Rationale:
 
 **GC1-S0 — Derived Practice Projection.** Shipped. [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md). RFC: [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (**Accepted**).
 
-**GC1-S1 — Recognition.** Spec only. [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). RFC: [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Draft**). No benefits.
+**GC1-S1 — Recognition.** [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). RFC: [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Accepted**). Self-only lines. No benefits.
 
 Why this slice, not all of GC1 and not GC2/GC3:
 

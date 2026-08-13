@@ -38,7 +38,7 @@
 - [x] GC1-S0 first-slice audit + Draft RFC-0004 (derived practice projection). Recognition/benefits still SPEC GAP.
 - [x] RFC-0004 Accepted: mastery catalog, rebuild fixtures, M01–M03, validator rebuild gate. No v0.8. No new world events.
 - [x] Complexity Doctrine: causes not industries; primitives/pressures; A–J rejection tests; future-economy hard deferral. No crypto/wallet schemas.
-- [ ] GC1-S1 recognition (Draft RFC-0005): thresholds pinned in prose; fixtures/acceptance not yet machine-closed. Passes Complexity Doctrine (no class tree, no repair percent).
+- [x] GC1-S1 recognition (RFC-0005 Accepted): catalog, rebuild fixtures, validator. No benefits. No class tree.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

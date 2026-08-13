@@ -822,8 +822,11 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ),
         ("specs/module-contracts.schema.json", "specs/module-contracts.v01.json"),
         ("specs/mastery-catalog.schema.json", "specs/mastery-catalog.gc1-s0.json"),
+        ("specs/mastery-catalog-s1.schema.json", "specs/mastery-catalog.gc1-s1.json"),
         ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-positive.json"),
         ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-negative.json"),
+        ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-recognized.json"),
+        ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-below-threshold.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2491,21 +2494,22 @@ def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict:
     player_id = fixture["player_id"]
     trades = fixture.get("trades") or {}
     tracks = {
-        t["track_id"]: {"state": "UNTRACKED", "count": 0, "units": set()}
+        t["track_id"]: {"state": "UNTRACKED", "count": 0, "units": set(), "recognition_units": set()}
         for t in catalog["tracks"]
     }
     seen_event_ids: dict[str, set[str]] = {tid: set() for tid in tracks}
 
-    def credit(track_id: str, event_id: str, unit: str) -> None:
+    def credit(track_id: str, event_id: str, unit: str, recognition_unit: str | None = None) -> None:
         if event_id in seen_event_ids[track_id]:
             return
         seen_event_ids[track_id].add(event_id)
         bucket = tracks[track_id]
-        if unit in bucket["units"]:
-            return
-        bucket["units"].add(unit)
-        bucket["count"] += 1
-        bucket["state"] = "PRACTICING"
+        if unit not in bucket["units"]:
+            bucket["units"].add(unit)
+            bucket["count"] += 1
+            bucket["state"] = "PRACTICING"
+        if recognition_unit:
+            bucket["recognition_units"].add(recognition_unit)
 
     def payload_player(payload: dict) -> str | None:
         for key in ("agent_id", "player_id"):
@@ -2527,10 +2531,12 @@ def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict:
             continue
         if event_type == "LOOK":
             if payload_player(payload) == player_id and payload.get("room_id"):
-                credit("track.explorer.01", event_id, str(payload["room_id"]))
+                room = str(payload["room_id"])
+                credit("track.explorer.01", event_id, room, room)
         elif event_type == "INSPECT":
             if payload_player(payload) == player_id and payload.get("entity_id"):
-                credit("track.surveyor.01", event_id, str(payload["entity_id"]))
+                entity = str(payload["entity_id"])
+                credit("track.surveyor.01", event_id, entity, entity)
         elif event_type == "TRADE_ACCEPTED":
             trade_id = payload.get("trade_id")
             trade = trades.get(trade_id) if isinstance(trade_id, str) else None
@@ -2538,25 +2544,42 @@ def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict:
                 continue
             parties = {trade.get("proposer_id"), trade.get("counterparty_id"), payload.get("accepted_by")}
             if player_id in parties:
-                credit("track.broker.01", event_id, str(trade_id))
+                credit("track.broker.01", event_id, str(trade_id), str(trade_id))
         elif event_type == "ENTITY_UPDATE":
             if actor_id != player_id:
                 continue
             sett = payload.get("set") if isinstance(payload.get("set"), dict) else {}
             if "condition" in sett:
-                credit("track.engineer.01", event_id, event_id)
+                entity = payload.get("entity_id")
+                recog = str(entity) if isinstance(entity, str) and entity else None
+                credit("track.engineer.01", event_id, event_id, recog)
+
+    track_meta = {t["track_id"]: t for t in catalog["tracks"]}
+    if catalog.get("recognition_enabled"):
+        for tid, rec in tracks.items():
+            threshold = int(track_meta[tid].get("recognition_threshold") or 0)
+            if rec["count"] >= 1 and len(rec["recognition_units"]) >= threshold > 0:
+                rec["state"] = "RECOGNIZED"
 
     by_order = sorted(catalog["tracks"], key=lambda t: int(t["display_order"]))
     play_lines: list[str] = []
-    for track in by_order:
-        if tracks[track["track_id"]]["state"] == "PRACTICING":
+    recognized = [t for t in by_order if tracks[t["track_id"]]["state"] == "RECOGNIZED"]
+    practicing = [t for t in by_order if tracks[t["track_id"]]["state"] == "PRACTICING"]
+    for track in recognized + practicing:
+        rec = tracks[track["track_id"]]
+        if rec["state"] == "RECOGNIZED":
+            play_lines.append(track.get("recognized_play_line") or track["play_line"])
+        else:
             play_lines.append(track["play_line"])
         if len(play_lines) >= int(catalog["max_play_lines"]):
             break
-    return {
-        "tracks": {tid: {"state": rec["state"], "count": rec["count"]} for tid, rec in tracks.items()},
-        "play_lines": play_lines,
-    }
+    out_tracks = {}
+    for tid, rec in tracks.items():
+        row = {"state": rec["state"], "count": rec["count"]}
+        if catalog.get("recognition_enabled"):
+            row["recognition_count"] = len(rec["recognition_units"])
+        out_tracks[tid] = row
+    return {"tracks": out_tracks, "play_lines": play_lines}
 
 
 def check_gc1_s0(Draft202012Validator) -> None:
@@ -2623,6 +2646,49 @@ def check_gc1_s0(Draft202012Validator) -> None:
     ok("GC1-S0 mastery: catalog, rebuild fixtures, M01–M03, RFC-0004 Accepted")
 
 
+def check_gc1_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog-s1.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "mastery-rebuild-s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S1 catalog invalid: {errs[0].message}")
+    if not catalog.get("recognition_enabled"):
+        fail("GC1-S1 catalog must enable recognition")
+    if catalog.get("decay_enabled") or catalog.get("benefits_enabled"):
+        fail("GC1-S1 catalog must disable decay and benefits")
+    rfc = (ROOT / "rfcs" / "RFC-0005-mastery-recognition.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:200]:
+        fail("RFC-0005 must be Accepted after GC1-S1 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    for name in ("rebuild-s1-recognized.json", "rebuild-s1-below-threshold.json"):
+        fixture = load_json(ROOT / "examples" / "gc1-mastery" / name)
+        ferrs = list(rebuild_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = rebuild_gc1_s0(fixture, catalog)
+        expected = fixture["expected"]
+        for track_id in (
+            "track.explorer.01",
+            "track.surveyor.01",
+            "track.broker.01",
+            "track.engineer.01",
+        ):
+            if got["tracks"][track_id] != expected[track_id]:
+                fail(f"{name} {track_id}: got {got['tracks'][track_id]} expected {expected[track_id]}")
+        if got["play_lines"] != expected["play_lines"]:
+            fail(f"{name} play_lines: got {got['play_lines']} expected {expected['play_lines']}")
+    spam = load_json(ROOT / "examples" / "gc1-mastery" / "rebuild-s1-below-threshold.json")
+    if spam["expected"]["track.engineer.01"]["state"] != "PRACTICING":
+        fail("same-entity repair spam must stay PRACTICING")
+    if spam["expected"]["track.engineer.01"]["recognition_count"] != 1:
+        fail("same-entity repair spam must have recognition_count 1")
+    rec = load_json(ROOT / "examples" / "gc1-mastery" / "rebuild-s1-recognized.json")
+    if "You have been" in " ".join(rec["expected"]["play_lines"]):
+        fail("recognized fixture must use recognized lines, not practicing lines")
+    ok("GC1-S1 mastery: catalog, recognition fixtures, RFC-0005 Accepted")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2648,6 +2714,7 @@ def main() -> None:
     check_skills_workflows()
     check_architecture_hardening()
     check_gc1_s0(Draft202012Validator)
+    check_gc1_s1(Draft202012Validator)
     print("\nPASS")
 
 

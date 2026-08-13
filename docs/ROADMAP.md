@@ -114,7 +114,7 @@ These phases are design authorities. They are **not** executable packages. Machi
 
 **Shipped:** **GC1-S0 Derived Practice Projection** ([GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md), Accepted [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md)).
 
-**Next mastery slice (spec only):** **GC1-S1 Recognition** ([GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md), Draft [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md)). Self-only recognized lines at distinct-unit thresholds. No benefits. No new events.
+**GC1-S1 Recognition** ([GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md), Accepted [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md)): self-only recognized lines at distinct-unit thresholds. No benefits. No new events.
 
 Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in the same cut as S0.
 
