@@ -22,6 +22,8 @@ The player-facing crosswalk between these semantic contracts, human commands, co
 
 Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact. Every mutating action carries a required `client_action_sequence`; the server assigns the versioned `action_priority` below and sorts frozen-cycle actions by `(action_priority, agent_id, client_action_sequence, action_id)`.
 
+This closed action vocabulary is intentionally stable. Dynamic gameplay belongs in compatible targets, parameters, preconditions, authority, resources, observation, and consequences. A new noun, content type, institution, or theme MUST NOT create a runtime verb; a genuinely new semantic transition requires a versioned Specs change.
+
 ## Canonical action priorities
 
 Lower priority values resolve first. These values are world-rules metadata and MUST NOT be supplied by clients.

@@ -14,7 +14,7 @@ It is a presentation and adapter authority. It is **not** a second action catalo
 
 If this map conflicts with a semantic contract, the semantic contract wins. The conflict is a **SPEC GAP** to resolve in the authoritative contract. An implementation MUST NOT silently invent a transition, cost, event, permission, or hidden-information rule to make a row fit.
 
-**Scope:** Specs only. This patch does not modify `Zero-State-LLC/Noema`, add runtime code, add a machine catalog, change schemas, change Genesis, or add mechanics.
+**Scope:** Specs only. No runtime code, no machine catalog, no new schema, no new milestone, no Genesis change, and no new mechanic are added. This patch does not modify `Zero-State-LLC/Noema`.
 
 ---
 
@@ -166,6 +166,164 @@ Aliases are adapter conveniences, not new actions. They normalize before canonic
 | bare visible direction such as `east` | `MOVE` | Accept only when it is a unique visible exit and the adapter documents the shorthand. |
 
 The alias set remains small. Aliases MUST NOT acquire multiple meanings across surfaces.
+
+### Stable action taxonomy
+
+Player verbs are intentionally bounded. Gameplay complexity comes from what a stable verb can target, when it is available, what it costs, who has authority to use it, what information is known, and what consequences follow.
+
+The system MUST prefer:
+
+```text
+one stable REPAIR action + many compatible repair targets and states
+```
+
+over content-specific verbs such as `REPAIR_RELAY`, `REPAIR_MARKET`, or `REPAIR_ARCHIVE`. World nouns, institutions, artifacts, roles, agreements, and historical concepts do not create new action semantics merely because they exist.
+
+These are conceptual families for presentation and reasoning. They do not replace or expand the canonical wire verbs in the action contracts:
+
+| Conceptual family | Existing canonical coverage |
+|---|---|
+| **OBSERVE** | `LOOK`, `INSPECT`, optional `QUERY` |
+| **MOVE** | `MOVE` |
+| **COMMUNICATE** | `MESSAGE`, optional `ASK` |
+| **TRADE** | `TRADE` proposal, accept, reject, and cancellation phases |
+| **RESOURCE** | `COMMIT.HARVEST` and the resource-transfer consequences of existing actions |
+| **INFRASTRUCTURE** | `COMMIT.REPAIR` and infrastructure state changes |
+| **ORGANIZATION** | `COMMIT.ORG_CREATE`, `ORG_MEMBER_ADD`, `ORG_MEMBER_REMOVE` |
+| **STRATEGY** | v0.2 contest, agreement, and access-policy `COMMIT` operations |
+| **UTILITY** | `WAIT`, `HELP`, and lifecycle/interface boundaries that are not world actions |
+
+The taxonomy is deliberately smaller than the set of possible situations. A new conceptual label MUST NOT become a new wire verb or human command unless it passes the extension rule below and is accepted through normal versioned Specs governance.
+
+### Dynamic affordance model
+
+An **affordance** is a derived presentation of an action that is valid or relevant in the current context. It is not a new World Event, canonical transition, or source of truth.
+
+```text
+Player
++ current observation
++ visible target
++ world state
++ authority
++ resources
++ relationships
++ known information
++ existing action contracts
+→ available action + target + parameters + known requirements + human/agent presentation
+```
+
+Human and agent adapters MUST derive affordances from the same canonical state and contracts. A GUI button, a human command suggestion, and an agent `AVAILABLE_ACTIONS` entry are different presentations of one possible canonical action, not separate mechanics.
+
+The system MUST distinguish:
+
+| Term | Meaning |
+|---|---|
+| **KNOWN COMMAND** | A stable command in the Player language for the relevant surface and milestone. |
+| **AVAILABLE ACTION** | A known canonical action that is valid and relevant for the current observable context, target, authority, and resources. |
+| **UNAVAILABLE ACTION** | A known action blocked by a visible condition such as location, budget, role, or target state. |
+| **UNSUPPORTED ACTION** | An action the current deployment cannot execute. It MUST be absent from contextual controls and capability advertisement. |
+| **NOT OBSERVABLE** | A condition that cannot be determined without revealing protected information. It remains unknown and MUST NOT be represented by a revealing disabled control. |
+
+`AVAILABLE_ACTIONS` is therefore dynamic. It MUST NOT be treated as a fixed global list, and the absence of an affordance MUST NOT be used to disclose a hidden entity, exit, ownership fact, agreement, Genesis input, or research datum.
+
+### Dynamic targets, parameters, and preconditions
+
+Stable verbs may address many compatible visible targets. Target compatibility comes from the canonical action contract and current entity state, not from a verb name:
+
+```text
+INSPECT  → infrastructure, artifact, institution, or visible record
+REPAIR   → any compatible damaged infrastructure
+HARVEST  → any compatible visible resource node
+MESSAGE  → any addressable Player
+TRADE    → any valid counterparty
+```
+
+Parameters vary without creating new verbs. Examples include:
+
+```text
+TRADE     → counterparty, offered resources, requested resources, expiry
+HARVEST   → resource node, amount
+CONTEST   → target, stake, form, expiry
+AGREEMENT → parties, type, terms, duration
+```
+
+Action availability may vary with location, visibility, resource balance, energy, compute, storage, influence, organization role, access policy, agreement state, contest state, target condition, world cycle, and other preconditions already defined by the contracts. Do not create a second precondition engine in this map.
+
+The same stable verb may produce different valid consequences because the world state differs. `REPAIR` may change route reliability, trade access, local opportunity, institutional leverage, or future contest value without changing the action taxonomy.
+
+### Affordance graph and rebuildability
+
+The **AFFORDANCE GRAPH** is a derived relationship view:
+
+```text
+Player → can currently perform → Action → on Target
+```
+
+It is not a graph-database requirement. Ordinary application logic MAY compute it from:
+
+```text
+canonical world state + Player state + permissioned observation + action contracts
+→ recomputed affordances
+```
+
+Prefer recomputation from canonical state over a separately mutable affordance store. An affordance may appear or disappear as conditions change, while the underlying action taxonomy remains unchanged:
+
+```text
+relay.condition = 35  → REPAIR available
+relay.condition = 100 → REPAIR unavailable
+
+Player enters resource site → HARVEST available
+Player leaves resource site → HARVEST unavailable
+```
+
+Organization roles and strategic authority are also dynamic inputs. A founder or officer may receive `INVITE` or `REMOVE`; an ordinary member may receive `LEAVE`; a non-member receives no membership-control affordance. Contest, agreement, and access actions appear only when the target exists, authority permits, required parameters can be supplied, and the current world state allows the operation.
+
+### Partial-observability and known requirements
+
+An affordance projection MAY expose a known resource cost, known authority requirement, or known target condition when that information is Player-visible. It MUST NOT expose a hidden precondition merely to explain why an action is absent.
+
+In particular, affordance generation MUST NOT leak hidden entities, hidden exits, hidden ownership, hidden historical facts, secret agreements, Genesis information, or research metadata. A disabled control can leak information just as an enabled control can. When the state is not observable, keep it unknown and omit the revealing affordance.
+
+### Stable verbs, composition, and extension
+
+NOEMA MUST NOT generate new canonical Player verbs at runtime. Emergent history, institutions, artifacts, culture, and content may create new nouns, names, roles, agreements, and targets. They do not automatically create new action semantics.
+
+Strategic complexity should emerge from composition of stable actions:
+
+```text
+MESSAGE + TRADE + AGREEMENT → trade coalition
+HARVEST + REPAIR + ACCESS → supply-chain control
+ORG_CREATE + TRADE + CONTEST → institutional power
+INSPECT + MESSAGE + AGREEMENT → information brokerage
+```
+
+These outcomes are not commands. Do not add verbs such as `MONOPOLIZE`, `BETRAY`, `FORM_EMPIRE`, `CREATE_MARKET`, or `START_WAR` unless a future accepted contract explicitly requires a distinct world transition.
+
+If a genuinely new action class is proposed, all of the following MUST be true:
+
+1. No existing action expresses the intent without semantic distortion.
+2. The proposed action has distinct preconditions and effects.
+3. It changes canonical world semantics rather than only presentation or content.
+4. It cannot be represented as a target, parameter, or operation of an existing action.
+5. It is versioned through normal Specs governance.
+
+The removal test is mandatory: if the proposed verb is removed and the same Player intent can be represented clearly through an existing action plus target and parameters, reject the new verb.
+
+First-entry discovery SHOULD emphasize:
+
+```text
+AVAILABLE HERE
+inspect relay
+repair relay
+move east
+
+MORE
+help
+help trade
+help organizations
+```
+
+This teaches the current affordance set without turning the human interface into an ever-growing command dictionary. Help may progressively reveal the broader stable vocabulary, but it MUST NOT imply that every known command is currently available.
 
 ---
 
@@ -664,6 +822,22 @@ This does not add Perihelion-specific mechanics or alter the approved world cand
 | Another visible Player | `MESSAGE` |
 | Existing institution or organization | Organization interaction where authority permits |
 | Disputed access or valid v0.2 strategic condition | `CONTEST` / `AGREEMENT` / `ACCESS` where the pinned contract permits |
+
+Non-normative staged example for an approved Perihelion Reach-style world:
+
+```text
+Grid Anchor
+Damaged relay present
+available: LOOK INSPECT REPAIR MOVE
+
+Later: relay repaired; another Player arrives
+available: LOOK INSPECT MESSAGE TRADE MOVE
+
+Later: trade route contested; institutional authority acquired
+available: TRADE CONTEST AGREEMENT ACCESS
+```
+
+The command language did not change in this example. The observable world, targets, conditions, relationships, authority, and consequences changed. These examples do not add Perihelion-specific mechanics or imply that every action is available in every location.
 
 These are projections of observable state, not authored quests. A world that lacks the precondition must not show the affordance.
 

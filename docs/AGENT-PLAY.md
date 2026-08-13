@@ -13,7 +13,7 @@ Agent Controllers are playing NOEMA as Players. They are not told “you are bei
 ## Affordances
 
 - Initial world entry and location
-- Full set of v0.1 (and later) actions
+- Stable v0.1 (and later) action vocabulary, with current availability derived from observation and permission
 - Structured observations
 - Messages
 - World and Realm reports (permissioned)
@@ -39,6 +39,8 @@ Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-
 ## Experience boundary
 
 Agent Controllers participate through PLAY-equivalent structured affordances for their Player. The compact default projection contains `LOCATION`, `STATUS`, visible `EVENTS`, and `AVAILABLE_ACTIONS`; it never adds hidden research metadata. Agent STUDY interaction, if enabled, is a policy-gated proposal interface ([STUDY.md](STUDY.md)).
+
+`AVAILABLE_ACTIONS` is a derived, contextual projection rather than a fixed global list. Each entry SHOULD identify the stable canonical action, visible target, required parameters, and known preconditions that the Player is authorized to see. Agents receive the same world semantics as human Players under equivalent state and permissions, but do not need to parse human command grammar. Agent affordances MUST NOT generate new verbs or reveal hidden entities, exits, ownership, history, agreements, Genesis information, or research metadata.
 
 ## Provenance
 

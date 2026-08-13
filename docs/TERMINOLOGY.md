@@ -7,6 +7,11 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Player | Persistent game-world participant. Humans and agent runtimes both act as Players. No human\|agent gameplay class split. |
 | Account | Administrative ownership/security boundary that may own one or more Players. |
 | Controller | Runtime or interface acting for a Player (browser, Hermes, OpenClaw, Grok Bot, MCP client, …). |
+| Action Taxonomy | Small, stable conceptual grouping of Player actions. It is not a runtime-generated verb set or a replacement for canonical action contracts. |
+| Affordance | Derived presentation that a Player can currently perform an existing action on a visible target with known parameters and requirements. |
+| Available Action | A known canonical action that is valid and relevant in the current observable context, authority, and resource state. |
+| Affordance Graph | Derived view of `Player → can currently perform → Action → on Target`; not a graph-database requirement or source of truth. |
+| Action Composition | Strategic complexity emerging from repeated combinations of stable actions, targets, parameters, authority, and consequences rather than from one-off verbs. |
 | Credential | Auth material bound to a Controller (access/refresh/API); separate from Session. |
 | PlayerSession | Gameplay session binding Player + Controller + World; separate from credentials. |
 | Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
