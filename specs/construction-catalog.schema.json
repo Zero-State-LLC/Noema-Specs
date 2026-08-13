@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "verb",
+    "operations",
+    "repair_verb",
+    "event_catalog",
+    "construct_events",
+    "dismantle_events",
+    "max_live_per_class_per_room",
+    "owner_equals_steward",
+    "benefits_enabled",
+    "classes"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s0" },
+    "catalog_id": { "const": "construction-catalog/gc2-s0" },
+    "slice_id": { "const": "gc2-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "verb": { "const": "BUILD" },
+    "operations": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "CONSTRUCT" }, { "const": "DISMANTLE" }],
+      "items": false
+    },
+    "repair_verb": { "const": "COMMIT.REPAIR" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "construct_events": {
+      "type": "array",
+      "items": { "enum": ["BUDGET_CONSUMED", "ENTITY_CREATE", "RESOURCE_TRANSFER"] }
+    },
+    "dismantle_events": {
+      "type": "array",
+      "items": { "enum": ["BUDGET_CONSUMED", "ENTITY_DESTROY", "ENTITY_UPDATE", "RESOURCE_TRANSFER"] }
+    },
+    "max_live_per_class_per_room": { "const": 1 },
+    "owner_equals_steward": { "const": true },
+    "benefits_enabled": { "const": false },
+    "classes": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "class_id",
+          "entity_type",
+          "construct_cost",
+          "dismantle_cost",
+          "salvage_storage",
+          "couples"
+        ],
+        "properties": {
+          "class_id": {
+            "enum": ["relay", "generator", "storage_bay", "production_node"]
+          },
+          "entity_type": { "const": "INFRASTRUCTURE" },
+          "construct_cost": { "$ref": "#/$defs/cost" },
+          "dismantle_cost": { "$ref": "#/$defs/dismantle_cost" },
+          "salvage_storage": { "type": "integer", "minimum": 0 },
+          "couples": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["energy", "compute", "storage", "influence"],
+      "properties": {
+        "energy": { "type": "integer", "minimum": 0 },
+        "compute": { "type": "integer", "minimum": 0 },
+        "storage": { "type": "integer", "minimum": 0 },
+        "influence": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "dismantle_cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["energy", "compute"],
+      "properties": {
+        "energy": { "type": "integer", "minimum": 0 },
+        "compute": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

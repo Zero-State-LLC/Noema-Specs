@@ -197,6 +197,8 @@ REQUIRED_DOCS = [
     "docs/WORLD-EVENT-DIRECTOR.md",
     "docs/GC1-FIRST-SLICE.md",
     "docs/GC1-S1-RECOGNITION.md",
+    "docs/GC2-FIRST-SLICE.md",
+    "rfcs/RFC-0006-construction-existing-events.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -827,6 +829,9 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/mastery-rebuild.schema.json", "examples/gc1-mastery/rebuild-negative.json"),
         ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-recognized.json"),
         ("specs/mastery-rebuild-s1.schema.json", "examples/gc1-mastery/rebuild-s1-below-threshold.json"),
+        ("specs/construction-catalog.schema.json", "specs/construction-catalog.gc2-s0.json"),
+        ("specs/construction-attempt.schema.json", "examples/gc2-construction/construct-relay-ok.json"),
+        ("specs/construction-attempt.schema.json", "examples/gc2-construction/dismantle-not-owner.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -2689,6 +2694,88 @@ def check_gc1_s1(Draft202012Validator) -> None:
     ok("GC1-S1 mastery: catalog, recognition fixtures, RFC-0005 Accepted")
 
 
+def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    classes = {c["class_id"]: c for c in catalog["classes"]}
+    op = attempt.get("operation")
+    actor_room = attempt.get("actor_room_id") or attempt.get("room_id")
+    if attempt.get("hidden_room"):
+        return "REJECT", "NOT_OBSERVABLE"
+    if actor_room != attempt.get("room_id"):
+        return "REJECT", "NOT_COLOCATED"
+    budgets = attempt.get("budgets") or {}
+    if op == "CONSTRUCT":
+        class_id = attempt.get("class_id")
+        spec = classes.get(class_id)
+        if not spec:
+            return "REJECT", "CLASS_FORBIDDEN"
+        if class_id in (attempt.get("live_classes_in_room") or []):
+            return "REJECT", "SLOT_OCCUPIED"
+        cost = spec["construct_cost"]
+        for key, need in cost.items():
+            if int(budgets.get(key) or 0) < int(need):
+                return "REJECT", "BUDGET_EXCEEDED"
+        return "ACCEPT", None
+    if op == "DISMANTLE":
+        target = attempt.get("target") or {}
+        if not target.get("live"):
+            return "REJECT", "NOT_FOUND"
+        if target.get("owner_id") != attempt.get("actor_id"):
+            return "REJECT", "NOT_OWNER"
+        spec = classes.get(target.get("class_id") or "")
+        if not spec:
+            return "REJECT", "CLASS_FORBIDDEN"
+        cost = spec["dismantle_cost"]
+        for key, need in cost.items():
+            if int(budgets.get(key) or 0) < int(need):
+                return "REJECT", "BUDGET_EXCEEDED"
+        return "ACCEPT", None
+    return "REJECT", "CLASS_FORBIDDEN"
+
+
+def check_gc2_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC2-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("benefits_enabled"):
+        fail("GC2-S0 must not enable mastery/build benefits")
+    if catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC2-S0 must reuse event-catalog/0.1")
+    forbidden_events = {"STRUCTURE_CONSTRUCTED", "STRUCTURE_DISMANTLED"}
+    used = set(catalog.get("construct_events") or []) | set(catalog.get("dismantle_events") or [])
+    if used & forbidden_events:
+        fail("GC2-S0 must not introduce STRUCTURE_* events")
+    for cls in catalog["classes"]:
+        if len(cls.get("couples") or []) < 2:
+            fail(f"{cls['class_id']} must couple at least two systems")
+    rfc = (ROOT / "rfcs" / "RFC-0006-construction-existing-events.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0006 must be Accepted after GC2-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "construct-relay-ok.json",
+        "construct-slot-occupied.json",
+        "construct-budget-exceeded.json",
+        "construct-hidden-room.json",
+        "dismantle-owner-ok.json",
+        "dismantle-not-owner.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc2-construction" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc2_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+    ok("GC2-S0 construction: catalog, attempt fixtures, RFC-0006 Accepted, no STRUCTURE_* events")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -2715,6 +2802,7 @@ def main() -> None:
     check_architecture_hardening()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
+    check_gc2_s0(Draft202012Validator)
     print("\nPASS")
 
 

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-attempt.schema.json",
+  "title": "NOEMA GC2-S0 construction attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc2-s0" },
+    "catalog_id": { "const": "construction-catalog/gc2-s0" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "actor_id", "room_id", "budgets"],
+      "properties": {
+        "operation": { "enum": ["CONSTRUCT", "DISMANTLE"] },
+        "class_id": { "enum": ["relay", "generator", "storage_bay", "production_node"] },
+        "entity_id": { "type": "string" },
+        "actor_id": { "type": "string", "minLength": 1 },
+        "room_id": { "type": "string", "minLength": 1 },
+        "actor_room_id": { "type": "string" },
+        "hidden_room": { "type": "boolean" },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["energy", "compute", "storage", "influence", "attention"],
+          "properties": {
+            "energy": { "type": "integer", "minimum": 0 },
+            "compute": { "type": "integer", "minimum": 0 },
+            "storage": { "type": "integer", "minimum": 0 },
+            "influence": { "type": "integer", "minimum": 0 },
+            "attention": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "live_classes_in_room": {
+          "type": "array",
+          "items": { "enum": ["relay", "generator", "storage_bay", "production_node"] }
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "entity_id": { "type": "string" },
+            "class_id": { "enum": ["relay", "generator", "storage_bay", "production_node"] },
+            "owner_id": { "type": "string" },
+            "live": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "events": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

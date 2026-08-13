@@ -1,0 +1,50 @@
+{
+  "schema_version": "construction-catalog/gc2-s0",
+  "catalog_id": "construction-catalog/gc2-s0",
+  "slice_id": "gc2-s0",
+  "authority": "docs/GC2-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0006-construction-existing-events.md",
+  "verb": "BUILD",
+  "operations": ["CONSTRUCT", "DISMANTLE"],
+  "repair_verb": "COMMIT.REPAIR",
+  "event_catalog": "event-catalog/0.1",
+  "construct_events": ["BUDGET_CONSUMED", "ENTITY_CREATE"],
+  "dismantle_events": ["BUDGET_CONSUMED", "ENTITY_DESTROY"],
+  "max_live_per_class_per_room": 1,
+  "owner_equals_steward": true,
+  "benefits_enabled": false,
+  "classes": [
+    {
+      "class_id": "relay",
+      "entity_type": "INFRASTRUCTURE",
+      "construct_cost": { "energy": 8, "compute": 4, "storage": 4, "influence": 2 },
+      "dismantle_cost": { "energy": 4, "compute": 2 },
+      "salvage_storage": 2,
+      "couples": ["communication", "territory"]
+    },
+    {
+      "class_id": "generator",
+      "entity_type": "INFRASTRUCTURE",
+      "construct_cost": { "energy": 8, "compute": 3, "storage": 5, "influence": 0 },
+      "dismantle_cost": { "energy": 4, "compute": 2 },
+      "salvage_storage": 2,
+      "couples": ["production", "resources"]
+    },
+    {
+      "class_id": "storage_bay",
+      "entity_type": "INFRASTRUCTURE",
+      "construct_cost": { "energy": 5, "compute": 2, "storage": 6, "influence": 0 },
+      "dismantle_cost": { "energy": 4, "compute": 2 },
+      "salvage_storage": 3,
+      "couples": ["trade", "resources"]
+    },
+    {
+      "class_id": "production_node",
+      "entity_type": "INFRASTRUCTURE",
+      "construct_cost": { "energy": 7, "compute": 3, "storage": 4, "influence": 0 },
+      "dismantle_cost": { "energy": 4, "compute": 2 },
+      "salvage_storage": 2,
+      "couples": ["production", "harvest"]
+    }
+  ]
+}

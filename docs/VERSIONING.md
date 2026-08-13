@@ -34,6 +34,7 @@
 - Capability Graph / LEARN: `capability-graph/0.7`, `behavior-node/0.7`, `capability-edge/0.7`
 - Mastery catalog (GC1-S0, derived only): `mastery-catalog/gc1-s0`
 - Mastery catalog (GC1-S1 recognition, derived only): `mastery-catalog/gc1-s1`
+- Construction catalog (GC2-S0): `construction-catalog/gc2-s0`
 - Anomaly detectors: `anomaly-detectors/0.3`
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`

@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc2-s0",
+  "catalog_id": "construction-catalog/gc2-s0",
+  "attempt": {
+    "operation": "CONSTRUCT",
+    "class_id": "generator",
+    "actor_id": "player.nacre",
+    "room_id": "room.hidden-vault",
+    "actor_room_id": "room.hidden-vault",
+    "hidden_room": true,
+    "budgets": { "energy": 80, "compute": 64, "storage": 16, "influence": 40, "attention": 8 },
+    "live_classes_in_room": []
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_OBSERVABLE"
+  }
+}

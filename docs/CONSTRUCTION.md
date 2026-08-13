@@ -222,20 +222,33 @@ Condition changes may continue to use existing infrastructure / `ENTITY_UPDATE` 
 
 ---
 
-## SPEC GAP (blocks runtime)
+## SPEC GAP
+
+### Closed for GC2-S0 ([GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), RFC-0006)
 
 ```text
-action-contracts increment (BUILD + operations)
-constructible catalog and room-permission table
-resource/budget cost table
-ownership transfer details
-event types and payloads
-multi-cycle project state
-fixtures and conformance
-migration from worlds that only had v0.1 infrastructure
+CONSTRUCT + DISMANTLE only
+four v0.1 infrastructure classes
+pinned costs and salvage
+one live asset per class per room
+owner = steward
+reuse ENTITY_CREATE / ENTITY_DESTROY / BUDGET_CONSUMED
+attempt fixtures
 ```
 
-Until that RFC is accepted, `BUILD` remains **UNSUPPORTED** in ordinary PLAY.
+### Still open (later slices)
+
+```text
+route_link / workshop / defensive_work / archive_annex
+UPGRADE, REPURPOSE, CONNECT, RESTORE
+institution / shared ownership
+abandonment timers
+multi-cycle projects
+first-world PLAY advertising BUILD
+runtime implementation
+```
+
+`BUILD` remains **UNSUPPORTED** in ordinary Chamber PLAY until a separate implementation pass.
 
 ---
 
