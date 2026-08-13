@@ -9,6 +9,8 @@ This package expands **surfaces, routing, and failure** around `MESSAGE`. It doe
 
 **Doctrine:** communication is information + infrastructure, not a minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
+GC5-S0 machine pins: [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md). Delay, rumor records, and extra surfaces remain **SPEC GAP**.
+
 ---
 
 ## Thesis
@@ -110,13 +112,14 @@ This is the substrate for acceptance scenario E. Ordinary `MESSAGE` semantics (s
 ## SPEC GAP
 
 ```text
+GC5-S0 closed: local = same room; long-range needs best live relay condition ≥ 25
 scope/surface parameter enum on MESSAGE vs later operations
-deterministic delay function
+deterministic delay function (DELAYED)
 rumor record schema (or reuse contradiction / document entities)
 retention defaults
-fixtures: damaged relay delays or drops long-range without breaking local MESSAGE
+fixtures: degraded-path delay then repair restores delay class
 conformance
-WATCH redaction of private text
+WATCH redaction of private text (S0: no WATCH text)
 ```
 
 Prefer extending `MESSAGE` parameters over a new verb.

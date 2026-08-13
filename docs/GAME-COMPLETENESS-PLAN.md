@@ -98,6 +98,7 @@ Produced before writing new authorities. Status values:
 | [WORLD-REPORTS.md](WORLD-REPORTS.md) | EXISTS (derived news) | One surface, not the ecology |
 | Relay as communication quality | PARTIAL ([INFRASTRUCTURE.md](INFRASTRUCTURE.md)) | Formalize dependency |
 | Boards, rumors, latency, failure | ABSENT | New: [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) |
+| Long-range MESSAGE vs local on relay condition | PINNED S0 | [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md) |
 
 ### GC6 Systemic mystery and discovery — P1
 

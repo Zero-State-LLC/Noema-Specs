@@ -93,9 +93,11 @@ Lower priority values resolve first. These values are world-rules metadata and M
 | preconditions | sender ACTIVE; recipient addressable same world; compute ≥ 1 |
 | resource_cost | compute 1; if local relay condition &lt; 25, additional compute 1 |
 | events_on_success | `MESSAGE` (QUEUED), then same-cycle `MESSAGE_DELIVERED` before observation projection when recipient active |
-| events_on_failure | `BUDGET_EXCEEDED` / FORBIDDEN |
+| events_on_failure | `BUDGET_EXCEEDED` / FORBIDDEN; long-range path failure is `UNREACHABLE` with no events ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md)) |
 | visibility | parties only for text |
 | spectator_projection | `message_notice` without text |
+
+Same-room `MESSAGE` stays the v0.1 same-cycle path even when every relay is dead. Different-room `MESSAGE` requires a live `relay` at condition ≥ 25 (the existing stressed-relay number). Frozen `action-contracts.v01.json` is not rewritten by GC5-S0.
 
 ## ASK (optional; not a separate mutation class)
 
