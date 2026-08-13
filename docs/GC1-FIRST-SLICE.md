@@ -191,36 +191,61 @@ protocol change
 
 ## 4. Runtime audit (reference implementation, read-only)
 
-Inspected `Zero-State-LLC/Noema` (`workers/noema/src`). No runtime code was changed.
+Inspected `Zero-State-LLC/Noema`. No runtime code was changed.
+
+There are **two runtimes**. Do not assume they share a ledger or payload shape.
+
+| Runtime | Role | Ledger? |
+|---------|------|---------|
+| Hosted Worker + `NoemaWorldDO` | Live PLAY | **No.** Snapshot at DO key `"world"`; `digest_events` last 2000 (operator); optional Supabase `noema_settled_events` |
+| Python `src/noema` | v0.1 fixture / replay reference | **Yes.** Digest-chained `events` table |
+
+### Hosted findings
 
 | Finding | Label | Note |
 |---------|-------|------|
-| Command apply lives in `world-actions.ts` | OBSERVED | Human text, GUI, and structured commands share this path |
-| PLAY observation is `buildObservation()` | OBSERVED | Natural hook for self-only practice lines |
-| `pushEvent` writes `{event_id, event_type, sequence, payload}` only | OBSERVED | No envelope `actor_id` |
-| Hosted `ENTITY_UPDATE` payload is `{entity_id, field, from, to, operation}` | OBSERVED | **Does not match** catalog `{entity_id, set, unset}` |
-| Hosted `BUDGET_CONSUMED` uses `{player_id, cost_paid, reason}` | OBSERVED | **Does not match** catalog `{agent_id, resource, amount, action_id, remaining}` |
-| `LOOK` / `INSPECT` / `TRADE_ACCEPTED` / `REPAIR` are implemented | OBSERVED | Qualifying S0 actions exist |
-| Durable Object keeps `digest_events` capped at 2000 | OBSERVED | Operator digest only — **not** a Player ledger |
-| No complete in-DO event ledger for rebuild | OBSERVED | `unsettled` is a settlement queue, not history |
-| Incremental `PlayerRuntime` practice fields | ABSENT | Would be a derived cache, not WorldState |
+| Apply path | OBSERVED | `POST /v1/command` → `NoemaWorldDO.applyCommand` → `applyWorldCommand` (`world-actions.ts`) |
+| PLAY projection | OBSERVED | `buildObservation()` → `play.ts` `renderObs` / `statusFromObservation` |
+| `PlayerRuntime` | OBSERVED | `room_id`, `entered`, `budgets`, `handle`, session, `last_seen_ms`, `actor_kind`. No practice fields |
+| `pushEvent` | OBSERVED | `{event_id, event_type, sequence, payload}` only. No envelope `actor_id` |
+| Hosted `ENTITY_UPDATE` | OBSERVED | `{entity_id, field, from, to, operation}` — **not** catalog `{entity_id, set, unset}` |
+| Hosted `BUDGET_CONSUMED` | OBSERVED | `{player_id, cost_paid, reason}` — **not** catalog `{agent_id, resource, amount, action_id, remaining}` |
+| `LOOK` vs `OBSERVE` | OBSERVED | Only `LOOK` emits events and spends attention. `OBSERVE` is free and silent. S0 counts `LOOK` only |
+| Failures | OBSERVED | `fail(...)` emits no events. Idempotent replay returns the cached result **before** `pushEvent` |
+| `unsettled` | OBSERVED | Declared on `WorldRuntime` and **never written** |
+| `digest_events` | OBSERVED | Last 2000, operator-only. **Forbidden** as mastery source |
+| Settlement row | OBSERVED | `settleEvent` stamps `player_id` on the Postgres row even when the payload lacks it |
+| `ensurePlayer` inside `buildObservation` | OBSERVED | Refreshes `last_seen_ms`. Practice updates MUST stay on the **mutate** path so observe-only calls invent no practice |
+| Contests | OBSERVED | Not hosted. S0 must not wait on v0.2 verbs |
+| WATCH | OBSERVED | `redactedPublicWorld` has no player practice. Keep it that way |
+| Python `acceptance_projection` | INFERRED | Adding practice there would break v0.1 fixture digests unless excluded |
 
-Hosted-runtime implication:
+### Hosted-runtime implication
 
 ```text
 normative S0 identity     = rebuild from a complete catalog ledger
-hosted Worker today       = no complete ledger in the DO
+hosted Worker today       = snapshot + truncated digest + optional settlement
 first runtime increment   = incremental derived counters on PlayerRuntime
-                             updated only on qualifying successful actions
-                             projected only from buildObservation
-forbidden                 = reading digest_events for mastery
+                             updated only after a successful pushEvent batch
+                             projected only from buildObservation (self)
+forbidden                 = digest_events, deriveAffordances, HELP, WATCH,
+                             operator digests, Python fixture digests
 forbidden                 = changing REPAIR/TRADE costs
 forbidden                 = treating the cache as canonical world truth
 ```
 
-When the Worker later keeps a complete ledger, rebuild MUST match the incremental cache for the same events.
+Suggested later hook order (non-normative):
 
-A runtime adapter MAY map hosted repair events (`operation: "REPAIR"`) onto `track.engineer.01`. That mapping is an adapter concern. It does not change the catalog payload contract and MUST NOT be used to invent a new event type.
+1. Pure mapper over the successful event batch (hosted adapter: `LOOK`, `INSPECT`, `TRADE_ACCEPTED`, `ENTITY_UPDATE` + `operation: "REPAIR"`).
+2. Merge onto optional `PlayerRuntime` derived fields in `applyWorldCommand` after events, before `success()`.
+3. `buildObservation` attaches pinned self-only lines. Never on `players_here`, `affordances`, or WATCH.
+4. Chamber STATUS may show those lines. No integers.
+
+When a complete ledger exists, rebuild MUST match the incremental cache for the same events. Historical hosted play from before the cache is **NOT_COMPUTABLE** from the DO snapshot.
+
+A runtime adapter MAY map hosted `operation: "REPAIR"` onto `track.engineer.01`. That mapping is an adapter concern. It does not change the catalog payload contract and MUST NOT invent a new event type.
+
+Do **not** count hosted `HARVEST` as Engineer, and do **not** add Logistician in S0. Ignore `OBSERVATION_GENERATED`, `BUDGET_CONSUMED`, and `RESOURCE_TRANSFER` to avoid double-counting.
 
 ---
 
