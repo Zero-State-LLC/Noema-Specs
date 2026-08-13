@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc8-s0",
+  "catalog_id": "economy-catalog/gc8-s0",
+  "attempt": {
+    "pattern": "feature",
+    "rooms": 1,
+    "hops": 0,
+    "recognition": "engineer",
+    "harvest_amount": 2,
+    "claimed": { "mastery_yield_bonus": true }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "BONUS_FORBIDDEN",
+    "note": "GC1-S2 yield is not opened here."
+  }
+}

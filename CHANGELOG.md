@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0012 Accepted:** GC8-S0 distance interdependence. Two-Player `HARVEST`+`TRADE` spends less energy than a lone `MOVE` between rooms. No currency, order book, v0.6B, mastery yield, or wallets. No runtime.
+
+### Added
+
 - **RFC-0011 Accepted:** GC7-S0 existing contest rhythm. Stage table over `event-catalog/0.2` verbs and the four v0.2 forms. No HP, no death, no fifth form, no catalog mutation. No runtime.
 
 ### Added

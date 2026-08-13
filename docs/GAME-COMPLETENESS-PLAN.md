@@ -127,6 +127,7 @@ Produced before writing new authorities. Status values:
 | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) | EXISTS | Production/transport substrate |
 | Roadmap **v0.6B Contracts & Markets** | DEFERRED (named, not started) | Remains a distinct follow-up. GC8 MUST NOT silently become v0.6B |
 | Interdependence / comparative advantage | ABSENT | New: [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) |
+| Distance pair-vs-lone energy comparison | PINNED S0 | [GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md) · [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md) |
 
 ### GC9 Emergent culture — P2
 

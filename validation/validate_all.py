@@ -209,6 +209,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0010-discovery-contradiction.md",
     "docs/GC7-FIRST-SLICE.md",
     "rfcs/RFC-0011-contest-rhythm.md",
+    "docs/GC8-FIRST-SLICE.md",
+    "rfcs/RFC-0012-distance-interdependence.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -861,6 +863,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/rhythm-infra-ok.json"),
         ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/attack-verb-forbidden.json"),
         ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/death-forbidden.json"),
+        ("specs/economy-catalog.schema.json", "specs/economy-catalog.gc8-s0.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/pair-two-rooms-ok.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/lone-one-hop-ok.json"),
+        ("specs/economy-attempt.schema.json", "examples/gc8-economy/wallet-forbidden.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -3240,6 +3246,93 @@ def check_gc7_s0(Draft202012Validator) -> None:
     ok("GC7-S0 conflict: catalog, rhythm fixtures, RFC-0011 Accepted, event-catalog/0.2 unchanged")
 
 
+def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    claimed = attempt.get("claimed") or {}
+    if claimed.get("mastery_yield_bonus") or (
+        attempt.get("recognition") not in (None, "none") and int(attempt.get("harvest_amount") or 1) > 1
+    ):
+        return "REJECT", "BONUS_FORBIDDEN", None
+    for flag in (
+        "currency",
+        "order_book",
+        "global_price_index",
+        "v06b",
+        "wallet",
+        "crypto",
+    ):
+        if claimed.get(flag):
+            return "REJECT", "FEATURE_FORBIDDEN", None
+    rooms = int(attempt.get("rooms") or 0)
+    hops = int(attempt.get("hops") or 0)
+    harvest_e = int(catalog["harvest_energy"])
+    move_e = int(catalog["move_energy"])
+    pattern = attempt.get("pattern")
+    if pattern == "pair":
+        return "ACCEPT", None, rooms * harvest_e
+    if pattern == "lone":
+        return "ACCEPT", None, rooms * harvest_e + hops * move_e
+    return "REJECT", "FEATURE_FORBIDDEN", None
+
+
+def check_gc8_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "economy-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "economy-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC8-S0 catalog invalid: {cerrs[0].message}")
+    for flag in (
+        "currency",
+        "order_book",
+        "global_price_index",
+        "v06b",
+        "mastery_yield_bonus",
+        "lot_quality",
+        "storage_loss",
+        "wallet",
+        "crypto",
+        "npc_shop",
+    ):
+        if catalog.get(flag):
+            fail(f"GC8-S0 must not enable {flag}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC8-S0 must not add verbs or events")
+    if catalog.get("trade_requires_colocation"):
+        fail("GC8-S0 must keep TRADE remote (existing v0.1 contract)")
+    if int(catalog.get("harvest_energy") or 0) != 2 or int(catalog.get("move_energy") or 0) != 1:
+        fail("GC8-S0 must reuse existing HARVEST/MOVE energy costs")
+    rfc = (ROOT / "rfcs" / "RFC-0012-distance-interdependence.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0012 must be Accepted after GC8-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "pair-two-rooms-ok.json",
+        "lone-one-hop-ok.json",
+        "yield-bonus-forbidden.json",
+        "currency-forbidden.json",
+        "order-book-forbidden.json",
+        "wallet-forbidden.json",
+    ]
+    energies = {}
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc8-economy" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, energy = evaluate_gc8_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("energy") is not None and energy != expected["energy"]:
+            fail(f"{name}: energy {energy} expected {expected['energy']}")
+        energies[name] = energy
+    if energies["pair-two-rooms-ok.json"] >= energies["lone-one-hop-ok.json"]:
+        fail("pair energy must be strictly less than lone energy on one hop")
+    ok("GC8-S0 economy: catalog, pair-vs-lone fixtures, RFC-0012 Accepted, no currency/v0.6B")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -3272,6 +3365,7 @@ def main() -> None:
     check_gc5_s0(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
+    check_gc8_s0(Draft202012Validator)
     print("\nPASS")
 
 
