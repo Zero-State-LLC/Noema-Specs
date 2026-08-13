@@ -1623,9 +1623,6 @@ def check_rfc_0019() -> None:
         fail("RFC-0019 must refuse a new Player verb")
     if "contest" not in low or "wed" not in low:
         fail("RFC-0019 must leave contest/WED unauthorized")
-    ready = (ROOT / "docs" / "GC7-THAW-READINESS.md").read_text(encoding="utf-8")
-    if "does **not** thaw" not in ready.lower() and "does not thaw" not in ready.lower():
-        fail("GC7 thaw-readiness must not authorize CONTEST")
     ok("RFC-0019 hosted world-time: Accepted, WAIT quorum, no contest/WED")
 
 

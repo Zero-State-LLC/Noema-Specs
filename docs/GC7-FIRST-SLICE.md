@@ -1,6 +1,6 @@
 # GC7 First Slice — Existing Contest Rhythm
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as hosted isolated `CONTEST_DECLARE` → `CONTEST_RESOLVED` (RFC-0011 Accepted; reference runtime PR #81). Chamber help still omits CONTEST.  
 **Parent:** [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)  
 **Does not open:** `event-catalog/0.3` · new contest forms · `SCAN` / `ATTACK` · hit-point combat · character death · versioned withdraw
@@ -117,7 +117,7 @@ Chamber PLAY advertising CONTEST as required first-world help
 
 ## Runtime rule
 
-This document does not thaw first-world Chamber contest play. Hosted `CONTEST_DECLARE` remains outside the required first-world verb set until an implementation pass is authorized. Do not block Genesis PLAY on GC7.
+Hosted Chamber accepts `CONTEST_DECLARE` / `CONTEST_DEFEND`. `CONTEST_RESOLVE` is world-side on RFC-0019 cycle commit when `cycle >= expires_cycle`. Help and `AVAILABLE HERE` still omit CONTEST. `AGREEMENT_FORM`, `ACCESS_POLICY`, WED, and Genesis reseed remain frozen.
 
 ## Acceptance (narrower than scenario G)
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only. Does **not** mutate `event-catalog/0.2`. Does **not** add forms, verbs, or a runtime implementation.
+Hosted runtime shipped (isolated declare → resolve). Does **not** mutate `event-catalog/0.2`. Does **not** add forms or Chamber help.
 
 ## Problem
 

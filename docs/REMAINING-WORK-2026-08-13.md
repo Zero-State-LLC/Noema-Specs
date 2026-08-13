@@ -2,7 +2,7 @@
 
 **Status:** Analysis snapshot. Not a thaw. Not a release.  
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (seq 75 at last check).  
-**Does not open:** contest, WED, Genesis reseed, crypto, SERIALIZABLE cycle fence. GC2 BUILD is shipped (Noema #79); help still omits it. RFC-0019 pins hosted world-time.
+**Does not open:** WED, Genesis reseed, crypto, SERIALIZABLE cycle fence. GC2 BUILD and GC7 contest are shipped; help still omits both. RFC-0019 pins hosted world-time.
 
 Use this file to analyze what is left. Do not treat it as authorization.
 
@@ -22,7 +22,8 @@ Use this file to analyze what is left. Do not treat it as authorization.
 | GC2-S0 BUILD | RFC-0006 | Yes (#79). Chamber help still omits BUILD |
 | Reducer registry | `REDUCER-REGISTRY.md` | Spec only (index) |
 | Durable world head | **RFC-0016** | Worker shipped (#76 / #77); **SQL may be unapplied** |
-| Hosted world-time | **RFC-0019** | WAIT quorum cycle commit (this run) |
+| Hosted world-time | **RFC-0019** | WAIT quorum cycle commit (#80) |
+| GC7-S0 contest | RFC-0011 | Isolated declare→resolve (this run). Help still omits CONTEST |
 
 Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are unchanged.
 
@@ -44,7 +45,6 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 | Item | Authority | Why blocked |
 |------|-----------|-------------|
-| GC7-S0 contest | RFC-0011 | See `docs/GC7-THAW-READINESS.md`. Verbs still unsupported. Help must omit CONTEST |
 | GC10-S0 WED | RFC-0014 | Schedule cycle 4 now reachable after RFC-0019; still unauthorized. Do not reseed Genesis |
 
 ---
@@ -76,5 +76,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Confirm the world-heads SQL is applied (or not) on hosted Postgres.  
-2. Explicit GC7 thaw (isolated declare→resolve) or GC10 WED. Neither is authorized here.  
+2. Explicit GC10 WED thaw. Still unauthorized.  
 3. Or a later player action that may emit allowlisted archive `ENTITY_UPDATE` (RFC-0018: none in v0.1).
