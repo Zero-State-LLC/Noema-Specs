@@ -120,7 +120,9 @@ oracle / narrator
 
 ## Runtime rule
 
-This document does not change Chamber PLAY and does not add archive rows to Perihelion Reach. Hosted `INSPECT` stays as it is until an implementation pass is authorized.
+This document does not change Chamber PLAY and does not add archive rows to Perihelion Reach.
+
+**Hosted adapter: blocked.** Chamber has no structured archive record `{subject_entity_id, claim ∈ {DESTROYED, OPERATING}, accessible_to}`. Existing `entity.archive-ledger` is an ARTIFACT without those fields. S0 must not infer a claim from flavor text, World Services copy, or WATCH. A Perihelion “destroyed relay” pack remains rejected ([RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)). Do not project the conflict line until a later RFC names the archive-record source.
 
 ## Acceptance (narrower than scenario F)
 

@@ -265,6 +265,6 @@ No superseding RFC is opened in this pass. Accepted RFC-0002…RFC-0014 remain.
 
 ```text
 Architecture-design frontier PAUSED.
-Next frontier when explicitly resumed:
-canonical reducer registry + mutation ownership map.
+First resumed slice landed: REDUCER-REGISTRY.md.
+Do not open a further architecture slice unless explicitly resumed.
 ```
