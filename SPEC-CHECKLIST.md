@@ -42,7 +42,7 @@
 - [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. BUILD still unsupported in Chamber PLAY.
 - [x] GC3-S0 social memory (RFC-0007 Accepted): dyadic trade edges, no reputation scalar, leak-forbidden projection.
 - [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events.
-- [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs.
+- [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs. Hosted PLAY shipped (Noema #72).
 - [x] GC6-S0 discovery contradiction (RFC-0010 Accepted): archive vs live INSPECT; no QUEST; no oracle; WATCH empty.
 - [x] GC7-S0 contest rhythm (RFC-0011 Accepted): RECON→RECOVER over existing v0.2 forms/verbs; no HP; no event-catalog/0.3.
 - [x] GC8-S0 distance interdependence (RFC-0012 Accepted): pair HARVEST+TRADE cheaper than lone MOVE; no currency, order book, v0.6B, or yield bonus.

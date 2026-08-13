@@ -1,6 +1,6 @@
 # GC5 First Slice — Relay Bands on Existing MESSAGE
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as hosted MESSAGE delivery (RFC-0009 Accepted; reference runtime PR #72).  
 **Parent:** [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)  
 **Does not open:** `SHOUT` / `BOARD` / `RUMOR` verbs · `MESSAGE_FAILED` · `event-catalog/0.3` · rumor records · multi-cycle delay · region schema
@@ -116,7 +116,7 @@ omniscient search
 
 ## Runtime rule
 
-Chamber `MESSAGE` stays the current same-cycle path until an implementation pass is authorized. This document does not change production delivery. First-world verb freeze is not thawed.
+Hosted Chamber `MESSAGE` applies the S0 band: same-room always delivers; different-room needs a live relay at condition ≥ 25 or fails `UNREACHABLE` with no events. Extra local-relay compute is unchanged. No new verbs. BUILD and contest stay frozen.
 
 ## Acceptance (narrower than scenario E)
 
