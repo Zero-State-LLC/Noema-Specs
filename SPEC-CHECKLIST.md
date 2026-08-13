@@ -217,10 +217,12 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Projection freshness and Player knowledge stay distinct from research stores.
 - [x] Architecture-design frontier: reducer registry landed; RFC-0016 hosted durable world head Accepted. SERIALIZABLE cycle fence remains later. No stack change.
 - [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
+- [x] S0 closeout + S1 order: `docs/GC-S0-CLOSEOUT-2026-08-13.md`, `docs/GC-S1-ORDER.md`.
 - [x] RFC-0017 Accepted: hosted cycle fence / STALE_HEAD / crash-retry. No event-catalog/0.3.
 - [x] RFC-0018 Accepted: archive-claim writer pin. INSPECT not a writer. No Genesis pack.
 - [x] GC2 thaw readiness note. Hosted BUILD CONSTRUCT/DISMANTLE shipped (Noema #79). Help still omits BUILD.
 - [x] RFC-0019 Accepted: hosted WAIT-quorum cycle commit. No new verbs. Contest/WED still unauthorized from that RFC.
-- [x] GC7-S0 hosted isolated contest (RFC-0011). Help still omits CONTEST. WED still unauthorized.
+- [x] GC7-S0 hosted isolated contest (RFC-0011). Help still omits CONTEST.
 - [x] GC10-S0 hosted cycle-4 mild relay pressure (RFC-0014). PLAY omits WED. No Admin spawn. No Genesis reseed.
+- [x] RFC-0020 Accepted: later `COMMIT.ATTEST` for archive-claim fields. INSPECT not a writer. Runtime not authorized. No Genesis pack.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).

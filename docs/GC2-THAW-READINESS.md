@@ -12,6 +12,6 @@
 | Asset lineage | `owner_id` = constructing Player; one live class per room |
 | Location | Co-located; hidden rooms not targets |
 | Events reused | `BUDGET_CONSUMED`, `ENTITY_CREATE`, `ENTITY_DESTROY` |
-| Remaining runtime gaps | Chamber help still omits BUILD (required for S0). Contest / WED still frozen |
+| Remaining runtime gaps | Chamber help still omits BUILD (required for S0) |
 
-Hosted CONSTRUCT/DISMANTLE is live. Do not add BUILD to Chamber help. Do not thaw contest/WED from this document.
+Hosted CONSTRUCT/DISMANTLE is live. Do not add BUILD to Chamber help. Contest and WED shipped on their own slices; this document does not authorize their help text.

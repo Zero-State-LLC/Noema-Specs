@@ -112,4 +112,4 @@ first-world PLAY help advertising BUILD
 
 ## Runtime rule
 
-Hosted Chamber accepts `BUILD` CONSTRUCT/DISMANTLE (human `construct` / `build` / `dismantle`). Help and `AVAILABLE HERE` still omit `BUILD`. Repair stays `COMMIT.REPAIR`. Contest / WED remain frozen.
+Hosted Chamber accepts `BUILD` CONSTRUCT/DISMANTLE (human `construct` / `build` / `dismantle`). Help and `AVAILABLE HERE` still omit `BUILD`. Repair stays `COMMIT.REPAIR`. Contest and WED later shipped on their own slices; this document does not authorize help text for them.

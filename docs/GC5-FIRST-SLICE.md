@@ -116,7 +116,7 @@ omniscient search
 
 ## Runtime rule
 
-Hosted Chamber `MESSAGE` applies the S0 band: same-room always delivers; different-room needs a live relay at condition ≥ 25 or fails `UNREACHABLE` with no events. Extra local-relay compute is unchanged. No new verbs. BUILD and contest stay frozen.
+Hosted Chamber `MESSAGE` applies the S0 band: same-room always delivers; different-room needs a live relay at condition ≥ 25 or fails `UNREACHABLE` with no events. Extra local-relay compute is unchanged. No new verbs. BUILD and contest later shipped on their own slices; this document does not add them to help.
 
 ## Acceptance (narrower than scenario E)
 

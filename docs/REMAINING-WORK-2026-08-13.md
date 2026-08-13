@@ -1,30 +1,32 @@
 # Remaining work — 2026-08-13
 
-**Status:** Analysis snapshot. Not a thaw. Not a release.  
-**Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (seq 75 at last check).  
-**Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence. GC2 BUILD, GC7 contest, and GC10 schedule are shipped; help still omits BUILD / CONTEST / WED. RFC-0019 pins hosted world-time.
+**Status:** Analysis snapshot after S0 closeout. Not a thaw. Not a release.  
+**Authority:** [GC-S0-CLOSEOUT-2026-08-13.md](GC-S0-CLOSEOUT-2026-08-13.md) · [GC-S1-ORDER.md](GC-S1-ORDER.md)  
+**Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
+**Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. Do not treat it as authorization.
+Use this file to analyze what is left. Do not treat it as authorization to implement RFC-0020.
 
 ---
 
-## Already on main (not remaining)
+## Already on main (S0 — not remaining)
 
 | Item | Specs | Hosted |
 |------|--------|--------|
-| GC1-S0 / S1 | RFC-0004 / 0005 | Yes (Noema #68 / #69) |
+| GC1-S0 / S1 | RFC-0004 / 0005 | Yes (#68 / #69) |
+| GC2-S0 BUILD | RFC-0006 | Yes (#79). Help omits BUILD |
 | GC3-S0 | RFC-0007 | Yes (#70) |
 | GC4-S0 advisor pin | RFC-0008 | Yes (#71) |
 | GC5-S0 MESSAGE bands | RFC-0009 | Yes (#72) |
-| GC6-S0 mapper + source pin | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** (no claim fields) |
+| GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** |
+| GC7-S0 contest | RFC-0011 | Yes (#81). Help omits CONTEST |
 | GC8-S0 costs | RFC-0012 | Already true |
 | GC9-S0 custom | RFC-0013 | Yes (#71) |
-| GC2-S0 BUILD | RFC-0006 | Yes (#79). Chamber help still omits BUILD |
-| Reducer registry | `REDUCER-REGISTRY.md` | Spec only (index) |
-| Durable world head | **RFC-0016** | Worker shipped (#76 / #77); **SQL may be unapplied** |
-| Hosted world-time | **RFC-0019** | WAIT quorum cycle commit (#80) |
-| GC7-S0 contest | RFC-0011 | Isolated declare→resolve (#81). Help still omits CONTEST |
-| GC10-S0 pressure | RFC-0014 | Cycle-4 mild relay `ENTITY_UPDATE` (this run). Silent if drop would go below 25 |
+| GC10-S0 pressure | RFC-0014 | Yes (#82). Silent if drop would go below 25 |
+| World-time | **RFC-0019** | WAIT quorum (#80) |
+| Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
+| Archive writer pin | **RFC-0018** | INSPECT is not a writer |
+| Attest spec | **RFC-0020** | Spec only. Runtime unsupported |
 
 Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are unchanged.
 
@@ -36,28 +38,30 @@ Apply on hosted Postgres:
 
 ```text
 Noema/supabase/migrations/20260813210000_noema_world_heads.sql
+Noema/supabase/migrations/20260813223000_noema_world_head_fence.sql
 ```
 
-Until that runs, the Worker skips a missing `noema_world_heads` table (404) so PLAY does not fail-close. Events still settle to `noema_settled_events`. Heads are not stored.
+Until that runs, the Worker skips a missing `noema_world_heads` table (404) so PLAY does not fail-close. Events still settle to `noema_settled_events`.
 
 ---
 
-## Spec-ready, not authorized (explicit thaw required)
+## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining in the GC S0 set. Do not reseed Genesis.
+| Item | Authority | Why blocked |
+|------|-----------|-------------|
+| `COMMIT.ATTEST` | RFC-0020 | Specification-only. Help must omit ATTEST. No Genesis pack |
 
 ---
 
-## SPEC GAP (needs a later RFC)
+## SPEC GAP (later RFC)
 
 ```text
-GC1-S2 mechanical benefits
-GC3-S1 betrayal / GC4-S1 named offices / GC5-S1 delay-rumor
+GC5-S1 delay-rumor
+GC3-S1 betrayal / GC4-S1 named offices
 GC6-S1 reconstruction / GC9-S1 tradition
-Player action that may emit allowlisted archive ENTITY_UPDATE (RFC-0018: none in v0.1)
+GC7-S1 withdraw / GC10-S1 more pressure classes
+GC1-S2 mechanical benefits (doctrine DEFER)
 ```
-
-Closed this integrity run: RFC-0017 fence/STALE_HEAD; RFC-0018 archive writer (INSPECT not a writer); hosted WAIT no longer advances World.cycle; idle no longer clears `entered`.
 
 ---
 
@@ -74,6 +78,6 @@ production Genesis activate / force-supersede / reseed
 
 ## Suggested analysis order
 
-1. Confirm the world-heads SQL is applied (or not) on hosted Postgres.  
-2. S1 SPEC GAP slices (benefits, betrayal, named offices, delay-rumor, reconstruction, tradition).  
-3. Or a later player action that may emit allowlisted archive `ENTITY_UPDATE` (RFC-0018: none in v0.1).
+1. Operator: confirm or apply the two world-heads SQL files.  
+2. Later implementation pass for RFC-0020 only if explicitly authorized.  
+3. Then the rest of [GC-S1-ORDER.md](GC-S1-ORDER.md).

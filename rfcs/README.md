@@ -29,6 +29,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0017](RFC-0017-hosted-cycle-fence.md) | **Accepted** | Hosted cycle fence, STALE_HEAD, settlement crash/retry; no gameplay |
 | [RFC-0018](RFC-0018-archive-claim-writer.md) | **Accepted** | Archive-claim fields: ENTITY_CREATE/UPDATE only; INSPECT not a writer |
 | [RFC-0019](RFC-0019-hosted-world-time.md) | **Accepted** | Hosted world-time: WAIT quorum cycle commit; no contest/WED |
+| [RFC-0020](RFC-0020-archive-claim-attest.md) | **Accepted** | Later `COMMIT.ATTEST` for archive-claim fields; INSPECT not a writer; no runtime |
 
 ## Required review lenses
 

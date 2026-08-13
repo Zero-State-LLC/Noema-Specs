@@ -1626,6 +1626,27 @@ def check_rfc_0019() -> None:
     ok("RFC-0019 hosted world-time: Accepted, WAIT quorum, no contest/WED")
 
 
+def check_rfc_0020() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0020-archive-claim-attest.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0020 must be Accepted")
+    low = rfc.lower()
+    for token in ("attest", "inspect", "entity_update", "genesis"):
+        if token not in low:
+            fail(f"RFC-0020 must pin archive attestation ({token})")
+    if "not a writer" not in low and "must not" not in low:
+        fail("RFC-0020 must keep INSPECT from writing claims")
+    if "specification-only" not in low and "does **not** implement runtime" not in low:
+        fail("RFC-0020 must remain specification-only")
+    order = (ROOT / "docs" / "GC-S1-ORDER.md").read_text(encoding="utf-8")
+    if "gc1-s2" not in order.lower() or "defer" not in order.lower():
+        fail("GC-S1 order must defer GC1-S2 benefits")
+    closeout = (ROOT / "docs" / "GC-S0-CLOSEOUT-2026-08-13.md").read_text(encoding="utf-8")
+    if "not a thaw" not in closeout.lower():
+        fail("S0 closeout must not be a thaw")
+    ok("RFC-0020 archive ATTEST: Accepted, spec-only, INSPECT not a writer")
+
+
 def check_rfc_0018() -> None:
     rfc = (ROOT / "rfcs" / "RFC-0018-archive-claim-writer.md").read_text(encoding="utf-8")
     if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
@@ -3695,6 +3716,7 @@ def main() -> None:
     check_rfc_0017()
     check_rfc_0018()
     check_rfc_0019()
+    check_rfc_0020()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
