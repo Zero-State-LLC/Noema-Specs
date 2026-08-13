@@ -135,6 +135,32 @@ Takeover MUST be auditable (previous `session_id`, new `session_id`, Player, rea
 
 This is the smallest safe first-world policy. Multi-controller action arbitration remains out of MVP ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md)).
 
+### Session states
+
+Session state is **not** Player world state.
+
+| Session | Meaning |
+|---|---|
+| create | PlayerSession bound to Player + Controller + world after auth |
+| active | Controlling or observer session may receive deliveries; only the controlling session may mutate |
+| expired | Credential or session TTL ended; Account and Player persist |
+| revoked | Operator or credential revocation terminated the session |
+| disconnected | Transport closed; session ends or pauses; world location remains |
+| resumed | New or continued session after AUTH + resume cursor; no cycle rewind |
+
+DATA-MODEL session status remains `active` / `paused` / `terminated`. The rows above are operational events that produce those statuses.
+
+### Credential revocation
+
+```text
+credential revoked
+  → future auth denied
+  → Sessions that depend on it are terminated after draining non-mutating deliveries
+  → committed world history unchanged
+```
+
+Reuse [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) §2. Do not teleport, delete, or retire the Player as a side effect.
+
 ---
 
 ## Player offline state
@@ -172,7 +198,7 @@ Distinguish control-plane disable from world erasure.
 
 ### Account / controller disabled
 
-Operator IDENTITY interventions MAY:
+Operator CONTROL_PLANE interventions MAY:
 
 - suspend an Account;
 - revoke a Controller or Credential;
@@ -193,6 +219,19 @@ First-world MUST NOT delete a Player from canonical history because authenticati
 `retired` is an identity-plane status. It is not a ledger truncate. World events that already name that Player remain.
 
 ---
+
+## Player identity setup
+
+First-world Player creation collects only fields required for world identity, display, and auth linkage:
+
+| Field | Who sets it | Required |
+|---|---|---|
+| `player_id` | System | Yes |
+| `handle` | Human at first creation | Yes; unique in the deployment |
+| `display_name` | Optional; defaults to `handle` | No |
+| Account linkage | System (`external_auth_subject` is a link only) | Yes |
+
+Do not add bios, classes, avatars, controller names, or research-consent mazes to first-world creation. Consent flags remain fail-closed defaults on world entry ([AGENT-ONBOARDING.md](AGENT-ONBOARDING.md)).
 
 ## Player naming
 

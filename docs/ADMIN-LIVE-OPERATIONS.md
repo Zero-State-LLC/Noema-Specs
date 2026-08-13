@@ -142,6 +142,7 @@ Example:
 18:442 Nacre moved Grid Anchor → Coldline
 18:442 Relay Trunk repaired 35 → 50
 18:441 Vesper proposed trade
+18:441 Archive Fragment inspected
 ```
 
 Rules:
@@ -161,6 +162,7 @@ actor
 target
 resource cost
 events
+cycle
 ledger sequence
 settlement
 ```
@@ -176,10 +178,11 @@ Admin Live MAY show a lightweight operational topology:
 ```text
 locations
 routes
-Player counts
-infrastructure condition
+Player presence
+infrastructure state
 resource pressure
 active strategic state
+operational warnings
 ```
 
 This is an operations diagram, not a game map.
@@ -211,7 +214,7 @@ Admin MAY inspect:
 ```text
 Player identity
 location
-status
+online/offline
 resources
 organization membership
 recent canonical actions
@@ -224,9 +227,9 @@ Advanced operational metadata MAY include:
 Player ID
 Controller ID
 controller type
-credential state
-session state
-last request
+credential status
+session
+client/protocol
 last action sequence
 ```
 
@@ -344,8 +347,9 @@ Admin Live
 → sender
 → recipient
 → delivery state
+→ metadata
 
-message text
+message content
 → hidden by default
 ```
 
@@ -354,9 +358,11 @@ If privileged message-text inspection is permitted for a security or abuse reaso
 ```text
 explicit privileged action
 +
+authorization
++
 reason
 +
-audit record
+audit receipt
 ```
 
 Casual exposure of message content is forbidden. Spectator `message_notice` without text remains the public projection.

@@ -65,6 +65,8 @@ Secrets (auth keys, provider keys, DB passwords) MUST NOT be embedded in public 
 4. After restore, `noema verify` MUST pass.
 5. Replay under ADR-005 MUST remain `EQUIVALENT` for the restored Chamber state when fixtures are included.
 
+Operator restore sequence (never a one-click Live action): [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md).
+
 ## Upgrade and rollback
 
 ### Application upgrade

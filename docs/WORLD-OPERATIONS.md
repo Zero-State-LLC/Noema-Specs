@@ -27,7 +27,19 @@ INCIDENT
 ARCHIVED
 ```
 
-First-world operations MUST use this enum. Do **not** add `RUNNING`, `MAINTENANCE`, `DEGRADED`, or `RECOVERING` to `World.status` without an RFC and schema change.
+First-world operations MUST use this enum. Do **not** add `NOT_ACTIVE`, `RUNNING`, `MAINTENANCE`, `DEGRADED`, or `RECOVERING` to `World.status` without an RFC and schema change.
+
+Operational language MAY use these aliases. They are **not** additional machine statuses:
+
+| Operator language | Machine `World.status` / phase | Meaning |
+|---|---|---|
+| `NOT_ACTIVE` | Genesis `PREVIEW` or no activated world | Candidate exists; not world truth |
+| `ACTIVE` | `ACTIVE` | Live world; PLAY mutations allowed when ready |
+| `MAINTENANCE` | `PAUSED` | Intentional operational pause |
+| `RECOVERING` | `INCIDENT` (procedure) | Authority is being re-established |
+| `ARCHIVED` | `ARCHIVED` | Terminal |
+
+There is no distinct gameplay `PAUSED` besides `World.status = PAUSED`. Maintenance **is** that pause.
 
 Genesis **PREVIEW** is a pre-activation admin step. It is **not** a `World.status` value.
 
@@ -71,9 +83,21 @@ Genesis candidate exists but is **not** world truth.
 
 ### ACTIVE
 
-Canonical world exists. Players MAY enter and submit mutating actions when `/ready` passes and health is not `PLAY_BLOCKED`.
+Canonical world exists. This is the first-world “the world is up” state. Do not also say `RUNNING`.
 
-This is the first-world “the world is up” state. Do not also say `RUNNING`.
+`ACTIVE` means all of the following:
+
+```text
+world authority initialized
+Genesis configuration frozen
+world accepts valid Player sessions
+Action Router available
+canonical persistence healthy enough for PLAY
+/ready passes
+health is not PLAY_BLOCKED or RECOVERY_REQUIRED
+```
+
+Players MAY enter and submit mutating actions only while those conditions hold.
 
 ### PAUSED
 
@@ -93,9 +117,18 @@ Admin Live remains available
 new controlling sessions MUST NOT open for PLAY mutation
 ```
 
-`PAUSED` is an operator SYSTEM intervention ([OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md)). It is not implied by a deploy, a disconnect, or a single failed request.
+`PAUSED` is an operator CONTROL_PLANE intervention ([OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md)). It is not implied by a deploy, a disconnect, or a single failed request.
 
 Queued-for-later-execution of mutating Player actions during `PAUSED` is **not** first-world policy. Reject, do not silently queue.
+
+| Question | During `PAUSED` / maintenance |
+|---|---|
+| Can Players connect? | Existing sessions MAY remain for observation. New **controlling** sessions MUST NOT open for mutation. |
+| Can existing sessions observe? | Yes, read-only. |
+| Can Players submit actions? | Mutating actions are rejected. Idempotent reads MAY continue. |
+| Does WATCH continue? | Yes, last settled projection + maintenance marker. |
+| Does STUDY continue? | Authorized STUDY MAY read already-settled evidence. It MUST NOT start production-mutating work. New Lab forks remain isolated (`mutates_production: false`). |
+| Does Admin remain available? | Yes. |
 
 ### INCIDENT
 
@@ -109,7 +142,7 @@ While `INCIDENT`:
 - recovery follows [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md);
 - resolution is `ACTIVE` or `ARCHIVED`, with a closing event and audit evidence.
 
-`RECOVERING` is the **procedure** executed while status is `INCIDENT`. It is not a second status.
+`RECOVERING` is the **procedure** executed while status is `INCIDENT`. It is not a second status. During recovery, canonical mutation MUST stay blocked until a single authoritative head is re-established. Split live/settled authority is forbidden.
 
 ### ARCHIVED
 
@@ -144,7 +177,7 @@ That is the first-world pause. Exact meaning is the `PAUSED` section above.
 
 Do not implement a second “soft pause” that leaves status `ACTIVE` while silently dropping mutations.
 
-Resume is an authenticated SYSTEM intervention that returns status to `ACTIVE` only when `noema verify` semantics pass for the live/settled pair required by [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md).
+Resume is an authenticated CONTROL_PLANE intervention that returns status to `ACTIVE` only when `noema verify` semantics pass for the live/settled pair required by [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md).
 
 ---
 
@@ -156,7 +189,9 @@ Routine deployment answers:
 |---|---|
 | Can existing world authority continue? | Yes, if the new Worker / runtime pin is compatible with the world's runtime manifest. |
 | Can new sessions enter? | Yes, if status is `ACTIVE`, `/ready` passes, and health is not `PLAY_BLOCKED`. |
-| What happens to in-flight actions? | Already-accepted actions finish under existing idempotency. Unaccepted requests fail or retry; they MUST NOT double-apply. |
+| What happens to active sessions? | Compatible deploys MAY keep WebSocket/session bindings if the Durable Object identity is unchanged. Clients MUST tolerate reconnect + resume. Sessions MUST NOT authorize mutation while `/ready` fails. |
+| What happens to in-flight / unsettled actions? | Already-accepted actions finish under existing idempotency. Unaccepted requests fail or retry; they MUST NOT double-apply. Durable events awaiting settlement follow the [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) bound. |
+| How is authority recovered? | Writer fence + `CLEAN` / `REDELIVER_ONLY` / `FAIL_CLOSED` ([OPERATIONS.md](OPERATIONS.md)). |
 | What does readiness report? | `/health` = process up. `/ready` = world loadable, writer unambiguous, pins compatible, settlement within bound. `/version` = product/spec/protocol/world pins. |
 | What if Worker version changes? | Compatible Workers MAY serve the existing Durable Object / world. Incompatible code MUST fail closed and MUST NOT mutate the existing world. |
 

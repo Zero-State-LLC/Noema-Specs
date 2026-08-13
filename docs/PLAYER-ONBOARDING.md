@@ -4,7 +4,7 @@
 
 This document does not replace [PLAY.md](PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), or [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md). It settles the **minimum** Perihelion Reach entry path.
 
-Related: [QUICKSTART.md](QUICKSTART.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
+Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
 
 ---
 
@@ -18,6 +18,8 @@ create/select Player
 enter world
   ↓
 orient
+  ↓
+see WHAT MATTERS HERE
   ↓
 see AVAILABLE HERE
   ↓
@@ -141,33 +143,7 @@ Do not ask a new human to name Controllers, credentials, or sessions.
 
 ## Command discovery
 
-Reuse [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). Do not create a second command catalog.
-
-First-world discovery:
-
-```text
-AVAILABLE HERE
-inspect relay
-repair relay
-move east
-
-MORE
-help
-help trade
-help organizations
-```
-
-Rules:
-
-- Emphasize `AVAILABLE ACTION` for this observation, not the full dictionary.
-- `KNOWN COMMAND` may appear under `MORE` / `help`.
-- `UNSUPPORTED` actions MUST be omitted.
-- `NOT_OBSERVABLE` conditions MUST NOT be revealed by disabled controls.
-- `HELP` is client/interface only: no event, no cost, no world mutation.
-- Optional `QUERY` / `ASK` appear only if the deployment advertises them.
-- Agents discover via negotiated capabilities + `AVAILABLE_ACTIONS`.
-
-There is no separate Command Discovery product. PLAY, the action map, and this onboarding contract are sufficient.
+Canonical first-world discovery contract: [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md). Verb catalog: [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
 ---
 

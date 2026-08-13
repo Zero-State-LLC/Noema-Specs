@@ -10,9 +10,17 @@ Related: [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [WORLD-OPERATIO
 
 ## Canonical rule
 
-> Admin intervention is governed system operation, not free-form cheating.
+> Administrative authority is not arbitrary world-edit authority.
 
-Operator surfaces MUST NOT bypass the Action Router / declared external-input path for world mutations ([MODULE-CONTRACTS.md](MODULE-CONTRACTS.md)).
+Default Admin Live is:
+
+```text
+OBSERVE
+INSPECT
+DIAGNOSE
+```
+
+World-changing operations require an explicit governed path. Operator surfaces MUST NOT bypass the Action Router / declared external-input path for world mutations ([MODULE-CONTRACTS.md](MODULE-CONTRACTS.md)).
 
 ---
 
@@ -21,33 +29,24 @@ Operator surfaces MUST NOT bypass the Action Router / declared external-input pa
 First-world uses four classes:
 
 ```text
-IDENTITY
-SYSTEM
-WORLD
+CONTROL_PLANE
+WORLD_OPERATION
+EXTERNAL_INPUT
 RECOVERY
 ```
 
-Do not add arbitrary editing classes.
+Do not add arbitrary editing classes. Earlier IDENTITY / SYSTEM / WORLD labels map onto this closed set; do not keep a second taxonomy.
 
-### IDENTITY
+### CONTROL_PLANE
 
-Control-plane access and session control. Does **not** rewrite world history.
+Access, session, and operational mode. Does **not** rewrite world history.
 
 ```text
-terminate session
 revoke credential
+terminate session
 disable / revoke controller
 suspend account
 QUARANTINE / REVOKE_QUARANTINE
-```
-
-Reuse [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) for quarantine and revocation. Committed actions stay committed.
-
-### SYSTEM
-
-Operational mode of an existing world, without editing Player holdings or rooms.
-
-```text
 enter PAUSED (maintenance)
 resume ACTIVE
 trigger verification (`noema verify` semantics)
@@ -55,16 +54,20 @@ KILL_SWITCH
 declare / close INCIDENT
 ```
 
-Reuse [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) and [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md).
+Reuse [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) and [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md). Committed actions stay committed.
 
-### WORLD
+### WORLD_OPERATION
 
-Only **explicit, already-authorized** world-truth operations.
+Only if canonical operator semantics already exist.
 
 For first world, that set is:
 
 - Genesis create / preview / accept / activate **before** the world is live ([GENESIS.md](GENESIS.md));
 - no post-activation free-form world edits.
+
+### EXTERNAL_INPUT
+
+A declared input entering through governed world contracts (Action Router / declared external input), never a dashboard field poke.
 
 `SITUATION_INJECTED` remains a Frontier/catalog event with its own contract. It is **not** a first-world Admin Live cheat code and MUST NOT be exposed as “spawn content.”
 
@@ -90,10 +93,12 @@ The following raw Admin operations are **forbidden** unless represented as a can
 ```text
 set Player energy
 teleport Player
+delete trade
+rewrite ledger
+edit institution membership
+change infrastructure condition directly
+delete history
 delete event
-rewrite trade
-edit ledger
-change institution membership directly
 ```
 
 There is no first-world “GM console” that writes WorldState fields.
@@ -105,13 +110,13 @@ There is no first-world “GM console” that writes WorldState fields.
 Any Admin operation that changes world truth MUST follow:
 
 ```text
-authenticated
-  → authorized
-  → validated
-  → previewed where appropriate
-  → confirmed
-  → Action Router / declared external input
-  → canonical event
+AdminPrincipal
+  → authorized operation
+  → validation
+  → consequence preview
+  → confirmation
+  → Action Router / declared recovery path
+  → canonical result
   → audit receipt
 ```
 
@@ -134,6 +139,8 @@ recovering stuck settlement after verified infrastructure failure
 
 Ordinary read-only inspection does **not** require a reason.
 
+Store the reason in Admin audit provenance. Do **not** inject reason text into world history unless a canonical event already requires an operator note.
+
 The audit record MUST include operator principal, class, target (`world_id` / `player_id` / `controller_id` / `session_id` as applicable), reason when required, timestamp, and resulting event or receipt id.
 
 ---
@@ -144,11 +151,11 @@ Do not invent parallel names for these:
 
 | Sequence | Class | Authority |
 |---|---|---|
-| Quarantine / revoke quarantine | IDENTITY | SECURITY-SEQUENCES §1 |
-| Credential / Controller revocation | IDENTITY | SECURITY-SEQUENCES §2 |
-| World-level INCIDENT | SYSTEM | SECURITY-SEQUENCES §3 |
-| Kill switch | SYSTEM | SECURITY-SEQUENCES §4 |
-| Genesis preview / activate | WORLD (pre-live) | GENESIS |
+| Quarantine / revoke quarantine | CONTROL_PLANE | SECURITY-SEQUENCES §1 |
+| Credential / Controller revocation | CONTROL_PLANE | SECURITY-SEQUENCES §2 |
+| World-level INCIDENT | CONTROL_PLANE | SECURITY-SEQUENCES §3 |
+| Kill switch | CONTROL_PLANE | SECURITY-SEQUENCES §4 |
+| Genesis preview / activate | WORLD_OPERATION (pre-live) | GENESIS |
 | Backup / restore / verify | RECOVERY | OPERATIONS |
 
 ---

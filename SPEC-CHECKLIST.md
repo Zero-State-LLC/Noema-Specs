@@ -146,4 +146,6 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] First-world pause is `PAUSED` (reject mutating PLAY; WATCH may continue with a marker).
 - [x] Settlement outage is bounded fail-closed (at most one additional mutating cycle batch).
 - [x] One controlling PlayerSession per Player; disconnect does not delete the Player or rewrite location via transport close.
-- [x] Operator interventions are IDENTITY / SYSTEM / WORLD / RECOVERY; no raw world edits.
+- [x] Operator interventions are CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY; no raw world edits.
+- [x] Incident failure matrix covers PLAY / WATCH / STUDY / ADMIN / mutation / recovery, including research-subsystem isolation and an explicit restore sequence.
+- [x] Command discovery is a first-world operational contract (`docs/COMMAND-DISCOVERY.md`) that does not create a second verb catalog.

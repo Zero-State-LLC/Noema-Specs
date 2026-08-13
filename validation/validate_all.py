@@ -69,6 +69,7 @@ REQUIRED_DOCS = [
     "docs/OPERATOR-INTERVENTIONS.md",
     "docs/INCIDENT-RECOVERY.md",
     "docs/PLAYER-ONBOARDING.md",
+    "docs/COMMAND-DISCOVERY.md",
     "docs/FIRST-WORLD-OPERATIONS.md",
     "docs/MODULE-CONTRACTS.md",
     "docs/RESOURCE-ECONOMY.md",

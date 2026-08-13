@@ -26,6 +26,38 @@ RECOVERY_REQUIRED
 
 Fail closed when world authority is ambiguous. Do not best-effort-repair history.
 
+Settlement lag uses the same overlay with these operator labels:
+
+| Settlement | Meaning | Mutation |
+|---|---|---|
+| `HEALTHY` | Live and settled heads agree within the current batch | Allowed if world is `ACTIVE` |
+| `DEGRADED` | Durable settle failed; still inside the one-batch bound | Allowed only for that bound |
+| `BLOCKING` | Bound exceeded, or heads disagree | Stop. `PLAY_BLOCKED` or `RECOVERY_REQUIRED` |
+
+---
+
+## Failure matrix
+
+| Failure | PLAY | WATCH | STUDY | ADMIN | World mutation | Recovery action |
+|---|---|---|---|---|---|---|
+| Durable Object unavailable | Reject new mutations | Last settled + stale marker | Read settled evidence only | Report unavailable / degraded | Blocked | Restore from last verified settled head; do not invent a fallback world |
+| Supabase settlement unavailable | Allowed for at most one mutating cycle batch, then reject | Last settled + stale after bound | Read settled evidence; do not treat unsettled live as evidence | Show settlement `DEGRADED` then `BLOCKING` | Bounded then blocked | Retry idempotent settle; then `INCIDENT` / restore |
+| Settlement lag (`DEGRADED`) | Continue only inside the bound | May show live with unsettled marker | Do not promote unsettled events to evidence | Alert | Inside bound only | Catch up or fail closed |
+| Ledger / digest mismatch | Reject | Last verified snapshot only | Confound if a run is in progress | `RECOVERY_REQUIRED` | Blocked | Restore / reconcile; never pick the prettier digest |
+| Auth provider unavailable | Existing valid sessions until expiry; no new login | Public/anonymous WATCH if already permitted | Existing authorized sessions until expiry | Fail closed if Admin depends on the provider | Existing scoped sessions only | Out-of-band restore access; no auth bypass |
+| Failed / incompatible deploy | Reject if pins disagree | Stale/maintenance marker | Isolated research only | Report pin mismatch | Blocked | Roll back compatible build or restore pre-migration backup |
+| Partial migration | Reject | Stale | Confound | `RECOVERY_REQUIRED` | Blocked | Restore pre-migration bundle |
+| Snapshot / recovery mismatch | Reject | Last verified ledger projection | Confound | `RECOVERY_REQUIRED` | Blocked | Rebuild snapshot from verified ledger or restore |
+| Research subsystem failure (Frontier / Observatory / LEARN / Compiler) | **Unaffected** if world authority is healthy | Unaffected public WATCH | STUDY/research overlay degraded or blocked | Research overlay `Blocked` | Unchanged | Repair research pipeline; do not pause PLAY |
+
+```text
+PLAY readiness
+≠
+optional research readiness
+```
+
+A failed Frontier, Observatory, Lab derivation, Compiler, or LEARN rebuild MUST NOT, by itself, stop gameplay or force `PAUSED` / `INCIDENT`.
+
 ---
 
 ## Durable Object unavailable
@@ -161,6 +193,22 @@ There is one backup system: [OPERATIONS.md](OPERATIONS.md).
 | What does restore mean? | Install the bundle into a clean compatible environment; preserve `world_id` + `world_version`; do not invent a new Genesis. |
 | How is world identity preserved? | Restore MUST refuse to mint a new genesis for an existing `world_id` + `world_version`. |
 | How is post-restore authority checked? | Fresh writer fence + `noema verify` PASS before mutating traffic. Replay under ADR-005 remains `EQUIVALENT` when fixtures are included. |
+| What identity does a backup contain? | `world_id`, `world_version`, pins, ledger, snapshots, runtime manifest, non-secret config digest — not secrets ([OPERATIONS.md](OPERATIONS.md)). |
+| What happens to world authority during restore? | No active writer until verify passes and a **fresh** fence is acquired. |
+
+Restore is never a one-click Admin Live action:
+
+```text
+ADMIN
+  → select backup
+  → verify bundle
+  → PAUSED or INCIDENT
+  → restore
+  → verify canonical identity (world_id + world_version + digest lineage)
+  → noema verify PASS
+  → acquire fresh writer fence
+  → readiness / ACTIVE
+```
 
 ---
 
@@ -184,6 +232,7 @@ Do not fabricate world events to explain the outage.
 4. Auth outage does not mint anonymous sessions or extend expired ones.
 5. Incompatible Workers cannot mutate an existing world.
 6. Restore uses OPERATIONS and preserves world identity.
+7. Research-subsystem failure does not, by itself, stop PLAY.
 
 ---
 
