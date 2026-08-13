@@ -126,6 +126,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC5-S0 relay MESSAGE bands** ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), Accepted [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)): long-range delivery requires a live relay at the existing condition 25 band. Local same-room `MESSAGE` is unchanged. No Chamber runtime in this RFC.
 
+**GC6-S0 discovery contradiction** ([GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md), Accepted [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)): archive vs live `INSPECT` as a self-only PLAY line. No quest log. No Chamber runtime in this RFC.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena

@@ -205,6 +205,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0008-office-authority-pins.md",
     "docs/GC5-FIRST-SLICE.md",
     "rfcs/RFC-0009-relay-message-delivery.md",
+    "docs/GC6-FIRST-SLICE.md",
+    "rfcs/RFC-0010-discovery-contradiction.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -849,6 +851,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/communication-attempt.schema.json", "examples/gc5-communication/local-dead-relay-ok.json"),
         ("specs/communication-attempt.schema.json", "examples/gc5-communication/long-range-below-band-unreachable.json"),
         ("specs/communication-attempt.schema.json", "examples/gc5-communication/hidden-room-unreachable-no-leak.json"),
+        ("specs/discovery-catalog.schema.json", "specs/discovery-catalog.gc6-s0.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-relay-seven-open.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-inspect-only.json"),
+        ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-agreeing.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -3051,6 +3057,110 @@ def check_gc5_s0(Draft202012Validator) -> None:
     ok("GC5-S0 communication: catalog, attempt fixtures, RFC-0009 Accepted, no new verbs")
 
 
+def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    archive = fixture.get("archive") or {}
+    inspect = fixture.get("inspect") or {}
+    archive_ok = subject in (archive.get("accessible_to") or [])
+    inspect_ok = subject in (inspect.get("accessible_to") or [])
+    same = archive.get("subject_entity_id") == inspect.get("subject_entity_id")
+    if archive_ok and inspect_ok and same:
+        conflict = archive.get("claim") != inspect.get("observation")
+        if conflict:
+            return {
+                "play_lines": [catalog["conflict_line"]],
+                "watch_lines": [],
+                "third_party_lines": [],
+                "discovery_state": catalog["conflict_discovery_state"],
+                "resolution_status": catalog["resolution_status"],
+                "quest_log": [],
+            }
+        return {
+            "play_lines": [],
+            "watch_lines": [],
+            "third_party_lines": [],
+            "discovery_state": "investigated",
+            "resolution_status": "none",
+            "quest_log": [],
+        }
+    if inspect_ok:
+        state = "observed"
+    elif archive_ok:
+        state = "discovered"
+    else:
+        state = "unknown"
+    return {
+        "play_lines": [],
+        "watch_lines": [],
+        "third_party_lines": [],
+        "discovery_state": state,
+        "resolution_status": "none",
+        "quest_log": [],
+    }
+
+
+def check_gc6_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "discovery-catalog.gc6-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "discovery-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "discovery-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC6-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("quest_ui") or catalog.get("oracle") or catalog.get("ledger_write"):
+        fail("GC6-S0 must not enable a quest UI, oracle, or ledger write")
+    if catalog.get("watch_projection") or catalog.get("public_projection"):
+        fail("GC6-S0 must not enable a public or WATCH projection")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC6-S0 must not add verbs or events")
+    if catalog.get("understood_on_conflict"):
+        fail("GC6-S0 must not mark a conflict as understood")
+    if catalog.get("contradiction_schema") != "contradiction-set/0.2":
+        fail("GC6-S0 must reuse contradiction-set/0.2")
+    rfc = (ROOT / "rfcs" / "RFC-0010-discovery-contradiction.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0010 must be Accepted after GC6-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "rebuild-relay-seven-open.json",
+        "rebuild-inspect-only.json",
+        "rebuild-archive-only.json",
+        "rebuild-agreeing.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc6-discovery" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc6_s0(fixture, catalog)
+        exp = fixture["expected"]
+        for key in (
+            "play_lines",
+            "watch_lines",
+            "third_party_lines",
+            "discovery_state",
+            "resolution_status",
+            "quest_log",
+        ):
+            if got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if got["watch_lines"] or got["third_party_lines"] or got["quest_log"]:
+            fail(f"{name} WATCH, third party, and quest log must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        known = fixture.get("known_truth_relationship") or {}
+        for leak in ("matches_world_truth", "research partition", "INFERRED"):
+            if leak.lower() in blob:
+                fail(f"{name} play line leaked research truth ({leak})")
+        if known and name == "rebuild-relay-seven-open.json" and not got["play_lines"]:
+            fail("Relay Seven pair must project the conflict line")
+        if got["discovery_state"] == "understood":
+            fail(f"{name} must not project understood")
+    ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010 Accepted, no quest oracle")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -3081,6 +3191,7 @@ def main() -> None:
     check_gc3_s0(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
+    check_gc6_s0(Draft202012Validator)
     print("\nPASS")
 
 

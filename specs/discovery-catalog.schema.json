@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/discovery-catalog.schema.json",
+  "title": "NOEMA Discovery Catalog (GC6-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "contradiction_schema",
+    "new_verbs",
+    "new_events",
+    "quest_ui",
+    "oracle",
+    "watch_projection",
+    "public_projection",
+    "ledger_write",
+    "claims",
+    "agent_visible_relationship",
+    "resolution_status",
+    "conflict_discovery_state",
+    "understood_on_conflict",
+    "conflict_line",
+    "forbidden_in_projection"
+  ],
+  "properties": {
+    "schema_version": { "const": "discovery-catalog/gc6-s0" },
+    "catalog_id": { "const": "discovery-catalog/gc6-s0" },
+    "slice_id": { "const": "gc6-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "contradiction_schema": { "const": "contradiction-set/0.2" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "quest_ui": { "const": false },
+    "oracle": { "const": false },
+    "watch_projection": { "const": false },
+    "public_projection": { "const": false },
+    "ledger_write": { "const": false },
+    "claims": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "DESTROYED" }, { "const": "OPERATING" }],
+      "items": false
+    },
+    "agent_visible_relationship": { "const": "unresolved" },
+    "resolution_status": { "const": "open" },
+    "conflict_discovery_state": { "const": "investigated" },
+    "understood_on_conflict": { "const": false },
+    "conflict_line": { "type": "string", "minLength": 1 },
+    "forbidden_in_projection": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "discovery-catalog/gc6-s0",
+  "catalog_id": "discovery-catalog/gc6-s0",
+  "slice_id": "gc6-s0",
+  "authority": "docs/GC6-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0010-discovery-contradiction.md",
+  "contradiction_schema": "contradiction-set/0.2",
+  "new_verbs": [],
+  "new_events": [],
+  "quest_ui": false,
+  "oracle": false,
+  "watch_projection": false,
+  "public_projection": false,
+  "ledger_write": false,
+  "claims": ["DESTROYED", "OPERATING"],
+  "agent_visible_relationship": "unresolved",
+  "resolution_status": "open",
+  "conflict_discovery_state": "investigated",
+  "understood_on_conflict": false,
+  "conflict_line": "The archive and the live site do not agree.",
+  "forbidden_in_projection": [
+    "known_truth",
+    "quest",
+    "oracle",
+    "you are wrong",
+    "the answer"
+  ]
+}

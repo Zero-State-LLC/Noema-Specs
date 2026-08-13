@@ -8,6 +8,8 @@ No authored omniscient quest narrator. No second lore canon.
 
 **Doctrine:** mysteries are world-state + partial observability + evidence. No quest engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
+GC6-S0 machine pins: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md). Reconstruction compile and public WATCH remain **SPEC GAP**.
+
 ---
 
 ## Thesis
@@ -140,10 +142,12 @@ It MUST NOT automatically teleport, spawn loot, or complete a quest flag.
 ## SPEC GAP
 
 ```text
-whether any new event is needed beyond existing evidence / contradiction / reconstruction
-how PLAY presents reconstruction without a quest UI
-fixtures for the Relay Seven pattern (archive says destroyed, entity operating)
-conformance: no oracle leak
+GC6-S0 closed: archive vs live INSPECT contradiction; no QUEST; no oracle
+whether any later event is needed beyond existing evidence / contradiction / reconstruction
+how PLAY presents a compiled reconstruction without a quest UI (GC6-S1)
+settled-for-Player vs settled-for-world
+WATCH public contradiction without known_truth leak
+conformance beyond S0 rebuild fixtures
 ```
 
 Prefer **zero** new verbs and **reuse** of Deep Time schemas.

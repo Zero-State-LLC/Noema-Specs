@@ -19,6 +19,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0007](RFC-0007-dyadic-trade-memory.md) | **Accepted** | GC3-S0 dyadic trade memory; no reputation scalar |
 | [RFC-0008](RFC-0008-office-authority-pins.md) | **Accepted** | GC4-S0 existing roles as bounded authority; no ROLE_* events |
 | [RFC-0009](RFC-0009-relay-message-delivery.md) | **Accepted** | GC5-S0 relay bands on existing MESSAGE; no new verbs |
+| [RFC-0010](RFC-0010-discovery-contradiction.md) | **Accepted** | GC6-S0 archive vs live INSPECT; no quest oracle |
 
 ## Required review lenses
 
