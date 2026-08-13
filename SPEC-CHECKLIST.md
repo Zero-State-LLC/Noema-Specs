@@ -222,4 +222,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] GC2 thaw readiness note. Hosted BUILD CONSTRUCT/DISMANTLE shipped (Noema #79). Help still omits BUILD.
 - [x] RFC-0019 Accepted: hosted WAIT-quorum cycle commit. No new verbs. Contest/WED still unauthorized from that RFC.
 - [x] GC7-S0 hosted isolated contest (RFC-0011). Help still omits CONTEST. WED still unauthorized.
+- [x] GC10-S0 hosted cycle-4 mild relay pressure (RFC-0014). PLAY omits WED. No Admin spawn. No Genesis reseed.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).

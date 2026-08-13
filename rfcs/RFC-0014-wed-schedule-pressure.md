@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only. No new event types. No Frontier schema reuse. No Admin spawn. No runtime implementation in this RFC.
+Hosted runtime shipped (cycle-4 `ENTITY_UPDATE` on a live relay). No new event types. No Frontier schema reuse. No Admin spawn. No Genesis reseed.
 
 ## Problem
 

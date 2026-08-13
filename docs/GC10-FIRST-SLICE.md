@@ -1,6 +1,6 @@
 # GC10 First Slice — Seeded Mild Relay Pressure
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as hosted cycle-4 schedule (RFC-0014 Accepted; reference runtime PR #82). PLAY still omits WED / class names. No Admin spawn. No Genesis reseed.  
 **Parent:** [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md)  
 **Does not open:** `event-catalog/0.3` · `SITUATION_INJECTED` as WED · Admin “spawn content” · forced Player objectives · Frontier ID sharing
@@ -105,7 +105,7 @@ Frontier request IDs
 
 ## Runtime rule
 
-This document does not add a production schedule to Perihelion Reach and does not thaw Admin injects. Hosted condition stays as seeded until an implementation pass is authorized. Do not activate or reseed Genesis.
+Hosted RFC-0019 cycle commit may apply this schedule once in cycles 4–20. The drop fires only when preview stays ≥ 25. PLAY / help / Admin spawn still omit WED. Do not activate or reseed Genesis.
 
 ## Acceptance (narrower than scenario J)
 
