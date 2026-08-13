@@ -1,0 +1,24 @@
+{
+  "slice_id": "gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "attempt": {
+    "contest_form": "INFRASTRUCTURE_DISRUPTION",
+    "character_dead": false,
+    "hp_combat": false,
+    "projection": "Public contest on a visible relay. Stakes banded.",
+    "sequence": [
+      { "stage": "RECON", "verb": "INSPECT", "actor_kind": "live" },
+      { "stage": "POSITION", "verb": "MOVE", "actor_kind": "live" },
+      { "stage": "PRESSURE", "verb": "TRADE", "actor_kind": "live" },
+      { "stage": "COUNTER", "verb": "CONTEST_DEFEND", "actor_kind": "live" },
+      { "stage": "ESCALATE", "verb": "AGREEMENT_FORM", "actor_kind": "live" },
+      { "stage": "COMMIT", "verb": "CONTEST_DECLARE", "actor_kind": "live" },
+      { "stage": "RESOLVE", "verb": "CONTEST_RESOLVE", "actor_kind": "system" },
+      { "stage": "RECOVER", "verb": "REPAIR", "actor_kind": "live" }
+    ]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "Full rhythm composed from existing verbs only."
+  }
+}

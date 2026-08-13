@@ -117,6 +117,7 @@ Produced before writing new authorities. Status values:
 | [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) + RFC-0002 + `event-catalog/0.2` | EXISTS (executable v0.2) | **Extend this authority.** Do not create a second conflict canon |
 | [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md), [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) | EXISTS | v2 composes these |
 | Recon→commit→recover rhythm | PARTIAL | Specified in the v2 section of Strategic Conflict |
+| Stage table over existing v0.2 forms | PINNED S0 | [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md) |
 
 ### GC8 Economic specialization — P2
 

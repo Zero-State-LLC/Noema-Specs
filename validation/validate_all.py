@@ -207,6 +207,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0009-relay-message-delivery.md",
     "docs/GC6-FIRST-SLICE.md",
     "rfcs/RFC-0010-discovery-contradiction.md",
+    "docs/GC7-FIRST-SLICE.md",
+    "rfcs/RFC-0011-contest-rhythm.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -855,6 +857,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-relay-seven-open.json"),
         ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-inspect-only.json"),
         ("specs/discovery-rebuild.schema.json", "examples/gc6-discovery/rebuild-agreeing.json"),
+        ("specs/conflict-catalog.schema.json", "specs/conflict-catalog.gc7-s0.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/rhythm-infra-ok.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/attack-verb-forbidden.json"),
+        ("specs/conflict-attempt.schema.json", "examples/gc7-conflict/death-forbidden.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -3161,6 +3167,79 @@ def check_gc6_s0(Draft202012Validator) -> None:
     ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010 Accepted, no quest oracle")
 
 
+def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if attempt.get("character_dead"):
+        return "REJECT", "DEATH_FORBIDDEN"
+    if attempt.get("hp_combat"):
+        return "REJECT", "HP_FORBIDDEN"
+    form = attempt.get("contest_form")
+    if form and form not in (catalog.get("forms") or []):
+        return "REJECT", "FORM_FORBIDDEN"
+    projection = str(attempt.get("projection") or "")
+    for token in catalog.get("forbidden_in_projection") or []:
+        if token.lower() in projection.lower():
+            return "REJECT", "LEAK"
+    forbidden_verbs = set(catalog.get("forbidden_verbs") or [])
+    stages = catalog.get("stages") or {}
+    for step in attempt.get("sequence") or []:
+        verb = step.get("verb")
+        stage = step.get("stage")
+        if verb in forbidden_verbs:
+            return "REJECT", "VERB_FORBIDDEN"
+        if verb == "CONTEST_RESOLVE" and step.get("actor_kind") != "system":
+            return "REJECT", "VERB_FORBIDDEN"
+        allowed = (stages.get(stage) or {}).get("verbs") or []
+        if verb not in allowed:
+            return "REJECT", "VERB_FORBIDDEN"
+    return "ACCEPT", None
+
+
+def check_gc7_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC7-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("mutate_catalog") or catalog.get("hp_combat") or catalog.get("character_death"):
+        fail("GC7-S0 must not mutate the event catalog or enable HP/death")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_forms"):
+        fail("GC7-S0 must not add verbs, events, or forms")
+    if catalog.get("event_catalog") != "event-catalog/0.2":
+        fail("GC7-S0 must keep event-catalog/0.2")
+    if catalog.get("withdraw"):
+        fail("GC7-S0 must not add withdraw")
+    rfc = (ROOT / "rfcs" / "RFC-0011-contest-rhythm.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0011 must be Accepted after GC7-S0 machine contracts land")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    for form in catalog["forms"]:
+        if f'"{form}"' not in types_text:
+            fail(f"event-types.0.2.json must still contain {form}")
+    if '"HP_DUEL"' in types_text or '"ATTACK"' in types_text:
+        fail("event-catalog/0.2 must not grow combat types")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "rhythm-infra-ok.json",
+        "attack-verb-forbidden.json",
+        "unknown-form-forbidden.json",
+        "hidden-leak-forbidden.json",
+        "death-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc7-conflict" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc7_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+    ok("GC7-S0 conflict: catalog, rhythm fixtures, RFC-0011 Accepted, event-catalog/0.2 unchanged")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -3192,6 +3271,7 @@ def main() -> None:
     check_gc4_s0(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
+    check_gc7_s0(Draft202012Validator)
     print("\nPASS")
 
 

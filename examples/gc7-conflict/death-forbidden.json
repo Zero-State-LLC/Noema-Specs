@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "attempt": {
+    "contest_form": "PRESENCE_PRESSURE",
+    "character_dead": true,
+    "sequence": [
+      { "stage": "COMMIT", "verb": "CONTEST_DECLARE", "actor_kind": "live" },
+      { "stage": "RESOLVE", "verb": "CONTEST_RESOLVE", "actor_kind": "system" }
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "DEATH_FORBIDDEN",
+    "note": "A contest must not end a Player."
+  }
+}

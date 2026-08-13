@@ -1,0 +1,39 @@
+{
+  "schema_version": "conflict-catalog/gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "slice_id": "gc7-s0",
+  "authority": "docs/GC7-FIRST-SLICE.md",
+  "rfc": "rfcs/RFC-0011-contest-rhythm.md",
+  "event_catalog": "event-catalog/0.2",
+  "contest_rules_version": "contest-rules/0.2.0",
+  "action_contracts": "specs/action-contracts.v02.json",
+  "mutate_catalog": false,
+  "new_verbs": [],
+  "new_events": [],
+  "new_forms": [],
+  "hp_combat": false,
+  "character_death": false,
+  "withdraw": false,
+  "forms": [
+    "RESOURCE_SEIZURE",
+    "INFRASTRUCTURE_DISRUPTION",
+    "ACCESS_CONTEST",
+    "PRESENCE_PRESSURE"
+  ],
+  "commit_event": "CONTEST_DECLARED",
+  "resolve_event": "CONTEST_RESOLVED",
+  "stages": {
+    "RECON": { "verbs": ["LOOK", "INSPECT"] },
+    "POSITION": { "verbs": ["MOVE", "ACCESS_POLICY"] },
+    "PRESSURE": { "verbs": ["TRADE", "ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE"] },
+    "COUNTER": { "verbs": ["CONTEST_DEFEND", "REPAIR", "AGREEMENT_FORM", "MOVE"] },
+    "ESCALATE": { "verbs": ["CONTEST_DECLARE", "AGREEMENT_FORM"] },
+    "COMMIT": { "verbs": ["CONTEST_DECLARE"] },
+    "RESOLVE": { "verbs": ["CONTEST_RESOLVE"] },
+    "RECOVER": {
+      "verbs": ["REPAIR", "TRADE", "HARVEST", "MOVE", "ORG_MEMBER_ADD", "AGREEMENT_FORM"]
+    }
+  },
+  "forbidden_verbs": ["SCAN", "ATTACK", "HIT", "KILL", "QUEST"],
+  "forbidden_in_projection": ["hidden", "hp", "health", "hitpoints", "known_truth"]
+}
