@@ -3205,6 +3205,81 @@ def check_gc5_s0(Draft202012Validator) -> None:
     ok("GC5-S0 communication: catalog, attempt fixtures, RFC-0009 Accepted, no new verbs")
 
 
+def evaluate_gc5_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]:
+    if attempt.get("rumor") or attempt.get("new_verb"):
+        return "REJECT", "VERB_FORBIDDEN", None
+    if not attempt.get("recipient_addressable"):
+        return "REJECT", "FORBIDDEN", None
+    sender_room = attempt.get("sender_room_id")
+    recipient_room = attempt.get("recipient_room_id")
+    local = sender_room == recipient_room
+    best: int | None = None
+    for relay in attempt.get("relays") or []:
+        if not relay.get("live"):
+            continue
+        if relay.get("class_id") != catalog.get("relay_class"):
+            continue
+        cond = int(relay.get("condition") or 0)
+        if best is None or cond > best:
+            best = cond
+    if local:
+        return "ACCEPT", None, "same_cycle"
+    floor = int(catalog["long_range_min_condition"])
+    healthy = int(catalog["same_cycle_min_condition"])
+    if best is None or best < floor:
+        return "REJECT", catalog.get("long_range_failure") or "UNREACHABLE", None
+    if best < healthy:
+        return "ACCEPT", None, "delayed"
+    return "ACCEPT", None, "same_cycle"
+
+
+def check_gc5_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.gc5-s1.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC5-S1 catalog invalid: {cerrs[0].message}")
+    if not catalog.get("delay_enabled") or catalog.get("rumor_enabled") or catalog.get("watch_text"):
+        fail("GC5-S1 must enable delay and reject rumor/WATCH text")
+    if int(catalog.get("delay_cycles") or 0) != 1:
+        fail("GC5-S1 delay must be exactly 1 cycle")
+    if int(catalog.get("long_range_min_condition") or 0) != 25:
+        fail("GC5-S1 must keep the S0 fail floor 25")
+    if int(catalog.get("same_cycle_min_condition") or 0) != 50:
+        fail("GC5-S1 same-cycle long-range must start at 50")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC5-S1 must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0021-relay-message-delay.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0021 must be Accepted")
+    if "rumor" not in rfc.lower():
+        fail("RFC-0021 must leave rumor out")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "long-range-healthy-same-cycle.json",
+        "long-range-degraded-delayed.json",
+        "long-range-below-band-unreachable.json",
+        "rumor-verb-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc5-delay" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, delivery = evaluate_gc5_s1(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("delivery") and delivery != expected["delivery"]:
+            fail(f"{name}: delivery {delivery} expected {expected['delivery']}")
+        if expected.get("delay_cycles") is not None and int(expected["delay_cycles"]) != 1:
+            fail(f"{name}: delay_cycles must be 1")
+    ok("GC5-S1 delay: catalog, attempt fixtures, RFC-0021 Accepted, rumor out")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -3723,6 +3798,7 @@ def main() -> None:
     check_gc3_s0(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
+    check_gc5_s1(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0021 Accepted / GC5-S1:** long-range `MESSAGE` delays 1 world cycle when the best live relay is 25–49. Same-cycle at ≥ 50. Rumor still out. No new verbs.
+
+### Added
+
 - **RFC-0020 hosted:** `COMMIT.ATTEST` writes paired archive-claim fields on a visible ARTIFACT. `INSPECT` remains a reader. Chamber help omits ATTEST. No Genesis pack.
 
 ### Added

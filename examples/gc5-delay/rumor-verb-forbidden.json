@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc5-s1",
+  "catalog_id": "communication-catalog/gc5-s1",
+  "attempt": {
+    "sender_id": "player.nacre",
+    "recipient_id": "player.vesper",
+    "sender_room_id": "room.civic-exchange",
+    "recipient_room_id": "room.civic-exchange",
+    "recipient_addressable": true,
+    "rumor": true,
+    "new_verb": "RUMOR",
+    "relays": []
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "VERB_FORBIDDEN",
+    "watch_text": false
+  }
+}
