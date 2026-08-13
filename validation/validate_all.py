@@ -3625,6 +3625,110 @@ def check_gc6_s0(Draft202012Validator) -> None:
     ok("GC6-S0 discovery: catalog, rebuild fixtures, RFC-0010/0015 Accepted, no quest oracle")
 
 
+def evaluate_gc6_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]:
+    if not attempt.get("actor_in_world") or not attempt.get("subject_known"):
+        return "REJECT", "NOT_FOUND", None
+    if attempt.get("same_world") is False:
+        return "REJECT", "FORBIDDEN", None
+    if attempt.get("claim_nonempty") is False:
+        return "REJECT", "INVALID_REQUEST", None
+    hosted = set(catalog.get("hosted_evidence_kinds") or [])
+    forbidden_classes = set(catalog.get("forbidden_evidence_classes") or [])
+    evidence = list(attempt.get("evidence") or [])
+    if not evidence:
+        return "REJECT", "FORBIDDEN", None
+    labels: set[str] = set()
+    kinds: set[str] = set()
+    for item in evidence:
+        kind = item.get("kind")
+        ev_class = item.get("evidence_class") or "PLAY"
+        if ev_class in forbidden_classes:
+            return "REJECT", "FORBIDDEN", None
+        if kind not in hosted:
+            return "REJECT", "FORBIDDEN", None
+        if not item.get("accessible"):
+            return "REJECT", "FORBIDDEN", None
+        kinds.add(str(kind))
+        if item.get("label"):
+            labels.add(str(item["label"]))
+    op = attempt.get("operation")
+    visibility = attempt.get("visibility") or "PRIVATE"
+    if visibility == "INSTITUTIONAL" and not attempt.get("has_publish_authority"):
+        return "REJECT", "FORBIDDEN", None
+    if op == "RECONSTRUCT_SUPERSEDE":
+        if not attempt.get("owns_prior") and attempt.get("prior_visibility") == "PRIVATE":
+            return "REJECT", "FORBIDDEN", None
+        if not attempt.get("owns_prior"):
+            return "REJECT", "FORBIDDEN", None
+    if op == "RECONSTRUCT_PUBLISH" and not attempt.get("owns_prior"):
+        return "REJECT", "FORBIDDEN", None
+    epistemic = "OPEN"
+    if (
+        catalog.get("contested_when_archive_and_inspect_disagree")
+        and "ARCHIVE_CLAIM" in kinds
+        and "LIVE_INSPECT" in kinds
+        and "DESTROYED" in labels
+        and "OPERATING" in labels
+    ):
+        epistemic = "CONTESTED"
+    return "ACCEPT", None, epistemic
+
+
+def check_gc6_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "reconstruction-catalog.gc6-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "reconstruction-catalog.gc6-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "reconstruction-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC6-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("quest_ui") or catalog.get("oracle") or catalog.get("mutates_canonical_history"):
+        fail("GC6-S1 must not enable a quest UI, oracle, or ledger rewrite")
+    if catalog.get("confidence_scalar") or catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC6-S1 must not add a confidence scalar, verbs, or events")
+    rfc = (ROOT / "rfcs" / "RFC-0024-historical-reconstruction.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0024 must be Accepted")
+    if "known_truth" not in rfc.lower() and "canonical history" not in rfc.lower():
+        fail("RFC-0024 must keep reconstruction off canonical truth")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "single-source-ok.json",
+        "multi-source-ok.json",
+        "contradictory-ok.json",
+        "private-ok.json",
+        "institutional-ok.json",
+        "public-ok.json",
+        "supersede-ok.json",
+        "hidden-evidence-forbidden.json",
+        "cross-world-forbidden.json",
+        "missing-evidence-forbidden.json",
+        "unauthorized-publish-forbidden.json",
+        "research-evidence-forbidden.json",
+        "admin-evidence-forbidden.json",
+        "truth-mutation-forbidden.json",
+        "supersede-foreign-private-forbidden.json",
+    ]
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc6-reconstruction" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, epistemic = evaluate_gc6_s1(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("epistemic") and epistemic != expected["epistemic"]:
+            fail(f"{name}: epistemic {epistemic} expected {expected['epistemic']}")
+        blob = (expected.get("note") or "").lower()
+        for token in forbidden:
+            if token in blob and expected["outcome"] == "ACCEPT":
+                fail(f"{name} note leaked {token}")
+    ok("GC6-S1 reconstruction: catalog, attempt fixtures, RFC-0024 Accepted, no quest oracle")
+
+
 def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if attempt.get("character_dead"):
         return "REJECT", "DEATH_FORBIDDEN"
@@ -4023,6 +4127,7 @@ def main() -> None:
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
+    check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)

@@ -95,6 +95,7 @@ Sole writer for each family. “Writer” means the **event reducer** (or named 
 | Entity owner / location / inventory | Only events that name those fields (not `ENTITY_UPDATE`) | Postgres |
 | Organization / membership | `ORG_*` | Postgres |
 | Institution office / holder / lifecycle / profile | `ENTITY_CREATE` / `ENTITY_UPDATE` (allowlisted office keys on `office.*`) | WorldRuntime / world head |
+| Player reconstruction record | `ENTITY_CREATE` / `ENTITY_UPDATE` (allowlisted reconstruction keys on `recon.*`) | WorldRuntime / world head |
 | Trade object | `TRADE_*` + following transfers | Postgres |
 | Message queue / delivery | `MESSAGE`, `MESSAGE_DELIVERED` | Postgres |
 | Agreement | `AGREEMENT_*` | Postgres |

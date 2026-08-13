@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC4-S1 (RFC-0023) is authorized with this pass. Later S1s remain SPEC GAP.
+Use this file to analyze what is left. GC6-S1 (RFC-0024) is authorized with this pass. Later S1s remain SPEC GAP.
 
 ---
 
@@ -20,7 +20,8 @@ Use this file to analyze what is left. GC4-S1 (RFC-0023) is authorized with this
 | GC4-S0 advisor pin | RFC-0008 | Yes (#71) |
 | GC4-S1 named offices | **RFC-0023** | Hosted this run. Persistent vacant/occupied seats; `PUBLISH_NOTICE` only |
 | GC5-S0 MESSAGE bands | RFC-0009 | Yes (#72) |
-| GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** |
+| GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** until ATTEST |
+| GC6-S1 reconstruction | **RFC-0024** | Hosted this run. Player-authored account from accessible archive/inspect |
 | GC7-S0 contest | RFC-0011 | Yes (#81). Help omits CONTEST |
 | GC8-S0 costs | RFC-0012 | Already true |
 | GC9-S0 custom | RFC-0013 | Yes (#71) |
@@ -50,7 +51,7 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0023. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
+None remaining from RFC-0024. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
 
 ---
 
@@ -58,9 +59,10 @@ None remaining from RFC-0023. Later S1 slices still need their own RFCs ([GC-S1-
 
 ```text
 GC5-S2 rumor provenance
-GC6-S1 reconstruction / GC9-S1 tradition
+GC9-S1 tradition
 GC7-S1 withdraw / GC10-S1 more pressure classes
 GC1-S2 mechanical benefits (doctrine DEFER)
+GC4 follow-through: institution TRADE/REPAIR, emergency scopes, designated succession
 ```
 
 ---
@@ -79,5 +81,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC6-S1 reconstruction). Leave unnamed slices as SPEC GAP.  
+2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC9-S1 tradition). Leave unnamed slices as SPEC GAP.  
 3. Do not implement GC1-S2 benefits.

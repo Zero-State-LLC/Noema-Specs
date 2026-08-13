@@ -1,0 +1,34 @@
+{
+  "schema_version": "reconstruction-catalog/gc6-s1",
+  "catalog_id": "reconstruction-catalog/gc6-s1",
+  "slice_id": "gc6-s1",
+  "authority": "docs/GC6-S1-RECONSTRUCTION.md",
+  "rfc": "rfcs/RFC-0024-historical-reconstruction.md",
+  "event_catalog": "event-catalog/0.1",
+  "evidence_events": ["ENTITY_CREATE", "ENTITY_UPDATE"],
+  "new_verbs": [],
+  "new_events": [],
+  "quest_ui": false,
+  "oracle": false,
+  "mutates_canonical_history": false,
+  "confidence_scalar": false,
+  "hosted_evidence_kinds": ["ARCHIVE_CLAIM", "LIVE_INSPECT"],
+  "catalog_evidence_kinds": [
+    "ARCHIVE_CLAIM",
+    "LIVE_INSPECT",
+    "INSTITUTION_NOTICE",
+    "PUBLIC_RECONSTRUCTION"
+  ],
+  "forbidden_evidence_classes": ["HIDDEN_LEDGER", "RESEARCH", "ADMIN", "CROSS_WORLD"],
+  "visibilities": ["PRIVATE", "INSTITUTIONAL", "PUBLIC"],
+  "lifecycle": ["RECORDED", "SUPERSEDED"],
+  "contested_when_archive_and_inspect_disagree": true,
+  "forbidden_in_projection": [
+    "known_truth",
+    "quest",
+    "oracle",
+    "the answer",
+    "mystery solved",
+    "100%"
+  ]
+}

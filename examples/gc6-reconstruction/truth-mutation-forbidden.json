@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc6-s1",
+  "catalog_id": "reconstruction-catalog/gc6-s1",
+  "attempt": {
+    "operation": "RECONSTRUCT",
+    "actor_in_world": true,
+    "subject_known": true,
+    "same_world": true,
+    "visibility": "PUBLIC",
+    "claim_nonempty": true,
+    "evidence": []
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "A reconstruction without evidence cannot pretend to settle truth."
+  }
+}

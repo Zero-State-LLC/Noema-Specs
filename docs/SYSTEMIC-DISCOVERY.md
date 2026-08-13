@@ -8,7 +8,7 @@ No authored omniscient quest narrator. No second lore canon.
 
 **Doctrine:** mysteries are world-state + partial observability + evidence. No quest engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC6-S0 machine pins: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md). Reconstruction compile and public WATCH remain **SPEC GAP**.
+GC6-S0 machine pins: [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) · [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md). GC6-S1 reconstruction: [GC6-S1-RECONSTRUCTION.md](GC6-S1-RECONSTRUCTION.md) · [RFC-0024](../rfcs/RFC-0024-historical-reconstruction.md). Public WATCH contradiction pulse remains **SPEC GAP**.
 
 ---
 
@@ -144,12 +144,10 @@ It MUST NOT automatically teleport, spawn loot, or complete a quest flag.
 ```text
 GC6-S0 closed: archive vs live INSPECT contradiction; no QUEST; no oracle
 GC6-S0 source closed (RFC-0015): INSPECT ARTIFACT with explicit archive_subject_entity_id + archive_claim
-hosted Perihelion: those fields absent → PLAY unprojected
-whether any later event is needed beyond existing evidence / contradiction / reconstruction
-how PLAY presents a compiled reconstruction without a quest UI (GC6-S1)
-settled-for-Player vs settled-for-world
+GC6-S1 closed: Player reconstruction from accessible archive/inspect; not ledger truth
+hosted Perihelion: genesis artifacts still silent until ATTEST
 WATCH public contradiction without known_truth leak
-conformance beyond S0 rebuild fixtures
+settled-for-world by consensus (still rejected)
 ```
 
 Prefer **zero** new verbs and **reuse** of Deep Time schemas.

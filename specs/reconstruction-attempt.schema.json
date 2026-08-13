@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/reconstruction-attempt.schema.json",
+  "title": "NOEMA GC6-S1 reconstruction attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc6-s1" },
+    "catalog_id": { "const": "reconstruction-catalog/gc6-s1" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "actor_in_world", "subject_known"],
+      "properties": {
+        "operation": {
+          "enum": ["RECONSTRUCT", "RECONSTRUCT_SUPERSEDE", "RECONSTRUCT_PUBLISH"]
+        },
+        "actor_in_world": { "type": "boolean" },
+        "subject_known": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "visibility": { "enum": ["PRIVATE", "INSTITUTIONAL", "PUBLIC"] },
+        "has_publish_authority": { "type": "boolean" },
+        "owns_prior": { "type": "boolean" },
+        "prior_visibility": { "enum": ["PRIVATE", "INSTITUTIONAL", "PUBLIC"] },
+        "claim_nonempty": { "type": "boolean" },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "accessible"],
+            "properties": {
+              "kind": { "type": "string" },
+              "accessible": { "type": "boolean" },
+              "evidence_class": {
+                "enum": [
+                  "PLAY",
+                  "HIDDEN_LEDGER",
+                  "RESEARCH",
+                  "ADMIN",
+                  "CROSS_WORLD"
+                ]
+              },
+              "label": { "enum": ["DESTROYED", "OPERATING"] }
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "epistemic": { "enum": ["OPEN", "CONTESTED"] },
+        "events": {
+          "type": "array",
+          "items": { "enum": ["ENTITY_CREATE", "ENTITY_UPDATE"] }
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
