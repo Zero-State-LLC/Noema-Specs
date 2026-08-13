@@ -2,7 +2,7 @@
 
 **Status:** Analysis snapshot. Not a thaw. Not a release.  
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (seq 75 at last check).  
-**Does not open:** BUILD, contest, WED, Genesis reseed, crypto, SERIALIZABLE cycle fence.
+**Does not open:** contest, WED, Genesis reseed, crypto, SERIALIZABLE cycle fence. GC2 BUILD is shipped (Noema #79); help still omits it.
 
 Use this file to analyze what is left. Do not treat it as authorization.
 
@@ -19,6 +19,7 @@ Use this file to analyze what is left. Do not treat it as authorization.
 | GC6-S0 mapper + source pin | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** (no claim fields) |
 | GC8-S0 costs | RFC-0012 | Already true |
 | GC9-S0 custom | RFC-0013 | Yes (#71) |
+| GC2-S0 BUILD | RFC-0006 | Yes (#79). Chamber help still omits BUILD |
 | Reducer registry | `REDUCER-REGISTRY.md` | Spec only (index) |
 | Durable world head | **RFC-0016** | Worker shipped (#76 / #77); **SQL may be unapplied** |
 
@@ -42,7 +43,6 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 | Item | Authority | Why blocked |
 |------|-----------|-------------|
-| GC2-S0 BUILD | RFC-0006 | Chamber `BUILD` unsupported until implementation pass |
 | GC7-S0 contest | RFC-0011 | Contest not thawed in first-world verbs |
 | GC10-S0 WED | RFC-0014 | No production schedule; do not reseed Genesis |
 
@@ -75,5 +75,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Confirm the world-heads SQL is applied (or not) on hosted Postgres.  
-2. Decide a thaw: GC2 BUILD, GC7 contest, or GC10 WED.  
-3. Or write the archive-claim *writer* RFC if GC6 should appear on Perihelion without a content pack.
+2. Decide a thaw: GC7 contest or GC10 WED.  
+3. Or a later player action that may emit allowlisted archive `ENTITY_UPDATE` (RFC-0018: none in v0.1).

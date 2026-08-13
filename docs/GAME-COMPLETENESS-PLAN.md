@@ -274,7 +274,7 @@ Rationale:
 
 **GC1-S1 — Recognition.** [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). RFC: [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Accepted**). Self-only lines. No benefits.
 
-**GC2-S0 — Construct/dismantle existing infrastructure.** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md). RFC: [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md) (**Accepted**). No `event-catalog/0.3`. No Chamber `BUILD` yet.
+**GC2-S0 — Construct/dismantle existing infrastructure.** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md). RFC: [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md) (**Accepted**). Hosted PLAY shipped (Noema #79). No `event-catalog/0.3`. Chamber help still omits `BUILD`.
 
 **GC3-S0 — Dyadic trade memory.** [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md). RFC: [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md) (**Accepted**). No reputation integer.
 
