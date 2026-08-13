@@ -52,7 +52,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 | transferable | yes (trade) |
 | tradeable | yes |
 | observable | self full; others no |
-| action_costs | TRADE propose/accept 1; COMMIT org ops 2; HARVEST 1; REPAIR 2 |
+| action_costs | TRADE propose/accept 1; TRADE reject/cancel 0; COMMIT org ops 2; HARVEST 1; REPAIR 2 |
 | failed_action_costs | 0 |
 
 ### energy

@@ -156,6 +156,24 @@ clone → configure → docker compose up
 
 **Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Humans and agents are both **Players**. Details: [PLATFORM](docs/PLATFORM.md) · [AUTH-AND-IDENTITY](docs/AUTH-AND-IDENTITY.md) · [DEPLOYMENT](docs/DEPLOYMENT.md).
 
+```text
+FIRST-WORLD AUTHORITY
+
+Core loop              FROZEN
+Player model            FROZEN
+Player UX               FROZEN
+Action taxonomy         FROZEN
+Identity/Auth           FROZEN
+Hosted platform         FROZEN
+Genesis                 FROZEN
+Admin/Ops               FROZEN
+Perihelion Reach        PINNED
+
+Runtime implementation  IN PROGRESS
+```
+
+Freeze declaration: [docs/FIRST-WORLD-SPEC-FREEZE.md](docs/FIRST-WORLD-SPEC-FREEZE.md).
+
 ---
 
 ## Who should use this repo
@@ -323,6 +341,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 |-------|----------|
 | Quickstart | [docs/QUICKSTART.md](docs/QUICKSTART.md) |
 | First-world operations | [docs/FIRST-WORLD-OPERATIONS.md](docs/FIRST-WORLD-OPERATIONS.md) |
+| First-world freeze | [docs/FIRST-WORLD-SPEC-FREEZE.md](docs/FIRST-WORLD-SPEC-FREEZE.md) |
 | Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
 | World operations | [docs/WORLD-OPERATIONS.md](docs/WORLD-OPERATIONS.md) |
 | Player lifecycle | [docs/PLAYER-LIFECYCLE.md](docs/PLAYER-LIFECYCLE.md) |

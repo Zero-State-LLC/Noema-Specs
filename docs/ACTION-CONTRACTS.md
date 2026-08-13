@@ -97,6 +97,54 @@ Lower priority values resolve first. These values are world-rules metadata and M
 | visibility | parties only for text |
 | spectator_projection | `message_notice` without text |
 
+## ASK (optional; not a separate mutation class)
+
+`ASK` is a human/interface convenience intent. It is **not** a distinct canonical mutation.
+
+```text
+ASK
+  → MESSAGE with ask semantics
+  → ordinary MESSAGE privacy, cost, delivery, and ordering
+```
+
+Example: `ask Nacre "What happened at Coldline?"` normalizes to `MESSAGE` with `recipient_id` = Nacre and the question as `text`.
+
+| Field | Contract |
+|-------|----------|
+| first-world | OPTIONAL. Omit from ordinary help unless the deployment advertises it. |
+| canonical reducer | `MESSAGE` |
+| resource_cost | Same as MESSAGE |
+| events | Same as MESSAGE |
+| agents | MUST use `MESSAGE`. No separate ASK verb is required. |
+| answer linking | DEFERRED. Any answer is a later MESSAGE or world-visible event. Do not invent a Q&A ledger. |
+
+## QUERY (optional / first-world deferred)
+
+`QUERY` is a read-only information operation over **Player-known, permissioned records**. It is not required for first-world go-live.
+
+```text
+INSPECT
+  → detailed observation of a visible/co-located entity
+
+QUERY
+  → read Player-accessible known records / archives / maps / ledgers
+```
+
+QUERY MUST NOT become a database query, omniscient search, hidden-history access, Admin lookup, or research query for ordinary PLAY.
+
+| Field | Contract |
+|-------|----------|
+| first-world | OPTIONAL / DEFERRED as a required hosted path |
+| preconditions | record is already known and permissioned to this Player |
+| resource_cost | attention 1 ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)) |
+| mutation | none |
+| events_on_success | observation / record projection only |
+| events_on_failure | permission, availability, or budget; no public WATCH |
+| visibility | observation boundary applies; no hidden history |
+| spectator_projection | none of the private query result |
+
+Queryable record families beyond Player-known maps, archives, and ledgers already in world observation are DEFERRED. Do not enumerate a new catalog here.
+
 ## WAIT
 
 | Field | Contract |
@@ -124,16 +172,31 @@ Lower priority values resolve first. These values are world-rules metadata and M
 |-------|----------|
 | inputs | `trade_id` |
 | preconditions | open unexpired trade; actor is counterparty; holds requested |
+| resource_cost | compute 1 ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) `TRADE propose/accept 1`). No second proposal tax. |
 | events_on_success | `TRADE_ACCEPTED`, then `RESOURCE_TRANSFER` offered, then `RESOURCE_TRANSFER` requested |
 | failure | `TRADE_REJECTED` with reason; release reservation |
+| reservation | Offered reservation is **consumed** by the transfer legs, not left open |
 | atomicity | both transfers commit or neither (single action reduction) |
 
 ## TRADE (reject / cancel)
 
 | Field | Contract |
 |-------|----------|
+| resource_cost | **0**. Rejecting or cancelling MUST NOT trap a Player behind resource scarcity. |
 | events_on_success | `TRADE_REJECTED`; release reservation |
 | reasons | `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`, `CANCELLED` |
+
+### Trade reservation release
+
+The proposer's offered reservation MUST be released or consumed on every closure. No stuck reservations.
+
+| Closure | Reservation |
+|---|---|
+| accepted | Consumed by the atomic transfer legs |
+| rejected (`DECLINED`) | Released |
+| cancelled (`CANCELLED`) | Released |
+| expired (`EXPIRED`) | Released |
+| invalidated (`INVALID_TERMS` / `INSUFFICIENT_RESOURCE` / other reject reasons) | Released |
 
 ### Trade design rationale
 
@@ -179,7 +242,8 @@ Roles: `founder`, `officer`, `member`, `advisor`. No elections, laws, or multi-s
 | preconditions | co-located; node.available ≥ amount; agent can hold storage |
 | resource_cost | energy 2, compute 1 |
 | events_on_success | `BUDGET_CONSUMED`×, `RESOURCE_TRANSFER` node→agent, `ENTITY_UPDATE` node.available |
-| events_on_failure | insufficient → no debit |
+| events_on_failure | insufficient → no debit, no public event |
+| spectator_projection | public harvest notice: Player public identity harvested from public node; **no** amounts, inventory, or hidden node capacity ([SPECTATOR.md](SPECTATOR.md)) |
 
 ## COMMIT / REPAIR
 

@@ -11,6 +11,7 @@
       "enum": [
         "agent_move",
         "resource_change",
+        "harvest",
         "production",
         "trade",
         "organization",

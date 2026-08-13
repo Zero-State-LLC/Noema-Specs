@@ -58,6 +58,26 @@ AUDIT       Ledgered events, intervention receipts, verify
 
 If any of those verbs is ambiguous, the defect is in the cited document below — not a missing gameplay system.
 
+First-play structure:
+
+```text
+ENTER
+  ↓
+WHERE AM I?
+  ↓
+WHAT MATTERS HERE?
+  ↓
+AVAILABLE HERE
+  ↓
+ACTION
+  ↓
+CONSEQUENCE
+  ↓
+NEXT DECISION
+```
+
+Discovery contract: [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
+
 ---
 
 ## Discoverability
@@ -111,6 +131,7 @@ ADMIN / OPERATIONS
 ├── Audit                    ADMIN-LIVE-OPERATIONS, SECURITY-SEQUENCES
 ├── Incident Recovery        INCIDENT-RECOVERY
 └── First-World Operations   this document
+    └── Spec freeze              FIRST-WORLD-SPEC-FREEZE
 
 PLATFORM
 ├── Cloudflare               PLATFORM

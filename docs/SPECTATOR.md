@@ -55,6 +55,7 @@ Research overlays (anomaly scores, capability confidence, phenomenon labels, det
 |---------------|-----------------|--------|---------------|-----------|------------------|
 | `agent_move` | `MOVE`, `MOVE_REJECTED` | from/to room names if public rooms; hide condition details | + exit_id | full if self else co-located notice | same + consent |
 | `resource_change` | `BUDGET_CONSUMED`, `RESOURCE_TRANSFER` | anonymized room-level scarcity flags only | agent display_name + resource type + direction | exact self amounts | consented amounts |
+| `harvest` | successful `COMMIT.HARVEST` (`RESOURCE_TRANSFER` node→Player) | `<Player public name> harvested from <public node name>` + cycle; **no** amount, type, inventory, or node capacity | + public resource type if the node is already public | exact self amounts | consented |
 | `production` | `ENTITY_UPDATE` on resource_node | “production shifted” in room | node label + available band | if co-located: available integer | full if consented |
 | `trade` | `TRADE_*`, `RESOURCE_TRANSFER` with trade_id | “trade occurred” without amounts | parties + status | full if party else status only | consented |
 | `organization` | `ORG_CREATE`, `ORG_MEMBER_*` | org name + public roles | + member display names | + if member: roles | charter if public |

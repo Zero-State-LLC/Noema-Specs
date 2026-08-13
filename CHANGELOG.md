@@ -10,6 +10,7 @@
 - Operator interventions classified `CONTROL_PLANE` / `WORLD_OPERATION` / `EXTERNAL_INPUT` / `RECOVERY`; raw Admin world edits prohibited.
 - Incident failure matrix, settlement `HEALTHY`/`DEGRADED`/`BLOCKING`, research-failure isolation from PLAY, and explicit restore sequence.
 - `docs/COMMAND-DISCOVERY.md` for first-world HELP / AVAILABLE HERE / agent capability discovery.
+- **First-world spec freeze:** `docs/FIRST-WORLD-SPEC-FREEZE.md`. ASK = MESSAGE convenience; QUERY optional/deferred read-only; TRADE propose/accept compute 1, reject/cancel 0, reservation release exact; public HARVEST WATCH wording settled. Additive `harvest` spectator projection id.
 
 ### Added
 

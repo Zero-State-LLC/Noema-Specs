@@ -71,6 +71,7 @@ REQUIRED_DOCS = [
     "docs/PLAYER-ONBOARDING.md",
     "docs/COMMAND-DISCOVERY.md",
     "docs/FIRST-WORLD-OPERATIONS.md",
+    "docs/FIRST-WORLD-SPEC-FREEZE.md",
     "docs/MODULE-CONTRACTS.md",
     "docs/RESOURCE-ECONOMY.md",
     "docs/ACTION-CONTRACTS.md",
