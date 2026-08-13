@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC5-S0 hosted:** Chamber `MESSAGE` applies relay delivery bands (Noema #72). Same-room always delivers; long-range needs best live relay ≥ 25 or fails `UNREACHABLE` with no events. Specs status updated to shipped. No catalog change.
+
+### Added
+
 - **GC9-S0 hosted:** Chamber PLAY projects `This site has a maintenance custom.` for accessors after three distinct repairs (Noema #71). Specs status updated to shipped. No catalog change.
 
 ### Added

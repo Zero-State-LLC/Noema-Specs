@@ -124,7 +124,7 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC4-S0 office authority** ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), Accepted [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)): existing v0.1 roles as membership grants. No Steward/Treasurer freeze. No `ROLE_*` events. No Chamber runtime change in this RFC.
 
-**GC5-S0 relay MESSAGE bands** ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), Accepted [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)): long-range delivery requires a live relay at the existing condition 25 band. Local same-room `MESSAGE` is unchanged. No Chamber runtime in this RFC.
+**GC5-S0 relay MESSAGE bands** ([GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), Accepted [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md)): long-range delivery requires a live relay at the existing condition 25 band. Local same-room `MESSAGE` is unchanged. Hosted Chamber PLAY (runtime PR #72).
 
 **GC6-S0 discovery contradiction** ([GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md), Accepted [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)): archive vs live `INSPECT` as a self-only PLAY line. No quest log. No Chamber runtime in this RFC.
 
