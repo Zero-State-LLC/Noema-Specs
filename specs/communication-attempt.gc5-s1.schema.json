@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/communication-attempt.gc5-s1.schema.json",
+  "title": "NOEMA GC5-S1 communication attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc5-s1" },
+    "catalog_id": { "const": "communication-catalog/gc5-s1" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sender_id",
+        "recipient_id",
+        "sender_room_id",
+        "recipient_room_id",
+        "recipient_addressable",
+        "relays"
+      ],
+      "properties": {
+        "sender_id": { "type": "string", "minLength": 1 },
+        "recipient_id": { "type": "string", "minLength": 1 },
+        "sender_room_id": { "type": "string", "minLength": 1 },
+        "recipient_room_id": { "type": "string", "minLength": 1 },
+        "recipient_addressable": { "type": "boolean" },
+        "text": { "type": "string" },
+        "rumor": { "type": "boolean" },
+        "new_verb": { "type": "string" },
+        "relays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["class_id", "live", "condition"],
+            "properties": {
+              "entity_id": { "type": "string" },
+              "class_id": { "const": "relay" },
+              "live": { "type": "boolean" },
+              "condition": { "type": "integer", "minimum": 0, "maximum": 100 }
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "delivery": { "enum": ["same_cycle", "delayed"] },
+        "delay_cycles": { "type": "integer" },
+        "events_on_send": {
+          "type": "array",
+          "items": { "enum": ["MESSAGE", "MESSAGE_DELIVERED"] }
+        },
+        "watch_text": { "const": false },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

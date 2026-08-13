@@ -27,6 +27,7 @@ Use this file to analyze what is left. Do not treat it as authorization to imple
 | Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
 | Attest spec | **RFC-0020** | Hosted `COMMIT.ATTEST`. Help omits ATTEST |
+| GC5-S1 delay | **RFC-0021** | Hosted this run. 25–49 delays 1 cycle; rumor still out |
 
 Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are unchanged.
 
@@ -54,7 +55,7 @@ None remaining from RFC-0020. Next S1 slices still need their own RFCs ([GC-S1-O
 ## SPEC GAP (later RFC)
 
 ```text
-GC5-S1 delay-rumor
+GC5-S2 rumor provenance
 GC3-S1 betrayal / GC4-S1 named offices
 GC6-S1 reconstruction / GC9-S1 tradition
 GC7-S1 withdraw / GC10-S1 more pressure classes
@@ -77,5 +78,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC5-S1 delay/rumor is next spec).  
+2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC3-S1 betrayal after delay).  
 3. Do not implement GC1-S2 benefits.
