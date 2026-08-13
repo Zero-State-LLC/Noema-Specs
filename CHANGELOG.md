@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Hosted readiness pointer:** SPEC-CHECKLIST architecture pause notes that Postgres reconstructable world record is unimplemented; evidence in Noema `docs/RUNTIME-READINESS-2026-08-13.md`. No contract change.
+
+### Added
+
 - **RFC-0015 Accepted:** GC6-S0 archive-record source. Accessible archive member only from `INSPECT` of an `ARTIFACT` that already has `archive_subject_entity_id` and `archive_claim` ∈ {DESTROYED, OPERATING}. Perihelion `entity.archive-ledger` has neither field, so PLAY stays unprojected. Flavor-text inference and a destroyed-relay Genesis pack remain rejected. No catalog 0.3. No frozen contract rewrite.
 
 ### Added
