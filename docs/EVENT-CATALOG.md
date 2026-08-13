@@ -9,6 +9,8 @@
 
 A conforming world ledger MUST use only event types from its pinned catalog. Worlds on `0.1` MUST reject the seven 0.2 types. An existing type MUST NOT change meaning across catalog versions.
 
+Ownership index (who may write which field): [REDUCER-REGISTRY.md](REDUCER-REGISTRY.md). This catalog remains the payload/reject authority.
+
 Schemas compose with [`world-event.schema.json`](../specs/world-event.schema.json) and do not change the `world-event/1.0` envelope. Ledger admission MUST use the catalog-specific composed schema for the world's pinned catalog, which binds each `event_type` to its exact payload schema.
 
 ---

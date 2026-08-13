@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Reducer registry + mutation ownership:** `docs/REDUCER-REGISTRY.md` indexes existing 0.1/0.2 event reducers and names the sole writer for each field family. Derived GC projections are non-writers. No new events. No runtime.
+
+### Added
+
 - **2026-08-13 — Notion ↔ Specs reconciliation:** `docs/NOTION-RECONCILIATION-2026-08-13.md` assimilates cross-cutting doctrine (parity, labor/delegation, law, privacy, decay, measurement membrane, operator receipts, invariants, action/event/state/time/schema/enforcement). Clarifies hosted authority **inside** the existing Cloudflare + Supabase stack: DO = live ordering/process coordination; Postgres = durable canonical record and recoverability. Architecture-design frontier **paused**. No runtime implementation. No crypto/future-economy activation. Frozen v0.1–v0.7 wire contracts unchanged.
 
 ### Added

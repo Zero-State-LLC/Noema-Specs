@@ -7,12 +7,10 @@
 This pass reconciles accumulated Notion doctrine with the current repository. It is **specification assimilation and drift-repair**, not a runtime implementation and not a platform migration.
 
 ```text
-Architecture-design frontier PAUSED after this document.
-Next frontier when explicitly resumed:
-canonical reducer registry + mutation ownership map.
+Architecture-design frontier: first resumed slice landed.
+See [REDUCER-REGISTRY.md](REDUCER-REGISTRY.md).
+Do not open a further architecture slice unless explicitly resumed.
 ```
-
-Do not continue into new architecture doctrine from this file.
 
 ---
 
