@@ -257,6 +257,8 @@ These panes MUST project existing canonical records:
 
 They MUST NOT become a second market, government, or lore simulator.
 
+Admin MAY inspect World Service status, failures, and canonical actions emitted — not private cognition or casual message text ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+
 ---
 
 ## Operational alerts
@@ -272,6 +274,7 @@ Admin Live SHOULD surface a small closed alert set:
 | Durable Object unavailable | Live mutations unavailable |
 | Version / spec incompatibility | Worker or rules pin mismatch |
 | Quarantine / kill switch active | Containment in effect |
+| World Service degraded / unavailable | Convenience adapter unhealthy; Action Router may still be fine |
 
 Alerts MUST cite the underlying check. They MUST NOT invent player-facing quests or research claims.
 

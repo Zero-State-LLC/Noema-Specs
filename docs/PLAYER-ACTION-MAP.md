@@ -816,7 +816,7 @@ This does not add Perihelion-specific mechanics or alter the approved world cand
 
 | Observable situation | Expected generic affordance |
 |---|---|
-| Damaged infrastructure | `INSPECT` / `REPAIR` |
+| Damaged infrastructure | `INSPECT` / `REPAIR` (Relay Keeper may prepare the same REPAIR) |
 | Resource node with stock | `INSPECT` / `HARVEST` |
 | Trade node or another addressable Player | `INSPECT` / `TRADE` |
 | Another visible Player | `MESSAGE` |
@@ -840,6 +840,8 @@ available: TRADE CONTEST AGREEMENT ACCESS
 The command language did not change in this example. The observable world, targets, conditions, relationships, authority, and consequences changed. These examples do not add Perihelion-specific mechanics or imply that every action is available in every location.
 
 These are projections of observable state, not authored quests. A world that lacks the precondition must not show the affordance.
+
+World Service desks (Exchange Broker, Quartermaster, Registrar, Relay Keeper, Archivist, Contract Clerk) are adapters onto these same actions. They MUST NOT invent verbs or affordances ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 
 ---
 
