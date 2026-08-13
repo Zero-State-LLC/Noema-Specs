@@ -1,0 +1,16 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s1",
+  "catalog_id": "social-memory-catalog/gc3-s1",
+  "slice_id": "gc3-s1",
+  "authority": "docs/GC3-S1-BETRAYAL.md",
+  "rfc": "rfcs/RFC-0022-betrayal-dangerous.md",
+  "evidence_events": ["CONTEST_RESOLVED", "AGREEMENT_BROKEN", "CRIME_DETECTED"],
+  "ignored_events": ["TRADE_REJECTED", "CONTEST_DECLARED"],
+  "public_projection": false,
+  "watch_projection": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "danger_threshold": 1,
+  "danger_line": "You have found {name} dangerous.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "reputation", "hp"]
+}

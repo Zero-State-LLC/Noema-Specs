@@ -31,6 +31,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0019](RFC-0019-hosted-world-time.md) | **Accepted** | Hosted world-time: WAIT quorum cycle commit; no contest/WED |
 | [RFC-0020](RFC-0020-archive-claim-attest.md) | **Accepted** | `COMMIT.ATTEST` writes archive-claim fields; INSPECT not a writer; help omits ATTEST |
 | [RFC-0021](RFC-0021-relay-message-delay.md) | **Accepted** | GC5-S1: long-range MESSAGE delays 1 cycle when best relay is 25–49 |
+| [RFC-0022](RFC-0022-betrayal-dangerous.md) | **Accepted** | GC3-S1: danger from CONTEST_RESOLVED / breach; no reputation scalar |
 
 ## Required review lenses
 

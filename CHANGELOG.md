@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0022 Accepted / GC3-S1:** private danger edge from `CONTEST_RESOLVED` (and `AGREEMENT_BROKEN` / `CRIME_DETECTED` when those events exist). Line `You have found {name} dangerous.` Self only. No reputation scalar. `TRADE_REJECTED` still ignored. Does not thaw `AGREEMENT_FORM`.
+
+### Added
+
 - **RFC-0021 Accepted / GC5-S1:** long-range `MESSAGE` delays 1 world cycle when the best live relay is 25–49. Same-cycle at ≥ 50. Rumor still out. No new verbs.
 
 ### Added

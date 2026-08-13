@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. Do not treat it as authorization to implement RFC-0020.
+Use this file to analyze what is left. GC3-S1 (RFC-0022) is authorized and hosted. Later S1s are still SPEC GAP.
 
 ---
 
@@ -16,6 +16,7 @@ Use this file to analyze what is left. Do not treat it as authorization to imple
 | GC1-S0 / S1 | RFC-0004 / 0005 | Yes (#68 / #69) |
 | GC2-S0 BUILD | RFC-0006 | Yes (#79). Help omits BUILD |
 | GC3-S0 | RFC-0007 | Yes (#70) |
+| GC3-S1 betrayal | **RFC-0022** | Hosted this run. Danger from `CONTEST_RESOLVED`; no reputation scalar |
 | GC4-S0 advisor pin | RFC-0008 | Yes (#71) |
 | GC5-S0 MESSAGE bands | RFC-0009 | Yes (#72) |
 | GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** |
@@ -48,7 +49,7 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0020. Next S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
+None remaining from RFC-0022. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
 
 ---
 
@@ -56,7 +57,7 @@ None remaining from RFC-0020. Next S1 slices still need their own RFCs ([GC-S1-O
 
 ```text
 GC5-S2 rumor provenance
-GC3-S1 betrayal / GC4-S1 named offices
+GC4-S1 named offices
 GC6-S1 reconstruction / GC9-S1 tradition
 GC7-S1 withdraw / GC10-S1 more pressure classes
 GC1-S2 mechanical benefits (doctrine DEFER)
@@ -78,5 +79,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC3-S1 betrayal after delay).  
+2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC4-S1 named offices). Leave unnamed slices as SPEC GAP.  
 3. Do not implement GC1-S2 benefits.

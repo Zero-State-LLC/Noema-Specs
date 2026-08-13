@@ -5,7 +5,7 @@
 **Does not replace:** [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [PROGRESSION.md](PROGRESSION.md)  
 **Influence** remains a Chamber resource ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)). It is not reputation.
 
-GC3-S0 machine pins: [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md) · [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md). Remaining descriptors and betrayal are **SPEC GAP**.
+GC3-S0 machine pins: [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md) · [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md). GC3-S1 danger pins: [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) · [RFC-0022](../rfcs/RFC-0022-betrayal-dangerous.md). Institution edges, decay, and trade friction remain **SPEC GAP**.
 
 **Doctrine:** evidence-backed edges, not a reputation industry or `reputation = 72` engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Memory must be able to change trade, access, agreements, authority, cooperation, conflict, or information sharing — or it is presentation.
 
@@ -181,10 +181,20 @@ WATCH empty
 leak tokens forbidden in projection
 ```
 
+### Closed for GC3-S1
+
+```text
+directed victim→actor danger from CONTEST_RESOLVED
+AGREEMENT_BROKEN / CRIME_DETECTED rebuild when those events exist
+self PLAY line You have found {name} dangerous.
+TRADE_REJECTED and CONTEST_DECLARED ignored
+no reputation scalar / WATCH / new verbs
+```
+
 ### Still open
 
 ```text
-dangerous / deceptive from AGREEMENT_BROKEN / CRIME_DETECTED (GC3-S1)
+deceptive descriptor as a distinct edge
 institution edges
 decay / rehabilitation bands
 trade-friction mechanics

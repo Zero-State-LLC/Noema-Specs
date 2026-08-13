@@ -3041,6 +3041,103 @@ def check_gc3_s0(Draft202012Validator) -> None:
     ok("GC3-S0 social memory: catalog, rebuild fixtures, RFC-0007 Accepted, no reputation scalar")
 
 
+def rebuild_gc3_s1(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    handles = fixture.get("handles") or {}
+    danger: dict[str, set[str]] = {}
+    seen: set[str] = set()
+    allowed = set(catalog.get("evidence_events") or [])
+    ignored = set(catalog.get("ignored_events") or [])
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        et = ev.get("event_type")
+        if et in ignored or et not in allowed:
+            continue
+        payload = ev.get("payload") or {}
+        evidence = None
+        actor = None
+        if et == "CONTEST_RESOLVED":
+            evidence = payload.get("contest_id") or ev.get("event_id")
+            declarer = payload.get("declarer_id")
+            victims = [payload.get("defender_id")]
+            target = payload.get("target") or {}
+            if isinstance(target, dict) and target.get("kind") == "AGENT":
+                victims.append(target.get("agent_id"))
+            if subject in victims and declarer and declarer != subject:
+                actor = declarer
+        elif et == "AGREEMENT_BROKEN":
+            evidence = payload.get("breach_id") or ev.get("event_id")
+            broken = payload.get("broken_by")
+            parties = payload.get("party_ids") or []
+            if subject in parties and broken and broken != subject:
+                actor = broken
+        elif et == "CRIME_DETECTED":
+            evidence = payload.get("detection_id") or ev.get("event_id")
+            if subject == payload.get("victim_id") and payload.get("subject_id") not in (None, subject):
+                actor = payload.get("subject_id")
+        if not evidence or not actor or evidence in seen:
+            continue
+        seen.add(str(evidence))
+        danger.setdefault(str(actor), set()).add(str(evidence))
+    play_lines = []
+    out_danger = {}
+    thresh = int(catalog["danger_threshold"])
+    template = catalog["danger_line"]
+    for other, ids in sorted(danger.items()):
+        n = len(ids)
+        out_danger[other] = {"count": n}
+        if n >= thresh:
+            name = handles.get(other) or other
+            play_lines.append(template.replace("{name}", name))
+    return {
+        "danger": out_danger,
+        "play_lines": play_lines,
+        "watch_lines": [],
+        "third_party_lines": [],
+    }
+
+
+def check_gc3_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s1.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.gc3-s1.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("public_projection") or catalog.get("watch_projection"):
+        fail("GC3-S1 must not enable a reputation scalar or public/WATCH projection")
+    if catalog.get("new_verbs"):
+        fail("GC3-S1 must not add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0022-betrayal-dangerous.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0022 must be Accepted")
+    if "trade_rejected" not in rfc.lower():
+        fail("RFC-0022 must keep TRADE_REJECTED from becoming deceptive")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in ("rebuild-dangerous-contest.json", "rebuild-rejects-ignored.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-betrayal" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if got["danger"] != exp["danger"]:
+            fail(f"{name}: danger {got['danger']} expected {exp['danger']}")
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name}: lines {got['play_lines']} expected {exp['play_lines']}")
+        if got["watch_lines"] or got["third_party_lines"]:
+            fail(f"{name}: WATCH/third-party must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+    ok("GC3-S1 betrayal: catalog, rebuild fixtures, RFC-0022 Accepted, no reputation scalar")
+
+
 def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("org_active"):
         return "REJECT", "NOT_FOUND"
@@ -3796,6 +3893,7 @@ def main() -> None:
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
+    check_gc3_s1(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)

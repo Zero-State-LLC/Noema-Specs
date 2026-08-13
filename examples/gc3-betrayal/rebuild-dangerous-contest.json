@@ -1,0 +1,35 @@
+{
+  "slice_id": "gc3-s1",
+  "catalog_id": "social-memory-catalog/gc3-s1",
+  "subject_id": "player.vesper",
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.b.1",
+      "event_type": "CONTEST_DECLARED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": { "contest_id": "contest.0001", "declarer_id": "player.nacre", "defender_id": "player.vesper" }
+    },
+    {
+      "event_id": "evt.b.2",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": {
+        "contest_id": "contest.0001",
+        "outcome": "FAILURE",
+        "resolved_by": "world.scheduler",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "danger": { "player.nacre": { "count": 1 } },
+    "play_lines": ["You have found Nacre dangerous."],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "note": "Declare alone does not credit. Resolve credits the defender only."
+  }
+}

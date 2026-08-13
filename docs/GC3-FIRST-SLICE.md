@@ -5,7 +5,7 @@
 **RFC:** [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)  
 **Does not open:** `reputation = 72` · new verbs · `event-catalog/0.3` · public titles · institution edges
 
-S0 is the smallest social-memory increment that can support scenario B’s *cooperation* half on `event-catalog/0.1`. Betrayal / `dangerous` waits for formal `AGREEMENT_BROKEN` or `CRIME_DETECTED` (GC3-S1).
+S0 is the smallest social-memory increment that can support scenario B’s *cooperation* half on `event-catalog/0.1`. Betrayal / `dangerous` is [GC3-S1](GC3-S1-BETRAYAL.md) (RFC-0022); hosted evidence is `CONTEST_RESOLVED`.
 
 ---
 
@@ -118,4 +118,4 @@ Hosted Chamber PLAY projects dyadic trade-memory lines from accepted trades (Noe
 5. Five `TRADE_REJECTED` events create no `deceptive` descriptor.
 6. Projection text never includes resource amounts or hidden entity ids.
 
-Full scenario B (betrayal changing institutional expectations) is **GC3-S1**.
+Private betrayal scar is **GC3-S1**. Institutional expectation change remains later.
