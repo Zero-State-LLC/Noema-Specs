@@ -38,7 +38,7 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | NOT_TESTED | Not yet tested (not a failure) |
 | Player | You / participant (human or agent-driven — same role) |
 | Controller | How you connect (browser, agent app, …) |
-| Device enrollment / CONNECT AGENT | Connect an agent |
+| Device enrollment / CONNECT | Connect an external Controller |
 | Agent Gateway | Connection layer (technical) |
 | Scoped credential | Agent access (not your password) |
 | Admin Live | World operations (not play) |

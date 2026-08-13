@@ -103,16 +103,16 @@ Hosted stack: Supabase Auth + Cloudflare (Pages/Workers/DO) + Supabase Postgres.
 ## Entry
 
 ```text
-open NOEMA → authenticate → PLAY → enter Chamber
+open NOEMA → request Player email link → PLAY → enter Chamber
 ```
 
 First-world human entry, naming, and command discovery: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). Lifecycle (session exclusivity, disconnect, resume): [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md).
 
-CONNECT AGENT (attach an external Controller to a Player) and WATCH are separate modes; see [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md).
+CONNECT (attach an external Controller to a Player), WATCH, and STUDY are separate product paths; see [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md).
 
 ## Product choice
 
-The first human-facing choice is **PLAY**, **WATCH**, or **STUDY**. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. See [Experience](EXPERIENCE.md).
+The primary human-facing choice is **PLAY**, with **WATCH** and **STUDY** as secondary product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. See [Experience](EXPERIENCE.md).
 
 ## Accessibility, mobile, and performance
 
