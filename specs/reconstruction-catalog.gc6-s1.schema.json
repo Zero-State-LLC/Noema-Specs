@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/reconstruction-catalog.gc6-s1.schema.json",
+  "title": "NOEMA Reconstruction Catalog (GC6-S1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "evidence_events",
+    "new_verbs",
+    "new_events",
+    "quest_ui",
+    "oracle",
+    "mutates_canonical_history",
+    "confidence_scalar",
+    "hosted_evidence_kinds",
+    "forbidden_evidence_classes",
+    "visibilities",
+    "lifecycle",
+    "forbidden_in_projection"
+  ],
+  "properties": {
+    "schema_version": { "const": "reconstruction-catalog/gc6-s1" },
+    "catalog_id": { "const": "reconstruction-catalog/gc6-s1" },
+    "slice_id": { "const": "gc6-s1" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "evidence_events": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{ "const": "ENTITY_CREATE" }, { "const": "ENTITY_UPDATE" }],
+      "items": false
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "quest_ui": { "const": false },
+    "oracle": { "const": false },
+    "mutates_canonical_history": { "const": false },
+    "confidence_scalar": { "const": false },
+    "hosted_evidence_kinds": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "enum": ["ARCHIVE_CLAIM", "LIVE_INSPECT"] }
+    },
+    "catalog_evidence_kinds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbidden_evidence_classes": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "enum": ["HIDDEN_LEDGER", "RESEARCH", "ADMIN", "CROSS_WORLD"] }
+    },
+    "visibilities": {
+      "type": "array",
+      "minItems": 3,
+      "prefixItems": [
+        { "const": "PRIVATE" },
+        { "const": "INSTITUTIONAL" },
+        { "const": "PUBLIC" }
+      ],
+      "items": false
+    },
+    "lifecycle": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{ "const": "RECORDED" }, { "const": "SUPERSEDED" }],
+      "items": false
+    },
+    "contested_when_archive_and_inspect_disagree": { "const": true },
+    "forbidden_in_projection": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  }
+}

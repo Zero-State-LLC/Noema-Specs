@@ -133,4 +133,4 @@ oracle / narrator
 5. `known_truth_relationship` never appears in PLAY lines.
 6. The projection writes no events.
 
-Full scenario F (divergent beliefs, later better-evidenced reconstruction) is **GC6-S1**.
+Player-compiled reconstruction is **GC6-S1**. WATCH contradiction pulse remains later.

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0024 Accepted / GC6-S1:** Player-authored historical reconstruction from accessible `ARCHIVE_CLAIM` / `LIVE_INSPECT` evidence. Contradiction may be recorded. Not canonical truth. No `QUEST`. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0023 Accepted / GC4-S1:** named institutional offices as persistent vacant/occupied seats on an organization. Membership roles unchanged. Evidence is `ENTITY_CREATE` / `ENTITY_UPDATE`. No `ROLE_*`. Hosted exercise is `PUBLISH_NOTICE` only.
 
 ### Added
