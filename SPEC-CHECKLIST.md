@@ -141,3 +141,28 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Available actions are derived and recomputable, distinguish `KNOWN COMMAND` from `AVAILABLE ACTION`, and remain safe under partial observability without runtime verb generation.
 - [x] Human and agent affordances preserve the same canonical semantics; theme/content nouns and emergent outcomes do not inflate the verb taxonomy.
 - [x] New-action extension rule and removal test require distinct canonical semantics and versioned Specs governance before any new Player verb is accepted.
+- [x] First-world operational envelope: Admin Live, world lifecycle mapped to frozen `ACTIVE`/`PAUSED`/`INCIDENT`/`ARCHIVED`, Player lifecycle, operator interventions, incident recovery, Player onboarding, Perihelion Reach pin (`docs/FIRST-WORLD-OPERATIONS.md` and siblings).
+- [x] Admin is a separate control-plane principal; no ADMIN_PLAYER / GM_PLAYER; Admin Live observes and does not play.
+- [x] First-world pause is `PAUSED` (reject mutating PLAY; WATCH may continue with a marker).
+- [x] Settlement outage is bounded fail-closed (at most one additional mutating cycle batch).
+- [x] One controlling PlayerSession per Player; disconnect does not delete the Player or rewrite location via transport close.
+- [x] Operator interventions are CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY; no raw world edits.
+- [x] Incident failure matrix covers PLAY / WATCH / STUDY / ADMIN / mutation / recovery, including research-subsystem isolation and an explicit restore sequence.
+- [x] Command discovery is a first-world operational contract (`docs/COMMAND-DISCOVERY.md`) that does not create a second verb catalog.
+
+## First-world closure (FW)
+
+- [x] FW01 operational envelope present (`ADMIN-LIVE`, `WORLD-OPERATIONS`, lifecycle, interventions, incident, onboarding, first-world ops)
+- [x] FW02 Player ontology consistent (humans and agents are Players; Admin is not a Player)
+- [x] FW03 action taxonomy frozen (stable verbs + dynamic affordances)
+- [x] FW04 action gaps resolved (ASK, QUERY, trade closure costs/reservations, HARVEST WATCH)
+- [x] FW05 command discovery settled (HELP, AVAILABLE HERE, aliases, target ambiguity)
+- [x] FW06 Admin ≠ Player
+- [x] FW07 private cognition excluded
+- [x] FW08 world lifecycle coherent (`ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED`)
+- [x] FW09 settlement bound coherent (one extra mutating batch, then fail closed)
+- [x] FW10 intervention governed (no raw world edits)
+- [x] FW11 Perihelion pin exact
+- [x] FW12 no competing hosted platform authority
+- [x] FW13 first-world freeze present (`docs/FIRST-WORLD-SPEC-FREEZE.md`)
+- [x] FW14 no v0.8 scope creep

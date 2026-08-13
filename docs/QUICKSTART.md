@@ -73,7 +73,7 @@ Spectator projections are **never** world truth and **MUST NOT** mutate the ledg
 open NOEMA → Supabase Auth → PLAY → enter Chamber
 ```
 
-Human path: Supabase login → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement.
+Human path: Supabase login → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement. Detail: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
 **Hosted product stack:** Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
 
@@ -84,7 +84,7 @@ noema verify
 # → NOEMA VERIFY: PASS
 ```
 
-See [OPERATIONS.md](OPERATIONS.md).
+See [OPERATIONS.md](OPERATIONS.md). First-world lifecycle and incidents: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md). Admin Live: [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md).
 
 ## Study behavior
 

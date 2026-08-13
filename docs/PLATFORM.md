@@ -502,14 +502,15 @@ ADMIN                  separate privileged control plane
 
 ## Failure semantics (persistence)
 
-When Supabase is temporarily unavailable:
+When Supabase is temporarily unavailable, first-world behavior is **bounded fail-closed** ([INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md)):
 
 ```text
 DO transition may succeed for live consistency
   → persistence attempt fails
   → event retained for retry (idempotent event_id)
   → world marks unsettled backlog
-  → retry / queue until confirm
+  → at most one additional mutating cycle batch
+  → then reject new mutations until settlement confirms
   → never invent compensating world rewrites on partial settle
 ```
 
@@ -521,9 +522,10 @@ idempotency keys / event IDs
 duplicate protection on settle
 settlement confirmation
 fail closed on ambiguous identity/auth
+bounded unsettled mutation (first world)
 ```
 
-Live DO state must not silently diverge without audit; operators may pause entry under INCIDENT if ledger head cannot advance ([SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md)).
+Live DO state must not silently diverge without audit. After the settlement bound, `/ready` fails and mutating PLAY stops. Operators MAY set `PAUSED` or `INCIDENT` if the ledger head cannot advance ([SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md), [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md)).
 
 ---
 

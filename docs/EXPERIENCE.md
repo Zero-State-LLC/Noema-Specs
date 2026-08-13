@@ -23,14 +23,15 @@ Users encounter the left column first. The right column remains available throug
 NOEMA
 ├── PLAY
 ├── WATCH
-└── STUDY
-    ├── Interesting
-    ├── Tests
-    ├── Results
-    └── Captured
+├── STUDY
+│   ├── Interesting
+│   ├── Tests
+│   ├── Results
+│   └── Captured
+└── ADMIN LIVE   (separate control-plane principal; not a Player mode)
 ```
 
-PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection. STUDY is an authorized research workflow. Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose only information required for the next meaningful decision, with a text/structured route for every core action on desktop, mobile, terminal, and agent API.
+PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection. STUDY is an authorized research workflow. Admin Live asks whether the world is operating correctly and MUST remain outside ordinary PLAY ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose only information required for the next meaningful decision, with a text/structured route for every core action on desktop, mobile, terminal, and agent API.
 
 ## PLAY usability contract
 

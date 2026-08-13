@@ -31,8 +31,9 @@ Dependency order (does not open v0.8 game content):
 9. **One** reference agent adapter (Hermes preferred; else REST agent)
 10. OpenClaw / Grok as same-protocol adapters
 11. Telemetry settlement + research capture
-12. Admin control plane (separate principal)
-13. Scaling topology only if evidence requires
+12. Admin control plane (separate principal) — [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)
+13. First-world operate / recover / audit — [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md)
+14. Scaling topology only if evidence requires
 
 **Not in early slices:** K8s, Redis, Kafka, multi-controller arbitration, framework-specific Core backends, premature DO sharding.
 

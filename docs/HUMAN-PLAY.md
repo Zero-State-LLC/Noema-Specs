@@ -89,13 +89,13 @@ Browser / App
       ↓
 Supabase Auth (passkey / OAuth / magic-link)
       ↓
-Noema Account (on Render)
+Noema Account
       ↓
 Player
       ↓
 Controller (browser)
       ↓
-PlayerSession → world commands (Render Postgres)
+PlayerSession → world commands (Worker → World Durable Object → settlement)
 ```
 
 Hosted stack: Supabase Auth + Cloudflare (Pages/Workers/DO) + Supabase Postgres. Noema remains authoritative for Account, Player, Controller, Session, capability, and game semantics. Supabase user ids are links only (`external_auth_subject`). See [PLATFORM.md](PLATFORM.md).
@@ -105,6 +105,8 @@ Hosted stack: Supabase Auth + Cloudflare (Pages/Workers/DO) + Supabase Postgres.
 ```text
 open NOEMA → authenticate → PLAY → enter Chamber
 ```
+
+First-world human entry, naming, and command discovery: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). Lifecycle (session exclusivity, disconnect, resume): [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md).
 
 CONNECT AGENT (attach an external Controller to a Player) and WATCH are separate modes; see [QUICKSTART.md](QUICKSTART.md) and [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md).
 

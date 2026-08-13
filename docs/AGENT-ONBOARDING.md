@@ -14,7 +14,7 @@ device enrollment (or issued credential)
   → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 ```
 
-Human product entry modes (PLAY / CONNECT AGENT / WATCH): [QUICKSTART.md](QUICKSTART.md).
+Human product entry modes (PLAY / CONNECT AGENT / WATCH): [QUICKSTART.md](QUICKSTART.md). First-world human/agent entry contract: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
 ---
 

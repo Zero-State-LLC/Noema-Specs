@@ -393,7 +393,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Success and failure semantics | Read-only projection; no world mutation. Failure uses the existing permission, availability, or budget error. |
 | Player-visible consequence | A permitted record projection. |
 | WATCH visibility | No private query result is public by default. |
-| Milestone and hosted status | v0.1 optional. **SPEC GAP:** the canonical set of queryable record families and their human projection is not fully enumerated. Do not broaden it in runtime. |
+| Milestone and hosted status | v0.1 OPTIONAL / first-world DEFERRED as a required path. Semantics: read-only Player-known records. Not INSPECT, not omniscient search. Record-family expansion is DEFERRED. |
 
 ## MOVE family
 
@@ -445,7 +445,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Success and failure semantics | MESSAGE/MESSAGE_DELIVERED behavior with the optional ask interpretation. |
 | Player-visible consequence | A question is sent; any answer is a later message or world-visible event under existing policy. |
 | WATCH visibility | Notice only, never private question text unless a separate public event contract permits it. |
-| Milestone and hosted status | v0.1 optional. **SPEC GAP:** exact structured ask payload and answer-linking semantics remain unspecified beyond “MESSAGE with ask semantics.” |
+| Milestone and hosted status | v0.1 OPTIONAL. Human convenience form of MESSAGE. Agents use MESSAGE. Answer-linking is DEFERRED. |
 
 ## ECONOMY family
 
@@ -475,7 +475,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Agent / structured form | `verb: TRADE`, `parameters.phase: "accept"`, `trade_id`. |
 | Canonical action and target/parameters | `TRADE` accept phase with `trade_id`. |
 | Availability and preconditions | Trade is open and unexpired; actor is the counterparty; requested resources are held. |
-| Resource cost | Compute 1 under the trade contract; transfers are atomic. |
+| Resource cost | Compute 1 (existing economy contract for propose/accept). Transfers are separate. |
 | Success and failure semantics | `TRADE_ACCEPTED`, then both `RESOURCE_TRANSFER` legs. Failure is `TRADE_REJECTED` with the existing reason and releases reservations; neither leg may partially commit. |
 | Player-visible consequence | Offer closes and both holdings change atomically. |
 | WATCH visibility | Derived public trade/transfer projection only; exact private holdings remain redacted. |
@@ -491,8 +491,8 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Agent / structured form | `verb: TRADE`, `parameters.phase: "reject"`, `trade_id`, and the contract-defined reason. Cancellation uses reason `CANCELLED`. |
 | Canonical action and target/parameters | `TRADE` reject/cancel phase. |
 | Availability and preconditions | Offer is open; actor is the permitted counterparty or proposer for the selected operation. |
-| Resource cost | No transfer. The semantic contract does not state a distinct reject/cancel charge; adapters MUST NOT invent one. **SPEC GAP:** if a separate rejection-phase cost is required, it belongs in the action contract. |
-| Success and failure semantics | `TRADE_REJECTED`; release the reservation. Reasons include `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`, and `CANCELLED`. |
+| Resource cost | **0**. Reject/cancel MUST NOT charge compute, energy, or influence. |
+| Success and failure semantics | `TRADE_REJECTED`; reservation released. Reasons: `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`, `CANCELLED`. Same release on expiry/invalidation. |
 | Player-visible consequence | The offer closes and reserved resources are released. |
 | WATCH visibility | Public trade closure may be projected without private terms. |
 | Milestone and hosted status | v0.1 required; hosted router has a noncanonical reject adapter. |
@@ -512,7 +512,7 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Resource cost | Energy 2 and compute 1; failed action cost is 0. |
 | Success and failure semantics | `BUDGET_CONSUMED` events, `RESOURCE_TRANSFER` node→Player, and `ENTITY_UPDATE` of node availability. Insufficient stock or capacity does not debit. |
 | Player-visible consequence | Storage increases, node availability changes, and the resource cost is shown. |
-| WATCH visibility | No separate direct action projection is specified. Only permitted derived resource/entity activity may appear; private holdings remain private. **SPEC GAP:** exact public harvest projection wording is not fixed. |
+| WATCH visibility | Public: `<Player public name> harvested from <public node name>` plus cycle. No amount, inventory, hidden capacity, or hidden resource type. Failed HARVEST has **no** public projection. |
 | Milestone and hosted status | v0.1 required; hosted direct HARVEST path exists but requires alignment to `COMMIT.HARVEST` cost and reducer semantics. |
 
 ### REPAIR
@@ -877,12 +877,11 @@ Evidence inspected: `Zero-State-LLC/Noema` canonical `origin/main` at `7135e3f7`
 
 The following are intentionally visible rather than silently invented:
 
-1. **Organization ID allocation:** `ORG_CREATE` requires a fresh canonical `org_id`, but the human `form` adapter’s ID allocation/naming rule is not yet authoritative.
-2. **Optional ASK payload:** `ASK` is defined as MESSAGE with ask semantics, but the exact structured ask payload and answer-linking model are not fully specified.
-3. **QUERY target families:** `QUERY` is optional, but the complete set of queryable records and their human projection is not enumerated.
-4. **Public harvest wording:** the event/reducer semantics exist, but a dedicated WATCH harvest projection is not fixed. Use derived public events only until it is.
-5. **Human serialization of complex terms:** trade stakes and strategic terms are machine-readable; adapters may use the command examples here, but any syntax not covered by the existing parser/protocol must remain guided or structured rather than guessed.
-6. **Runtime semantic alignment:** the inspected hosted router exposes several adapter verbs whose costs or names differ from the frozen Specs contracts. This is a runtime implementation gap, not permission to revise the Specs.
+1. **Organization ID allocation:** `ORG_CREATE` requires a fresh canonical `org_id`, but the human `form` adapter’s ID allocation/naming rule is not yet authoritative. First-world DEFERRED (org create is Tier 2 hosted).
+2. **Human serialization of complex terms:** trade stakes and strategic terms are machine-readable; adapters may use the command examples here, but any syntax not covered by the existing parser/protocol must remain guided or structured rather than guessed.
+3. **Runtime semantic alignment:** the inspected hosted router exposes several adapter verbs whose costs or names differ from the frozen Specs contracts. This is a runtime implementation gap, not permission to revise the Specs.
+
+Settled (no longer gaps): ASK = MESSAGE convenience; QUERY = optional/deferred read-only known records; TRADE accept/reject/cancel costs and reservation release; public HARVEST WATCH wording.
 
 None of these gaps authorize a new mechanic in this document. Resolve a material gap with the appropriate contract update, fixture, negative boundary, and validation before implementation.
 

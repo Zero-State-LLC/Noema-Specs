@@ -160,6 +160,8 @@ Player
 
 Additional attached Controllers MAY observe if their capabilities allow it.
 
+**First-world operational tightening:** one active **controlling** PlayerSession per Player at a time. A new controlling session terminates the previous one. Duplicate mutating command streams are forbidden. See [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md).
+
 **Future controller policies** (document only; not MVP-required):
 
 | Policy | Meaning |

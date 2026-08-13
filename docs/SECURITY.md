@@ -56,7 +56,7 @@ Trust boundaries: CLIENT (untrusted) · WORKER (public edge) · PLAYER SESSION (
 - Private/public data separation.
 - Audit logging and schema validation; action provenance includes `controller_id` / `session_id` when identity plane is enabled.
 - Maximum payload sizes and tool-call timeouts.
-- Kill switch, Controller/Player quarantine, and world-level incident mode.
+- Kill switch, Controller/Player quarantine, and world-level incident mode ([SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md), [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md), [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md)).
 - Evidence export signing and receipt verification for research-isolated outputs.
 
 ## Containment

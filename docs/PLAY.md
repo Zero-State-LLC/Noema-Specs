@@ -43,7 +43,7 @@ The projection MUST NOT turn an emergent condition into a fabricated quest, reve
 
 Human PLAY MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. Large decorative maps, 3D worlds, ornamental HUDs, and visual clutter are outside this clarification.
 
-The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes.
+The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes. Admin Live is a separate control-plane surface and MUST NOT be used as a super-player client ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
 
 ### Deep Time in PLAY (v0.6)
 

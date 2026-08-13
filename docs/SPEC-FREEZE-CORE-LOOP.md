@@ -41,6 +41,8 @@ PLAY → NOTICE → TEST → CAPTURE → LEARN
 
 **Recommendation:** Treat v0.1–v0.7 core-loop contracts as the **implementation target set**. Prefer implementation feedback over opening v0.8.
 
+First-world operational freeze (identity, ops, Admin, Perihelion pin): [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md).
+
 ---
 
 ## 2. Observed machine inventory (`main`)

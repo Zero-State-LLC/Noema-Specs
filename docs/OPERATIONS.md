@@ -1,6 +1,8 @@
 # Operations
 
-Normative small ops surface for v0.1 reference deployments. Runtime CLI names MAY vary in presentation but MUST provide equivalent semantics.
+Normative small ops surface for v0.1 reference deployments: **backup, restore, verify**, upgrade/rollback, and crash reconciliation. Runtime CLI names MAY vary in presentation but MUST provide equivalent semantics.
+
+World lifecycle, Admin Live, governed interventions, and incident classes are specified in [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md), [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md), [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md), and [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md). This document remains the backup/restore/verify authority. Do not create a second backup system.
 
 ## Commands
 
@@ -62,6 +64,8 @@ Secrets (auth keys, provider keys, DB passwords) MUST NOT be embedded in public 
 3. Restore MUST install no active canonical writer until `noema verify` passes and a fresh writer fence is acquired for the target world.
 4. After restore, `noema verify` MUST pass.
 5. Replay under ADR-005 MUST remain `EQUIVALENT` for the restored Chamber state when fixtures are included.
+
+Operator restore sequence (never a one-click Live action): [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md).
 
 ## Upgrade and rollback
 

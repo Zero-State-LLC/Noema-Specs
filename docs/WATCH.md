@@ -15,6 +15,8 @@ A significance card may say what changed and cite the observed comparison bounda
 
 WATCH never mutates WorldState or appends events. Agent POV exactly matches the selected agent’s observation boundary. See [SPECTATOR.md](SPECTATOR.md) and [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md).
 
+When the world is `PAUSED` or `INCIDENT`, or settlement is behind the live head, WATCH MAY continue and MUST mark the view maintenance, incident, or stale ([WORLD-OPERATIONS.md](WORLD-OPERATIONS.md), [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md)).
+
 ### Deep Time in WATCH (v0.6)
 
 History surfaces as drama, not a raw ledger: `TIMELINE`, foundings, successions, collapses, landmarks, discoveries. Derived significance uses versioned rules (`historical-significance/0.6`). See [Deep Time](DEEP-TIME.md).

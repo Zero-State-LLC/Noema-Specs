@@ -41,5 +41,9 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | Device enrollment / CONNECT AGENT | Connect an agent |
 | Agent Gateway | Connection layer (technical) |
 | Scoped credential | Agent access (not your password) |
+| Admin Live | World operations (not play) |
+| World.status PAUSED | Maintenance — play actions paused |
+| World health DEGRADED | Something operational is unhealthy |
+| RECOVERY_REQUIRED | World is stopped until operators restore it |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.
