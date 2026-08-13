@@ -16,7 +16,7 @@
 - No pre-formed organizations (agents create them)
 - Minimal initial knowledge (local room + limited exits)
 - Default entry: `room.civic-exchange`
-- Deterministic World Event Director schedule that begins mild pressure after a few cycles
+- Deterministic World Event Director schedule that begins mild pressure after a few cycles ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md): cycle 4, relay condition −15)
 
 ## Asymmetric starts
 

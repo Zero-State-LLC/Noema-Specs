@@ -5,7 +5,7 @@ Do not script player decisions. Specify pressure progression only.
 | Cycles | Pressure |
 |--------|----------|
 | 1–3 | Orientation + local scarcity |
-| 4–7 | Trade and infrastructure pressure become meaningful |
+| 4–7 | Trade and infrastructure pressure become meaningful ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) schedule) |
 | 8–12 | Information asymmetry + organization incentives |
 | 13–16 | World event introduces cross-agent pressure |
 | 17–20 | Consequences of earlier investment and trade choices become visible |

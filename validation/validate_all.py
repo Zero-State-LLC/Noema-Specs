@@ -213,6 +213,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0012-distance-interdependence.md",
     "docs/GC9-FIRST-SLICE.md",
     "rfcs/RFC-0013-maintenance-custom.md",
+    "docs/GC10-FIRST-SLICE.md",
+    "rfcs/RFC-0014-wed-schedule-pressure.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -872,6 +874,10 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/culture-catalog.schema.json", "specs/culture-catalog.gc9-s0.json"),
         ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-repair-custom.json"),
         ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-lore-cannot-override.json"),
+        ("specs/pressure-catalog.schema.json", "specs/pressure-catalog.gc10-s0.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/schedule-mild-ok.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/forced-response-forbidden.json"),
+        ("specs/pressure-attempt.schema.json", "examples/gc10-pressure/frontier-id-forbidden.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -3443,6 +3449,99 @@ def check_gc9_s0(Draft202012Validator) -> None:
     ok("GC9-S0 culture: catalog, rebuild fixtures, RFC-0013 Accepted, lore cannot override ledger")
 
 
+def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    authorizer = attempt.get("authorizer")
+    if authorizer in (catalog.get("forbidden_authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", None
+    if authorizer not in (catalog.get("authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", None
+    activate = attempt.get("activate_event")
+    wed_id = attempt.get("wed_id")
+    frontier_id = attempt.get("frontier_request_id")
+    if activate == catalog.get("forbidden_activate_event") or (
+        wed_id and frontier_id and wed_id == frontier_id
+    ):
+        return "REJECT", "FRONTIER_ID_FORBIDDEN", None
+    if activate != catalog.get("activate_event"):
+        return "REJECT", "FRONTIER_ID_FORBIDDEN", None
+    if attempt.get("admin_spawn"):
+        return "REJECT", "SPAWN_FORBIDDEN", None
+    if attempt.get("favor_grant"):
+        return "REJECT", "FAVOR_FORBIDDEN", None
+    if attempt.get("rewrite_history"):
+        return "REJECT", "HISTORY_FORBIDDEN", None
+    if attempt.get("new_entity"):
+        return "REJECT", "ENTITY_FORBIDDEN", None
+    if attempt.get("forced_response"):
+        return "REJECT", "FORCED_OUTCOME", None
+    leak_tokens = [
+        "event:",
+        "wed",
+        str(catalog.get("pressure_class") or "").lower(),
+        "research",
+    ]
+    for line in attempt.get("play_lines") or []:
+        blob = line.lower()
+        if any(tok and tok in blob for tok in leak_tokens):
+            return "REJECT", "LABEL_LEAK", None
+    before = int(attempt.get("condition_before") or 0)
+    expected_after = before - int(catalog["condition_delta"])
+    preview = attempt.get("preview_after")
+    activate_after = attempt.get("activate_after")
+    if preview is not None and activate_after is not None and int(preview) != int(activate_after):
+        return "REJECT", "PREVIEW_MISMATCH", None
+    if activate_after is not None and int(activate_after) != expected_after:
+        return "REJECT", "PREVIEW_MISMATCH", None
+    if expected_after < int(catalog["min_condition_after"]):
+        return "REJECT", "NOT_MILD", None
+    if authorizer == "schedule" and int(attempt.get("cycle") or 0) < int(catalog["first_cycle"]):
+        return "REJECT", "SCHEDULE_TOO_EARLY", None
+    return "ACCEPT", None, expected_after
+
+
+def check_gc10_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "pressure-catalog.gc10-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "pressure-catalog.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "pressure-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC10-S0 catalog invalid: {cerrs[0].message}")
+    if catalog.get("required_response") or catalog.get("play_research_labels") or catalog.get("admin_spawn"):
+        fail("GC10-S0 must not force a response, leak research labels, or enable Admin spawn")
+    if catalog.get("share_frontier_ids"):
+        fail("GC10-S0 must not share Frontier IDs")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC10-S0 must not add verbs or events")
+    if catalog.get("activate_event") != "ENTITY_UPDATE":
+        fail("GC10-S0 must reuse ENTITY_UPDATE")
+    rfc = (ROOT / "rfcs" / "RFC-0014-wed-schedule-pressure.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0014 must be Accepted after GC10-S0 machine contracts land")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "schedule-mild-ok.json",
+        "forced-response-forbidden.json",
+        "play-label-forbidden.json",
+        "player-author-forbidden.json",
+        "frontier-id-forbidden.json",
+        "preview-mismatch-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc10-pressure" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, after = evaluate_gc10_s0(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("condition_after") is not None and after != expected["condition_after"]:
+            fail(f"{name}: condition_after {after} expected {expected['condition_after']}")
+    ok("GC10-S0 pressure: catalog, schedule fixtures, RFC-0014 Accepted, no Frontier ID share")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -3477,6 +3576,7 @@ def main() -> None:
     check_gc7_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
+    check_gc10_s0(Draft202012Validator)
     print("\nPASS")
 
 

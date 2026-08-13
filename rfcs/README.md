@@ -23,6 +23,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0011](RFC-0011-contest-rhythm.md) | **Accepted** | GC7-S0 existing contest rhythm; no event-catalog/0.3 |
 | [RFC-0012](RFC-0012-distance-interdependence.md) | **Accepted** | GC8-S0 distance interdependence; not v0.6B |
 | [RFC-0013](RFC-0013-maintenance-custom.md) | **Accepted** | GC9-S0 maintenance custom; lore cannot override ledger |
+| [RFC-0014](RFC-0014-wed-schedule-pressure.md) | **Accepted** | GC10-S0 seeded mild relay pressure; no Frontier ID share |
 
 ## Required review lenses
 
