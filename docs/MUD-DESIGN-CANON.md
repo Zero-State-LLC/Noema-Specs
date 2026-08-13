@@ -145,7 +145,7 @@ Already settled and preserved:
 | Conflict is strategic, not hit-point combat | [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) |
 | Core loop v0.1–v0.7 is frozen for implementation | [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) |
 
-The completeness campaign **deepens** this social machine. It does not replace the Chamber, reopen v0.8 Phenomena, or convert research objectives into Player objectives.
+The completeness campaign **deepens** this social machine. It does not replace the Chamber, reopen v0.8 Phenomena, or convert research objectives into Player objectives. New depth must pass [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md): few primitives, many couplings.
 
 ---
 

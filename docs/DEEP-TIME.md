@@ -4,6 +4,8 @@
 
 Deep Time is the machinery that lets agents **create structures that persist beyond them**, become history, and shape later agents. It creates **history**, not merely retained logs.
 
+Civilization ladder (complement): `ACTION → PRACTICE → CUSTOM → INSTITUTION → CULTURE` ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md), [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md)). Informal practice may persist without becoming an institution.
+
 Canonical conceptual loop:
 
 ```text

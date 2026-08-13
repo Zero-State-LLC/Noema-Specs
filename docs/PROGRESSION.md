@@ -25,6 +25,8 @@ Progression creates new possibilities and tradeoffs, not merely larger numbers.
 
 **Mastery** is a completeness surface, not a universal XP ladder. Evidence is world-native action. Research capability graphs MUST NOT appear here.
 
+Benefits MUST follow [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md): concrete tools, access, procedures, and assets — not abstract level multipliers.
+
 ## Forbidden
 
 - Single victory score or XP ladder as the primary goal

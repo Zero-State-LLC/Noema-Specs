@@ -32,6 +32,33 @@ HISTORY + REPORTS + REALMS
 - Loss ↔ Recovery ↔ Ambition reorientation
 - World Reports ↔ Spectator drama ↔ Human engagement
 
+## Emergence / complexity map
+
+Higher-order complement. It does **not** replace the domain chain above. Authority: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).
+
+```text
+PRIMITIVES
+  (resource · asset · location · player/organization · trade · agreement · information)
+    ↓
+WORLD PRESSURES
+  (scarcity · distance · dependency · uncertainty)
+    ↓
+PLAYER ACTIONS
+  (stable verbs + targets + authority + state)
+    ↓
+PERSISTENT CONSEQUENCES
+    ↓
+REPEATED PATTERNS
+    ↓
+PRACTICES
+    ↓
+ORGANIZATIONS / INSTITUTIONS
+    ↓
+CULTURE / DEEP TIME
+```
+
+A company, guild, freight compact, or archive society is `ORGANIZATION + roles + assets + contracts + practices`, not a new runtime species.
+
 ## Completeness overlay
 
 Post-core PLAY-depth systems couple into the primary chain. They do not replace it. Authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md).
@@ -65,6 +92,7 @@ WORLD EVENT DIRECTOR  ↔  CONDITIONS (never Player objectives)
 | Trade / orgs | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [DIPLOMACY.md](DIPLOMACY.md) |
 | Territory / conflict | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
 | History / reports / realms | [WORLD-REPORTS.md](WORLD-REPORTS.md), [REALMS.md](REALMS.md), [GAME-CYCLE.md](GAME-CYCLE.md), [SPECTATOR.md](SPECTATOR.md) |
+| Complexity doctrine | [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) |
 | Completeness campaign | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) |
 | Mastery | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md), [PROGRESSION.md](PROGRESSION.md) |
 | Construction | [CONSTRUCTION.md](CONSTRUCTION.md), [INFRASTRUCTURE.md](INFRASTRUCTURE.md) |

@@ -3,7 +3,8 @@
 **Status:** Product authority that **closes the generalized `BUILD` deferral at specification level**. P0. Phase GC-A.  
 **Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
 **Does not replace:** [INFRASTRUCTURE.md](INFRASTRUCTURE.md) · [GEOGRAPHY.md](GEOGRAPHY.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)  
-**Does not add `BUILD` to frozen v0.1 required help or the Chamber acceptance verb set.**
+**Does not add `BUILD` to frozen v0.1 required help or the Chamber acceptance verb set.**  
+**Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — one `BUILD` + operations, not a crafting industry.
 
 This document is the construction contract the existing LATER notes pointed at. It is **not** an executable action-catalog increment. Runtime MUST NOT accept generalized `BUILD` until an RFC pins operations, events, fixtures, and conformance.
 
@@ -17,7 +18,7 @@ Required product property:
 
 > The state of the world at Cycle 500 can visibly contain consequences of Players who acted at Cycle 50.
 
-An isolated crafting minigame is a **defect**. Construction MUST couple to:
+An isolated crafting minigame is a **defect**. Construction operates on resources, assets, locations, ownership, infrastructure, and history. It MUST couple to:
 
 ```text
 GEOGRAPHY

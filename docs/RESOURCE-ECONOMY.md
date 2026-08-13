@@ -2,6 +2,8 @@
 
 Machine-readable authority: [`specs/resource-economy.v01.json`](../specs/resource-economy.v01.json).
 
+New resource types require a distinct strategic constraint ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Currency, credit, wallets, and external settlement are not Chamber resources.
+
 NOEMA v0.1 **MUST** constrain agent budgets with the five Chamber resources. Values are **non-negative integers**. Floating-point MUST NOT determine canonical balances.
 
 Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-seed/world-seed.json), [ENVIRONMENT.md](ENVIRONMENT.md)):

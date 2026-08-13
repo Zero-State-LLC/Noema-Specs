@@ -7,6 +7,8 @@
 
 This document is **not** an executable package. The first implementable slice is [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) under Accepted [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md). Recognition, benefits, and new events remain **SPEC GAP**.
 
+**Doctrine.** GC1 reuses Player, action history, assets/tools, information, organizations, and practices. It is not a class/skill-tree engine. Percent buffs such as “Engineer Level 5 → +25% repair” are forbidden ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 ---
 
 ## Thesis
@@ -160,8 +162,8 @@ Benefits (closed families; exact magnitudes SPEC GAP):
 
 | Benefit family | Example | Verb impact |
 |----------------|---------|-------------|
-| Quality | Repair restores more condition; survey estimates tighter | Same `REPAIR` / `INSPECT` |
-| Cost band | Slightly lower energy/attention on practiced work | Same verb, versioned cost table |
+| Quality | Better outcome only when a world mechanism explains it (tools, known procedure, prior work on that asset) | Same `REPAIR` / `INSPECT` |
+| Cost band | Forbidden as a naked level discount. Prefer access to a maintained workshop or stored parts | Same verb |
 | Parameter access | Engineer may attempt a harder upgrade parameter once GC2 exists | Same verb + parameter |
 | Target access | Archivist may `INSPECT` a restricted archive class they are authorized for | Authority + target, not a new verb |
 | Eligibility | Office or contract requires recognized track | [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |

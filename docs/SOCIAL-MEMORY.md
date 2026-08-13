@@ -7,6 +7,8 @@
 
 This document is **not** an executable package. Machine contracts are **SPEC GAP**.
 
+**Doctrine:** evidence-backed edges, not a reputation industry or `reputation = 72` engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Memory must be able to change trade, access, agreements, authority, cooperation, conflict, or information sharing — or it is presentation.
+
 ---
 
 ## Thesis

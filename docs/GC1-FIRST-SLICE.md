@@ -3,7 +3,8 @@
 **Status:** Selected executable *specification* slice for later runtime. Not an executable release package.  
 **Parent:** [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
 **RFC:** [RFC-0004](../rfcs/RFC-0004-derived-mastery-projection.md) (**Draft**)  
-**Does not open:** v0.8 · `event-catalog/0.3` · mechanical benefits · recognition
+**Does not open:** v0.8 · `event-catalog/0.3` · mechanical benefits · recognition  
+**Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — evidence trajectory, not a skill tree.
 
 This document is the audit result and the slice contract. An implementation agent MUST implement **only** this slice unless a later RFC expands it.
 

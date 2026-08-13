@@ -98,7 +98,7 @@ Every major activity must affect at least one other strategic system:
 
 ## Nested completeness loops
 
-These loops sit **inside** the primary and strategic overlays. They do not replace them. Campaign authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · ancestry: [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md).
+These loops sit **inside** the primary and strategic overlays. They do not replace them. Campaign authority: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · ancestry: [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · rejection test: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).
 
 ```text
 1. ACTION LOOP

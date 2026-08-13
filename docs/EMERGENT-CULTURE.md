@@ -5,6 +5,8 @@
 **Extends:** [DEEP-TIME.md](DEEP-TIME.md) · [LORE-BOUNDARY.md](LORE-BOUNDARY.md) · [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md)  
 **Does not silently become:** roadmap **v0.6C Semantic Evolution**.
 
+**Doctrine:** culture is the top of the practice → custom → institution ladder. No procedural lore generator ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
+
 Hard invariant:
 
 > Culture and lore may interpret history. They may never rewrite canonical history.

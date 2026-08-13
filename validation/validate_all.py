@@ -185,6 +185,7 @@ REQUIRED_DOCS = [
     "docs/SPEC-FREEZE-CORE-LOOP.md",
     "docs/MUD-DESIGN-CANON.md",
     "docs/GAME-COMPLETENESS-PLAN.md",
+    "docs/COMPLEXITY-DOCTRINE.md",
     "docs/MASTERY-SPECIALIZATION.md",
     "docs/CONSTRUCTION.md",
     "docs/SOCIAL-MEMORY.md",
