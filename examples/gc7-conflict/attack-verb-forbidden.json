@@ -1,0 +1,13 @@
+{
+  "slice_id": "gc7-s0",
+  "catalog_id": "conflict-catalog/gc7-s0",
+  "attempt": {
+    "contest_form": "INFRASTRUCTURE_DISRUPTION",
+    "sequence": [{ "stage": "COMMIT", "verb": "ATTACK", "actor_kind": "live" }]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "VERB_FORBIDDEN",
+    "note": "No hit-point combat verb."
+  }
+}

@@ -44,6 +44,7 @@
 - [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events.
 - [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs.
 - [x] GC6-S0 discovery contradiction (RFC-0010 Accepted): archive vs live INSPECT; no QUEST; no oracle; WATCH empty.
+- [x] GC7-S0 contest rhythm (RFC-0011 Accepted): RECON→RECOVER over existing v0.2 forms/verbs; no HP; no event-catalog/0.3.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 

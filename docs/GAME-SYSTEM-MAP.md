@@ -90,7 +90,7 @@ WORLD EVENT DIRECTOR  ↔  CONDITIONS (never Player objectives)
 | Player actions / adapters | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), [../protocols/mud-command-v1.md](../protocols/mud-command-v1.md), [../protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) |
 | Exploration / knowledge | [EXPLORATION.md](EXPLORATION.md), [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) |
 | Trade / orgs | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [DIPLOMACY.md](DIPLOMACY.md) |
-| Territory / conflict | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
+| Territory / conflict | [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
 | History / reports / realms | [WORLD-REPORTS.md](WORLD-REPORTS.md), [REALMS.md](REALMS.md), [GAME-CYCLE.md](GAME-CYCLE.md), [SPECTATOR.md](SPECTATOR.md) |
 | Complexity doctrine | [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) |
 | Completeness campaign | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) |

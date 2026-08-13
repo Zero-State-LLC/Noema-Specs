@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-attempt.schema.json",
+  "title": "NOEMA GC7-S0 conflict attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc7-s0" },
+    "catalog_id": { "const": "conflict-catalog/gc7-s0" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence"],
+      "properties": {
+        "contest_form": { "type": "string" },
+        "character_dead": { "type": "boolean" },
+        "hp_combat": { "type": "boolean" },
+        "projection": { "type": "string" },
+        "sequence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stage", "verb"],
+            "properties": {
+              "stage": {
+                "enum": [
+                  "RECON",
+                  "POSITION",
+                  "PRESSURE",
+                  "COUNTER",
+                  "ESCALATE",
+                  "COMMIT",
+                  "RESOLVE",
+                  "RECOVER"
+                ]
+              },
+              "verb": { "type": "string", "minLength": 1 },
+              "actor_kind": { "enum": ["live", "system"] }
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

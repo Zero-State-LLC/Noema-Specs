@@ -128,6 +128,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC6-S0 discovery contradiction** ([GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md), Accepted [RFC-0010](../rfcs/RFC-0010-discovery-contradiction.md)): archive vs live `INSPECT` as a self-only PLAY line. No quest log. No Chamber runtime in this RFC.
 
+**GC7-S0 contest rhythm** ([GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md), Accepted [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)): RECON→RECOVER composed from existing v0.2 forms and verbs. No HP. No `event-catalog/0.3`. No Chamber contest thaw.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
