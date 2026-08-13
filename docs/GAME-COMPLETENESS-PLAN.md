@@ -88,6 +88,7 @@ Produced before writing new authorities. Status values:
 | Org roles founder/officer/member/advisor | PARTIAL (v0.1 coarse) | Insufficient as playable offices |
 | [WORLD-SERVICES.md](WORLD-SERVICES.md) | EXISTS (not Players) | Services ≠ Player offices |
 | Playable offices with bounded authority | ABSENT | New: [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
+| v0.1 role grants (founder/officer/member/advisor) | PINNED S0 | [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md) |
 
 ### GC5 Communication ecology — P1
 

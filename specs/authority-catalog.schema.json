@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/authority-catalog.schema.json",
+  "title": "NOEMA Authority Catalog (GC4-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "membership_events",
+    "new_verbs",
+    "new_events",
+    "office_names_frozen",
+    "llm_authority",
+    "cosmetic_titles_have_authority",
+    "roles",
+    "invite_authorizers",
+    "remove_authorizers",
+    "assignable_roles",
+    "forbidden_assign_roles",
+    "self_leave",
+    "last_founder_guard"
+  ],
+  "properties": {
+    "schema_version": { "const": "authority-catalog/gc4-s0" },
+    "catalog_id": { "const": "authority-catalog/gc4-s0" },
+    "slice_id": { "const": "gc4-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "membership_events": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        { "const": "ORG_CREATE" },
+        { "const": "ORG_MEMBER_ADD" },
+        { "const": "ORG_MEMBER_REMOVE" }
+      ],
+      "items": false
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "office_names_frozen": { "const": false },
+    "llm_authority": { "const": false },
+    "cosmetic_titles_have_authority": { "const": false },
+    "roles": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [
+        { "const": "founder" },
+        { "const": "officer" },
+        { "const": "member" },
+        { "const": "advisor" }
+      ],
+      "items": false
+    },
+    "invite_authorizers": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "founder" }, { "const": "officer" }],
+      "items": false
+    },
+    "remove_authorizers": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "founder" }, { "const": "officer" }],
+      "items": false
+    },
+    "assignable_roles": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        { "const": "officer" },
+        { "const": "member" },
+        { "const": "advisor" }
+      ],
+      "items": false
+    },
+    "forbidden_assign_roles": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "prefixItems": [{ "const": "founder" }],
+      "items": false
+    },
+    "self_leave": { "const": true },
+    "last_founder_guard": { "const": true }
+  }
+}

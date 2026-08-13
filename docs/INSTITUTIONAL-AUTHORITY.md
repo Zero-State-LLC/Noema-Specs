@@ -13,6 +13,8 @@ No free-form LLM authority.
 
 **Doctrine:** offices are authority configurations over existing primitives, not a new codebase per title ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
+GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). Named offices, emergency scopes, and `ROLE_*` events remain **SPEC GAP**.
+
 ---
 
 ## Thesis
@@ -156,17 +158,18 @@ Cosmetic titles in messages or culture ([EMERGENT-CULTURE.md](EMERGENT-CULTURE.m
 ## SPEC GAP
 
 ```text
-role schema and scope catalog
-assignment/removal actions (likely COMMIT operations)
-event types (no silent catalog expansion)
+GC4-S0 closed: v0.1 founder/officer/member/advisor grants on ORG_*
+named-office scope catalog (Steward / Treasurer / …)
+assignment/removal beyond ORG_MEMBER_* (likely later COMMIT operations)
+event types ROLE_* (no silent catalog expansion)
 conflict-precedence rules
 emergency rule schema
-fixtures: in-scope success, out-of-scope FORBIDDEN, vacancy, succession
+fixtures: vacancy, succession, institution TRADE/REPAIR
 conformance
-PLAY/WATCH projections
+PLAY/WATCH office projections
 ```
 
-Until then, only v0.1 membership roles are executable.
+Until GC4-S1, only the four v0.1 membership roles are executable authority.
 
 ---
 

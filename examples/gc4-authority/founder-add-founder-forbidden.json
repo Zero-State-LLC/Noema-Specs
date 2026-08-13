@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s0",
+  "catalog_id": "authority-catalog/gc4-s0",
+  "attempt": {
+    "operation": "ORG_MEMBER_ADD",
+    "actor_id": "player.nacre",
+    "actor_role": "founder",
+    "target_id": "player.vesper",
+    "assigned_role": "founder",
+    "org_active": true,
+    "target_is_member": false,
+    "founder_count": 1,
+    "member_count": 2
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Founder seats are create-time only."
+  }
+}

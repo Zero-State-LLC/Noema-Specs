@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s0",
+  "catalog_id": "authority-catalog/gc4-s0",
+  "attempt": {
+    "operation": "ORG_MEMBER_REMOVE",
+    "actor_id": "player.nacre",
+    "actor_role": "officer",
+    "target_id": "player.helix",
+    "target_role": "founder",
+    "org_active": true,
+    "target_is_member": true,
+    "founder_count": 1,
+    "member_count": 3
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Last-founder guard: cannot leave the org founderless while others remain."
+  }
+}

@@ -122,6 +122,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC3-S0 social memory** ([GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), Accepted [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md)): derived Player→Player reliability from accepted trades. No reputation integer. No Chamber runtime yet.
 
+**GC4-S0 office authority** ([GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), Accepted [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)): existing v0.1 roles as membership grants. No Steward/Treasurer freeze. No `ROLE_*` events. No Chamber runtime change in this RFC.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena

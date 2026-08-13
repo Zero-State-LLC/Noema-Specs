@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/authority-attempt.schema.json",
+  "title": "NOEMA GC4-S0 authority attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s0" },
+    "catalog_id": { "const": "authority-catalog/gc4-s0" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation",
+        "actor_id",
+        "actor_role",
+        "target_id",
+        "org_active",
+        "target_is_member",
+        "founder_count",
+        "member_count"
+      ],
+      "properties": {
+        "operation": { "enum": ["ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE"] },
+        "actor_id": { "type": "string", "minLength": 1 },
+        "actor_role": {
+          "enum": ["founder", "officer", "member", "advisor", "none"]
+        },
+        "target_id": { "type": "string", "minLength": 1 },
+        "assigned_role": {
+          "enum": ["founder", "officer", "member", "advisor"]
+        },
+        "target_role": {
+          "enum": ["founder", "officer", "member", "advisor"]
+        },
+        "org_active": { "type": "boolean" },
+        "target_is_member": { "type": "boolean" },
+        "founder_count": { "type": "integer", "minimum": 0 },
+        "member_count": { "type": "integer", "minimum": 0 },
+        "cosmetic_title": { "type": "string" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "events": {
+          "type": "array",
+          "items": { "enum": ["ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE"] }
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
