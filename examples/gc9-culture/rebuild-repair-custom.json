@@ -1,0 +1,49 @@
+{
+  "slice_id": "gc9-s0",
+  "catalog_id": "culture-catalog/gc9-s0",
+  "subject_id": "player.vesper",
+  "subject_entity_id": "entity.relay-7",
+  "third_party_id": "player.oriole",
+  "events": [
+    {
+      "event_id": "evt.cu.1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 4,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 70 }, "operation": "REPAIR" }
+    },
+    {
+      "event_id": "evt.cu.2",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 8,
+      "sequence": 2,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 85 }, "operation": "REPAIR" }
+    },
+    {
+      "event_id": "evt.cu.3",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 12,
+      "sequence": 3,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 100 }, "operation": "REPAIR" }
+    },
+    {
+      "event_id": "evt.cu.4",
+      "event_type": "INSPECT",
+      "cycle": 20,
+      "sequence": 4,
+      "actor_id": "player.vesper",
+      "payload": { "entity_id": "entity.relay-7", "attention_spent": 2 }
+    }
+  ],
+  "expected": {
+    "play_lines": ["This site has a maintenance custom."],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "state": "CUSTOM",
+    "ledger_mutated": false,
+    "note": "Later INSPECT inherits the custom. Oriole never visited."
+  }
+}

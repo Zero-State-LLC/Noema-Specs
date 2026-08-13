@@ -1,0 +1,40 @@
+{
+  "slice_id": "gc9-s0",
+  "catalog_id": "culture-catalog/gc9-s0",
+  "subject_id": "player.oriole",
+  "subject_entity_id": "entity.relay-7",
+  "events": [
+    {
+      "event_id": "evt.cu.1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 4,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 70 }, "operation": "REPAIR" }
+    },
+    {
+      "event_id": "evt.cu.2",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 8,
+      "sequence": 2,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 85 }, "operation": "REPAIR" }
+    },
+    {
+      "event_id": "evt.cu.3",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 12,
+      "sequence": 3,
+      "actor_id": "player.nacre",
+      "payload": { "entity_id": "entity.relay-7", "set": { "condition": 100 }, "operation": "REPAIR" }
+    }
+  ],
+  "expected": {
+    "play_lines": [],
+    "watch_lines": [],
+    "third_party_lines": [],
+    "state": "CUSTOM",
+    "ledger_mutated": false,
+    "note": "Custom exists in evidence; Oriole has no access so PLAY is silent."
+  }
+}

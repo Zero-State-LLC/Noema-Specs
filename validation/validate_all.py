@@ -211,6 +211,8 @@ REQUIRED_DOCS = [
     "rfcs/RFC-0011-contest-rhythm.md",
     "docs/GC8-FIRST-SLICE.md",
     "rfcs/RFC-0012-distance-interdependence.md",
+    "docs/GC9-FIRST-SLICE.md",
+    "rfcs/RFC-0013-maintenance-custom.md",
     "rfcs/RFC-0004-derived-mastery-projection.md",
     "rfcs/RFC-0005-mastery-recognition.md",
     "docs/DEEP-TIME.md",
@@ -867,6 +869,9 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/economy-attempt.schema.json", "examples/gc8-economy/pair-two-rooms-ok.json"),
         ("specs/economy-attempt.schema.json", "examples/gc8-economy/lone-one-hop-ok.json"),
         ("specs/economy-attempt.schema.json", "examples/gc8-economy/wallet-forbidden.json"),
+        ("specs/culture-catalog.schema.json", "specs/culture-catalog.gc9-s0.json"),
+        ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-repair-custom.json"),
+        ("specs/culture-rebuild.schema.json", "examples/gc9-culture/rebuild-lore-cannot-override.json"),
         (
             "specs/world-seed.schema.json",
             "examples/v01-strategic/world-seed.json",
@@ -3333,6 +3338,111 @@ def check_gc8_s0(Draft202012Validator) -> None:
     ok("GC8-S0 economy: catalog, pair-vs-lone fixtures, RFC-0012 Accepted, no currency/v0.6B")
 
 
+def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
+    if ev.get("event_type") != catalog.get("evidence_event"):
+        return False
+    payload = ev.get("payload") or {}
+    if payload.get("entity_id") != entity_id:
+        return False
+    if payload.get("operation") == catalog.get("practice"):
+        return True
+    if payload.get("field") == "condition":
+        return True
+    sett = payload.get("set") or {}
+    return "condition" in sett
+
+
+def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict:
+    entity_id = fixture["subject_entity_id"]
+    subject = fixture["subject_id"]
+    seen: set[str] = set()
+    access = False
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        payload = ev.get("payload") or {}
+        if payload.get("entity_id") == entity_id and ev.get("actor_id") == subject:
+            access = True
+        if not _gc9_is_repair_update(ev, catalog, entity_id):
+            continue
+        eid = ev.get("event_id")
+        if not eid or eid in seen:
+            continue
+        seen.add(eid)
+    n = len(seen)
+    if n >= int(catalog["custom_threshold"]):
+        state = "CUSTOM"
+        line = catalog["custom_line"]
+    elif n >= int(catalog["practicing_threshold"]):
+        state = "PRACTICING"
+        line = None
+    else:
+        state = "UNKNOWN"
+        line = None
+    play = [line] if line and access else []
+    return {
+        "play_lines": play,
+        "watch_lines": [],
+        "third_party_lines": [],
+        "state": state,
+        "ledger_mutated": False,
+        "lore_wins": False,
+    }
+
+
+def check_gc9_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "culture-catalog.gc9-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "culture-catalog.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "culture-rebuild.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC9-S0 catalog invalid: {cerrs[0].message}")
+    if (
+        catalog.get("ledger_write")
+        or catalog.get("lore_overrides_ledger")
+        or catalog.get("v06c")
+        or catalog.get("procedural_generator")
+    ):
+        fail("GC9-S0 must not write the ledger, let lore win, or open v0.6C/lore gen")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC9-S0 must not add verbs or events")
+    if catalog.get("watch_projection") or catalog.get("public_projection"):
+        fail("GC9-S0 must not enable public/WATCH culture")
+    rfc = (ROOT / "rfcs" / "RFC-0013-maintenance-custom.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0013 must be Accepted after GC9-S0 machine contracts land")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "rebuild-repair-custom.json",
+        "rebuild-below-threshold.json",
+        "rebuild-no-access.json",
+        "rebuild-lore-cannot-override.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc9-culture" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc9_s0(fixture, catalog)
+        exp = fixture["expected"]
+        for key in ("play_lines", "watch_lines", "third_party_lines", "state", "ledger_mutated"):
+            if got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if got["watch_lines"] or got["third_party_lines"] or got["ledger_mutated"] or got["lore_wins"]:
+            fail(f"{name} WATCH/third-party/ledger/lore-win must be empty/false")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} play line leaked {token}")
+        lore = fixture.get("lore_claim") or ""
+        if lore and lore.lower() in blob:
+            fail(f"{name} lore claim overrode PLAY")
+    ok("GC9-S0 culture: catalog, rebuild fixtures, RFC-0013 Accepted, lore cannot override ledger")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -3366,6 +3476,7 @@ def main() -> None:
     check_gc6_s0(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
+    check_gc9_s0(Draft202012Validator)
     print("\nPASS")
 
 

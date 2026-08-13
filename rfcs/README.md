@@ -22,6 +22,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0010](RFC-0010-discovery-contradiction.md) | **Accepted** | GC6-S0 archive vs live INSPECT; no quest oracle |
 | [RFC-0011](RFC-0011-contest-rhythm.md) | **Accepted** | GC7-S0 existing contest rhythm; no event-catalog/0.3 |
 | [RFC-0012](RFC-0012-distance-interdependence.md) | **Accepted** | GC8-S0 distance interdependence; not v0.6B |
+| [RFC-0013](RFC-0013-maintenance-custom.md) | **Accepted** | GC9-S0 maintenance custom; lore cannot override ledger |
 
 ## Required review lenses
 

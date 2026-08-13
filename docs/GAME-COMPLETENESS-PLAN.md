@@ -137,6 +137,7 @@ Produced before writing new authorities. Status values:
 | [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md), [SEMANTIC-LINEAGE.md](SEMANTIC-LINEAGE.md) | EXISTS | Inputs to culture |
 | Roadmap **v0.6C Semantic Evolution** | DEFERRED | Remains distinct. GC9 may later depend on it |
 | Evidence-backed custom → tradition | ABSENT | New: [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) |
+| Repeated REPAIR → inherited CUSTOM | PINNED S0 | [GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md) · [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md) |
 
 ### GC10 World Steward pressure — P2
 

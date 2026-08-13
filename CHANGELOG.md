@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0013 Accepted:** GC9-S0 maintenance custom. ≥3 distinct `ENTITY_UPDATE` repairs on one site become a derived `CUSTOM`; later `INSPECT` inherits; lore cannot override the ledger. No v0.6C. No runtime.
+
+### Added
+
 - **RFC-0012 Accepted:** GC8-S0 distance interdependence. Two-Player `HARVEST`+`TRADE` spends less energy than a lone `MOVE` between rooms. No currency, order book, v0.6B, mastery yield, or wallets. No runtime.
 
 ### Added

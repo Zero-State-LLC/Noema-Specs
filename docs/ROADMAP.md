@@ -132,6 +132,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Not v0.6B. No currency. No Chamber runtime.
 
+**GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Lore cannot override the ledger. Not v0.6C. No Chamber runtime.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
