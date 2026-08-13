@@ -58,6 +58,8 @@ optional research readiness
 
 A failed Frontier, Observatory, Lab derivation, Compiler, or LEARN rebuild MUST NOT, by itself, stop gameplay or force `PAUSED` / `INCIDENT`.
 
+Critical operational alerts fire **immediately**. Periodic [Operator Digests](OPERATOR-DIGESTS.md) still cover the window and reference the incident. Digest or email delivery failure is `DIGEST_DELIVERY_DEGRADED`, not a gameplay `INCIDENT`, and MUST NOT pause PLAY.
+
 ---
 
 ## Durable Object unavailable

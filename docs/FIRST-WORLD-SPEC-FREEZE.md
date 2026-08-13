@@ -34,6 +34,7 @@ Related: [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [SPEC-FREEZE-
 | Degraded / recovery | [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) |
 | Perihelion pin | [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) |
 | World Services | [WORLD-SERVICES.md](WORLD-SERVICES.md) |
+| Operator Digests | [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) |
 | This freeze | this document |
 
 Do not create competing semantic ownership.
@@ -64,6 +65,7 @@ Player Onboarding
 First-World Operations
 Perihelion Reach production pin
 World Services
+Operator Digests
 ```
 
 Freeze does **not** mean every runtime adapter is complete. It means implementation follows settled authority rather than continuing product design.

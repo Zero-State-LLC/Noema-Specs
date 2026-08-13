@@ -4,7 +4,7 @@
 
 This document pins the approved candidate and shows where CREATE / RUN / PLAY / WATCH / STUDY / ADMINISTER / MAINTAIN / RECOVER / AUDIT are specified. It does not add gameplay, Genesis profiles, story seeds, or a second world.
 
-Related: [GENESIS.md](GENESIS.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-SERVICES.md](WORLD-SERVICES.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [OPERATIONS.md](OPERATIONS.md) · [PLATFORM.md](PLATFORM.md).
+Related: [GENESIS.md](GENESIS.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-SERVICES.md](WORLD-SERVICES.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [OPERATIONS.md](OPERATIONS.md) · [PLATFORM.md](PLATFORM.md).
 
 ---
 
@@ -123,6 +123,7 @@ RESEARCH
 ADMIN / OPERATIONS
 ├── Admin Identity           AUTH-AND-IDENTITY, ADMIN-LIVE-OPERATIONS
 ├── Admin Live               ADMIN-LIVE-OPERATIONS
+├── Operator Digests         OPERATOR-DIGESTS
 ├── World Operations         WORLD-OPERATIONS
 ├── Player Management        PLAYER-LIFECYCLE, OPERATOR-INTERVENTIONS
 ├── Research Management      STUDY, RESEARCH-WORKFLOW (authorized)
@@ -161,6 +162,19 @@ Before production Genesis of Perihelion Reach, operators MUST be able to:
 9. Demonstrate settlement-bound fail-closed and ledger-mismatch `RECOVERY_REQUIRED` in a non-production rehearsal.
 
 Activation remains a human operator decision. Specs do not auto-activate production.
+
+Recommended Operator Digest defaults (not a Genesis gate; email not required):
+
+```text
+Enabled: yes
+Cadence: PT30M
+Depth: STANDARD
+Dashboard: enabled
+Email: disabled
+Immediate operational alerts: enabled
+```
+
+See [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md).
 
 ---
 
