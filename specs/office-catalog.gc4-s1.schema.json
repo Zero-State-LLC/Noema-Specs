@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/office-catalog.gc4-s1.schema.json",
+  "title": "NOEMA Office Catalog (GC4-S1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "evidence_events",
+    "new_verbs",
+    "new_events",
+    "office_names_frozen",
+    "llm_authority",
+    "cosmetic_titles_have_authority",
+    "membership_roles_unchanged",
+    "create_authorizers",
+    "assign_authorizers",
+    "profiles",
+    "hosted_act_profiles",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": { "const": "office-catalog/gc4-s1" },
+    "catalog_id": { "const": "office-catalog/gc4-s1" },
+    "slice_id": { "const": "gc4-s1" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "evidence_events": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{ "const": "ENTITY_CREATE" }, { "const": "ENTITY_UPDATE" }],
+      "items": false
+    },
+    "ignored_events": { "type": "array", "items": { "type": "string" } },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "office_names_frozen": { "const": false },
+    "llm_authority": { "const": false },
+    "cosmetic_titles_have_authority": { "const": false },
+    "membership_roles_unchanged": { "const": true },
+    "create_authorizers": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{ "const": "founder" }, { "const": "officer" }],
+      "items": false
+    },
+    "assign_authorizers": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [{ "const": "founder" }, { "const": "officer" }],
+      "items": false
+    },
+    "vacate_other_authorizers": {
+      "type": "array",
+      "items": { "enum": ["founder", "officer"] }
+    },
+    "retire_authorizers": {
+      "type": "array",
+      "items": { "enum": ["founder", "officer"] }
+    },
+    "holder_may_resign": { "const": true },
+    "holder_must_be_member": { "const": true },
+    "replace_requires_flag": { "const": true },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "hosted_act_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "lifecycle": {
+      "type": "array",
+      "minItems": 3,
+      "prefixItems": [
+        { "const": "VACANT" },
+        { "const": "OCCUPIED" },
+        { "const": "RETIRED" }
+      ],
+      "items": false
+    }
+  }
+}

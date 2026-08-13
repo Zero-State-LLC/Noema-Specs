@@ -1,0 +1,23 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_ASSIGN",
+    "actor_id": "player.nacre",
+    "actor_role": "founder",
+    "org_active": true,
+    "office_exists": true,
+    "office_status": "VACANT",
+    "target_id": "player.ghost",
+    "target_in_world": false,
+    "target_is_member": false,
+    "same_world": true,
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Cannot assign a Player who is not in the world."
+  }
+}

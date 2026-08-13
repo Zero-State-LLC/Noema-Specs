@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "attempt": {
+    "operation": "OFFICE_CREATE",
+    "actor_id": "player.vesper",
+    "actor_role": "member",
+    "org_active": true,
+    "profile": "PUBLISH_NOTICE",
+    "profile_valid": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Ordinary members cannot create offices."
+  }
+}

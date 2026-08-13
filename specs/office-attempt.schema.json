@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/office-attempt.schema.json",
+  "title": "NOEMA GC4-S1 office attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s1" },
+    "catalog_id": { "const": "office-catalog/gc4-s1" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "actor_id", "actor_role", "org_active"],
+      "properties": {
+        "operation": {
+          "enum": [
+            "OFFICE_CREATE",
+            "OFFICE_ASSIGN",
+            "OFFICE_VACATE",
+            "OFFICE_RETIRE",
+            "OFFICE_ACT"
+          ]
+        },
+        "actor_id": { "type": "string", "minLength": 1 },
+        "actor_role": {
+          "enum": ["founder", "officer", "member", "advisor", "none"]
+        },
+        "actor_is_holder": { "type": "boolean" },
+        "org_active": { "type": "boolean" },
+        "office_exists": { "type": "boolean" },
+        "office_status": {
+          "enum": ["VACANT", "OCCUPIED", "RETIRED", "NONE"]
+        },
+        "target_id": { "type": "string" },
+        "target_in_world": { "type": "boolean" },
+        "target_is_member": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "profile": { "type": "string" },
+        "profile_valid": { "type": "boolean" },
+        "replace": { "type": "boolean" },
+        "cosmetic_title": { "type": "string" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "events": {
+          "type": "array",
+          "items": { "enum": ["ENTITY_CREATE", "ENTITY_UPDATE"] }
+        },
+        "office_status": {
+          "enum": ["VACANT", "OCCUPIED", "RETIRED"]
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

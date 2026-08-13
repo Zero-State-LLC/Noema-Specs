@@ -5,7 +5,7 @@
 **RFC:** [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md)  
 **Does not open:** Steward / Treasurer / Marshal name freeze · `ROLE_*` events · `event-catalog/0.3` · LLM authority · institution-owned TRADE/REPAIR
 
-S0 is the smallest institutional-authority increment that still satisfies scenario D’s *shape* (a bounded grant, a permitted act, a forbidden act, a leave) using the v0.1 membership roles already on `COMMIT.ORG_*`. Named offices, vacancy events, and emergency scopes wait for GC4-S1.
+S0 is the smallest institutional-authority increment that still satisfies scenario D’s *shape* (a bounded grant, a permitted act, a forbidden act, a leave) using the v0.1 membership roles already on `COMMIT.ORG_*`. Named offices are [GC4-S1](GC4-S1-OFFICES.md) (RFC-0023).
 
 ---
 
@@ -129,4 +129,4 @@ Hosted membership uses founder/officer grants (Noema #71). Advisor is a distinct
 6. Removing the only founder while other members remain is `FORBIDDEN`.
 7. A Player whose displayed title is “Steward” but whose role is `member` cannot invite.
 
-Full scenario D (named office, institution TRADE/REPAIR, succession of that scope) is **GC4-S1**.
+Named office + vacancy is **GC4-S1**. Institution TRADE/REPAIR and designated succession remain later.

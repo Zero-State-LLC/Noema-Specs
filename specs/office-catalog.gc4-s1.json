@@ -1,0 +1,32 @@
+{
+  "schema_version": "office-catalog/gc4-s1",
+  "catalog_id": "office-catalog/gc4-s1",
+  "slice_id": "gc4-s1",
+  "authority": "docs/GC4-S1-OFFICES.md",
+  "rfc": "rfcs/RFC-0023-named-offices.md",
+  "event_catalog": "event-catalog/0.1",
+  "evidence_events": ["ENTITY_CREATE", "ENTITY_UPDATE"],
+  "ignored_events": ["ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE", "ROLE_ASSIGNED", "ROLE_VACATED"],
+  "new_verbs": [],
+  "new_events": [],
+  "office_names_frozen": false,
+  "llm_authority": false,
+  "cosmetic_titles_have_authority": false,
+  "membership_roles_unchanged": true,
+  "create_authorizers": ["founder", "officer"],
+  "assign_authorizers": ["founder", "officer"],
+  "vacate_other_authorizers": ["founder", "officer"],
+  "retire_authorizers": ["founder", "officer"],
+  "holder_may_resign": true,
+  "holder_must_be_member": true,
+  "replace_requires_flag": true,
+  "profiles": [
+    "PUBLISH_NOTICE",
+    "OPERATE_RESOURCE_ACCOUNT",
+    "ACCESS_RESTRICTED_ARCHIVE",
+    "GRANT_ACCESS",
+    "OPERATE_NAMED_ASSET"
+  ],
+  "hosted_act_profiles": ["PUBLISH_NOTICE"],
+  "lifecycle": ["VACANT", "OCCUPIED", "RETIRED"]
+}

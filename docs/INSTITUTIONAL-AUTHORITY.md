@@ -13,7 +13,7 @@ No free-form LLM authority.
 
 **Doctrine:** offices are authority configurations over existing primitives, not a new codebase per title ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). Named offices, emergency scopes, and `ROLE_*` events remain **SPEC GAP**.
+GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). GC4-S1 named offices: [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [RFC-0023](../rfcs/RFC-0023-named-offices.md). Emergency scopes and `ROLE_*` events remain **SPEC GAP**.
 
 ---
 
@@ -159,17 +159,15 @@ Cosmetic titles in messages or culture ([EMERGENT-CULTURE.md](EMERGENT-CULTURE.m
 
 ```text
 GC4-S0 closed: v0.1 founder/officer/member/advisor grants on ORG_*
-named-office scope catalog (Steward / Treasurer / …)
-assignment/removal beyond ORG_MEMBER_* (likely later COMMIT operations)
+GC4-S1 closed: named vacant/occupied office on the org; PUBLISH_NOTICE exercise
 event types ROLE_* (no silent catalog expansion)
 conflict-precedence rules
 emergency rule schema
-fixtures: vacancy, succession, institution TRADE/REPAIR
-conformance
-PLAY/WATCH office projections
+institution TRADE/REPAIR
+designated succession
 ```
 
-Until GC4-S1, only the four v0.1 membership roles are executable authority.
+Until a later slice, institution TRADE/REPAIR and extra profiles stay unhosted.
 
 ---
 

@@ -3219,6 +3219,130 @@ def check_gc4_s0(Draft202012Validator) -> None:
     ok("GC4-S0 authority: catalog, attempt fixtures, RFC-0008 Accepted, no ROLE_* events")
 
 
+def evaluate_gc4_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not attempt.get("org_active"):
+        return "REJECT", "NOT_FOUND"
+    op = attempt.get("operation")
+    role = attempt.get("actor_role")
+    profiles = set(catalog.get("profiles") or [])
+    hosted_act = set(catalog.get("hosted_act_profiles") or [])
+    if op == "OFFICE_CREATE":
+        if role not in (catalog.get("create_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("profile_valid") is False or attempt.get("profile") not in profiles:
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "OFFICE_ASSIGN":
+        if not attempt.get("office_exists"):
+            return "REJECT", "NOT_FOUND"
+        if attempt.get("office_status") == "RETIRED":
+            return "REJECT", "FORBIDDEN"
+        if role not in (catalog.get("assign_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("same_world") is False:
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("target_in_world") is False:
+            return "REJECT", "NOT_FOUND"
+        if catalog.get("holder_must_be_member") and not attempt.get("target_is_member"):
+            return "REJECT", "FORBIDDEN"
+        if (
+            attempt.get("office_status") == "OCCUPIED"
+            and catalog.get("replace_requires_flag")
+            and not attempt.get("replace")
+        ):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("profile_valid") is False or (
+            attempt.get("profile") and attempt.get("profile") not in profiles
+        ):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "OFFICE_VACATE":
+        if not attempt.get("office_exists"):
+            return "REJECT", "NOT_FOUND"
+        if attempt.get("office_status") != "OCCUPIED":
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("actor_is_holder") and catalog.get("holder_may_resign"):
+            return "ACCEPT", None
+        if role not in (catalog.get("vacate_other_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "OFFICE_RETIRE":
+        if not attempt.get("office_exists"):
+            return "REJECT", "NOT_FOUND"
+        if attempt.get("office_status") == "RETIRED":
+            return "REJECT", "FORBIDDEN"
+        if role not in (catalog.get("retire_authorizers") or []):
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    if op == "OFFICE_ACT":
+        if not attempt.get("office_exists"):
+            return "REJECT", "NOT_FOUND"
+        if attempt.get("office_status") != "OCCUPIED":
+            return "REJECT", "FORBIDDEN"
+        if not attempt.get("actor_is_holder"):
+            return "REJECT", "FORBIDDEN"
+        if attempt.get("cosmetic_title") and not attempt.get("actor_is_holder"):
+            return "REJECT", "FORBIDDEN"
+        profile = attempt.get("profile")
+        if profile not in profiles or profile not in hosted_act:
+            return "REJECT", "FORBIDDEN"
+        return "ACCEPT", None
+    return "REJECT", "FORBIDDEN"
+
+
+def check_gc4_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "office-catalog.gc4-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "office-catalog.gc4-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "office-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("office_names_frozen") or catalog.get("llm_authority") or catalog.get("cosmetic_titles_have_authority"):
+        fail("GC4-S1 must not freeze office names, grant LLM authority, or treat titles as grants")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S1 must not add verbs or events")
+    if catalog.get("event_catalog") != "event-catalog/0.1":
+        fail("GC4-S1 must reuse event-catalog/0.1")
+    used = set(catalog.get("evidence_events") or [])
+    if any(name.startswith("ROLE_") for name in used):
+        fail("GC4-S1 must not introduce ROLE_* events")
+    if "ROLE_ASSIGNED" not in (catalog.get("ignored_events") or []):
+        fail("GC4-S1 must keep ROLE_* out of evidence")
+    rfc = (ROOT / "rfcs" / "RFC-0023-named-offices.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0023 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "create-office-ok.json",
+        "assign-eligible-ok.json",
+        "holder-act-ok.json",
+        "holder-resign-ok.json",
+        "reassign-after-vacancy-ok.json",
+        "unauthorized-create-forbidden.json",
+        "unauthorized-assign-forbidden.json",
+        "assign-missing-player-forbidden.json",
+        "assign-other-world-forbidden.json",
+        "double-assign-forbidden.json",
+        "former-holder-act-forbidden.json",
+        "retired-office-act-forbidden.json",
+        "label-without-grant-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-offices" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc4_s1(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if fixture["attempt"].get("cosmetic_title") and outcome != "REJECT":
+            fail(f"{name}: cosmetic title must not authorize")
+    ok("GC4-S1 offices: catalog, attempt fixtures, RFC-0023 Accepted, no ROLE_* events")
+
+
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
         return "REJECT", "FORBIDDEN"
@@ -3895,6 +4019,7 @@ def main() -> None:
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
+    check_gc4_s1(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
