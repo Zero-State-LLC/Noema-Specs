@@ -342,6 +342,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | Quickstart | [docs/QUICKSTART.md](docs/QUICKSTART.md) |
 | First-world operations | [docs/FIRST-WORLD-OPERATIONS.md](docs/FIRST-WORLD-OPERATIONS.md) |
 | First-world freeze | [docs/FIRST-WORLD-SPEC-FREEZE.md](docs/FIRST-WORLD-SPEC-FREEZE.md) |
+| World Services | [docs/WORLD-SERVICES.md](docs/WORLD-SERVICES.md) |
 | Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
 | World operations | [docs/WORLD-OPERATIONS.md](docs/WORLD-OPERATIONS.md) |
 | Player lifecycle | [docs/PLAYER-LIFECYCLE.md](docs/PLAYER-LIFECYCLE.md) |

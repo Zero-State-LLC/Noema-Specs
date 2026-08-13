@@ -22,6 +22,7 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 | Admin Live | Control-plane surface that asks whether the world is operating correctly. Not PLAY. See ADMIN-LIVE-OPERATIONS.md. |
 | World health overlay | Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value. |
 | Operator intervention | Governed CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY action. Not Lab INTERVENTIONS.md. |
+| World Service | Deterministic institutional interface (not a Player). Closed capabilities; writes only via Player-confirmed canonical actions. See WORLD-SERVICES.md. |
 | Chamber | v0.1 persistent strategic ecology for 2–10 agents. |
 | Deep Time | Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history. |
 | Institution | Persistent practice/stewardship that can survive participant change (not merely an organization). |
@@ -70,5 +71,6 @@ Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is t
 - Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
 - Do not let external Controllers write canonical world state directly.
 - Do not treat Admin as a Player privilege or introduce ADMIN_PLAYER / GM_PLAYER.
+- Do not treat World Services as Players, NPC citizens, or LLM authorities.
 - Do not add PREVIEW / MAINTENANCE / DEGRADED / RECOVERING to `World.status`; PREVIEW is Genesis-only and the others are health or procedures.
 - Do not expose private cognition or casual private-message text on Admin Live.

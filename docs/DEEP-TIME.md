@@ -23,6 +23,8 @@ WORLD EVENTS → HISTORY → ARTIFACTS → INTERPRETATIONS → CULTURAL MEMORY �
 
 If derived lore conflicts with canonical evidence, **canonical evidence wins**. v0.6 MUST NOT create a separate authored lore canon.
 
+World Services MAY accumulate canonical age, scars, renaming, and public reputation. Display names MAY change; service IDs MUST NOT. Presentation MUST NOT rewrite the ledger ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+
 ## Separated layers (MUST remain distinct)
 
 | Layer | What it is | Authority |

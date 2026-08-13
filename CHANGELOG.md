@@ -4,6 +4,10 @@
 
 ### Added
 
+- **World Services:** `docs/WORLD-SERVICES.md` — six first-world institutional interfaces (Exchange Broker, Quartermaster, Registrar, Relay Keeper, Archivist, Contract Clerk). Not Players. Closed capabilities. Writes only through Player-confirmed canonical actions. LLM/presentation has no authority.
+
+### Added
+
 - **First-world operational envelope:** Admin Live, world operations, Player lifecycle, operator interventions, incident recovery, Player onboarding, and Perihelion Reach pin. Specs: `docs/ADMIN-LIVE-OPERATIONS.md`, `docs/WORLD-OPERATIONS.md`, `docs/PLAYER-LIFECYCLE.md`, `docs/OPERATOR-INTERVENTIONS.md`, `docs/INCIDENT-RECOVERY.md`, `docs/PLAYER-ONBOARDING.md`, `docs/FIRST-WORLD-OPERATIONS.md`. Maps operational language onto frozen `World.status` (`ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED`); does not add gameplay, profiles, or seeds.
 - Admin Live observes the authoritative system and does not play; private cognition stays out of scope; private message text is hidden by default.
 - First-world settlement outage is bounded fail-closed (at most one additional mutating cycle batch). One controlling PlayerSession per Player; transport disconnect does not emit `AGENT_LEFT_WORLD`.

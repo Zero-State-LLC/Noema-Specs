@@ -166,3 +166,4 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] FW12 no competing hosted platform authority
 - [x] FW13 first-world freeze present (`docs/FIRST-WORLD-SPEC-FREEZE.md`)
 - [x] FW14 no v0.8 scope creep
+- [x] World Services: six first-world institutional interfaces, not Players; closed capabilities; writes only via Player-confirmed canonical actions; no LLM authority (`docs/WORLD-SERVICES.md`).

@@ -45,6 +45,8 @@ Human PLAY MAY use compact route diagrams, condition glyphs, organization marks,
 
 The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes. Admin Live is a separate control-plane surface and MUST NOT be used as a super-player client ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
 
+World Services are institutional interfaces in the world, not Players. They may present trade, storage, registry, relay, archive, or contract desks. They MUST NOT add verbs or mutate world state except by preparing a Player-confirmed canonical action ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+
 ### Deep Time in PLAY (v0.6)
 
 An old world should feel old without an encyclopedia dump. Players meet **age, scars, institutions, and incomplete local history**:

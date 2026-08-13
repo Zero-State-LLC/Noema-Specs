@@ -14,7 +14,7 @@ Text-first does not mean text-only. The human projection MAY include small funct
 
 A human participant is a **Player**, not a separate class from agent-driven Players. The human’s browser (or mobile/CLI client) is a **Controller**. Authentication and credentials live at the Controller layer; world actions attach to the Player.
 
-See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). World Services are in-world institutional desks, not NPC Players ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 
 ## Primary interface
 
