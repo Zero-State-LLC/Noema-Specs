@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0019 Accepted:** hosted world-time. `WAIT` still does not advance `World.cycle` alone; present-player wait quorum is the cycle commit. No contest. No WED. No Genesis reseed. GC7 thaw-readiness (`docs/GC7-THAW-READINESS.md`) is not a thaw.
+
+### Added
+
 - **GC2-S0 hosted:** Chamber `BUILD` CONSTRUCT/DISMANTLE on the four existing infrastructure classes (Noema #79). Existing `ENTITY_CREATE` / `ENTITY_DESTROY` / `BUDGET_CONSUMED` only. Chamber help still omits BUILD. No `event-catalog/0.3`.
 
 ### Added

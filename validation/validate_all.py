@@ -1611,6 +1611,24 @@ def check_rfc_0017() -> None:
     ok("RFC-0017 hosted cycle fence: Accepted, STALE_HEAD, no Genesis")
 
 
+def check_rfc_0019() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0019-hosted-world-time.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0019 must be Accepted")
+    low = rfc.lower()
+    for token in ("wait", "quorum", "present", "world.cycle", "genesis"):
+        if token not in low:
+            fail(f"RFC-0019 must pin hosted world-time ({token})")
+    if "new verb" not in low and "no new player verb" not in low:
+        fail("RFC-0019 must refuse a new Player verb")
+    if "contest" not in low or "wed" not in low:
+        fail("RFC-0019 must leave contest/WED unauthorized")
+    ready = (ROOT / "docs" / "GC7-THAW-READINESS.md").read_text(encoding="utf-8")
+    if "does **not** thaw" not in ready.lower() and "does not thaw" not in ready.lower():
+        fail("GC7 thaw-readiness must not authorize CONTEST")
+    ok("RFC-0019 hosted world-time: Accepted, WAIT quorum, no contest/WED")
+
+
 def check_rfc_0018() -> None:
     rfc = (ROOT / "rfcs" / "RFC-0018-archive-claim-writer.md").read_text(encoding="utf-8")
     if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
@@ -3679,6 +3697,7 @@ def main() -> None:
     check_rfc_0016()
     check_rfc_0017()
     check_rfc_0018()
+    check_rfc_0019()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
