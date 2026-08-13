@@ -1,0 +1,22 @@
+{
+  "slice_id": "gc2-s0",
+  "catalog_id": "construction-catalog/gc2-s0",
+  "attempt": {
+    "operation": "DISMANTLE",
+    "actor_id": "player.vesper",
+    "room_id": "room.relay-quarter",
+    "actor_room_id": "room.relay-quarter",
+    "hidden_room": false,
+    "budgets": { "energy": 80, "compute": 64, "storage": 16, "influence": 40, "attention": 8 },
+    "target": {
+      "entity_id": "entity.relay-7",
+      "class_id": "relay",
+      "owner_id": "player.nacre",
+      "live": true
+    }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_OWNER"
+  }
+}

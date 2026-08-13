@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0006 Accepted:** GC2-S0 construction pins. `CONSTRUCT`/`DISMANTLE` on existing infrastructure classes; reuses `ENTITY_CREATE`/`ENTITY_DESTROY`; no `event-catalog/0.3`. Attempt fixtures + `check_gc2_s0`. No runtime BUILD.
+
+### Added
+
 - **RFC-0005 Accepted:** GC1-S1 recognition catalog `mastery-catalog/gc1-s1`, rebuild fixtures (cross-threshold and same-entity repair spam), `check_gc1_s1`. No benefits, no event-catalog change.
 
 ### Added

@@ -15,6 +15,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0003](RFC-0003-deterministic-contract-hardening.md) | **Accepted / Implemented** | Ordering, canonicalization, catalog admission, persistence, recovery, evidence integrity |
 | [RFC-0004](RFC-0004-derived-mastery-projection.md) | **Accepted** | GC1-S0 derived practice projection; no catalog expansion |
 | [RFC-0005](RFC-0005-mastery-recognition.md) | **Accepted** | GC1-S1 self-only recognition; no benefits |
+| [RFC-0006](RFC-0006-construction-existing-events.md) | **Accepted** | GC2-S0 construct/dismantle via existing ENTITY_* events |
 
 ## Required review lenses
 

@@ -265,6 +265,8 @@ Rationale:
 
 **GC1-S1 — Recognition.** [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). RFC: [RFC-0005](../rfcs/RFC-0005-mastery-recognition.md) (**Accepted**). Self-only lines. No benefits.
 
+**GC2-S0 — Construct/dismantle existing infrastructure.** [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md). RFC: [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md) (**Accepted**). No `event-catalog/0.3`. No Chamber `BUILD` yet.
+
 Why this slice, not all of GC1 and not GC2/GC3:
 
 - Explorer / Surveyor / Broker evidence is already in `event-catalog/0.1`.

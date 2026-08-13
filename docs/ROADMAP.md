@@ -118,6 +118,8 @@ These phases are design authorities. They are **not** executable packages. Machi
 
 Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in the same cut as S0.
 
+**GC2-S0 construction pins** ([GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), Accepted [RFC-0006](../rfcs/RFC-0006-construction-existing-events.md)): `CONSTRUCT` / `DISMANTLE` on the four v0.1 infrastructure classes using existing `ENTITY_*` events. `BUILD` stays unsupported in Chamber PLAY until a later implementation pass.
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
