@@ -1,6 +1,6 @@
 # GC9 First Slice — Maintenance Custom from Repeated Repair
 
-**Status:** Executable specification. Not a runtime implementation.  
+**Status:** Shipped as derived PLAY projection (RFC-0013 Accepted; reference runtime PR #71).  
 **Parent:** [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)  
 **Does not open:** procedural lore generator · v0.6C · `CULTURE_*` events · ritual verbs · titles-as-authority · ledger rewrite
@@ -107,7 +107,7 @@ ledger rewrite
 
 ## Runtime rule
 
-This document does not change Chamber PLAY and does not add Chronicle rows to Perihelion Reach. Hosted `REPAIR` stays as it is until an implementation pass is authorized.
+Hosted Chamber PLAY projects the custom line on the current room for accessors. Cache is rebuildable and is not WorldState. WATCH is empty. No Chronicle pack. Existing worlds accrue from new repairs (no historic ledger replay).
 
 ## Acceptance (narrower than scenario I)
 

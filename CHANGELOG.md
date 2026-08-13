@@ -4,6 +4,10 @@
 
 ### Added
 
+- **GC9-S0 hosted:** Chamber PLAY projects `This site has a maintenance custom.` for accessors after three distinct repairs (Noema #71). Specs status updated to shipped. No catalog change.
+
+### Added
+
 - **Reducer registry + mutation ownership:** `docs/REDUCER-REGISTRY.md` indexes existing 0.1/0.2 event reducers and names the sole writer for each field family. Derived GC projections are non-writers. No new events. No runtime.
 
 ### Added

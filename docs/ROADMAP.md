@@ -132,7 +132,7 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC8-S0 distance interdependence** ([GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), Accepted [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md)): pair harvest+trade vs lone move. Not v0.6B. No currency. No Chamber runtime.
 
-**GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Lore cannot override the ledger. Not v0.6C. No Chamber runtime.
+**GC9-S0 maintenance custom** ([GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), Accepted [RFC-0013](../rfcs/RFC-0013-maintenance-custom.md)): repeated `REPAIR` becomes an inherited custom. Hosted Chamber PLAY (runtime PR #71). Lore cannot override the ledger. Not v0.6C.
 
 **GC10-S0 WED schedule** ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md), Accepted [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md)): cycle-4 mild relay condition drop via existing `ENTITY_UPDATE`. No forced outcome. No Chamber runtime.
 

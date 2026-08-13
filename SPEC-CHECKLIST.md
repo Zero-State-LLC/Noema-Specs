@@ -46,7 +46,7 @@
 - [x] GC6-S0 discovery contradiction (RFC-0010 Accepted): archive vs live INSPECT; no QUEST; no oracle; WATCH empty.
 - [x] GC7-S0 contest rhythm (RFC-0011 Accepted): RECON→RECOVER over existing v0.2 forms/verbs; no HP; no event-catalog/0.3.
 - [x] GC8-S0 distance interdependence (RFC-0012 Accepted): pair HARVEST+TRADE cheaper than lone MOVE; no currency, order book, v0.6B, or yield bonus.
-- [x] GC9-S0 maintenance custom (RFC-0013 Accepted): ≥3 distinct REPAIR ENTITY_UPDATE → inherited CUSTOM; lore cannot override ledger.
+- [x] GC9-S0 maintenance custom (RFC-0013 Accepted): ≥3 distinct REPAIR ENTITY_UPDATE → inherited CUSTOM; lore cannot override ledger. Hosted PLAY shipped (Noema #71).
 - [x] GC10-S0 WED schedule (RFC-0014 Accepted): cycle-4 relay condition −15 via ENTITY_UPDATE; preview matches; no forced outcome; no Frontier ID share.
 
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)

@@ -117,7 +117,7 @@ LLM assignment
 
 ## Runtime rule
 
-This document does not change Chamber PLAY. Hosted membership already uses founder/officer grants; S0 is the specification pin those checks must not drift past. Advisor must remain non-authorizing for invite/remove. Displayed titles must not authorize.
+Hosted membership uses founder/officer grants (Noema #71). Advisor is a distinct non-authorizing role. Displayed titles must not authorize.
 
 ## Acceptance (narrower than scenario D)
 
