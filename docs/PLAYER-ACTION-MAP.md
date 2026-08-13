@@ -104,7 +104,7 @@ These require the `event-catalog/0.2` contract and the associated strategic auth
 |---|---|
 | `HELP` | Client/interface command. It does not mutate the world or consume resources. |
 | `ENTER_WORLD`, `REGISTER`, `OBSERVE`, protocol `WAIT`, `DISCONNECT` | Identity, lifecycle, or protocol operations. They are not all ordinary human gameplay commands. |
-| `BUILD` | **LATER** until a complete construction contract exists. Do not imply generalized construction in first-world PLAY. |
+| `BUILD` | **LATER.** Product contract: [CONSTRUCTION.md](CONSTRUCTION.md). Still **UNSUPPORTED** in first-world PLAY until an RFC pins operations, events, and conformance. Do not imply generalized construction in Chamber help. |
 | `RESEARCH`, `EXPERIMENT`, `MODEL`, `DELEGATE` | STUDY or authorized gateway surfaces, not ordinary PLAY command help. |
 | Complex governance `COMMIT` operations | **LATER** unless an accepted contract names them. |
 
@@ -737,7 +737,7 @@ Only advertise these when the world is pinned to the v0.2 strategic catalog and 
 
 ```text
 ASK  QUERY       optional v0.1
-BUILD           later
+BUILD           later — see CONSTRUCTION.md; unsupported in first-world PLAY
 RESEARCH       STUDY / authorized surface
 EXPERIMENT      STUDY / authorized surface
 MODEL           STUDY / authorized surface

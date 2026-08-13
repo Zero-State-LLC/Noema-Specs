@@ -44,3 +44,5 @@ If no custodians remain and `requires_active_custodian`: **ACTIVE → DORMANT**,
 ## Bounded scope
 
 v0.6 is not a constitutional-law engine. Examples in scope: archive stewardship, relay maintenance order, trade compact custom, emergency-energy custom, territorial council practice.
+
+Playable offices with bounded world authority are specified in [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md). That document does not replace this lifecycle. A title with no authority remains presentation.

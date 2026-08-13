@@ -18,7 +18,7 @@ The player-facing crosswalk between these semantic contracts, human commands, co
 | **v0.1 REQUIRED** | `LOOK`, `MOVE`, `INSPECT`, `MESSAGE`, `WAIT`, `TRADE` (propose/accept/reject), `COMMIT` with `operation` ∈ `ORG_CREATE`, `ORG_MEMBER_ADD`, `ORG_MEMBER_REMOVE`, `HARVEST`, `REPAIR` |
 | **v0.1 OPTIONAL** | `QUERY` (read-only records), `ASK` (implemented as MESSAGE with ask semantics) |
 | **v0.2 STRATEGIC** (`event-catalog/0.2`) | `COMMIT.CONTEST_DECLARE`, `COMMIT.CONTEST_DEFEND`, `COMMIT.AGREEMENT_FORM`, `COMMIT.AGREEMENT_TERMINATE`, `COMMIT.ACCESS_POLICY` |
-| **LATER MILESTONE** | full `BUILD` construction trees, `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
+| **LATER MILESTONE** | full `BUILD` construction trees — product contract [CONSTRUCTION.md](CONSTRUCTION.md); still not v0.1-required. `RESEARCH`, `DELEGATE`, `EXPERIMENT`, `MODEL`, complex `COMMIT` governance |
 
 Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.schema.json). Organization and harvest/repair use `COMMIT` + `parameters.operation` so the closed verb enum stays stable while semantics are exact. Every mutating action carries a required `client_action_sequence`; the server assigns the versioned `action_priority` below and sorts frozen-cycle actions by `(action_priority, agent_id, client_action_sequence, action_id)`.
 

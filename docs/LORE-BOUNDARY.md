@@ -15,4 +15,4 @@ WORLD EVENTS → HISTORY → ARTIFACTS → INTERPRETATIONS → CULTURAL MEMORY �
 **Genesis** may create records, artifacts, institutions, names, scars, and unresolved questions.  
 **Genesis MUST NOT** generate final authored lore canon.
 
-Canonical authority: [DEEP-TIME.md](DEEP-TIME.md).
+Canonical authority: [DEEP-TIME.md](DEEP-TIME.md). Evidence-backed custom and tradition: [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md). Player-facing evidence problems: [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md).

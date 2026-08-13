@@ -19,10 +19,14 @@ No universal XP or single score. Plural progression surfaces.
 | Relationships | Agreements + trust | Betrayal, crime | Lower friction |
 | Discoveries | Exploration | — | New options |
 | Historical achievements | Notable events | — | Narrative weight and soft power |
+| Mastery / specialization | Demonstrated practice ([MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md)) | Slow decay to a historical floor | Richer affordances under the same verbs; office eligibility |
 
 Progression creates new possibilities and tradeoffs, not merely larger numbers.
+
+**Mastery** is a completeness surface, not a universal XP ladder. Evidence is world-native action. Research capability graphs MUST NOT appear here.
 
 ## Forbidden
 
 - Single victory score or XP ladder as the primary goal
 - Research metrics (capability confidence, anomaly scores) as progression surfaces
+- A class selected at entry that locks the verb set

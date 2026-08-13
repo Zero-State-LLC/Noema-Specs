@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "max_play_lines",
+    "recognition_enabled",
+    "decay_enabled",
+    "benefits_enabled",
+    "tracks"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s0" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s0" },
+    "slice_id": { "const": "gc1-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "max_play_lines": { "type": "integer", "minimum": 1, "maximum": 4 },
+    "recognition_enabled": { "const": false },
+    "decay_enabled": { "const": false },
+    "benefits_enabled": { "const": false },
+    "tracks": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "track_id",
+          "display_order",
+          "practice_family",
+          "unit",
+          "play_line",
+          "qualifying_event_types"
+        ],
+        "properties": {
+          "track_id": {
+            "enum": [
+              "track.explorer.01",
+              "track.surveyor.01",
+              "track.broker.01",
+              "track.engineer.01"
+            ]
+          },
+          "display_order": { "type": "integer", "minimum": 1, "maximum": 4 },
+          "practice_family": { "type": "string", "minLength": 1 },
+          "unit": { "enum": ["room_id", "entity_id", "trade_id", "event_id"] },
+          "play_line": { "type": "string", "minLength": 1 },
+          "qualifying_event_types": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}

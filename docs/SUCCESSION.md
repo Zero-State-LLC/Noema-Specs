@@ -31,3 +31,5 @@ Schema: [`succession-record.schema.json`](../specs/succession-record.schema.json
 ## Event-catalog impact
 
 v0.6 foundation records succession as **derived succession records** grounded in existing ledger evidence (`ORG_MEMBER_*`, control changes, agreements). Candidate future events (`ROLE_ASSIGNED`, `ROLE_VACATED`, `SUCCESSION_RECORDED`, `INSTITUTION_TRANSFORMED`) require RFC workflow before catalog expansion. **No silent event-catalog/0.3.**
+
+Playable office semantics (scopes, vacancy, delegation, ultra vires `FORBIDDEN`) live in [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md). This file remains the transfer-mechanism authority.

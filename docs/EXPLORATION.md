@@ -28,7 +28,8 @@ Discovery is never automatic truth. World truth remains separate from agent know
 - Organizations and membership signals
 - Artifacts, documents, and historical records
 - Vulnerabilities (degraded relays, contested sites, known crime history)
-- Unusual world conditions and World Event Director effects
+- Unusual world conditions and World Event Director effects ([WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md))
+- Evidence problems and contradictions investigated through ordinary actions ([SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md))
 - Trade opportunities and market signals
 
 ## Strategic value

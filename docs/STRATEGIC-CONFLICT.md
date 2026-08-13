@@ -130,3 +130,83 @@ Conflict and crime consume the same five resources and produce standard `ENTITY_
 ## Research boundary
 
 Strategic conflict and crime are **world/game mechanics**. Observatory may later detect anomalies around them; research scores MUST NOT drive combat outcomes or crime detection as world truth.
+
+---
+
+## Game Completeness v2 (GC7) — specification campaign
+
+**Status:** Design extension for later strategic depth. P1. Phase GC-C.  
+**Does not change** executable `event-catalog/0.2`, [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md), [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), or `action-contracts.v02.json`.  
+**Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)
+
+v0.2 remains the implementation contract. v2 deepens **Player-facing rhythm and coupling** without converting NOEMA into hit-point combat and without a second conflict canon.
+
+### Target rhythm
+
+```text
+RECON → POSITION → PRESSURE → COUNTER → ESCALATE → COMMIT → RESOLVE → RECOVER
+```
+
+| Stage | Existing composition | Must not become |
+|-------|----------------------|-----------------|
+| RECON | `LOOK` / `INSPECT` / exploration / relays / rumors | A `SCAN` combat verb |
+| POSITION | `MOVE`, access policy, presence, route control | Instant teleport / engage |
+| PRESSURE | Trade refusal, hoarding, membership politics, degraded infrastructure | Auto-damage aura |
+| COUNTER | `CONTEST_DEFEND`, repair, alternate routes, agreements | Perfect parry stat |
+| ESCALATE | Larger reservations, additional contest forms, third parties | Unavoidable war flag |
+| COMMIT | `CONTEST_DECLARE` with reserved resources | Irreversible character death |
+| RESOLVE | Existing integer contest algorithm | Real-time HP |
+| RECOVER | [LOSS-RECOVERY.md](LOSS-RECOVERY.md), repair, new agreements | Permanent underclass |
+
+Prefer **composition of stable verbs** over command growth.
+
+### Potential targets
+
+```text
+territory
+trade routes
+resource sites
+institutions
+information
+reputation
+infrastructure
+agreements
+authority / offices
+```
+
+Information warfare is bounded by [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) and [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md): messages may deceive; the engine MUST NOT leak hidden facts through contest UI.
+
+### Signals and counterplay
+
+- Declaration, reservation, and public reports are the signals.
+- Counterplay is defense investment, withdrawal before resolve (if the catalog later allows a versioned withdraw with cost), third-party `MUTUAL_DEFENSE`, and infrastructure repair.
+- Cost escalation is larger reservations and wider crime/detection exposure — not an enrage timer.
+- Alliances use existing formal agreements; informal help is social only.
+- Third parties enter by their own actions, never by forced conscription.
+
+### Effects and anti-snowball
+
+| Effect | Rule |
+|--------|------|
+| Infrastructure | Disruption and condition loss already specified |
+| Economic | Seizure attempts, route pressure, trade refusal |
+| Reputation | Public contest/crime evidence feeds social memory; not a combat stat |
+| Institution | Offices may authorize institutional participation ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)); vacancy does not delete history |
+| Recovery | Always a skillful path ([LOSS-RECOVERY.md](LOSS-RECOVERY.md)) |
+| Anti-snowball | Expansion increases exposure and maintenance. No single dominant strategy. No irreversible dead end from one contest |
+
+### SPEC GAP (v2 only)
+
+```text
+whether a versioned withdraw/de-escalate operation is required
+information-target contest form (if any) without hidden-fact leak
+institution-as-party details
+fixtures for full RECON→RECOVER rhythm using existing v0.2 events first
+any later catalog increment — RFC required, no silent 0.3
+```
+
+Implement v0.2 first. Do not block Chamber play on GC7.
+
+### Acceptance (scenario G)
+
+Two groups reconnoiter, position, apply economic or infrastructural pressure, counter, escalate, commit via declared contest, resolve under the existing algorithm, and recover. No hit-point combat. No unwinnable spiral.
