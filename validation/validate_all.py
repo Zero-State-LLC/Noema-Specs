@@ -4340,6 +4340,203 @@ def check_gc10_s0(Draft202012Validator) -> None:
     ok("GC10-S0 pressure: catalog, schedule fixtures, RFC-0014 Accepted, no Frontier ID share")
 
 
+def evaluate_gc10_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    targeting = attempt.get("targeting") or {}
+    if (
+        targeting.get("player_score")
+        or targeting.get("success_rate")
+        or targeting.get("wealth_rank")
+        or catalog.get("player_targeting")
+    ):
+        return "REJECT", "PLAYER_TARGET", {}
+    if targeting.get("controller_type") or catalog.get("controller_targeting"):
+        return "REJECT", "CONTROLLER_TARGET", {}
+    if targeting.get("research_metric") or catalog.get("research_targeting"):
+        return "REJECT", "RESEARCH_TARGET", {}
+    if attempt.get("rubber_band") or targeting.get("rubber_band") or catalog.get("rubber_band"):
+        return "REJECT", "RUBBER_BAND", {}
+    if attempt.get("contest_verdict") or targeting.get("contest_verdict") or catalog.get("contest_verdict"):
+        return "REJECT", "VERDICT_FORBIDDEN", {}
+
+    cls = attempt.get("pressure_class")
+    accepted = catalog.get("accepted_classes") or []
+    rejected = catalog.get("rejected_classes") or []
+    if cls in rejected or cls not in accepted:
+        return "REJECT", "CLASS_UNSUPPORTED", {}
+
+    authorizer = attempt.get("authorizer")
+    if authorizer in (catalog.get("forbidden_authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", {}
+    if authorizer not in (catalog.get("authorizers") or []):
+        return "REJECT", "AUTHOR_FORBIDDEN", {}
+
+    if attempt.get("same_world") is False:
+        return "REJECT", "CROSS_WORLD", {}
+    if attempt.get("duplicate"):
+        return "REJECT", "DUPLICATE", {}
+    if attempt.get("admin_spawn"):
+        return "REJECT", "SPAWN_FORBIDDEN", {}
+    if attempt.get("favor_grant"):
+        return "REJECT", "FAVOR_FORBIDDEN", {}
+    if attempt.get("rewrite_history"):
+        return "REJECT", "HISTORY_FORBIDDEN", {}
+    if attempt.get("new_entity"):
+        return "REJECT", "ENTITY_FORBIDDEN", {}
+    if attempt.get("forced_response"):
+        return "REJECT", "FORCED_OUTCOME", {}
+
+    activate = attempt.get("activate_event")
+    forbidden_events = catalog.get("forbidden_events") or []
+    wed_id = attempt.get("wed_id")
+    frontier_id = attempt.get("frontier_request_id")
+    if activate in forbidden_events or (wed_id and frontier_id and wed_id == frontier_id):
+        return "REJECT", "FRONTIER_ID_FORBIDDEN", {}
+
+    spec = (catalog.get("classes") or {}).get(cls) or {}
+    if activate != spec.get("activate_event"):
+        return "REJECT", "EVENT_FORBIDDEN", {}
+
+    leak_tokens = [
+        "event:",
+        "wed",
+        "gc10",
+        "research",
+        "operator experiment",
+        "pressure_class",
+        *(str(c).lower() for c in accepted),
+    ]
+    for line in list(attempt.get("play_lines") or []) + list(attempt.get("watch_lines") or []):
+        blob = str(line).lower()
+        for tok in leak_tokens:
+            if not tok:
+                continue
+            if tok.endswith(":") or " " in tok or "_" in tok:
+                if tok in blob:
+                    return "REJECT", "LABEL_LEAK", {}
+            elif re.search(rf"\b{re.escape(tok)}\b", blob):
+                return "REJECT", "LABEL_LEAK", {}
+
+    mag = attempt.get("magnitude")
+    if mag is not None and int(mag) != int(spec.get("magnitude") or 0):
+        return "REJECT", "MAGNITUDE_INVALID", {}
+
+    cycle = int(attempt.get("cycle") or 0)
+    if authorizer == "schedule" and cycle < int(spec.get("first_cycle") or 0):
+        return "REJECT", "SCHEDULE_TOO_EARLY", {}
+
+    extra: dict = {"event": spec.get("activate_event")}
+    if cls == "infrastructure_failure":
+        before = int(attempt.get("condition_before") or 0)
+        expected_after = before - int(spec["magnitude"])
+        preview = attempt.get("preview_after")
+        activate_after = attempt.get("activate_after")
+        if preview is not None and activate_after is not None and int(preview) != int(activate_after):
+            return "REJECT", "PREVIEW_MISMATCH", {}
+        if activate_after is not None and int(activate_after) != expected_after:
+            return "REJECT", "PREVIEW_MISMATCH", {}
+        if expected_after < int(spec.get("floor") or 0):
+            return "REJECT", "BELOW_FLOOR", {}
+        extra["condition_after"] = expected_after
+    elif cls == "resource_scarcity":
+        before = int(attempt.get("stock_before") or 0)
+        expected_after = before - int(spec["magnitude"])
+        min_before = int(spec.get("min_before") or spec.get("magnitude") or 0)
+        if before < min_before or expected_after < int(spec.get("floor") or 0):
+            return "REJECT", "BELOW_FLOOR", {}
+        preview = attempt.get("preview_after")
+        activate_after = attempt.get("activate_after")
+        if preview is not None and activate_after is not None and int(preview) != int(activate_after):
+            return "REJECT", "PREVIEW_MISMATCH", {}
+        if activate_after is not None and int(activate_after) != expected_after:
+            return "REJECT", "PREVIEW_MISMATCH", {}
+        extra["stock_after"] = expected_after
+    elif cls == "access_restriction":
+        duration = int(spec.get("duration_cycles") or 4)
+        extra["expires_cycle"] = cycle + duration
+
+    return "ACCEPT", None, extra
+
+
+def check_gc10_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "pressure-catalog.gc10-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "pressure-catalog.gc10-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "pressure-attempt.gc10-s1.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC10-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("required_response") or catalog.get("play_research_labels") or catalog.get("admin_spawn"):
+        fail("GC10-S1 must not force a response, leak research labels, or enable Admin spawn")
+    if catalog.get("share_frontier_ids") or catalog.get("rubber_band") or catalog.get("player_targeting"):
+        fail("GC10-S1 must not share Frontier IDs, rubber-band, or target Players")
+    if catalog.get("research_targeting") or catalog.get("controller_targeting") or catalog.get("contest_verdict"):
+        fail("GC10-S1 must not use research/controller targeting or decide contests")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC10-S1 must not add verbs or events")
+    if catalog.get("extends") != "pressure-catalog/gc10-s0":
+        fail("GC10-S1 must extend GC10-S0")
+    if catalog.get("event_catalog") != "event-catalog/0.2":
+        fail("GC10-S1 must keep event-catalog/0.2")
+    classes = catalog.get("classes") or {}
+    if (classes.get("infrastructure_failure") or {}).get("activate_event") != "ENTITY_UPDATE":
+        fail("GC10-S1 infrastructure must reuse ENTITY_UPDATE")
+    if (classes.get("resource_scarcity") or {}).get("activate_event") != "ENTITY_UPDATE":
+        fail("GC10-S1 resource must reuse ENTITY_UPDATE")
+    if (classes.get("access_restriction") or {}).get("activate_event") != "ACCESS_RESTRICTED":
+        fail("GC10-S1 access must reuse ACCESS_RESTRICTED")
+    rfc = (ROOT / "rfcs" / "RFC-0027-additional-world-pressure.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0027 must be Accepted after GC10-S1 machine contracts land")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if '"ACCESS_RESTRICTED"' not in types_text:
+        fail("event-types.0.2.json must already include ACCESS_RESTRICTED")
+    if "PRESSURE_STARTED" in types_text or "WED_PRESSURE" in types_text:
+        fail("GC10-S1 must not add PRESSURE_* / WED_* to frozen 0.2")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "infrastructure-schedule-ok.json",
+        "resource-schedule-ok.json",
+        "access-schedule-ok.json",
+        "access-expiry-ok.json",
+        "player-score-target-forbidden.json",
+        "controller-target-forbidden.json",
+        "research-target-forbidden.json",
+        "rubber-band-forbidden.json",
+        "contest-verdict-forbidden.json",
+        "cross-world-forbidden.json",
+        "duplicate-forbidden.json",
+        "invalid-magnitude-forbidden.json",
+        "below-floor-forbidden.json",
+        "resource-below-floor-forbidden.json",
+        "unsupported-class-forbidden.json",
+        "weather-class-forbidden.json",
+        "famine-class-forbidden.json",
+        "player-author-forbidden.json",
+        "watch-label-forbidden.json",
+        "play-label-forbidden.json",
+        "preview-mismatch-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc10-s1-pressure" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc10_s1(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("condition_after") is not None and extra.get("condition_after") != expected["condition_after"]:
+            fail(f"{name}: condition_after mismatch")
+        if expected.get("stock_after") is not None and extra.get("stock_after") != expected["stock_after"]:
+            fail(f"{name}: stock_after mismatch")
+        if expected.get("expires_cycle") is not None and extra.get("expires_cycle") != expected["expires_cycle"]:
+            fail(f"{name}: expires_cycle mismatch")
+        if expected.get("event") and extra.get("event") != expected["event"]:
+            fail(f"{name}: event {extra.get('event')} expected {expected['event']}")
+    ok("GC10-S1 pressure: catalog, class fixtures, RFC-0027 Accepted, existing events reused")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -4387,6 +4584,7 @@ def main() -> None:
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
+    check_gc10_s1(Draft202012Validator)
     print("\nPASS")
 
 

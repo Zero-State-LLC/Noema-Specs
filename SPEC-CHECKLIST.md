@@ -231,4 +231,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0024 Accepted: GC6-S1 historical reconstruction from accessible evidence. No quest/oracle. Later S1s remain SPEC GAP.
 - [x] RFC-0025 Accepted: GC9-S1 tradition from persistent transmitted custom. No culture score. WATCH pulse is not an oracle.
 - [x] RFC-0026 Accepted: GC7-S1 contest withdraw. Reuses `CONTEST_RESOLVED`. No HP. No catalog 0.3.
+- [x] RFC-0027 Accepted: GC10-S1 additional pressure classes via existing events. S0 remains. No Admin spawn. No rubber-band. Rumor still SPEC GAP.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).

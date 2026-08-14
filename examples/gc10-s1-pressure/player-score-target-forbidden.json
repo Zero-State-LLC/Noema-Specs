@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "resource_scarcity",
+    "authorizer": "schedule",
+    "cycle": 8,
+    "entity_id": "entity.storage-cell-cache",
+    "stock_before": 8,
+    "activate_event": "ENTITY_UPDATE",
+    "targeting": { "player_score": true }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "PLAYER_TARGET",
+    "note": "Pressure must not target a Player by score."
+  }
+}

@@ -9,7 +9,8 @@ v0.1 already requires a small deterministic pressure schedule. This document is 
 
 **Doctrine:** pressure changes existing conditions. A relay failure must propagate through movement, communication, trade, territory, conflict, institutions, and history — not open a relay-crisis minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC10-S0 machine pins: [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) · [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md). Other pressure classes and operator storms remain **SPEC GAP**.
+GC10-S0 machine pins: [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) · [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md).  
+GC10-S1 machine pins: [GC10-S1-PRESSURE.md](GC10-S1-PRESSURE.md) · [RFC-0027](../rfcs/RFC-0027-additional-world-pressure.md). Operator storms and irreversible scars remain **SPEC GAP**.
 
 ---
 
@@ -142,9 +143,10 @@ Seed + Director version + ordered activations determine all WED effects. Preview
 
 ```text
 GC10-S0 closed: cycle-4 schedule ENTITY_UPDATE −15 on a named relay; preview matches; no forced response
-other product classes (scarcity, outage, artifact, institutional crisis, unknown signal)
-operator confirm / receipt schema beyond S0 attempt fields
+GC10-S1 closed: resource_scarcity + access_restriction; communication composed via infra/GC5; weather/war/famine rejected
+operator confirm / receipt schema beyond S1 attempt fields
 irreversible scar class
+artifact emergence / institutional crisis / unknown signal
 first-20 later bands (13–16 cross-agent)
 ```
 

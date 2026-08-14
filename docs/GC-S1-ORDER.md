@@ -17,7 +17,7 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 | 5 | GC6-S1 reconstruction | [RFC-0024](../rfcs/RFC-0024-historical-reconstruction.md). Player-authored account from accessible evidence | Not `QUEST` |
 | 6 | GC9-S1 tradition | [RFC-0025](../rfcs/RFC-0025-tradition.md). CUSTOM plus persistence/transmission. Lore cannot override ledger | Not a culture score |
 | 7 | GC7-S1 withdraw | [RFC-0026](../rfcs/RFC-0026-contest-withdraw.md). Open contest, own participation, `CONTEST_RESOLVED` | No HP; no teleport |
-| 8 | GC10-S1 more classes | After isolated contest and one schedule exist | No Admin spawn |
+| 8 | GC10-S1 more classes | [RFC-0027](../rfcs/RFC-0027-additional-world-pressure.md). Existing events; S0 remains valid | No Admin spawn |
 
 ## Do not start
 
@@ -33,4 +33,4 @@ GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or 
 
 ## Runtime rule
 
-Ranks 1–7 are hosted. Later ranks still need their own RFC and an explicit implementation pass. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–8 are hosted. Later work is GC5-S2 rumor (explicit continuation) and deferred GC1-S2. Help still omits ATTEST / BUILD / CONTEST / WED.

@@ -1,0 +1,29 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "infrastructure_failure",
+    "authorizer": "schedule",
+    "cycle": 4,
+    "entity_id": "entity.relay-7",
+    "condition_before": 70,
+    "preview_after": 55,
+    "activate_after": 55,
+    "magnitude": 15,
+    "activate_event": "ENTITY_UPDATE",
+    "forced_response": null,
+    "play_lines": [],
+    "watch_lines": ["A relay in the hub has degraded."],
+    "admin_lines": ["infrastructure_failure schedule cycle 4"],
+    "favor_grant": false,
+    "rewrite_history": false,
+    "new_entity": false,
+    "admin_spawn": false
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "condition_after": 55,
+    "event": "ENTITY_UPDATE",
+    "note": "S0 class remains valid. Preview matches. No required response."
+  }
+}

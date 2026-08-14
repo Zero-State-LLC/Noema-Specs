@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/pressure-attempt.gc10-s1.schema.json",
+  "title": "NOEMA GC10-S1 pressure attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc10-s1" },
+    "catalog_id": { "const": "pressure-catalog/gc10-s1" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pressure_class", "authorizer", "cycle", "activate_event"],
+      "properties": {
+        "pressure_class": { "type": "string" },
+        "authorizer": { "type": "string" },
+        "cycle": { "type": "integer", "minimum": 0 },
+        "world_id": { "type": "string" },
+        "subject_ref": { "type": "string" },
+        "entity_id": { "type": "string" },
+        "room_id": { "type": "string" },
+        "exit_id": { "type": "string" },
+        "condition_before": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "stock_before": { "type": "integer", "minimum": 0 },
+        "preview_after": { "type": "integer", "minimum": 0 },
+        "activate_after": { "type": "integer", "minimum": 0 },
+        "magnitude": { "type": "integer" },
+        "activate_event": { "type": "string" },
+        "duration_cycles": { "type": "integer", "minimum": 0 },
+        "expires_cycle": { "type": "integer", "minimum": 0 },
+        "same_world": { "type": "boolean" },
+        "duplicate": { "type": "boolean" },
+        "wed_id": { "type": "string" },
+        "frontier_request_id": { "type": "string" },
+        "forced_response": { "type": ["string", "null"] },
+        "play_lines": { "type": "array", "items": { "type": "string" } },
+        "watch_lines": { "type": "array", "items": { "type": "string" } },
+        "admin_lines": { "type": "array", "items": { "type": "string" } },
+        "favor_grant": { "type": "boolean" },
+        "rewrite_history": { "type": "boolean" },
+        "new_entity": { "type": "boolean" },
+        "admin_spawn": { "type": "boolean" },
+        "rubber_band": { "type": "boolean" },
+        "contest_verdict": { "type": "boolean" },
+        "targeting": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "player_score": { "type": "boolean" },
+            "success_rate": { "type": "boolean" },
+            "wealth_rank": { "type": "boolean" },
+            "controller_type": { "type": ["string", "boolean"] },
+            "research_metric": { "type": "boolean" },
+            "rubber_band": { "type": "boolean" },
+            "contest_verdict": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "condition_after": { "type": "integer" },
+        "stock_after": { "type": "integer" },
+        "expires_cycle": { "type": "integer" },
+        "event": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
