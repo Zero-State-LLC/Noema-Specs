@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-withdraw-attempt.schema.json",
+  "title": "NOEMA GC7-S1 withdraw attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc7-s1" },
+    "catalog_id": { "const": "conflict-catalog/gc7-s1" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "contest_exists", "contest_status", "window_open"],
+      "properties": {
+        "role": { "enum": ["declarer", "defender", "bystander", "officer"] },
+        "contest_exists": { "type": "boolean" },
+        "contest_status": { "enum": ["OPEN", "CLOSED"] },
+        "window_open": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "already_withdrawn": { "type": "boolean" },
+        "expected_status": { "enum": ["OPEN", "CLOSED"] },
+        "disconnect": { "type": "boolean" },
+        "hp_combat": { "type": "boolean" },
+        "auto_move": { "type": "boolean" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "settlement": { "enum": ["ABORTED", "SUCCESS"] },
+        "declarer_stake": { "enum": ["CONSUME", "RELEASE"] },
+        "defender_stake": { "enum": ["CONSUME", "RELEASE"] },
+        "events": {
+          "type": "array",
+          "items": { "enum": ["CONTEST_RESOLVED"] }
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

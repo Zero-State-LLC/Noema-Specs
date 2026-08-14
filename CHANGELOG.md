@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0026 Accepted / GC7-S1:** contest withdraw via `COMMIT.CONTEST_WITHDRAW`. Settles existing `CONTEST_RESOLVED` (`ABORTED` or forfeit `SUCCESS`). No HP. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0025 Accepted / GC9-S1:** tradition from persistent transmitted custom (or public reconstruction citation). Dormant/revived. No bonus. Bounded public WATCH pulses. No `event-catalog/0.3`.
 
 ### Added

@@ -3802,6 +3802,91 @@ def check_gc7_s0(Draft202012Validator) -> None:
     ok("GC7-S0 conflict: catalog, rhythm fixtures, RFC-0011 Accepted, event-catalog/0.2 unchanged")
 
 
+def evaluate_gc7_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    if attempt.get("hp_combat") or attempt.get("auto_move"):
+        return "REJECT", "FORBIDDEN", {}
+    if attempt.get("disconnect") and catalog.get("idle_withdraws") is False:
+        return "REJECT", "FORBIDDEN", {}
+    if not attempt.get("contest_exists") or attempt.get("same_world") is False:
+        return "REJECT", "NOT_FOUND", {}
+    if attempt.get("expected_status") == "OPEN" and attempt.get("contest_status") != "OPEN":
+        return "REJECT", "STALE_HEAD", {}
+    if attempt.get("contest_status") != "OPEN" or attempt.get("already_withdrawn"):
+        return "REJECT", "NOT_FOUND", {}
+    if not attempt.get("window_open"):
+        return "REJECT", "FORBIDDEN", {}
+    role = attempt.get("role")
+    if role not in ("declarer", "defender"):
+        return "REJECT", "FORBIDDEN", {}
+    extra: dict = {"events": [catalog.get("resolve_event") or "CONTEST_RESOLVED"]}
+    if role == "declarer":
+        extra["settlement"] = catalog.get("declarer_withdraw_outcome") or "ABORTED"
+        extra["declarer_stake"] = catalog.get("declarer_stake_on_declarer_withdraw") or "CONSUME"
+        extra["defender_stake"] = catalog.get("defender_stake_on_declarer_withdraw") or "RELEASE"
+    else:
+        extra["settlement"] = catalog.get("defender_withdraw_outcome") or "SUCCESS"
+        extra["declarer_stake"] = catalog.get("declarer_stake_on_defender_withdraw") or "CONSUME"
+        extra["defender_stake"] = catalog.get("defender_stake_on_defender_withdraw") or "CONSUME"
+    return "ACCEPT", None, extra
+
+
+def check_gc7_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.gc7-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-withdraw-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC7-S1 catalog invalid: {cerrs[0].message}")
+    if catalog.get("hp_combat") or catalog.get("new_events") or catalog.get("new_verbs"):
+        fail("GC7-S1 must not enable HP or add verbs/events")
+    if catalog.get("auto_move") or catalog.get("idle_withdraws") or catalog.get("refund_fees"):
+        fail("GC7-S1 must not auto-MOVE, idle-withdraw, or refund fees")
+    if catalog.get("event_catalog") != "event-catalog/0.2":
+        fail("GC7-S1 must keep event-catalog/0.2")
+    if catalog.get("resolve_event") != "CONTEST_RESOLVED":
+        fail("GC7-S1 must settle via CONTEST_RESOLVED")
+    rfc = (ROOT / "rfcs" / "RFC-0026-contest-withdraw.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0026 must be Accepted")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if '"ABORTED"' not in types_text:
+        fail("event-types.0.2.json must already include ABORTED")
+    if "CONTEST_WITHDRAWN" in types_text:
+        fail("GC7-S1 must not add CONTEST_WITHDRAWN to frozen 0.2")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "declarer-withdraw-ok.json",
+        "defender-withdraw-ok.json",
+        "same-cycle-ok.json",
+        "founder-own-contest-ok.json",
+        "nonparticipant-forbidden.json",
+        "settled-forbidden.json",
+        "duplicate-forbidden.json",
+        "stale-forbidden.json",
+        "cross-world-forbidden.json",
+        "officer-foreign-forbidden.json",
+        "disconnect-not-withdraw.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc7-withdraw" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc7_s1(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("settlement") and extra.get("settlement") != expected["settlement"]:
+            fail(f"{name}: settlement {extra.get('settlement')} expected {expected['settlement']}")
+        if expected.get("declarer_stake") and extra.get("declarer_stake") != expected["declarer_stake"]:
+            fail(f"{name}: declarer_stake mismatch")
+        if expected.get("defender_stake") and extra.get("defender_stake") != expected["defender_stake"]:
+            fail(f"{name}: defender_stake mismatch")
+    ok("GC7-S1 withdraw: catalog, attempt fixtures, RFC-0026 Accepted, CONTEST_RESOLVED reused")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -4297,6 +4382,7 @@ def main() -> None:
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
+    check_gc7_s1(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)

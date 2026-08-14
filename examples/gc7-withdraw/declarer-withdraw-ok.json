@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc7-s1",
+  "catalog_id": "conflict-catalog/gc7-s1",
+  "attempt": {
+    "role": "declarer",
+    "contest_exists": true,
+    "contest_status": "OPEN",
+    "window_open": true,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "settlement": "ABORTED",
+    "declarer_stake": "CONSUME",
+    "defender_stake": "RELEASE",
+    "events": ["CONTEST_RESOLVED"],
+    "note": "Declarer withdraws before resolve. Stake forfeited. Defender reservation released."
+  }
+}
