@@ -40,6 +40,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0028](RFC-0028-rumor-provenance.md) | **Accepted** | GC5-S2: rumor as claim + MESSAGE lineage; no score |
 | [RFC-0029](RFC-0029-institution-trade-repair.md) | **Accepted** | Institution TRADE/REPAIR via occupied office profiles; no new verbs |
 | [RFC-0030](RFC-0030-emergency-scopes.md) | **Accepted** | Time-bounded emergency AuthorityGrant overlay; no superuser |
+| [RFC-0031](RFC-0031-designated-succession.md) | **Accepted** | Designated institutional succession; no implicit jump |
 
 ## Required review lenses
 

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/succession-attempt.schema.json",
+  "title": "NOEMA GC4-S4 succession attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s4" },
+    "catalog_id": { "const": "authority-catalog/gc4-s4" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation"],
+      "properties": {
+        "operation": { "type": "string" },
+        "actor_role": { "type": "string" },
+        "org_active": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "has_designation": { "type": "boolean" },
+        "successor_is_member": { "type": "boolean" },
+        "successor_eligible": { "type": "boolean" },
+        "primary_eligible": { "type": "boolean" },
+        "secondary_eligible": { "type": "boolean" },
+        "trigger": { "type": "string" },
+        "office_status": { "type": "string" },
+        "scope_end_cycle": { "type": "integer" },
+        "now_cycle": { "type": "integer" },
+        "new_end_cycle": { "type": "integer" },
+        "transfers_reputation": { "type": "boolean" },
+        "transfers_knowledge": { "type": "boolean" },
+        "duplicate": { "type": "boolean" },
+        "conflicting_sources": { "type": "boolean" },
+        "natural_language": { "type": "boolean" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "office_status": { "type": "string" },
+        "end_cycle": { "type": "integer" },
+        "successor": { "type": ["string", "null"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "EMERGENCY_HANDOFF",
+    "trigger": "leave_org",
+    "has_designation": true,
+    "successor_eligible": true,
+    "org_active": true,
+    "same_world": true,
+    "scope_end_cycle": 7,
+    "now_cycle": 5,
+    "new_end_cycle": 8
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Succession must not grant a fresh emergency window."
+  }
+}

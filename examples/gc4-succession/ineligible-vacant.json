@@ -1,0 +1,21 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "ACTIVATE",
+    "trigger": "resign",
+    "has_designation": true,
+    "successor_eligible": false,
+    "primary_eligible": false,
+    "secondary_eligible": false,
+    "org_active": true,
+    "same_world": true,
+    "office_status": "OCCUPIED"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "office_status": "VACANT",
+    "successor": null,
+    "note": "Ineligible designation does not activate. Vacancy is allowed."
+  }
+}

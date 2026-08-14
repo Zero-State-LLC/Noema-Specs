@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "DESIGNATE",
+    "natural_language": true,
+    "org_active": true,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Saying you are the successor grants nothing."
+  }
+}

@@ -3,7 +3,7 @@
 **Status:** Executable specification. Runtime authorized with RFC-0030.  
 **Parent:** [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)  
 **RFC:** [RFC-0030](../rfcs/RFC-0030-emergency-scopes.md)  
-**Does not open:** designated succession · martial law / crisis director · `event-catalog/0.3` · admin-as-Player · GC1-S2 benefits
+**Does not open:** martial law / crisis director · `event-catalog/0.3` · admin-as-Player · GC1-S2 benefits. Designated succession is [GC4-S4](GC4-S4-SUCCESSION.md).
 
 S3 adds a temporary, predeclared grant overlay. It is not a second permission system.
 
@@ -166,13 +166,14 @@ No implicit jump to another Player.
 ## Out of S3
 
 ```text
-designated succession
 martial law / crisis director
 permanent emergency role
 operator-as-institution
 emergency cost discount
 event-catalog/0.3
 ```
+
+Designated succession is specified in [GC4-S4-SUCCESSION.md](GC4-S4-SUCCESSION.md).
 
 ---
 

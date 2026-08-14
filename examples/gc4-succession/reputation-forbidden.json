@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "ACTIVATE",
+    "trigger": "resign",
+    "has_designation": true,
+    "successor_eligible": true,
+    "org_active": true,
+    "same_world": true,
+    "transfers_reputation": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Personal reputation does not transfer."
+  }
+}

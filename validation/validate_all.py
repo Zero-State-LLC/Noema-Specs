@@ -3532,6 +3532,143 @@ def check_gc4_s3(Draft202012Validator) -> None:
     ok("GC4-S3 emergency scopes: catalog, fixtures, RFC-0030 Accepted, no EMERGENCY_* events")
 
 
+def evaluate_gc4_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {"office_status": None, "successor": None, "end_cycle": None}
+    op = str(attempt.get("operation") or "")
+    if attempt.get("same_world") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("org_active") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("natural_language") or attempt.get("conflicting_sources"):
+        return "REJECT", "FORBIDDEN", extra
+    if attempt.get("transfers_reputation") or attempt.get("transfers_knowledge"):
+        return "REJECT", "FORBIDDEN", extra
+    trigger = str(attempt.get("trigger") or "")
+    rejected_triggers = {
+        "disconnect",
+        "idle",
+        "controller",
+        "controller_change",
+        "dormant",
+        "retire",
+    }
+    valid_triggers = {"resign", "vacate", "leave_org", "office_vacancy"}
+    if op == "DESIGNATE":
+        role = str(attempt.get("actor_role") or "")
+        if role and role not in set(catalog.get("designators") or ("founder", "officer")):
+            return "REJECT", "FORBIDDEN", extra
+        if not role:
+            return "REJECT", "FORBIDDEN", extra
+        if attempt.get("successor_is_member") is False:
+            return "REJECT", "FORBIDDEN", extra
+        return "ACCEPT", None, extra
+    if trigger in rejected_triggers:
+        return "REJECT", "FORBIDDEN", extra
+    if trigger and trigger not in valid_triggers:
+        return "REJECT", "FORBIDDEN", extra
+    if op == "EMERGENCY_HANDOFF":
+        scope_end = attempt.get("scope_end_cycle")
+        new_end = attempt.get("new_end_cycle")
+        if scope_end is not None and new_end is not None and int(new_end) != int(scope_end):
+            return "REJECT", "FORBIDDEN", extra
+        if attempt.get("has_designation") and (
+            attempt.get("successor_eligible") is True or attempt.get("primary_eligible") is True
+        ):
+            extra["successor"] = "primary"
+            extra["end_cycle"] = scope_end
+            return "ACCEPT", None, extra
+        extra["successor"] = None
+        extra["end_cycle"] = scope_end
+        return "ACCEPT", None, extra
+    if op == "ACTIVATE":
+        if not attempt.get("has_designation"):
+            extra["office_status"] = "VACANT"
+            extra["successor"] = None
+            return "ACCEPT", None, extra
+        primary = attempt.get("primary_eligible")
+        if primary is True or (attempt.get("successor_eligible") is True and primary is not False):
+            extra["office_status"] = "OCCUPIED"
+            extra["successor"] = "primary"
+            return "ACCEPT", None, extra
+        if attempt.get("secondary_eligible") is True:
+            extra["office_status"] = "OCCUPIED"
+            extra["successor"] = "secondary"
+            return "ACCEPT", None, extra
+        extra["office_status"] = "VACANT"
+        extra["successor"] = None
+        return "ACCEPT", None, extra
+    return "REJECT", "FORBIDDEN", extra
+
+
+def check_gc4_s4(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s4.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s4.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "succession-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S4 catalog invalid: {cerrs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S4 must not add verbs or events")
+    if catalog.get("implicit_jump") or catalog.get("holder_may_designate"):
+        fail("GC4-S4 must not allow implicit jump or holder self-designation")
+    if (
+        catalog.get("disconnect_triggers")
+        or catalog.get("controller_change_triggers")
+        or catalog.get("dormant_triggers")
+        or catalog.get("retire_office_succeeds")
+        or catalog.get("dissolved_activates")
+        or catalog.get("emergency_resets_duration")
+        or catalog.get("transfers_reputation")
+        or catalog.get("transfers_private_knowledge")
+        or catalog.get("transfers_treasury")
+    ):
+        fail("GC4-S4 must keep non-triggers and non-transfers closed")
+    if catalog.get("mechanism") != "DESIGNATED" or int(catalog.get("max_successors") or 0) != 2:
+        fail("GC4-S4 must be DESIGNATED with at most two successors")
+    rfc = (ROOT / "rfcs" / "RFC-0031-designated-succession.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0031 must be Accepted")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if "SUCCESSION_STARTED" in types_text or "SUCCESSION_COMPLETED" in types_text or "DYNASTY_CHANGED" in types_text:
+        fail("GC4-S4 must not add SUCCESSION_* events to frozen catalogs")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "designate-ok.json",
+        "resign-activate-ok.json",
+        "retire-activate-ok.json",
+        "emergency-remaining-ok.json",
+        "secondary-ok.json",
+        "no-designation-vacant.json",
+        "disconnect-forbidden.json",
+        "cross-world-forbidden.json",
+        "ineligible-vacant.json",
+        "emergency-reset-forbidden.json",
+        "reputation-forbidden.json",
+        "knowledge-forbidden.json",
+        "duplicate-ok.json",
+        "conflict-forbidden.json",
+        "speech-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-succession" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc4_s4(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("office_status") and extra.get("office_status") != expected["office_status"]:
+            fail(f"{name}: office_status mismatch")
+        if "successor" in expected and extra.get("successor") != expected["successor"]:
+            fail(f"{name}: successor mismatch")
+        if expected.get("end_cycle") is not None and extra.get("end_cycle") != expected["end_cycle"]:
+            fail(f"{name}: end_cycle mismatch")
+    ok("GC4-S4 designated succession: catalog, fixtures, RFC-0031 Accepted, no SUCCESSION_* events")
+
+
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
         return "REJECT", "FORBIDDEN"
@@ -4915,6 +5052,7 @@ def main() -> None:
     check_gc4_s1(Draft202012Validator)
     check_gc4_s2(Draft202012Validator)
     check_gc4_s3(Draft202012Validator)
+    check_gc4_s4(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc5_s2(Draft202012Validator)

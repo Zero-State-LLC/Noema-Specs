@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC4-S3 emergency scopes (RFC-0030) is authorized with this pass. GC1-S2 remains DEFERRED. Next institutional slice is designated succession.
+Use this file to analyze what is left. GC4-S4 designated succession (RFC-0031) is authorized with this pass. GC1-S2 remains DEFERRED. Remaining operator work is world-head SQL apply.
 
 ---
 
@@ -21,6 +21,7 @@ Use this file to analyze what is left. GC4-S3 emergency scopes (RFC-0030) is aut
 | GC4-S1 named offices | **RFC-0023** | Hosted this run. Persistent vacant/occupied seats; `PUBLISH_NOTICE` only |
 | GC4-S2 institution TRADE/REPAIR | **RFC-0029** | Hosted this run. Occupied office + treasury. No new verbs |
 | GC4-S3 emergency scopes | **RFC-0030** | Hosted this run. Time-bounded grant overlay. No superuser |
+| GC4-S4 designated succession | **RFC-0031** | Hosted this run. Explicit designation only. No implicit jump |
 | GC5-S0 MESSAGE bands | RFC-0009 | Yes (#72) |
 | GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** until ATTEST |
 | GC6-S1 reconstruction | **RFC-0024** | Hosted this run. Player-authored account from accessible archive/inspect |
@@ -57,7 +58,7 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0030 emergency scopes. Next institutional slice is designated succession.
+None remaining from RFC-0031 designated succession. Operator SQL remains. GC1-S2 remains DEFERRED.
 
 ---
 
@@ -65,7 +66,6 @@ None remaining from RFC-0030 emergency scopes. Next institutional slice is desig
 
 ```text
 GC1-S2 mechanical benefits (doctrine DEFER)
-designated succession
 world-heads SQL apply (operator)
 ```
 
@@ -85,5 +85,4 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next institutional slice is designated succession.  
-3. Do not implement GC1-S2 benefits.
+2. Do not implement GC1-S2 benefits.
