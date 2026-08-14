@@ -1,0 +1,21 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "TRADE_ACCEPT",
+    "holds_office": true,
+    "office_status": "OCCUPIED",
+    "office_profile": "OPERATE_RESOURCE_ACCOUNT",
+    "acting_for": "org.line",
+    "matching_offices": 1,
+    "org_active": true,
+    "same_world": true,
+    "treasury_ok": true,
+    "same_player_both_sides": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "One Player may not authorize both sides in this slice."
+  }
+}

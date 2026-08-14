@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/institution-action-attempt.schema.json",
+  "title": "NOEMA GC4-S2 institution action attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s2" },
+    "catalog_id": { "const": "authority-catalog/gc4-s2" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation"],
+      "properties": {
+        "operation": { "type": "string" },
+        "actor_role": { "type": "string" },
+        "holds_office": { "type": "boolean" },
+        "office_status": { "type": "string" },
+        "office_profile": { "type": "string" },
+        "acting_for": { "type": ["string", "null"] },
+        "office_id": { "type": ["string", "null"] },
+        "matching_offices": { "type": "integer", "minimum": 0 },
+        "org_active": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "treasury_ok": { "type": "boolean" },
+        "personal_ok": { "type": "boolean" },
+        "asset_in_scope": { "type": "boolean" },
+        "former_holder": { "type": "boolean" },
+        "same_player_both_sides": { "type": "boolean" },
+        "display_name_only": { "type": "boolean" },
+        "new_verb": { "type": ["string", "null"] },
+        "mutates_personal_as_treasury": { "type": "boolean" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "account": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

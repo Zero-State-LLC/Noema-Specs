@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC5-S2 (RFC-0028) is authorized with this pass. GC1-S2 remains DEFERRED. Next active work is institutional follow-through or operator SQL.
+Use this file to analyze what is left. GC4-S2 institution TRADE/REPAIR (RFC-0029) is authorized with this pass. GC1-S2 remains DEFERRED. Next institutional slice is emergency scopes.
 
 ---
 
@@ -19,6 +19,7 @@ Use this file to analyze what is left. GC5-S2 (RFC-0028) is authorized with this
 | GC3-S1 betrayal | **RFC-0022** | Hosted this run. Danger from `CONTEST_RESOLVED`; no reputation scalar |
 | GC4-S0 advisor pin | RFC-0008 | Yes (#71) |
 | GC4-S1 named offices | **RFC-0023** | Hosted this run. Persistent vacant/occupied seats; `PUBLISH_NOTICE` only |
+| GC4-S2 institution TRADE/REPAIR | **RFC-0029** | Hosted this run. Occupied office + treasury. No new verbs |
 | GC5-S0 MESSAGE bands | RFC-0009 | Yes (#72) |
 | GC6-S0 mapper + source | RFC-0010 / **0015** | Mapper yes; **Perihelion silent** until ATTEST |
 | GC6-S1 reconstruction | **RFC-0024** | Hosted this run. Player-authored account from accessible archive/inspect |
@@ -55,7 +56,7 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0028. Completeness S1/S2 named slices are hosted. Follow-through remains operator/institution work.
+None remaining from RFC-0029 TRADE/REPAIR. Next institutional slice is emergency scopes, then designated succession.
 
 ---
 
@@ -63,7 +64,8 @@ None remaining from RFC-0028. Completeness S1/S2 named slices are hosted. Follow
 
 ```text
 GC1-S2 mechanical benefits (doctrine DEFER)
-GC4 follow-through: institution TRADE/REPAIR, emergency scopes, designated succession
+emergency scopes
+designated succession
 world-heads SQL apply (operator)
 ```
 
@@ -83,5 +85,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Institutional follow-through or world-heads SQL. Do not open GC1-S2.  
+2. Next institutional slice is emergency scopes. Then designated succession.  
 3. Do not implement GC1-S2 benefits.

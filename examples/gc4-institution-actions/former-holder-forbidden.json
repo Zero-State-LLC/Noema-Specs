@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "TRADE_PROPOSE",
+    "actor_role": "member",
+    "holds_office": false,
+    "office_status": "VACANT",
+    "former_holder": true,
+    "acting_for": "org.line",
+    "org_active": true,
+    "same_world": true,
+    "treasury_ok": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Former holder loses future authority. Treasury stays."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "REPAIR",
+    "actor_role": "member",
+    "holds_office": true,
+    "office_status": "OCCUPIED",
+    "office_profile": "OPERATE_NAMED_ASSET",
+    "acting_for": "org.line",
+    "matching_offices": 1,
+    "org_active": true,
+    "same_world": true,
+    "treasury_ok": true,
+    "asset_in_scope": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "account": "treasury",
+    "note": "Occupied named-asset office repairs an in-scope asset from the treasury."
+  }
+}

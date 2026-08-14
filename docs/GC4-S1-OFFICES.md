@@ -68,7 +68,7 @@ Capability, not a `TREASURER_POWER` enum.
 | `GRANT_ACCESS` | Later access-list mutate | Geography rewrite |
 | `OPERATE_NAMED_ASSET` | Later named-asset operate | Ultra vires REPAIR everywhere |
 
-Hosted S1 **exercises** only `PUBLISH_NOTICE`. Other profiles may be recorded; `OFFICE_ACT` on them is `FORBIDDEN` until a later RFC.
+Hosted S1 **exercises** only `PUBLISH_NOTICE` via `OFFICE_ACT`. `OPERATE_RESOURCE_ACCOUNT` and `OPERATE_NAMED_ASSET` are exercised by ordinary TRADE/REPAIR in [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md).
 
 ---
 

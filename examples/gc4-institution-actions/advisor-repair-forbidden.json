@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "REPAIR",
+    "actor_role": "advisor",
+    "holds_office": false,
+    "acting_for": "org.line",
+    "org_active": true,
+    "same_world": true,
+    "treasury_ok": true,
+    "asset_in_scope": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Advisor without the grant cannot repair from the treasury."
+  }
+}

@@ -3343,6 +3343,96 @@ def check_gc4_s1(Draft202012Validator) -> None:
     ok("GC4-S1 offices: catalog, attempt fixtures, RFC-0023 Accepted, no ROLE_* events")
 
 
+def evaluate_gc4_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {"account": None}
+    if attempt.get("new_verb"):
+        return "REJECT", "VERB_FORBIDDEN", extra
+    if attempt.get("same_world") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("org_active") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("display_name_only") or attempt.get("mutates_personal_as_treasury"):
+        return "REJECT", "FORBIDDEN", extra
+    if attempt.get("same_player_both_sides") or catalog.get("same_player_both_sides"):
+        return "REJECT", "FORBIDDEN", extra
+    if attempt.get("former_holder") or attempt.get("office_status") == "VACANT":
+        return "REJECT", "FORBIDDEN", extra
+    if not attempt.get("holds_office"):
+        return "REJECT", "FORBIDDEN", extra
+    if int(attempt.get("matching_offices") or 0) > 1 and not attempt.get("office_id"):
+        return "REJECT", "FORBIDDEN", extra
+    op = str(attempt.get("operation") or "")
+    profile = attempt.get("office_profile")
+    if op.startswith("TRADE") and profile != catalog.get("trade_profile"):
+        return "REJECT", "FORBIDDEN", extra
+    if op == "REPAIR" and profile != catalog.get("repair_profile"):
+        return "REJECT", "FORBIDDEN", extra
+    if op == "REPAIR" and attempt.get("asset_in_scope") is False:
+        return "REJECT", "FORBIDDEN", extra
+    if attempt.get("treasury_ok") is False:
+        return "REJECT", "BUDGET_EXCEEDED", extra
+    extra["account"] = "treasury"
+    return "ACCEPT", None, extra
+
+
+def check_gc4_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "institution-action-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S2 catalog invalid: {cerrs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S2 must not add verbs or events")
+    if catalog.get("founder_implies_treasury") or catalog.get("vacant_office_grants"):
+        fail("GC4-S2 must not let founders or vacant offices spend")
+    if catalog.get("display_name_is_authority") or catalog.get("silent_account_pick"):
+        fail("GC4-S2 must not treat titles as grants or silently pick accounts")
+    if catalog.get("emergency_scopes") or catalog.get("designated_succession") or catalog.get("institution_npc"):
+        fail("GC4-S2 must leave emergency, succession, and institution NPC out")
+    if catalog.get("trade_profile") != "OPERATE_RESOURCE_ACCOUNT":
+        fail("GC4-S2 TRADE must use OPERATE_RESOURCE_ACCOUNT")
+    if catalog.get("repair_profile") != "OPERATE_NAMED_ASSET":
+        fail("GC4-S2 REPAIR must use OPERATE_NAMED_ASSET")
+    rfc = (ROOT / "rfcs" / "RFC-0029-institution-trade-repair.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0029 must be Accepted")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if "INSTITUTION_TRADE" in types_text or "INSTITUTION_REPAIR" in types_text:
+        fail("GC4-S2 must not add INSTITUTION_* events to frozen catalogs")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "trade-propose-ok.json",
+        "trade-accept-ok.json",
+        "repair-ok.json",
+        "turnover-ok.json",
+        "member-trade-forbidden.json",
+        "advisor-repair-forbidden.json",
+        "former-holder-forbidden.json",
+        "vacant-forbidden.json",
+        "cross-world-forbidden.json",
+        "forged-context-forbidden.json",
+        "double-spend-forbidden.json",
+        "title-only-forbidden.json",
+        "invalid-source-forbidden.json",
+        "both-sides-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-institution-actions" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc4_s2(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("account") and extra.get("account") != expected["account"]:
+            fail(f"{name}: account mismatch")
+    ok("GC4-S2 institution TRADE/REPAIR: catalog, fixtures, RFC-0029 Accepted, existing verbs")
+
+
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
         return "REJECT", "FORBIDDEN"
@@ -4724,6 +4814,7 @@ def main() -> None:
     check_gc3_s1(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc4_s1(Draft202012Validator)
+    check_gc4_s2(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc5_s2(Draft202012Validator)
