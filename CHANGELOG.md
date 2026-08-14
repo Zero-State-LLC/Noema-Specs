@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Hosted canonical-head status:** Noema #96 / `272a993` is deployed. Isolated-world verification and Perihelion canonical bootstrap remain blocked. Operator SQL/RPC apply still required. No Genesis reseed.
+
+### Added
+
 - **RFC-0031 Accepted / GC4-S4:** designated institutional succession. Explicit predeclared successor list on an office or emergency scope. No implicit jump. Emergency successor inherits remaining duration. No `SUCCESSION_*` events.
 
 ### Added

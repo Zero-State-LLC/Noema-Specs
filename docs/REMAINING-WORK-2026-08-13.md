@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC4-S4 designated succession (RFC-0031) is authorized with this pass. GC1-S2 remains DEFERRED. Remaining operator work is world-head SQL apply.
+Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Hosted SQL/RPC apply and isolated-world verification remain open. Perihelion canonical bootstrap remains blocked. GC1-S2 remains DEFERRED.
 
 ---
 
@@ -33,7 +33,8 @@ Use this file to analyze what is left. GC4-S4 designated succession (RFC-0031) i
 | GC10-S0 pressure | RFC-0014 | Yes (#82). Silent if drop would go below 25 |
 | GC10-S1 more classes | **RFC-0027** | Hosted this run. Resource stock + access restriction. S0 remains. No Admin spawn |
 | World-time | **RFC-0019** | WAIT quorum (#80) |
-| Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
+| Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL / RPC apply unverified** |
+| Atomic canonical settlement | runtime #96 | Deployed `272a993`. Isolated verification **blocked**. Perihelion bootstrap **blocked** |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
 | Attest spec | **RFC-0020** | Hosted `COMMIT.ATTEST`. Help omits ATTEST |
 | GC5-S1 delay | **RFC-0021** | Hosted this run. 25–49 delays 1 cycle |
@@ -45,20 +46,21 @@ Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are uncha
 
 ## Operator (blocks reconstructable heads)
 
-Apply on hosted Postgres:
+Apply on hosted Postgres (project `dezykkherxlaysxyvgbs` unless Worker `SUPABASE_URL` says otherwise):
 
 ```text
 Noema/supabase/migrations/20260813210000_noema_world_heads.sql
 Noema/supabase/migrations/20260813223000_noema_world_head_fence.sql
+Noema/supabase/migrations/20260813233000_noema_atomic_canonical_settlement.sql
 ```
 
-Until that runs, the Worker skips a missing `noema_world_heads` table (404) so PLAY does not fail-close. Events still settle to `noema_settled_events`.
+Until that runs, the deployed #96 Worker fail-closes mutating ACK (`p_allow_bootstrap=false`). Do not fabricate a Perihelion canonical head. Production command routing has no isolated test world.
 
 ---
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0031 designated succession. Operator SQL remains. GC1-S2 remains DEFERRED.
+Canonical-head infrastructure is implemented and deployed, not hosted-verified. Operator SQL + isolated world path remain. GC1-S2 remains DEFERRED.
 
 ---
 
@@ -66,7 +68,8 @@ None remaining from RFC-0031 designated succession. Operator SQL remains. GC1-S2
 
 ```text
 GC1-S2 mechanical benefits (doctrine DEFER)
-world-heads SQL apply (operator)
+canonical-head SQL/RPC apply + isolated verification (operator)
+Perihelion canonical bootstrap (blocked: no verified snapshot)
 ```
 
 ---
@@ -84,5 +87,6 @@ production Genesis activate / force-supersede / reseed
 
 ## Suggested analysis order
 
-1. Operator: confirm or apply the two world-heads SQL files.  
-2. Do not implement GC1-S2 benefits.
+1. Operator: apply the three world-head / canonical-settlement SQL files.  
+2. Do not bootstrap Perihelion from incomplete legacy events.  
+3. Do not implement GC1-S2 benefits.
