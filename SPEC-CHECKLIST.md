@@ -236,4 +236,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0029 Accepted: institutional TRADE/REPAIR via occupied office profiles. No new verbs. Emergency scopes and succession remain later.
 - [x] RFC-0030 Accepted: emergency scopes as time-bounded grants. Designated succession remains later.
 - [x] RFC-0031 Accepted: designated institutional succession. No implicit jump. Emergency remaining duration. Consensus/dynasty remain out.
+- [ ] Hosted canonical-head settlement: Worker #96 deployed; SQL/RPC apply and isolated verification not yet observed. Perihelion bootstrap blocked.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
