@@ -115,4 +115,4 @@ Hosted RFC-0019 cycle commit may apply this schedule once in cycles 4–20. The 
 4. PLAY lines contain no research class name.
 5. Player/LLM authorizer, Frontier ID reuse, and forced response are rejected.
 
-Full scenario J (divergent trajectories under research observation, additional classes) is **GC10-S1**.
+Full scenario J (divergent trajectories under research observation, additional classes) is **GC10-S1** ([GC10-S1-PRESSURE.md](GC10-S1-PRESSURE.md) · [RFC-0027](../rfcs/RFC-0027-additional-world-pressure.md)). S0 remains valid.

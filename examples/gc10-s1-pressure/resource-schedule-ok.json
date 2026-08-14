@@ -1,0 +1,24 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "resource_scarcity",
+    "authorizer": "schedule",
+    "cycle": 8,
+    "entity_id": "entity.storage-cell-cache",
+    "stock_before": 8,
+    "preview_after": 4,
+    "activate_after": 4,
+    "magnitude": 4,
+    "activate_event": "ENTITY_UPDATE",
+    "forced_response": null,
+    "play_lines": [],
+    "watch_lines": ["Extraction at a storage cache has fallen."]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "stock_after": 4,
+    "event": "ENTITY_UPDATE",
+    "note": "Harvest-node stock drop. Existing ENTITY_UPDATE. Floor 0."
+  }
+}

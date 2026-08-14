@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0027 Accepted / GC10-S1:** additional world pressure classes (`resource_scarcity`, `access_restriction`) via existing `ENTITY_UPDATE` / `ACCESS_RESTRICTED`. S0 relay drop remains. No Admin spawn. No rubber-band. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0026 Accepted / GC7-S1:** contest withdraw via `COMMIT.CONTEST_WITHDRAW`. Settles existing `CONTEST_RESOLVED` (`ABORTED` or forfeit `SUCCESS`). No HP. No `event-catalog/0.3`.
 
 ### Added

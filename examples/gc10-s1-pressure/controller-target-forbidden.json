@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "access_restriction",
+    "authorizer": "schedule",
+    "cycle": 12,
+    "activate_event": "ACCESS_RESTRICTED",
+    "targeting": { "controller_type": "agent" }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "CONTROLLER_TARGET",
+    "note": "Human and agent Players share the same pressure."
+  }
+}

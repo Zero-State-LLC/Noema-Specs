@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/pressure-catalog.gc10-s1.schema.json",
+  "title": "NOEMA Pressure Catalog (GC10-S1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "extends",
+    "accepted_classes",
+    "rejected_classes",
+    "classes",
+    "max_activations_per_class_cycles_1_20",
+    "last_window_cycle",
+    "authorizers",
+    "forbidden_authorizers",
+    "required_response",
+    "play_research_labels",
+    "admin_spawn",
+    "share_frontier_ids",
+    "rubber_band",
+    "player_targeting",
+    "research_targeting",
+    "controller_targeting",
+    "contest_verdict",
+    "new_verbs",
+    "new_events",
+    "forbidden_events",
+    "watch_projection",
+    "watch_oracle",
+    "watch_leaks_control_plane"
+  ],
+  "properties": {
+    "schema_version": { "const": "pressure-catalog/gc10-s1" },
+    "catalog_id": { "const": "pressure-catalog/gc10-s1" },
+    "slice_id": { "const": "gc10-s1" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "extends": { "const": "pressure-catalog/gc10-s0" },
+    "accepted_classes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        { "const": "infrastructure_failure" },
+        { "const": "resource_scarcity" },
+        { "const": "access_restriction" }
+      ],
+      "items": false
+    },
+    "rejected_classes": {
+      "type": "array",
+      "minItems": 6,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "classes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "infrastructure_failure",
+        "resource_scarcity",
+        "access_restriction"
+      ],
+      "properties": {
+        "infrastructure_failure": { "$ref": "#/$defs/class_spec" },
+        "resource_scarcity": { "$ref": "#/$defs/class_spec" },
+        "access_restriction": { "$ref": "#/$defs/class_spec" }
+      }
+    },
+    "max_activations_per_class_cycles_1_20": { "const": 1 },
+    "last_window_cycle": { "const": 20 },
+    "authorizers": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "schedule" }, { "const": "operator" }],
+      "items": false
+    },
+    "forbidden_authorizers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [{ "const": "player" }, { "const": "llm" }, { "const": "study" }],
+      "items": false
+    },
+    "required_response": { "const": false },
+    "play_research_labels": { "const": false },
+    "admin_spawn": { "const": false },
+    "share_frontier_ids": { "const": false },
+    "rubber_band": { "const": false },
+    "player_targeting": { "const": false },
+    "research_targeting": { "const": false },
+    "controller_targeting": { "const": false },
+    "contest_verdict": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "forbidden_events": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "type": "string" }
+    },
+    "watch_projection": { "const": true },
+    "watch_oracle": { "const": false },
+    "watch_leaks_control_plane": { "const": false }
+  },
+  "$defs": {
+    "class_spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "activate_event",
+        "magnitude",
+        "first_cycle",
+        "duration",
+        "watch_pulse"
+      ],
+      "properties": {
+        "family": { "type": "string" },
+        "activate_event": { "enum": ["ENTITY_UPDATE", "ACCESS_RESTRICTED"] },
+        "field": { "type": "string" },
+        "magnitude": { "type": "integer", "minimum": 1 },
+        "floor": { "type": "integer", "minimum": 0 },
+        "min_before": { "type": "integer", "minimum": 0 },
+        "first_cycle": { "type": "integer", "minimum": 1 },
+        "duration": {
+          "enum": ["IMMEDIATE", "TEMPORARY", "PERSISTENT_UNTIL_REPAIRED"]
+        },
+        "duration_cycles": { "type": "integer", "minimum": 1 },
+        "restore_verb": { "type": "string" },
+        "preferred_subject": { "type": "string" },
+        "preferred_room": { "type": "string" },
+        "preferred_exit": { "type": "string" },
+        "watch_pulse": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

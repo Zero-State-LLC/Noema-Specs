@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "infrastructure_failure",
+    "authorizer": "schedule",
+    "cycle": 6,
+    "entity_id": "entity.relay-7",
+    "condition_before": 55,
+    "activate_event": "ENTITY_UPDATE",
+    "duplicate": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "DUPLICATE",
+    "note": "At most one activation per class in cycles 1–20."
+  }
+}

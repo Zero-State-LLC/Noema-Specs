@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "infrastructure_failure",
+    "authorizer": "schedule",
+    "cycle": 4,
+    "entity_id": "entity.relay-7",
+    "condition_before": 70,
+    "preview_after": 55,
+    "activate_after": 40,
+    "magnitude": 15,
+    "activate_event": "ENTITY_UPDATE"
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "PREVIEW_MISMATCH",
+    "note": "Preview of the same inputs must equal activation."
+  }
+}

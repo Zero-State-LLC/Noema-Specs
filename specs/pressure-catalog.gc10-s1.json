@@ -1,0 +1,83 @@
+{
+  "schema_version": "pressure-catalog/gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "slice_id": "gc10-s1",
+  "authority": "docs/GC10-S1-PRESSURE.md",
+  "rfc": "rfcs/RFC-0027-additional-world-pressure.md",
+  "event_catalog": "event-catalog/0.2",
+  "extends": "pressure-catalog/gc10-s0",
+  "accepted_classes": [
+    "infrastructure_failure",
+    "resource_scarcity",
+    "access_restriction"
+  ],
+  "rejected_classes": [
+    "communication_outage",
+    "environmental_weather",
+    "route_engine",
+    "war",
+    "famine",
+    "plague"
+  ],
+  "classes": {
+    "infrastructure_failure": {
+      "family": "INFRASTRUCTURE_PRESSURE",
+      "activate_event": "ENTITY_UPDATE",
+      "field": "condition",
+      "magnitude": 15,
+      "floor": 25,
+      "first_cycle": 4,
+      "duration": "PERSISTENT_UNTIL_REPAIRED",
+      "restore_verb": "REPAIR",
+      "preferred_subject": "entity.relay-7",
+      "watch_pulse": "A relay in the hub has degraded."
+    },
+    "resource_scarcity": {
+      "family": "RESOURCE_PRESSURE",
+      "activate_event": "ENTITY_UPDATE",
+      "field": "stock_amount",
+      "magnitude": 4,
+      "floor": 0,
+      "min_before": 4,
+      "first_cycle": 8,
+      "duration": "IMMEDIATE",
+      "preferred_subject": "entity.storage-cell-cache",
+      "watch_pulse": "Extraction at a storage cache has fallen."
+    },
+    "access_restriction": {
+      "family": "ACCESS_PRESSURE",
+      "activate_event": "ACCESS_RESTRICTED",
+      "magnitude": 1,
+      "first_cycle": 12,
+      "duration": "TEMPORARY",
+      "duration_cycles": 4,
+      "preferred_room": "room.relay-quarter",
+      "preferred_exit": "east",
+      "watch_pulse": "Traffic through a public corridor has slowed."
+    }
+  },
+  "max_activations_per_class_cycles_1_20": 1,
+  "last_window_cycle": 20,
+  "authorizers": ["schedule", "operator"],
+  "forbidden_authorizers": ["player", "llm", "study"],
+  "required_response": false,
+  "play_research_labels": false,
+  "admin_spawn": false,
+  "share_frontier_ids": false,
+  "rubber_band": false,
+  "player_targeting": false,
+  "research_targeting": false,
+  "controller_targeting": false,
+  "contest_verdict": false,
+  "new_verbs": [],
+  "new_events": [],
+  "forbidden_events": [
+    "SITUATION_INJECTED",
+    "PRESSURE_STARTED",
+    "PRESSURE_ENDED",
+    "WED_PRESSURE"
+  ],
+  "watch_projection": true,
+  "watch_oracle": false,
+  "watch_leaks_control_plane": false
+}

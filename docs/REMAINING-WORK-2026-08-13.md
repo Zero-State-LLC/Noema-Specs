@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC7-S1 (RFC-0026) is authorized with this pass. Later S1s remain SPEC GAP.
+Use this file to analyze what is left. GC10-S1 (RFC-0027) is authorized with this pass. Later work is GC5-S2 rumor (explicit continuation). GC1-S2 remains DEFERRED.
 
 ---
 
@@ -28,6 +28,7 @@ Use this file to analyze what is left. GC7-S1 (RFC-0026) is authorized with this
 | GC9-S0 custom | RFC-0013 | Yes (#71) |
 | GC9-S1 tradition | **RFC-0025** | Hosted this run. CUSTOM plus persistence/transmission. No bonus |
 | GC10-S0 pressure | RFC-0014 | Yes (#82). Silent if drop would go below 25 |
+| GC10-S1 more classes | **RFC-0027** | Hosted this run. Resource stock + access restriction. S0 remains. No Admin spawn |
 | World-time | **RFC-0019** | WAIT quorum (#80) |
 | Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
@@ -53,14 +54,13 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0026. Later S1 slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
+None remaining from RFC-0027. Later slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
 
 ---
 
 ## SPEC GAP (later RFC)
 
 ```text
-GC10-S1 more pressure classes
 GC5-S2 rumor provenance
 GC1-S2 mechanical benefits (doctrine DEFER)
 GC4 follow-through: institution TRADE/REPAIR, emergency scopes, designated succession
@@ -83,5 +83,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next S1 RFC from [GC-S1-ORDER.md](GC-S1-ORDER.md) (GC10-S1 more pressure classes). Leave unnamed slices as SPEC GAP.  
+2. Next named slice is GC5-S2 rumor provenance. Do not begin it without an explicit continuation instruction.  
 3. Do not implement GC1-S2 benefits.

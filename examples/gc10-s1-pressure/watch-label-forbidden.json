@@ -1,0 +1,20 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "resource_scarcity",
+    "authorizer": "schedule",
+    "cycle": 8,
+    "entity_id": "entity.storage-cell-cache",
+    "stock_before": 8,
+    "preview_after": 4,
+    "activate_after": 4,
+    "activate_event": "ENTITY_UPDATE",
+    "watch_lines": ["GC10 resource_scarcity scheduled by WED"]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "LABEL_LEAK",
+    "note": "WATCH reports consequence, not control-plane intent."
+  }
+}

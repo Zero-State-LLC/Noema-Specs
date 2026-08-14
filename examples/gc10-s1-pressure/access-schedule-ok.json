@@ -1,0 +1,24 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "access_restriction",
+    "authorizer": "schedule",
+    "cycle": 12,
+    "room_id": "room.relay-quarter",
+    "exit_id": "east",
+    "magnitude": 1,
+    "activate_event": "ACCESS_RESTRICTED",
+    "duration_cycles": 4,
+    "expires_cycle": 16,
+    "forced_response": null,
+    "play_lines": [],
+    "watch_lines": ["Traffic through a public corridor has slowed."]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "event": "ACCESS_RESTRICTED",
+    "expires_cycle": 16,
+    "note": "Temporary public-exit DENY. Existing ACCESS_RESTRICTED."
+  }
+}

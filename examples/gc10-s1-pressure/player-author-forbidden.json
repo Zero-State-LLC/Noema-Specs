@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "resource_scarcity",
+    "authorizer": "player",
+    "cycle": 8,
+    "entity_id": "entity.storage-cell-cache",
+    "stock_before": 8,
+    "activate_event": "ENTITY_UPDATE"
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "AUTHOR_FORBIDDEN",
+    "note": "Players cannot inject WED pressure."
+  }
+}

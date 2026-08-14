@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc10-s1",
+  "catalog_id": "pressure-catalog/gc10-s1",
+  "attempt": {
+    "pressure_class": "infrastructure_failure",
+    "authorizer": "schedule",
+    "cycle": 4,
+    "entity_id": "entity.relay-7",
+    "condition_before": 70,
+    "activate_event": "ENTITY_UPDATE",
+    "targeting": { "research_metric": true }
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "RESEARCH_TARGET",
+    "note": "RESEARCH METRIC ↛ PRESSURE TARGETING"
+  }
+}
