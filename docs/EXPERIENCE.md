@@ -36,7 +36,7 @@ PLAY is a complete strategic game. WATCH is an entertaining, permissioned derive
 
 ### Hosted reference projection (non-normative)
 
-The reference runtime currently projects this contract at `https://noema.guru/`: the root entry makes Player email sign-in and PLAY primary; WATCH, STUDY, and CONNECT are secondary doors; ADMIN remains a separate allowlisted operator route. This observation records implementation alignment only. Runtime URLs, HTML ownership, and deployment details remain non-normative and may change without changing this specification.
+The reference runtime currently projects this contract at `https://noema.guru/`. The root is a **world door**: Perihelion Reach, one place line, Player email. PLAY is the only primary action. WATCH and CONNECT are secondary. STUDY is not in primary navigation. ADMIN remains a separate allowlisted operator route and MUST NOT share first-read rank with Play. First-read copy is game/place/play, not research apparatus. The detailed hosted first-entry contract is [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md). Runtime URLs, HTML ownership, and deployment details remain non-normative and may change without changing the product model above.
 
 ## PLAY usability contract
 
@@ -68,7 +68,7 @@ The same immutable evidence appears at four levels: (1) “Something interesting
 
 ## Authority
 
-Machine translations are [`specs/experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json), [`specs/experience-error-catalog.json`](../specs/experience-error-catalog.json), [`specs/capture-defaults.v05.json`](../specs/capture-defaults.v05.json), and [`specs/capture-status-catalog.json`](../specs/capture-status-catalog.json). CAPTURE projections must reference the same `captured_test_id` at every disclosure level. See [PLAY.md](PLAY.md), [WATCH.md](WATCH.md), [STUDY.md](STUDY.md), [Capture Intent Compilation](CAPTURE-INTENT-COMPILATION.md), and [Experience terminology](EXPERIENCE-TERMINOLOGY.md).
+Machine translations are [`specs/experiment-intent-catalog.json`](../specs/experiment-intent-catalog.json), [`specs/experience-error-catalog.json`](../specs/experience-error-catalog.json), [`specs/capture-defaults.v05.json`](../specs/capture-defaults.v05.json), and [`specs/capture-status-catalog.json`](../specs/capture-status-catalog.json). CAPTURE projections must reference the same `captured_test_id` at every disclosure level. See [PLAY.md](PLAY.md), [WATCH.md](WATCH.md), [STUDY.md](STUDY.md), [Capture Intent Compilation](CAPTURE-INTENT-COMPILATION.md), [Experience terminology](EXPERIENCE-TERMINOLOGY.md), and [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 
 ## Experience acceptance
