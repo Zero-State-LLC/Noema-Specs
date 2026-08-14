@@ -39,6 +39,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0027](RFC-0027-additional-world-pressure.md) | **Accepted** | GC10-S1: additional pressure classes via existing events; no Admin spawn |
 | [RFC-0028](RFC-0028-rumor-provenance.md) | **Accepted** | GC5-S2: rumor as claim + MESSAGE lineage; no score |
 | [RFC-0029](RFC-0029-institution-trade-repair.md) | **Accepted** | Institution TRADE/REPAIR via occupied office profiles; no new verbs |
+| [RFC-0030](RFC-0030-emergency-scopes.md) | **Accepted** | Time-bounded emergency AuthorityGrant overlay; no superuser |
 
 ## Required review lenses
 

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/emergency-attempt.schema.json",
+  "title": "NOEMA GC4-S3 emergency-scope attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s3" },
+    "catalog_id": { "const": "authority-catalog/gc4-s3" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation"],
+      "properties": {
+        "operation": { "type": "string" },
+        "source_ok": { "type": "boolean" },
+        "org_active": { "type": "boolean" },
+        "same_world": { "type": "boolean" },
+        "holder_is_member": { "type": "boolean" },
+        "office_status": { "type": "string" },
+        "condition_holds": { "type": "boolean" },
+        "template_capability": { "type": "string" },
+        "requested_capability": { "type": "string" },
+        "scope_status": { "type": "string" },
+        "cycle": { "type": "integer" },
+        "start_cycle": { "type": "integer" },
+        "end_cycle": { "type": "integer" },
+        "self_declare": { "type": "boolean" },
+        "duplicate": { "type": "boolean" },
+        "overrides_restriction": { "type": "boolean" },
+        "wall_clock_delay": { "type": "boolean" },
+        "exceeds_template": { "type": "boolean" },
+        "new_verb": { "type": ["string", "null"] }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "status": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

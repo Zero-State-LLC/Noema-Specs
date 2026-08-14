@@ -1,0 +1,23 @@
+{
+  "slice_id": "gc4-s3",
+  "catalog_id": "authority-catalog/gc4-s3",
+  "attempt": {
+    "operation": "REPAIR",
+    "scope_status": "ACTIVE",
+    "org_active": true,
+    "same_world": true,
+    "holder_is_member": true,
+    "office_status": "OCCUPIED",
+    "cycle": 7,
+    "start_cycle": 4,
+    "end_cycle": 7,
+    "wall_clock_delay": true,
+    "template_capability": "REPAIR",
+    "requested_capability": "REPAIR"
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Worker delay does not extend world-time expiry."
+  }
+}

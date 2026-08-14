@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc4-s3",
+  "catalog_id": "authority-catalog/gc4-s3",
+  "attempt": {
+    "operation": "ACTIVATE",
+    "self_declare": true,
+    "source_ok": false,
+    "org_active": true,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Saying emergency does not grant power."
+  }
+}

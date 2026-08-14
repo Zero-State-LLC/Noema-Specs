@@ -3433,6 +3433,105 @@ def check_gc4_s2(Draft202012Validator) -> None:
     ok("GC4-S2 institution TRADE/REPAIR: catalog, fixtures, RFC-0029 Accepted, existing verbs")
 
 
+def evaluate_gc4_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {"status": None}
+    if attempt.get("new_verb"):
+        return "REJECT", "VERB_FORBIDDEN", extra
+    if attempt.get("self_declare") or catalog.get("self_declare"):
+        return "REJECT", "FORBIDDEN", extra
+    if attempt.get("same_world") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("org_active") is False:
+        return "REJECT", "NOT_FOUND", extra
+    if attempt.get("exceeds_template") or attempt.get("overrides_restriction"):
+        return "REJECT", "FORBIDDEN", extra
+    op = str(attempt.get("operation") or "")
+    if op == "ACTIVATE":
+        if attempt.get("office_status") == "VACANT" or not attempt.get("source_ok"):
+            return "REJECT", "FORBIDDEN", extra
+        if attempt.get("holder_is_member") is False or attempt.get("condition_holds") is False:
+            return "REJECT", "FORBIDDEN", extra
+        extra["status"] = "ACTIVE"
+        return "ACCEPT", None, extra
+    if op == "REVOKE":
+        if not attempt.get("source_ok"):
+            return "REJECT", "FORBIDDEN", extra
+        extra["status"] = "REVOKED"
+        return "ACCEPT", None, extra
+    if op in ("REPAIR", "TRADE"):
+        if attempt.get("scope_status") in ("EXPIRED", "REVOKED"):
+            return "REJECT", "FORBIDDEN", extra
+        if attempt.get("office_status") == "VACANT":
+            return "REJECT", "FORBIDDEN", extra
+        end = attempt.get("end_cycle")
+        cycle = attempt.get("cycle")
+        if end is not None and cycle is not None and int(cycle) >= int(end):
+            return "REJECT", "FORBIDDEN", extra
+        if attempt.get("requested_capability") and attempt.get("requested_capability") != attempt.get(
+            "template_capability"
+        ):
+            return "REJECT", "FORBIDDEN", extra
+        extra["status"] = "ACTIVE"
+        return "ACCEPT", None, extra
+    return "REJECT", "FORBIDDEN", extra
+
+
+def check_gc4_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "emergency-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC4-S3 catalog invalid: {cerrs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC4-S3 must not add verbs or events")
+    if catalog.get("self_declare") or catalog.get("superuser") or catalog.get("operator_via_grant"):
+        fail("GC4-S3 must not allow self-declare, superuser, or operator-via-grant")
+    if catalog.get("wall_clock_extends") or catalog.get("overrides_restriction") or catalog.get("implicit_successor"):
+        fail("GC4-S3 must not extend by wall-clock, override restrictions, or imply succession")
+    if catalog.get("vacant_office_grants") or catalog.get("designated_succession"):
+        fail("GC4-S3 must leave vacant offices powerless and succession out")
+    if int(catalog.get("default_duration_cycles") or 0) != 3:
+        fail("GC4-S3 default duration must be 3 cycles")
+    rfc = (ROOT / "rfcs" / "RFC-0030-emergency-scopes.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0030 must be Accepted")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if "EMERGENCY_STARTED" in types_text or "EMERGENCY_ENDED" in types_text:
+        fail("GC4-S3 must not add EMERGENCY_* events to frozen catalogs")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "activate-ok.json",
+        "repair-ok.json",
+        "trade-ok.json",
+        "expire-ok.json",
+        "revoke-ok.json",
+        "duplicate-ok.json",
+        "self-declare-forbidden.json",
+        "exceeds-template-forbidden.json",
+        "expired-action-forbidden.json",
+        "revoked-action-forbidden.json",
+        "cross-world-forbidden.json",
+        "vacant-forbidden.json",
+        "wall-clock-forbidden.json",
+        "restriction-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc4-emergency" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc4_s3(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("status") and extra.get("status") != expected["status"]:
+            fail(f"{name}: status mismatch")
+    ok("GC4-S3 emergency scopes: catalog, fixtures, RFC-0030 Accepted, no EMERGENCY_* events")
+
+
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
         return "REJECT", "FORBIDDEN"
@@ -4815,6 +4914,7 @@ def main() -> None:
     check_gc4_s0(Draft202012Validator)
     check_gc4_s1(Draft202012Validator)
     check_gc4_s2(Draft202012Validator)
+    check_gc4_s3(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc5_s2(Draft202012Validator)

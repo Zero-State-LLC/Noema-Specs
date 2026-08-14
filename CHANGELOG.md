@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0030 Accepted / GC4-S3:** institutional emergency scopes as time-bounded AuthorityGrant overlays. Predeclared templates, world-time expiry, no superuser, no `EMERGENCY_*` events.
+
+### Added
+
 - **RFC-0029 Accepted / GC4-S2:** institutional TRADE and REPAIR through occupied office profiles (`OPERATE_RESOURCE_ACCOUNT`, `OPERATE_NAMED_ASSET`). Ordinary verbs. Institution treasury stays institution-owned. No finance engine.
 
 ### Added
