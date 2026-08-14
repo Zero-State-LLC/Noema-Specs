@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "DESIGNATE",
+    "actor_role": "founder",
+    "org_active": true,
+    "same_world": false,
+    "successor_is_member": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Cross-world successor refs are rejected."
+  }
+}

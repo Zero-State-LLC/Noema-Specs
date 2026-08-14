@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "DESIGNATE",
+    "actor_role": "founder",
+    "org_active": true,
+    "same_world": true,
+    "successor_is_member": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "Founder/officer may designate an ordered successor list."
+  }
+}

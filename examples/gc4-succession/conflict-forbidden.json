@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "DESIGNATE",
+    "actor_role": "founder",
+    "org_active": true,
+    "same_world": true,
+    "successor_is_member": true,
+    "conflicting_sources": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "Two competing sources must not be resolved by a silent pick."
+  }
+}

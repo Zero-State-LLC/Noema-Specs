@@ -13,7 +13,7 @@ No free-form LLM authority.
 
 **Doctrine:** offices are authority configurations over existing primitives, not a new codebase per title ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). GC4-S1 named offices: [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [RFC-0023](../rfcs/RFC-0023-named-offices.md). GC4-S2 institution TRADE/REPAIR: [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) · [RFC-0029](../rfcs/RFC-0029-institution-trade-repair.md). GC4-S3 emergency scopes: [GC4-S3-EMERGENCY-SCOPES.md](GC4-S3-EMERGENCY-SCOPES.md) · [RFC-0030](../rfcs/RFC-0030-emergency-scopes.md). Designated succession remains **SPEC GAP**.
+GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). GC4-S1 named offices: [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [RFC-0023](../rfcs/RFC-0023-named-offices.md). GC4-S2 institution TRADE/REPAIR: [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) · [RFC-0029](../rfcs/RFC-0029-institution-trade-repair.md). GC4-S3 emergency scopes: [GC4-S3-EMERGENCY-SCOPES.md](GC4-S3-EMERGENCY-SCOPES.md) · [RFC-0030](../rfcs/RFC-0030-emergency-scopes.md). GC4-S4 designated succession: [GC4-S4-SUCCESSION.md](GC4-S4-SUCCESSION.md) · [RFC-0031](../rfcs/RFC-0031-designated-succession.md).
 
 ---
 
@@ -162,14 +162,15 @@ Cosmetic titles in messages or culture ([EMERGENT-CULTURE.md](EMERGENT-CULTURE.m
 ```text
 GC4-S0 closed: v0.1 founder/officer/member/advisor grants on ORG_*
 GC4-S1 closed: named vacant/occupied office on the org; PUBLISH_NOTICE exercise
+GC4-S2 closed: institution TRADE/REPAIR via occupied office profiles
+GC4-S3 closed: time-bounded emergency grant overlay
+GC4-S4 closed: designated succession; no implicit jump
 event types ROLE_* (no silent catalog expansion)
 conflict-precedence rules
-emergency rule schema
-institution TRADE/REPAIR
-designated succession
+consensus / rule-based succession
 ```
 
-Until a later slice, institution TRADE/REPAIR and extra profiles stay unhosted.
+Until a later slice, extra office profiles stay unhosted.
 
 ---
 

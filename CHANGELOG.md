@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0031 Accepted / GC4-S4:** designated institutional succession. Explicit predeclared successor list on an office or emergency scope. No implicit jump. Emergency successor inherits remaining duration. No `SUCCESSION_*` events.
+
+### Added
+
 - **RFC-0030 Accepted / GC4-S3:** institutional emergency scopes as time-bounded AuthorityGrant overlays. Predeclared templates, world-time expiry, no superuser, no `EMERGENCY_*` events.
 
 ### Added

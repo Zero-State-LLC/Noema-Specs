@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc4-s4",
+  "catalog_id": "authority-catalog/gc4-s4",
+  "attempt": {
+    "operation": "ACTIVATE",
+    "trigger": "resign",
+    "has_designation": false,
+    "org_active": true,
+    "same_world": true,
+    "office_status": "OCCUPIED"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "office_status": "VACANT",
+    "successor": null,
+    "note": "No designation means the office stays vacant. No implicit jump."
+  }
+}
