@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "retell_unchanged",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "holds_parent": false,
+    "parent_claim_id": "claim.origin-a",
+    "parent_content": "The hub relay failed.",
+    "text": "The hub relay failed."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Sender must already hold the parent claim."
+  }
+}

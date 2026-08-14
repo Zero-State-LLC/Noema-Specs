@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "unreachable",
+    "delivery": "UNREACHABLE",
+    "as_claim": true,
+    "text": "The hub relay failed."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "UNREACHABLE",
+    "receipt": false,
+    "note": "Failed MESSAGE does not propagate a rumor."
+  }
+}

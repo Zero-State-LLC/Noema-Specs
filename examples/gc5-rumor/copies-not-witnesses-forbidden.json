@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "copies_as_witnesses",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "copies_of_same_origin": 3,
+    "independent_origins": 1,
+    "count_copies_as_witnesses": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "COPIES_NOT_INDEPENDENT",
+    "note": "Three copies of one source are not three witnesses."
+  }
+}

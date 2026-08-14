@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "institution",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "origin_class": "INSTITUTION_NOTICE",
+    "visibility": "PUBLIC",
+    "text": "Office notice: the vault is closed."
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "receipt": true,
+    "derived": false,
+    "note": "Official claim is not canonical fact."
+  }
+}

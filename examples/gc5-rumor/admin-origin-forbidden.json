@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "admin",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "origin_class": "ADMIN",
+    "admin_origin": true,
+    "text": "Operator observation: relay failed."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ORIGIN_FORBIDDEN",
+    "note": "Admin-only evidence is not a rumor origin."
+  }
+}

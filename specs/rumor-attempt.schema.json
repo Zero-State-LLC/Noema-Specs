@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/rumor-attempt.schema.json",
+  "title": "NOEMA GC5-S2 rumor attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "attempt", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc5-s2" },
+    "catalog_id": { "const": "communication-catalog/gc5-s2" },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scenario"],
+      "properties": {
+        "scenario": { "type": "string" },
+        "delivery": { "type": "string" },
+        "as_claim": { "type": "boolean" },
+        "holds_parent": { "type": "boolean" },
+        "text": { "type": "string" },
+        "parent_content": { "type": "string" },
+        "parent_claim_id": { "type": "string" },
+        "subject_ref": { "type": "string" },
+        "same_world": { "type": "boolean" },
+        "idempotent_replay": { "type": "boolean" },
+        "originator_override": { "type": ["string", "null"] },
+        "origin_class": { "type": "string" },
+        "visibility": { "type": "string" },
+        "independent_origins": { "type": "integer", "minimum": 0 },
+        "same_content": { "type": "boolean" },
+        "copies_of_same_origin": { "type": "integer", "minimum": 0 },
+        "age_cycles": { "type": "integer", "minimum": 0 },
+        "new_verb": { "type": ["string", "null"] },
+        "spread_rumor_verb": { "type": "boolean" },
+        "research_origin": { "type": "boolean" },
+        "admin_origin": { "type": "boolean" },
+        "mutates_truth": { "type": "boolean" },
+        "watch_lines": { "type": "array", "items": { "type": "string" } },
+        "play_lines": { "type": "array", "items": { "type": "string" } },
+        "count_copies_as_witnesses": { "type": "boolean" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "same_claim": { "type": "boolean" },
+        "derived": { "type": "boolean" },
+        "independent_sources": { "type": "integer" },
+        "epistemic": { "type": "string" },
+        "receipt": { "type": "boolean" },
+        "delay_cycles": { "type": "integer" },
+        "event": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

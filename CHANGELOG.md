@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0028 Accepted / GC5-S2:** rumor provenance as claim + `MESSAGE` lineage. Unchanged retelling keeps the claim; material change derives a new claim. No rumor score. No `RUMOR` verb. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0027 Accepted / GC10-S1:** additional world pressure classes (`resource_scarcity`, `access_restriction`) via existing `ENTITY_UPDATE` / `ACCESS_RESTRICTED`. S0 relay drop remains. No Admin spawn. No rubber-band. No `event-catalog/0.3`.
 
 ### Added

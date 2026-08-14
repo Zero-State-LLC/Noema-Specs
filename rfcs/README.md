@@ -37,6 +37,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0025](RFC-0025-tradition.md) | **Accepted** | GC9-S1: tradition from persistent custom; no culture score |
 | [RFC-0026](RFC-0026-contest-withdraw.md) | **Accepted** | GC7-S1: withdraw via CONTEST_RESOLVED; no HP |
 | [RFC-0027](RFC-0027-additional-world-pressure.md) | **Accepted** | GC10-S1: additional pressure classes via existing events; no Admin spawn |
+| [RFC-0028](RFC-0028-rumor-provenance.md) | **Accepted** | GC5-S2: rumor as claim + MESSAGE lineage; no score |
 
 ## Required review lenses
 

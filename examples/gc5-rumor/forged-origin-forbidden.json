@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "forge",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "text": "The hub relay failed.",
+    "originator_override": "player.other"
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORGE_FORBIDDEN",
+    "note": "Sender cannot forge another Player as originator."
+  }
+}

@@ -3,7 +3,7 @@
 **Status:** Shipped as hosted MESSAGE delay (RFC-0021 Accepted; reference runtime PR #85). Rumor still out.  
 **Parent:** [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0021](../rfcs/RFC-0021-relay-message-delay.md)  
-**Does not open:** `SHOUT` / `BOARD` / `RUMOR` verbs · rumor records · `MESSAGE_FAILED` · `event-catalog/0.3` · org/public boards
+**Does not open:** `SHOUT` / `BOARD` / `RUMOR` verbs · `MESSAGE_FAILED` · `event-catalog/0.3` · org/public boards. Rumor is [GC5-S2-RUMOR.md](GC5-S2-RUMOR.md).
 
 S1 is the smallest increment that still satisfies scenario E’s *delay* shape: a degraded path delivers later; repair restores a faster class. Local `MESSAGE` is unchanged. Failure remains `UNREACHABLE`.
 

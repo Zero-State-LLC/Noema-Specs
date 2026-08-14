@@ -3501,6 +3501,156 @@ def check_gc5_s1(Draft202012Validator) -> None:
     ok("GC5-S1 delay: catalog, attempt fixtures, RFC-0021 Accepted, rumor out")
 
 
+def evaluate_gc5_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {"receipt": False, "same_claim": False, "derived": False}
+    if attempt.get("new_verb") or attempt.get("spread_rumor_verb") or catalog.get("spread_rumor_verb"):
+        return "REJECT", "VERB_FORBIDDEN", extra
+    origin = attempt.get("origin_class")
+    if (
+        attempt.get("research_origin")
+        or attempt.get("admin_origin")
+        or origin in (catalog.get("forbidden_origins") or [])
+    ):
+        return "REJECT", "ORIGIN_FORBIDDEN", extra
+    if attempt.get("same_world") is False:
+        return "REJECT", "CROSS_WORLD", extra
+    if attempt.get("originator_override"):
+        return "REJECT", "FORGE_FORBIDDEN", extra
+    if attempt.get("mutates_truth"):
+        return "REJECT", "TRUTH_MUTATION", extra
+    if attempt.get("count_copies_as_witnesses") or catalog.get("copies_are_independent"):
+        return "REJECT", "COPIES_NOT_INDEPENDENT", extra
+    if attempt.get("delivery") == "UNREACHABLE":
+        extra["receipt"] = False
+        return "REJECT", "UNREACHABLE", extra
+    if attempt.get("idempotent_replay"):
+        return "REJECT", "DUPLICATE", extra
+    if attempt.get("parent_claim_id") and not attempt.get("holds_parent"):
+        return "REJECT", "NOT_FOUND", extra
+
+    leak_tokens = list(catalog.get("forbidden_in_projection") or [])
+    leak_tokens.extend(["secret-signal", "player.nacre said"])
+    for line in list(attempt.get("play_lines") or []) + list(attempt.get("watch_lines") or []):
+        blob = str(line).lower()
+        for tok in leak_tokens:
+            if tok and tok.lower() in blob:
+                return "REJECT", "LABEL_LEAK", extra
+
+    text = str(attempt.get("text") or "").strip()
+    parent = str(attempt.get("parent_content") or "").strip()
+    scenario = attempt.get("scenario")
+    extra["receipt"] = True
+    extra["event"] = "MESSAGE"
+    if attempt.get("delivery") == "delayed":
+        extra["delay_cycles"] = int(catalog.get("delay_cycles") or 1)
+
+    if scenario in ("retell_unchanged", "shared_source") or (parent and text and parent == text):
+        extra["same_claim"] = True
+        extra["derived"] = False
+    elif scenario in ("retell_changed", "correction") or (parent and text and parent != text):
+        extra["same_claim"] = False
+        extra["derived"] = True
+
+    independent = int(attempt.get("independent_origins") or 1)
+    if scenario == "shared_source":
+        extra["independent_sources"] = 1
+    else:
+        extra["independent_sources"] = independent
+
+    age = int(attempt.get("age_cycles") or 0)
+    stale_after = int(catalog.get("stale_after_cycles") or 8)
+    if age >= stale_after:
+        extra["epistemic"] = "STALE"
+    elif independent >= 2 and attempt.get("same_content") is False:
+        extra["epistemic"] = "CONTESTED"
+    elif independent >= 2 and attempt.get("same_content") is True:
+        extra["epistemic"] = "CORROBORATED"
+    else:
+        extra["epistemic"] = "REPORTED"
+
+    return "ACCEPT", None, extra
+
+
+def check_gc5_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "rumor-attempt.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC5-S2 catalog invalid: {cerrs[0].message}")
+    if not catalog.get("rumor_enabled") or not catalog.get("rumor_is_claim"):
+        fail("GC5-S2 must enable rumor as claim+provenance")
+    if catalog.get("rumor_score") or catalog.get("truth_probability") or catalog.get("spread_rumor_verb"):
+        fail("GC5-S2 must not add a rumor score, truth probability, or SPREAD_RUMOR verb")
+    if catalog.get("llm_similarity") or catalog.get("omniscient_resolver") or catalog.get("watch_text"):
+        fail("GC5-S2 must not use LLM similarity, omniscient truth, or WATCH DM text")
+    if catalog.get("copies_are_independent"):
+        fail("GC5-S2 must not count copies as independent witnesses")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC5-S2 must not add verbs or events")
+    if catalog.get("extends") != "communication-catalog/gc5-s1":
+        fail("GC5-S2 must extend GC5-S1")
+    if catalog.get("verb") != "MESSAGE":
+        fail("GC5-S2 must reuse MESSAGE")
+    rfc = (ROOT / "rfcs" / "RFC-0028-rumor-provenance.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0028 must be Accepted after GC5-S2 machine contracts land")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if "RUMOR_CREATED" in types_text or "RUMOR_SPREAD" in types_text:
+        fail("GC5-S2 must not add RUMOR_* to frozen catalogs")
+    attempt_v = Draft202012Validator(attempt_schema)
+    names = [
+        "tell-ok.json",
+        "retell-unchanged-ok.json",
+        "retell-changed-ok.json",
+        "shared-source-ok.json",
+        "independent-corroboration-ok.json",
+        "contested-ok.json",
+        "delayed-ok.json",
+        "stale-ok.json",
+        "public-watch-ok.json",
+        "correction-ok.json",
+        "institution-ok.json",
+        "unreachable-forbidden.json",
+        "hidden-source-leak-forbidden.json",
+        "cross-world-forbidden.json",
+        "forged-origin-forbidden.json",
+        "duplicate-forbidden.json",
+        "research-origin-forbidden.json",
+        "admin-origin-forbidden.json",
+        "copies-not-witnesses-forbidden.json",
+        "truth-mutation-forbidden.json",
+        "rumor-verb-forbidden.json",
+        "missing-parent-forbidden.json",
+    ]
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc5-rumor" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason, extra = evaluate_gc5_s2(fixture["attempt"], catalog)
+        expected = fixture["expected"]
+        if outcome != expected["outcome"]:
+            fail(f"{name}: got {outcome} expected {expected['outcome']}")
+        if expected.get("reason") and reason != expected["reason"]:
+            fail(f"{name}: reason {reason} expected {expected['reason']}")
+        if expected.get("same_claim") is not None and extra.get("same_claim") != expected["same_claim"]:
+            fail(f"{name}: same_claim mismatch")
+        if expected.get("derived") is not None and extra.get("derived") != expected["derived"]:
+            fail(f"{name}: derived mismatch")
+        if expected.get("independent_sources") is not None and extra.get("independent_sources") != expected["independent_sources"]:
+            fail(f"{name}: independent_sources mismatch")
+        if expected.get("epistemic") and extra.get("epistemic") != expected["epistemic"]:
+            fail(f"{name}: epistemic {extra.get('epistemic')} expected {expected['epistemic']}")
+        if expected.get("receipt") is not None and extra.get("receipt") != expected["receipt"]:
+            fail(f"{name}: receipt mismatch")
+        if expected.get("delay_cycles") is not None and extra.get("delay_cycles") != expected["delay_cycles"]:
+            fail(f"{name}: delay_cycles mismatch")
+        if expected.get("event") and extra.get("event") != expected["event"]:
+            fail(f"{name}: event mismatch")
+    ok("GC5-S2 rumor: catalog, claim fixtures, RFC-0028 Accepted, MESSAGE reused")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -4576,6 +4726,7 @@ def main() -> None:
     check_gc4_s1(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
+    check_gc5_s2(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)

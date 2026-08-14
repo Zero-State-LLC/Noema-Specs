@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "truth_mutation",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "text": "The hub relay failed.",
+    "mutates_truth": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "TRUTH_MUTATION",
+    "note": "A rumor must not mutate canonical world truth."
+  }
+}

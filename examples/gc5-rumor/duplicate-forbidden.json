@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "duplicate",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "text": "The hub relay failed.",
+    "idempotent_replay": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "DUPLICATE",
+    "note": "Same idempotency key does not create a second transmission."
+  }
+}
