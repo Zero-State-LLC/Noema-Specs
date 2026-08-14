@@ -16,6 +16,7 @@
 - [x] Hosted product stack pinned: Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`).
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
+- [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)

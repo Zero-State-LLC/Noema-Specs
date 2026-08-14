@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Hosted first-entry:** game-first world door at `/` (Perihelion Reach + Player email). Operator login leaves the primary column. Research vocabulary is off first-read. Chamber first screen stays text-first play. Spec: `docs/HOSTED-FIRST-ENTRY.md`. No protocol, Genesis, or world-rule change.
+
+### Added
+
 - **Hosted canonical-head status:** Noema #96 / `272a993` is deployed. Isolated-world verification and Perihelion canonical bootstrap remain blocked. Operator SQL/RPC apply still required. No Genesis reseed.
 
 ### Added

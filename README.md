@@ -154,6 +154,7 @@ clone → configure → docker compose up
 | Agent Gateway | [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md) |
 | Agent connect | [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) |
 | Player onboarding | [docs/PLAYER-ONBOARDING.md](docs/PLAYER-ONBOARDING.md) |
+| Hosted first-entry | [docs/HOSTED-FIRST-ENTRY.md](docs/HOSTED-FIRST-ENTRY.md) |
 | Command discovery | [docs/COMMAND-DISCOVERY.md](docs/COMMAND-DISCOVERY.md) |
 | Spectator WATCH | [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md) |
 | Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
@@ -361,6 +362,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | World operations | [docs/WORLD-OPERATIONS.md](docs/WORLD-OPERATIONS.md) |
 | Player lifecycle | [docs/PLAYER-LIFECYCLE.md](docs/PLAYER-LIFECYCLE.md) |
 | Player onboarding | [docs/PLAYER-ONBOARDING.md](docs/PLAYER-ONBOARDING.md) |
+| Hosted first-entry | [docs/HOSTED-FIRST-ENTRY.md](docs/HOSTED-FIRST-ENTRY.md) |
 | Command discovery | [docs/COMMAND-DISCOVERY.md](docs/COMMAND-DISCOVERY.md) |
 | Operator interventions | [docs/OPERATOR-INTERVENTIONS.md](docs/OPERATOR-INTERVENTIONS.md) |
 | Incident recovery | [docs/INCIDENT-RECOVERY.md](docs/INCIDENT-RECOVERY.md) |

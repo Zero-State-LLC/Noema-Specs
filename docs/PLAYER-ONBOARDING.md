@@ -4,7 +4,7 @@
 
 This document does not replace [PLAY.md](PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), or [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md). It settles the **minimum** Perihelion Reach entry path.
 
-Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
+Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
 
 ---
 
@@ -42,14 +42,16 @@ Minimum browser flow:
 
 ```text
 open NOEMA
-  → Player email entry / PLAY / WATCH / STUDY / CONNECT
-  → request Player email link or choose PLAY
+  → world door (Perihelion Reach + Player email)
+  → request Player email link
   → managed auth callback
   → create or reuse Player (choose handle)
   → enter Perihelion Reach
   → first screen
   → AVAILABLE HERE + command input
 ```
+
+WATCH and CONNECT MAY appear as secondary links. STUDY MUST NOT be a first-time fork. Hosted presentation: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 A new human-controlled Player MUST NOT need to understand:
 
