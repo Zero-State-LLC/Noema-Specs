@@ -35,6 +35,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0023](RFC-0023-named-offices.md) | **Accepted** | GC4-S1: named offices as persistent seats; no ROLE_* |
 | [RFC-0024](RFC-0024-historical-reconstruction.md) | **Accepted** | GC6-S1: Player reconstruction from accessible evidence; not truth |
 | [RFC-0025](RFC-0025-tradition.md) | **Accepted** | GC9-S1: tradition from persistent custom; no culture score |
+| [RFC-0026](RFC-0026-contest-withdraw.md) | **Accepted** | GC7-S1: withdraw via CONTEST_RESOLVED; no HP |
 
 ## Required review lenses
 

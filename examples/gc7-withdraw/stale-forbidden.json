@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc7-s1",
+  "catalog_id": "conflict-catalog/gc7-s1",
+  "attempt": {
+    "role": "declarer",
+    "contest_exists": true,
+    "contest_status": "CLOSED",
+    "window_open": true,
+    "expected_status": "OPEN",
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "STALE_HEAD",
+    "note": "Caller asserted OPEN on a closed contest."
+  }
+}

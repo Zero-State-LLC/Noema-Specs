@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc7-s1",
+  "catalog_id": "conflict-catalog/gc7-s1",
+  "attempt": {
+    "role": "defender",
+    "contest_exists": true,
+    "contest_status": "OPEN",
+    "window_open": true,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "settlement": "SUCCESS",
+    "declarer_stake": "CONSUME",
+    "defender_stake": "CONSUME",
+    "events": ["CONTEST_RESOLVED"],
+    "note": "Defender withdraws. Declarer receives SUCCESS. Both reserved stakes consumed."
+  }
+}

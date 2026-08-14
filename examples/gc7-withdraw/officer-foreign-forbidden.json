@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc7-s1",
+  "catalog_id": "conflict-catalog/gc7-s1",
+  "attempt": {
+    "role": "officer",
+    "contest_exists": true,
+    "contest_status": "OPEN",
+    "window_open": true,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "FORBIDDEN",
+    "note": "An office does not authorize withdrawing another Player's contest."
+  }
+}

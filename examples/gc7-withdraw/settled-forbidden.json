@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc7-s1",
+  "catalog_id": "conflict-catalog/gc7-s1",
+  "attempt": {
+    "role": "declarer",
+    "contest_exists": true,
+    "contest_status": "CLOSED",
+    "window_open": false,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Cannot withdraw a settled contest."
+  }
+}

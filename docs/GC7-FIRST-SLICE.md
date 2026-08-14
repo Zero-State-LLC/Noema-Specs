@@ -3,7 +3,7 @@
 **Status:** Shipped as hosted isolated `CONTEST_DECLARE` → `CONTEST_RESOLVED` (RFC-0011 Accepted; reference runtime PR #81). Chamber help still omits CONTEST.  
 **Parent:** [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)  
-**Does not open:** `event-catalog/0.3` · new contest forms · `SCAN` / `ATTACK` · hit-point combat · character death · versioned withdraw
+**Does not open:** `event-catalog/0.3` · new contest forms · `SCAN` / `ATTACK` · hit-point combat · character death
 
 S0 is the smallest conflict increment that still satisfies scenario G’s *shape* (recon, commit, resolve, recover) by **composing** verbs and events that already exist in `event-catalog/0.2`. It does not rewrite [RFC-0002](../rfcs/RFC-0002-strategic-contestation-and-crime-events.md), [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), or `action-contracts.v02.json`.
 
@@ -18,7 +18,7 @@ S0 is the smallest conflict increment that still satisfies scenario G’s *shape
 | Fifth contest form / information-target form | **DEFER** (SPEC GAP; needs its own RFC) |
 | `SCAN` / `ATTACK` / HP bar | **REJECT.** No combat subsystem |
 | Character death / irreversible underclass | **REJECT.** [LOSS-RECOVERY.md](LOSS-RECOVERY.md) |
-| Versioned withdraw | **DEFER** |
+| Versioned withdraw | **GC7-S1** ([GC7-S1-WITHDRAW.md](GC7-S1-WITHDRAW.md)) |
 | Contest UI names hidden entities | **REJECT.** Coarse public signals only |
 | Block Chamber PLAY on GC7 | **REJECT.** Parent: implement v0.2 first; do not block first-world play |
 
