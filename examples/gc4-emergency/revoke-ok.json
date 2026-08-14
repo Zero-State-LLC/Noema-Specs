@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc4-s3",
+  "catalog_id": "authority-catalog/gc4-s3",
+  "attempt": {
+    "operation": "REVOKE",
+    "source_ok": true,
+    "org_active": true,
+    "same_world": true,
+    "office_status": "OCCUPIED",
+    "scope_status": "ACTIVE"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "status": "REVOKED",
+    "note": "Source authority may revoke before expiry."
+  }
+}

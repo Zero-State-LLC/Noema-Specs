@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/authority-catalog.gc4-s3.schema.json",
+  "title": "NOEMA Authority Catalog (GC4-S3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "extends",
+    "operations",
+    "new_verbs",
+    "new_events",
+    "capabilities",
+    "default_duration_cycles",
+    "self_declare",
+    "superuser",
+    "wall_clock_extends",
+    "overrides_restriction",
+    "implicit_successor",
+    "operator_via_grant",
+    "vacant_office_grants",
+    "designated_succession"
+  ],
+  "properties": {
+    "schema_version": { "const": "authority-catalog/gc4-s3" },
+    "catalog_id": { "const": "authority-catalog/gc4-s3" },
+    "slice_id": { "const": "gc4-s3" },
+    "authority": { "type": "string" },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "extends": { "const": "authority-catalog/gc4-s2" },
+    "operations": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        { "const": "ORG_EMERGENCY_DEFINE" },
+        { "const": "ORG_EMERGENCY_ACTIVATE" },
+        { "const": "ORG_EMERGENCY_REVOKE" }
+      ],
+      "items": false
+    },
+    "verbs": { "type": "array", "items": { "type": "string" } },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "capabilities": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "REPAIR" }, { "const": "TRADE" }],
+      "items": false
+    },
+    "default_duration_cycles": { "const": 3 },
+    "repair_condition_threshold": { "const": 25 },
+    "trade_treasury_threshold": { "const": 5 },
+    "trade_max_energy": { "const": 10 },
+    "self_declare": { "const": false },
+    "superuser": { "const": false },
+    "wall_clock_extends": { "const": false },
+    "overrides_restriction": { "const": false },
+    "implicit_successor": { "const": false },
+    "operator_via_grant": { "const": false },
+    "vacant_office_grants": { "const": false },
+    "designated_succession": { "const": false }
+  }
+}

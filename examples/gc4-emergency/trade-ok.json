@@ -1,0 +1,23 @@
+{
+  "slice_id": "gc4-s3",
+  "catalog_id": "authority-catalog/gc4-s3",
+  "attempt": {
+    "operation": "TRADE",
+    "source_ok": true,
+    "org_active": true,
+    "same_world": true,
+    "holder_is_member": true,
+    "office_status": "OCCUPIED",
+    "scope_status": "ACTIVE",
+    "cycle": 2,
+    "start_cycle": 1,
+    "end_cycle": 4,
+    "template_capability": "TRADE",
+    "requested_capability": "TRADE"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "status": "ACTIVE",
+    "note": "Ordinary TRADE under an active bounded treasury scope."
+  }
+}

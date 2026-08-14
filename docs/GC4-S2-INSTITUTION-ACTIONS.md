@@ -3,7 +3,7 @@
 **Status:** Executable specification. Runtime authorized with RFC-0029.  
 **Parent:** [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)  
 **RFC:** [RFC-0029](../rfcs/RFC-0029-institution-trade-repair.md)  
-**Does not open:** emergency scopes · designated succession · banking/market/payroll · `event-catalog/0.3` · Chamber help advertising BUILD / CONTEST / WED / ATTEST
+**Does not open:** designated succession · banking/market/payroll · `event-catalog/0.3` · Chamber help advertising BUILD / CONTEST / WED / ATTEST. Emergency scopes: [GC4-S3-EMERGENCY-SCOPES.md](GC4-S3-EMERGENCY-SCOPES.md).
 
 S2 lets an occupied office spend **institution** resources through ordinary TRADE and REPAIR. The institution is not a Player.
 

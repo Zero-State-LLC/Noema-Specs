@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc4-s3",
+  "catalog_id": "authority-catalog/gc4-s3",
+  "attempt": {
+    "operation": "ACTIVATE",
+    "source_ok": true,
+    "org_active": true,
+    "same_world": false
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Cross-world institution or target is rejected."
+  }
+}
