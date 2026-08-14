@@ -1,0 +1,21 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "correction",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "holds_parent": true,
+    "parent_claim_id": "claim.origin-a",
+    "parent_content": "The hub relay failed.",
+    "text": "Correction: the hub relay still operates.",
+    "subject_ref": "entity.relay-7",
+    "mutates_truth": false
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "derived": true,
+    "same_claim": false,
+    "note": "A correction is new information. It does not rewrite the prior claim."
+  }
+}

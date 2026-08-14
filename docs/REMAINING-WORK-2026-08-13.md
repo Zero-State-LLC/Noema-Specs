@@ -5,7 +5,7 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
 
-Use this file to analyze what is left. GC10-S1 (RFC-0027) is authorized with this pass. Later work is GC5-S2 rumor (explicit continuation). GC1-S2 remains DEFERRED.
+Use this file to analyze what is left. GC5-S2 (RFC-0028) is authorized with this pass. GC1-S2 remains DEFERRED. Next active work is institutional follow-through or operator SQL.
 
 ---
 
@@ -33,7 +33,8 @@ Use this file to analyze what is left. GC10-S1 (RFC-0027) is authorized with thi
 | Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL may be unapplied** |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
 | Attest spec | **RFC-0020** | Hosted `COMMIT.ATTEST`. Help omits ATTEST |
-| GC5-S1 delay | **RFC-0021** | Hosted this run. 25–49 delays 1 cycle; rumor still out |
+| GC5-S1 delay | **RFC-0021** | Hosted this run. 25–49 delays 1 cycle |
+| GC5-S2 rumor | **RFC-0028** | Hosted this run. Claim + MESSAGE lineage. No score. Help omits rumor aliases |
 
 Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are unchanged.
 
@@ -54,14 +55,13 @@ Until that runs, the Worker skips a missing `noema_world_heads` table (404) so P
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-None remaining from RFC-0027. Later slices still need their own RFCs ([GC-S1-ORDER.md](GC-S1-ORDER.md)).
+None remaining from RFC-0028. Completeness S1/S2 named slices are hosted. Follow-through remains operator/institution work.
 
 ---
 
 ## SPEC GAP (later RFC)
 
 ```text
-GC5-S2 rumor provenance
 GC1-S2 mechanical benefits (doctrine DEFER)
 GC4 follow-through: institution TRADE/REPAIR, emergency scopes, designated succession
 world-heads SQL apply (operator)
@@ -83,5 +83,5 @@ production Genesis activate / force-supersede / reseed
 ## Suggested analysis order
 
 1. Operator: confirm or apply the two world-heads SQL files.  
-2. Next named slice is GC5-S2 rumor provenance. Do not begin it without an explicit continuation instruction.  
+2. Institutional follow-through or world-heads SQL. Do not open GC1-S2.  
 3. Do not implement GC1-S2 benefits.

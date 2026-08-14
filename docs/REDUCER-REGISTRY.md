@@ -116,6 +116,7 @@ If two rows would write the same field in one cycle, command resolution must emi
 |------------|----------|--------------------|
 | GC1 practice / recognition | Existing LOOK / INSPECT / TRADE / ENTITY_UPDATE | No |
 | GC3 trade memory | `TRADE_ACCEPTED` | No |
+| GC5-S2 claim / transmission | `MESSAGE` / `MESSAGE_DELIVERED` (+ existing notice `ENTITY_UPDATE`) | No |
 | GC6 archive vs inspect | Accessible archive + INSPECT | No |
 | GC9 maintenance custom | Distinct repair `ENTITY_UPDATE`s | No |
 | WATCH / World Reports / Admin Live | Settled public events | No |

@@ -1,0 +1,21 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "shared_source",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "holds_parent": true,
+    "parent_claim_id": "claim.origin-a",
+    "text": "The hub relay failed.",
+    "parent_content": "The hub relay failed.",
+    "copies_of_same_origin": 3,
+    "independent_origins": 1
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "same_claim": true,
+    "independent_sources": 1,
+    "note": "A→B, A→C, B→D share one origin."
+  }
+}

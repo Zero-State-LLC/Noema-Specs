@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "cross_world",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "holds_parent": true,
+    "parent_claim_id": "claim.other-world",
+    "same_world": false,
+    "text": "The hub relay failed."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "CROSS_WORLD",
+    "note": "Cross-world claim refs are rejected."
+  }
+}

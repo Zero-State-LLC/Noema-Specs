@@ -11,7 +11,8 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 | Rank | Slice | Why this position | Hard deferral |
 |------|-------|-------------------|---------------|
 | 1 | Archive-claim attestation | Hosted (RFC-0020). Unblocks GC6 after a Player attests. | Not `INSPECT`. Not a content pack |
-| 2 | GC5-S1 delay | [RFC-0021](../rfcs/RFC-0021-relay-message-delay.md). Existing `MESSAGE` + world-time. Rumor is GC5-S2 | Not `SHOUT` / `BOARD` / `RUMOR` |
+| 2 | GC5-S1 delay | [RFC-0021](../rfcs/RFC-0021-relay-message-delay.md). Existing `MESSAGE` + world-time. | Not `SHOUT` / `BOARD` / `RUMOR` |
+| 2b | GC5-S2 rumor | [RFC-0028](../rfcs/RFC-0028-rumor-provenance.md). Claim + MESSAGE lineage. Not truth | Not `RUMOR` verb / score |
 | 3 | GC3-S1 betrayal | [RFC-0022](../rfcs/RFC-0022-betrayal-dangerous.md). Hosted from `CONTEST_RESOLVED`. Agreement/crime rebuild when those events exist | Not a reputation integer |
 | 4 | GC4-S1 named offices | [RFC-0023](../rfcs/RFC-0023-named-offices.md). Persistent vacant/occupied seats on the org. Not membership | Not `ROLE_*` events |
 | 5 | GC6-S1 reconstruction | [RFC-0024](../rfcs/RFC-0024-historical-reconstruction.md). Player-authored account from accessible evidence | Not `QUEST` |
@@ -33,4 +34,4 @@ GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or 
 
 ## Runtime rule
 
-Ranks 1–8 are hosted. Later work is GC5-S2 rumor (explicit continuation) and deferred GC1-S2. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–8 plus GC5-S2 are hosted. Remaining active follow-through is institutional/operator work. GC1-S2 stays deferred. Help still omits ATTEST / BUILD / CONTEST / WED.

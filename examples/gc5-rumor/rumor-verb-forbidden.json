@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "new_verb",
+    "new_verb": "RUMOR",
+    "spread_rumor_verb": true,
+    "as_claim": true,
+    "text": "Gossip."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "VERB_FORBIDDEN",
+    "note": "No RUMOR / SPREAD_RUMOR verb."
+  }
+}

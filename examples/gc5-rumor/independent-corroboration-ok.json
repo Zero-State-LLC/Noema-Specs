@@ -1,0 +1,19 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "independent_corroboration",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "subject_ref": "entity.relay-7",
+    "text": "The hub relay failed.",
+    "same_content": true,
+    "independent_origins": 2
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "independent_sources": 2,
+    "epistemic": "CORROBORATED",
+    "note": "Two originators, same subject and text. Still not truth."
+  }
+}

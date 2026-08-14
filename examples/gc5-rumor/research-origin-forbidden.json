@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "research",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "origin_class": "RESEARCH",
+    "research_origin": true,
+    "text": "Study notes: relay will fail."
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ORIGIN_FORBIDDEN",
+    "note": "Research claims cannot enter PLAY without in-world ingest."
+  }
+}

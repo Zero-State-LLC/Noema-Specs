@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "public_watch",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "origin_class": "INSTITUTION_NOTICE",
+    "visibility": "PUBLIC",
+    "text": "The north relay is dark.",
+    "watch_lines": ["A report is circulating."]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "receipt": true,
+    "note": "WATCH names the public consequence, not the sender or DM text."
+  }
+}

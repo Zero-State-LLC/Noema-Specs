@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "watch_leak",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "visibility": "PRIVATE",
+    "text": "secret-signal",
+    "watch_lines": ["player.nacre said: secret-signal"]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "LABEL_LEAK",
+    "note": "WATCH must not expose private sender or DM text."
+  }
+}

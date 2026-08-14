@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "stale",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "text": "The east exit is closed.",
+    "subject_ref": "room.relay-quarter",
+    "age_cycles": 8
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "epistemic": "STALE",
+    "receipt": true,
+    "note": "Stale by world-time. Content is not rewritten to current truth."
+  }
+}

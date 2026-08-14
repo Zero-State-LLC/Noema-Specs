@@ -1,0 +1,22 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "tell",
+    "delivery": "same_cycle",
+    "as_claim": true,
+    "text": "The hub relay failed.",
+    "subject_ref": "entity.relay-7",
+    "origin_class": "PLAYER_MESSAGE",
+    "visibility": "PRIVATE",
+    "play_lines": ["You heard a report."]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "receipt": true,
+    "same_claim": false,
+    "derived": false,
+    "event": "MESSAGE",
+    "note": "A tells B a claim. Ordinary MESSAGE. Recipient holds after delivery."
+  }
+}

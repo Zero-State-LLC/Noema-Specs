@@ -1,0 +1,18 @@
+{
+  "slice_id": "gc5-s2",
+  "catalog_id": "communication-catalog/gc5-s2",
+  "attempt": {
+    "scenario": "delayed",
+    "delivery": "delayed",
+    "as_claim": true,
+    "text": "The east gate is closed.",
+    "subject_ref": "room.transit-ring"
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "receipt": true,
+    "delay_cycles": 1,
+    "event": "MESSAGE",
+    "note": "Long-range rumor uses GC5-S1 delay. No fast lane."
+  }
+}
