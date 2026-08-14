@@ -13,7 +13,7 @@ No free-form LLM authority.
 
 **Doctrine:** offices are authority configurations over existing primitives, not a new codebase per title ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
-GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). GC4-S1 named offices: [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [RFC-0023](../rfcs/RFC-0023-named-offices.md). Emergency scopes and `ROLE_*` events remain **SPEC GAP**.
+GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md). GC4-S1 named offices: [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [RFC-0023](../rfcs/RFC-0023-named-offices.md). GC4-S2 institution TRADE/REPAIR: [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) · [RFC-0029](../rfcs/RFC-0029-institution-trade-repair.md). Emergency scopes and designated succession remain **SPEC GAP**.
 
 ---
 

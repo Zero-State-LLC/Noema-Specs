@@ -38,6 +38,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0026](RFC-0026-contest-withdraw.md) | **Accepted** | GC7-S1: withdraw via CONTEST_RESOLVED; no HP |
 | [RFC-0027](RFC-0027-additional-world-pressure.md) | **Accepted** | GC10-S1: additional pressure classes via existing events; no Admin spawn |
 | [RFC-0028](RFC-0028-rumor-provenance.md) | **Accepted** | GC5-S2: rumor as claim + MESSAGE lineage; no score |
+| [RFC-0029](RFC-0029-institution-trade-repair.md) | **Accepted** | Institution TRADE/REPAIR via occupied office profiles; no new verbs |
 
 ## Required review lenses
 

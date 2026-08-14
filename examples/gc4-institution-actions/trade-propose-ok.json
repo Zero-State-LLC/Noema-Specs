@@ -1,0 +1,22 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "TRADE_PROPOSE",
+    "actor_role": "member",
+    "holds_office": true,
+    "office_status": "OCCUPIED",
+    "office_profile": "OPERATE_RESOURCE_ACCOUNT",
+    "acting_for": "org.line",
+    "office_id": "office.line.treasurer.1",
+    "matching_offices": 1,
+    "org_active": true,
+    "same_world": true,
+    "treasury_ok": true
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "account": "treasury",
+    "note": "Occupied resource-account office proposes from the institution treasury."
+  }
+}

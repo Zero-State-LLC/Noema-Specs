@@ -233,4 +233,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0026 Accepted: GC7-S1 contest withdraw. Reuses `CONTEST_RESOLVED`. No HP. No catalog 0.3.
 - [x] RFC-0027 Accepted: GC10-S1 additional pressure classes via existing events. S0 remains. No Admin spawn. No rubber-band.
 - [x] RFC-0028 Accepted: GC5-S2 rumor provenance as claim + MESSAGE lineage. No rumor score. No `RUMOR` verb.
+- [x] RFC-0029 Accepted: institutional TRADE/REPAIR via occupied office profiles. No new verbs. Emergency scopes and succession remain later.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0029 Accepted / GC4-S2:** institutional TRADE and REPAIR through occupied office profiles (`OPERATE_RESOURCE_ACCOUNT`, `OPERATE_NAMED_ASSET`). Ordinary verbs. Institution treasury stays institution-owned. No finance engine.
+
+### Added
+
 - **RFC-0028 Accepted / GC5-S2:** rumor provenance as claim + `MESSAGE` lineage. Unchanged retelling keeps the claim; material change derives a new claim. No rumor score. No `RUMOR` verb. No `event-catalog/0.3`.
 
 ### Added

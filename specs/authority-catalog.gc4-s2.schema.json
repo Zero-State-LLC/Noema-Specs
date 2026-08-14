@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/authority-catalog.gc4-s2.schema.json",
+  "title": "NOEMA Authority Catalog (GC4-S2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "extends",
+    "verbs",
+    "new_verbs",
+    "new_events",
+    "trade_profile",
+    "repair_profile",
+    "hosted_act_profiles",
+    "founder_implies_treasury",
+    "vacant_office_grants",
+    "display_name_is_authority",
+    "silent_account_pick",
+    "same_player_both_sides",
+    "emergency_scopes",
+    "designated_succession",
+    "institution_npc"
+  ],
+  "properties": {
+    "schema_version": { "const": "authority-catalog/gc4-s2" },
+    "catalog_id": { "const": "authority-catalog/gc4-s2" },
+    "slice_id": { "const": "gc4-s2" },
+    "authority": { "type": "string" },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "extends": { "const": "office-catalog/gc4-s1" },
+    "verbs": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [{ "const": "TRADE" }, { "const": "COMMIT.REPAIR" }],
+      "items": false
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "trade_profile": { "const": "OPERATE_RESOURCE_ACCOUNT" },
+    "repair_profile": { "const": "OPERATE_NAMED_ASSET" },
+    "hosted_act_profiles": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        { "const": "PUBLISH_NOTICE" },
+        { "const": "OPERATE_RESOURCE_ACCOUNT" },
+        { "const": "OPERATE_NAMED_ASSET" }
+      ],
+      "items": false
+    },
+    "founder_implies_treasury": { "const": false },
+    "vacant_office_grants": { "const": false },
+    "display_name_is_authority": { "const": false },
+    "silent_account_pick": { "const": false },
+    "personal_default": { "const": true },
+    "compute_fee_personal": { "const": true },
+    "lots_from_treasury_when_acting_for": { "const": true },
+    "repair_cost_from_treasury_when_acting_for": { "const": true },
+    "same_player_both_sides": { "const": false },
+    "emergency_scopes": { "const": false },
+    "designated_succession": { "const": false },
+    "institution_npc": { "const": false },
+    "watch_text_balances": { "const": false }
+  }
+}

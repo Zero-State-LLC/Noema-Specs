@@ -1,0 +1,32 @@
+{
+  "schema_version": "authority-catalog/gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "slice_id": "gc4-s2",
+  "authority": "docs/GC4-S2-INSTITUTION-ACTIONS.md",
+  "rfc": "rfcs/RFC-0029-institution-trade-repair.md",
+  "event_catalog": "event-catalog/0.1",
+  "extends": "office-catalog/gc4-s1",
+  "verbs": ["TRADE", "COMMIT.REPAIR"],
+  "new_verbs": [],
+  "new_events": [],
+  "trade_profile": "OPERATE_RESOURCE_ACCOUNT",
+  "repair_profile": "OPERATE_NAMED_ASSET",
+  "hosted_act_profiles": [
+    "PUBLISH_NOTICE",
+    "OPERATE_RESOURCE_ACCOUNT",
+    "OPERATE_NAMED_ASSET"
+  ],
+  "founder_implies_treasury": false,
+  "vacant_office_grants": false,
+  "display_name_is_authority": false,
+  "silent_account_pick": false,
+  "personal_default": true,
+  "compute_fee_personal": true,
+  "lots_from_treasury_when_acting_for": true,
+  "repair_cost_from_treasury_when_acting_for": true,
+  "same_player_both_sides": false,
+  "emergency_scopes": false,
+  "designated_succession": false,
+  "institution_npc": false,
+  "watch_text_balances": false
+}

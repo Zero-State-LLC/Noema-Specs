@@ -1,0 +1,16 @@
+{
+  "slice_id": "gc4-s2",
+  "catalog_id": "authority-catalog/gc4-s2",
+  "attempt": {
+    "operation": "TRADE_PROPOSE",
+    "holds_office": false,
+    "acting_for": "org.forged",
+    "org_active": false,
+    "same_world": true
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NOT_FOUND",
+    "note": "Forged acting_for does not create a treasury."
+  }
+}
