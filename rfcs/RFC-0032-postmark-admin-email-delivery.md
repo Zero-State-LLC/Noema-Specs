@@ -2,9 +2,18 @@
 
 ## Status
 
-**Accepted**
+**Accepted — delivery adapter updated**
 
-Replaces Resend as the hosted Worker's preferred transactional provider for Worker-composed PLAY and ADMIN magic-link mail. Supabase Auth remains the identity-proof, magic-link-token, and fallback delivery authority. The existing Cloudflare ADMIN mail binding remains a temporary fallback.
+Hosted runtime #119 restored **Resend** as the preferred Worker-composed delivery adapter. Postmark remains a configured standby. This RFC's identity split still holds:
+
+```text
+SUPABASE AUTH = TOKEN AUTHORITY + TOKEN VERIFICATION + FALLBACK DELIVERY
+RESEND        = PREFERRED WORKER-COMPOSED MESSAGE DELIVERY
+POSTMARK      = STANDBY WORKER-COMPOSED MESSAGE DELIVERY
+NOEMA WORKER  = LINK COMPOSITION + PLAYER/ADMIN POLICY + PROVIDER ADAPTER
+```
+
+Decision item 10 ("Resend code MUST be removed") is superseded by that hosted change. Items 1–9 still apply with Resend attempted first when `RESEND_API_KEY` is set.
 
 ## Problem
 

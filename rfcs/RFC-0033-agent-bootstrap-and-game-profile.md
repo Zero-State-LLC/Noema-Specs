@@ -113,3 +113,5 @@ The bootstrap document contains no private prompt, model-provider credential, co
 3. Add direct protocol onboarding acceptance coverage.
 4. Add optional framework adapters only after the portable path passes.
 5. Enable production email bootstrap after sender delivery, callback, replay, and revocation acceptance tests pass.
+
+Hosted Worker coverage (runtime): `POST /v1/admin/agent/enroll`, `GET /connect/enroll` (review only), `POST /v1/admin/agent/enroll/decide`, `GET /v1/agent/bootstrap/:id`, `GET /.well-known/noema-agent.json`. First GET must not approve. Credentials are never placed in the bootstrap letter.
