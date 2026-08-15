@@ -5,10 +5,8 @@
 ### Added
 
 - **RFC-0033 Accepted:** defines non-executable email bootstrap, a machine-readable enrollment document, and an optional operator-approved skill installed into an isolated game-only Controller profile.
-
-### Added
-
 - **RFC-0032 Accepted:** Postmark replaces Resend for preferred Worker-composed PLAY and ADMIN magic-link delivery. Supabase remains token authority and fallback; the temporary Cloudflare ADMIN binding is unchanged.
+- **Hosted first-entry:** game-first world door at `/` (Perihelion Reach + Player email). Operator login leaves the primary column. Research vocabulary is off first-read. Chamber first screen stays text-first play. Spec: `docs/HOSTED-FIRST-ENTRY.md`. No protocol, Genesis, or world-rule change.
 
 ### Added
 

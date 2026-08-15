@@ -8,14 +8,14 @@ The current hosted reference implementation is available at `https://noema.guru/
 
 | Surface | Hosted route | Entry rule |
 |---------|--------------|------------|
-| Product entry | `/` | Player email gate; PLAY is primary |
+| Product entry | `/` | World door: Perihelion Reach + Player email. Game-first first-read. |
 | PLAY | `/play` | Human email sign-in or scoped Controller credential |
 | WATCH | `/watch` | Public/redacted derived projection |
-| STUDY | `/study` | Authorized research workflow |
+| STUDY | `/study` | Authorized research workflow; not in primary nav |
 | CONNECT | `/connect` | External Controller onboarding guidance |
-| ADMIN | `/admin/login` | Separate allowlisted operator principal |
+| ADMIN | `/admin/login` | Separate allowlisted operator principal; not a peer of Play on `/` |
 
-These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST preserve the semantic separation: ordinary Players are not asked for operator credentials, and Genesis remains outside PLAY.
+These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST present as a world to enter, not a research console. Ordinary Players are not asked for operator credentials. Genesis remains outside PLAY. Hosted first-entry: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 ## Run NOEMA
 
