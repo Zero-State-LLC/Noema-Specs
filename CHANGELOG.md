@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0032 Accepted:** Postmark replaces Resend for preferred Worker-composed PLAY and ADMIN magic-link delivery. Supabase remains token authority and fallback; the temporary Cloudflare ADMIN binding is unchanged.
+
+### Added
+
 - **Hosted canonical-head status:** Noema #96 / `272a993` is deployed. Isolated-world verification and Perihelion canonical bootstrap remain blocked. Operator SQL/RPC apply still required. No Genesis reseed.
 
 ### Added
