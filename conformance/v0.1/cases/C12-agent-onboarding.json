@@ -8,6 +8,8 @@
     "docs/AGENT-ONBOARDING.md",
     "protocols/agent-protocol-v1.md",
     "specs/agent-manifest.schema.json",
+    "specs/agent-bootstrap.schema.json",
+    "rfcs/RFC-0033-agent-bootstrap-and-game-profile.md",
     "examples/onboarding/minimal-agent-manifest.json",
     "examples/onboarding/agent-connect-sequence.json"
   ],
@@ -20,6 +22,7 @@
     "examples/onboarding/minimal-agent-manifest.json",
     "examples/onboarding/advanced-agent-manifest.json",
     "examples/onboarding/agent-connect-sequence.json",
+    "examples/onboarding/agent-bootstrap.json",
     "examples/protocol/hello-ok.json",
     "examples/protocol/hello-incompatible.json",
     "examples/negative/invalid-manifest-missing-required.json"
@@ -111,6 +114,10 @@
       "Provider API key is not required for external agent connection",
       "Private prompt disclosure is not required",
       "Advanced fields (model, memory_system, subagent_architecture) are not required for minimal REGISTER"
+      ,"Email link retrieval alone cannot approve enrollment or issue a credential"
+      ,"Optional skill installation requires operator approval and an isolated game-only profile"
+      ,"A direct protocol client can onboard without installing a skill"
+      ,"Available actions are derived from observations without dynamically generated verbs"
     ]
   },
   "security_class": "authz"

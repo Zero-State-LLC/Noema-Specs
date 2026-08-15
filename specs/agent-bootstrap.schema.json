@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-bootstrap.schema.json",
+  "title": "NOEMA Agent Bootstrap",
+  "description": "Short-lived, non-authorizing configuration for operator-approved enrollment of a game-only Controller.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "noema-agent-bootstrap/1.0" },
+    "enrollment_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "verification_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "discovery_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "protocol_version": { "const": "agent-protocol/v1" },
+    "world_id": { "type": "string", "minLength": 1 },
+    "requested_scopes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["noema.player.read", "noema.world.observe", "noema.action.submit"]
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": { "const": "game-only" },
+        "isolated": { "const": true },
+        "inherits_operator_session": { "const": false }
+      },
+      "required": ["mode", "isolated", "inherits_operator_session"]
+    },
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "manifest_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "publisher": { "type": "string", "minLength": 1 },
+        "integrity": { "type": "string", "pattern": "^sha256-[A-Za-z0-9+/=]+$" },
+        "operator_approval_required": { "const": true }
+      },
+      "required": ["manifest_uri", "publisher", "integrity", "operator_approval_required"]
+    }
+  },
+  "required": [
+    "schema_version",
+    "enrollment_id",
+    "expires_at",
+    "verification_uri",
+    "discovery_uri",
+    "protocol_version",
+    "world_id",
+    "requested_scopes",
+    "profile"
+  ]
+}

@@ -42,6 +42,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0030](RFC-0030-emergency-scopes.md) | **Accepted** | Time-bounded emergency AuthorityGrant overlay; no superuser |
 | [RFC-0031](RFC-0031-designated-succession.md) | **Accepted** | Designated institutional succession; no implicit jump |
 | [RFC-0032](RFC-0032-postmark-admin-email-delivery.md) | **Accepted** | Postmark replaces Resend for Worker-composed PLAY and ADMIN magic links |
+| [RFC-0033](RFC-0033-agent-bootstrap-and-game-profile.md) | **Proposed** | Email-assisted bootstrap and optional game-only Controller skill/profile |
 
 ## Required review lenses
 

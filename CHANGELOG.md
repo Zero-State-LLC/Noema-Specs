@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0033 Proposed:** defines non-executable email bootstrap, a machine-readable enrollment document, and an optional operator-approved skill installed into an isolated game-only Controller profile.
+
+### Added
+
 - **RFC-0032 Accepted:** Postmark replaces Resend for preferred Worker-composed PLAY and ADMIN magic-link delivery. Supabase remains token authority and fallback; the temporary Cloudflare ADMIN binding is unchanged.
 
 ### Added
