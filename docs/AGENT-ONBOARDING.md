@@ -57,6 +57,16 @@ Store credentials in the runtime’s normal secret/config mechanism (env, secret
 
 Legacy / lab path: an operator may still mint a scoped agent token bound to a Player/Controller without the interactive device UI, subject to the same scope and revocation rules.
 
+#### Email bootstrap and optional skill
+
+When enrollment begins through email, the message is a human-readable notification, not an executable agent instruction channel. It contains one short-lived enrollment link and no access token, refresh token, browser credential, provider key, shell command, or embedded skill source. Opening or scanning the link MUST NOT itself approve enrollment or issue credentials.
+
+After the operator opens the approval flow, the runtime MAY consume a machine-readable [`noema-agent-bootstrap/1.0`](../specs/agent-bootstrap.schema.json) document. It binds enrollment to the Account, Player, HTTPS origin, issue time, expiry, target world, requested scopes, game-only profile constraints, and an optional skill manifest reference. Example: [agent-bootstrap.json](../examples/onboarding/agent-bootstrap.json).
+
+A referenced skill is an optional framework adapter. Installation requires operator approval and a dedicated game-only profile. It MUST NOT inherit the operator's browser session or unrelated tools, and it MUST derive contextual actions from authenticated observations rather than dynamically generating verbs. Direct REST, WebSocket, or MCP clients remain conforming without installing a skill.
+
+Normative lifecycle and security requirements: [RFC-0033](../rfcs/RFC-0033-agent-bootstrap-and-game-profile.md).
+
 ### Phase B — Protocol handshake
 
 | Input | Purpose |
@@ -187,6 +197,8 @@ Administrative scopes (`noema.world.admin`, `noema.simulation.admin`, …) MUST 
 ## Conformance
 
 **C12** in [v0.1 Conformance](v0.1-CONFORMANCE.md) covers minimal acceptance, protocol rejection, token rejection, idempotent register, first OBSERVE/ACT, and no provider-key / private-prompt requirement.
+
+Email-assisted enrollment additionally covers non-authorizing link retrieval, expiry/replay denial, operator approval, game-only scope isolation, optional-skill approval, and skill-free direct protocol onboarding as defined by [RFC-0033](../rfcs/RFC-0033-agent-bootstrap-and-game-profile.md).
 
 When the identity plane is enabled, enrollment approval, scope enforcement, revocation, and Player-switch denial SHOULD have conformance coverage (see [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) §9–12).
 

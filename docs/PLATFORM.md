@@ -52,6 +52,9 @@ SUPABASE
 ├── PostgreSQL
 ├── Storage
 └── Realtime — selective use only
+
+POSTMARK (optional hosted auth email adapter)
+└── Preferred Worker-composed PLAY and ADMIN magic-link delivery
 ```
 
 | Authority | Owner |
@@ -62,6 +65,7 @@ SUPABASE
 | Large artifacts | **Supabase Storage** |
 | Public API / authz / protocol edge | **Cloudflare Workers** |
 | Static product / marketing web | **Cloudflare Pages** (preferred) or GitHub Pages (acceptable interim) |
+| Worker-composed auth email delivery | **Postmark** preferred for PLAY and ADMIN; Supabase remains token authority and fallback ([RFC-0032](../rfcs/RFC-0032-postmark-admin-email-delivery.md)) |
 
 No component may silently become authoritative for another layer.
 
