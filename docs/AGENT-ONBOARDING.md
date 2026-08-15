@@ -61,7 +61,7 @@ Legacy / lab path: an operator may still mint a scoped agent token bound to a Pl
 
 When enrollment begins through email, the message is a human-readable notification, not an executable agent instruction channel. It contains one short-lived enrollment link and no access token, refresh token, browser credential, provider key, shell command, or embedded skill source. Opening or scanning the link MUST NOT itself approve enrollment or issue credentials.
 
-After the operator opens the approval flow, the runtime MAY consume a machine-readable [`noema-agent-bootstrap/1.0`](../specs/agent-bootstrap.schema.json) document. It declares the enrollment, expiry, discovery and verification URLs, target world, requested scopes, game-only profile constraints, and an optional skill manifest reference. Example: [agent-bootstrap.json](../examples/onboarding/agent-bootstrap.json).
+After the operator opens the approval flow, the runtime MAY consume a machine-readable [`noema-agent-bootstrap/1.0`](../specs/agent-bootstrap.schema.json) document. It binds enrollment to the Account, Player, HTTPS origin, issue time, expiry, target world, requested scopes, game-only profile constraints, and an optional skill manifest reference. Example: [agent-bootstrap.json](../examples/onboarding/agent-bootstrap.json).
 
 A referenced skill is an optional framework adapter. Installation requires operator approval and a dedicated game-only profile. It MUST NOT inherit the operator's browser session or unrelated tools, and it MUST derive contextual actions from authenticated observations rather than dynamically generating verbs. Direct REST, WebSocket, or MCP clients remain conforming without installing a skill.
 

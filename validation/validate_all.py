@@ -972,6 +972,7 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         ("specs/experiment-fork.schema.json", "examples/v04-lab/experiment-fork.json"),
         ("specs/lab-result.schema.json", "examples/v04-lab/lab-result.json"),
         ("specs/lab-audit-record.schema.json", "examples/v04-lab/lab-audit.json"),
+        ("specs/agent-bootstrap.schema.json", "examples/onboarding/agent-bootstrap.json"),
     ]
 
     spectator_schema = load_json(ROOT / "specs" / "spectator-projection.schema.json")
@@ -986,6 +987,24 @@ def check_schema_validated_fixtures(Draft202012Validator) -> None:
         errs = list(Draft202012Validator(schema).iter_errors(fixture))
         if errs:
             fail(f"{fixture_rel} fails {schema_rel}: {errs[0].message}")
+
+    bootstrap_schema = load_json(ROOT / "specs" / "agent-bootstrap.schema.json")
+    bootstrap_v = Draft202012Validator(bootstrap_schema)
+    bootstrap = load_json(ROOT / "examples" / "onboarding" / "agent-bootstrap.json")
+    from datetime import datetime
+    issued = datetime.fromisoformat(bootstrap["issued_at"].replace("Z", "+00:00"))
+    expires = datetime.fromisoformat(bootstrap["expires_at"].replace("Z", "+00:00"))
+    lifetime = (expires - issued).total_seconds()
+    if not (0 < lifetime <= 900):
+        fail("agent bootstrap fixture lifetime must be >0 and <=900 seconds")
+    for name in (
+        "invalid-agent-bootstrap-admin-scope.json",
+        "invalid-agent-bootstrap-operator-session.json",
+        "invalid-agent-bootstrap-integrity.json",
+    ):
+        bad = load_json(ROOT / "examples" / "negative" / name)
+        if not list(bootstrap_v.iter_errors(bad)):
+            fail(f"negative agent bootstrap fixture unexpectedly valid: {name}")
 
     proto_schema = load_json(ROOT / "specs" / "agent-protocol-message.schema.json")
     proto_v = Draft202012Validator(proto_schema)
@@ -1039,6 +1058,24 @@ def check_conformance_suite(Draft202012Validator) -> None:
     missing_items = sorted(set(range(1, 27)) - acceptance_covered)
     if missing_items:
         fail(f"conformance suite missing acceptance items: {missing_items}")
+
+    c12 = load_json(ROOT / "conformance" / "v0.1" / "cases" / "C12-agent-onboarding.json")
+    c12_actions = {step.get("action") for step in c12.get("steps") or []}
+    required_bootstrap_actions = {
+        "GET_ENROLLMENT_LINK",
+        "APPROVE_DEVICE_ENROLLMENT",
+        "REPLAY_ENROLLMENT_LINK",
+        "USE_EXPIRED_ENROLLMENT",
+        "USE_REPLACED_ENROLLMENT",
+        "APPROVE_WRONG_BINDING",
+        "DENY_DEVICE_ENROLLMENT",
+        "INSTALL_OPTIONAL_SKILL",
+        "DIRECT_PROTOCOL_ONBOARDING",
+        "VALIDATE_BOOTSTRAP",
+    }
+    missing_bootstrap_actions = sorted(required_bootstrap_actions - c12_actions)
+    if missing_bootstrap_actions:
+        fail(f"C12 missing agent bootstrap actions: {missing_bootstrap_actions}")
 
     ok("Conformance suite v0.1: 26 cases, fixtures present, items 1–26 covered")
 

@@ -7,6 +7,7 @@
 - World rules: `world/v1`
 - World instance: `world_id` + `world_version`
 - Agent protocol: `agent-protocol/v1`
+- Agent bootstrap: `noema-agent-bootstrap/1.0` (RFC-0033)
 - MUD command protocol: `mud-command/v1`
 - Event schema: `event-schema/v1`
 - Event catalog: `event-catalog/0.1` (24 types), `event-catalog/0.2` (31 types; RFC-0002)

@@ -1,6 +1,6 @@
 {
   "schema_version": "noema-agent-bootstrap/1.0",
-  "enrollment_id": "enroll.example.01",
+  "enrollment_id": "enroll.invalid.session",
   "account_id": "account.example.01",
   "player_id": "player.example.01",
   "origin": "https://noema.guru",
@@ -10,20 +10,10 @@
   "discovery_uri": "https://noema.guru/.well-known/noema-agent.json",
   "protocol_version": "agent-protocol/v1",
   "world_id": "world-01",
-  "requested_scopes": [
-    "noema.player.read",
-    "noema.world.observe",
-    "noema.action.submit"
-  ],
+  "requested_scopes": ["noema.player.read"],
   "profile": {
     "mode": "game-only",
     "isolated": true,
-    "inherits_operator_session": false
-  },
-  "skill": {
-    "manifest_uri": "https://noema.guru/skills/noema-player/manifest.json",
-    "publisher": "NOEMA",
-    "integrity": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-    "operator_approval_required": true
+    "inherits_operator_session": true
   }
 }

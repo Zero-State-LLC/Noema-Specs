@@ -4,7 +4,7 @@
 
 ### Added
 
-- **RFC-0033 Proposed:** defines non-executable email bootstrap, a machine-readable enrollment document, and an optional operator-approved skill installed into an isolated game-only Controller profile.
+- **RFC-0033 Accepted:** defines non-executable email bootstrap, a machine-readable enrollment document, and an optional operator-approved skill installed into an isolated game-only Controller profile.
 
 ### Added
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-**Proposed**
+**Accepted**
 
 ## Problem
 
@@ -15,7 +15,7 @@ NOEMA also needs to distinguish portable protocol instructions from an optional 
 NOEMA uses a two-layer onboarding model:
 
 1. **Bootstrap email:** a human-readable notification containing purpose, expiry, safety guidance, and one HTTPS enrollment link.
-2. **Machine-readable bootstrap document:** a short-lived `noema-agent-bootstrap/1.0` document retrieved from the enrollment flow. It declares discovery and verification URLs, requested scopes, target world, protocol compatibility, game-only profile constraints, and an optional skill manifest reference.
+2. **Machine-readable bootstrap document:** a short-lived `noema-agent-bootstrap/1.0` document retrieved from the enrollment flow. It binds the enrollment to an Account, Player, HTTPS origin, issue time, expiry, target world, discovery and verification URLs, requested scopes, protocol compatibility, game-only profile constraints, and an optional skill manifest reference.
 
 The bootstrap email is not an executable instruction channel. It MUST NOT contain access tokens, refresh tokens, browser credentials, provider API keys, shell commands, embedded skill source, or instructions to bypass operator approval.
 
@@ -67,7 +67,9 @@ Requirements:
 - Enrollment links MUST be single-use, expire in at most 15 minutes, and be invalidated after approval, denial, or replacement.
 - Email security scanners MAY consume links. The first GET MUST therefore present or establish the approval flow and MUST NOT itself issue credentials or approve enrollment.
 - The approval surface MUST show the target Player, requesting controller/runtime, requested scopes, target world, profile isolation, and skill publisher/integrity when present.
-- The bootstrap document MUST NOT be accepted after `expires_at` or for a different enrollment, Account, Player, world, or origin.
+- `expires_at` MUST be later than `issued_at` and no more than 15 minutes after it. Example timestamps are future-dated static fixture values and are not production credentials.
+- The bootstrap document MUST NOT be accepted after `expires_at` or for a different `enrollment_id`, `account_id`, `player_id`, `world_id`, or `origin` than the server-side pending-enrollment record.
+- The approval POST MUST be same-origin and bound to the authenticated Account. Client-supplied binding fields MUST NOT override the server-side pending-enrollment record.
 - Redirects and discovery endpoints MUST use HTTPS in hosted production.
 - Credentials MUST be controller-specific, scoped, revocable, and stored separately from the bootstrap document.
 - Revocation MUST prevent new sessions and invalidate or force re-authentication of dependent sessions.
@@ -106,7 +108,7 @@ The bootstrap document contains no private prompt, model-provider credential, co
 
 ## Rollout
 
-1. Publish the schema, example, and approval UX contract.
+1. Accept this RFC, publish the registered version domain, schema, example, and approval UX contract.
 2. Implement device enrollment and persistent Controller/Credential records.
 3. Add direct protocol onboarding acceptance coverage.
 4. Add optional framework adapters only after the portable path passes.

@@ -8,6 +8,10 @@
   "properties": {
     "schema_version": { "const": "noema-agent-bootstrap/1.0" },
     "enrollment_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },
+    "account_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },
+    "player_id": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]+$" },
+    "origin": { "type": "string", "pattern": "^https://[A-Za-z0-9.-]+(?::[0-9]+)?$" },
+    "issued_at": { "type": "string", "format": "date-time" },
     "expires_at": { "type": "string", "format": "date-time" },
     "verification_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
     "discovery_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
@@ -37,7 +41,7 @@
       "properties": {
         "manifest_uri": { "type": "string", "format": "uri", "pattern": "^https://" },
         "publisher": { "type": "string", "minLength": 1 },
-        "integrity": { "type": "string", "pattern": "^sha256-[A-Za-z0-9+/=]+$" },
+        "integrity": { "type": "string", "pattern": "^sha256-[A-Za-z0-9+/]{43}=$" },
         "operator_approval_required": { "const": true }
       },
       "required": ["manifest_uri", "publisher", "integrity", "operator_approval_required"]
@@ -46,6 +50,10 @@
   "required": [
     "schema_version",
     "enrollment_id",
+    "account_id",
+    "player_id",
+    "origin",
+    "issued_at",
     "expires_at",
     "verification_uri",
     "discovery_uri",

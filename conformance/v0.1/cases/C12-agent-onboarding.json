@@ -23,6 +23,9 @@
     "examples/onboarding/advanced-agent-manifest.json",
     "examples/onboarding/agent-connect-sequence.json",
     "examples/onboarding/agent-bootstrap.json",
+    "examples/negative/invalid-agent-bootstrap-admin-scope.json",
+    "examples/negative/invalid-agent-bootstrap-operator-session.json",
+    "examples/negative/invalid-agent-bootstrap-integrity.json",
     "examples/protocol/hello-ok.json",
     "examples/protocol/hello-incompatible.json",
     "examples/negative/invalid-manifest-missing-required.json"
@@ -100,6 +103,90 @@
         "repeat": true
       },
       "notes": "Duplicate registration is idempotent or explicitly versioned"
+    },
+    {
+      "step_id": "11",
+      "actor": "client",
+      "action": "GET_ENROLLMENT_LINK",
+      "input": { "fixture": "examples/onboarding/agent-bootstrap.json" },
+      "notes": "GET displays approval context but issues no credential and performs no approval"
+    },
+    {
+      "step_id": "12",
+      "actor": "operator",
+      "action": "APPROVE_DEVICE_ENROLLMENT",
+      "input": { "approved_scopes": ["noema.player.read", "noema.world.observe", "noema.action.submit"] },
+      "notes": "Same-origin authenticated approval issues a distinct Controller credential bound to the pending Account and Player"
+    },
+    {
+      "step_id": "13",
+      "actor": "client",
+      "action": "REPLAY_ENROLLMENT_LINK",
+      "input": { "enrollment_id": "enroll.example.01" },
+      "notes": "Consumed enrollment fails closed and issues no second credential"
+    },
+    {
+      "step_id": "14",
+      "actor": "client",
+      "action": "VALIDATE_BOOTSTRAP",
+      "input": { "fixture": "examples/negative/invalid-agent-bootstrap-admin-scope.json" },
+      "notes": "Default bootstrap requesting administrative scope is rejected"
+    },
+    {
+      "step_id": "15",
+      "actor": "client",
+      "action": "VALIDATE_BOOTSTRAP",
+      "input": { "fixture": "examples/negative/invalid-agent-bootstrap-operator-session.json" },
+      "notes": "Bootstrap attempting to inherit the operator session is rejected"
+    },
+    {
+      "step_id": "16",
+      "actor": "client",
+      "action": "USE_EXPIRED_ENROLLMENT",
+      "input": { "enrollment_id": "enroll.expired.01" },
+      "notes": "Expired enrollment fails closed and issues no credential"
+    },
+    {
+      "step_id": "17",
+      "actor": "client",
+      "action": "USE_REPLACED_ENROLLMENT",
+      "input": { "enrollment_id": "enroll.replaced.01" },
+      "notes": "Replacement invalidates the prior enrollment"
+    },
+    {
+      "step_id": "18",
+      "actor": "client",
+      "action": "APPROVE_WRONG_BINDING",
+      "input": { "variants": ["account_id", "player_id", "world_id", "origin"] },
+      "notes": "Each binding mismatch fails closed against the server-side pending record"
+    },
+    {
+      "step_id": "19",
+      "actor": "operator",
+      "action": "DENY_DEVICE_ENROLLMENT",
+      "input": { "enrollment_id": "enroll.denied.01" },
+      "notes": "Denial invalidates enrollment and issues no credential"
+    },
+    {
+      "step_id": "20",
+      "actor": "operator",
+      "action": "INSTALL_OPTIONAL_SKILL",
+      "input": { "operator_approval": false },
+      "notes": "Skill installation without explicit operator approval is rejected"
+    },
+    {
+      "step_id": "21",
+      "actor": "client",
+      "action": "DIRECT_PROTOCOL_ONBOARDING",
+      "input": { "skill_installed": false },
+      "notes": "Direct protocol client completes onboarding without a skill"
+    },
+    {
+      "step_id": "22",
+      "actor": "client",
+      "action": "VALIDATE_BOOTSTRAP",
+      "input": { "fixture": "examples/negative/invalid-agent-bootstrap-integrity.json" },
+      "notes": "Malformed skill integrity identifier is rejected"
     }
   ],
   "expected": {
@@ -113,11 +200,16 @@
       "First ACT produces expected ledger event(s)",
       "Provider API key is not required for external agent connection",
       "Private prompt disclosure is not required",
-      "Advanced fields (model, memory_system, subagent_architecture) are not required for minimal REGISTER"
-      ,"Email link retrieval alone cannot approve enrollment or issue a credential"
-      ,"Optional skill installation requires operator approval and an isolated game-only profile"
-      ,"A direct protocol client can onboard without installing a skill"
-      ,"Available actions are derived from observations without dynamically generated verbs"
+      "Advanced fields (model, memory_system, subagent_architecture) are not required for minimal REGISTER",
+      "Email link retrieval alone cannot approve enrollment or issue a credential",
+      "Optional skill installation requires operator approval and an isolated game-only profile",
+      "A direct protocol client can onboard without installing a skill",
+      "Available actions are derived from observations without dynamically generated verbs",
+      "Bootstrap bindings match the server-side Account, Player, world, origin, and pending enrollment",
+      "Administrative scope, operator-session inheritance, and malformed integrity fixtures are rejected",
+      "Expired, replaced, denied, replayed, and wrong-binding enrollment attempts issue no credential",
+      "Optional skill installation is denied without explicit operator approval",
+      "Direct protocol onboarding succeeds without a skill"
     ]
   },
   "security_class": "authz"
