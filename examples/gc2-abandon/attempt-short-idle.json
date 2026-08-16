@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s7",
+  "catalog_id": "construction-catalog/gc2-s7",
+  "operation": "ABANDON",
+  "idle_cycles": 11,
+  "room_hidden": false,
+  "expected": { "outcome": "REJECT", "unclaimed": false, "reason": "idle", "note": "11 cycles is not enough." }
+}

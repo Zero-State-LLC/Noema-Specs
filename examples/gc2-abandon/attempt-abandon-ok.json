@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s7",
+  "catalog_id": "construction-catalog/gc2-s7",
+  "operation": "ABANDON",
+  "idle_cycles": 12,
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "unclaimed": true, "note": "12 idle committed cycles make the asset UNCLAIMED." }
+}

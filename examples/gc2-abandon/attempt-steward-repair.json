@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s7",
+  "catalog_id": "construction-catalog/gc2-s7",
+  "operation": "ABANDON",
+  "idle_cycles": 12,
+  "room_hidden": false,
+  "owner_repaired": true,
+  "expected": { "outcome": "REJECT", "unclaimed": false, "reason": "reset", "note": "Owner REPAIR resets the idle window." }
+}

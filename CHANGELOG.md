@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0058 Accepted / GC2-S7:** public constructible becomes UNCLAIMED after 12 idle committed cycles. Anyone may DISMANTLE. No scar on abandon. WATCH silent.
+
+### Added
+
 - **RFC-0057 Accepted / GC2-S6:** `BUILD.REPURPOSE` on an owned public workshop. Closed table `workshop` → `storage_bay`. Same `entity_id`. WATCH silent. Help still omits BUILD.
 
 ### Added

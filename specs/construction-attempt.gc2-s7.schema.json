@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-attempt.gc2-s7.schema.json",
+  "title": "NOEMA GC2-S7 abandonment attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc2-s7" },
+    "catalog_id": { "const": "construction-catalog/gc2-s7" },
+    "operation": { "enum": ["ABANDON", "DISMANTLE"] },
+    "idle_cycles": { "type": "integer", "minimum": 0 },
+    "room_hidden": { "type": "boolean" },
+    "owner_repaired": { "type": "boolean" },
+    "unclaimed": { "type": "boolean" },
+    "actor_is_owner": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "unclaimed": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
