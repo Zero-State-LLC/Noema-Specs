@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s3",
+  "catalog_id": "communication-catalog/gc5-s3",
+  "operation": "BOARD",
+  "room_hidden": false,
+  "posted": 5,
+  "expected": { "outcome": "ACCEPT", "kept": 3, "note": "Only the last 3 notices remain." }
+}

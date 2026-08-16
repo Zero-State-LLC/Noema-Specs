@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0054 Accepted / GC5-S3:** `MESSAGE surface=BOARD` posts to the current public room. Last 3 notices. WATCH silent. No BOARD/SHOUT verbs.
+
+### Added
+
 - **RFC-0053 Accepted / GC2-S4:** constructible `archive_annex` saves 1 attention on in-room INSPECT and ATTEST. No QUEST. Help still omits BUILD.
 
 ### Added
