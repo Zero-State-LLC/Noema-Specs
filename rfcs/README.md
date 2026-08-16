@@ -55,6 +55,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0043](RFC-0043-mastery-decay.md) | **Accepted** | GC1-S3: recognized tracks LATENT after 12 idle cycles; 3 works restore |
 | [RFC-0044](RFC-0044-prior-work-benefits.md) | **Accepted** | GC1-S4: prior-work LOOK/INSPECT/TRADE_CAUTION waivers |
 | [RFC-0045](RFC-0045-lot-quality.md) | **Accepted** | GC8-S1: SOUND/WORN lots; WORN construct storage +1 |
+| [RFC-0046](RFC-0046-lot-provenance.md) | **Accepted** | GC8-S2: public origin stamp; hidden/mix clear |
 
 ## Required review lenses
 

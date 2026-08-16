@@ -237,6 +237,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0043 Accepted: GC1-S3 mastery decay. LATENT after 12 idle cycles; 3 rehab works restore. Engineer +5 only while MAINTAINED. No WATCH titles.
 - [x] RFC-0044 Accepted: GC1-S4 prior-work Explorer/Surveyor/Broker benefits. Repeat LOOK/INSPECT free on known objects. Broker waives TRADE_CAUTION for a prior party. No class discounts. No WATCH titles.
 - [x] RFC-0045 Accepted: GC8-S1 SOUND/WORN lot quality. Worn harvest below condition 50. WORN construct storage +1. No yield bonus. No currency.
+- [x] RFC-0046 Accepted: GC8-S2 lot provenance. Public harvest stamps origin room. Hidden rooms and mixed origins leave no stamp. WATCH silent.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s2",
+  "catalog_id": "economy-catalog/gc8-s2",
+  "operation": "MIX",
+  "have_room_id": "room.hub",
+  "add_room_id": "room.east",
+  "expected": { "origin_room_id": null, "note": "Different public origins clear the stamp." }
+}

@@ -5256,6 +5256,51 @@ def check_gc8_s1(Draft202012Validator) -> None:
     ok("GC8-S1 lot quality: catalog, attempt fixtures, RFC-0045 Accepted")
 
 
+def evaluate_gc8_s2(attempt: dict, catalog: dict) -> dict:
+    if attempt.get("operation") == "HARVEST":
+        if attempt.get("room_hidden") or catalog.get("hidden_stamp"):
+            return {"origin_room_id": None}
+        return {"origin_room_id": attempt.get("room_id")}
+    have = attempt.get("have_room_id")
+    add = attempt.get("add_room_id")
+    if catalog.get("mix_policy") == "clear" and have and add and have != add:
+        return {"origin_room_id": None}
+    return {"origin_room_id": add or have}
+
+
+def check_gc8_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "economy-catalog.gc8-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "economy-attempt.gc8-s2.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC8-S2 catalog invalid: {errs[0].message}")
+    if catalog.get("hidden_stamp") or catalog.get("watch_origins") or catalog.get("new_verbs"):
+        fail("GC8-S2 must not stamp hidden rooms, WATCH origins, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0046-lot-provenance.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0046 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC8-S2-PROVENANCE.md").read_text(encoding="utf-8")
+    if "Hidden" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC8-S2 must keep hidden stamps off and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-public-stamp.json",
+        "attempt-hidden-clear.json",
+        "attempt-mix-clear.json",
+        "attempt-same-keep.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc8-provenance" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc8_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if got["origin_room_id"] != exp["origin_room_id"]:
+            fail(f"{name}: got {got} expected {exp}")
+    ok("GC8-S2 lot provenance: catalog, attempt fixtures, RFC-0046 Accepted")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -5879,6 +5924,7 @@ def main() -> None:
     check_gc7_s3(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
+    check_gc8_s2(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
