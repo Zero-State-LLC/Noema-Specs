@@ -4942,6 +4942,66 @@ def check_gc7_s2(Draft202012Validator) -> None:
     ok("GC7-S2 institution party: catalog, attempt fixtures, RFC-0041 Accepted")
 
 
+def evaluate_gc7_s3(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    form = attempt.get("form")
+    if form != "INFORMATION_CONTEST":
+        return "REJECT", "FORM_FORBIDDEN"
+    if attempt.get("hidden_in_projection"):
+        return "REJECT", "LEAK"
+    if not attempt.get("target_visible"):
+        return "REJECT", "NOT_FOUND"
+    if attempt.get("target_entity_type") != catalog.get("target_entity_type") or not attempt.get(
+        "public_record"
+    ):
+        return "REJECT", "FORBIDDEN"
+    return "ACCEPT", None
+
+
+def check_gc7_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.gc7-s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-attempt.gc7-s3.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC7-S3 catalog invalid: {cerrs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("hp_combat"):
+        fail("GC7-S3 must not add verbs, events, or HP")
+    if catalog.get("new_forms") != ["INFORMATION_CONTEST"]:
+        fail("GC7-S3 must add only INFORMATION_CONTEST")
+    if catalog.get("mutates_event_catalog_02") or catalog.get("rewrites_archive_claim"):
+        fail("GC7-S3 must not mutate event-catalog/0.2 or rewrite archive_claim")
+    if catalog.get("help_lists_contest") or catalog.get("hidden_distinct_from_missing"):
+        fail("GC7-S3 must keep help off CONTEST and hide/missing as NOT_FOUND")
+    types_text = (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8")
+    if '"INFORMATION_CONTEST"' in types_text:
+        fail("event-types.0.2.json must not grow INFORMATION_CONTEST")
+    rfc = (ROOT / "rfcs" / "RFC-0042-information-contest.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0042 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC7-S3-INFORMATION-CONTEST.md").read_text(encoding="utf-8")
+    if "Chamber help" not in slice_doc:
+        fail("GC7-S3 must keep CONTEST off Chamber help")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-public-artifact-accept.json",
+        "attempt-missing-reject.json",
+        "attempt-non-record-reject.json",
+        "attempt-information-war-reject.json",
+        "attempt-hidden-leak-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc7-information-contest" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc7_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("GC7-S3 information contest: catalog, attempt fixtures, RFC-0042 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -5647,6 +5707,7 @@ def main() -> None:
     check_gc7_s0(Draft202012Validator)
     check_gc7_s1(Draft202012Validator)
     check_gc7_s2(Draft202012Validator)
+    check_gc7_s3(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)

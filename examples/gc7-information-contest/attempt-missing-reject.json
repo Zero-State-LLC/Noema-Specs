@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc7-s3",
+  "catalog_id": "conflict-catalog/gc7-s3",
+  "operation": "CONTEST_DECLARE",
+  "form": "INFORMATION_CONTEST",
+  "target_visible": false,
+  "target_entity_type": "ARTIFACT",
+  "public_record": true,
+  "hidden_in_projection": false,
+  "expected": { "outcome": "REJECT", "reason": "NOT_FOUND", "note": "Missing and hidden share NOT_FOUND." }
+}

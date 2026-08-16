@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc7-s3",
+  "catalog_id": "conflict-catalog/gc7-s3",
+  "operation": "CONTEST_DECLARE",
+  "form": "INFORMATION_CONTEST",
+  "target_visible": true,
+  "target_entity_type": "INFRASTRUCTURE",
+  "public_record": false,
+  "hidden_in_projection": false,
+  "expected": { "outcome": "REJECT", "reason": "FORBIDDEN", "note": "Visible non-record cannot be an information target." }
+}

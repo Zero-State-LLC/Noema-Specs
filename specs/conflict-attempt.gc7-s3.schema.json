@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-attempt.gc7-s3.schema.json",
+  "title": "NOEMA GC7-S3 information-contest attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "form", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc7-s3" },
+    "catalog_id": { "const": "conflict-catalog/gc7-s3" },
+    "operation": { "enum": ["CONTEST_DECLARE"] },
+    "form": { "type": "string" },
+    "target_visible": { "type": "boolean" },
+    "target_entity_type": { "type": "string" },
+    "public_record": { "type": "boolean" },
+    "hidden_in_projection": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

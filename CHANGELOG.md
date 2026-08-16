@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0042 Accepted / GC7-S3:** `INFORMATION_CONTEST` targets a visible public `ARTIFACT`. Success seals further `INSPECT` via existing `ENTITY_UPDATE`. No hidden-fact leak. No claim rewrite. No `event-catalog/0.3`.
+
+### Added
+
 - **RFC-0041 Accepted / GC7-S2:** occupied office may declare/defend/withdraw `acting_for` an org. Treasury pays. Player remains `declarer_id`/`defender_id`. Same org cannot be both parties. No new forms or events.
 
 ### Added
