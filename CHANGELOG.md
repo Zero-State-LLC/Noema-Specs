@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0076 Accepted / GC2-S17:** public `defensive_work` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S3 contest-defense millipoints apply only after promotion. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0075 Accepted / GC2-S16:** public `production_node` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. WATCH silent. Help still omits BUILD.
 
 ### Added
