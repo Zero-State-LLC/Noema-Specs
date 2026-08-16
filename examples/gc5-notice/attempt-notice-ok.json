@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc5-s6",
+  "catalog_id": "communication-catalog/gc5-s6",
+  "operation": "NOTICE",
+  "room_hidden": false,
+  "occupied": true,
+  "posted": 1,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Occupied PUBLISH_NOTICE holder may utter in a public room." }
+}
