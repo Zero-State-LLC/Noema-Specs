@@ -55,4 +55,4 @@ Ignore `surface=SHOUT` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-Board retention is [RFC-0063](RFC-0063-board-retention.md) (last 5). Institution notice is [RFC-0064](RFC-0064-institution-notice.md). Org channel.
+Board retention is [RFC-0063](RFC-0063-board-retention.md) (last 5). Institution notice is [RFC-0064](RFC-0064-institution-notice.md). Org channel is [RFC-0065](RFC-0065-org-channel.md).

@@ -57,4 +57,4 @@ Ignore `surface=NOTICE` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-Org channel. Cycle-based expiry.
+Org channel is [RFC-0065](RFC-0065-org-channel.md). Cycle-based expiry. Trade notice.

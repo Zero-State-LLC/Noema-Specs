@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0065 Accepted / GC5-S7:** `MESSAGE surface=CHANNEL` for current org members. Last 1. Unknown org and non-member share `NOT_ADDRESSABLE`. WATCH silent. No CHANNEL verb.
+
+### Added
+
 - **RFC-0064 Accepted / GC5-S6:** `MESSAGE surface=NOTICE` from an occupied `PUBLISH_NOTICE` office. Public room, last 1. WATCH silent. No NOTICE verb. `ORG_OFFICE_ACT` unchanged.
 
 ### Added

@@ -74,6 +74,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0062](RFC-0062-message-shout.md) | **Accepted** | GC5-S4: MESSAGE shout surface; last 1; WATCH silent |
 | [RFC-0063](RFC-0063-board-retention.md) | **Accepted** | GC5-S5: MESSAGE board last 5; WATCH silent |
 | [RFC-0064](RFC-0064-institution-notice.md) | **Accepted** | GC5-S6: MESSAGE institution notice; last 1; WATCH silent |
+| [RFC-0065](RFC-0065-org-channel.md) | **Accepted** | GC5-S7: MESSAGE org channel; members only; WATCH silent |
 
 ## Required review lenses
 

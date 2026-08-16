@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc5-s7",
+  "catalog_id": "communication-catalog/gc5-s7",
+  "operation": "CHANNEL",
+  "room_hidden": false,
+  "member": true,
+  "org_known": true,
+  "posted": 3,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Only the last channel note remains." }
+}

@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0064.  
 **Parent:** [GC5-S5-RETENTION.md](GC5-S5-RETENTION.md) · [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0064](../rfcs/RFC-0064-institution-notice.md)  
-**Does not open:** NOTICE/BOARD/SHOUT verbs · org channel · long-range notice · help advertising · hidden notices
+**Does not open:** NOTICE/BOARD/SHOUT verbs · long-range notice · help advertising · hidden notices  
+**Next:** [GC5-S7-CHANNEL.md](GC5-S7-CHANNEL.md)
 
 S6 adds one MESSAGE surface. An occupied `PUBLISH_NOTICE` office may utter in the public room. It is not a notice verb.
 
@@ -46,7 +47,6 @@ S6 adds one MESSAGE surface. An occupied `PUBLISH_NOTICE` office may utter in th
 
 ```text
 NOTICE verb
-org channel
 long-range notice
 WATCH ticker
 Chamber help NOTICE
