@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0068.  
 **Parent:** [GC2-S10-INSTITUTION.md](GC2-S10-INSTITUTION.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0068](../rfcs/RFC-0068-shared-own.md)  
-**Does not open:** N-of-M roster · institution-as-Player · CONNECT · help BUILD · STRUCTURE_*
+**Does not open:** N-of-M roster · institution-as-Player · help BUILD · STRUCTURE_*  
+**Next:** [GC2-S12-CONNECT.md](GC2-S12-CONNECT.md)
 
 S11 names one other Player on a public constructible. It is not a title minigame.
 
@@ -44,7 +45,6 @@ S11 names one other Player on a public constructible. It is not a title minigame
 ## Out of S11
 
 ```text
-CONNECT
 third co-owner
 share / vest mix
 STRUCTURE_*

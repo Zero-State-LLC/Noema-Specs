@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s12",
+  "catalog_id": "construction-catalog/gc2-s12",
+  "operation": "CONNECT",
+  "room_hidden": false,
+  "dest_hidden": false,
+  "public_pair": false,
+  "steward": true,
+  "expected": { "outcome": "REJECT", "reason": "not_observable", "note": "One-way or missing public pair fails closed." }
+}

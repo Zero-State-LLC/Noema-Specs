@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0071 Accepted / GC2-S12:** `BUILD.CONNECT` pins a public two-way dest on a stewarded `route_link`. No new exit. Hidden dest and missing reverse share `NOT_OBSERVABLE`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0070 Accepted / GC4-S7:** `ORG_SUCCESSION_RULE` publishes `INHERITED_BY_ORGANIZATION`. Vacate stays vacant; the office is not retired. No institution-as-Player. No `SUCCESSION_*` events.
 
 ### Added

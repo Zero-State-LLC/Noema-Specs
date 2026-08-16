@@ -14,7 +14,7 @@ S1 adds one constructible that changes movement: a live `route_link` carries lot
 | Temptation | Verdict |
 |------------|---------|
 | New public exit / `to_room_id` | **REJECT.** Hidden-topology leak |
-| CONNECT / UPGRADE | **DEFER.** |
+| CONNECT / UPGRADE | **DEFER** CONNECT to [GC2-S12-CONNECT.md](GC2-S12-CONNECT.md). |
 | WATCH route feed | **REJECT.** |
 | Help BUILD | **REJECT.** S0 pin |
 
