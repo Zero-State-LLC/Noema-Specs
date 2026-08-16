@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0060.  
 **Parent:** [GC4-S4-SUCCESSION.md](GC4-S4-SUCCESSION.md) · [SUCCESSION.md](SUCCESSION.md)  
 **RFC:** [RFC-0060](../rfcs/RFC-0060-consensus-succession.md)  
-**Does not open:** elections · RULE_BASED · SUCCESSION_* · emergency consensus
+**Does not open:** elections · SUCCESSION_* · emergency consensus  
+**Next:** [GC4-S6-RULE.md](GC4-S6-RULE.md)
 
 S5 fills a vacant office when current members consent. It is not an election and not a recall.
 
@@ -14,7 +15,7 @@ S5 fills a vacant office when current members consent. It is not an election and
 | Temptation | Verdict |
 |------------|---------|
 | Elections / parties | **REJECT.** |
-| RULE_BASED | **DEFER.** |
+| RULE_BASED | **DEFER** to [GC4-S6-RULE.md](GC4-S6-RULE.md). |
 | Vote out an occupant | **REJECT.** |
 | Emergency-scope consensus | **DEFER.** |
 | `SUCCESSION_*` | **REJECT.** |
@@ -42,7 +43,6 @@ S5 fills a vacant office when current members consent. It is not an election and
 
 ```text
 elections / parties
-RULE_BASED
 SUCCESSION_*
 emergency consensus
 Chamber help advertising

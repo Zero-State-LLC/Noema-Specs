@@ -58,4 +58,4 @@ Ignore `ORG_SUCCESSION_CONSENT` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-RULE_BASED. Institution-owned constructibles. Multi-cycle.
+RULE_BASED is [RFC-0069](RFC-0069-rule-based-succession.md). `INHERITED_BY_ORGANIZATION`.
