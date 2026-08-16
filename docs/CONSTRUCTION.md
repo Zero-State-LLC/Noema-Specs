@@ -251,8 +251,9 @@ GC2-S7 closed: 12 idle committed cycles → UNCLAIMED; anyone may DISMANTLE
 GC2-S8 closed: BUILD.RESTORE owned public UNCLAIMED; condition cap 50; scars stay dead
 GC2-S9 closed: public relay CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 GC2-S10 closed: BUILD.VEST personal public constructible to occupied OPERATE_NAMED_ASSET; same entity_id
+GC2-S11 closed: BUILD.SHARE one entered Player as co-owner; same entity_id; once
 CONNECT
-shared ownership
+third-and-later co-owners
 first-world PLAY advertising BUILD
 runtime implementation
 ```

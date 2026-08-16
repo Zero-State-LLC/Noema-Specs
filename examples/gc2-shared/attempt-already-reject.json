@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s11",
+  "catalog_id": "construction-catalog/gc2-s11",
+  "operation": "SHARE",
+  "room_hidden": false,
+  "personal_owner": true,
+  "already_shared": true,
+  "partner_entered": true,
+  "expected": { "outcome": "REJECT", "reason": "already_shared", "note": "A second SHARE is rejected." }
+}

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0068 Accepted / GC2-S11:** `BUILD.SHARE` names one entered Player as co-owner of a personally owned public constructible. Same `entity_id`. Once. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0067 Accepted / GC2-S10:** `BUILD.VEST` moves a personally owned public constructible to an institution. Occupied `OPERATE_NAMED_ASSET` stewards. Same `entity_id`. WATCH silent. Help still omits BUILD.
 
 ### Added

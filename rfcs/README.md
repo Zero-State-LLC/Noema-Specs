@@ -77,6 +77,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0065](RFC-0065-org-channel.md) | **Accepted** | GC5-S7: MESSAGE org channel; members only; WATCH silent |
 | [RFC-0066](RFC-0066-trade-notice.md) | **Accepted** | GC5-S8: MESSAGE trade notice; last 1; WATCH silent |
 | [RFC-0067](RFC-0067-institution-own.md) | **Accepted** | GC2-S10: BUILD.VEST to occupied named-asset office |
+| [RFC-0068](RFC-0068-shared-own.md) | **Accepted** | GC2-S11: BUILD.SHARE one co-owner; same entity_id |
 
 ## Required review lenses
 

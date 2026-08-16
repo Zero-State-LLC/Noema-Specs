@@ -56,4 +56,4 @@ Ignore `VEST` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-CONNECT. Shared ownership. Other-class multi-cycle.
+CONNECT. Shared ownership is [RFC-0068](RFC-0068-shared-own.md). Other-class multi-cycle.
