@@ -13,7 +13,7 @@
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
 - [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
-- [x] Hosted product stack pinned: Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`).
+- [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
 - [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).

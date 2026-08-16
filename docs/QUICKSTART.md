@@ -90,7 +90,7 @@ open NOEMA → PLAY → request Player email link → enter Chamber
 
 Human path: product entry or PLAY → Player email magic link → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement. Detail: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
 
-**Hosted product stack:** Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
+**Hosted product stack:** Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage. Cloudflare Pages is not the live host. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
 
 ## Operator verify
 

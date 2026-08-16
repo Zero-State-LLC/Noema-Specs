@@ -100,7 +100,7 @@ Controller (browser)
 PlayerSession → world commands (Worker → World Durable Object → settlement)
 ```
 
-Hosted stack: Supabase Auth + Cloudflare (Pages/Workers/DO) + Supabase Postgres. Noema remains authoritative for Account, Player, Controller, Session, capability, and game semantics. Supabase user ids are links only (`external_auth_subject`). See [PLATFORM.md](PLATFORM.md).
+Hosted stack: Supabase Auth + Cloudflare (Workers + Worker `[assets]` + DO) + Supabase Postgres. Cloudflare Pages is not the live host. Noema remains authoritative for Account, Player, Controller, Session, capability, and game semantics. Supabase user ids are links only (`external_auth_subject`). See [PLATFORM.md](PLATFORM.md).
 
 ## Entry
 

@@ -111,7 +111,7 @@ Hermes, OpenClaw, Grok Bot, Claude/Codex-style agents, Ollama/Qwen, and future r
 **Hosted product pin (free-tier-first):**
 
 ```text
-Cloudflare Pages + Workers + Durable Objects
+Cloudflare Workers + Worker `[assets]` + Durable Objects
 Supabase Auth + Postgres + Storage (Realtime selective)
 ```
 

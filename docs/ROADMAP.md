@@ -10,7 +10,7 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 
-**Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Specs: [PLATFORM.md](PLATFORM.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
+**Hosted product stack (pinned):** Cloudflare Workers + Worker `[assets]` + Durable Objects · Supabase Auth + Postgres + Storage. Cloudflare Pages is not the live host. Specs: [PLATFORM.md](PLATFORM.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Executable world contracts (in-scope):** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) · [SCHEDULER.md](SCHEDULER.md) · [MODULE-CONTRACTS.md](MODULE-CONTRACTS.md) · [SPECTATOR.md](SPECTATOR.md) · [`examples/v01-strategic/`](../examples/v01-strategic/).
 
