@@ -67,6 +67,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0055](RFC-0055-office-eligibility.md) | **Accepted** | GC1-S5: office requires recognized Engineer/Broker |
 | [RFC-0056](RFC-0056-workshop-upgrade.md) | **Accepted** | GC2-S5: workshop UPGRADE storage save 2; once |
 | [RFC-0057](RFC-0057-workshop-repurpose.md) | **Accepted** | GC2-S6: workshop → storage_bay REPURPOSE; same entity_id |
+| [RFC-0058](RFC-0058-abandonment.md) | **Accepted** | GC2-S7: 12 idle cycles → UNCLAIMED; anyone may DISMANTLE |
 
 ## Required review lenses
 

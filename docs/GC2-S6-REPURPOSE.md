@@ -44,6 +44,7 @@ S6 changes one function class. An owned public workshop can be repurposed as a s
 
 ```text
 CONNECT RESTORE
+abandonment — closed in [GC2-S7-ABANDON.md](GC2-S7-ABANDON.md)
 other conversions
 STRUCTURE_*
 Chamber help BUILD

@@ -249,6 +249,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0055 Accepted: GC1-S5 office eligibility. Named office MAY require recognized Engineer/Broker. Existing ORG_OFFICE_ASSIGN. No WATCH titles. No class discounts.
 - [x] RFC-0056 Accepted: GC2-S5 workshop UPGRADE. Owned public workshop storage save 2. Once. Help omits BUILD.
 - [x] RFC-0057 Accepted: GC2-S6 workshop REPURPOSE. Owned public workshop → storage_bay. Same entity_id. Help omits BUILD.
+- [x] RFC-0058 Accepted: GC2-S7 abandonment. 12 idle cycles → UNCLAIMED. Anyone may DISMANTLE. No scar on abandon. Help omits BUILD.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.
