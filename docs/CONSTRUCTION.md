@@ -257,6 +257,7 @@ GC2-S13 closed: public workshop CONSTRUCT is IN_PROGRESS; live after 1 committed
 GC2-S14 closed: public generator CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 GC2-S15 closed: public storage_bay CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 GC2-S16 closed: public production_node CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
+GC2-S17 closed: public defensive_work CONSTRUCT is IN_PROGRESS; live after 1 committed cycle; contest bonus live-only
 remaining-class multi-cycle
 third-and-later co-owners
 first-world PLAY advertising BUILD

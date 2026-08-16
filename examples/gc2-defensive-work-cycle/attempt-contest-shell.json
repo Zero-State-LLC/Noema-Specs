@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s17",
+  "catalog_id": "construction-catalog/gc2-s17",
+  "operation": "CONTEST",
+  "class_id": "defensive_work",
+  "in_progress": true,
+  "entity_id": "entity.defensive-work.a",
+  "expected": { "outcome": "ACCEPT", "contest_bonus": false, "note": "IN_PROGRESS work does not add S3 contest defense." }
+}

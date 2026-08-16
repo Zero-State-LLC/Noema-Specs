@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s17",
+  "catalog_id": "construction-catalog/gc2-s17",
+  "operation": "CONSTRUCT",
+  "class_id": "defensive_work",
+  "room_hidden": false,
+  "entity_id": "entity.defensive-work.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": true, "live": false, "same_entity": true, "note": "Public defensive_work CONSTRUCT starts IN_PROGRESS." }
+}

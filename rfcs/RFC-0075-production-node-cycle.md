@@ -55,4 +55,4 @@ Ignore `in_progress` on production nodes (treat every node as live immediately).
 
 ## Unresolved
 
-Remaining-class multi-cycle (`route_link`, `defensive_work`, `archive_annex`). Third-and-later co-owners.
+Defensive-work multi-cycle is [RFC-0076](RFC-0076-defensive-work-cycle.md). Remaining-class multi-cycle (`route_link`, `archive_annex`). Third-and-later co-owners.
