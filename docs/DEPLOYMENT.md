@@ -41,13 +41,13 @@ Large artifacts  → Supabase Storage
 Realtime         → selective (dashboards only)
 API / Gateway    → Cloudflare Workers
 Live world       → Cloudflare Durable Objects (Stage 0: one NoemaWorldDO)
-Static web       → Cloudflare Pages (preferred)
+Static web       → Cloudflare Worker [assets] (noema.guru)
 Agents           → external → Worker (REST/WS) → DO
 ```
 
 ```text
                     ┌──────────────────────┐
-                    │  Cloudflare Pages    │  static / product UI
+                    │  Worker [assets]     │  product HTML on noema.guru
                     └──────────────────────┘
 
   Browser ──Supabase Auth──┐
@@ -77,7 +77,7 @@ Agents           → external → Worker (REST/WS) → DO
 | Durable historical ledger / research | **Supabase Postgres** (settled) |
 | Agent credentials | Noema controller credentials (not Supabase service role) |
 | Public edge / rate limits | Cloudflare Worker |
-| Static delivery | Cloudflare Pages |
+| Static delivery | Cloudflare Worker `[assets]` on `noema.guru`. GitHub Pages is marketing/reference only. |
 
 **Rules:**
 

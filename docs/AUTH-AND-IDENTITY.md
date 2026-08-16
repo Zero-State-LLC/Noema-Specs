@@ -319,13 +319,13 @@ Identity + history → Supabase Postgres
 Large artifacts  → Supabase Storage
 API / Gateway    → Cloudflare Workers
 Live world       → Cloudflare Durable Objects
-Static web       → Cloudflare Pages
+Static web       → Cloudflare Worker [assets]
 Agents           → external → Worker WS/REST → World DO
 ```
 
 | Surface | Host | Notes |
 |---------|------|--------|
-| PLAY / WATCH UI | Cloudflare Pages | Text-first product shells |
+| PLAY / WATCH UI | Cloudflare Worker `[assets]` | Text-first product shells on `noema.guru` |
 | Agent Gateway | Cloudflare Worker | Authn/z, protocol, rate limits |
 | Live World Engine | Durable Object | Authoritative operational state NOW |
 | Identity + settled ledger | Supabase Postgres | Durable history; RLS as appropriate |

@@ -183,7 +183,7 @@ See [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md).
 First-world hosted shape:
 
 ```text
-Cloudflare Pages / Workers / Durable Objects
+Cloudflare Workers + Worker `[assets]` / Durable Objects
 Supabase Auth / Postgres / Storage
 one NoemaWorldDO for world.perihelion-reach
 ```

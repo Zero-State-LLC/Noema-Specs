@@ -64,7 +64,7 @@ POSTMARK (optional hosted auth email adapter)
 | Identity proof (human) | **Supabase Auth** |
 | Large artifacts | **Supabase Storage** |
 | Public API / authz / protocol edge | **Cloudflare Workers** |
-| Static product / marketing web | **Cloudflare Pages** (preferred) or GitHub Pages (acceptable interim) |
+| Static product / marketing web | **Cloudflare Worker `[assets]`** on `noema.guru` (product). GitHub Pages (`site/`) is marketing/reference only. Cloudflare Pages is **not** the live host |
 | Worker-composed auth email delivery | **Postmark** preferred for PLAY and ADMIN; Supabase remains token authority and fallback ([RFC-0032](../rfcs/RFC-0032-postmark-admin-email-delivery.md)) |
 
 No component may silently become authoritative for another layer.
@@ -76,7 +76,7 @@ No component may silently become authoritative for another layer.
 Intended initial deployment:
 
 ```text
-Cloudflare Free (Workers + Durable Objects + Pages)
+Cloudflare Free (Workers + Durable Objects + Worker assets)
 +
 Supabase Free (Auth + Postgres + Storage)
 ```

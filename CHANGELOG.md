@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **Hosted static pin:** product HTML is Cloudflare Worker `[assets]` on `noema.guru`. Cloudflare Pages is not the live host. GitHub Pages (`site/`) remains marketing/reference.
+
 ### Added
 
 - **RFC-0034–0038 Accepted / GC3-S2–S6:** remaining SOCIAL-MEMORY SPEC GAP closed as spec-only slices. WATCH public bands from already-public events (else silent; S0/S1 stay off WATCH). Institution→player edges. Decay/rehab weights (12 cycles / 3 restitution trades; no wipe). Published +1 compute `TRADE_CAUTION` (no auto-refuse). Distinct deceptive edge (`AGREEMENT_BROKEN` / contradicted public `ATTEST`; `TRADE_REJECTED` ignored). No new verbs. No reputation scalar. No runtime in this change.

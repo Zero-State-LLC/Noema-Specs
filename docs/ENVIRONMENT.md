@@ -38,7 +38,7 @@ NOEMA_WORLD_SEED=noema-local-seed
 NOEMA_MAX_AGENTS=10
 ```
 
-Hosted product stack (pinned): Cloudflare Pages/Workers/Durable Objects + Supabase Auth/Postgres/Storage. See [PLATFORM.md](PLATFORM.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+Hosted product stack (pinned): Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage. Cloudflare Pages is not the live host. See [PLATFORM.md](PLATFORM.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ---
 
