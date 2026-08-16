@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s6.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "help_build",
+    "from_class",
+    "to_class",
+    "operation",
+    "keep_entity_id",
+    "hidden_repurpose",
+    "other_conversions"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s6" },
+    "catalog_id": { "const": "construction-catalog/gc2-s6" },
+    "slice_id": { "const": "gc2-s6" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s5" },
+    "verb": { "const": "BUILD" },
+    "operation": { "const": "REPURPOSE" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "help_build": { "const": false },
+    "watch_repurpose": { "const": false },
+    "from_class": { "const": "workshop" },
+    "to_class": { "const": "storage_bay" },
+    "keep_entity_id": { "const": true },
+    "repurpose_cost": { "type": "object" },
+    "hidden_repurpose": { "const": false },
+    "other_conversions": { "const": false }
+  }
+}

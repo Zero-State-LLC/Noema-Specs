@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc2-s6",
+  "catalog_id": "construction-catalog/gc2-s6",
+  "operation": "REPURPOSE",
+  "from_class": "workshop",
+  "to_class": "storage_bay",
+  "entity_id": "entity.workshop-1",
+  "room_hidden": false,
+  "owned": true,
+  "expected": {
+    "outcome": "ACCEPT",
+    "entity_id": "entity.workshop-1",
+    "note": "Owned public workshop becomes storage_bay; same entity_id."
+  }
+}

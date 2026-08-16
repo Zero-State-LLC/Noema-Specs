@@ -66,6 +66,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0054](RFC-0054-message-board.md) | **Accepted** | GC5-S3: MESSAGE board surface; last 3; WATCH silent |
 | [RFC-0055](RFC-0055-office-eligibility.md) | **Accepted** | GC1-S5: office requires recognized Engineer/Broker |
 | [RFC-0056](RFC-0056-workshop-upgrade.md) | **Accepted** | GC2-S5: workshop UPGRADE storage save 2; once |
+| [RFC-0057](RFC-0057-workshop-repurpose.md) | **Accepted** | GC2-S6: workshop → storage_bay REPURPOSE; same entity_id |
 
 ## Required review lenses
 

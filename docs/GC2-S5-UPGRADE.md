@@ -3,7 +3,7 @@
 **Status:** Executable specification. Runtime authorized with RFC-0056.  
 **Parent:** [GC2-S4-ARCHIVE-ANNEX.md](GC2-S4-ARCHIVE-ANNEX.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0056](../rfcs/RFC-0056-workshop-upgrade.md)  
-**Does not open:** CONNECT · REPURPOSE · STRUCTURE_* · help BUILD · other-class upgrades
+**Does not open:** CONNECT · STRUCTURE_* · help BUILD · other-class upgrades
 
 S5 increases one built dimension. An owned public workshop can be upgraded once. The room then saves 2 storage on CONSTRUCT and REPAIR.
 
@@ -43,7 +43,8 @@ S5 increases one built dimension. An owned public workshop can be upgraded once.
 ## Out of S5
 
 ```text
-REPURPOSE CONNECT RESTORE
+REPURPOSE — closed in [GC2-S6-REPURPOSE.md](GC2-S6-REPURPOSE.md)
+CONNECT RESTORE
 other-class UPGRADE
 STRUCTURE_*
 Chamber help BUILD

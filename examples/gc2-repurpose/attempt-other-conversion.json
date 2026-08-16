@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc2-s6",
+  "catalog_id": "construction-catalog/gc2-s6",
+  "operation": "REPURPOSE",
+  "from_class": "storage_bay",
+  "to_class": "workshop",
+  "entity_id": "entity.storage-1",
+  "room_hidden": false,
+  "owned": true,
+  "expected": { "outcome": "REJECT", "reason": "conversion", "note": "Other conversions are forbidden." }
+}

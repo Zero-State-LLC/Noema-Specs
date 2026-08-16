@@ -1,0 +1,21 @@
+{
+  "schema_version": "construction-catalog/gc2-s6",
+  "catalog_id": "construction-catalog/gc2-s6",
+  "slice_id": "gc2-s6",
+  "authority": "docs/GC2-S6-REPURPOSE.md",
+  "rfc": "rfcs/RFC-0057-workshop-repurpose.md",
+  "extends": "construction-catalog/gc2-s5",
+  "verb": "BUILD",
+  "operation": "REPURPOSE",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_repurpose": false,
+  "from_class": "workshop",
+  "to_class": "storage_bay",
+  "keep_entity_id": true,
+  "repurpose_cost": { "energy": 4, "compute": 2, "storage": 2, "influence": 1 },
+  "hidden_repurpose": false,
+  "other_conversions": false
+}
