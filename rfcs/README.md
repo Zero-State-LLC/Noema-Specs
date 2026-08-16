@@ -51,6 +51,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0039](RFC-0039-preferred-counterparty.md) | **Accepted** | GC3-S7: waive TRADE_CAUTION for live RELIABLE; no auto-accept |
 | [RFC-0040](RFC-0040-engineer-quality.md) | **Accepted** | GC1-S2: same-asset Engineer REPAIR +5 (total +20, cap 100) |
 | [RFC-0041](RFC-0041-institution-contest-party.md) | **Accepted** | GC7-S2: institution contest party via occupied office; treasury pays |
+| [RFC-0042](RFC-0042-information-contest.md) | **Accepted** | GC7-S3: INFORMATION_CONTEST on visible public ARTIFACT; INSPECT seal |
 
 ## Required review lenses
 
