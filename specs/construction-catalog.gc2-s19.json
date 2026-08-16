@@ -1,0 +1,21 @@
+{
+  "schema_version": "construction-catalog/gc2-s19",
+  "catalog_id": "construction-catalog/gc2-s19",
+  "slice_id": "gc2-s19",
+  "authority": "docs/GC2-S19-ROUTE-LINK-CYCLE.md",
+  "rfc": "rfcs/RFC-0078-route-link-cycle.md",
+  "extends": "construction-catalog/gc2-s18",
+  "verb": "BUILD",
+  "operation": "CONSTRUCT",
+  "class_id": "route_link",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_progress": false,
+  "cycles": 1,
+  "scar_on_progress_dismantle": false,
+  "hidden_construct": false,
+  "waiver_in_progress": false,
+  "new_exits": false
+}

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0078 Accepted / GC2-S19:** public `route_link` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S1 cargo waiver applies only after promotion. CONNECT dest stays the S12 pin. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0077 Accepted / GC2-S18:** public `archive_annex` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S4 attention discount applies only after promotion. WATCH silent. Help still omits BUILD and ATTEST.
 
 ### Added

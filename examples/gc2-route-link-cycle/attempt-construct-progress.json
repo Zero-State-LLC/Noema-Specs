@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s19",
+  "catalog_id": "construction-catalog/gc2-s19",
+  "operation": "CONSTRUCT",
+  "class_id": "route_link",
+  "room_hidden": false,
+  "entity_id": "entity.route-link.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": true, "live": false, "same_entity": true, "new_exit": false, "note": "Public route_link CONSTRUCT starts IN_PROGRESS." }
+}
