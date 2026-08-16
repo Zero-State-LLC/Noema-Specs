@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-attempt.gc1-s4.schema.json",
+  "title": "NOEMA GC1-S4 prior-work attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "track", "recognized", "maintained", "prior_work", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s4" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s4" },
+    "track": { "enum": ["track.explorer.01", "track.surveyor.01", "track.broker.01"] },
+    "recognized": { "type": "boolean" },
+    "maintained": { "type": "boolean" },
+    "prior_work": { "type": "boolean" },
+    "hostile": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["attention", "caution_extra"],
+      "properties": {
+        "attention": { "type": "integer" },
+        "caution_extra": { "type": "integer" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

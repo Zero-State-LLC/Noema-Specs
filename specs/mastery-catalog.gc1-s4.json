@@ -1,0 +1,19 @@
+{
+  "schema_version": "mastery-catalog/gc1-s4",
+  "catalog_id": "mastery-catalog/gc1-s4",
+  "slice_id": "gc1-s4",
+  "authority": "docs/GC1-S4-PRIOR-WORK.md",
+  "rfc": "rfcs/RFC-0044-prior-work-benefits.md",
+  "extends": "mastery-catalog/gc1-s3",
+  "recognition_enabled": true,
+  "decay_enabled": true,
+  "watch_titles": false,
+  "new_verbs": [],
+  "class_discount": false,
+  "seal_bypass": false,
+  "look_attention": 1,
+  "inspect_attention": 2,
+  "repeat_look_attention": 0,
+  "repeat_inspect_attention": 0,
+  "broker_waives_caution": true
+}

@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc1-s4",
+  "catalog_id": "mastery-catalog/gc1-s4",
+  "track": "track.explorer.01",
+  "recognized": true,
+  "maintained": true,
+  "prior_work": true,
+  "expected": { "attention": 0, "caution_extra": 0, "note": "Repeat LOOK of a known room is free." }
+}

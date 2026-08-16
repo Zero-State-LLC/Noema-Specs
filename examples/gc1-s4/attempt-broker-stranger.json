@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc1-s4",
+  "catalog_id": "mastery-catalog/gc1-s4",
+  "track": "track.broker.01",
+  "recognized": true,
+  "maintained": true,
+  "prior_work": false,
+  "hostile": true,
+  "expected": { "attention": 0, "caution_extra": 1, "note": "Stranger still pays TRADE_CAUTION." }
+}

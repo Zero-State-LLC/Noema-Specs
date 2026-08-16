@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc1-s4",
+  "catalog_id": "mastery-catalog/gc1-s4",
+  "track": "track.broker.01",
+  "recognized": true,
+  "maintained": true,
+  "prior_work": true,
+  "hostile": true,
+  "expected": { "attention": 0, "caution_extra": 0, "note": "Prior counterparty waives TRADE_CAUTION." }
+}
