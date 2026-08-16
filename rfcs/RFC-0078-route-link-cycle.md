@@ -59,4 +59,4 @@ Ignore `in_progress` on route links (treat every link as live immediately, inclu
 
 ## Unresolved
 
-Third-and-later co-owners. Comms cycle expiry.
+Second co-owner is [RFC-0079](RFC-0079-second-co-owner.md). Fourth-and-later co-owners. Comms cycle expiry.

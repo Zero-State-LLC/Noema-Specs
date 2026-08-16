@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0079 Accepted / GC2-S20:** `BUILD.SHARE` may name a second entered Player (`co_owner_2_id`). A third SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0078 Accepted / GC2-S19:** public `route_link` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S1 cargo waiver applies only after promotion. CONNECT dest stays the S12 pin. WATCH silent. Help still omits BUILD.
 
 ### Added
