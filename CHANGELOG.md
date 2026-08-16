@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **WATCH Phosphor Glyph Atlas v0.1 locked:** `room_partial` is a three-sided open square; `player_multi` is two stacked diamonds; `player_cluster` is 4×4 + 2×2 bright core. Drawing order exits → rooms → players → pulses. Pure Canvas 2D paths. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.5.
+
 ### Added
 
 - **WATCH Phosphor Cartography (optional):** Canvas 2D 320×180 sketch of the same `watch-live/1.0` public snapshot. TEXT remains default and complete. Glyph Atlas v0.1. No new fields, no WebGL, no version pin. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.
