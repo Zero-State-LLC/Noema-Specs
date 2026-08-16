@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc10-s2",
+  "catalog_id": "pressure-catalog/gc10-s2",
+  "operation": "REPAIR",
+  "scar": true,
+  "expected": { "outcome": "REJECT", "reason": "irreversible", "note": "A scar cannot be repaired." }
+}

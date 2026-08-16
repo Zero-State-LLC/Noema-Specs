@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc10-s2",
+  "catalog_id": "pressure-catalog/gc10-s2",
+  "operation": "DISMANTLE",
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "leaves_scar": true, "note": "Public dismantle leaves a scar." }
+}
