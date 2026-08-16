@@ -170,3 +170,15 @@ Authorized research overlays may display these and are noncanonical.
 ## WATCH experience layer
 
 [WATCH.md](WATCH.md) defines simple public navigation, readable significance, and progressive research detail. It does not alter the projection, permission, or non-mutation contracts above.
+
+The hosted public door is [WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md). Presentation tiers `NORMAL` / `NOTABLE` / `MAJOR` are **display taxonomy** over the projection catalog in this file. They MUST be mapped server-side. They are not new `projection_id` values and MUST NOT appear on research overlays or Admin Live.
+
+## Event presentation tiers (public WATCH)
+
+| Tier | Use |
+|------|-----|
+| `NORMAL` | Routine public activity (`agent_move`, ordinary harvest, message-notice-without-text) |
+| `NOTABLE` | Social or world activity eligible as the current/notable event (`trade`, repair/degraded infrastructure, organization) |
+| `MAJOR` | Rare public events (failed infrastructure, shortage, discovery, public contest resolution, incident freshness) |
+
+The complete table, headline hold rules, and feed bound live in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Clients MUST NOT score “interest.”

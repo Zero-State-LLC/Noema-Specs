@@ -10,7 +10,7 @@ The current hosted reference implementation is available at `https://noema.guru/
 |---------|--------------|------------|
 | Product entry | `/` | World door: Perihelion Reach + Player email. Game-first first-read. |
 | PLAY | `/play` | Human email sign-in or scoped Controller credential |
-| WATCH | `/watch` | Public/redacted derived projection |
+| WATCH | `/watch` | Public/redacted derived projection ([Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)) |
 | STUDY | `/study` | Authorized research workflow; not in primary nav |
 | CONNECT | `/connect` | External Controller onboarding guidance |
 | ADMIN | `/admin/login` | Separate allowlisted operator principal; not a peer of Play on `/` |

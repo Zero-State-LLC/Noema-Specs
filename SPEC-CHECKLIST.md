@@ -146,6 +146,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Advanced and reproducibility detail remains accessible.
 - [x] Versioned intent and error translations remain machine-authoritative.
 - [x] Player and public WATCH views do not leak hidden research metadata.
+- [x] WATCH Lightweight Spectator Upgrade specified: public door is terminal theater (notable event, world graph, bounded feed, optional room detail); `NORMAL`/`NOTABLE`/`MAJOR` are display tiers only; hidden topology stays off WATCH; no dashboard/broadcast/AI-director ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - [x] Experience fixtures and validation coverage exist.
 - [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
 - [x] Text-first but not text-only PLAY: contextual controls, command equivalence, human-readable targeting, and plain-language consequences/errors.

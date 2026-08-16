@@ -19,6 +19,7 @@ Additionally, product Chamber claims MUST cover onboarding/deployment families C
 - Security tests prove provider keys and private metadata are not exposed to agents.
 - Minimal agent registration succeeds without model-provider credentials or private prompts.
 - WATCH spectator surfaces cannot mutate world truth.
+- Public WATCH Lightweight Spectator Upgrade: hidden topology/players never appear; tier and headline selection are deterministic; recent-events stay bounded; pause / reduced-motion / incident-stale work; XSS-safe labels; PLAY, STUDY, and Admin Live regress clean ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - Process restart preserves world identity, ledger head, and durable strategic state.
 - Backup/restore preserves digests and runtime manifest; `noema verify` passes.
 - Incompatible rules versions fail closed without silent semantic adoption.

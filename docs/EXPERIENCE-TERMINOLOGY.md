@@ -45,5 +45,10 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | World.status PAUSED | Maintenance — play actions paused |
 | World health DEGRADED | Something operational is unhealthy |
 | RECOVERY_REQUIRED | World is stopped until operators restore it |
+| WATCH Lightweight Spectator Upgrade (informal “WATCH v1.5”) | Public spectator window — not a version pin |
+| Current / notable event | The one headline on WATCH |
+| Recent events | The short public event list on WATCH |
+| World graph | Public sites and public connections on WATCH |
+| Event presentation tier | NORMAL / NOTABLE / MAJOR display rank |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.
