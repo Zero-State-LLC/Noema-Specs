@@ -579,27 +579,76 @@ Palette: black / blue-black ground; copper / amber marks only.
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.
 
-### Glyph Atlas (NOEMA Phosphor Glyph Atlas v0.1)
+### 18.5 Glyph Atlas (assets)
 
-Color model: transparent + dim copper + bright copper/amber.  
-Delivery: code (`ImageData` / path / bitmaps). Optional tiny base64 only if necessary. Cartography assets < 200 KB. Cartography JS < 100 KB.
+**Name:** NOEMA Phosphor Glyph Atlas v0.1  
+**Cell size:** 8×8 logical pixels (preferred). 12×12 permitted only if 8×8 is illegible. Larger forbidden.  
+**Color model:** transparent + dim copper + bright copper/amber only.
 
-Required glyphs:
+```text
+GROUND  #0a0e14
+DIM     rgba(196, 122, 58, 0.45)
+FULL    #c47a3a
+BRIGHT  #e8a050
+```
 
-- `room_empty`, `room_known`, `room_active`, `room_partial`
-- `player_single` (1), `player_multi` (2–9), `player_cluster` (≥10)
-- `exit`, `exit_active` (recent public move on that edge)
-- `pulse_normal`, `pulse_notable`, `pulse_major`
+**Delivery preference:**
 
-Epistemic mapping:
+1. Pure code (`ImageData` or direct Canvas 2D path drawing). Zero external files preferred.
+2. Optional tiny base64 data-URI only if necessary. Total cartography assets remain < 200 KB. Cartography JS < 100 KB.
 
-- not in the public snapshot → omit
-- known quiet → `room_empty` / `room_known`, dim
-- known active → `room_active`, brighter
-- recent public event → corresponding pulse over the room
-- player count > 0 → one `player_*` glyph at the node
+**Required named glyphs:**
 
-No resource icons, decorative flourishes, or pre-baked animation frames. Pulses are generated at draw time.
+| ID | Purpose | Visual form |
+|----|---------|-------------|
+| `room_empty` | Known public site, quiet | hollow square |
+| `room_known` | Known public site | soft filled square |
+| `room_active` | Known + public activity | bright filled square |
+| `room_partial` | Partial public knowledge (rare) | three-sided open square |
+| `player_single` | Exactly one public player | small diamond |
+| `player_multi` | 2–9 public players | two stacked diamonds |
+| `player_cluster` | ≥10 public players | 4×4 solid + brighter 2×2 core |
+| `exit` | Public exit | 1 px line |
+| `exit_active` | Exit used by recent public move | brighter 1 px line (transient) |
+| `pulse_normal` | Transient NORMAL event | soft expand (generated at draw time) |
+| `pulse_notable` | Transient NOTABLE event | stronger expand |
+| `pulse_major` | Transient MAJOR event | sharp ring + short afterimage |
+
+**Hard rules:**
+
+- Every glyph MUST remain identifiable at logical cell size with no anti-aliasing.
+- No portraits, resource icons, faction marks, or decorative flourishes.
+- No pre-baked animation frames. Pulses are generated at draw time from scale + alpha.
+- Certainty and activity are expressed only by glyph choice + brightness/alpha.
+- **Drawing order:** exits → rooms → players → pulses.
+
+**Epistemic mapping (mandatory):**
+
+```text
+not in public snapshot     → omit entirely
+known, quiet               → room_empty / room_known, dim
+known, active              → room_active, brighter
+recent public event        → corresponding pulse over the room
+player count > 0           → player_* glyph at the node
+```
+
+**Example public fragment** (illustrative labels only; live worlds use their own public rooms):
+
+```text
+A  active + player_multi (3)
+B  room_known
+C  active + player_single
+D  room_empty
+Exits: A–B, A–C, B–D
+
+        [A]────[C]
+         │
+        [B]
+         │
+        [D]
+```
+
+A is brightest. C carries a single diamond. B is medium fill. D is hollow. Lines are dim copper; a recent public move on an edge lights it briefly as `exit_active`.
 
 ### Tests
 
