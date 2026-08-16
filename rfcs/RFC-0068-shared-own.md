@@ -56,4 +56,4 @@ Ignore `SHARE` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-CONNECT dest pin is [RFC-0071](RFC-0071-connect-dest.md). Third-and-later co-owners. Other-class multi-cycle.
+CONNECT dest pin is [RFC-0071](RFC-0071-connect-dest.md). Second co-owner is [RFC-0079](RFC-0079-second-co-owner.md). Fourth-and-later co-owners.
