@@ -248,7 +248,8 @@ GC2-S4 closed: archive_annex saves 1 attention on in-room INSPECT/ATTEST
 GC2-S5 closed: BUILD.UPGRADE owned public workshop; storage save 2; once
 GC2-S6 closed: BUILD.REPURPOSE owned public workshop → storage_bay; same entity_id
 GC2-S7 closed: 12 idle committed cycles → UNCLAIMED; anyone may DISMANTLE
-CONNECT, RESTORE
+GC2-S8 closed: BUILD.RESTORE owned public UNCLAIMED; condition cap 50; scars stay dead
+CONNECT
 institution / shared ownership
 multi-cycle projects
 first-world PLAY advertising BUILD

@@ -68,6 +68,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0056](RFC-0056-workshop-upgrade.md) | **Accepted** | GC2-S5: workshop UPGRADE storage save 2; once |
 | [RFC-0057](RFC-0057-workshop-repurpose.md) | **Accepted** | GC2-S6: workshop → storage_bay REPURPOSE; same entity_id |
 | [RFC-0058](RFC-0058-abandonment.md) | **Accepted** | GC2-S7: 12 idle cycles → UNCLAIMED; anyone may DISMANTLE |
+| [RFC-0059](RFC-0059-restore.md) | **Accepted** | GC2-S8: owner RESTORE of UNCLAIMED; scars stay dead |
 
 ## Required review lenses
 

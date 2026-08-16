@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s8",
+  "catalog_id": "construction-catalog/gc2-s8",
+  "operation": "RESTORE",
+  "unclaimed": true,
+  "owned": false,
+  "scar": false,
+  "expected": { "outcome": "REJECT", "reason": "owner", "note": "Strangers cannot reclaim." }
+}

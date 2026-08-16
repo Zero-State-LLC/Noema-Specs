@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-attempt.gc2-s8.schema.json",
+  "title": "NOEMA GC2-S8 RESTORE attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc2-s8" },
+    "catalog_id": { "const": "construction-catalog/gc2-s8" },
+    "operation": { "const": "RESTORE" },
+    "unclaimed": { "type": "boolean" },
+    "owned": { "type": "boolean" },
+    "scar": { "type": "boolean" },
+    "room_hidden": { "type": "boolean" },
+    "condition": { "type": "integer", "minimum": 0 },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "condition": { "type": "integer" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

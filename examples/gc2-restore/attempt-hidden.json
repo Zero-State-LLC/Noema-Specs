@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s8",
+  "catalog_id": "construction-catalog/gc2-s8",
+  "operation": "RESTORE",
+  "unclaimed": true,
+  "owned": true,
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no restore." }
+}

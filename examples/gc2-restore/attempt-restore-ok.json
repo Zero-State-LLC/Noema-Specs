@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc2-s8",
+  "catalog_id": "construction-catalog/gc2-s8",
+  "operation": "RESTORE",
+  "unclaimed": true,
+  "owned": true,
+  "scar": false,
+  "room_hidden": false,
+  "condition": 100,
+  "expected": { "outcome": "ACCEPT", "condition": 50, "note": "Owner restores UNCLAIMED; condition capped at 50." }
+}

@@ -3555,6 +3555,59 @@ def check_gc2_s7(Draft202012Validator) -> None:
     ok("GC2-S7 abandonment: catalog, attempt fixtures, RFC-0058 Accepted")
 
 
+def evaluate_gc2_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("room_hidden") or catalog.get("hidden_restore"):
+        return "REJECT", "hidden", None
+    if attempt.get("scar") or catalog.get("scar_restore"):
+        return "REJECT", "scar", None
+    if not attempt.get("unclaimed"):
+        return "REJECT", "claimed", None
+    if attempt.get("owned") is False:
+        return "REJECT", "owner", None
+    cap = int(catalog.get("restore_condition_cap") or 50)
+    current = int(attempt.get("condition") or 0)
+    return "ACCEPT", None, min(current, cap)
+
+
+def check_gc2_s8(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s8.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s8.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s8.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S8 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_restore") or catalog.get("scar_restore"):
+        fail("GC2-S8 must not add help BUILD, new verbs, WATCH restore, or scar restore")
+    rfc = (ROOT / "rfcs" / "RFC-0059-restore.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0059 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S8-RESTORE.md").read_text(encoding="utf-8")
+    if "RESTORE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S8 must keep RESTORE on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-restore-ok.json",
+        "attempt-scar-reject.json",
+        "attempt-not-owner.json",
+        "attempt-not-unclaimed.json",
+        "attempt-hidden.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-restore" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, cond = evaluate_gc2_s8(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("condition") is not None and cond != exp["condition"]:
+            fail(f"{name}: condition {cond} expected {exp['condition']}")
+    ok("GC2-S8 RESTORE: catalog, attempt fixtures, RFC-0059 Accepted")
+
+
+
 
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
@@ -6507,6 +6560,7 @@ def main() -> None:
     check_gc2_s5(Draft202012Validator)
     check_gc2_s6(Draft202012Validator)
     check_gc2_s7(Draft202012Validator)
+    check_gc2_s8(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)
