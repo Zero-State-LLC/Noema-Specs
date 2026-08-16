@@ -3777,6 +3777,56 @@ def check_gc2_s11(Draft202012Validator) -> None:
     ok("GC2-S11 shared ownership: catalog, attempt fixtures, RFC-0068 Accepted")
 
 
+def evaluate_gc2_s12(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {"new_exit": False}
+    if attempt.get("room_hidden") or attempt.get("dest_hidden") or catalog.get("hidden_dest") or attempt.get("public_pair") is False:
+        return "REJECT", "not_observable", extra
+    if attempt.get("steward") is False:
+        return "REJECT", "not_owner", extra
+    extra["same_entity"] = True
+    return "ACCEPT", None, extra
+
+
+def check_gc2_s12(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s12.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s12.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s12.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S12 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_connect") or catalog.get("new_exits") or catalog.get("leak_topology"):
+        fail("GC2-S12 must not add help BUILD, new verbs, WATCH connect, new exits, or topology leak")
+    rfc = (ROOT / "rfcs" / "RFC-0071-connect-dest.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0071 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S12-CONNECT.md").read_text(encoding="utf-8")
+    if "CONNECT" not in slice_doc or "NOT_OBSERVABLE" not in slice_doc:
+        fail("GC2-S12 must keep CONNECT dest pin and NOT_OBSERVABLE")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-connect-ok.json",
+        "attempt-hidden-dest-reject.json",
+        "attempt-one-way-reject.json",
+        "attempt-stranger-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-connect" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s12(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("same_entity") is not None and extra.get("same_entity") != exp["same_entity"]:
+            fail(f"{name}: same_entity mismatch")
+        if exp.get("new_exit") is not None and extra.get("new_exit") != exp["new_exit"]:
+            fail(f"{name}: new_exit {extra.get('new_exit')} expected {exp['new_exit']}")
+    ok("GC2-S12 CONNECT dest pin: catalog, attempt fixtures, RFC-0071 Accepted")
+
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -7120,6 +7170,7 @@ def main() -> None:
     check_gc2_s9(Draft202012Validator)
     check_gc2_s10(Draft202012Validator)
     check_gc2_s11(Draft202012Validator)
+    check_gc2_s12(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s12",
+  "catalog_id": "construction-catalog/gc2-s12",
+  "slice_id": "gc2-s12",
+  "authority": "docs/GC2-S12-CONNECT.md",
+  "rfc": "rfcs/RFC-0071-connect-dest.md",
+  "extends": "construction-catalog/gc2-s11",
+  "verb": "BUILD",
+  "operation": "CONNECT",
+  "class_id": "route_link",
+  "new_exits": false,
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_connect": false,
+  "hidden_dest": false,
+  "leak_topology": false,
+  "cost_compute": 1
+}

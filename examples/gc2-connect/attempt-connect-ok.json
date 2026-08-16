@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s12",
+  "catalog_id": "construction-catalog/gc2-s12",
+  "operation": "CONNECT",
+  "room_hidden": false,
+  "dest_hidden": false,
+  "public_pair": true,
+  "steward": true,
+  "expected": { "outcome": "ACCEPT", "same_entity": true, "new_exit": false, "note": "Public two-way neighbor may be pinned." }
+}

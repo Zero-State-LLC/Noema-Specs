@@ -252,7 +252,7 @@ GC2-S8 closed: BUILD.RESTORE owned public UNCLAIMED; condition cap 50; scars sta
 GC2-S9 closed: public relay CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 GC2-S10 closed: BUILD.VEST personal public constructible to occupied OPERATE_NAMED_ASSET; same entity_id
 GC2-S11 closed: BUILD.SHARE one entered Player as co-owner; same entity_id; once
-CONNECT
+GC2-S12 closed: BUILD.CONNECT dest pin on public route_link; existing two-way public neighbor; no new exit
 third-and-later co-owners
 first-world PLAY advertising BUILD
 runtime implementation
