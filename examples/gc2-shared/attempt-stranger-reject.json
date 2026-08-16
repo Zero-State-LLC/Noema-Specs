@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s11",
+  "catalog_id": "construction-catalog/gc2-s11",
+  "operation": "SHARE",
+  "room_hidden": false,
+  "personal_owner": false,
+  "already_shared": false,
+  "partner_entered": true,
+  "expected": { "outcome": "REJECT", "reason": "not_owner", "note": "Only the sole personal owner may share." }
+}

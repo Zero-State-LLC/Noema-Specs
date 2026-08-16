@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-attempt.gc2-s11.schema.json",
+  "title": "NOEMA GC2-S11 shared ownership attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc2-s11" },
+    "catalog_id": { "const": "construction-catalog/gc2-s11" },
+    "operation": { "enum": ["SHARE"] },
+    "room_hidden": { "type": "boolean" },
+    "personal_owner": { "type": "boolean" },
+    "already_shared": { "type": "boolean" },
+    "partner_entered": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "same_entity": { "type": "boolean" },
+        "co_owners": { "type": "integer" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

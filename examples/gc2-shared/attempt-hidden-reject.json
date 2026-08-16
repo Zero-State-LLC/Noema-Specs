@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s11",
+  "catalog_id": "construction-catalog/gc2-s11",
+  "operation": "SHARE",
+  "room_hidden": true,
+  "personal_owner": true,
+  "already_shared": false,
+  "partner_entered": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms cannot share." }
+}

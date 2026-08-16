@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0067.  
 **Parent:** [GC2-S9-MULTICYCLE.md](GC2-S9-MULTICYCLE.md) · [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0067](../rfcs/RFC-0067-institution-own.md)  
-**Does not open:** institution-as-Player · SHARED · CONNECT · help BUILD · STRUCTURE_*
+**Does not open:** institution-as-Player · CONNECT · help BUILD · STRUCTURE_*  
+**Next:** [GC2-S11-SHARED.md](GC2-S11-SHARED.md)
 
 S10 lets an occupied named-asset office hold a public constructible. The org is not a Player.
 
@@ -45,7 +46,6 @@ S10 lets an occupied named-asset office hold a public constructible. The org is 
 
 ```text
 CONNECT
-SHARED ownership
 institution-as-Player
 STRUCTURE_*
 Chamber help BUILD
