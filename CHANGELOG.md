@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0048 Accepted / GC8-S4:** carrying harvested lots costs +1 MOVE energy. Empty travel stays 1. No courier verb. No route_link freight. WATCH silent.
+
+### Added
+
 - **RFC-0047 Accepted / GC8-S3:** WORN holdings lose 1 per committed cycle. SOUND never spoils. Exhaust clears grade. PLAY may say holdings spoiled. WATCH silent. No transport table.
 
 ### Added

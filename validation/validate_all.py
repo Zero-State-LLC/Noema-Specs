@@ -5345,6 +5345,49 @@ def check_gc8_s3(Draft202012Validator) -> None:
     ok("GC8-S3 lot spoilage: catalog, attempt fixtures, RFC-0047 Accepted")
 
 
+def evaluate_gc8_s4(attempt: dict, catalog: dict) -> dict:
+    storage = int(attempt.get("storage") or 0)
+    base = int(catalog.get("move_base_energy") or 1)
+    extra = int(catalog.get("move_cargo_extra") or 1)
+    threshold = int(catalog.get("cargo_below_storage") or 16)
+    carrying = storage < threshold
+    return {"move_energy": base + extra if carrying else base, "carrying": carrying}
+
+
+def check_gc8_s4(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s4.json")
+    catalog_schema = load_json(ROOT / "specs" / "economy-catalog.gc8-s4.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "economy-attempt.gc8-s4.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC8-S4 catalog invalid: {errs[0].message}")
+    if catalog.get("currency") or catalog.get("route_link") or catalog.get("new_verbs"):
+        fail("GC8-S4 must not add currency, route_link freight, or new verbs")
+    if catalog.get("watch_cargo") or catalog.get("move_base_energy") != 1 or catalog.get("move_cargo_extra") != 1:
+        fail("GC8-S4 must keep empty MOVE 1, cargo +1, and WATCH silent")
+    rfc = (ROOT / "rfcs" / "RFC-0048-cargo-move.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0048 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC8-S4-TRANSPORT.md").read_text(encoding="utf-8")
+    if "Carrying" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC8-S4 must keep empty travel S0 and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-empty-move.json",
+        "attempt-cargo-move.json",
+        "attempt-cargo-empty-hold.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc8-transport" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc8_s4(fixture, catalog)
+        exp = fixture["expected"]
+        if got["move_energy"] != exp["move_energy"] or got["carrying"] != exp.get("carrying", got["carrying"]):
+            fail(f"{name}: got {got} expected {exp}")
+    ok("GC8-S4 cargo MOVE: catalog, attempt fixtures, RFC-0048 Accepted")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -5970,6 +6013,7 @@ def main() -> None:
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)
     check_gc8_s3(Draft202012Validator)
+    check_gc8_s4(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)

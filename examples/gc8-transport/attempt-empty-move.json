@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc8-s4",
+  "catalog_id": "economy-catalog/gc8-s4",
+  "operation": "MOVE",
+  "storage": 16,
+  "expected": { "move_energy": 1, "carrying": false, "note": "Empty travel stays S0." }
+}

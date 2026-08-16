@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc8-s4",
+  "catalog_id": "economy-catalog/gc8-s4",
+  "operation": "MOVE",
+  "storage": 0,
+  "expected": { "move_energy": 2, "carrying": true, "note": "Full cargo still MOVE 2, not a scale." }
+}
