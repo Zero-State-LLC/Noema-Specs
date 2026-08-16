@@ -115,10 +115,16 @@ There is no paid “wipe reputation” action.
 | Dyadic | What A and B each know about their shared history; not automatically visible to C |
 | Public reputation | Only public events: formal breaches, public recognitions, public crime records, public reports |
 | Institutional | What that institution’s authorized records contain |
-| WATCH | Public reputation and public events only |
+| WATCH | Coarse public descriptor bands only, and only when rebuildable from already-public events (see below). Silence if evidence is insufficient |
 | GUI affordances | MUST NOT expose private edges of others (`NOT_OBSERVABLE`) |
 
 If Player B’s betrayal used a hidden route or hidden stockpile, the public descriptor may become `dangerous` or `deceptive` from the **public** contest/breach event. The projection MUST NOT name the hidden route or stockpile.
+
+### WATCH public descriptors
+
+WATCH MAY surface only **coarse public descriptor bands** (`reliable`, `dangerous`, `deceptive`, `unknown`, and the other listed bands) derived exclusively from already-public events: formal breaches, public recognitions, public crime records, public reports. WATCH MUST NOT surface private edges, dyadic-only memory, hidden routes, private inventories, or private `MESSAGE` text. If current public evidence is insufficient to support a band, the projection stays **silent** on descriptors and MAY show only the underlying public event line. Silence is absence, not a hint ([PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) leak rule).
+
+GC3-S0 / GC3-S1 remain **WATCH-empty** as closed hosted slices. This pin is the fail-closed product rule for any later public-descriptor surface. It does not add a reputation scalar or a `REMEMBER` / `REPUTE` verb.
 
 ---
 
@@ -161,7 +167,7 @@ No `REMEMBER` or `REPUTE` verb.
 | Surface | Rule |
 |---------|------|
 | PLAY | Own private edges; public descriptors of others; never hidden-fact text |
-| WATCH | Public descriptors and public events |
+| WATCH | Coarse public bands from public events only; else silent or the public event text |
 | STUDY | May capture relationship change trajectories; MUST NOT publish private message text by default |
 | Security | Partial-observability leak via “why is this button missing?” is forbidden. Unavailable trade/access uses observable reasons only |
 
@@ -198,7 +204,7 @@ deceptive descriptor as a distinct edge
 institution edges
 decay / rehabilitation bands
 trade-friction mechanics
-WATCH public descriptors
+WATCH public descriptors — closed: coarse bands from public events only; silence if insufficient; no private/dyadic leak
 ```
 
 ---

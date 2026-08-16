@@ -42,6 +42,7 @@
 - [x] GC1-S1 recognition (RFC-0005 Accepted): catalog, rebuild fixtures, validator. No benefits. No class tree. Hosted PLAY shipped (Noema #69).
 - [x] GC2-S0 construction pins (RFC-0006 Accepted): construct/dismantle catalog, attempt fixtures, existing events only. Hosted PLAY shipped (Noema #79). Chamber help still omits BUILD.
 - [x] GC3-S0 social memory (RFC-0007 Accepted): dyadic trade edges, no reputation scalar, leak-forbidden projection. Hosted PLAY shipped (Noema #70).
+- [x] Social-machine pins (spec only): short-session durable public/institutional mark (no TRACE verb); WATCH coarse public descriptor bands from public events only or silent; office conflict-precedence is published list or strict-subset scope else fail closed. GC3/GC4 closed slices unchanged.
 - [x] GC4-S0 office authority (RFC-0008 Accepted): existing founder/officer/member/advisor grants on ORG_*; no named-office freeze; no ROLE_* events. Hosted PLAY pin (Noema #71).
 - [x] GC5-S0 relay MESSAGE bands (RFC-0009 Accepted): same-room always delivers; long-range needs best live relay ≥ 25; UNREACHABLE does not leak topology. No new verbs. Hosted PLAY shipped (Noema #72).
 - [x] GC6-S0 discovery contradiction (RFC-0010 Accepted): archive vs live INSPECT; no QUEST; no oracle; WATCH empty. Archive-record source named (RFC-0015): explicit ARTIFACT claim fields. Perihelion has none; PLAY unprojected. No Genesis pack.

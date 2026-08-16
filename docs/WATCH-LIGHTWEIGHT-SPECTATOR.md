@@ -334,6 +334,7 @@ WATCH remains a **derived projection** ([SPECTATOR.md](SPECTATOR.md) hard rules,
 | No research metrics | No anomaly scores, detector confidence, cohorts |
 | No raw payloads | No internal event `payload` objects |
 | No client inference | Missing data is absence, not a hint |
+| No private social memory | Coarse public descriptor bands only, and only from already-public events; else silent ([SOCIAL-MEMORY.md](SOCIAL-MEMORY.md)). Reaffirms [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) |
 
 Agent POV and authenticated-observer modes stay defined in [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). This upgrade specifies the **public / anonymous** WATCH door. It MUST NOT widen Agent POV or research overlays.
 
