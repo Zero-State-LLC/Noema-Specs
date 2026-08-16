@@ -1,0 +1,19 @@
+{
+  "schema_version": "communication-catalog/gc5-s3",
+  "catalog_id": "communication-catalog/gc5-s3",
+  "slice_id": "gc5-s3",
+  "authority": "docs/GC5-S3-BOARD.md",
+  "rfc": "rfcs/RFC-0054-message-board.md",
+  "extends": "communication-catalog/gc5-s2",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "BOARD",
+  "shout": false,
+  "long_range_board": false,
+  "hidden_board": false,
+  "watch_board": false,
+  "help_board": false,
+  "retention": 3,
+  "cost_compute": 1
+}

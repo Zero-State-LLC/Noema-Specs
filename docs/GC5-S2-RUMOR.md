@@ -3,7 +3,7 @@
 **Status:** Executable specification. Runtime authorized with RFC-0028.  
 **Parent:** [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [GC5-S1-DELAY.md](GC5-S1-DELAY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0028](../rfcs/RFC-0028-rumor-provenance.md)  
-**Does not open:** `RUMOR` / `SHOUT` / `BOARD` verbs · rumor score · truth scanner · `event-catalog/0.3` · GC1-S2 benefits · Chamber help advertising
+**Does not open:** `RUMOR` / `SHOUT` / `BOARD` verbs · rumor score · truth scanner · `event-catalog/0.3` · GC1-S2 benefits · Chamber help advertising. Board surface is [GC5-S3-BOARD.md](GC5-S3-BOARD.md).
 
 S2 is the smallest increment that still satisfies scenario E’s *rumor* shape: uncertain information travels with a source lineage. It is not world truth.
 

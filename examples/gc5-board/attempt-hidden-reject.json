@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s3",
+  "catalog_id": "communication-catalog/gc5-s3",
+  "operation": "BOARD",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no board." }
+}

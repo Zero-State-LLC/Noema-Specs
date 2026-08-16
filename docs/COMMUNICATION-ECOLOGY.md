@@ -117,9 +117,9 @@ This is the substrate for acceptance scenario E. Ordinary `MESSAGE` semantics (s
 GC5-S0 closed: local = same room; long-range needs best live relay condition ≥ 25
 GC5-S1 closed: long-range ≥ 50 same-cycle; 25–49 delay 1 cycle; < 25 UNREACHABLE
 GC5-S2 closed: rumor is claim + MESSAGE lineage; no RUMOR verb / score
-scope/surface parameter enum on MESSAGE vs later operations
-SHOUT / BOARD surfaces
-retention defaults
+GC5-S3 closed: MESSAGE surface=BOARD; public room; last 3; WATCH silent
+SHOUT surface
+retention beyond 3
 ```
 
 Prefer extending `MESSAGE` parameters over a new verb.

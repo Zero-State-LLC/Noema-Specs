@@ -245,6 +245,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0051 Accepted: GC10-S2 irreversible scar. Public DISMANTLE leaves irreparable RUIN. Hidden rooms and pressure do not scar. WATCH silent.
 - [x] RFC-0052 Accepted: GC2-S3 defensive_work. +50 contest defense millipoints in-room. No HP. No new form. Help omits BUILD.
 - [x] RFC-0053 Accepted: GC2-S4 archive_annex. In-room INSPECT/ATTEST attention −1. No QUEST. Help omits BUILD.
+- [x] RFC-0054 Accepted: GC5-S3 MESSAGE board surface. Public room notices, last 3. WATCH silent. No BOARD/SHOUT verbs.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.
