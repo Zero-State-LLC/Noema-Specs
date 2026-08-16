@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/social-memory-rebuild.gc3-s3.schema.json",
+  "title": "NOEMA GC3-S3 institution-edge rebuild fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "subject_id", "viewer_role", "org_name", "events", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc3-s3" },
+    "catalog_id": { "const": "social-memory-catalog/gc3-s3" },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "viewer_role": { "enum": ["officer", "member", "other"] },
+    "viewer_id": { "type": "string" },
+    "org_name": { "type": "string" },
+    "handles": { "type": "object", "additionalProperties": { "type": "string" } },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event_id", "event_type"],
+        "properties": {
+          "event_id": { "type": "string" },
+          "event_type": { "type": "string" },
+          "cycle": { "type": "integer" },
+          "sequence": { "type": "integer" },
+          "payload": { "type": "object" }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "required": ["play_lines", "watch_lines"],
+      "properties": {
+        "play_lines": { "type": "array", "items": { "type": "string" } },
+        "watch_lines": { "type": "array", "maxItems": 0 },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

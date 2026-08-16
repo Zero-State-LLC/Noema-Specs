@@ -1,0 +1,16 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s6",
+  "catalog_id": "social-memory-catalog/gc3-s6",
+  "slice_id": "gc3-s6",
+  "authority": "docs/GC3-S6-DECEPTIVE.md",
+  "rfc": "rfcs/RFC-0038-deceptive-edge.md",
+  "evidence_events": ["AGREEMENT_BROKEN", "ATTEST"],
+  "ignored_events": ["TRADE_REJECTED", "CONTEST_DECLARED", "CONTEST_RESOLVED", "MESSAGE"],
+  "public_projection": false,
+  "watch_projection": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "deceptive_threshold": 1,
+  "deceptive_line": "You have found {name} deceptive.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "reputation"]
+}

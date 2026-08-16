@@ -1,0 +1,32 @@
+{
+  "slice_id": "gc3-s6",
+  "catalog_id": "social-memory-catalog/gc3-s6",
+  "subject_id": "player.vesper",
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.s6.r1",
+      "event_type": "TRADE_REJECTED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": { "trade_id": "trade.x", "reason": "DECLINED" }
+    },
+    {
+      "event_id": "evt.s6.r2",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": {
+        "contest_id": "contest.x",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "deceptive": {},
+    "play_lines": [],
+    "watch_lines": [],
+    "note": "Legal decline and contest resolve are not deceptive. Contest remains S1 danger only."
+  }
+}

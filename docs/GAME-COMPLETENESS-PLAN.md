@@ -278,6 +278,8 @@ Rationale:
 
 **GC3-S0 — Dyadic trade memory.** [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md). RFC: [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md) (**Accepted**). Hosted PLAY shipped (Noema #70). No reputation integer.
 
+**GC3-S1–S6.** [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) through [GC3-S6-DECEPTIVE.md](GC3-S6-DECEPTIVE.md). RFCs 0022, 0034–0038 **Accepted**. Spec-only except S0/S1 hosted PLAY. S0/S1 stay WATCH-empty.
+
 **GC4–GC10 S0** are specified and hosted. Closeout: [GC-S0-CLOSEOUT-2026-08-13.md](GC-S0-CLOSEOUT-2026-08-13.md). Next specification order: [GC-S1-ORDER.md](GC-S1-ORDER.md). `COMMIT.ATTEST` is RFC-0020 (spec only).
 
 Why GC1-S0 was first, historically:

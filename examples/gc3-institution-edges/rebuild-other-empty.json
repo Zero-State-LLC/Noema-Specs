@@ -1,0 +1,23 @@
+{
+  "slice_id": "gc3-s3",
+  "catalog_id": "social-memory-catalog/gc3-s3",
+  "subject_id": "org.line",
+  "viewer_role": "other",
+  "viewer_id": "player.oriel",
+  "org_name": "Line",
+  "handles": { "player.vesper": "Vesper" },
+  "events": [
+    {
+      "event_id": "evt.s3.o1",
+      "event_type": "ORG_MEMBER_ADD",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": { "org_id": "org.line", "agent_id": "player.vesper" }
+    }
+  ],
+  "expected": {
+    "play_lines": [],
+    "watch_lines": [],
+    "note": "Non-members do not see institutional standing."
+  }
+}

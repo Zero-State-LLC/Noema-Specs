@@ -3175,6 +3175,411 @@ def check_gc3_s1(Draft202012Validator) -> None:
     ok("GC3-S1 betrayal: catalog, rebuild fixtures, RFC-0022 Accepted, no reputation scalar")
 
 
+def _gc3_attest_contradictions(events: list) -> list[tuple[str, str]]:
+    """Return (earlier_attester, later_event_id) for opposite public ATTEST pairs."""
+    by_subject: dict[str, list] = {}
+    for ev in events:
+        if ev.get("event_type") != "ATTEST":
+            continue
+        payload = ev.get("payload") or {}
+        if payload.get("visibility") != "PUBLIC":
+            continue
+        sid = payload.get("subject_entity_id")
+        if sid:
+            by_subject.setdefault(str(sid), []).append(ev)
+    out: list[tuple[str, str]] = []
+    for group in by_subject.values():
+        ordered = sorted(
+            group,
+            key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+        )
+        for i, later in enumerate(ordered):
+            later_claim = (later.get("payload") or {}).get("archive_claim")
+            later_id = later.get("event_id")
+            if not later_claim or not later_id:
+                continue
+            for earlier in ordered[:i]:
+                early_claim = (earlier.get("payload") or {}).get("archive_claim")
+                attester = (earlier.get("payload") or {}).get("attester_id")
+                if attester and early_claim and early_claim != later_claim:
+                    out.append((str(attester), str(later_id)))
+                    break
+    return out
+
+
+def rebuild_gc3_s2(fixture: dict, catalog: dict) -> dict:
+    handles = fixture.get("handles") or {}
+    dangerous: dict[str, set[str]] = {}
+    deceptive: dict[str, set[str]] = {}
+    seen: set[str] = set()
+    ignored = set(catalog.get("ignored_events") or [])
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        et = ev.get("event_type")
+        if et in ignored:
+            continue
+        payload = ev.get("payload") or {}
+        if et == "CONTEST_RESOLVED":
+            evidence = payload.get("contest_id") or ev.get("event_id")
+            actor = payload.get("declarer_id")
+            if evidence and actor and evidence not in seen:
+                seen.add(str(evidence))
+                dangerous.setdefault(str(actor), set()).add(str(evidence))
+        elif et == "CRIME_DETECTED" and payload.get("visibility") == "PUBLIC":
+            evidence = payload.get("detection_id") or ev.get("event_id")
+            actor = payload.get("subject_id")
+            if evidence and actor and evidence not in seen:
+                seen.add(str(evidence))
+                dangerous.setdefault(str(actor), set()).add(str(evidence))
+        elif et == "AGREEMENT_BROKEN" and payload.get("visibility") == "PUBLIC":
+            evidence = payload.get("breach_id") or ev.get("event_id")
+            actor = payload.get("broken_by")
+            if evidence and actor and evidence not in seen:
+                seen.add(str(evidence))
+                deceptive.setdefault(str(actor), set()).add(str(evidence))
+    for attester, eid in _gc3_attest_contradictions(ordered):
+        if eid not in seen:
+            seen.add(eid)
+            deceptive.setdefault(attester, set()).add(eid)
+    watch_lines = []
+    for other in sorted(set(dangerous) | set(deceptive)):
+        name = handles.get(other) or other
+        if other in dangerous:
+            watch_lines.append(catalog["dangerous_line"].replace("{name}", name))
+        if other in deceptive:
+            watch_lines.append(catalog["deceptive_line"].replace("{name}", name))
+    return {"watch_lines": watch_lines}
+
+
+def check_gc3_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s2.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.gc3-s2.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S2 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("s0_s1_watch") or catalog.get("reliable_band") or catalog.get("unknown_band"):
+        fail("GC3-S2 must not enable a reputation scalar, S0/S1 WATCH, reliable, or unknown")
+    if catalog.get("new_verbs"):
+        fail("GC3-S2 must not add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0034-watch-public-descriptors.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0034 must be Accepted")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in ("rebuild-public-contest.json", "rebuild-private-trades-silent.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-watch-public" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if got["watch_lines"] != exp["watch_lines"]:
+            fail(f"{name}: watch {got['watch_lines']} expected {exp['watch_lines']}")
+        blob = " ".join(got["watch_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+    ok("GC3-S2 WATCH public bands: catalog, rebuild fixtures, RFC-0034 Accepted")
+
+
+def rebuild_gc3_s3(fixture: dict, catalog: dict) -> dict:
+    org = fixture["subject_id"]
+    org_name = fixture.get("org_name") or org
+    handles = fixture.get("handles") or {}
+    viewer_role = fixture.get("viewer_role")
+    viewer_id = fixture.get("viewer_id")
+    trades: dict[str, set[str]] = {}
+    members: dict[str, str] = {}
+    danger: dict[str, set[str]] = {}
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        et = ev.get("event_type")
+        payload = ev.get("payload") or {}
+        if et == "TRADE_ACCEPTED" and payload.get("acting_for") == org:
+            tid = payload.get("trade_id") or ev.get("event_id")
+            # Org is the acting side; remember only the outside counterparty.
+            other = payload.get("counterparty_id")
+            if other and tid:
+                trades.setdefault(str(other), set()).add(str(tid))
+        elif et == "ORG_MEMBER_ADD" and payload.get("org_id") == org:
+            agent = payload.get("agent_id")
+            if agent:
+                members[str(agent)] = "member"
+        elif et == "ORG_MEMBER_REMOVE" and payload.get("org_id") == org:
+            agent = payload.get("agent_id")
+            if agent:
+                members[str(agent)] = "removed"
+        elif et == "CONTEST_RESOLVED" and (payload.get("defender_id") == org or payload.get("acting_for") == org):
+            evidence = payload.get("contest_id") or ev.get("event_id")
+            actor = payload.get("declarer_id")
+            if evidence and actor:
+                danger.setdefault(str(actor), set()).add(str(evidence))
+        elif et == "AGREEMENT_BROKEN" and org in (payload.get("party_ids") or []):
+            evidence = payload.get("breach_id") or ev.get("event_id")
+            actor = payload.get("broken_by")
+            if evidence and actor and actor != org:
+                danger.setdefault(str(actor), set()).add(str(evidence))
+    if viewer_role == "other":
+        return {"play_lines": [], "watch_lines": []}
+    play_lines = []
+    traded_at = int(catalog["traded_threshold"])
+    reliable_at = int(catalog["reliable_threshold"])
+
+    def emit(other: str, template: str) -> None:
+        if viewer_role == "member" and other != viewer_id:
+            return
+        name = handles.get(other) or other
+        play_lines.append(
+            template.replace("{org}", org_name).replace("{name}", name)
+        )
+
+    for other, tids in sorted(trades.items()):
+        n = len(tids)
+        if n >= reliable_at:
+            emit(other, catalog["reliable_line"])
+        elif n >= traded_at:
+            emit(other, catalog["traded_line"])
+    for other, state in sorted(members.items()):
+        emit(other, catalog["member_line"] if state == "member" else catalog["removed_line"])
+    for other, ids in sorted(danger.items()):
+        if ids:
+            emit(other, catalog["danger_line"])
+    return {"play_lines": play_lines, "watch_lines": []}
+
+
+def check_gc3_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s3.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.gc3-s3.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S3 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("watch_projection") or catalog.get("role_events") or catalog.get("new_verbs"):
+        fail("GC3-S3 must not enable a scalar, WATCH, ROLE_* , or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0035-institution-edges.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0035 must be Accepted")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in ("rebuild-org-trade.json", "rebuild-other-empty.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-institution-edges" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name}: lines {got['play_lines']} expected {exp['play_lines']}")
+        if got["watch_lines"] or exp["watch_lines"]:
+            fail(f"{name}: WATCH must be empty")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+    ok("GC3-S3 institution edges: catalog, rebuild fixtures, RFC-0035 Accepted")
+
+
+def rebuild_gc3_s4(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    as_of = int(fixture["as_of_cycle"])
+    handles = fixture.get("handles") or {}
+    decay = int(catalog["decay_cycles"])
+    rehab_need = int(catalog["rehab_trades"])
+    danger_last: dict[str, int] = {}
+    danger_ids: dict[str, str] = {}
+    trade_ids: dict[str, list[tuple[int, str]]] = {}
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        cycle = int(ev.get("cycle") or 0)
+        payload = ev.get("payload") or {}
+        et = ev.get("event_type")
+        if et == "CONTEST_RESOLVED":
+            victims = [payload.get("defender_id")]
+            declarer = payload.get("declarer_id")
+            if subject in victims and declarer and declarer != subject:
+                danger_last[str(declarer)] = cycle
+                danger_ids[str(declarer)] = str(payload.get("contest_id") or ev.get("event_id"))
+        elif et == "TRADE_ACCEPTED":
+            parties = {payload.get("proposer_id"), payload.get("counterparty_id")}
+            if subject in parties:
+                other = next((p for p in parties if p and p != subject), None)
+                tid = payload.get("trade_id") or ev.get("event_id")
+                if other and tid:
+                    trade_ids.setdefault(str(other), []).append((cycle, str(tid)))
+    play_lines = []
+    others = set(danger_last) | set(trade_ids)
+    for other in sorted(others):
+        last_d = danger_last.get(other)
+        trades = trade_ids.get(other) or []
+        live_danger = last_d is not None and (as_of - last_d) < decay
+        if live_danger:
+            after = [tid for cyc, tid in trades if last_d is not None and cyc > last_d]
+            if len(set(after)) >= rehab_need:
+                live_danger = False
+        last_t = max((c for c, _ in trades), default=None)
+        live_trade = last_t is not None and (as_of - last_t) < decay
+        n = len({tid for _, tid in trades}) if live_trade else 0
+        name = handles.get(other) or other
+        if n >= 3:
+            play_lines.append(f"You have found {name} reliable in trade.")
+        elif n >= 1:
+            play_lines.append(f"You have traded with {name}.")
+        if live_danger:
+            play_lines.append(f"You have found {name} dangerous.")
+    return {"play_lines": play_lines}
+
+
+def check_gc3_s4(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s4.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s4.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.gc3-s4.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S4 catalog invalid: {cerrs[0].message}")
+    if catalog.get("wipe_verb") or catalog.get("ledger_forget") or catalog.get("new_verbs"):
+        fail("GC3-S4 must not wipe, forget the ledger, or add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0036-decay-rehab.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0036 must be Accepted")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    for name in ("rebuild-decayed-danger.json", "rebuild-rehab-trades.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-decay-rehab" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s4(fixture, catalog)
+        exp = fixture["expected"]
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name}: lines {got['play_lines']} expected {exp['play_lines']}")
+    ok("GC3-S4 decay/rehab: catalog, rebuild fixtures, RFC-0036 Accepted")
+
+
+def evaluate_gc3_s5(attempt: dict, catalog: dict) -> dict:
+    extra = int(catalog["extra_compute"]) if attempt.get("live_hostile") else 0
+    return {
+        "extra_compute": extra,
+        "auto_reject": bool(catalog.get("auto_reject")),
+        "reason_code": catalog["reason_code"] if extra else None,
+    }
+
+
+def check_gc3_s5(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s5.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s5.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "social-memory-attempt.gc3-s5.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S5 catalog invalid: {cerrs[0].message}")
+    if catalog.get("auto_reject") or catalog.get("hide_affordance") or catalog.get("hidden_markup") or catalog.get("new_verbs"):
+        fail("GC3-S5 must not auto-reject, hide TRADE, markup in secret, or add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0037-trade-friction.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0037 must be Accepted")
+    if "auto-reject" not in rfc.lower() and "auto-refuse" not in rfc.lower():
+        fail("RFC-0037 must reject auto-refuse")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in ("attempt-live-danger.json", "attempt-no-edge.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-trade-friction" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = evaluate_gc3_s5(fixture, catalog)
+        exp = fixture["expected"]
+        if got["extra_compute"] != exp["extra_compute"] or got["auto_reject"] != exp["auto_reject"]:
+            fail(f"{name}: got {got} expected {exp}")
+        if got["reason_code"] != exp.get("reason_code"):
+            fail(f"{name}: reason {got['reason_code']} expected {exp.get('reason_code')}")
+    ok("GC3-S5 trade caution: catalog, attempt fixtures, RFC-0037 Accepted, no auto-refuse")
+
+
+def rebuild_gc3_s6(fixture: dict, catalog: dict) -> dict:
+    subject = fixture["subject_id"]
+    handles = fixture.get("handles") or {}
+    deceptive: dict[str, set[str]] = {}
+    seen: set[str] = set()
+    ignored = set(catalog.get("ignored_events") or [])
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    for ev in ordered:
+        et = ev.get("event_type")
+        if et in ignored:
+            continue
+        payload = ev.get("payload") or {}
+        if et == "AGREEMENT_BROKEN":
+            evidence = payload.get("breach_id") or ev.get("event_id")
+            broken = payload.get("broken_by")
+            parties = payload.get("party_ids") or []
+            if subject in parties and broken and broken != subject and evidence and evidence not in seen:
+                seen.add(str(evidence))
+                deceptive.setdefault(str(broken), set()).add(str(evidence))
+    for attester, eid in _gc3_attest_contradictions(ordered):
+        if attester != subject and eid not in seen:
+            seen.add(eid)
+            deceptive.setdefault(attester, set()).add(eid)
+    play_lines = []
+    out = {}
+    thresh = int(catalog["deceptive_threshold"])
+    for other, ids in sorted(deceptive.items()):
+        n = len(ids)
+        out[other] = {"count": n}
+        if n >= thresh:
+            name = handles.get(other) or other
+            play_lines.append(catalog["deceptive_line"].replace("{name}", name))
+    return {"deceptive": out, "play_lines": play_lines, "watch_lines": []}
+
+
+def check_gc3_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s6.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "social-memory-rebuild.gc3-s6.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S6 catalog invalid: {cerrs[0].message}")
+    if catalog.get("reputation_scalar") or catalog.get("watch_projection") or catalog.get("new_verbs"):
+        fail("GC3-S6 must not enable a scalar, WATCH, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0038-deceptive-edge.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0038 must be Accepted")
+    if "trade_rejected" not in rfc.lower():
+        fail("RFC-0038 must keep TRADE_REJECTED from becoming deceptive")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    for name in (
+        "rebuild-agreement-broken.json",
+        "rebuild-reject-ignored.json",
+        "rebuild-attest-contradiction.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc3-deceptive" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc3_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if got["deceptive"] != exp["deceptive"]:
+            fail(f"{name}: deceptive {got['deceptive']} expected {exp['deceptive']}")
+        if got["play_lines"] != exp["play_lines"]:
+            fail(f"{name}: lines {got['play_lines']} expected {exp['play_lines']}")
+        if got["watch_lines"]:
+            fail(f"{name}: WATCH must be empty on S6")
+        blob = " ".join(got["play_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+    ok("GC3-S6 deceptive: catalog, rebuild fixtures, RFC-0038 Accepted, rejects ignored")
+
+
 def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("org_active"):
         return "REJECT", "NOT_FOUND"
@@ -5085,6 +5490,11 @@ def main() -> None:
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
+    check_gc3_s2(Draft202012Validator)
+    check_gc3_s3(Draft202012Validator)
+    check_gc3_s4(Draft202012Validator)
+    check_gc3_s5(Draft202012Validator)
+    check_gc3_s6(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc4_s1(Draft202012Validator)
     check_gc4_s2(Draft202012Validator)

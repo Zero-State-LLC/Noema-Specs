@@ -1,0 +1,19 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s2",
+  "catalog_id": "social-memory-catalog/gc3-s2",
+  "slice_id": "gc3-s2",
+  "authority": "docs/GC3-S2-WATCH-PUBLIC.md",
+  "rfc": "rfcs/RFC-0034-watch-public-descriptors.md",
+  "evidence_events": ["CONTEST_RESOLVED", "CRIME_DETECTED", "AGREEMENT_BROKEN", "ATTEST"],
+  "ignored_events": ["TRADE_ACCEPTED", "TRADE_REJECTED", "MESSAGE", "CONTEST_DECLARED"],
+  "public_projection": true,
+  "watch_projection": true,
+  "s0_s1_watch": false,
+  "reliable_band": false,
+  "unknown_band": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "dangerous_line": "{name} is publicly dangerous.",
+  "deceptive_line": "{name} is publicly deceptive.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "reputation", "unknown"]
+}

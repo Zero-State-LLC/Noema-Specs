@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0034–0038 Accepted / GC3-S2–S6:** remaining SOCIAL-MEMORY SPEC GAP closed as spec-only slices. WATCH public bands from already-public events (else silent; S0/S1 stay off WATCH). Institution→player edges. Decay/rehab weights (12 cycles / 3 restitution trades; no wipe). Published +1 compute `TRADE_CAUTION` (no auto-refuse). Distinct deceptive edge (`AGREEMENT_BROKEN` / contradicted public `ATTEST`; `TRADE_REJECTED` ignored). No new verbs. No reputation scalar. No runtime in this change.
+
+### Added
+
 - **Social-machine pins:** (1) Deep Time usability — short-session Players MUST be able to leave one durable public/institutional mark; no `TRACE` verb. (2) SOCIAL-MEMORY — WATCH MAY show coarse public descriptor bands only from already-public events; silence if insufficient. (3) INSTITUTIONAL-AUTHORITY — office conflict-precedence is published list or strict-subset scope, else fail closed. No new authority families, verbs, or private-leak paths.
 
 ### Changed
