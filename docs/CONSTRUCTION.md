@@ -246,7 +246,8 @@ GC2-S2 closed: workshop saves 1 storage on in-room CONSTRUCT/REPAIR
 GC2-S3 closed: defensive_work adds 50 contest defense millipoints in-room
 GC2-S4 closed: archive_annex saves 1 attention on in-room INSPECT/ATTEST
 GC2-S5 closed: BUILD.UPGRADE owned public workshop; storage save 2; once
-REPURPOSE, CONNECT, RESTORE
+GC2-S6 closed: BUILD.REPURPOSE owned public workshop → storage_bay; same entity_id
+CONNECT, RESTORE
 institution / shared ownership
 abandonment timers
 multi-cycle projects

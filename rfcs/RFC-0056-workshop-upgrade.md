@@ -54,4 +54,4 @@ Ignore `UPGRADE` (`INVALID_REQUEST`). Workshop save stays 1.
 
 ## Unresolved
 
-REPURPOSE. Abandonment. RESTORE. CONNECT. Multi-cycle.
+REPURPOSE — closed in [GC2-S6-REPURPOSE.md](../docs/GC2-S6-REPURPOSE.md). Abandonment. RESTORE. CONNECT. Multi-cycle.

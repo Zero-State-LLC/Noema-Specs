@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0057 Accepted / GC2-S6:** `BUILD.REPURPOSE` on an owned public workshop. Closed table `workshop` → `storage_bay`. Same `entity_id`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0056 Accepted / GC2-S5:** `BUILD.UPGRADE` on an owned public workshop. Storage save becomes 2. Once. WATCH silent. Help still omits BUILD.
 
 ### Added

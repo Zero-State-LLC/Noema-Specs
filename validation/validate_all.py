@@ -3440,6 +3440,67 @@ def check_gc2_s5(Draft202012Validator) -> None:
     ok("GC2-S5 workshop UPGRADE: catalog, attempt fixtures, RFC-0056 Accepted")
 
 
+def evaluate_gc2_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]:
+    if attempt.get("room_hidden") or catalog.get("hidden_repurpose"):
+        return "REJECT", "hidden", None
+    if attempt.get("from_class") != catalog.get("from_class") or attempt.get("to_class") != catalog.get("to_class"):
+        return "REJECT", "conversion", None
+    if attempt.get("owned") is False:
+        return "REJECT", "owner", None
+    entity_id = attempt.get("entity_id")
+    if catalog.get("keep_entity_id") is False:
+        return "REJECT", "identity", None
+    return "ACCEPT", None, entity_id
+
+
+def check_gc2_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s6.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s6.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S6 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_repurpose"):
+        fail("GC2-S6 must not add help BUILD, new verbs, or WATCH repurpose")
+    if catalog.get("other_conversions") or catalog.get("from_class") != "workshop" or catalog.get("to_class") != "storage_bay":
+        fail("GC2-S6 conversion table is workshop → storage_bay only")
+    if not catalog.get("keep_entity_id"):
+        fail("GC2-S6 must keep the same entity_id")
+    cost = catalog.get("repurpose_cost") or {}
+    if cost != {"energy": 4, "compute": 2, "storage": 2, "influence": 1}:
+        fail("GC2-S6 cost must be energy 4 compute 2 storage 2 influence 1")
+    rfc = (ROOT / "rfcs" / "RFC-0057-workshop-repurpose.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0057 must be Accepted")
+    if "STRUCTURE_REPURPOSED" in rfc.split("## Proposed change", 1)[-1][:800] and "No `STRUCTURE_*`" not in rfc:
+        fail("RFC-0057 must not add STRUCTURE_REPURPOSED")
+    slice_doc = (ROOT / "docs" / "GC2-S6-REPURPOSE.md").read_text(encoding="utf-8")
+    if "REPURPOSE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S6 must keep REPURPOSE on BUILD and WATCH silent")
+    if "repurposed as a storage bay" not in slice_doc.lower() and "repurposed as a storage bay" not in rfc.lower():
+        fail("GC2-S6 PLAY may say the workshop was repurposed as a storage bay")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-repurpose-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-other-conversion.json",
+        "attempt-not-owner.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-repurpose" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, entity_id = evaluate_gc2_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("entity_id") and entity_id != exp["entity_id"]:
+            fail(f"{name}: entity_id {entity_id} expected {exp['entity_id']}")
+    ok("GC2-S6 workshop REPURPOSE: catalog, attempt fixtures, RFC-0057 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -6389,6 +6450,7 @@ def main() -> None:
     check_gc2_s3(Draft202012Validator)
     check_gc2_s4(Draft202012Validator)
     check_gc2_s5(Draft202012Validator)
+    check_gc2_s6(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)
