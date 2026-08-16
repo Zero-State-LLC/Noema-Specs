@@ -273,10 +273,19 @@ acting_for uses the Player's evidence
 no WATCH titles
 ```
 
+### Closed for GC1-S3 ([GC1-S3-DECAY.md](GC1-S3-DECAY.md))
+
+```text
+LATENT after 12 idle cycles on a recognized track
+3 qualifying successes restore MAINTAINED
+Engineer +5 only while MAINTAINED
+recognition evidence not wiped
+no WATCH titles
+```
+
 ### Still open (later)
 
 ```text
-decay / latent windows
 focus as ledgered declaration (if ever)
 event types if recognition is ever ledgered
 WATCH / public titles

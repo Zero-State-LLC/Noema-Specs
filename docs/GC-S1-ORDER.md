@@ -23,15 +23,14 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 ## Do not start
 
 ```text
-GC1-S2 mechanical benefits
 crypto / wallets / x402
 v0.8 Phenomena
 production Genesis activate / force-supersede / reseed
 Chamber help advertising BUILD / CONTEST / WED / ATTEST
 ```
 
-GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or XP-like benefit is an isolated progression tree.
+GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). Remaining GC1 (focus, public titles, other-track benefits) stays later.
 
 ## Runtime rule
 
-Ranks 1–8 plus GC5-S2 are hosted. GC3-S2–S6 (RFC-0034–0038) are specified, not hosted. Remaining active follow-through is institutional/operator work. GC1-S2 stays deferred. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–8 plus GC5-S2 are hosted. GC1-S2 / GC1-S3 are specified (S3 hosted with RFC-0043). GC3-S2–S6 (RFC-0034–0038) are specified. Help still omits ATTEST / BUILD / CONTEST / WED.

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **RFC-0043 Accepted / GC1-S3:** recognized tracks go LATENT after 12 idle cycles. 3 qualifying works restore MAINTAINED. Engineer +5 only while MAINTAINED. Recognition evidence is not wiped. No WATCH titles.
+
 ### Changed
 
 - **WATCH transport:** optional `GET /v1/watch/stream` WebSocket may carry the same `watch-live/1.0` snapshot. Poll remains sufficient. No new fields.

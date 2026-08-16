@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc1-s3",
+  "catalog_id": "mastery-catalog/gc1-s3",
+  "recognized": true,
+  "prior_on_asset": true,
+  "idle_cycles": 12,
+  "rehab_works": 0,
+  "condition_before": 40,
+  "expected": { "latent": true, "delta": 15, "note": "Idle 12: LATENT, bonus withheld." }
+}
