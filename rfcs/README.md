@@ -49,6 +49,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0037](RFC-0037-trade-friction.md) | **Accepted** | GC3-S5: published +1 compute TRADE_CAUTION; no auto-refuse |
 | [RFC-0038](RFC-0038-deceptive-edge.md) | **Accepted** | GC3-S6: deceptive as distinct edge; TRADE_REJECTED ignored |
 | [RFC-0039](RFC-0039-preferred-counterparty.md) | **Accepted** | GC3-S7: waive TRADE_CAUTION for live RELIABLE; no auto-accept |
+| [RFC-0040](RFC-0040-engineer-quality.md) | **Accepted** | GC1-S2: same-asset Engineer REPAIR +5 (total +20, cap 100) |
 
 ## Required review lenses
 

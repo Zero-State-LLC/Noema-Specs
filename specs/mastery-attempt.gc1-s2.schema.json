@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-attempt.gc1-s2.schema.json",
+  "title": "NOEMA GC1-S2 repair-quality attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "recognized", "prior_on_asset", "condition_before", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s2" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s2" },
+    "recognized": { "type": "boolean" },
+    "prior_on_asset": { "type": "boolean" },
+    "condition_before": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "expected": {
+      "type": "object",
+      "required": ["delta", "condition_after"],
+      "properties": {
+        "delta": { "type": "integer" },
+        "condition_after": { "type": "integer" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

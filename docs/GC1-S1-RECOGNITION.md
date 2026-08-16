@@ -19,7 +19,7 @@ S1 makes a Player **legibly known to themselves** for demonstrated work. It does
 | GC2 Construction | Still larger than recognition |
 | Recognition as derived self-projection | Uses S0 units. No catalog events. Safe on cycle-0 worlds |
 
-S2 (not this document) is the first **benefit** family. Candidate: recognized Engineer restores more condition on `REPAIR`, via an explicit action-contract increment. Do not invent S2 magnitudes here.
+S2 magnitudes are pinned in [GC1-S2-ENGINEER-QUALITY.md](GC1-S2-ENGINEER-QUALITY.md) (RFC-0040): same-asset repeat `REPAIR` is +20 (15+5), cap 100.
 
 ---
 

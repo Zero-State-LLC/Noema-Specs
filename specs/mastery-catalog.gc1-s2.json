@@ -1,0 +1,18 @@
+{
+  "schema_version": "mastery-catalog/gc1-s2",
+  "catalog_id": "mastery-catalog/gc1-s2",
+  "slice_id": "gc1-s2",
+  "authority": "docs/GC1-S2-ENGINEER-QUALITY.md",
+  "rfc": "rfcs/RFC-0040-engineer-quality.md",
+  "recognition_enabled": true,
+  "decay_enabled": false,
+  "benefits_enabled": true,
+  "benefit_track": "track.engineer.01",
+  "recognition_threshold": 3,
+  "repair_base": 15,
+  "repeat_bonus": 5,
+  "condition_cap": 100,
+  "watch_titles": false,
+  "new_verbs": [],
+  "play_line": "You work this {label} with practiced hands."
+}
