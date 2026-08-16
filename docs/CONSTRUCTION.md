@@ -18,6 +18,8 @@ Required product property:
 
 > The state of the world at Cycle 500 can visibly contain consequences of Players who acted at Cycle 50.
 
+Short-session PLAY still needs one such consequence: see the minimal durable trace pin in [DEEP-TIME.md](DEEP-TIME.md).
+
 An isolated crafting minigame is a **defect**. Construction operates on resources, assets, locations, ownership, infrastructure, and history. It MUST couple to:
 
 ```text

@@ -75,7 +75,19 @@ Anything not listed is denied.
 | Audit | Read institution records; emit audit notes | Delete ledger history |
 | Emergency | Temporary extra scope under a declared institution emergency rule | Permanent undefined power |
 
-Conflicting grants: if two offices claim exclusive control of the same object, the institution’s versioned rule names precedence. If the rule is missing, the action **fails closed**.
+Conflicting grants follow the **office conflict-precedence** rule below. Missing rule → **fail closed**.
+
+---
+
+## Office conflict-precedence
+
+When two offices of the **same** institution claim exclusive or overlapping control of the same object (institution lot, named asset, desk, agreement seat, or listed access object), the runtime MUST apply exactly this check, in order:
+
+1. If the institution record publishes an ordered `office_precedence` list that includes both `role_id`s, the earlier listed office MAY act; the later is `FORBIDDEN` for that object (`AUTHORITY_CONFLICT`).
+2. Else if the institution record publishes a more-specific-scope rule — the grant whose listed object set is a **strict subset** of the other — the more specific grant MAY act; the other is `FORBIDDEN` for that object (`AUTHORITY_CONFLICT`).
+3. Else the action **fails closed** (`FORBIDDEN` / `AUTHORITY_CONFLICT`).
+
+No implicit “founder always wins.” No LLM judgment. This orders already-granted closed scopes; it does not add authority families.
 
 ---
 
@@ -166,7 +178,7 @@ GC4-S2 closed: institution TRADE/REPAIR via occupied office profiles
 GC4-S3 closed: time-bounded emergency grant overlay
 GC4-S4 closed: designated succession; no implicit jump
 event types ROLE_* (no silent catalog expansion)
-conflict-precedence rules
+conflict-precedence — closed: published office_precedence or strict-subset scope; else fail closed
 consensus / rule-based succession
 ```
 

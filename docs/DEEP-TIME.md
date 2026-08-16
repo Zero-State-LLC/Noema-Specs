@@ -65,6 +65,12 @@ This organization survived its founders.
 
 Advanced detail may expose lineage graphs, digests, succession machines, and reconstruction rules.
 
+### Minimal durable trace (short-session Player)
+
+A Player present for only a few cycles MUST be able to leave at least one **durable mark**. The mark MUST be a public or institutional ledger event, or an expansion of public knowledge already expressible by existing verbs. Private notes, temporary possession that evaporates with no residual, and pure cosmetics do **not** count. There is no `TRACE` verb.
+
+Acceptable marks already exist: a successful public `TRADE`; a joint `REPAIR` that updates a public asset ([CONSTRUCTION.md](CONSTRUCTION.md)); participation in a formal `AGREEMENT_*`; an audited office action ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)); a public report or discovery event that expands known public sites or artifacts. Private social-memory edges ([SOCIAL-MEMORY.md](SOCIAL-MEMORY.md)) do not satisfy this pin unless they are backed by such a public or institutional event.
+
 ## World Genesis (admin-only)
 
 New worlds may enter Deep Time through a **one-time admin Genesis** operation: seed + profile + optional story seeds → Cycle 0 ordinary world → activate. Genesis is not a player system and does not remain a runtime control surface. See [GENESIS.md](GENESIS.md) · [LORE-BOUNDARY.md](LORE-BOUNDARY.md).

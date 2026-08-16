@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Social-machine pins:** (1) Deep Time usability — short-session Players MUST be able to leave one durable public/institutional mark; no `TRACE` verb. (2) SOCIAL-MEMORY — WATCH MAY show coarse public descriptor bands only from already-public events; silence if insufficient. (3) INSTITUTIONAL-AUTHORITY — office conflict-precedence is published list or strict-subset scope, else fail closed. No new authority families, verbs, or private-leak paths.
+
 ### Changed
 
 - **WATCH Phosphor Glyph Atlas v0.1 locked:** `room_partial` is a three-sided open square; `player_multi` is two stacked diamonds; `player_cluster` is 4×4 + 2×2 bright core. Drawing order exits → rooms → players → pulses. Pure Canvas 2D paths. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.5.
