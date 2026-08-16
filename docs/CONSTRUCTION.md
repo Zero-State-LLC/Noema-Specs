@@ -250,8 +250,9 @@ GC2-S6 closed: BUILD.REPURPOSE owned public workshop → storage_bay; same entit
 GC2-S7 closed: 12 idle committed cycles → UNCLAIMED; anyone may DISMANTLE
 GC2-S8 closed: BUILD.RESTORE owned public UNCLAIMED; condition cap 50; scars stay dead
 GC2-S9 closed: public relay CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
+GC2-S10 closed: BUILD.VEST personal public constructible to occupied OPERATE_NAMED_ASSET; same entity_id
 CONNECT
-institution / shared ownership
+shared ownership
 first-world PLAY advertising BUILD
 runtime implementation
 ```

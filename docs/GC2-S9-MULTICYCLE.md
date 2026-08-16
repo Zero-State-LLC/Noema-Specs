@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0061.  
 **Parent:** [GC2-S8-RESTORE.md](GC2-S8-RESTORE.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0061](../rfcs/RFC-0061-multicycle-construct.md)  
-**Does not open:** CONNECT · other-class multi-cycle · STRUCTURE_* · help BUILD · project minigame
+**Does not open:** CONNECT · other-class multi-cycle · STRUCTURE_* · help BUILD · project minigame  
+**Next:** [GC2-S10-INSTITUTION.md](GC2-S10-INSTITUTION.md)
 
 S9 makes one CONSTRUCT take world-time. A public relay starts `IN_PROGRESS` and becomes live after one committed cycle.
 

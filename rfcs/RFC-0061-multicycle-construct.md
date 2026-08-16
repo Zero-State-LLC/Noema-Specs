@@ -55,4 +55,4 @@ Ignore `in_progress` (treat every relay as live immediately).
 
 ## Unresolved
 
-CONNECT. Other-class multi-cycle. Institution ownership.
+CONNECT. Other-class multi-cycle. Institution ownership is [RFC-0067](RFC-0067-institution-own.md). Shared ownership.

@@ -3669,7 +3669,58 @@ def check_gc2_s9(Draft202012Validator) -> None:
     ok("GC2-S9 multi-cycle relay: catalog, attempt fixtures, RFC-0061 Accepted")
 
 
+def evaluate_gc2_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    if attempt.get("room_hidden") or catalog.get("hidden_vest"):
+        return "REJECT", "hidden", extra
+    if attempt.get("personal_owner") is False:
+        return "REJECT", "not_owner", extra
+    if attempt.get("office_occupied") is False:
+        return "REJECT", "unauthorized", extra
+    if attempt.get("unclaimed"):
+        return "REJECT", "not_vestable", extra
+    extra["same_entity"] = True
+    extra["owner"] = "institution"
+    return "ACCEPT", None, extra
 
+
+def check_gc2_s10(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s10.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s10.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s10.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S10 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_vest") or catalog.get("institution_as_player") or catalog.get("shared"):
+        fail("GC2-S10 must not add help BUILD, new verbs, WATCH vest, institution-as-Player, or SHARED")
+    rfc = (ROOT / "rfcs" / "RFC-0067-institution-own.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0067 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S10-INSTITUTION.md").read_text(encoding="utf-8")
+    if "VEST" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S10 must keep VEST on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-vest-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-vacant-reject.json",
+        "attempt-stranger-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-institution" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s10(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("same_entity") is not None and extra.get("same_entity") != exp["same_entity"]:
+            fail(f"{name}: same_entity mismatch")
+        if exp.get("owner") and extra.get("owner") != exp["owner"]:
+            fail(f"{name}: owner {extra.get('owner')} expected {exp['owner']}")
+    ok("GC2-S10 institution-owned: catalog, attempt fixtures, RFC-0067 Accepted")
 
 
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
@@ -6913,6 +6964,7 @@ def main() -> None:
     check_gc2_s7(Draft202012Validator)
     check_gc2_s8(Draft202012Validator)
     check_gc2_s9(Draft202012Validator)
+    check_gc2_s10(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

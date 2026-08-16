@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0067 Accepted / GC2-S10:** `BUILD.VEST` moves a personally owned public constructible to an institution. Occupied `OPERATE_NAMED_ASSET` stewards. Same `entity_id`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0066 Accepted / GC5-S8:** `MESSAGE surface=TRADE_NOTICE` in the current public room. Last 1. WATCH silent. No MARKET verb. Does not open TRADE.
 
 ### Added

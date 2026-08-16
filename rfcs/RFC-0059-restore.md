@@ -53,4 +53,4 @@ Ignore `RESTORE` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-CONNECT. Multi-cycle. Institution ownership.
+CONNECT. Institution ownership is [RFC-0067](RFC-0067-institution-own.md). Shared ownership.
