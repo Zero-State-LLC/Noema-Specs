@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc3-s5",
+  "catalog_id": "social-memory-catalog/gc3-s5",
+  "live_hostile": false,
+  "expected": {
+    "extra_compute": 0,
+    "auto_reject": false,
+    "reason_code": null,
+    "note": "No live hostile edge: v0.1 TRADE compute only. Decayed edges are not live."
+  }
+}

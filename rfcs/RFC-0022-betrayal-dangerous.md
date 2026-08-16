@@ -52,4 +52,4 @@ Omit the danger projection. GC3-S0 trade memory remains.
 
 ## Unresolved
 
-Institutional expectation change (full scenario B). Mechanical trade friction. Decay.
+Closed later: institutional expectation [RFC-0035](RFC-0035-institution-edges.md); decay/rehab [RFC-0036](RFC-0036-decay-rehab.md); published trade caution [RFC-0037](RFC-0037-trade-friction.md). Auto-refuse stays rejected.

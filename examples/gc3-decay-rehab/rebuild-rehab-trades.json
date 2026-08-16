@@ -1,0 +1,45 @@
+{
+  "slice_id": "gc3-s4",
+  "catalog_id": "social-memory-catalog/gc3-s4",
+  "subject_id": "player.vesper",
+  "as_of_cycle": 4,
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.s4.r0",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": {
+        "contest_id": "contest.x",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    },
+    {
+      "event_id": "evt.s4.r1",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": { "trade_id": "trade.r1", "proposer_id": "player.vesper", "counterparty_id": "player.nacre" }
+    },
+    {
+      "event_id": "evt.s4.r2",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 2,
+      "sequence": 3,
+      "payload": { "trade_id": "trade.r2", "proposer_id": "player.vesper", "counterparty_id": "player.nacre" }
+    },
+    {
+      "event_id": "evt.s4.r3",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 3,
+      "sequence": 4,
+      "payload": { "trade_id": "trade.r3", "proposer_id": "player.vesper", "counterparty_id": "player.nacre" }
+    }
+  ],
+  "expected": {
+    "play_lines": ["You have found Nacre reliable in trade."],
+    "note": "Three trades after the last danger omit the danger line and keep the S0 reliable line."
+  }
+}

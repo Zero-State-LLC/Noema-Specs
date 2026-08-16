@@ -1,0 +1,21 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s3",
+  "catalog_id": "social-memory-catalog/gc3-s3",
+  "slice_id": "gc3-s3",
+  "authority": "docs/GC3-S3-INSTITUTION-EDGES.md",
+  "rfc": "rfcs/RFC-0035-institution-edges.md",
+  "evidence_events": ["TRADE_ACCEPTED", "ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE", "CONTEST_RESOLVED", "AGREEMENT_BROKEN"],
+  "public_projection": false,
+  "watch_projection": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "role_events": false,
+  "traded_threshold": 1,
+  "reliable_threshold": 3,
+  "traded_line": "{org} has traded with {name}.",
+  "reliable_line": "{org} has found {name} reliable in trade.",
+  "member_line": "{org} records {name} as a member.",
+  "removed_line": "{org} records {name} as removed.",
+  "danger_line": "{org} records {name} as dangerous.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "reputation", "ROLE_"]
+}

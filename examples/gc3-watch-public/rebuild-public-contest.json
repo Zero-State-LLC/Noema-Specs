@@ -1,0 +1,22 @@
+{
+  "slice_id": "gc3-s2",
+  "catalog_id": "social-memory-catalog/gc3-s2",
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.s2.1",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": {
+        "contest_id": "contest.0001",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "watch_lines": ["Nacre is publicly dangerous."],
+    "note": "Resolved contest is already public. Declarer is the public dangerous band."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/social-memory-catalog.gc3-s5.schema.json",
+  "title": "NOEMA Social Memory Catalog (GC3-S5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "extra_compute",
+    "reason_code",
+    "auto_reject",
+    "hide_affordance",
+    "hidden_markup",
+    "reputation_scalar",
+    "new_verbs",
+    "public_projection",
+    "watch_projection",
+    "caution_line",
+    "forbidden_in_projection"
+  ],
+  "properties": {
+    "schema_version": { "const": "social-memory-catalog/gc3-s5" },
+    "catalog_id": { "const": "social-memory-catalog/gc3-s5" },
+    "slice_id": { "const": "gc3-s5" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extra_compute": { "const": 1 },
+    "reason_code": { "const": "TRADE_CAUTION" },
+    "auto_reject": { "const": false },
+    "hide_affordance": { "const": false },
+    "hidden_markup": { "const": false },
+    "reputation_scalar": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "public_projection": { "const": false },
+    "watch_projection": { "const": false },
+    "caution_line": { "type": "string" },
+    "forbidden_in_projection": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/social-memory-attempt.gc3-s5.schema.json",
+  "title": "NOEMA GC3-S5 trade-caution attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "live_hostile", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc3-s5" },
+    "catalog_id": { "const": "social-memory-catalog/gc3-s5" },
+    "live_hostile": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["extra_compute", "auto_reject"],
+      "properties": {
+        "extra_compute": { "type": "integer", "minimum": 0 },
+        "auto_reject": { "type": "boolean" },
+        "reason_code": { "type": ["string", "null"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

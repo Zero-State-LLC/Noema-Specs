@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc3-s5",
+  "catalog_id": "social-memory-catalog/gc3-s5",
+  "live_hostile": true,
+  "expected": {
+    "extra_compute": 1,
+    "auto_reject": false,
+    "reason_code": "TRADE_CAUTION",
+    "note": "Live danger/deceptive edge publishes +1 compute. Player still chooses."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "slice_id": "gc3-s3",
+  "catalog_id": "social-memory-catalog/gc3-s3",
+  "subject_id": "org.line",
+  "viewer_role": "officer",
+  "org_name": "Line",
+  "handles": { "player.vesper": "Vesper" },
+  "events": [
+    {
+      "event_id": "evt.s3.1",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 1,
+      "sequence": 1,
+      "payload": {
+        "trade_id": "trade.org.1",
+        "acting_for": "org.line",
+        "proposer_id": "player.nacre",
+        "counterparty_id": "player.vesper"
+      }
+    },
+    {
+      "event_id": "evt.s3.2",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 1,
+      "sequence": 2,
+      "payload": {
+        "trade_id": "trade.personal.1",
+        "proposer_id": "player.nacre",
+        "counterparty_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "play_lines": ["Line has traded with Vesper."],
+    "watch_lines": [],
+    "note": "Only acting_for=org trades credit the institution. Personal trades do not."
+  }
+}

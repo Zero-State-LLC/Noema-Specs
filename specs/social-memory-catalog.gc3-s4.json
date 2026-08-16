@@ -1,0 +1,16 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s4",
+  "catalog_id": "social-memory-catalog/gc3-s4",
+  "slice_id": "gc3-s4",
+  "authority": "docs/GC3-S4-DECAY-REHAB.md",
+  "rfc": "rfcs/RFC-0036-decay-rehab.md",
+  "decay_cycles": 12,
+  "rehab_trades": 3,
+  "wipe_verb": false,
+  "ledger_forget": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "public_projection": false,
+  "watch_projection": false,
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "wipe"]
+}

@@ -1,0 +1,51 @@
+{
+  "slice_id": "gc3-s2",
+  "catalog_id": "social-memory-catalog/gc3-s2",
+  "handles": { "player.nacre": "Nacre", "player.vesper": "Vesper" },
+  "events": [
+    {
+      "event_id": "evt.s2.t1",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": { "trade_id": "trade.1", "proposer_id": "player.nacre", "counterparty_id": "player.vesper" }
+    },
+    {
+      "event_id": "evt.s2.t2",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 0,
+      "sequence": 2,
+      "payload": { "trade_id": "trade.2", "proposer_id": "player.nacre", "counterparty_id": "player.vesper" }
+    },
+    {
+      "event_id": "evt.s2.t3",
+      "event_type": "TRADE_ACCEPTED",
+      "cycle": 0,
+      "sequence": 3,
+      "payload": { "trade_id": "trade.3", "proposer_id": "player.nacre", "counterparty_id": "player.vesper" }
+    },
+    {
+      "event_id": "evt.s2.r1",
+      "event_type": "TRADE_REJECTED",
+      "cycle": 1,
+      "sequence": 4,
+      "payload": { "trade_id": "trade.x", "reason": "DECLINED" }
+    },
+    {
+      "event_id": "evt.s2.p1",
+      "event_type": "AGREEMENT_BROKEN",
+      "cycle": 2,
+      "sequence": 5,
+      "payload": {
+        "breach_id": "breach.priv",
+        "broken_by": "player.nacre",
+        "party_ids": ["player.nacre", "player.vesper"],
+        "visibility": "PRIVATE"
+      }
+    }
+  ],
+  "expected": {
+    "watch_lines": [],
+    "note": "Private reliable trades and a private breach do not create a WATCH band."
+  }
+}

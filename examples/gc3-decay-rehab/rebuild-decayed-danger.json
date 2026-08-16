@@ -1,0 +1,24 @@
+{
+  "slice_id": "gc3-s4",
+  "catalog_id": "social-memory-catalog/gc3-s4",
+  "subject_id": "player.vesper",
+  "as_of_cycle": 13,
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.s4.d1",
+      "event_type": "CONTEST_RESOLVED",
+      "cycle": 0,
+      "sequence": 1,
+      "payload": {
+        "contest_id": "contest.old",
+        "declarer_id": "player.nacre",
+        "defender_id": "player.vesper"
+      }
+    }
+  ],
+  "expected": {
+    "play_lines": [],
+    "note": "Danger at cycle 0 is omitted at cycle 13 with no new hostile evidence."
+  }
+}

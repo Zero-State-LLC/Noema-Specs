@@ -5,7 +5,7 @@
 **Does not replace:** [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [PROGRESSION.md](PROGRESSION.md)  
 **Influence** remains a Chamber resource ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)). It is not reputation.
 
-GC3-S0 machine pins: [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md) · [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md). GC3-S1 danger pins: [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) · [RFC-0022](../rfcs/RFC-0022-betrayal-dangerous.md). Institution edges, decay, and trade friction remain **SPEC GAP**.
+GC3-S0 machine pins: [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md) · [RFC-0007](../rfcs/RFC-0007-dyadic-trade-memory.md). GC3-S1 danger pins: [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) · [RFC-0022](../rfcs/RFC-0022-betrayal-dangerous.md). Remaining SOCIAL-MEMORY gaps are closed by [RFC-0034](../rfcs/RFC-0034-watch-public-descriptors.md)–[RFC-0038](../rfcs/RFC-0038-deceptive-edge.md) (S2–S6). GC3-S0/S1 stay WATCH-empty.
 
 **Doctrine:** evidence-backed edges, not a reputation industry or `reputation = 72` engine ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Memory must be able to change trade, access, agreements, authority, cooperation, conflict, or information sharing — or it is presentation.
 
@@ -78,7 +78,7 @@ Research-only fields that know which rumor was false MUST NOT appear in PLAY ([C
 
 ## Source evidence
 
-Closed families (weights SPEC GAP):
+Closed families (weights: [GC3-S4](GC3-S4-DECAY-REHAB.md)):
 
 | Family | Examples |
 |--------|----------|
@@ -197,14 +197,57 @@ TRADE_REJECTED and CONTEST_DECLARED ignored
 no reputation scalar / WATCH / new verbs
 ```
 
+### Closed for GC3-S2
+
+```text
+WATCH / public PLAY coarse bands from already-public events
+dangerous from public CONTEST_RESOLVED / public CRIME_DETECTED
+deceptive from public AGREEMENT_BROKEN / contradicted public ATTEST
+no reliable / unknown band
+silence if insufficient
+GC3-S0 / GC3-S1 stay WATCH-empty
+```
+
+### Closed for GC3-S3
+
+```text
+derived org → player edges from that org's authorized records
+officer PLAY; member sees self only
+WATCH empty
+no ROLE_* ; no copy of private Player edges
+```
+
+### Closed for GC3-S4
+
+```text
+decay_cycles=12 omits a family's line; ledger never forgets
+rehab = 3 TRADE_ACCEPTED after last hostile evidence
+no wipe / FORGIVE verb
+```
+
+### Closed for GC3-S5
+
+```text
++1 compute TRADE_CAUTION on propose when a live hostile edge exists
+no auto-refuse
+no hidden markup
+affordance stays visible
+```
+
+### Closed for GC3-S6
+
+```text
+distinct deceptive edge from AGREEMENT_BROKEN and contradicted public ATTEST
+TRADE_REJECTED / CONTEST_RESOLVED ignored
+WATCH empty on this slice
+```
+
 ### Still open
 
 ```text
-deceptive descriptor as a distinct edge
-institution edges
-decay / rehabilitation bands
-trade-friction mechanics
-WATCH public descriptors — closed: coarse bands from public events only; silence if insufficient; no private/dyadic leak
+(none — SOCIAL-MEMORY executable gaps closed by RFC-0007, RFC-0022, RFC-0034–0038)
+preferred-counterparty discounts (out of S5)
+GC1-S2 mechanical benefit (not GC3)
 ```
 
 ---

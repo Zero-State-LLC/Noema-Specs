@@ -34,4 +34,4 @@ GC1-S2 stays deferred: S0/S1 recognition is self-only lines. A cheaper-build or 
 
 ## Runtime rule
 
-Ranks 1–8 plus GC5-S2 are hosted. Remaining active follow-through is institutional/operator work. GC1-S2 stays deferred. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–8 plus GC5-S2 are hosted. GC3-S2–S6 (RFC-0034–0038) are specified, not hosted. Remaining active follow-through is institutional/operator work. GC1-S2 stays deferred. Help still omits ATTEST / BUILD / CONTEST / WED.

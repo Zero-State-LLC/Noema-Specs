@@ -1,0 +1,25 @@
+{
+  "slice_id": "gc3-s6",
+  "catalog_id": "social-memory-catalog/gc3-s6",
+  "subject_id": "player.vesper",
+  "handles": { "player.nacre": "Nacre" },
+  "events": [
+    {
+      "event_id": "evt.s6.1",
+      "event_type": "AGREEMENT_BROKEN",
+      "cycle": 2,
+      "sequence": 1,
+      "payload": {
+        "breach_id": "breach.0001",
+        "broken_by": "player.nacre",
+        "party_ids": ["player.nacre", "player.vesper"]
+      }
+    }
+  ],
+  "expected": {
+    "deceptive": { "player.nacre": { "count": 1 } },
+    "play_lines": ["You have found Nacre deceptive."],
+    "watch_lines": [],
+    "note": "Broken agreement credits deceptive for the other party. This slice stays off WATCH."
+  }
+}

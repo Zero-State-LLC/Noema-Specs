@@ -43,6 +43,11 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0031](RFC-0031-designated-succession.md) | **Accepted** | Designated institutional succession; no implicit jump |
 | [RFC-0032](RFC-0032-postmark-admin-email-delivery.md) | **Accepted** | Postmark replaces Resend for Worker-composed PLAY and ADMIN magic links |
 | [RFC-0033](RFC-0033-agent-bootstrap-and-game-profile.md) | **Accepted** | Email-assisted bootstrap and optional game-only Controller skill/profile |
+| [RFC-0034](RFC-0034-watch-public-descriptors.md) | **Accepted** | GC3-S2: WATCH public descriptor bands from public events; else silent |
+| [RFC-0035](RFC-0035-institution-edges.md) | **Accepted** | GC3-S3: institution→player edges from authorized org records; no ROLE_* |
+| [RFC-0036](RFC-0036-decay-rehab.md) | **Accepted** | GC3-S4: decay/rehab weights; no wipe; ledger never forgets |
+| [RFC-0037](RFC-0037-trade-friction.md) | **Accepted** | GC3-S5: published +1 compute TRADE_CAUTION; no auto-refuse |
+| [RFC-0038](RFC-0038-deceptive-edge.md) | **Accepted** | GC3-S6: deceptive as distinct edge; TRADE_REJECTED ignored |
 
 ## Required review lenses
 
