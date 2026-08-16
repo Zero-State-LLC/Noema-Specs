@@ -1,0 +1,21 @@
+{
+  "schema_version": "conflict-catalog/gc7-s2",
+  "catalog_id": "conflict-catalog/gc7-s2",
+  "slice_id": "gc7-s2",
+  "authority": "docs/GC7-S2-INSTITUTION-PARTY.md",
+  "rfc": "rfcs/RFC-0041-institution-contest-party.md",
+  "event_catalog": "event-catalog/0.2",
+  "extends": "conflict-catalog/gc7-s1",
+  "new_verbs": [],
+  "new_events": [],
+  "new_forms": [],
+  "hp_combat": false,
+  "character_death": false,
+  "org_as_declarer_id": false,
+  "vacant_office_acts": false,
+  "same_org_both_sides": false,
+  "help_lists_contest": false,
+  "resource_seizure_profile": "OPERATE_RESOURCE_ACCOUNT",
+  "other_forms_profile": "OPERATE_NAMED_ASSET",
+  "payer": "treasury"
+}

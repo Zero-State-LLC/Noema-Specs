@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-attempt.gc7-s2.schema.json",
+  "title": "NOEMA GC7-S2 institution-party attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "form", "office_status", "office_profile", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc7-s2" },
+    "catalog_id": { "const": "conflict-catalog/gc7-s2" },
+    "operation": { "enum": ["CONTEST_DECLARE", "CONTEST_DEFEND"] },
+    "form": { "type": "string" },
+    "office_status": { "enum": ["OCCUPIED", "VACANT"] },
+    "office_profile": { "type": "string" },
+    "same_org_as_other_party": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

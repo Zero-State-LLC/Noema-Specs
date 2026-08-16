@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc7-s2",
+  "catalog_id": "conflict-catalog/gc7-s2",
+  "operation": "CONTEST_DEFEND",
+  "form": "INFRASTRUCTURE_DISRUPTION",
+  "office_status": "OCCUPIED",
+  "office_profile": "OPERATE_NAMED_ASSET",
+  "same_org_as_other_party": true,
+  "expected": { "outcome": "REJECT", "reason": "FORBIDDEN", "note": "One org cannot be both parties." }
+}
