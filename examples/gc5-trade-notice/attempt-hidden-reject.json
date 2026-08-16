@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s8",
+  "catalog_id": "communication-catalog/gc5-s8",
+  "operation": "TRADE_NOTICE",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no stall." }
+}

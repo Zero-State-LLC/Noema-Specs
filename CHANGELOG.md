@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0066 Accepted / GC5-S8:** `MESSAGE surface=TRADE_NOTICE` in the current public room. Last 1. WATCH silent. No MARKET verb. Does not open TRADE.
+
+### Added
+
 - **RFC-0065 Accepted / GC5-S7:** `MESSAGE surface=CHANNEL` for current org members. Last 1. Unknown org and non-member share `NOT_ADDRESSABLE`. WATCH silent. No CHANNEL verb.
 
 ### Added

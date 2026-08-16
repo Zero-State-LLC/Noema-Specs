@@ -16,7 +16,8 @@ GC5-S3 board pins: [GC5-S3-BOARD.md](GC5-S3-BOARD.md) · [RFC-0054](../rfcs/RFC-
 GC5-S4 shout pins: [GC5-S4-SHOUT.md](GC5-S4-SHOUT.md) · [RFC-0062](../rfcs/RFC-0062-message-shout.md).  
 GC5-S5 board retention pins: [GC5-S5-RETENTION.md](GC5-S5-RETENTION.md) · [RFC-0063](../rfcs/RFC-0063-board-retention.md).  
 GC5-S6 institution notice pins: [GC5-S6-NOTICE.md](GC5-S6-NOTICE.md) · [RFC-0064](../rfcs/RFC-0064-institution-notice.md).  
-GC5-S7 org channel pins: [GC5-S7-CHANNEL.md](GC5-S7-CHANNEL.md) · [RFC-0065](../rfcs/RFC-0065-org-channel.md).
+GC5-S7 org channel pins: [GC5-S7-CHANNEL.md](GC5-S7-CHANNEL.md) · [RFC-0065](../rfcs/RFC-0065-org-channel.md).  
+GC5-S8 trade notice pins: [GC5-S8-TRADE-NOTICE.md](GC5-S8-TRADE-NOTICE.md) · [RFC-0066](../rfcs/RFC-0066-trade-notice.md).
 
 ---
 
@@ -127,8 +128,8 @@ GC5-S4 closed: MESSAGE surface=SHOUT; public room; last 1; WATCH silent
 GC5-S5 closed: MESSAGE board last 5; shout last 1 unchanged; WATCH silent
 GC5-S6 closed: MESSAGE surface=NOTICE; occupied PUBLISH_NOTICE; public room last 1; WATCH silent
 GC5-S7 closed: MESSAGE surface=CHANNEL; current members; last 1; unknown/outsider NOT_ADDRESSABLE; WATCH silent
+GC5-S8 closed: MESSAGE surface=TRADE_NOTICE; public room last 1; WATCH silent; no auto-TRADE
 cycle-based expiry
-trade notice
 ```
 
 Prefer extending `MESSAGE` parameters over a new verb.
