@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s10",
+  "catalog_id": "construction-catalog/gc2-s10",
+  "operation": "VEST",
+  "room_hidden": false,
+  "personal_owner": true,
+  "office_occupied": false,
+  "expected": { "outcome": "REJECT", "reason": "unauthorized", "note": "Vacant named-asset office cannot vest." }
+}

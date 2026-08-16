@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s10",
+  "catalog_id": "construction-catalog/gc2-s10",
+  "operation": "VEST",
+  "room_hidden": false,
+  "personal_owner": true,
+  "office_occupied": true,
+  "expected": { "outcome": "ACCEPT", "same_entity": true, "owner": "institution", "note": "Owner plus occupied named-asset office vests." }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s10",
+  "catalog_id": "construction-catalog/gc2-s10",
+  "slice_id": "gc2-s10",
+  "authority": "docs/GC2-S10-INSTITUTION.md",
+  "rfc": "rfcs/RFC-0067-institution-own.md",
+  "extends": "construction-catalog/gc2-s9",
+  "verb": "BUILD",
+  "operation": "VEST",
+  "office_profile": "OPERATE_NAMED_ASSET",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_vest": false,
+  "institution_as_player": false,
+  "shared": false,
+  "hidden_vest": false,
+  "cost_compute": 1
+}

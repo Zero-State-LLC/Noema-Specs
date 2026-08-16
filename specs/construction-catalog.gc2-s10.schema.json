@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s10.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S10)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "help_build",
+    "watch_vest",
+    "institution_as_player",
+    "shared",
+    "hidden_vest",
+    "operation",
+    "office_profile"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s10" },
+    "catalog_id": { "const": "construction-catalog/gc2-s10" },
+    "slice_id": { "const": "gc2-s10" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s9" },
+    "verb": { "const": "BUILD" },
+    "operation": { "const": "VEST" },
+    "office_profile": { "const": "OPERATE_NAMED_ASSET" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "help_build": { "const": false },
+    "watch_vest": { "const": false },
+    "institution_as_player": { "const": false },
+    "shared": { "const": false },
+    "hidden_vest": { "const": false },
+    "cost_compute": { "const": 1 }
+  }
+}
