@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/pressure-catalog.gc10-s2.schema.json",
+  "title": "NOEMA Pressure Catalog (GC10-S2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_events",
+    "admin_spawn",
+    "watch_scars",
+    "hidden_scar",
+    "pressure_scars",
+    "trigger",
+    "scar_type",
+    "repairable"
+  ],
+  "properties": {
+    "schema_version": { "const": "pressure-catalog/gc10-s2" },
+    "catalog_id": { "const": "pressure-catalog/gc10-s2" },
+    "slice_id": { "const": "gc10-s2" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "pressure-catalog/gc10-s1" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "admin_spawn": { "const": false },
+    "watch_scars": { "const": false },
+    "hidden_scar": { "const": false },
+    "pressure_scars": { "const": false },
+    "trigger": { "const": "DISMANTLE" },
+    "scar_type": { "const": "RUIN" },
+    "repairable": { "const": false }
+  }
+}

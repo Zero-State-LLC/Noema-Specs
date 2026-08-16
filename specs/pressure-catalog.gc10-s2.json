@@ -1,0 +1,17 @@
+{
+  "schema_version": "pressure-catalog/gc10-s2",
+  "catalog_id": "pressure-catalog/gc10-s2",
+  "slice_id": "gc10-s2",
+  "authority": "docs/GC10-S2-SCAR.md",
+  "rfc": "rfcs/RFC-0051-irreversible-scar.md",
+  "extends": "pressure-catalog/gc10-s1",
+  "new_verbs": [],
+  "new_events": [],
+  "admin_spawn": false,
+  "watch_scars": false,
+  "hidden_scar": false,
+  "pressure_scars": false,
+  "trigger": "DISMANTLE",
+  "scar_type": "RUIN",
+  "repairable": false
+}

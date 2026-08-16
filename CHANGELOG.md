@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0051 Accepted / GC10-S2:** public DISMANTLE leaves an irreparable RUIN scar. Hidden rooms leave none. Pressure stays recoverable. WATCH silent.
+
+### Added
+
 - **RFC-0050 Accepted / GC2-S2:** constructible `workshop` saves 1 storage on in-room CONSTRUCT and REPAIR. No recipes. Help still omits BUILD.
 
 ### Added

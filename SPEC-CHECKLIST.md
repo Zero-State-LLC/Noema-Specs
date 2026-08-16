@@ -242,6 +242,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0048 Accepted: GC8-S4 cargo MOVE extra. Empty travel 1. Carrying (storage < 16) 2. No courier. No route_link freight. WATCH silent.
 - [x] RFC-0049 Accepted: GC2-S1 route_link. Waives cargo MOVE extra. No new exit. Help omits BUILD.
 - [x] RFC-0050 Accepted: GC2-S2 workshop. In-room CONSTRUCT/REPAIR storage −1. No recipes. Help omits BUILD.
+- [x] RFC-0051 Accepted: GC10-S2 irreversible scar. Public DISMANTLE leaves irreparable RUIN. Hidden rooms and pressure do not scar. WATCH silent.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

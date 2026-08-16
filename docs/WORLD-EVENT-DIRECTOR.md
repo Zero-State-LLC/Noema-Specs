@@ -144,8 +144,8 @@ Seed + Director version + ordered activations determine all WED effects. Preview
 ```text
 GC10-S0 closed: cycle-4 schedule ENTITY_UPDATE −15 on a named relay; preview matches; no forced response
 GC10-S1 closed: resource_scarcity + access_restriction; communication composed via infra/GC5; weather/war/famine rejected
+GC10-S2 closed: public DISMANTLE leaves irreparable RUIN scar; pressure does not scar
 operator confirm / receipt schema beyond S1 attempt fields
-irreversible scar class
 artifact emergence / institutional crisis / unknown signal
 first-20 later bands (13–16 cross-agent)
 ```

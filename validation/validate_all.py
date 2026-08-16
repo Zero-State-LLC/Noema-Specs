@@ -6049,6 +6049,56 @@ def check_gc10_s1(Draft202012Validator) -> None:
     ok("GC10-S1 pressure: catalog, class fixtures, RFC-0027 Accepted, existing events reused")
 
 
+def evaluate_gc10_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]:
+    if attempt.get("operation") == "REPAIR" and (attempt.get("scar") or catalog.get("repairable") is False and attempt.get("scar")):
+        if catalog.get("repairable") is False:
+            return "REJECT", "irreversible", False
+    if attempt.get("operation") == "PRESSURE":
+        return "ACCEPT", None, bool(catalog.get("pressure_scars"))
+    if attempt.get("operation") == "DISMANTLE":
+        if attempt.get("room_hidden") or catalog.get("hidden_scar"):
+            return "ACCEPT", None, False
+        return "ACCEPT", None, True
+    return "ACCEPT", None, False
+
+
+def check_gc10_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "pressure-catalog.gc10-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "pressure-catalog.gc10-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "pressure-attempt.gc10-s2.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC10-S2 catalog invalid: {errs[0].message}")
+    if catalog.get("new_events") or catalog.get("admin_spawn") or catalog.get("watch_scars") or catalog.get("pressure_scars"):
+        fail("GC10-S2 must not add events, Admin spawn, WATCH scars, or pressure scars")
+    rfc = (ROOT / "rfcs" / "RFC-0051-irreversible-scar.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0051 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC10-S2-SCAR.md").read_text(encoding="utf-8")
+    if "scar" not in slice_doc.lower() or "WATCH" not in slice_doc:
+        fail("GC10-S2 must keep scars irreparable and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-dismantle-scar.json",
+        "attempt-hidden-clear.json",
+        "attempt-scar-not-repairable.json",
+        "attempt-pressure-no-scar.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc10-scar" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, leaves = evaluate_gc10_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("leaves_scar") is not None and leaves != exp["leaves_scar"]:
+            fail(f"{name}: leaves_scar {leaves} expected {exp['leaves_scar']}")
+    ok("GC10-S2 irreversible scar: catalog, attempt fixtures, RFC-0051 Accepted")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -6118,6 +6168,7 @@ def main() -> None:
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
     check_gc10_s1(Draft202012Validator)
+    check_gc10_s2(Draft202012Validator)
     print("\nPASS")
 
 
