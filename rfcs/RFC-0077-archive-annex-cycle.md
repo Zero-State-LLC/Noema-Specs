@@ -58,4 +58,4 @@ Ignore `in_progress` on archive annexes (treat every annex as live immediately, 
 
 ## Unresolved
 
-Remaining-class multi-cycle (`route_link`). Third-and-later co-owners.
+Route-link multi-cycle is [RFC-0078](RFC-0078-route-link-cycle.md). Third-and-later co-owners. Comms cycle expiry.

@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s19",
+  "catalog_id": "construction-catalog/gc2-s19",
+  "operation": "DISMANTLE",
+  "class_id": "route_link",
+  "in_progress": true,
+  "entity_id": "entity.route-link.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "new_exit": false, "note": "In-progress DISMANTLE salvages with no live link and no scar." }
+}

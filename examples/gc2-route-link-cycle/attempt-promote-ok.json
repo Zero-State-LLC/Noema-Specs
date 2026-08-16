@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s19",
+  "catalog_id": "construction-catalog/gc2-s19",
+  "operation": "PROMOTE",
+  "class_id": "route_link",
+  "in_progress": true,
+  "committed_cycles": 1,
+  "entity_id": "entity.route-link.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": false, "live": true, "same_entity": true, "new_exit": false, "note": "One committed cycle promotes the same entity_id." }
+}

@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s19",
+  "catalog_id": "construction-catalog/gc2-s19",
+  "operation": "MOVE",
+  "class_id": "route_link",
+  "in_progress": true,
+  "entity_id": "entity.route-link.a",
+  "expected": { "outcome": "ACCEPT", "cargo_waiver": false, "new_exit": false, "note": "IN_PROGRESS link does not waive cargo MOVE extra." }
+}
