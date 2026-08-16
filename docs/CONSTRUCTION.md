@@ -255,6 +255,7 @@ GC2-S11 closed: BUILD.SHARE one entered Player as co-owner; same entity_id; once
 GC2-S12 closed: BUILD.CONNECT dest pin on public route_link; existing two-way public neighbor; no new exit
 GC2-S13 closed: public workshop CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 GC2-S14 closed: public generator CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
+GC2-S15 closed: public storage_bay CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
 remaining-class multi-cycle
 third-and-later co-owners
 first-world PLAY advertising BUILD

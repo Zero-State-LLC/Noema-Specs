@@ -55,4 +55,4 @@ Ignore `in_progress` on generators (treat every generator as live immediately).
 
 ## Unresolved
 
-Remaining-class multi-cycle (`storage_bay`, `production_node`, `route_link`, `defensive_work`, `archive_annex`). Third-and-later co-owners.
+Storage-bay multi-cycle is [RFC-0074](RFC-0074-storage-bay-cycle.md). Remaining-class multi-cycle (`production_node`, `route_link`, `defensive_work`, `archive_annex`). Third-and-later co-owners.
