@@ -1,0 +1,19 @@
+{
+  "schema_version": "construction-catalog/gc2-s16",
+  "catalog_id": "construction-catalog/gc2-s16",
+  "slice_id": "gc2-s16",
+  "authority": "docs/GC2-S16-PRODUCTION-NODE-CYCLE.md",
+  "rfc": "rfcs/RFC-0075-production-node-cycle.md",
+  "extends": "construction-catalog/gc2-s15",
+  "verb": "BUILD",
+  "operation": "CONSTRUCT",
+  "class_id": "production_node",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_progress": false,
+  "cycles": 1,
+  "scar_on_progress_dismantle": false,
+  "hidden_construct": false
+}
