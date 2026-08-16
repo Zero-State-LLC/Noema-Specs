@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0063 Accepted / GC5-S5:** `MESSAGE surface=BOARD` keeps the last 5 notices. Shout last-1 unchanged. WATCH silent. No BOARD/SHOUT verbs.
+
+### Added
+
 - **RFC-0062 Accepted / GC5-S4:** `MESSAGE surface=SHOUT` utters in the current public room. Last 1 shout. WATCH silent. No SHOUT/BOARD verbs.
 
 ### Added

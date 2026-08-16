@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/communication-catalog.gc5-s5.schema.json",
+  "title": "NOEMA Communication Catalog (GC5-S5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "surface",
+    "shout_verb",
+    "long_range_board",
+    "hidden_board",
+    "watch_board",
+    "help_board",
+    "retention",
+    "shout_retention"
+  ],
+  "properties": {
+    "schema_version": { "const": "communication-catalog/gc5-s5" },
+    "catalog_id": { "const": "communication-catalog/gc5-s5" },
+    "slice_id": { "const": "gc5-s5" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "communication-catalog/gc5-s3" },
+    "verb": { "const": "MESSAGE" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "surface": { "const": "BOARD" },
+    "shout_verb": { "const": false },
+    "long_range_board": { "const": false },
+    "hidden_board": { "const": false },
+    "watch_board": { "const": false },
+    "help_board": { "const": false },
+    "retention": { "const": 5 },
+    "shout_retention": { "const": 1 },
+    "cost_compute": { "const": 1 }
+  }
+}
