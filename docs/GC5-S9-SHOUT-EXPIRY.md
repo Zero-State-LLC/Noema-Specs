@@ -4,7 +4,7 @@
 **Parent:** [GC5-S4-SHOUT.md](GC5-S4-SHOUT.md) · [GC5-S5-RETENTION.md](GC5-S5-RETENTION.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0080](../rfcs/RFC-0080-shout-expiry.md)  
 **Does not open:** SHOUT verb · other-surface expiry · MESSAGE_EXPIRED · help advertising · WATCH ticker  
-**Next:** cycle expiry for BOARD / NOTICE / CHANNEL / TRADE_NOTICE
+**Next:** [GC5-S10-BOARD-EXPIRY.md](GC5-S10-BOARD-EXPIRY.md)
 
 S9 makes a shout take world-time. A public shout is still last 1, then gone after one committed cycle.
 
@@ -44,7 +44,7 @@ S9 makes a shout take world-time. A public shout is still last 1, then gone afte
 
 ```text
 SHOUT verb
-BOARD / NOTICE / CHANNEL / TRADE_NOTICE expiry
+NOTICE / CHANNEL / TRADE_NOTICE expiry
 MESSAGE_EXPIRED
 Chamber help shout
 WATCH ticker

@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s10",
+  "catalog_id": "communication-catalog/gc5-s10",
+  "operation": "BOARD",
+  "room_hidden": false,
+  "posted": 6,
+  "expected": { "outcome": "ACCEPT", "kept": 5, "note": "Last-5 overwrite is unchanged." }
+}

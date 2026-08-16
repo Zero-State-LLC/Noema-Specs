@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s10",
+  "catalog_id": "communication-catalog/gc5-s10",
+  "operation": "BOARD",
+  "room_hidden": false,
+  "posted": 3,
+  "expected": { "outcome": "ACCEPT", "kept": 3, "note": "Public board still keeps last 5 in the posting cycle." }
+}

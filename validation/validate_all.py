@@ -6347,6 +6347,59 @@ def check_gc5_s9(Draft202012Validator) -> None:
     ok("GC5-S9 shout cycle expiry: catalog, attempt fixtures, RFC-0080 Accepted")
 
 
+def evaluate_gc5_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("operation") == "BOARD":
+        if attempt.get("room_hidden") or catalog.get("hidden_board"):
+            return "REJECT", "hidden", None
+        posted = int(attempt.get("posted") or 0)
+        cap = int(catalog.get("retention") or 5)
+        return "ACCEPT", None, min(posted, cap)
+    posted = int(attempt.get("posted") or 0)
+    if int(attempt.get("committed_cycles") or 0) >= int(catalog.get("expire_cycles") or 1):
+        return "ACCEPT", None, 0
+    cap = int(catalog.get("retention") or 5)
+    return "ACCEPT", None, min(posted, cap)
+
+
+def check_gc5_s10(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s10.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s10.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.gc5-s10.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC5-S10 catalog invalid: {errs[0].message}")
+    if catalog.get("help_board") or catalog.get("watch_board") or catalog.get("new_verbs") or catalog.get("notice_expiry"):
+        fail("GC5-S10 must not add help board, WATCH board, new verbs, or notice expiry")
+    if catalog.get("expire_cycles") != 1 or catalog.get("retention") != 5:
+        fail("GC5-S10 must keep last-5 board and expire after 1 cycle")
+    rfc = (ROOT / "rfcs" / "RFC-0081-board-expiry.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0081 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC5-S10-BOARD-EXPIRY.md").read_text(encoding="utf-8")
+    if "BOARD" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC5-S10 must keep BOARD on MESSAGE and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-board-ok.json",
+        "attempt-retention.json",
+        "attempt-hidden-reject.json",
+        "attempt-expire-ok.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc5-board-expiry" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, kept = evaluate_gc5_s10(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+    ok("GC5-S10 board cycle expiry: catalog, attempt fixtures, RFC-0081 Accepted")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -7815,6 +7868,7 @@ def main() -> None:
     check_gc5_s7(Draft202012Validator)
     check_gc5_s8(Draft202012Validator)
     check_gc5_s9(Draft202012Validator)
+    check_gc5_s10(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
