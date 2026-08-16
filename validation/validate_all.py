@@ -3580,6 +3580,49 @@ def check_gc3_s6(Draft202012Validator) -> None:
     ok("GC3-S6 deceptive: catalog, rebuild fixtures, RFC-0038 Accepted, rejects ignored")
 
 
+def evaluate_gc3_s7(attempt: dict, catalog: dict) -> dict:
+    extra = 0
+    reason = None
+    if attempt.get("live_hostile") and not attempt.get("live_reliable"):
+        extra = 1
+        reason = "TRADE_CAUTION"
+    if attempt.get("live_reliable") and catalog.get("waive_caution"):
+        extra = 0
+        reason = None
+    return {
+        "extra_compute": extra,
+        "auto_accept": bool(catalog.get("auto_accept")),
+        "reason_code": reason,
+    }
+
+
+def check_gc3_s7(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s7.json")
+    catalog_schema = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s7.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "social-memory-attempt.gc3-s7.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC3-S7 catalog invalid: {cerrs[0].message}")
+    if catalog.get("auto_accept") or catalog.get("hide_others") or catalog.get("hidden_rebate") or catalog.get("base_compute_zero") or catalog.get("new_verbs"):
+        fail("GC3-S7 must not auto-accept, hide others, rebate in secret, zero the base, or add verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0039-preferred-counterparty.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0039 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in ("attempt-waiver.json", "attempt-caution-only.json", "attempt-none.json"):
+        fixture = load_json(ROOT / "examples" / "gc3-preferred" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = evaluate_gc3_s7(fixture, catalog)
+        exp = fixture["expected"]
+        if got["extra_compute"] != exp["extra_compute"] or got["auto_accept"] != exp["auto_accept"]:
+            fail(f"{name}: got {got} expected {exp}")
+        if got["reason_code"] != exp.get("reason_code"):
+            fail(f"{name}: reason {got['reason_code']} expected {exp.get('reason_code')}")
+    ok("GC3-S7 preferred discount: catalog, attempt fixtures, RFC-0039 Accepted, no auto-accept")
+
+
 def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("org_active"):
         return "REJECT", "NOT_FOUND"
@@ -5495,6 +5538,7 @@ def main() -> None:
     check_gc3_s4(Draft202012Validator)
     check_gc3_s5(Draft202012Validator)
     check_gc3_s6(Draft202012Validator)
+    check_gc3_s7(Draft202012Validator)
     check_gc4_s0(Draft202012Validator)
     check_gc4_s1(Draft202012Validator)
     check_gc4_s2(Draft202012Validator)

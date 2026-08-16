@@ -50,4 +50,4 @@ Charge only the v0.1 TRADE compute. Caution lines remain as S1/S6 projection.
 
 ## Unresolved
 
-None. Preferred-counterparty discounts stay out (minigame).
+Closed later: preferred-counterparty discount [RFC-0039](RFC-0039-preferred-counterparty.md) (waive caution; no auto-accept).

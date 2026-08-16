@@ -1,0 +1,19 @@
+{
+  "schema_version": "social-memory-catalog/gc3-s7",
+  "catalog_id": "social-memory-catalog/gc3-s7",
+  "slice_id": "gc3-s7",
+  "authority": "docs/GC3-S7-PREFERRED.md",
+  "rfc": "rfcs/RFC-0039-preferred-counterparty.md",
+  "reliable_threshold": 3,
+  "waive_caution": true,
+  "auto_accept": false,
+  "hide_others": false,
+  "hidden_rebate": false,
+  "base_compute_zero": false,
+  "reputation_scalar": false,
+  "new_verbs": [],
+  "public_projection": false,
+  "watch_projection": false,
+  "prefer_line": "You prefer to deal with {name}.",
+  "forbidden_in_projection": ["amount", "stock", "entity_id", "hidden", "rebate"]
+}

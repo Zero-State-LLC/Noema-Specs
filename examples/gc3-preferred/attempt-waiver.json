@@ -1,0 +1,12 @@
+{
+  "slice_id": "gc3-s7",
+  "catalog_id": "social-memory-catalog/gc3-s7",
+  "live_hostile": true,
+  "live_reliable": true,
+  "expected": {
+    "extra_compute": 0,
+    "auto_accept": false,
+    "reason_code": null,
+    "note": "Live RELIABLE waives TRADE_CAUTION even when hostile evidence also exists."
+  }
+}

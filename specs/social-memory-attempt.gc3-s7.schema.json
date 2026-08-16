@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/social-memory-attempt.gc3-s7.schema.json",
+  "title": "NOEMA GC3-S7 preferred-discount attempt fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "live_hostile", "live_reliable", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc3-s7" },
+    "catalog_id": { "const": "social-memory-catalog/gc3-s7" },
+    "live_hostile": { "type": "boolean" },
+    "live_reliable": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["extra_compute", "auto_accept"],
+      "properties": {
+        "extra_compute": { "type": "integer", "minimum": 0 },
+        "auto_accept": { "type": "boolean" },
+        "reason_code": { "type": ["string", "null"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
