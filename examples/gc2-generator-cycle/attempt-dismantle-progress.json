@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s14",
+  "catalog_id": "construction-catalog/gc2-s14",
+  "operation": "DISMANTLE",
+  "class_id": "generator",
+  "in_progress": true,
+  "entity_id": "entity.generator.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "note": "In-progress DISMANTLE salvages with no live generator and no scar." }
+}

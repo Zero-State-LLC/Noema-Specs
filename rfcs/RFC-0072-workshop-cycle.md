@@ -57,4 +57,4 @@ Ignore `in_progress` on workshops (treat every workshop as live immediately).
 
 ## Unresolved
 
-Other remaining classes multi-cycle. Third-and-later co-owners.
+Generator multi-cycle is [RFC-0073](RFC-0073-generator-cycle.md). Remaining-class multi-cycle. Third-and-later co-owners.

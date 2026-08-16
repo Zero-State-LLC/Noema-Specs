@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s14",
+  "catalog_id": "construction-catalog/gc2-s14",
+  "operation": "CONSTRUCT",
+  "class_id": "generator",
+  "room_hidden": false,
+  "entity_id": "entity.generator.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": true, "live": false, "same_entity": true, "note": "Public generator CONSTRUCT starts IN_PROGRESS." }
+}
