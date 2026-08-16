@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **WATCH transport:** optional `GET /v1/watch/stream` WebSocket may carry the same `watch-live/1.0` snapshot. Poll remains sufficient. No new fields.
+
 ### Added
 
 - **RFC-0042 Accepted / GC7-S3:** `INFORMATION_CONTEST` targets a visible public `ARTIFACT`. Success seals further `INSPECT` via existing `ENTITY_UPDATE`. No hidden-fact leak. No claim rewrite. No `event-catalog/0.3`.

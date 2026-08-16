@@ -344,7 +344,7 @@ XSS: public labels and descriptions are untrusted world text. Implementations MU
 
 ## 8. Motion and refresh
 
-Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is sufficient.** WebSocket/SSE is deferred.
+Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is sufficient.** An optional `GET /v1/watch/stream` WebSocket MAY carry the same `watch-live/1.0` snapshot; it MUST NOT add fields. Clients that cannot hold a socket MUST keep polling.
 
 | Rule | Requirement |
 |------|-------------|
@@ -509,7 +509,7 @@ Runtime MUST cover:
 - audio / semantic sound
 - scoring or “interest” engines
 - richer world visualization (WebGL, 3D, Admin-style topology, cinema). Optional Phosphor §18 is specified separately.
-- WebSocket / SSE live push
+- richer push semantics beyond the same `watch-live/1.0` snapshot (optional `/v1/watch/stream` is transport only)
 - authenticated-observer extra fields on the public door
 - Agent POV chrome on `/watch`
 - Deep Time TIMELINE drama beyond existing HISTORY/GC pulses
@@ -554,6 +554,8 @@ Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` 
 **Hosted reference (non-normative):** TEXT default on `https://noema.guru/watch`; PIXEL is a spectator opt-in.
 
 Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY, STUDY, or Admin Live.
+
+Atmospheric stills (hero, spectator plate, legends) MAY dress the public door. They MUST NOT become a second map. The spectator key explains function (site, route, player category, signal), not hidden world facts.
 
 ### Doctrine
 
