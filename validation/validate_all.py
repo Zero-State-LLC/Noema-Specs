@@ -3236,6 +3236,55 @@ def check_gc2_s2(Draft202012Validator) -> None:
     ok("GC2-S2 workshop: catalog, attempt fixtures, RFC-0050 Accepted")
 
 
+def evaluate_gc2_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("operation") == "CONSTRUCT":
+        if attempt.get("room_hidden") or catalog.get("hidden_construct"):
+            return "REJECT", "hidden", None
+        if attempt.get("class_id") != catalog.get("class_id"):
+            return "REJECT", "class", None
+        return "ACCEPT", None, None
+    base = int(attempt.get("base_score") or 0)
+    bonus = int(catalog.get("defense_bonus_millipoints") or 0) if attempt.get("has_defensive_work") else 0
+    return "ACCEPT", None, base - bonus
+
+
+def check_gc2_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s3.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S3 catalog invalid: {errs[0].message}")
+    if catalog.get("hit_points") or catalog.get("new_contest_form") or catalog.get("help_build") or catalog.get("new_verbs"):
+        fail("GC2-S3 must not add HP, a new contest form, help BUILD, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0052-defensive-work.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0052 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S3-DEFENSIVE-WORK.md").read_text(encoding="utf-8")
+    if "defensive_work" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S3 must keep defensive_work in-room and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-construct-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-score-bonus.json",
+        "attempt-score-plain.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-defensive" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, score = evaluate_gc2_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("score") is not None and score != exp["score"]:
+            fail(f"{name}: score {score} expected {exp['score']}")
+    ok("GC2-S3 defensive_work: catalog, attempt fixtures, RFC-0052 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -6137,6 +6186,7 @@ def main() -> None:
     check_gc2_s0(Draft202012Validator)
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)
+    check_gc2_s3(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

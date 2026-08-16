@@ -1,0 +1,22 @@
+{
+  "schema_version": "construction-catalog/gc2-s3",
+  "catalog_id": "construction-catalog/gc2-s3",
+  "slice_id": "gc2-s3",
+  "authority": "docs/GC2-S3-DEFENSIVE-WORK.md",
+  "rfc": "rfcs/RFC-0052-defensive-work.md",
+  "extends": "construction-catalog/gc2-s2",
+  "verb": "BUILD",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "new_contest_form": false,
+  "hit_points": false,
+  "help_build": false,
+  "watch_fort": false,
+  "class_id": "defensive_work",
+  "construct_cost": { "energy": 7, "compute": 3, "storage": 4, "influence": 3 },
+  "salvage_storage": 2,
+  "max_live_per_class_per_room": 1,
+  "defense_bonus_millipoints": 50,
+  "hidden_construct": false
+}

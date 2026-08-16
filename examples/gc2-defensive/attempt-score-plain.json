@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s3",
+  "catalog_id": "construction-catalog/gc2-s3",
+  "operation": "SCORE",
+  "has_defensive_work": false,
+  "base_score": -38,
+  "expected": { "outcome": "ACCEPT", "score": -38, "note": "Without a work, S0 arithmetic stands." }
+}

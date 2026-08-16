@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s3",
+  "catalog_id": "construction-catalog/gc2-s3",
+  "operation": "CONSTRUCT",
+  "class_id": "defensive_work",
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "note": "Public room accepts defensive_work." }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s3.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_contest_form",
+    "hit_points",
+    "help_build",
+    "class_id",
+    "defense_bonus_millipoints",
+    "hidden_construct"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s3" },
+    "catalog_id": { "const": "construction-catalog/gc2-s3" },
+    "slice_id": { "const": "gc2-s3" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s2" },
+    "verb": { "const": "BUILD" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "new_contest_form": { "const": false },
+    "hit_points": { "const": false },
+    "help_build": { "const": false },
+    "watch_fort": { "const": false },
+    "class_id": { "const": "defensive_work" },
+    "construct_cost": { "type": "object" },
+    "salvage_storage": { "const": 2 },
+    "max_live_per_class_per_room": { "const": 1 },
+    "defense_bonus_millipoints": { "const": 50 },
+    "hidden_construct": { "const": false }
+  }
+}
