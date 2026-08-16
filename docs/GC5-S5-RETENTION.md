@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0063.  
 **Parent:** [GC5-S3-BOARD.md](GC5-S3-BOARD.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0063](../rfcs/RFC-0063-board-retention.md)  
-**Does not open:** BOARD/SHOUT verbs · cycle expiry · unlimited boards · help advertising · shout last-1 change
+**Does not open:** BOARD/SHOUT verbs · cycle expiry · unlimited boards · help advertising · shout last-1 change  
+**Next:** [GC5-S6-NOTICE.md](GC5-S6-NOTICE.md)
 
 S5 widens the S3 board. A public room keeps the last 5 notices. It is not an archive.
 
@@ -47,7 +48,6 @@ SHOUT / BOARD verb
 cycle expiry
 unlimited board
 Chamber help board
-org / institution notice
 ```
 
 ---

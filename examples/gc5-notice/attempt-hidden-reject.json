@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s6",
+  "catalog_id": "communication-catalog/gc5-s6",
+  "operation": "NOTICE",
+  "room_hidden": true,
+  "occupied": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no institution notice." }
+}

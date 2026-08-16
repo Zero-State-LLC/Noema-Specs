@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0064 Accepted / GC5-S6:** `MESSAGE surface=NOTICE` from an occupied `PUBLISH_NOTICE` office. Public room, last 1. WATCH silent. No NOTICE verb. `ORG_OFFICE_ACT` unchanged.
+
+### Added
+
 - **RFC-0063 Accepted / GC5-S5:** `MESSAGE surface=BOARD` keeps the last 5 notices. Shout last-1 unchanged. WATCH silent. No BOARD/SHOUT verbs.
 
 ### Added

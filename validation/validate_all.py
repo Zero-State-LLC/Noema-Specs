@@ -5337,6 +5337,57 @@ def check_gc5_s5(Draft202012Validator) -> None:
     ok("GC5-S5 MESSAGE board retention: catalog, attempt fixtures, RFC-0063 Accepted")
 
 
+def evaluate_gc5_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("room_hidden") or catalog.get("hidden_notice"):
+        return "REJECT", "hidden", None
+    if attempt.get("occupied") is False:
+        return "REJECT", "unauthorized", None
+    posted = int(attempt.get("posted") or 0)
+    keep = int(catalog.get("retention") or 1)
+    return "ACCEPT", None, min(posted, keep)
+
+
+def check_gc5_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s6.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.gc5-s6.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC5-S6 catalog invalid: {errs[0].message}")
+    if catalog.get("notice_verb") or catalog.get("org_channel") or catalog.get("watch_notice") or catalog.get("help_notice") or catalog.get("new_verbs") or catalog.get("long_range_notice"):
+        fail("GC5-S6 must not add NOTICE verb, org channel, WATCH notice, help notice, long-range notice, or new verbs")
+    if catalog.get("requires_office") != "PUBLISH_NOTICE":
+        fail("GC5-S6 must require occupied PUBLISH_NOTICE")
+    if catalog.get("board_retention") != 5 or catalog.get("shout_retention") != 1:
+        fail("GC5-S6 must leave board last-5 and shout last-1 unchanged")
+    rfc = (ROOT / "rfcs" / "RFC-0064-institution-notice.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0064 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC5-S6-NOTICE.md").read_text(encoding="utf-8")
+    if "NOTICE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC5-S6 must keep NOTICE on MESSAGE and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-notice-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-vacant-reject.json",
+        "attempt-retention.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc5-notice" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, kept = evaluate_gc5_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+    ok("GC5-S6 MESSAGE institution notice: catalog, attempt fixtures, RFC-0064 Accepted")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -6788,6 +6839,7 @@ def main() -> None:
     check_gc5_s3(Draft202012Validator)
     check_gc5_s4(Draft202012Validator)
     check_gc5_s5(Draft202012Validator)
+    check_gc5_s6(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
