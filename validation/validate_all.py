@@ -2943,6 +2943,66 @@ def check_gc1_s2(Draft202012Validator) -> None:
     ok("GC1-S2 engineer quality: catalog, attempt fixtures, RFC-0040 Accepted")
 
 
+def evaluate_gc1_s3(attempt: dict, catalog: dict) -> dict:
+    latent_after = int(catalog["latent_after_cycles"])
+    rehab_need = int(catalog["rehab_works"])
+    recognized = bool(attempt.get("recognized"))
+    prior = bool(attempt.get("prior_on_asset"))
+    idle = int(attempt.get("idle_cycles") or 0)
+    rehab = int(attempt.get("rehab_works") or 0)
+    latent = bool(recognized and idle >= latent_after and rehab < rehab_need)
+    bonus = int(catalog["repeat_bonus"]) if recognized and prior and not latent else 0
+    return {"latent": latent, "delta": int(catalog["repair_base"]) + bonus}
+
+
+def check_gc1_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s3.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S3 catalog invalid: {errs[0].message}")
+    if not catalog.get("decay_enabled") or catalog.get("watch_titles") or catalog.get("new_verbs"):
+        fail("GC1-S3 must enable decay only: no watch titles or new verbs")
+    if catalog.get("latent_after_cycles") != 12 or catalog.get("rehab_works") != 3:
+        fail("GC1-S3 pins must be latent_after_cycles=12 and rehab_works=3")
+    if catalog.get("repeat_bonus") != 5 or catalog.get("repair_base") != 15:
+        fail("GC1-S3 magnitudes must stay base 15 + bonus 5")
+    rfc = (ROOT / "rfcs" / "RFC-0043-mastery-decay.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0043 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC1-S3-DECAY.md").read_text(encoding="utf-8")
+    if "You were known for keeping infrastructure alive." not in slice_doc:
+        fail("GC1-S3 must pin the Engineer LATENT PLAY line")
+    for banned in ("Wipe evidence", "Bonus while LATENT", "1-work restore", "WATCH"):
+        if banned == "WATCH" and "WATCH “was Engineer”" not in slice_doc and "WATCH" not in rfc:
+            fail("GC1-S3 must reject WATCH titles")
+    if "Wipe evidence" not in slice_doc and "Wipe evidence" not in rfc:
+        fail("GC1-S3 must reject wiping evidence")
+    if "1-work restore" not in slice_doc and "1-work restore" not in rfc:
+        fail("GC1-S3 must reject 1-work restore")
+    if "Bonus while LATENT" not in slice_doc and "bonus while LATENT" not in rfc.lower() and "Bonus while LATENT" not in rfc:
+        fail("GC1-S3 must reject bonus while LATENT")
+    if '"SPECIALIZATION_' in (ROOT / "specs" / "event-types.0.2.json").read_text(encoding="utf-8"):
+        fail("event-catalog/0.2 must not grow SPECIALIZATION_*")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-idle-latent.json",
+        "attempt-short-idle.json",
+        "attempt-rehab.json",
+        "attempt-unrecognized.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s3" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc1_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if got["latent"] != exp["latent"] or got["delta"] != exp["delta"]:
+            fail(f"{name}: got {got} expected latent={exp['latent']} delta={exp['delta']}")
+    ok("GC1-S3 mastery decay: catalog, attempt fixtures, RFC-0043 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -5685,6 +5745,7 @@ def main() -> None:
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
     check_gc1_s2(Draft202012Validator)
+    check_gc1_s3(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.gc1-s3.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "decay_enabled",
+    "latent_after_cycles",
+    "rehab_works",
+    "watch_titles",
+    "new_verbs",
+    "repair_base",
+    "repeat_bonus"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s3" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s3" },
+    "slice_id": { "const": "gc1-s3" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "mastery-catalog/gc1-s2" },
+    "recognition_enabled": { "const": true },
+    "decay_enabled": { "const": true },
+    "latent_after_cycles": { "const": 12 },
+    "rehab_works": { "const": 3 },
+    "benefits_enabled": { "const": true },
+    "benefit_track": { "const": "track.engineer.01" },
+    "recognition_threshold": { "type": "integer" },
+    "repair_base": { "const": 15 },
+    "repeat_bonus": { "const": 5 },
+    "condition_cap": { "const": 100 },
+    "watch_titles": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "latent_play_line": { "type": "string" }
+  }
+}

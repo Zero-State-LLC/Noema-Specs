@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-attempt.gc1-s3.schema.json",
+  "title": "NOEMA GC1-S3 decay attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "recognized", "prior_on_asset", "idle_cycles", "rehab_works", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s3" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s3" },
+    "recognized": { "type": "boolean" },
+    "prior_on_asset": { "type": "boolean" },
+    "idle_cycles": { "type": "integer", "minimum": 0 },
+    "rehab_works": { "type": "integer", "minimum": 0 },
+    "condition_before": { "type": "integer" },
+    "expected": {
+      "type": "object",
+      "required": ["latent", "delta"],
+      "properties": {
+        "latent": { "type": "boolean" },
+        "delta": { "type": "integer" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

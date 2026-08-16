@@ -1,0 +1,21 @@
+{
+  "schema_version": "mastery-catalog/gc1-s3",
+  "catalog_id": "mastery-catalog/gc1-s3",
+  "slice_id": "gc1-s3",
+  "authority": "docs/GC1-S3-DECAY.md",
+  "rfc": "rfcs/RFC-0043-mastery-decay.md",
+  "extends": "mastery-catalog/gc1-s2",
+  "recognition_enabled": true,
+  "decay_enabled": true,
+  "latent_after_cycles": 12,
+  "rehab_works": 3,
+  "benefits_enabled": true,
+  "benefit_track": "track.engineer.01",
+  "recognition_threshold": 3,
+  "repair_base": 15,
+  "repeat_bonus": 5,
+  "condition_cap": 100,
+  "watch_titles": false,
+  "new_verbs": [],
+  "latent_play_line": "You were known for keeping infrastructure alive."
+}

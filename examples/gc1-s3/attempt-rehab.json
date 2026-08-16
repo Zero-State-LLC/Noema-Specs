@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc1-s3",
+  "catalog_id": "mastery-catalog/gc1-s3",
+  "recognized": true,
+  "prior_on_asset": true,
+  "idle_cycles": 12,
+  "rehab_works": 3,
+  "condition_before": 40,
+  "expected": { "latent": false, "delta": 20, "note": "3 rehab works restore MAINTAINED +5." }
+}
