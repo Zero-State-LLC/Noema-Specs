@@ -44,4 +44,10 @@ SUCCESSION ≠ PLAYER IDENTITY TRANSFER
 CONTROLLER CHANGE ≠ PLAYER SUCCESSION
 ```
 
-A founder or officer writes an ordered successor list (max two) on an office or emergency scope. Vacate / leave-institution evaluates that list. Disconnect, idle, controller change, DORMANT, and office retirement do not. Emergency successors inherit the remaining validity interval. `RULE_BASED`, `CONSENSUS`, and `INHERITED_BY_ORGANIZATION` remain unspecified.
+A founder or officer writes an ordered successor list (max two) on an office or emergency scope. Vacate / leave-institution evaluates that list. Disconnect, idle, controller change, DORMANT, and office retirement do not. Emergency successors inherit the remaining validity interval.
+
+## Playable CONSENSUS (GC4-S5)
+
+Hosted `CONSENSUS` succession is specified in [GC4-S5-CONSENSUS.md](GC4-S5-CONSENSUS.md) · [RFC-0060](../rfcs/RFC-0060-consensus-succession.md). Members consent a vacant office. `ceil(members/2)` seats. No elections.
+
+`RULE_BASED` and `INHERITED_BY_ORGANIZATION` remain unspecified.

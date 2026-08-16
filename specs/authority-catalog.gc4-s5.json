@@ -1,0 +1,18 @@
+{
+  "schema_version": "authority-catalog/gc4-s5",
+  "catalog_id": "authority-catalog/gc4-s5",
+  "slice_id": "gc4-s5",
+  "authority": "docs/GC4-S5-CONSENSUS.md",
+  "rfc": "rfcs/RFC-0060-consensus-succession.md",
+  "extends": "authority-catalog/gc4-s4",
+  "mechanism": "CONSENSUS",
+  "operation": "ORG_SUCCESSION_CONSENT",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "threshold": "ceil_half",
+  "occupied_vote": false,
+  "elections": false,
+  "rule_based": false,
+  "watch_titles": false
+}

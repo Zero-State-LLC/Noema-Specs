@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/authority-catalog.gc4-s5.schema.json",
+  "title": "NOEMA Authority Catalog (GC4-S5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "mechanism",
+    "operation",
+    "new_verbs",
+    "new_events",
+    "threshold",
+    "occupied_vote",
+    "elections",
+    "rule_based",
+    "watch_titles"
+  ],
+  "properties": {
+    "schema_version": { "const": "authority-catalog/gc4-s5" },
+    "catalog_id": { "const": "authority-catalog/gc4-s5" },
+    "slice_id": { "const": "gc4-s5" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "authority-catalog/gc4-s4" },
+    "mechanism": { "const": "CONSENSUS" },
+    "operation": { "const": "ORG_SUCCESSION_CONSENT" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "threshold": { "const": "ceil_half" },
+    "occupied_vote": { "const": false },
+    "elections": { "const": false },
+    "rule_based": { "const": false },
+    "watch_titles": { "const": false }
+  }
+}

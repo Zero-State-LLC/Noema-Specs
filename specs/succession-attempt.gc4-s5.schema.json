@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/succession-attempt.gc4-s5.schema.json",
+  "title": "NOEMA GC4-S5 consensus attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc4-s5" },
+    "catalog_id": { "const": "authority-catalog/gc4-s5" },
+    "operation": { "const": "ORG_SUCCESSION_CONSENT" },
+    "office_status": { "enum": ["VACANT", "OCCUPIED", "RETIRED"] },
+    "actor_is_member": { "type": "boolean" },
+    "candidate_is_member": { "type": "boolean" },
+    "member_count": { "type": "integer", "minimum": 1 },
+    "consent_count": { "type": "integer", "minimum": 0 },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "seated": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

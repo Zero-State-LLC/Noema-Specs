@@ -134,7 +134,8 @@ Treasury and institution-owned assets do not move. Personal danger/trade memory 
 ```text
 elections / parties / dynasty
 DORMANT-for-N-cycles rule
-consensus / rule-based mechanisms
+consensus — closed in [GC4-S5-CONSENSUS.md](GC4-S5-CONSENSUS.md)
+rule-based mechanisms
 SUCCESSION_* catalog
 leadership XP
 ```
