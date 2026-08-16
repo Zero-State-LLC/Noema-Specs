@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-catalog.gc8-s1.schema.json",
+  "title": "NOEMA Economy Catalog (GC8-S1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "currency",
+    "lot_quality",
+    "grades",
+    "worn_below_condition",
+    "worn_construct_storage_extra",
+    "mastery_yield_bonus",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "economy-catalog/gc8-s1" },
+    "catalog_id": { "const": "economy-catalog/gc8-s1" },
+    "slice_id": { "const": "gc8-s1" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "economy-catalog/gc8-s0" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "currency": { "const": false },
+    "order_book": { "const": false },
+    "v06b": { "const": false },
+    "mastery_yield_bonus": { "const": false },
+    "lot_quality": { "const": true },
+    "grades": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "enum": ["SOUND", "WORN"] }
+    },
+    "worn_below_condition": { "const": 50 },
+    "worn_construct_storage_extra": { "const": 1 },
+    "storage_loss": { "const": false },
+    "provenance": { "const": false }
+  }
+}

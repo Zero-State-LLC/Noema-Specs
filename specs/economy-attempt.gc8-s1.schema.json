@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-attempt.gc8-s1.schema.json",
+  "title": "NOEMA GC8-S1 lot-quality attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc8-s1" },
+    "catalog_id": { "const": "economy-catalog/gc8-s1" },
+    "operation": { "enum": ["HARVEST", "MIX", "CONSTRUCT"] },
+    "node_condition": { "type": "integer" },
+    "have_grade": { "enum": ["SOUND", "WORN"] },
+    "add_grade": { "enum": ["SOUND", "WORN"] },
+    "storage_grade": { "enum": ["SOUND", "WORN"] },
+    "base_storage": { "type": "integer" },
+    "claimed_yield_bonus": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["grade", "storage_cost"],
+      "properties": {
+        "grade": { "enum": ["SOUND", "WORN"] },
+        "storage_cost": { "type": "integer" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

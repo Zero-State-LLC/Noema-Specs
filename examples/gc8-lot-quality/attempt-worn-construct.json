@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s1",
+  "catalog_id": "economy-catalog/gc8-s1",
+  "operation": "CONSTRUCT",
+  "storage_grade": "WORN",
+  "base_storage": 4,
+  "expected": { "grade": "WORN", "storage_cost": 5, "note": "WORN storage adds +1 on CONSTRUCT." }
+}

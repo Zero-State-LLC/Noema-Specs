@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0045 Accepted / GC8-S1:** harvested holdings are SOUND or WORN. Condition < 50 is WORN. Mixing marks WORN. WORN storage adds +1 on CONSTRUCT. No yield bonus. No currency. No provenance.
+
+### Added
+
 - **RFC-0044 Accepted / GC1-S4:** Explorer/Surveyor/Broker prior-work benefits. Repeat LOOK/INSPECT of a known room/entity pays 0 attention. Broker waives TRADE_CAUTION only for a prior counterparty. LATENT withholds. No class discounts. No WATCH titles.
 
 ### Added

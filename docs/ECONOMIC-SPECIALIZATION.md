@@ -89,7 +89,8 @@ These are [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) practices plus 
 
 ```text
 GC8-S0 closed: pair HARVEST+TRADE energy 4 vs lone +MOVE; no yield bonus
-lot quality / provenance fields (if any)
+GC8-S1 closed: SOUND/WORN lots; worn if node condition < 50; WORN construct storage +1
+provenance fields (if any)
 transport-cost table beyond MOVE energy
 whether storage loss is in or deferred
 relationship to future v0.6B (still a distinct RFC)
