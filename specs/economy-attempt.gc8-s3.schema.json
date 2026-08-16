@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-attempt.gc8-s3.schema.json",
+  "title": "NOEMA GC8-S3 spoilage attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "grade", "amount", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc8-s3" },
+    "catalog_id": { "const": "economy-catalog/gc8-s3" },
+    "operation": { "enum": ["SPOIL"] },
+    "grade": { "enum": ["SOUND", "WORN"] },
+    "amount": { "type": "integer", "minimum": 0 },
+    "expected": {
+      "type": "object",
+      "required": ["loss", "remaining", "grade"],
+      "properties": {
+        "loss": { "type": "integer" },
+        "remaining": { "type": "integer" },
+        "grade": { "type": ["string", "null"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
