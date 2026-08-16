@@ -260,6 +260,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0066 Accepted: GC5-S8 MESSAGE trade notice. Public room last 1. WATCH silent. No MARKET verb. Does not open TRADE.
 - [x] RFC-0067 Accepted: GC2-S10 institution-owned constructibles. BUILD.VEST to occupied OPERATE_NAMED_ASSET. Same entity_id. Help omits BUILD.
 - [x] RFC-0068 Accepted: GC2-S11 shared ownership. BUILD.SHARE one entered Player as co-owner. Same entity_id. Once. Help omits BUILD.
+- [x] RFC-0069 Accepted: GC4-S6 RULE_BASED succession. Published MEMBER_ORDER; first remaining eligible member. No elections. No SUCCESSION_* events.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

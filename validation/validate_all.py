@@ -4997,6 +4997,55 @@ def check_gc4_s5(Draft202012Validator) -> None:
     ok("GC4-S5 CONSENSUS succession: catalog, attempt fixtures, RFC-0060 Accepted")
 
 
+def evaluate_gc4_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]:
+    if attempt.get("operation") == "PUBLISH":
+        if attempt.get("rule_id") != catalog.get("rule_id"):
+            return "REJECT", "unknown", None
+        return "ACCEPT", None, None
+    if not attempt.get("published"):
+        return "REJECT", "unpublished", False
+    remaining = int(attempt.get("eligible_remaining") or 0)
+    return "ACCEPT", None, remaining > 0
+
+
+def check_gc4_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s6.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "succession-attempt.gc4-s6.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC4-S6 catalog invalid: {errs[0].message}")
+    if catalog.get("elections") or catalog.get("rule_language") or catalog.get("implicit_jump") or catalog.get("emergency_rule") or catalog.get("new_events") or catalog.get("watch_titles"):
+        fail("GC4-S6 must not add elections, a rule language, implicit jump, emergency rules, new events, or WATCH titles")
+    if catalog.get("rule_id") != "MEMBER_ORDER":
+        fail("GC4-S6 must keep MEMBER_ORDER as the only rule")
+    rfc = (ROOT / "rfcs" / "RFC-0069-rule-based-succession.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0069 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC4-S6-RULE.md").read_text(encoding="utf-8")
+    if "MEMBER_ORDER" not in slice_doc or "ORG_SUCCESSION_RULE" not in slice_doc:
+        fail("GC4-S6 must keep MEMBER_ORDER on ORG_SUCCESSION_RULE")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-publish-ok.json",
+        "attempt-unknown-reject.json",
+        "attempt-seat-ok.json",
+        "attempt-empty-vacant.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc4-rule" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, seated = evaluate_gc4_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("seated") is not None and seated != exp["seated"]:
+            fail(f"{name}: seated {seated} expected {exp['seated']}")
+    ok("GC4-S6 RULE_BASED succession: catalog, attempt fixtures, RFC-0069 Accepted")
+
 
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
@@ -7034,6 +7083,7 @@ def main() -> None:
     check_gc4_s3(Draft202012Validator)
     check_gc4_s4(Draft202012Validator)
     check_gc4_s5(Draft202012Validator)
+    check_gc4_s6(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc5_s2(Draft202012Validator)

@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc4-s6",
+  "catalog_id": "authority-catalog/gc4-s6",
+  "operation": "VACATE",
+  "published": true,
+  "rule_id": "MEMBER_ORDER",
+  "eligible_remaining": 0,
+  "expected": { "outcome": "ACCEPT", "seated": false, "note": "No eligible remaining member; office stays vacant." }
+}

@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc4-s6",
+  "catalog_id": "authority-catalog/gc4-s6",
+  "operation": "PUBLISH",
+  "rule_id": "MEMBER_ORDER",
+  "expected": { "outcome": "ACCEPT", "note": "Founder or officer may publish MEMBER_ORDER." }
+}

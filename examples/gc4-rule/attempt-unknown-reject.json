@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc4-s6",
+  "catalog_id": "authority-catalog/gc4-s6",
+  "operation": "PUBLISH",
+  "rule_id": "OLDEST",
+  "expected": { "outcome": "REJECT", "reason": "unknown", "note": "Unknown rule ids fail closed." }
+}

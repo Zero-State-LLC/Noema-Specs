@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0069 Accepted / GC4-S6:** `ORG_SUCCESSION_RULE` publishes `MEMBER_ORDER`. Vacate seats the first remaining eligible member. No elections. No `SUCCESSION_*` events.
+
+### Added
+
 - **RFC-0068 Accepted / GC2-S11:** `BUILD.SHARE` names one entered Player as co-owner of a personally owned public constructible. Same `entity_id`. Once. WATCH silent. Help still omits BUILD.
 
 ### Added

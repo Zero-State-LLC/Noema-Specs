@@ -50,4 +50,8 @@ A founder or officer writes an ordered successor list (max two) on an office or 
 
 Hosted `CONSENSUS` succession is specified in [GC4-S5-CONSENSUS.md](GC4-S5-CONSENSUS.md) · [RFC-0060](../rfcs/RFC-0060-consensus-succession.md). Members consent a vacant office. `ceil(members/2)` seats. No elections.
 
-`RULE_BASED` and `INHERITED_BY_ORGANIZATION` remain unspecified.
+## Playable RULE_BASED (GC4-S6)
+
+Hosted `RULE_BASED` succession is specified in [GC4-S6-RULE.md](GC4-S6-RULE.md) · [RFC-0069](../rfcs/RFC-0069-rule-based-succession.md). An officer publishes `MEMBER_ORDER` on the office. Vacate walks stored membership. No rule language. No implicit jump.
+
+`INHERITED_BY_ORGANIZATION` remains unspecified.

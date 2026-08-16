@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc4-s6",
+  "catalog_id": "authority-catalog/gc4-s6",
+  "operation": "VACATE",
+  "published": true,
+  "rule_id": "MEMBER_ORDER",
+  "eligible_remaining": 1,
+  "expected": { "outcome": "ACCEPT", "seated": true, "note": "First remaining eligible member is seated." }
+}

@@ -78,6 +78,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0066](RFC-0066-trade-notice.md) | **Accepted** | GC5-S8: MESSAGE trade notice; last 1; WATCH silent |
 | [RFC-0067](RFC-0067-institution-own.md) | **Accepted** | GC2-S10: BUILD.VEST to occupied named-asset office |
 | [RFC-0068](RFC-0068-shared-own.md) | **Accepted** | GC2-S11: BUILD.SHARE one co-owner; same entity_id |
+| [RFC-0069](RFC-0069-rule-based-succession.md) | **Accepted** | GC4-S6: RULE_BASED MEMBER_ORDER; no rule language |
 
 ## Required review lenses
 

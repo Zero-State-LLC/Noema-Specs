@@ -1,0 +1,20 @@
+{
+  "schema_version": "authority-catalog/gc4-s6",
+  "catalog_id": "authority-catalog/gc4-s6",
+  "slice_id": "gc4-s6",
+  "authority": "docs/GC4-S6-RULE.md",
+  "rfc": "rfcs/RFC-0069-rule-based-succession.md",
+  "extends": "authority-catalog/gc4-s5",
+  "mechanism": "RULE_BASED",
+  "operation": "ORG_SUCCESSION_RULE",
+  "rule_id": "MEMBER_ORDER",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "elections": false,
+  "rule_language": false,
+  "implicit_jump": false,
+  "emergency_rule": false,
+  "watch_titles": false,
+  "cost_compute": 1
+}
