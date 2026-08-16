@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s4",
+  "catalog_id": "construction-catalog/gc2-s4",
+  "operation": "ATTEST",
+  "has_annex": true,
+  "base_attention": 2,
+  "expected": { "outcome": "ACCEPT", "attention_cost": 1, "note": "Live annex saves 1 attest attention." }
+}

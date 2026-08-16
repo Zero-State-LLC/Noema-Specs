@@ -40,7 +40,7 @@ S3 adds a wall. A live `defensive_work` adds 50 millipoints of defense to contes
 ## Out of S3
 
 ```text
-archive_annex
+archive_annex (closed in GC2-S4)
 UPGRADE CONNECT HP
 Chamber help BUILD CONTEST
 ```
