@@ -1,0 +1,20 @@
+{
+  "schema_version": "communication-catalog/gc5-s5",
+  "catalog_id": "communication-catalog/gc5-s5",
+  "slice_id": "gc5-s5",
+  "authority": "docs/GC5-S5-RETENTION.md",
+  "rfc": "rfcs/RFC-0063-board-retention.md",
+  "extends": "communication-catalog/gc5-s3",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "BOARD",
+  "shout_verb": false,
+  "long_range_board": false,
+  "hidden_board": false,
+  "watch_board": false,
+  "help_board": false,
+  "retention": 5,
+  "shout_retention": 1,
+  "cost_compute": 1
+}

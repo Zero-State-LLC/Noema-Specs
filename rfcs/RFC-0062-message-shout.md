@@ -55,4 +55,4 @@ Ignore `surface=SHOUT` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-Retention beyond 3 (board). Org / institution notice surfaces.
+Board retention is [RFC-0063](RFC-0063-board-retention.md) (last 5). Org / institution notice surfaces.
