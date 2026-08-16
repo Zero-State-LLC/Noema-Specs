@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s8",
+  "catalog_id": "construction-catalog/gc2-s8",
+  "operation": "RESTORE",
+  "unclaimed": false,
+  "owned": true,
+  "scar": true,
+  "expected": { "outcome": "REJECT", "reason": "scar", "note": "GC10-S2 scars stay irreparable." }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "construction-catalog/gc2-s8",
+  "catalog_id": "construction-catalog/gc2-s8",
+  "slice_id": "gc2-s8",
+  "authority": "docs/GC2-S8-RESTORE.md",
+  "rfc": "rfcs/RFC-0059-restore.md",
+  "extends": "construction-catalog/gc2-s7",
+  "verb": "BUILD",
+  "operation": "RESTORE",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_restore": false,
+  "scar_restore": false,
+  "owner_only": true,
+  "restore_condition_cap": 50,
+  "hidden_restore": false
+}

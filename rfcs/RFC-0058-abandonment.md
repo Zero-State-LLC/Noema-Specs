@@ -53,4 +53,4 @@ Ignore `unclaimed`. Ownership stays.
 
 ## Unresolved
 
-RESTORE. CONNECT. Multi-cycle.
+CONNECT. Multi-cycle. RESTORE is RFC-0059.

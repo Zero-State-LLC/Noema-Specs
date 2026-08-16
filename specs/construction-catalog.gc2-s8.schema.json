@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s8.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S8)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "help_build",
+    "watch_restore",
+    "scar_restore",
+    "owner_only",
+    "restore_condition_cap",
+    "hidden_restore"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s8" },
+    "catalog_id": { "const": "construction-catalog/gc2-s8" },
+    "slice_id": { "const": "gc2-s8" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s7" },
+    "verb": { "const": "BUILD" },
+    "operation": { "const": "RESTORE" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "help_build": { "const": false },
+    "watch_restore": { "const": false },
+    "scar_restore": { "const": false },
+    "owner_only": { "const": true },
+    "restore_condition_cap": { "const": 50 },
+    "hidden_restore": { "const": false }
+  }
+}

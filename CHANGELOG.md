@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0059 Accepted / GC2-S8:** `BUILD.RESTORE` on an owned public UNCLAIMED constructible. Condition capped at 50. Scars stay irreparable. WATCH silent.
+
+### Added
+
 - **RFC-0058 Accepted / GC2-S7:** public constructible becomes UNCLAIMED after 12 idle committed cycles. Anyone may DISMANTLE. No scar on abandon. WATCH silent.
 
 ### Added

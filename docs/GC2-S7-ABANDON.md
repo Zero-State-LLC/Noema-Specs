@@ -42,7 +42,8 @@ S7 makes neglect a world fact. After 12 committed idle cycles a public construct
 ## Out of S7
 
 ```text
-RESTORE CONNECT
+RESTORE — closed in [GC2-S8-RESTORE.md](GC2-S8-RESTORE.md)
+CONNECT
 scar on abandon
 evict / delete
 STRUCTURE_*
