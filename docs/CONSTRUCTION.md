@@ -241,7 +241,8 @@ attempt fixtures
 ### Still open (later slices)
 
 ```text
-route_link / workshop / defensive_work / archive_annex
+GC2-S1 closed: route_link waives cargo MOVE extra; no new exit
+workshop / defensive_work / archive_annex
 UPGRADE, REPURPOSE, CONNECT, RESTORE
 institution / shared ownership
 abandonment timers

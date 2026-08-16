@@ -99,7 +99,8 @@ At most **one live asset of each class per room**. That is the S0 room-permissio
 ## Explicitly out of S0
 
 ```text
-route_link, defensive_work, archive_annex, workshop
+route_link (closed in GC2-S1)
+defensive_work, archive_annex, workshop
 UPGRADE, REPURPOSE, CONNECT, FORTIFY, RESTORE
 shared / institution ownership
 abandonment timers

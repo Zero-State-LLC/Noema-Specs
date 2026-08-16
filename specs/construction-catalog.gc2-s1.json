@@ -1,0 +1,21 @@
+{
+  "schema_version": "construction-catalog/gc2-s1",
+  "catalog_id": "construction-catalog/gc2-s1",
+  "slice_id": "gc2-s1",
+  "authority": "docs/GC2-S1-ROUTE-LINK.md",
+  "rfc": "rfcs/RFC-0049-route-link.md",
+  "extends": "construction-catalog/gc2-s0",
+  "verb": "BUILD",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "new_exit": false,
+  "watch_routes": false,
+  "help_build": false,
+  "class_id": "route_link",
+  "construct_cost": { "energy": 8, "compute": 4, "storage": 4, "influence": 2 },
+  "salvage_storage": 2,
+  "max_live_per_class_per_room": 1,
+  "effect": "waive_cargo_move",
+  "hidden_construct": false
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s1.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_exit",
+    "watch_routes",
+    "help_build",
+    "class_id",
+    "effect",
+    "hidden_construct"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s1" },
+    "catalog_id": { "const": "construction-catalog/gc2-s1" },
+    "slice_id": { "const": "gc2-s1" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s0" },
+    "verb": { "const": "BUILD" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "new_exit": { "const": false },
+    "watch_routes": { "const": false },
+    "help_build": { "const": false },
+    "class_id": { "const": "route_link" },
+    "construct_cost": { "type": "object" },
+    "salvage_storage": { "const": 2 },
+    "max_live_per_class_per_room": { "const": 1 },
+    "effect": { "const": "waive_cargo_move" },
+    "hidden_construct": { "const": false }
+  }
+}

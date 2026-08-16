@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s1",
+  "catalog_id": "construction-catalog/gc2-s1",
+  "operation": "MOVE",
+  "has_route_link": false,
+  "storage": 15,
+  "expected": { "outcome": "ACCEPT", "move_energy": 2, "note": "Without a link, cargo extra stays." }
+}
