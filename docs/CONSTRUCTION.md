@@ -253,6 +253,8 @@ GC2-S9 closed: public relay CONSTRUCT is IN_PROGRESS; live after 1 committed cyc
 GC2-S10 closed: BUILD.VEST personal public constructible to occupied OPERATE_NAMED_ASSET; same entity_id
 GC2-S11 closed: BUILD.SHARE one entered Player as co-owner; same entity_id; once
 GC2-S12 closed: BUILD.CONNECT dest pin on public route_link; existing two-way public neighbor; no new exit
+GC2-S13 closed: public workshop CONSTRUCT is IN_PROGRESS; live after 1 committed cycle
+remaining-class multi-cycle
 third-and-later co-owners
 first-world PLAY advertising BUILD
 runtime implementation

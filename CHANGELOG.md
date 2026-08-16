@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0072 Accepted / GC2-S13:** public `workshop` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. UPGRADE/REPURPOSE of a shell is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0071 Accepted / GC2-S12:** `BUILD.CONNECT` pins a public two-way dest on a stewarded `route_link`. No new exit. Hidden dest and missing reverse share `NOT_OBSERVABLE`. WATCH silent. Help still omits BUILD.
 
 ### Added

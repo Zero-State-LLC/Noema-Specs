@@ -56,4 +56,4 @@ Ignore `CONNECT` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-Other-class multi-cycle. Third-and-later co-owners.
+Workshop multi-cycle is [RFC-0072](RFC-0072-workshop-cycle.md). Remaining-class multi-cycle. Third-and-later co-owners.

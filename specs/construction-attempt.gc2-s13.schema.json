@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-attempt.gc2-s13.schema.json",
+  "title": "NOEMA GC2-S13 workshop multi-cycle attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc2-s13" },
+    "catalog_id": { "const": "construction-catalog/gc2-s13" },
+    "operation": { "enum": ["CONSTRUCT", "PROMOTE", "DISMANTLE", "UPGRADE", "REPURPOSE"] },
+    "class_id": { "type": "string" },
+    "room_hidden": { "type": "boolean" },
+    "in_progress": { "type": "boolean" },
+    "committed_cycles": { "type": "integer", "minimum": 0 },
+    "entity_id": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "in_progress": { "type": "boolean" },
+        "live": { "type": "boolean" },
+        "same_entity": { "type": "boolean" },
+        "scar": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
