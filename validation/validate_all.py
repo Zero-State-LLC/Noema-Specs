@@ -3385,6 +3385,61 @@ def check_gc2_s4(Draft202012Validator) -> None:
     ok("GC2-S4 archive_annex: catalog, attempt fixtures, RFC-0053 Accepted")
 
 
+def evaluate_gc2_s5(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    op = attempt.get("operation")
+    if op == "UPGRADE":
+        if attempt.get("room_hidden") or catalog.get("hidden_upgrade"):
+            return "REJECT", "hidden", None
+        if attempt.get("class_id") != catalog.get("class_id"):
+            return "REJECT", "class", None
+        if attempt.get("already_upgraded"):
+            return "REJECT", "tier", None
+        if attempt.get("owned") is False:
+            return "REJECT", "owner", None
+        return "ACCEPT", None, None
+    base = int(attempt.get("base_storage") or 0)
+    discount = int(catalog.get("storage_discount") or 0) if attempt.get("has_upgraded_workshop") else 0
+    return "ACCEPT", None, max(0, base - discount)
+
+
+def check_gc2_s5(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s5.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s5.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s5.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S5 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_upgrade"):
+        fail("GC2-S5 must not add help BUILD, new verbs, or WATCH upgrade")
+    rfc = (ROOT / "rfcs" / "RFC-0056-workshop-upgrade.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0056 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S5-UPGRADE.md").read_text(encoding="utf-8")
+    if "UPGRADE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S5 must keep UPGRADE on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-upgrade-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-other-class.json",
+        "attempt-second-reject.json",
+        "attempt-construct-discount.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-upgrade" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, storage = evaluate_gc2_s5(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("storage_cost") is not None and storage != exp["storage_cost"]:
+            fail(f"{name}: storage {storage} expected {exp['storage_cost']}")
+    ok("GC2-S5 workshop UPGRADE: catalog, attempt fixtures, RFC-0056 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -6333,6 +6388,7 @@ def main() -> None:
     check_gc2_s2(Draft202012Validator)
     check_gc2_s3(Draft202012Validator)
     check_gc2_s4(Draft202012Validator)
+    check_gc2_s5(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

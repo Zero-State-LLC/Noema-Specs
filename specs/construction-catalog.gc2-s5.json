@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s5",
+  "catalog_id": "construction-catalog/gc2-s5",
+  "slice_id": "gc2-s5",
+  "authority": "docs/GC2-S5-UPGRADE.md",
+  "rfc": "rfcs/RFC-0056-workshop-upgrade.md",
+  "extends": "construction-catalog/gc2-s4",
+  "verb": "BUILD",
+  "operation": "UPGRADE",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_upgrade": false,
+  "class_id": "workshop",
+  "upgrade_cost": { "energy": 4, "compute": 2, "storage": 2, "influence": 1 },
+  "storage_discount": 2,
+  "max_tier": 1,
+  "hidden_upgrade": false
+}

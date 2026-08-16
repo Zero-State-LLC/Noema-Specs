@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0056 Accepted / GC2-S5:** `BUILD.UPGRADE` on an owned public workshop. Storage save becomes 2. Once. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0055 Accepted / GC1-S5:** named office MAY require recognized Engineer or Broker. Existing `ORG_OFFICE_ASSIGN`. LATENT still sits. No WATCH titles. No class discounts.
 
 ### Added

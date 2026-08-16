@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s5",
+  "catalog_id": "construction-catalog/gc2-s5",
+  "operation": "UPGRADE",
+  "class_id": "workshop",
+  "room_hidden": true,
+  "owned": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no upgrade." }
+}

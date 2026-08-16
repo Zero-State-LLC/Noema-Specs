@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s5",
+  "catalog_id": "construction-catalog/gc2-s5",
+  "operation": "CONSTRUCT",
+  "has_upgraded_workshop": true,
+  "base_storage": 5,
+  "expected": { "outcome": "ACCEPT", "storage_cost": 3, "note": "Upgraded workshop saves 2 storage." }
+}

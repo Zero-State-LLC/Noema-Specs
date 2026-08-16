@@ -40,7 +40,8 @@ S4 adds a reading room. A live `archive_annex` saves one attention on INSPECT an
 ## Out of S4
 
 ```text
-UPGRADE CONNECT QUEST
+UPGRADE — closed in [GC2-S5-UPGRADE.md](GC2-S5-UPGRADE.md)
+CONNECT QUEST
 Chamber help BUILD ATTEST
 ```
 
