@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0053 Accepted / GC2-S4:** constructible `archive_annex` saves 1 attention on in-room INSPECT and ATTEST. No QUEST. Help still omits BUILD.
+
+### Added
+
 - **RFC-0052 Accepted / GC2-S3:** constructible `defensive_work` adds 50 contest defense millipoints in that room. No HP. No new form. Help still omits BUILD.
 
 ### Added

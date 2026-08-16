@@ -3285,6 +3285,55 @@ def check_gc2_s3(Draft202012Validator) -> None:
     ok("GC2-S3 defensive_work: catalog, attempt fixtures, RFC-0052 Accepted")
 
 
+def evaluate_gc2_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("operation") == "CONSTRUCT":
+        if attempt.get("room_hidden") or catalog.get("hidden_construct"):
+            return "REJECT", "hidden", None
+        if attempt.get("class_id") != catalog.get("class_id"):
+            return "REJECT", "class", None
+        return "ACCEPT", None, None
+    base = int(attempt.get("base_attention") or 0)
+    discount = int(catalog.get("attention_discount") or 0) if attempt.get("has_annex") else 0
+    return "ACCEPT", None, max(0, base - discount)
+
+
+def check_gc2_s4(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s4.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s4.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s4.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S4 catalog invalid: {errs[0].message}")
+    if catalog.get("quest") or catalog.get("oracle") or catalog.get("help_build") or catalog.get("new_verbs"):
+        fail("GC2-S4 must not add QUEST, an oracle, help BUILD, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0053-archive-annex.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0053 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S4-ARCHIVE-ANNEX.md").read_text(encoding="utf-8")
+    if "archive_annex" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S4 must keep annex in-room and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-construct-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-inspect-discount.json",
+        "attempt-attest-discount.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-annex" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, attention = evaluate_gc2_s4(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("attention_cost") is not None and attention != exp["attention_cost"]:
+            fail(f"{name}: attention {attention} expected {exp['attention_cost']}")
+    ok("GC2-S4 archive_annex: catalog, attempt fixtures, RFC-0053 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -6187,6 +6236,7 @@ def main() -> None:
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)
     check_gc2_s3(Draft202012Validator)
+    check_gc2_s4(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)
