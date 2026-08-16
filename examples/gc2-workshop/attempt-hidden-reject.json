@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s2",
+  "catalog_id": "construction-catalog/gc2-s2",
+  "operation": "CONSTRUCT",
+  "class_id": "workshop",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms stay unbuildable." }
+}

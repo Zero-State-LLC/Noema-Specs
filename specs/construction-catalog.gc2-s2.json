@@ -1,0 +1,23 @@
+{
+  "schema_version": "construction-catalog/gc2-s2",
+  "catalog_id": "construction-catalog/gc2-s2",
+  "slice_id": "gc2-s2",
+  "authority": "docs/GC2-S2-WORKSHOP.md",
+  "rfc": "rfcs/RFC-0050-workshop.md",
+  "extends": "construction-catalog/gc2-s1",
+  "verb": "BUILD",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "recipes": false,
+  "mastery_discount": false,
+  "help_build": false,
+  "watch_workshop": false,
+  "class_id": "workshop",
+  "construct_cost": { "energy": 6, "compute": 3, "storage": 5, "influence": 0 },
+  "salvage_storage": 2,
+  "max_live_per_class_per_room": 1,
+  "storage_discount": 1,
+  "applies_to": ["CONSTRUCT", "REPAIR"],
+  "hidden_construct": false
+}

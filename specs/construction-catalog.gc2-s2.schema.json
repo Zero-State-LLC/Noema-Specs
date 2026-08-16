@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s2.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "recipes",
+    "mastery_discount",
+    "help_build",
+    "class_id",
+    "storage_discount",
+    "applies_to",
+    "hidden_construct"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s2" },
+    "catalog_id": { "const": "construction-catalog/gc2-s2" },
+    "slice_id": { "const": "gc2-s2" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s1" },
+    "verb": { "const": "BUILD" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "recipes": { "const": false },
+    "mastery_discount": { "const": false },
+    "help_build": { "const": false },
+    "watch_workshop": { "const": false },
+    "class_id": { "const": "workshop" },
+    "construct_cost": { "type": "object" },
+    "salvage_storage": { "const": 2 },
+    "max_live_per_class_per_room": { "const": 1 },
+    "storage_discount": { "const": 1 },
+    "applies_to": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "enum": ["CONSTRUCT", "REPAIR"] }
+    },
+    "hidden_construct": { "const": false }
+  }
+}

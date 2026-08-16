@@ -59,6 +59,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0047](RFC-0047-lot-spoilage.md) | **Accepted** | GC8-S3: WORN lots spoil 1 per cycle; SOUND keeps |
 | [RFC-0048](RFC-0048-cargo-move.md) | **Accepted** | GC8-S4: carrying MOVE +1; empty stays 1 |
 | [RFC-0049](RFC-0049-route-link.md) | **Accepted** | GC2-S1: route_link waives cargo MOVE extra |
+| [RFC-0050](RFC-0050-workshop.md) | **Accepted** | GC2-S2: workshop saves 1 construct/repair storage |
 
 ## Required review lenses
 

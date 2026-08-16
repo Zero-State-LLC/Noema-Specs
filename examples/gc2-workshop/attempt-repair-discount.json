@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s2",
+  "catalog_id": "construction-catalog/gc2-s2",
+  "operation": "REPAIR",
+  "has_workshop": true,
+  "base_storage": 1,
+  "expected": { "outcome": "ACCEPT", "storage_cost": 0, "note": "Live workshop saves 1 repair storage." }
+}
