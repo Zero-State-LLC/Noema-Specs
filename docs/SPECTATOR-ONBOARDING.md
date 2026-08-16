@@ -30,7 +30,9 @@ Fixture: [examples/onboarding/spectator-modes.json](../examples/onboarding/spect
 
 ## Surfaces
 
-Local reference deployment SHOULD expose WATCH at a stable path (default: `/watch` under `NOEMA_APP_URL`).
+Local reference deployment SHOULD expose WATCH at a stable path (default: `/watch` under `NOEMA_APP_URL`). Hosted reference: `https://noema.guru/watch`.
+
+The **public / anonymous** door is the Lightweight Spectator Upgrade ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)): current/notable event, public world graph, 5–8 recent events, optional room detail. Authenticated observer, Agent POV, and research observer remain separately authorized and MUST NOT leak onto that door.
 
 ## Relationship to Observation
 

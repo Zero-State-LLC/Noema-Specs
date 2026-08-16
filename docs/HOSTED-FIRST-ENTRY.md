@@ -55,7 +55,7 @@ GET /
   → one real action
 ```
 
-WATCH and CONNECT remain secondary routes. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
+WATCH and CONNECT remain secondary routes. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only terminal theater, not a dashboard. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
 
 The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes.
 

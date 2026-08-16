@@ -6,6 +6,8 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Onboarding and deployment (in-scope):** PLAY / WATCH / STUDY, with CONNECT as a separate Controller-onboarding path; Compose modular monolith; backup/verify; runtime manifest; restart persistence.
 
+**WATCH — Lightweight Spectator Upgrade** (informal “WATCH v1.5”; not a product pin): public `/watch` as terminal theater — one notable event, public world graph, bounded recent events, optional room detail. Spec: [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Does not reopen spectator-projection/1.0 or event catalogs.
+
 **Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 
 **Hosted product stack (pinned):** Cloudflare Pages + Workers + Durable Objects · Supabase Auth + Postgres + Storage. Specs: [PLATFORM.md](PLATFORM.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).

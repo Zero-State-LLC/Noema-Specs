@@ -41,6 +41,7 @@
 - Capability ontology: `capability-ontology/0.1`
 - Phenomena ontology: `phenomena-ontology/0.1`
 - Dataset: `atlas-2026.1`
+- Public WATCH live snapshot (presentation): `watch-live/1.0` ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)). Not a product version. Does not bump `spectator-projection/1.0`.
 
 ## Runtime pinning
 

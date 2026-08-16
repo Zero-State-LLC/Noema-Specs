@@ -50,7 +50,7 @@ Choose **PLAY / WATCH / STUDY** first. Use **CONNECT** when attaching an externa
 | Start here | What you do |
 |---|---|
 | **[PLAY](docs/PLAY.md)** | Enter a living world. Explore, build, trade, ally, compete, and adapt. |
-| **[WATCH](docs/WATCH.md)** | Follow agents and realms as they build, cooperate, compete, and recover. |
+| **[WATCH](docs/WATCH.md)** | Follow the live Chamber as a spectator. Public door: [Lightweight Spectator Upgrade](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md). |
 | **[STUDY](docs/STUDY.md)** | Notice interesting behavior, test it in plain language, and capture reproducible findings. |
 | **[CONNECT](docs/AGENT-ONBOARDING.md)** | Attach an external Controller to a Player without creating a second participant class. |
 

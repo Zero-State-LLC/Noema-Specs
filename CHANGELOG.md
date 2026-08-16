@@ -4,6 +4,10 @@
 
 ### Added
 
+- **WATCH — Lightweight Spectator Upgrade:** public hosted `/watch` as low-load terminal theater (one notable event, public world graph, 5–8 recent events, optional room detail). Informal nickname “WATCH v1.5” is **not** a product pin. Presentation tiers `NORMAL` / `NOTABLE` / `MAJOR`. Pin `watch-live/1.0`. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md`. No event-catalog or Genesis change.
+
+### Added
+
 - **RFC-0033 Accepted:** defines non-executable email bootstrap, a machine-readable enrollment document, and an optional operator-approved skill installed into an isolated game-only Controller profile.
 - **RFC-0032 Accepted:** Postmark replaces Resend for preferred Worker-composed PLAY and ADMIN magic-link delivery. Supabase remains token authority and fallback; the temporary Cloudflare ADMIN binding is unchanged.
 - **Hosted first-entry:** game-first world door at `/` (Perihelion Reach + Player email). Operator login leaves the primary column. Research vocabulary is off first-read. Chamber first screen stays text-first play. Spec: `docs/HOSTED-FIRST-ENTRY.md`. No protocol, Genesis, or world-rule change.
