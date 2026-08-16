@@ -1,0 +1,20 @@
+{
+  "schema_version": "economy-catalog/gc8-s1",
+  "catalog_id": "economy-catalog/gc8-s1",
+  "slice_id": "gc8-s1",
+  "authority": "docs/GC8-S1-LOT-QUALITY.md",
+  "rfc": "rfcs/RFC-0045-lot-quality.md",
+  "extends": "economy-catalog/gc8-s0",
+  "new_verbs": [],
+  "new_events": [],
+  "currency": false,
+  "order_book": false,
+  "v06b": false,
+  "mastery_yield_bonus": false,
+  "lot_quality": true,
+  "grades": ["SOUND", "WORN"],
+  "worn_below_condition": 50,
+  "worn_construct_storage_extra": 1,
+  "storage_loss": false,
+  "provenance": false
+}

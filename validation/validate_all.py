@@ -5202,6 +5202,60 @@ def check_gc8_s0(Draft202012Validator) -> None:
     ok("GC8-S0 economy: catalog, pair-vs-lone fixtures, RFC-0012 Accepted, no currency/v0.6B")
 
 
+def evaluate_gc8_s1(attempt: dict, catalog: dict) -> dict:
+    if attempt.get("claimed_yield_bonus"):
+        return {"grade": "SOUND", "storage_cost": -1}
+    worn_below = int(catalog["worn_below_condition"])
+    extra = int(catalog["worn_construct_storage_extra"])
+    op = attempt.get("operation")
+    if op == "HARVEST":
+        cond = int(attempt.get("node_condition") or 100)
+        grade = "WORN" if cond < worn_below else "SOUND"
+        return {"grade": grade, "storage_cost": 0}
+    if op == "MIX":
+        grade = "WORN" if "WORN" in (attempt.get("have_grade"), attempt.get("add_grade")) else "SOUND"
+        return {"grade": grade, "storage_cost": 0}
+    base = int(attempt.get("base_storage") or 0)
+    grade = attempt.get("storage_grade") or "SOUND"
+    cost = base + extra if grade == "WORN" else base
+    return {"grade": grade, "storage_cost": cost}
+
+
+def check_gc8_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "economy-catalog.gc8-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "economy-attempt.gc8-s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC8-S1 catalog invalid: {errs[0].message}")
+    if catalog.get("currency") or catalog.get("mastery_yield_bonus") or catalog.get("provenance"):
+        fail("GC8-S1 must not add currency, yield bonus, or provenance")
+    if catalog.get("new_verbs") or catalog.get("grades") != ["SOUND", "WORN"]:
+        fail("GC8-S1 must keep two grades and no new verbs")
+    if catalog.get("worn_below_condition") != 50 or catalog.get("worn_construct_storage_extra") != 1:
+        fail("GC8-S1 pins must be worn < 50 and construct +1 storage")
+    rfc = (ROOT / "rfcs" / "RFC-0045-lot-quality.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0045 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-worn-harvest.json",
+        "attempt-sound-harvest.json",
+        "attempt-mix-worn.json",
+        "attempt-worn-construct.json",
+        "attempt-sound-construct.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc8-lot-quality" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc8_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if got["grade"] != exp["grade"] or got["storage_cost"] != exp["storage_cost"]:
+            fail(f"{name}: got {got} expected {exp}")
+    ok("GC8-S1 lot quality: catalog, attempt fixtures, RFC-0045 Accepted")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -5824,6 +5878,7 @@ def main() -> None:
     check_gc7_s2(Draft202012Validator)
     check_gc7_s3(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
+    check_gc8_s1(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)

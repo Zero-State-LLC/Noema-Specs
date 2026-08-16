@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s1",
+  "catalog_id": "economy-catalog/gc8-s1",
+  "operation": "CONSTRUCT",
+  "storage_grade": "SOUND",
+  "base_storage": 4,
+  "expected": { "grade": "SOUND", "storage_cost": 4, "note": "SOUND construct storage unchanged." }
+}
