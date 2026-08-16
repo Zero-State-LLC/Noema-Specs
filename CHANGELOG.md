@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0077 Accepted / GC2-S18:** public `archive_annex` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S4 attention discount applies only after promotion. WATCH silent. Help still omits BUILD and ATTEST.
+
+### Added
+
 - **RFC-0076 Accepted / GC2-S17:** public `defensive_work` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. S3 contest-defense millipoints apply only after promotion. WATCH silent. Help still omits BUILD.
 
 ### Added
