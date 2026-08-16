@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0055 Accepted / GC1-S5:** named office MAY require recognized Engineer or Broker. Existing `ORG_OFFICE_ASSIGN`. LATENT still sits. No WATCH titles. No class discounts.
+
+### Added
+
 - **RFC-0054 Accepted / GC5-S3:** `MESSAGE surface=BOARD` posts to the current public room. Last 3 notices. WATCH silent. No BOARD/SHOUT verbs.
 
 ### Added

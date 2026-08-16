@@ -52,4 +52,4 @@ Ignore the three waivers.
 
 ## Unresolved
 
-Focus declaration. Public titles. Parameter-access / office-eligibility benefits.
+Focus declaration. Public titles. Parameter-access upgrades. Office eligibility is RFC-0055.

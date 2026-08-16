@@ -40,7 +40,7 @@ S4 gives Explorer, Surveyor, and Broker a benefit only when they have already do
 ```text
 WATCH / public titles
 FOCUS_DECLARED
-office eligibility
+office eligibility — closed by [GC1-S5-OFFICE-ELIGIBILITY.md](GC1-S5-OFFICE-ELIGIBILITY.md)
 parameter-access upgrades
 SPECIALIZATION_* events
 ```

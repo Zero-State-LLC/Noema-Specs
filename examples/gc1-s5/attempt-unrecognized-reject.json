@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "operation": "ORG_OFFICE_ASSIGN",
+  "requires_track": "engineer",
+  "track": "engineer",
+  "recognized": false,
+  "expected": { "outcome": "REJECT", "reason": "ineligible", "note": "Unrecognized cannot sit the engineer office." }
+}

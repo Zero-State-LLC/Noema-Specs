@@ -293,13 +293,22 @@ LATENT withholds
 no class discounts, no seal bypass, no WATCH titles
 ```
 
+### Closed for GC1-S5 ([GC1-S5-OFFICE-ELIGIBILITY.md](GC1-S5-OFFICE-ELIGIBILITY.md))
+
+```text
+ORG_OFFICE_CREATE optional requires_track engineer|broker
+ORG_OFFICE_ASSIGN and succession require recognition on that track
+LATENT still sits; no evict
+no WATCH titles; no class discounts
+```
+
 ### Still open (later)
 
 ```text
 focus as ledgered declaration (if ever)
 event types if recognition is ever ledgered
 WATCH / public titles
-parameter-access / office-eligibility benefits
+parameter-access upgrades
 ```
 
 An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
