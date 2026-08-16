@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s5",
+  "catalog_id": "construction-catalog/gc2-s5",
+  "operation": "UPGRADE",
+  "class_id": "relay",
+  "room_hidden": false,
+  "owned": true,
+  "expected": { "outcome": "REJECT", "reason": "class", "note": "Only workshop upgrades in S5." }
+}

@@ -42,7 +42,8 @@ S2 adds a bench. A live `workshop` saves one storage on CONSTRUCT and REPAIR in 
 ```text
 defensive_work (closed in GC2-S3)
 archive_annex
-UPGRADE CONNECT recipes
+UPGRADE — closed in [GC2-S5-UPGRADE.md](GC2-S5-UPGRADE.md)
+CONNECT recipes
 Chamber help BUILD
 ```
 
