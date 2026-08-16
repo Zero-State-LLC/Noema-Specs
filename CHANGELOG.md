@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0073 Accepted / GC2-S14:** public `generator` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0072 Accepted / GC2-S13:** public `workshop` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. UPGRADE/REPURPOSE of a shell is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
 
 ### Added
