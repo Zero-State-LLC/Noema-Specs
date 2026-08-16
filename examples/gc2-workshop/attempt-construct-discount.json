@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s2",
+  "catalog_id": "construction-catalog/gc2-s2",
+  "operation": "CONSTRUCT",
+  "class_id": "relay",
+  "has_workshop": true,
+  "base_storage": 4,
+  "expected": { "outcome": "ACCEPT", "storage_cost": 3, "note": "Live workshop saves 1 construct storage." }
+}

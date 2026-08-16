@@ -41,7 +41,8 @@ S1 adds one constructible that changes movement: a live `route_link` carries lot
 
 ```text
 new exits
-workshop defensive_work archive_annex
+workshop (closed in GC2-S2)
+defensive_work archive_annex
 UPGRADE CONNECT REPURPOSE
 Chamber help BUILD
 ```

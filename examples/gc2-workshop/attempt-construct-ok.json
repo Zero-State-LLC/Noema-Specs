@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s2",
+  "catalog_id": "construction-catalog/gc2-s2",
+  "operation": "CONSTRUCT",
+  "class_id": "workshop",
+  "room_hidden": false,
+  "has_workshop": false,
+  "base_storage": 5,
+  "expected": { "outcome": "ACCEPT", "storage_cost": 5, "note": "First workshop pays full storage." }
+}

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0050 Accepted / GC2-S2:** constructible `workshop` saves 1 storage on in-room CONSTRUCT and REPAIR. No recipes. Help still omits BUILD.
+
+### Added
+
 - **RFC-0049 Accepted / GC2-S1:** constructible `route_link` waives cargo MOVE extra in that room. No new exit. Hidden rooms unbuildable. Help still omits BUILD.
 
 ### Added
