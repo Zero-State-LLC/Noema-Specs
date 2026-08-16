@@ -29,7 +29,7 @@ production Genesis activate / force-supersede / reseed
 Chamber help advertising BUILD / CONTEST / WED / ATTEST
 ```
 
-GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). Remaining GC1 (focus, public titles, other-track benefits) stays later.
+GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). GC1-S4 prior-work Explorer/Surveyor/Broker benefits are [RFC-0044](../rfcs/RFC-0044-prior-work-benefits.md). Remaining GC1 (focus, public titles, eligibility) stays later.
 
 ## Runtime rule
 

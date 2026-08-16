@@ -53,6 +53,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0041](RFC-0041-institution-contest-party.md) | **Accepted** | GC7-S2: institution contest party via occupied office; treasury pays |
 | [RFC-0042](RFC-0042-information-contest.md) | **Accepted** | GC7-S3: INFORMATION_CONTEST on visible public ARTIFACT; INSPECT seal |
 | [RFC-0043](RFC-0043-mastery-decay.md) | **Accepted** | GC1-S3: recognized tracks LATENT after 12 idle cycles; 3 works restore |
+| [RFC-0044](RFC-0044-prior-work-benefits.md) | **Accepted** | GC1-S4: prior-work LOOK/INSPECT/TRADE_CAUTION waivers |
 
 ## Required review lenses
 

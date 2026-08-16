@@ -283,13 +283,23 @@ recognition evidence not wiped
 no WATCH titles
 ```
 
+### Closed for GC1-S4 ([GC1-S4-PRIOR-WORK.md](GC1-S4-PRIOR-WORK.md))
+
+```text
+Explorer repeat LOOK of a known room: attention 0
+Surveyor repeat INSPECT of a known entity: attention 0
+Broker prior counterparty: TRADE_CAUTION extra 0
+LATENT withholds
+no class discounts, no seal bypass, no WATCH titles
+```
+
 ### Still open (later)
 
 ```text
 focus as ledgered declaration (if ever)
 event types if recognition is ever ledgered
 WATCH / public titles
-other-track benefits
+parameter-access / office-eligibility benefits
 ```
 
 An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0044 Accepted / GC1-S4:** Explorer/Surveyor/Broker prior-work benefits. Repeat LOOK/INSPECT of a known room/entity pays 0 attention. Broker waives TRADE_CAUTION only for a prior counterparty. LATENT withholds. No class discounts. No WATCH titles.
+
+### Added
+
 - **RFC-0043 Accepted / GC1-S3:** recognized tracks go LATENT after 12 idle cycles. 3 qualifying works restore MAINTAINED. Engineer +5 only while MAINTAINED. Recognition evidence is not wiped. No WATCH titles.
 
 ### Changed

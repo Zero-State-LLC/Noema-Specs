@@ -3003,6 +3003,59 @@ def check_gc1_s3(Draft202012Validator) -> None:
     ok("GC1-S3 mastery decay: catalog, attempt fixtures, RFC-0043 Accepted")
 
 
+def evaluate_gc1_s4(attempt: dict, catalog: dict) -> dict:
+    rec = bool(attempt.get("recognized") and attempt.get("maintained"))
+    prior = bool(attempt.get("prior_work"))
+    track = attempt.get("track")
+    if track == "track.explorer.01":
+        attention = int(catalog["repeat_look_attention"]) if rec and prior else int(catalog["look_attention"])
+        return {"attention": attention, "caution_extra": 0}
+    if track == "track.surveyor.01":
+        attention = (
+            int(catalog["repeat_inspect_attention"]) if rec and prior else int(catalog["inspect_attention"])
+        )
+        return {"attention": attention, "caution_extra": 0}
+    caution = 0
+    if attempt.get("hostile") and not (rec and prior and catalog.get("broker_waives_caution")):
+        caution = 1
+    return {"attention": 0, "caution_extra": caution}
+
+
+def check_gc1_s4(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s4.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s4.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s4.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S4 catalog invalid: {errs[0].message}")
+    if catalog.get("watch_titles") or catalog.get("new_verbs") or catalog.get("class_discount") or catalog.get("seal_bypass"):
+        fail("GC1-S4 must not add titles, verbs, class discounts, or seal bypass")
+    rfc = (ROOT / "rfcs" / "RFC-0044-prior-work-benefits.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0044 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC1-S4-PRIOR-WORK.md").read_text(encoding="utf-8")
+    if "WATCH titles" not in slice_doc or "Class discount" not in slice_doc:
+        fail("GC1-S4 must reject WATCH titles and class discounts")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-explorer-repeat.json",
+        "attempt-explorer-first.json",
+        "attempt-surveyor-repeat.json",
+        "attempt-broker-prior.json",
+        "attempt-broker-stranger.json",
+        "attempt-latent.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s4" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc1_s4(fixture, catalog)
+        exp = fixture["expected"]
+        if got["attention"] != exp["attention"] or got["caution_extra"] != exp["caution_extra"]:
+            fail(f"{name}: got {got} expected {exp}")
+    ok("GC1-S4 prior-work benefits: catalog, attempt fixtures, RFC-0044 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -5746,6 +5799,7 @@ def main() -> None:
     check_gc1_s1(Draft202012Validator)
     check_gc1_s2(Draft202012Validator)
     check_gc1_s3(Draft202012Validator)
+    check_gc1_s4(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)

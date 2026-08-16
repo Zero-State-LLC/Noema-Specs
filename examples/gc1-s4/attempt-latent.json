@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc1-s4",
+  "catalog_id": "mastery-catalog/gc1-s4",
+  "track": "track.explorer.01",
+  "recognized": true,
+  "maintained": false,
+  "prior_work": true,
+  "expected": { "attention": 1, "caution_extra": 0, "note": "LATENT withholds the repeat-LOOK waiver." }
+}

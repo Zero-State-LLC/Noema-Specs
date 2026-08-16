@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.gc1-s4.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "watch_titles",
+    "new_verbs",
+    "class_discount",
+    "seal_bypass",
+    "repeat_look_attention",
+    "repeat_inspect_attention",
+    "broker_waives_caution"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s4" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s4" },
+    "slice_id": { "const": "gc1-s4" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "mastery-catalog/gc1-s3" },
+    "recognition_enabled": { "const": true },
+    "decay_enabled": { "const": true },
+    "watch_titles": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "class_discount": { "const": false },
+    "seal_bypass": { "const": false },
+    "look_attention": { "const": 1 },
+    "inspect_attention": { "const": 2 },
+    "repeat_look_attention": { "const": 0 },
+    "repeat_inspect_attention": { "const": 0 },
+    "broker_waives_caution": { "const": true }
+  }
+}
