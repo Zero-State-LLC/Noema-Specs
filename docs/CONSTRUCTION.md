@@ -243,7 +243,8 @@ attempt fixtures
 ```text
 GC2-S1 closed: route_link waives cargo MOVE extra; no new exit
 GC2-S2 closed: workshop saves 1 storage on in-room CONSTRUCT/REPAIR
-defensive_work / archive_annex
+GC2-S3 closed: defensive_work adds 50 contest defense millipoints in-room
+archive_annex
 UPGRADE, REPURPOSE, CONNECT, RESTORE
 institution / shared ownership
 abandonment timers

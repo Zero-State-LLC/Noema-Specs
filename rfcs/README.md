@@ -61,6 +61,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0049](RFC-0049-route-link.md) | **Accepted** | GC2-S1: route_link waives cargo MOVE extra |
 | [RFC-0050](RFC-0050-workshop.md) | **Accepted** | GC2-S2: workshop saves 1 construct/repair storage |
 | [RFC-0051](RFC-0051-irreversible-scar.md) | **Accepted** | GC10-S2: public DISMANTLE leaves irreparable scar |
+| [RFC-0052](RFC-0052-defensive-work.md) | **Accepted** | GC2-S3: defensive_work +50 contest defense |
 
 ## Required review lenses
 

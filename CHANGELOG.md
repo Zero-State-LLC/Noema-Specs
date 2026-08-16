@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0052 Accepted / GC2-S3:** constructible `defensive_work` adds 50 contest defense millipoints in that room. No HP. No new form. Help still omits BUILD.
+
+### Added
+
 - **RFC-0051 Accepted / GC10-S2:** public DISMANTLE leaves an irreparable RUIN scar. Hidden rooms leave none. Pressure stays recoverable. WATCH silent.
 
 ### Added

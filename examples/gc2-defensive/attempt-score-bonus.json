@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s3",
+  "catalog_id": "construction-catalog/gc2-s3",
+  "operation": "SCORE",
+  "has_defensive_work": true,
+  "base_score": -38,
+  "expected": { "outcome": "ACCEPT", "score": -88, "note": "Live work adds 50 defense millipoints." }
+}
