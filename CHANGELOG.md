@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0081 Accepted / GC5-S10:** public `MESSAGE surface=BOARD` notices drop after one committed cycle. Last-5 overwrite in the posting cycle unchanged. WATCH silent. Help still omits board.
+
+### Added
+
 - **RFC-0080 Accepted / GC5-S9:** a public `MESSAGE surface=SHOUT` drops after one committed cycle. Last-1 overwrite unchanged. WATCH silent. Help still omits shout.
 
 ### Added

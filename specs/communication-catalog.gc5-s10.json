@@ -1,0 +1,21 @@
+{
+  "schema_version": "communication-catalog/gc5-s10",
+  "catalog_id": "communication-catalog/gc5-s10",
+  "slice_id": "gc5-s10",
+  "authority": "docs/GC5-S10-BOARD-EXPIRY.md",
+  "rfc": "rfcs/RFC-0081-board-expiry.md",
+  "extends": "communication-catalog/gc5-s9",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "BOARD",
+  "help_board": false,
+  "watch_board": false,
+  "hidden_board": false,
+  "retention": 5,
+  "expire_cycles": 1,
+  "notice_expiry": false,
+  "channel_expiry": false,
+  "trade_notice_expiry": false,
+  "cost_compute": 1
+}
