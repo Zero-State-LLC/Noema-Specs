@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s16",
+  "catalog_id": "construction-catalog/gc2-s16",
+  "operation": "DISMANTLE",
+  "class_id": "production_node",
+  "in_progress": true,
+  "entity_id": "entity.production-node.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "note": "In-progress DISMANTLE salvages with no live node and no scar." }
+}

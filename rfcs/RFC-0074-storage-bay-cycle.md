@@ -57,4 +57,4 @@ Ignore `in_progress` on storage bays (treat every CONSTRUCT bay as live immediat
 
 ## Unresolved
 
-Remaining-class multi-cycle (`production_node`, `route_link`, `defensive_work`, `archive_annex`). Third-and-later co-owners.
+Production-node multi-cycle is [RFC-0075](RFC-0075-production-node-cycle.md). Remaining-class multi-cycle (`route_link`, `defensive_work`, `archive_annex`). Third-and-later co-owners.
