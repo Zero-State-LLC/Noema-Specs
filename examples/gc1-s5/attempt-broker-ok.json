@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "operation": "ORG_OFFICE_ASSIGN",
+  "requires_track": "broker",
+  "track": "broker",
+  "recognized": true,
+  "expected": { "outcome": "ACCEPT", "note": "Recognized Broker may sit the broker office." }
+}

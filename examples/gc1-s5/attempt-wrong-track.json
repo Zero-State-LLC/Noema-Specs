@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "operation": "ORG_OFFICE_ASSIGN",
+  "requires_track": "engineer",
+  "track": "broker",
+  "recognized": true,
+  "expected": { "outcome": "REJECT", "reason": "ineligible", "note": "Broker recognition does not sit an engineer office." }
+}

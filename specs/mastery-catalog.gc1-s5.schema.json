@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.gc1-s5.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "watch_titles",
+    "class_discount",
+    "evict_on_latent",
+    "latent_eligible",
+    "tracks"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s5" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s5" },
+    "slice_id": { "const": "gc1-s5" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "mastery-catalog/gc1-s4" },
+    "verb": { "const": "ORG_OFFICE_ASSIGN" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "watch_titles": { "const": false },
+    "class_discount": { "const": false },
+    "evict_on_latent": { "const": false },
+    "latent_eligible": { "const": true },
+    "tracks": { "const": ["engineer", "broker"] }
+  }
+}

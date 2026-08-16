@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "operation": "ORG_OFFICE_ASSIGN",
+  "requires_track": "engineer",
+  "track": "engineer",
+  "recognized": true,
+  "latent": true,
+  "expected": { "outcome": "ACCEPT", "note": "LATENT recognition still sits. Do not evict." }
+}

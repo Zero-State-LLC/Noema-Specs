@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-attempt.gc1-s5.schema.json",
+  "title": "NOEMA GC1-S5 office eligibility attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s5" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s5" },
+    "operation": { "enum": ["ORG_OFFICE_ASSIGN"] },
+    "requires_track": { "enum": ["engineer", "broker"] },
+    "track": { "enum": ["engineer", "broker", "explorer", "surveyor"] },
+    "recognized": { "type": "boolean" },
+    "latent": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

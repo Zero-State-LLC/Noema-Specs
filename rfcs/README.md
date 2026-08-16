@@ -64,6 +64,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0052](RFC-0052-defensive-work.md) | **Accepted** | GC2-S3: defensive_work +50 contest defense |
 | [RFC-0053](RFC-0053-archive-annex.md) | **Accepted** | GC2-S4: archive_annex saves 1 inspect/attest attention |
 | [RFC-0054](RFC-0054-message-board.md) | **Accepted** | GC5-S3: MESSAGE board surface; last 3; WATCH silent |
+| [RFC-0055](RFC-0055-office-eligibility.md) | **Accepted** | GC1-S5: office requires recognized Engineer/Broker |
 
 ## Required review lenses
 

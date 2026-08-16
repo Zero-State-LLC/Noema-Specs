@@ -1,0 +1,16 @@
+{
+  "schema_version": "mastery-catalog/gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "slice_id": "gc1-s5",
+  "authority": "docs/GC1-S5-OFFICE-ELIGIBILITY.md",
+  "rfc": "rfcs/RFC-0055-office-eligibility.md",
+  "extends": "mastery-catalog/gc1-s4",
+  "verb": "ORG_OFFICE_ASSIGN",
+  "new_verbs": [],
+  "new_events": [],
+  "watch_titles": false,
+  "class_discount": false,
+  "evict_on_latent": false,
+  "latent_eligible": true,
+  "tracks": ["engineer", "broker"]
+}

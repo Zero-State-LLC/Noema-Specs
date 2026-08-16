@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc1-s5",
+  "catalog_id": "mastery-catalog/gc1-s5",
+  "operation": "ORG_OFFICE_ASSIGN",
+  "track": "engineer",
+  "recognized": false,
+  "expected": { "outcome": "ACCEPT", "note": "Offices without requires_track stay open to any member." }
+}
