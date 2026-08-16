@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s15",
+  "catalog_id": "construction-catalog/gc2-s15",
+  "operation": "DISMANTLE",
+  "class_id": "storage_bay",
+  "in_progress": true,
+  "entity_id": "entity.storage-bay.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "note": "In-progress DISMANTLE salvages with no live bay and no scar." }
+}

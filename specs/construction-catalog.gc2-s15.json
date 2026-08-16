@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s15",
+  "catalog_id": "construction-catalog/gc2-s15",
+  "slice_id": "gc2-s15",
+  "authority": "docs/GC2-S15-STORAGE-BAY-CYCLE.md",
+  "rfc": "rfcs/RFC-0074-storage-bay-cycle.md",
+  "extends": "construction-catalog/gc2-s14",
+  "verb": "BUILD",
+  "operation": "CONSTRUCT",
+  "class_id": "storage_bay",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_progress": false,
+  "cycles": 1,
+  "scar_on_progress_dismantle": false,
+  "hidden_construct": false,
+  "repurpose_in_progress": false
+}

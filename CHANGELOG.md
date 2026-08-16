@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0074 Accepted / GC2-S15:** public `storage_bay` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. REPURPOSE of a live workshop still yields a live bay. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0073 Accepted / GC2-S14:** public `generator` CONSTRUCT is `IN_PROGRESS` and goes live after one committed cycle. WATCH silent. Help still omits BUILD.
 
 ### Added
