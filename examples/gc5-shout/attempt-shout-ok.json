@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s4",
+  "catalog_id": "communication-catalog/gc5-s4",
+  "operation": "SHOUT",
+  "room_hidden": false,
+  "posted": 1,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Public room accepts a shout." }
+}

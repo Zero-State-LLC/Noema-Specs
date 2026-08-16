@@ -21,7 +21,7 @@ Accept GC5-S3. One surface on existing `MESSAGE`:
 - Events: existing `MESSAGE` with `surface=BOARD`. No `MESSAGE_DELIVERED`
 - PLAY MAY show `A notice on the board: …`. WATCH silent
 - Human alias `board "text"` is accepted and **not** listed in Chamber help
-- SHOUT remains deferred
+- SHOUT is [RFC-0062](RFC-0062-message-shout.md)
 
 Catalog: [`communication-catalog.gc5-s3.json`](../specs/communication-catalog.gc5-s3.json).  
 Slice: [GC5-S3-BOARD.md](../docs/GC5-S3-BOARD.md).
@@ -54,4 +54,4 @@ Ignore `surface=BOARD` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-SHOUT. Retention beyond 3. Office eligibility.
+Retention beyond 3. Office eligibility. Org / institution notice.

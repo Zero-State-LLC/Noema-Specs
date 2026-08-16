@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc5-s4",
+  "catalog_id": "communication-catalog/gc5-s4",
+  "operation": "SHOUT",
+  "room_hidden": false,
+  "posted": 3,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Only the last shout remains." }
+}

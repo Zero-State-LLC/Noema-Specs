@@ -1,0 +1,19 @@
+{
+  "schema_version": "communication-catalog/gc5-s4",
+  "catalog_id": "communication-catalog/gc5-s4",
+  "slice_id": "gc5-s4",
+  "authority": "docs/GC5-S4-SHOUT.md",
+  "rfc": "rfcs/RFC-0062-message-shout.md",
+  "extends": "communication-catalog/gc5-s3",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "SHOUT",
+  "shout_verb": false,
+  "long_range_shout": false,
+  "hidden_shout": false,
+  "watch_shout": false,
+  "help_shout": false,
+  "retention": 1,
+  "cost_compute": 1
+}
