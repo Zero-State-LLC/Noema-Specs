@@ -264,15 +264,23 @@ no WATCH recognition
 no mechanical benefit in S1
 ```
 
-### Still open (blocks GC1-S2 and any mechanical benefit)
+### Closed for GC1-S2 ([GC1-S2-ENGINEER-QUALITY.md](GC1-S2-ENGINEER-QUALITY.md))
+
+```text
+Engineer same-asset repeat REPAIR +5 (total +20, cap 100)
+prior work = any successful Player repair of that entity_id
+acting_for uses the Player's evidence
+no WATCH titles
+```
+
+### Still open (later)
 
 ```text
 decay / latent windows
 focus as ledgered declaration (if ever)
-benefit magnitudes (S2 candidate: Engineer REPAIR quality)
 event types if recognition is ever ledgered
-S1 fixtures / RFC-0005 acceptance
 WATCH / public titles
+other-track benefits
 ```
 
 An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.

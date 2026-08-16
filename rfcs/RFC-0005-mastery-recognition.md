@@ -70,4 +70,4 @@ Leave Draft or Reject. Runtime omits recognized lines.
 
 ## Unresolved questions
 
-1. When to open GC1-S2, and only as a world-mechanism (tools/procedure), never a level percent.
+1. GC1-S2 opened as [RFC-0040](RFC-0040-engineer-quality.md) (same-asset procedure, not a level percent). Decay / public titles remain later.

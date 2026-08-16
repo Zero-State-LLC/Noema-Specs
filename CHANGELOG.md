@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0040 Accepted / GC1-S2:** recognized Engineer repeat-repairs the same asset for +20 condition (frozen +15 plus +5), cap 100. Personal evidence; personal or office payer. No WATCH titles. No other-track benefits.
+
+### Added
+
 - **RFC-0039 Accepted / GC3-S7:** preferred-counterparty discount waives `TRADE_CAUTION` when a live `RELIABLE` edge exists. No auto-accept. No hidden rebate. Base TRADE compute stays 1.
 
 ### Changed

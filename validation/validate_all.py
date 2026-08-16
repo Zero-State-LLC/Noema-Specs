@@ -2902,6 +2902,47 @@ def check_gc1_s1(Draft202012Validator) -> None:
     ok("GC1-S1 mastery: catalog, recognition fixtures, RFC-0005 Accepted")
 
 
+def evaluate_gc1_s2(attempt: dict, catalog: dict) -> dict:
+    base = int(catalog["repair_base"])
+    bonus = int(catalog["repeat_bonus"]) if attempt.get("recognized") and attempt.get("prior_on_asset") else 0
+    delta = base + bonus
+    cap = int(catalog["condition_cap"])
+    after = min(cap, int(attempt["condition_before"]) + delta)
+    return {"delta": delta, "condition_after": after}
+
+
+def check_gc1_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s2.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S2 catalog invalid: {errs[0].message}")
+    if not catalog.get("benefits_enabled") or catalog.get("watch_titles") or catalog.get("decay_enabled") or catalog.get("new_verbs"):
+        fail("GC1-S2 must enable the engineer bonus only: no watch titles, decay, or new verbs")
+    if catalog.get("repeat_bonus") != 5 or catalog.get("repair_base") != 15:
+        fail("GC1-S2 magnitudes must be base 15 + bonus 5")
+    rfc = (ROOT / "rfcs" / "RFC-0040-engineer-quality.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0040 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-repeat-bonus.json",
+        "attempt-first-asset.json",
+        "attempt-unrecognized.json",
+        "attempt-cap.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s2" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        got = evaluate_gc1_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if got["delta"] != exp["delta"] or got["condition_after"] != exp["condition_after"]:
+            fail(f"{name}: got {got} expected {exp}")
+    ok("GC1-S2 engineer quality: catalog, attempt fixtures, RFC-0040 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -5530,6 +5571,7 @@ def main() -> None:
     check_rfc_0020()
     check_gc1_s0(Draft202012Validator)
     check_gc1_s1(Draft202012Validator)
+    check_gc1_s2(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)

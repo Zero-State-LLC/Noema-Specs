@@ -1,0 +1,12 @@
+{
+  "slice_id": "gc1-s2",
+  "catalog_id": "mastery-catalog/gc1-s2",
+  "recognized": true,
+  "prior_on_asset": false,
+  "condition_before": 40,
+  "expected": {
+    "delta": 15,
+    "condition_after": 55,
+    "note": "New asset: no procedure bonus."
+  }
+}
