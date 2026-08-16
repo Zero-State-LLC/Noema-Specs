@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc7-s2",
+  "catalog_id": "conflict-catalog/gc7-s2",
+  "operation": "CONTEST_DECLARE",
+  "form": "INFRASTRUCTURE_DISRUPTION",
+  "office_status": "OCCUPIED",
+  "office_profile": "OPERATE_NAMED_ASSET",
+  "same_org_as_other_party": false,
+  "expected": { "outcome": "ACCEPT", "note": "Occupied matching profile may declare for the org." }
+}

@@ -142,7 +142,7 @@ Strategic conflict and crime are **world/game mechanics**. Observatory may later
 
 v0.2 remains the implementation contract. v2 deepens **Player-facing rhythm and coupling** without converting NOEMA into hit-point combat and without a second conflict canon.
 
-GC7-S0 machine pins: [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md). Withdraw, information-target form, and institution-as-party remain **SPEC GAP**.
+GC7-S0 machine pins: [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md). Withdraw is [GC7-S1](GC7-S1-WITHDRAW.md). Institution-as-party is [GC7-S2](GC7-S2-INSTITUTION-PARTY.md). Information-target form remains **SPEC GAP**.
 
 ### Target rhythm
 
@@ -202,9 +202,9 @@ Information warfare is bounded by [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) and [COMM
 
 ```text
 GC7-S0 closed: RECON→RECOVER stage table over existing verbs; four v0.2 forms only
-whether a versioned withdraw/de-escalate operation is required
+GC7-S1 closed: versioned withdraw via CONTEST_RESOLVED
+GC7-S2 closed: institution-as-party via occupied office + acting_for; treasury pays
 information-target contest form (if any) without hidden-fact leak
-institution-as-party details
 any later catalog increment — RFC required, no silent 0.3
 ```
 

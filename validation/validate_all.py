@@ -4889,6 +4889,59 @@ def check_gc7_s1(Draft202012Validator) -> None:
     ok("GC7-S1 withdraw: catalog, attempt fixtures, RFC-0026 Accepted, CONTEST_RESOLVED reused")
 
 
+def evaluate_gc7_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if attempt.get("office_status") != "OCCUPIED":
+        return "REJECT", "FORBIDDEN"
+    if attempt.get("same_org_as_other_party"):
+        return "REJECT", "FORBIDDEN"
+    form = attempt.get("form")
+    need = (
+        catalog.get("resource_seizure_profile")
+        if form == "RESOURCE_SEIZURE"
+        else catalog.get("other_forms_profile")
+    )
+    if attempt.get("office_profile") != need:
+        return "REJECT", "FORBIDDEN"
+    return "ACCEPT", None
+
+
+def check_gc7_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.gc7-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-attempt.gc7-s2.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC7-S2 catalog invalid: {cerrs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_forms") or catalog.get("hp_combat"):
+        fail("GC7-S2 must not add verbs, events, forms, or HP")
+    if catalog.get("org_as_declarer_id") or catalog.get("vacant_office_acts") or catalog.get("same_org_both_sides") or catalog.get("help_lists_contest"):
+        fail("GC7-S2 must keep Player actor, vacant fail, no same-org both sides, help omits contest")
+    rfc = (ROOT / "rfcs" / "RFC-0041-institution-contest-party.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0041 must be Accepted")
+    help_org = (ROOT / "docs" / "GC7-S2-INSTITUTION-PARTY.md").read_text(encoding="utf-8")
+    if "Chamber help" not in help_org:
+        fail("GC7-S2 must keep CONTEST off Chamber help")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-occupied-accept.json",
+        "attempt-vacant-reject.json",
+        "attempt-wrong-profile.json",
+        "attempt-same-org.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc7-institution-party" / name)
+        aerrs = list(attempt_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        outcome, reason = evaluate_gc7_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("GC7-S2 institution party: catalog, attempt fixtures, RFC-0041 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -5593,6 +5646,7 @@ def main() -> None:
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
     check_gc7_s1(Draft202012Validator)
+    check_gc7_s2(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)

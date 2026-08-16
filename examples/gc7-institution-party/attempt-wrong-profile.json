@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc7-s2",
+  "catalog_id": "conflict-catalog/gc7-s2",
+  "operation": "CONTEST_DECLARE",
+  "form": "RESOURCE_SEIZURE",
+  "office_status": "OCCUPIED",
+  "office_profile": "OPERATE_NAMED_ASSET",
+  "expected": { "outcome": "REJECT", "reason": "FORBIDDEN", "note": "Seizure requires OPERATE_RESOURCE_ACCOUNT." }
+}

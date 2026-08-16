@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0041 Accepted / GC7-S2:** occupied office may declare/defend/withdraw `acting_for` an org. Treasury pays. Player remains `declarer_id`/`defender_id`. Same org cannot be both parties. No new forms or events.
+
+### Added
+
 - **RFC-0040 Accepted / GC1-S2:** recognized Engineer repeat-repairs the same asset for +20 condition (frozen +15 plus +5), cap 100. Personal evidence; personal or office payer. No WATCH titles. No other-track benefits.
 
 ### Added

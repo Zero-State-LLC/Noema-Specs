@@ -234,7 +234,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0034–0038 Accepted: GC3-S2–S6 close remaining SOCIAL-MEMORY gaps (WATCH public bands, institution edges, decay/rehab, published trade caution, distinct deceptive). No new verbs. No runtime in that cut. GC3-S0/S1 stay WATCH-empty.
 - [x] RFC-0039 Accepted: GC3-S7 preferred-counterparty discount waives TRADE_CAUTION for live RELIABLE. No auto-accept.
 - [x] RFC-0040 Accepted: GC1-S2 same-asset Engineer REPAIR quality +5 (total +20, cap 100). No WATCH titles.
-- [x] RFC-0040 Accepted: GC1-S2 same-asset Engineer REPAIR quality +5 (total +20, cap 100). No WATCH titles.
+- [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.
 - [x] RFC-0024 Accepted: GC6-S1 historical reconstruction from accessible evidence. No quest/oracle. Later S1s remain SPEC GAP.
 - [x] RFC-0025 Accepted: GC9-S1 tradition from persistent transmitted custom. No culture score. WATCH pulse is not an oracle.

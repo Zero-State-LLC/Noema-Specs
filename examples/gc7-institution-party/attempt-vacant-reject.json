@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc7-s2",
+  "catalog_id": "conflict-catalog/gc7-s2",
+  "operation": "CONTEST_DECLARE",
+  "form": "INFRASTRUCTURE_DISRUPTION",
+  "office_status": "VACANT",
+  "office_profile": "OPERATE_NAMED_ASSET",
+  "expected": { "outcome": "REJECT", "reason": "FORBIDDEN", "note": "Vacant office cannot commit the treasury." }
+}
