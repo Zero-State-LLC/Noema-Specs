@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0049 Accepted / GC2-S1:** constructible `route_link` waives cargo MOVE extra in that room. No new exit. Hidden rooms unbuildable. Help still omits BUILD.
+
+### Added
+
 - **RFC-0048 Accepted / GC8-S4:** carrying harvested lots costs +1 MOVE energy. Empty travel stays 1. No courier verb. No route_link freight. WATCH silent.
 
 ### Added
