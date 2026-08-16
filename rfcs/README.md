@@ -57,6 +57,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0045](RFC-0045-lot-quality.md) | **Accepted** | GC8-S1: SOUND/WORN lots; WORN construct storage +1 |
 | [RFC-0046](RFC-0046-lot-provenance.md) | **Accepted** | GC8-S2: public origin stamp; hidden/mix clear |
 | [RFC-0047](RFC-0047-lot-spoilage.md) | **Accepted** | GC8-S3: WORN lots spoil 1 per cycle; SOUND keeps |
+| [RFC-0048](RFC-0048-cargo-move.md) | **Accepted** | GC8-S4: carrying MOVE +1; empty stays 1 |
 
 ## Required review lenses
 

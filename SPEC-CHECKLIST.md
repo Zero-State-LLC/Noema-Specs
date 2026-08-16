@@ -239,6 +239,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0045 Accepted: GC8-S1 SOUND/WORN lot quality. Worn harvest below condition 50. WORN construct storage +1. No yield bonus. No currency.
 - [x] RFC-0046 Accepted: GC8-S2 lot provenance. Public harvest stamps origin room. Hidden rooms and mixed origins leave no stamp. WATCH silent.
 - [x] RFC-0047 Accepted: GC8-S3 worn lot spoilage. WORN loses 1 per committed cycle. SOUND never spoils. WATCH silent. No transport table.
+- [x] RFC-0048 Accepted: GC8-S4 cargo MOVE extra. Empty travel 1. Carrying (storage < 16) 2. No courier. No route_link freight. WATCH silent.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

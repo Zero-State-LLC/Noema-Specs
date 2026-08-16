@@ -1,0 +1,17 @@
+{
+  "schema_version": "economy-catalog/gc8-s4",
+  "catalog_id": "economy-catalog/gc8-s4",
+  "slice_id": "gc8-s4",
+  "authority": "docs/GC8-S4-TRANSPORT.md",
+  "rfc": "rfcs/RFC-0048-cargo-move.md",
+  "extends": "economy-catalog/gc8-s3",
+  "new_verbs": [],
+  "new_events": [],
+  "currency": false,
+  "transport_table": true,
+  "route_link": false,
+  "move_base_energy": 1,
+  "move_cargo_extra": 1,
+  "cargo_below_storage": 16,
+  "watch_cargo": false
+}

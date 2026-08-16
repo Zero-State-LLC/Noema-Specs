@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-attempt.gc8-s4.schema.json",
+  "title": "NOEMA GC8-S4 cargo MOVE attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "storage", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc8-s4" },
+    "catalog_id": { "const": "economy-catalog/gc8-s4" },
+    "operation": { "enum": ["MOVE"] },
+    "storage": { "type": "integer", "minimum": 0 },
+    "expected": {
+      "type": "object",
+      "required": ["move_energy"],
+      "properties": {
+        "move_energy": { "type": "integer" },
+        "carrying": { "type": "boolean" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

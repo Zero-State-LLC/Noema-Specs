@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-catalog.gc8-s4.schema.json",
+  "title": "NOEMA Economy Catalog (GC8-S4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "currency",
+    "transport_table",
+    "route_link",
+    "move_base_energy",
+    "move_cargo_extra",
+    "cargo_below_storage",
+    "watch_cargo"
+  ],
+  "properties": {
+    "schema_version": { "const": "economy-catalog/gc8-s4" },
+    "catalog_id": { "const": "economy-catalog/gc8-s4" },
+    "slice_id": { "const": "gc8-s4" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "economy-catalog/gc8-s3" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "currency": { "const": false },
+    "transport_table": { "const": true },
+    "route_link": { "const": false },
+    "move_base_energy": { "const": 1 },
+    "move_cargo_extra": { "const": 1 },
+    "cargo_below_storage": { "const": 16 },
+    "watch_cargo": { "const": false }
+  }
+}
