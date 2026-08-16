@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-catalog.gc8-s3.schema.json",
+  "title": "NOEMA Economy Catalog (GC8-S3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "currency",
+    "storage_loss",
+    "worn_only",
+    "spoil_per_cycle",
+    "watch_spoilage",
+    "transport_table"
+  ],
+  "properties": {
+    "schema_version": { "const": "economy-catalog/gc8-s3" },
+    "catalog_id": { "const": "economy-catalog/gc8-s3" },
+    "slice_id": { "const": "gc8-s3" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "economy-catalog/gc8-s2" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "currency": { "const": false },
+    "storage_loss": { "const": true },
+    "worn_only": { "const": true },
+    "spoil_per_cycle": { "const": 1 },
+    "watch_spoilage": { "const": false },
+    "transport_table": { "const": false }
+  }
+}

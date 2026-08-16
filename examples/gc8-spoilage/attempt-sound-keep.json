@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s3",
+  "catalog_id": "economy-catalog/gc8-s3",
+  "operation": "SPOIL",
+  "grade": "SOUND",
+  "amount": 5,
+  "expected": { "loss": 0, "remaining": 5, "grade": "SOUND", "note": "SOUND never spoils." }
+}

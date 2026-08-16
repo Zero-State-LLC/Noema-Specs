@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0047 Accepted / GC8-S3:** WORN holdings lose 1 per committed cycle. SOUND never spoils. Exhaust clears grade. PLAY may say holdings spoiled. WATCH silent. No transport table.
+
+### Added
+
 - **RFC-0046 Accepted / GC8-S2:** public HARVEST stamps origin room + producer. Hidden rooms leave no stamp. Mixed origins clear. PLAY may name the public room. WATCH silent.
 
 ### Added

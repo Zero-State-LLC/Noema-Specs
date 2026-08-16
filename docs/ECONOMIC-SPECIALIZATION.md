@@ -7,7 +7,7 @@
 
 **Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Ground in scarcity, distance, dependency, and uncertainty. Do not add transport companies, warehouses, banks, or markets as independent engines. Those nouns emerge from primitives and practices.
 
-GC8-S0 machine pins: [GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md) · [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md). Lot quality, storage loss, and v0.6B remain **SPEC GAP**.
+GC8-S0 machine pins: [GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md) · [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md). Transport table and v0.6B remain **SPEC GAP**.
 
 This package deepens:
 
@@ -91,8 +91,8 @@ These are [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) practices plus 
 GC8-S0 closed: pair HARVEST+TRADE energy 4 vs lone +MOVE; no yield bonus
 GC8-S1 closed: SOUND/WORN lots; worn if node condition < 50; WORN construct storage +1
 GC8-S2 closed: public origin room + producer on harvest; hidden/mix clear
+GC8-S3 closed: WORN lots lose 1 per cycle; SOUND never spoils
 transport-cost table beyond MOVE energy
-whether storage loss is in or deferred
 relationship to future v0.6B (still a distinct RFC)
 conformance beyond anti-currency / anti-order-book fixtures
 ```

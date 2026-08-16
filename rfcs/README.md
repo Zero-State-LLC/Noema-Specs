@@ -56,6 +56,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0044](RFC-0044-prior-work-benefits.md) | **Accepted** | GC1-S4: prior-work LOOK/INSPECT/TRADE_CAUTION waivers |
 | [RFC-0045](RFC-0045-lot-quality.md) | **Accepted** | GC8-S1: SOUND/WORN lots; WORN construct storage +1 |
 | [RFC-0046](RFC-0046-lot-provenance.md) | **Accepted** | GC8-S2: public origin stamp; hidden/mix clear |
+| [RFC-0047](RFC-0047-lot-spoilage.md) | **Accepted** | GC8-S3: WORN lots spoil 1 per cycle; SOUND keeps |
 
 ## Required review lenses
 
