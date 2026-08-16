@@ -4,6 +4,10 @@
 
 ### Added
 
+- **WATCH Phosphor Cartography (optional):** Canvas 2D 320×180 sketch of the same `watch-live/1.0` public snapshot. TEXT remains default and complete. Glyph Atlas v0.1. No new fields, no WebGL, no version pin. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.
+
+### Added
+
 - **WATCH — Lightweight Spectator Upgrade:** public hosted `/watch` as low-load terminal theater (one notable event, public world graph, 5–8 recent events, optional room detail). Informal nickname “WATCH v1.5” is **not** a product pin. Presentation tiers `NORMAL` / `NOTABLE` / `MAJOR`. Pin `watch-live/1.0`. Spec: `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md`. No event-catalog or Genesis change.
 
 ### Added

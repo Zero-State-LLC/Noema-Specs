@@ -54,7 +54,7 @@ Never a writer.
 Text-first Chamber theater.
 ```
 
-Preserve the text-first, minimal-graphics doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). Small functional graphics MAY be used only when they improve glance comprehension. Canvas, WebGL, portrait grids, and decorative motion are out of scope.
+Preserve the text-first, minimal-graphics doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope. The only permitted canvas on public `/watch` is optional **NOEMA Phosphor Cartography** (§18): progressive enhancement of the same `watch-live/1.0` snapshot. TEXT remains complete and authoritative.
 
 ---
 
@@ -507,7 +507,7 @@ Runtime MUST cover:
 - story/thread grouping
 - audio / semantic sound
 - scoring or “interest” engines
-- richer world visualization (canvas, 3D, Admin-style topology)
+- richer world visualization (WebGL, 3D, Admin-style topology, cinema). Optional Phosphor §18 is specified separately.
 - WebSocket / SSE live push
 - authenticated-observer extra fields on the public door
 - Agent POV chrome on `/watch`
@@ -542,4 +542,71 @@ Runtime MUST cover:
 
 ## 17. Runtime implementation prompt (next run)
 
-Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` against this document. Do not implement deferred features. Do not change PLAY, STUDY, or Admin Live. Do not reseed Genesis. Extend `GET /v1/watch/live` additively, filter hidden topology, derive `recent_events` and headline server-side, then update `workers/noema/src/watch.ts` through the five slices. Verify with the §13 tests and `prefers-reduced-motion`.
+Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` against this document. Do not implement deferred features. Do not change PLAY, STUDY, or Admin Live. Do not reseed Genesis. Extend `GET /v1/watch/live` additively, filter hidden topology, derive `recent_events` and headline server-side, then update `workers/noema/src/watch.ts` through the five slices. Verify with the §13 tests and `prefers-reduced-motion`. Optional Phosphor (§18) MAY follow; it MUST NOT become a second authority.
+
+---
+
+## 18. Optional — NOEMA Phosphor Cartography
+
+**Status:** Specified optional layer. Not a product-version pin.  
+**Pin:** none. Uses `watch-live/1.0` only.  
+**Hosted reference (non-normative):** TEXT default on `https://noema.guru/watch`; PIXEL is a spectator opt-in.
+
+Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY, STUDY, or Admin Live.
+
+### Doctrine
+
+| Law | Requirement |
+|-----|-------------|
+| Symbol-before-sprite | 8×8 (preferred) or 12×12 glyphs. Larger forbidden. No portraits. |
+| Topology-before-scenery | Nodes and public exits only. No decorative ground. |
+| Motion-as-events only | Pulses from new `recent_events`. No ambient loop. |
+| Resolution-as-knowledge | Brightness/opacity = public certainty (`partial` / `known` / `active`). |
+| Brightness-as-activity | Active public rooms read brighter. Hidden rooms omitted. |
+| Text-authority | Canvas never carries unique information. TEXT mode is complete. |
+| No-hidden-state-leakage | Hidden rooms, exits, entities, and players never enter layout or draw. |
+| One MAJOR | At most one MAJOR pulse at a time. |
+
+Palette: black / blue-black ground; copper / amber marks only.
+
+### Render rules
+
+- Canvas 2D only. No WebGL. No engines.
+- Fixed low logical resolution (320×180 class). `image-rendering: pixelated` (or equivalent).
+- Event-driven redraw. ≤20 FPS bursts. Zero continuous `requestAnimationFrame` when idle or `document.hidden`.
+- Deterministic layout from public `rooms[]` + public exits only.
+- TEXT / PIXEL toggle, keyboard-accessible. **Default is TEXT.**
+- `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
+- Failure / no-canvas / TEXT → pure text. Semantic graph always present.
+
+### Glyph Atlas (NOEMA Phosphor Glyph Atlas v0.1)
+
+Color model: transparent + dim copper + bright copper/amber.  
+Delivery: code (`ImageData` / path / bitmaps). Optional tiny base64 only if necessary. Cartography assets < 200 KB. Cartography JS < 100 KB.
+
+Required glyphs:
+
+- `room_empty`, `room_known`, `room_active`, `room_partial`
+- `player_single` (1), `player_multi` (2–9), `player_cluster` (≥10)
+- `exit`, `exit_active` (recent public move on that edge)
+- `pulse_normal`, `pulse_notable`, `pulse_major`
+
+Epistemic mapping:
+
+- not in the public snapshot → omit
+- known quiet → `room_empty` / `room_known`, dim
+- known active → `room_active`, brighter
+- recent public event → corresponding pulse over the room
+- player count > 0 → one `player_*` glyph at the node
+
+No resource icons, decorative flourishes, or pre-baked animation frames. Pulses are generated at draw time.
+
+### Tests
+
+- Hidden rooms / exits / players never appear in canvas layout
+- Deterministic layout for an identical public snapshot
+- Reduced-motion: no pulses, no rAF
+- TEXT and canvas-failure leave semantic HTML fully usable
+- Idle = no continuous animation frames
+- Budgets respected
+- WATCH remains non-mutating; PLAY / STUDY / Admin Live unchanged
