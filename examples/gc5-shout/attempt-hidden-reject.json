@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s4",
+  "catalog_id": "communication-catalog/gc5-s4",
+  "operation": "SHOUT",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms have no shout." }
+}

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0062 Accepted / GC5-S4:** `MESSAGE surface=SHOUT` utters in the current public room. Last 1 shout. WATCH silent. No SHOUT/BOARD verbs.
+
+### Added
+
 - **RFC-0061 Accepted / GC2-S9:** public relay CONSTRUCT is IN_PROGRESS and becomes live after 1 committed cycle. In-progress DISMANTLE salvages with no scar. WATCH silent. Help still omits BUILD.
 
 ### Added

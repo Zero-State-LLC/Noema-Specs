@@ -11,7 +11,9 @@ This package expands **surfaces, routing, and failure** around `MESSAGE`. It doe
 
 GC5-S0 machine pins: [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md) · [RFC-0009](../rfcs/RFC-0009-relay-message-delivery.md).  
 GC5-S1 delay pins: [GC5-S1-DELAY.md](GC5-S1-DELAY.md) · [RFC-0021](../rfcs/RFC-0021-relay-message-delay.md).  
-GC5-S2 rumor pins: [GC5-S2-RUMOR.md](GC5-S2-RUMOR.md) · [RFC-0028](../rfcs/RFC-0028-rumor-provenance.md). Board / SHOUT surfaces remain **SPEC GAP**.
+GC5-S2 rumor pins: [GC5-S2-RUMOR.md](GC5-S2-RUMOR.md) · [RFC-0028](../rfcs/RFC-0028-rumor-provenance.md).  
+GC5-S3 board pins: [GC5-S3-BOARD.md](GC5-S3-BOARD.md) · [RFC-0054](../rfcs/RFC-0054-message-board.md).  
+GC5-S4 shout pins: [GC5-S4-SHOUT.md](GC5-S4-SHOUT.md) · [RFC-0062](../rfcs/RFC-0062-message-shout.md).
 
 ---
 
@@ -118,7 +120,7 @@ GC5-S0 closed: local = same room; long-range needs best live relay condition ≥
 GC5-S1 closed: long-range ≥ 50 same-cycle; 25–49 delay 1 cycle; < 25 UNREACHABLE
 GC5-S2 closed: rumor is claim + MESSAGE lineage; no RUMOR verb / score
 GC5-S3 closed: MESSAGE surface=BOARD; public room; last 3; WATCH silent
-SHOUT surface
+GC5-S4 closed: MESSAGE surface=SHOUT; public room; last 1; WATCH silent
 retention beyond 3
 ```
 

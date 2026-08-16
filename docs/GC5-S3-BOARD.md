@@ -2,6 +2,7 @@
 
 **Status:** Executable specification. Runtime authorized with RFC-0054.  
 **Parent:** [GC5-S2-RUMOR.md](GC5-S2-RUMOR.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
+**Next:** [GC5-S4-SHOUT.md](GC5-S4-SHOUT.md)  
 **RFC:** [RFC-0054](../rfcs/RFC-0054-message-board.md)  
 **Does not open:** BOARD/SHOUT verbs · rumor score · help advertising · hidden boards
 
