@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/communication-attempt.gc5-s9.schema.json",
+  "title": "NOEMA GC5-S9 shout expiry attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc5-s9" },
+    "catalog_id": { "const": "communication-catalog/gc5-s9" },
+    "operation": { "enum": ["SHOUT", "EXPIRE"] },
+    "room_hidden": { "type": "boolean" },
+    "committed_cycles": { "type": "integer", "minimum": 0 },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "kept": { "type": "integer" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

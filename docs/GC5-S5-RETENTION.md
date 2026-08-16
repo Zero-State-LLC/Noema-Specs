@@ -45,7 +45,8 @@ S5 widens the S3 board. A public room keeps the last 5 notices. It is not an arc
 
 ```text
 SHOUT / BOARD verb
-cycle expiry
+shout cycle expiry is [GC5-S9-SHOUT-EXPIRY.md](GC5-S9-SHOUT-EXPIRY.md)
+BOARD / NOTICE / CHANNEL / TRADE_NOTICE cycle expiry
 unlimited board
 Chamber help board
 ```

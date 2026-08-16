@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0080 Accepted / GC5-S9:** a public `MESSAGE surface=SHOUT` drops after one committed cycle. Last-1 overwrite unchanged. WATCH silent. Help still omits shout.
+
+### Added
+
 - **RFC-0079 Accepted / GC2-S20:** `BUILD.SHARE` may name a second entered Player (`co_owner_2_id`). A third SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
 
 ### Added

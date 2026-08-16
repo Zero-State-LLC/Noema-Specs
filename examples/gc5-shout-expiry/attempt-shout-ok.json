@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s9",
+  "catalog_id": "communication-catalog/gc5-s9",
+  "operation": "SHOUT",
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Public shout still keeps last 1." }
+}
