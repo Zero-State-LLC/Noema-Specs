@@ -252,6 +252,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0058 Accepted: GC2-S7 abandonment. 12 idle cycles → UNCLAIMED. Anyone may DISMANTLE. No scar on abandon. Help omits BUILD.
 - [x] RFC-0059 Accepted: GC2-S8 RESTORE. Owner restores UNCLAIMED. Condition cap 50. Scars stay irreparable. Help omits BUILD.
 - [x] RFC-0060 Accepted: GC4-S5 CONSENSUS succession. Vacant office; ceil(members/2) consents seat. No elections. No SUCCESSION_* events.
+- [x] RFC-0061 Accepted: GC2-S9 multi-cycle relay CONSTRUCT. IN_PROGRESS then live after 1 committed cycle. In-progress DISMANTLE salvages, no scar. Help omits BUILD.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

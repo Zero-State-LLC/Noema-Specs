@@ -70,6 +70,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0058](RFC-0058-abandonment.md) | **Accepted** | GC2-S7: 12 idle cycles → UNCLAIMED; anyone may DISMANTLE |
 | [RFC-0059](RFC-0059-restore.md) | **Accepted** | GC2-S8: owner RESTORE of UNCLAIMED; scars stay dead |
 | [RFC-0060](RFC-0060-consensus-succession.md) | **Accepted** | GC4-S5: CONSENSUS vacant-office consent; ceil half |
+| [RFC-0061](RFC-0061-multicycle-construct.md) | **Accepted** | GC2-S9: relay CONSTRUCT IN_PROGRESS; live after 1 cycle |
 
 ## Required review lenses
 

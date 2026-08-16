@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s9",
+  "catalog_id": "construction-catalog/gc2-s9",
+  "operation": "DISMANTLE",
+  "class_id": "relay",
+  "in_progress": true,
+  "entity_id": "entity.relay.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "note": "In-progress DISMANTLE salvages with no live relay and no scar." }
+}

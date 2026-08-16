@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0061 Accepted / GC2-S9:** public relay CONSTRUCT is IN_PROGRESS and becomes live after 1 committed cycle. In-progress DISMANTLE salvages with no scar. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0060 Accepted / GC4-S5:** CONSENSUS succession. Members consent a vacant office; `ceil(members/2)` seats. No elections. No SUCCESSION_* events.
 
 ### Added

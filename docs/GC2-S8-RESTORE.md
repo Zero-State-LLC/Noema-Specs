@@ -45,7 +45,7 @@ S8 is the inverse of abandon. The owner may restore an UNCLAIMED public construc
 ```text
 CONNECT
 scar restore
-multi-cycle
+multi-cycle — closed in [GC2-S9-MULTICYCLE.md](GC2-S9-MULTICYCLE.md)
 STRUCTURE_*
 Chamber help BUILD
 ```

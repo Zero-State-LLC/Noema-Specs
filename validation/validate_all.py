@@ -3607,6 +3607,69 @@ def check_gc2_s8(Draft202012Validator) -> None:
     ok("GC2-S8 RESTORE: catalog, attempt fixtures, RFC-0059 Accepted")
 
 
+def evaluate_gc2_s9(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    if attempt.get("operation") == "CONSTRUCT":
+        if attempt.get("room_hidden") or catalog.get("hidden_construct"):
+            return "REJECT", "hidden", extra
+        extra["in_progress"] = True
+        extra["live"] = False
+        extra["same_entity"] = True
+        return "ACCEPT", None, extra
+    if attempt.get("operation") == "PROMOTE":
+        extra["in_progress"] = False
+        extra["live"] = True
+        extra["same_entity"] = True
+        return "ACCEPT", None, extra
+    extra["live"] = False
+    extra["scar"] = False
+    return "ACCEPT", None, extra
+
+
+def check_gc2_s9(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s9.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s9.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s9.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S9 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_progress") or catalog.get("scar_on_progress_dismantle"):
+        fail("GC2-S9 must not add help BUILD, new verbs, WATCH progress, or scar on in-progress dismantle")
+    rfc = (ROOT / "rfcs" / "RFC-0061-multicycle-construct.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0061 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S9-MULTICYCLE.md").read_text(encoding="utf-8")
+    if "IN_PROGRESS" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S9 must keep IN_PROGRESS on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-construct-progress.json",
+        "attempt-promote-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-dismantle-progress.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-multicycle" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s9(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("in_progress") is not None and extra.get("in_progress") != exp["in_progress"]:
+            fail(f"{name}: in_progress {extra.get('in_progress')} expected {exp['in_progress']}")
+        if exp.get("live") is not None and extra.get("live") != exp["live"]:
+            fail(f"{name}: live {extra.get('live')} expected {exp['live']}")
+        if exp.get("same_entity") is not None and extra.get("same_entity") != exp["same_entity"]:
+            fail(f"{name}: same_entity mismatch")
+        if exp.get("scar") is not None and extra.get("scar") != exp["scar"]:
+            fail(f"{name}: scar {extra.get('scar')} expected {exp['scar']}")
+    ok("GC2-S9 multi-cycle relay: catalog, attempt fixtures, RFC-0061 Accepted")
+
+
+
 
 
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
@@ -6612,6 +6675,7 @@ def main() -> None:
     check_gc2_s6(Draft202012Validator)
     check_gc2_s7(Draft202012Validator)
     check_gc2_s8(Draft202012Validator)
+    check_gc2_s9(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

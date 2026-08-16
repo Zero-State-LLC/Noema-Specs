@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s9",
+  "catalog_id": "construction-catalog/gc2-s9",
+  "operation": "CONSTRUCT",
+  "class_id": "relay",
+  "room_hidden": false,
+  "entity_id": "entity.relay.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": true, "live": false, "same_entity": true, "note": "Public relay CONSTRUCT starts IN_PROGRESS." }
+}
