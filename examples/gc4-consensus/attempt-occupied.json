@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc4-s5",
+  "catalog_id": "authority-catalog/gc4-s5",
+  "operation": "ORG_SUCCESSION_CONSENT",
+  "office_status": "OCCUPIED",
+  "actor_is_member": true,
+  "candidate_is_member": true,
+  "member_count": 3,
+  "consent_count": 2,
+  "expected": { "outcome": "REJECT", "reason": "occupied", "note": "Consensus does not recall." }
+}

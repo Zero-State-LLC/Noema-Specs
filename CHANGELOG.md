@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0060 Accepted / GC4-S5:** CONSENSUS succession. Members consent a vacant office; `ceil(members/2)` seats. No elections. No SUCCESSION_* events.
+
+### Added
+
 - **RFC-0059 Accepted / GC2-S8:** `BUILD.RESTORE` on an owned public UNCLAIMED constructible. Condition capped at 50. Scars stay irreparable. WATCH silent.
 
 ### Added
