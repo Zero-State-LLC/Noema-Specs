@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc5-s7",
+  "catalog_id": "communication-catalog/gc5-s7",
+  "operation": "CHANNEL",
+  "room_hidden": false,
+  "member": false,
+  "org_known": false,
+  "expected": { "outcome": "REJECT", "reason": "not_addressable", "note": "Unknown org uses the same fail as non-member." }
+}

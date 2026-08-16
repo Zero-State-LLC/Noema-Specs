@@ -256,6 +256,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0062 Accepted: GC5-S4 MESSAGE shout surface. Public room utterance, last 1. WATCH silent. No SHOUT/BOARD verbs.
 - [x] RFC-0063 Accepted: GC5-S5 MESSAGE board retention. Public room last 5. Shout last-1 unchanged. WATCH silent. No SHOUT/BOARD verbs.
 - [x] RFC-0064 Accepted: GC5-S6 MESSAGE institution notice. Occupied PUBLISH_NOTICE office; public room last 1. WATCH silent. No NOTICE verb.
+- [x] RFC-0065 Accepted: GC5-S7 MESSAGE org channel. Current members only; last 1. Unknown org and non-member share NOT_ADDRESSABLE. WATCH silent. No CHANNEL verb.
 - [x] RFC-0041 Accepted: GC7-S2 institution contest party via occupied office. Treasury pays. No new forms.
 - [x] RFC-0042 Accepted: GC7-S3 INFORMATION_CONTEST on a visible public ARTIFACT. INSPECT seal via ENTITY_UPDATE. No hidden leak. No catalog 0.3.
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.

@@ -52,4 +52,4 @@ Keep last 3 (`slice(-3)`).
 
 ## Unresolved
 
-Institution notice is [RFC-0064](RFC-0064-institution-notice.md). Org channel. Cycle-based expiry.
+Institution notice is [RFC-0064](RFC-0064-institution-notice.md). Org channel is [RFC-0065](RFC-0065-org-channel.md). Cycle-based expiry.

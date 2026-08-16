@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc5-s7",
+  "catalog_id": "communication-catalog/gc5-s7",
+  "operation": "CHANNEL",
+  "room_hidden": true,
+  "member": true,
+  "org_known": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms cannot send on the channel." }
+}
