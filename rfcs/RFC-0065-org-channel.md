@@ -56,4 +56,4 @@ Ignore `surface=CHANNEL` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-Cycle-based expiry. Trade notice.
+Trade notice is [RFC-0066](RFC-0066-trade-notice.md). Cycle-based expiry.

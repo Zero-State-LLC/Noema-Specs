@@ -5438,6 +5438,50 @@ def check_gc5_s7(Draft202012Validator) -> None:
     ok("GC5-S7 MESSAGE org channel: catalog, attempt fixtures, RFC-0065 Accepted")
 
 
+def evaluate_gc5_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("room_hidden") or catalog.get("hidden_stall"):
+        return "REJECT", "hidden", None
+    posted = int(attempt.get("posted") or 0)
+    keep = int(catalog.get("retention") or 1)
+    return "ACCEPT", None, min(posted, keep)
+
+
+def check_gc5_s8(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s8.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s8.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.gc5-s8.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC5-S8 catalog invalid: {errs[0].message}")
+    if catalog.get("market_verb") or catalog.get("auto_trade") or catalog.get("price_oracle") or catalog.get("watch_stall") or catalog.get("help_stall") or catalog.get("new_verbs"):
+        fail("GC5-S8 must not add MARKET verb, auto-TRADE, price oracle, WATCH stall, help stall, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0066-trade-notice.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0066 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC5-S8-TRADE-NOTICE.md").read_text(encoding="utf-8")
+    if "TRADE_NOTICE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC5-S8 must keep TRADE_NOTICE on MESSAGE and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-stall-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-retention.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc5-trade-notice" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, kept = evaluate_gc5_s8(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+    ok("GC5-S8 MESSAGE trade notice: catalog, attempt fixtures, RFC-0066 Accepted")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -6891,6 +6935,7 @@ def main() -> None:
     check_gc5_s5(Draft202012Validator)
     check_gc5_s6(Draft202012Validator)
     check_gc5_s7(Draft202012Validator)
+    check_gc5_s8(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)
