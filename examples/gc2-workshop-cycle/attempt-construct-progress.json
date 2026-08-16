@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s13",
+  "catalog_id": "construction-catalog/gc2-s13",
+  "operation": "CONSTRUCT",
+  "class_id": "workshop",
+  "room_hidden": false,
+  "entity_id": "entity.workshop.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": true, "live": false, "same_entity": true, "note": "Public workshop CONSTRUCT starts IN_PROGRESS." }
+}

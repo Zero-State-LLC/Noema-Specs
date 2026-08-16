@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s13",
+  "catalog_id": "construction-catalog/gc2-s13",
+  "operation": "DISMANTLE",
+  "class_id": "workshop",
+  "in_progress": true,
+  "entity_id": "entity.workshop.a",
+  "expected": { "outcome": "ACCEPT", "live": false, "scar": false, "note": "In-progress DISMANTLE salvages with no live workshop and no scar." }
+}

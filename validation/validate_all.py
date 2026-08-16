@@ -3826,6 +3826,86 @@ def check_gc2_s12(Draft202012Validator) -> None:
     ok("GC2-S12 CONNECT dest pin: catalog, attempt fixtures, RFC-0071 Accepted")
 
 
+def evaluate_gc2_s13(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    op = attempt.get("operation")
+    if op == "CONSTRUCT":
+        if attempt.get("room_hidden") or catalog.get("hidden_construct"):
+            return "REJECT", "hidden", extra
+        extra["in_progress"] = True
+        extra["live"] = False
+        extra["same_entity"] = True
+        return "ACCEPT", None, extra
+    if op == "PROMOTE":
+        extra["in_progress"] = False
+        extra["live"] = True
+        extra["same_entity"] = True
+        return "ACCEPT", None, extra
+    if op in ("UPGRADE", "REPURPOSE"):
+        if attempt.get("in_progress") or (
+            op == "UPGRADE" and catalog.get("upgrade_in_progress")
+        ) or (
+            op == "REPURPOSE" and catalog.get("repurpose_in_progress")
+        ):
+            return "REJECT", "in_progress", extra
+        extra["same_entity"] = True
+        return "ACCEPT", None, extra
+    extra["live"] = False
+    extra["scar"] = False
+    return "ACCEPT", None, extra
+
+
+def check_gc2_s13(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s13.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s13.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s13.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S13 catalog invalid: {errs[0].message}")
+    if (
+        catalog.get("help_build")
+        or catalog.get("new_verbs")
+        or catalog.get("watch_progress")
+        or catalog.get("scar_on_progress_dismantle")
+        or catalog.get("upgrade_in_progress")
+        or catalog.get("repurpose_in_progress")
+    ):
+        fail("GC2-S13 must not add help BUILD, new verbs, WATCH progress, scar on in-progress dismantle, or UPGRADE/REPURPOSE of a shell")
+    rfc = (ROOT / "rfcs" / "RFC-0072-workshop-cycle.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0072 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S13-WORKSHOP-CYCLE.md").read_text(encoding="utf-8")
+    if "IN_PROGRESS" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S13 must keep IN_PROGRESS on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-construct-progress.json",
+        "attempt-promote-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-dismantle-progress.json",
+        "attempt-upgrade-progress-reject.json",
+        "attempt-repurpose-progress-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-workshop-cycle" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s13(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("in_progress") is not None and extra.get("in_progress") != exp["in_progress"]:
+            fail(f"{name}: in_progress {extra.get('in_progress')} expected {exp['in_progress']}")
+        if exp.get("live") is not None and extra.get("live") != exp["live"]:
+            fail(f"{name}: live {extra.get('live')} expected {exp['live']}")
+        if exp.get("same_entity") is not None and extra.get("same_entity") != exp["same_entity"]:
+            fail(f"{name}: same_entity mismatch")
+        if exp.get("scar") is not None and extra.get("scar") != exp["scar"]:
+            fail(f"{name}: scar {extra.get('scar')} expected {exp['scar']}")
+    ok("GC2-S13 workshop multi-cycle: catalog, attempt fixtures, RFC-0072 Accepted")
+
 
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
@@ -7171,6 +7251,7 @@ def main() -> None:
     check_gc2_s10(Draft202012Validator)
     check_gc2_s11(Draft202012Validator)
     check_gc2_s12(Draft202012Validator)
+    check_gc2_s13(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

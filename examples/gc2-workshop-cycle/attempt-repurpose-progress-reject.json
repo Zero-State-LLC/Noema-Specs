@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s13",
+  "catalog_id": "construction-catalog/gc2-s13",
+  "operation": "REPURPOSE",
+  "class_id": "workshop",
+  "in_progress": true,
+  "entity_id": "entity.workshop.a",
+  "expected": { "outcome": "REJECT", "reason": "in_progress", "note": "REPURPOSE of an IN_PROGRESS workshop is FORBIDDEN." }
+}
