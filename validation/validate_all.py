@@ -5047,6 +5047,57 @@ def check_gc4_s6(Draft202012Validator) -> None:
     ok("GC4-S6 RULE_BASED succession: catalog, attempt fixtures, RFC-0069 Accepted")
 
 
+def evaluate_gc4_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    if attempt.get("operation") == "PUBLISH":
+        if attempt.get("rule_id") != catalog.get("rule_id"):
+            return "REJECT", "unknown", extra
+        return "ACCEPT", None, extra
+    extra["seated"] = False
+    extra["retired"] = False
+    return "ACCEPT", None, extra
+
+
+def check_gc4_s7(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s7.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s7.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "succession-attempt.gc4-s7.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC4-S7 catalog invalid: {errs[0].message}")
+    if catalog.get("elections") or catalog.get("institution_as_player") or catalog.get("auto_seat") or catalog.get("retire_on_vacate") or catalog.get("new_events") or catalog.get("watch_titles"):
+        fail("GC4-S7 must not add elections, institution-as-Player, auto-seat, retire-on-vacate, new events, or WATCH titles")
+    if catalog.get("rule_id") != "INHERITED_BY_ORGANIZATION":
+        fail("GC4-S7 must keep INHERITED_BY_ORGANIZATION")
+    rfc = (ROOT / "rfcs" / "RFC-0070-inherited-org.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0070 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC4-S7-INHERITED.md").read_text(encoding="utf-8")
+    if "INHERITED_BY_ORGANIZATION" not in slice_doc or "VACANT" not in slice_doc:
+        fail("GC4-S7 must keep inherit-by-org and vacant seat")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-publish-ok.json",
+        "attempt-unknown-reject.json",
+        "attempt-vacate-vacant.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc4-inherited" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc4_s7(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("seated") is not None and extra.get("seated") != exp["seated"]:
+            fail(f"{name}: seated {extra.get('seated')} expected {exp['seated']}")
+        if exp.get("retired") is not None and extra.get("retired") != exp["retired"]:
+            fail(f"{name}: retired {extra.get('retired')} expected {exp['retired']}")
+    ok("GC4-S7 INHERITED_BY_ORGANIZATION: catalog, attempt fixtures, RFC-0070 Accepted")
+
+
 def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     if not attempt.get("recipient_addressable"):
         return "REJECT", "FORBIDDEN"
@@ -7084,6 +7135,7 @@ def main() -> None:
     check_gc4_s4(Draft202012Validator)
     check_gc4_s5(Draft202012Validator)
     check_gc4_s6(Draft202012Validator)
+    check_gc4_s7(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
     check_gc5_s2(Draft202012Validator)

@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc4-s7",
+  "catalog_id": "authority-catalog/gc4-s7",
+  "operation": "PUBLISH",
+  "rule_id": "INHERITED_BY_ORGANIZATION",
+  "expected": { "outcome": "ACCEPT", "note": "Founder or officer may publish inherit-by-org." }
+}

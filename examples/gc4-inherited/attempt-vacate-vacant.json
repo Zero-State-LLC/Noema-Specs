@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc4-s7",
+  "catalog_id": "authority-catalog/gc4-s7",
+  "operation": "VACATE",
+  "published": true,
+  "rule_id": "INHERITED_BY_ORGANIZATION",
+  "eligible_remaining": 2,
+  "expected": { "outcome": "ACCEPT", "seated": false, "retired": false, "note": "Org keeps a vacant office. No auto-seat." }
+}

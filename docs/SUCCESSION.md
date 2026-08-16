@@ -54,4 +54,6 @@ Hosted `CONSENSUS` succession is specified in [GC4-S5-CONSENSUS.md](GC4-S5-CONSE
 
 Hosted `RULE_BASED` succession is specified in [GC4-S6-RULE.md](GC4-S6-RULE.md) · [RFC-0069](../rfcs/RFC-0069-rule-based-succession.md). An officer publishes `MEMBER_ORDER` on the office. Vacate walks stored membership. No rule language. No implicit jump.
 
-`INHERITED_BY_ORGANIZATION` remains unspecified.
+## Playable INHERITED_BY_ORGANIZATION (GC4-S7)
+
+Hosted inherit-by-org is specified in [GC4-S7-INHERITED.md](GC4-S7-INHERITED.md) · [RFC-0070](../rfcs/RFC-0070-inherited-org.md). An officer publishes that the org keeps the seat. Vacate does not auto-seat and does not retire the office.

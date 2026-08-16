@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0070 Accepted / GC4-S7:** `ORG_SUCCESSION_RULE` publishes `INHERITED_BY_ORGANIZATION`. Vacate stays vacant; the office is not retired. No institution-as-Player. No `SUCCESSION_*` events.
+
+### Added
+
 - **RFC-0069 Accepted / GC4-S6:** `ORG_SUCCESSION_RULE` publishes `MEMBER_ORDER`. Vacate seats the first remaining eligible member. No elections. No `SUCCESSION_*` events.
 
 ### Added

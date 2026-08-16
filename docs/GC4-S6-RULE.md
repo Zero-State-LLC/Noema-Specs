@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0069.  
 **Parent:** [GC4-S5-CONSENSUS.md](GC4-S5-CONSENSUS.md) · [SUCCESSION.md](SUCCESSION.md)  
 **RFC:** [RFC-0069](../rfcs/RFC-0069-rule-based-succession.md)  
-**Does not open:** elections · rule language · implicit jump · SUCCESSION_* · emergency rules
+**Does not open:** elections · rule language · implicit jump · SUCCESSION_* · emergency rules  
+**Next:** [GC4-S7-INHERITED.md](GC4-S7-INHERITED.md)
 
 S6 publishes one roster rule on an office. Vacancy walks stored membership order. It is not an election.
 
@@ -45,7 +46,6 @@ S6 publishes one roster rule on an office. Vacancy walks stored membership order
 ```text
 elections / parties
 other rule ids
-INHERITED_BY_ORGANIZATION
 emergency RULE_BASED
 SUCCESSION_*
 Chamber help advertising

@@ -79,6 +79,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0067](RFC-0067-institution-own.md) | **Accepted** | GC2-S10: BUILD.VEST to occupied named-asset office |
 | [RFC-0068](RFC-0068-shared-own.md) | **Accepted** | GC2-S11: BUILD.SHARE one co-owner; same entity_id |
 | [RFC-0069](RFC-0069-rule-based-succession.md) | **Accepted** | GC4-S6: RULE_BASED MEMBER_ORDER; no rule language |
+| [RFC-0070](RFC-0070-inherited-org.md) | **Accepted** | GC4-S7: INHERITED_BY_ORGANIZATION; vacate stays vacant |
 
 ## Required review lenses
 

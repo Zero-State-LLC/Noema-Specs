@@ -58,4 +58,4 @@ Ignore `ORG_SUCCESSION_RULE` (`INVALID_REQUEST`).
 
 ## Unresolved
 
-`INHERITED_BY_ORGANIZATION`. Other rule ids.
+`INHERITED_BY_ORGANIZATION` is [RFC-0070](RFC-0070-inherited-org.md). Other rule ids.
