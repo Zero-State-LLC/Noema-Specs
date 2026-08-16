@@ -1,0 +1,22 @@
+{
+  "schema_version": "communication-catalog/gc5-s9",
+  "catalog_id": "communication-catalog/gc5-s9",
+  "slice_id": "gc5-s9",
+  "authority": "docs/GC5-S9-SHOUT-EXPIRY.md",
+  "rfc": "rfcs/RFC-0080-shout-expiry.md",
+  "extends": "communication-catalog/gc5-s8",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "SHOUT",
+  "help_shout": false,
+  "watch_shout": false,
+  "hidden_shout": false,
+  "retention": 1,
+  "expire_cycles": 1,
+  "board_expiry": false,
+  "notice_expiry": false,
+  "channel_expiry": false,
+  "trade_notice_expiry": false,
+  "cost_compute": 1
+}
