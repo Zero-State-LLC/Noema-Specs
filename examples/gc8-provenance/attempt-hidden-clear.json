@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s2",
+  "catalog_id": "economy-catalog/gc8-s2",
+  "operation": "HARVEST",
+  "room_hidden": true,
+  "room_id": "room.vault",
+  "expected": { "origin_room_id": null, "note": "Hidden harvest leaves no stamp." }
+}

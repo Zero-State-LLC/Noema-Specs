@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0046 Accepted / GC8-S2:** public HARVEST stamps origin room + producer. Hidden rooms leave no stamp. Mixed origins clear. PLAY may name the public room. WATCH silent.
+
+### Added
+
 - **RFC-0045 Accepted / GC8-S1:** harvested holdings are SOUND or WORN. Condition < 50 is WORN. Mixing marks WORN. WORN storage adds +1 on CONSTRUCT. No yield bonus. No currency. No provenance.
 
 ### Added

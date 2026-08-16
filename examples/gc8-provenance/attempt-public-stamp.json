@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc8-s2",
+  "catalog_id": "economy-catalog/gc8-s2",
+  "operation": "HARVEST",
+  "room_hidden": false,
+  "room_id": "room.hub",
+  "expected": { "origin_room_id": "room.hub", "note": "Public harvest stamps the room." }
+}

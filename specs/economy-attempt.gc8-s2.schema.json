@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-attempt.gc8-s2.schema.json",
+  "title": "NOEMA GC8-S2 provenance attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc8-s2" },
+    "catalog_id": { "const": "economy-catalog/gc8-s2" },
+    "operation": { "enum": ["HARVEST", "MIX"] },
+    "room_hidden": { "type": "boolean" },
+    "room_id": { "type": "string" },
+    "have_room_id": { "type": "string" },
+    "add_room_id": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "required": ["origin_room_id"],
+      "properties": {
+        "origin_room_id": { "type": ["string", "null"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

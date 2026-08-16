@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/economy-catalog.gc8-s2.schema.json",
+  "title": "NOEMA Economy Catalog (GC8-S2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "currency",
+    "provenance",
+    "hidden_stamp",
+    "watch_origins",
+    "mix_policy"
+  ],
+  "properties": {
+    "schema_version": { "const": "economy-catalog/gc8-s2" },
+    "catalog_id": { "const": "economy-catalog/gc8-s2" },
+    "slice_id": { "const": "gc8-s2" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "economy-catalog/gc8-s1" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "currency": { "const": false },
+    "provenance": { "const": true },
+    "hidden_stamp": { "const": false },
+    "watch_origins": { "const": false },
+    "mix_policy": { "const": "clear" },
+    "storage_loss": { "const": false }
+  }
+}
