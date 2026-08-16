@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s18",
+  "catalog_id": "construction-catalog/gc2-s18",
+  "slice_id": "gc2-s18",
+  "authority": "docs/GC2-S18-ARCHIVE-ANNEX-CYCLE.md",
+  "rfc": "rfcs/RFC-0077-archive-annex-cycle.md",
+  "extends": "construction-catalog/gc2-s17",
+  "verb": "BUILD",
+  "operation": "CONSTRUCT",
+  "class_id": "archive_annex",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_progress": false,
+  "cycles": 1,
+  "scar_on_progress_dismantle": false,
+  "hidden_construct": false,
+  "discount_in_progress": false
+}

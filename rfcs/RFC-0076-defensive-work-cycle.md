@@ -58,4 +58,4 @@ Ignore `in_progress` on defensive works (treat every work as live immediately, i
 
 ## Unresolved
 
-Remaining-class multi-cycle (`route_link`, `archive_annex`). Third-and-later co-owners.
+Archive-annex multi-cycle is [RFC-0077](RFC-0077-archive-annex-cycle.md). Remaining-class multi-cycle (`route_link`). Third-and-later co-owners.

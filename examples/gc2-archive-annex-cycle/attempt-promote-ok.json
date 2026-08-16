@@ -1,0 +1,10 @@
+{
+  "slice_id": "gc2-s18",
+  "catalog_id": "construction-catalog/gc2-s18",
+  "operation": "PROMOTE",
+  "class_id": "archive_annex",
+  "in_progress": true,
+  "committed_cycles": 1,
+  "entity_id": "entity.archive-annex.a",
+  "expected": { "outcome": "ACCEPT", "in_progress": false, "live": true, "same_entity": true, "note": "One committed cycle promotes the same entity_id." }
+}
