@@ -68,7 +68,7 @@ Decayed or rehabilitated edges do **not** surcharge.
 ```text
 auto-refuse
 hidden prices
-preferred-counterparty discounts
+preferred-counterparty discounts — closed by [GC3-S7](GC3-S7-PREFERRED.md)
 hiding TRADE
 ```
 

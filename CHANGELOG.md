@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **RFC-0039 Accepted / GC3-S7:** preferred-counterparty discount waives `TRADE_CAUTION` when a live `RELIABLE` edge exists. No auto-accept. No hidden rebate. Base TRADE compute stays 1.
+
 ### Changed
 
 - **Hosted static pin:** product HTML is Cloudflare Worker `[assets]` on `noema.guru`. Cloudflare Pages is not the live host. GitHub Pages (`site/`) remains marketing/reference.

@@ -1,0 +1,12 @@
+{
+  "slice_id": "gc3-s7",
+  "catalog_id": "social-memory-catalog/gc3-s7",
+  "live_hostile": false,
+  "live_reliable": false,
+  "expected": {
+    "extra_compute": 0,
+    "auto_accept": false,
+    "reason_code": null,
+    "note": "No edges: v0.1 TRADE compute only."
+  }
+}

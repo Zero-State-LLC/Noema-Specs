@@ -48,6 +48,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0036](RFC-0036-decay-rehab.md) | **Accepted** | GC3-S4: decay/rehab weights; no wipe; ledger never forgets |
 | [RFC-0037](RFC-0037-trade-friction.md) | **Accepted** | GC3-S5: published +1 compute TRADE_CAUTION; no auto-refuse |
 | [RFC-0038](RFC-0038-deceptive-edge.md) | **Accepted** | GC3-S6: deceptive as distinct edge; TRADE_REJECTED ignored |
+| [RFC-0039](RFC-0039-preferred-counterparty.md) | **Accepted** | GC3-S7: waive TRADE_CAUTION for live RELIABLE; no auto-accept |
 
 ## Required review lenses
 

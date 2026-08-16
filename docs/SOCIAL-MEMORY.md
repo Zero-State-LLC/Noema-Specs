@@ -242,11 +242,19 @@ TRADE_REJECTED / CONTEST_RESOLVED ignored
 WATCH empty on this slice
 ```
 
+### Closed for GC3-S7
+
+```text
+live RELIABLE (≥3) waives TRADE_CAUTION extra compute
+auto-accept false
+other TRADE affordances stay visible
+base compute stays 1
+```
+
 ### Still open
 
 ```text
-(none — SOCIAL-MEMORY executable gaps closed by RFC-0007, RFC-0022, RFC-0034–0038)
-preferred-counterparty discounts (out of S5)
+(none — SOCIAL-MEMORY executable gaps closed by RFC-0007, RFC-0022, RFC-0034–0039)
 GC1-S2 mechanical benefit (not GC3)
 ```
 

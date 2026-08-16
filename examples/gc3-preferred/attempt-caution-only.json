@@ -1,0 +1,12 @@
+{
+  "slice_id": "gc3-s7",
+  "catalog_id": "social-memory-catalog/gc3-s7",
+  "live_hostile": true,
+  "live_reliable": false,
+  "expected": {
+    "extra_compute": 1,
+    "auto_accept": false,
+    "reason_code": "TRADE_CAUTION",
+    "note": "Hostile without RELIABLE still pays S5 caution."
+  }
+}
