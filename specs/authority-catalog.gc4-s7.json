@@ -1,0 +1,20 @@
+{
+  "schema_version": "authority-catalog/gc4-s7",
+  "catalog_id": "authority-catalog/gc4-s7",
+  "slice_id": "gc4-s7",
+  "authority": "docs/GC4-S7-INHERITED.md",
+  "rfc": "rfcs/RFC-0070-inherited-org.md",
+  "extends": "authority-catalog/gc4-s6",
+  "mechanism": "INHERITED_BY_ORGANIZATION",
+  "operation": "ORG_SUCCESSION_RULE",
+  "rule_id": "INHERITED_BY_ORGANIZATION",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "elections": false,
+  "institution_as_player": false,
+  "auto_seat": false,
+  "retire_on_vacate": false,
+  "watch_titles": false,
+  "cost_compute": 1
+}
