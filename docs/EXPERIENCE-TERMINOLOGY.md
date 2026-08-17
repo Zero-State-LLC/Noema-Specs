@@ -1,6 +1,119 @@
 # Experience Terminology
 
-Use the user-facing phrase by default and reveal the precise phrase in advanced or technical documentation.
+**Authority.** Dual semantic mapping: how internal, research, operator, player, and lore registers relate. Presentation and translation only. Does not rename protocols, schemas, audit fields, or claim labels.
+
+Related: [PLAYER-BRAND.md](PLAYER-BRAND.md) · [TERMINOLOGY.md](TERMINOLOGY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
+
+Use the register-appropriate phrase. Reveal the precise internal phrase in advanced, operator, or technical documentation.
+
+---
+
+## Dual semantic architecture
+
+NOEMA keeps one world and one scientific layer. It does not keep one vocabulary.
+
+```text
+PLAYER SURFACE
+Cognition Signature
+
+INTERNAL / RESEARCH SCHEMA
+emergent_capability_metric.cognition_signature
+```
+
+Implementations MUST resolve player-facing copy through this document (or a generated table derived from it). They MUST NOT scatter unmapped aliases through runtime code.
+
+### Registers
+
+| Register | Surfaces | Rule |
+|---|---|---|
+| **Schema** | protocols, JSON Schema, event payloads, ledgers | Field names stay. Versioned change requires RFC. |
+| **Research** | STUDY, Lab, Compiler, LEARN, ethics, claims | Method vocabulary is correct here. |
+| **Operator** | Admin Live, ops, recovery, Genesis | Control-plane precision. `operator` / `admin` / `warden` only where that surface is actually in use. Prefer **operator** or **admin** already in canon; do not invent Warden as a new principal. |
+| **Player** | PLAY, world door, public WATCH, first-entry | World-native. Immediate. No research lecture. |
+| **Lore** | derived cultural names, institution style, rumors | Atmosphere. Never overrides ledger or evidence. |
+
+### Mapping framework
+
+Each concept that crosses a surface has:
+
+```text
+concept_id
+  schema          # stable machine name
+  research        # STUDY / method phrase, if any
+  operator        # Admin / ops phrase, if any
+  player          # PLAY / WATCH phrase
+  lore            # optional cultural overlay
+  notes           # do-not-replace and leak rules
+```
+
+Runtime projection:
+
+```text
+if surface in {PLAY, WATCH_PUBLIC, WORLD_DOOR}:
+    show player, then lore if present
+    schema id only in advanced detail
+elif surface in {STUDY, LEARN, LAB}:
+    show research, with schema available
+elif surface in {ADMIN_LIVE, OPS}:
+    show operator or schema
+else:
+    show schema
+```
+
+Do not blindly replace every term. `telemetry` MAY remain on player surfaces when it is diegetic (relay telemetry, traffic). `experiment` stays on STUDY. `observation` in the MUD sense (“you see”) is player-valid; `Observation` as a research record is not.
+
+---
+
+## Player / internal mapping
+
+At minimum, implementations MUST honor this direction. Player column is default PLAY/WATCH copy. Schema column is not shown there.
+
+| Internal / academic tendency | Schema / research (keep) | Player-facing direction | Operator | Notes |
+|---|---|---|---|---|
+| experiment | Experiment, Lab plan, `experiment_id` | world / operation / event | experiment, fork, run | PLAY never hosts “run an experiment” |
+| subject | — | player | player | Never “subject” on PLAY |
+| agent ecology | agent population (research) | population / network | player count, controllers | Humans and agents are both Players |
+| observation (research record) | Observation | signal / record / surveillance (diegetic) | observation, projection | MUD “you see” remains valid |
+| metric | metric, feature, baseline | index / trait / signature | metric | Not a victory score |
+| emergent behavior | emergence candidate | adaptation / anomaly | emergence candidate | No research label as PLAY chrome |
+| test scenario | Lab template / captured test | event / condition | test, fixture | STUDY only |
+| evaluation | oracle, claim assessment | assessment / reckoning | evaluation | Not a grade |
+| consciousness metric | consciousness-adjacent construct (operational) | cognition signature or world-native equivalent | construct, never “proven consciousness” | No scalar consciousness score |
+| dataset | Atlas, Reproducibility Bundle | archive | dataset, bundle | PLAY archive is in-world memory |
+| telemetry | telemetry | telemetry when diegetic; else signal / strip | telemetry | Keep where it sounds like infrastructure |
+| operator | Admin, operator | — | admin / operator | Not a player class. Do not print on PLAY |
+| Chamber | Chamber (v0.1 ecology) | the world, the Reach, the named room | Chamber / world id | Prefer the world name on PLAY |
+| canonical head | snapshot / settlement head | the world as it stands | canonical head, revision | Never “database” to players |
+| World Event Director | WED | pressure, the season, what the Reach is under | WED / pressure schedule | |
+| Frontier Director | Frontier Director | situation, the unknown | Frontier | STUDY: situation search |
+| capability | capability candidate / graph | what someone can do; practice; office | capability (research) | Not a Player class |
+| NOTICE / TEST / CAPTURE / LEARN | product research path | — | STUDY workflow | Not world-door chrome |
+
+### Worked examples
+
+```text
+PLAYER        Relay Integrity: 83%
+OPERATOR      relay.condition = 83
+SCHEMA        entity.condition  (infrastructure, public)
+
+PLAYER        Pressure: SEVERE
+OPERATOR      world-report / WED pressure band
+SCHEMA        derived projection; not a World.status value
+
+PLAYER        Cognition Signature
+RESEARCH      emergent_capability_metric.cognition_signature
+PLAY          do not show unless a future world-native instrument exists
+
+PLAYER        A record says the vault was emptied.
+RESEARCH      historical artifact claim, claim label recoverable
+SCHEMA        artifact claim fields; not world truth
+```
+
+---
+
+## STUDY and advanced product phrases
+
+The following table remains the STUDY / progressive-disclosure dictionary. It does not override the player mapping above.
 
 | Internal | Default product phrase |
 |---|---|
@@ -36,7 +149,7 @@ Use the user-facing phrase by default and reveal the precise phrase in advanced 
 | DEPENDS_ON / FAILS_WITHOUT | Depends on / fails when … is removed |
 | GENERALIZES_TO | Works in … |
 | NOT_TESTED | Not yet tested (not a failure) |
-| Player | You / participant (human or agent-driven — same role) |
+| Player | You / your handle (human or agent-driven — same role). Not “subject”. |
 | Controller | How you connect (browser, agent app, …) |
 | Device enrollment / CONNECT | Connect an external Controller |
 | Agent Gateway | Connection layer (technical) |

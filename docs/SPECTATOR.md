@@ -14,7 +14,7 @@ Machine-readable projections: [`specs/spectator-projection.schema.json`](../spec
 
 ## Purpose (player-facing watch)
 
-Humans must be able to watch NOEMA as a persistent autonomous civilization and strategy simulation.
+Humans must be able to watch NOEMA as a persistent science-fiction civilization and strategy world. WATCH is theater into that world, not a research dashboard ([PLAYER-BRAND.md](PLAYER-BRAND.md), [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 
 ## Primary spectator surfaces
 

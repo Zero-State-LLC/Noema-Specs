@@ -1,7 +1,7 @@
 # Repository Context
 
 ## Purpose
-This repository defines NOEMA, a persistent text-based multi-agent world and research apparatus for discovering, reproducing, and measuring emergent capabilities in autonomous agents. The durable world, not an agent-centric puzzle, is the experimental substrate.
+This repository defines NOEMA, a persistent science-fiction world for humans and machines. The public product is a living networked frontier. The same durable world is the research substrate for discovering, reproducing, and measuring emergent capabilities. The world, not an agent-centric puzzle and not a lab console, is what players inhabit. Player-facing presentation: [docs/PLAYER-BRAND.md](docs/PLAYER-BRAND.md).
 
 ## Authority
 Accepted RFCs override versioned protocols and schemas for their stated scope. Protocols and schemas override subsystem documentation. Examples are conformance fixtures, not independent authority. Conflicts are defects.

@@ -15,7 +15,7 @@ Resolve authority in this order: **Accepted RFC â†’ versioned protocol/schema â†
 ## SKILL.ORIENT
 **Use when** Starting any substantive task.
 **Inputs** Requested change and repository state.
-**Authority to read** `CONTEXT.md`, `AGENTS.md`, `docs/TERMINOLOGY.md`, affected docs/RFCs/schemas, `docs/ROADMAP.md`.
+**Authority to read** `CONTEXT.md`, `AGENTS.md`, `docs/TERMINOLOGY.md`, `docs/PLAYER-BRAND.md` when the change is player-facing, affected docs/RFCs/schemas, `docs/ROADMAP.md`.
 **Procedure**
 1. Read `CONTEXT.md`, `AGENTS.md`, affected terminology, and `git status`.
 2. Identify the roadmap milestone, affected version domains, and canonical authority hierarchy.

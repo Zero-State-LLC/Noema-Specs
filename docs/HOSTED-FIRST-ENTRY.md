@@ -25,7 +25,7 @@ land on NOEMA
   → understand the observable consequence
 ```
 
-The product MUST present as a **game** on this path. Research is real and remains specified; it MUST NOT be the first-read identity of the hosted site.
+The product MUST present as a **game** on this path: a living networked frontier, not a research platform with a login. Research is real and remains specified; it MUST NOT be the first-read identity of the hosted site ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 This is a usability acceptance target, not a timer ([EXPERIENCE.md](EXPERIENCE.md)).
 
@@ -37,7 +37,7 @@ This is a usability acceptance target, not a timer ([EXPERIENCE.md](EXPERIENCE.m
 - Genesis activate / reseed / force-supersede
 - Invented quests, lore, metrics, or testimonials
 - Teaching PLAY / WATCH / STUDY as the first decision
-- Particle fields, HUD chrome, or maps-as-art inside PLAY
+- Particle fields, generic neon HUD chrome, CRT scanlines, or maps-as-art inside PLAY
 - Merging ADMIN into PLAY
 - Changing claim labels, evidence rules, or WATCH redaction
 
@@ -55,7 +55,7 @@ GET /
   → one real action
 ```
 
-WATCH and CONNECT remain secondary routes. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only terminal theater, not a dashboard. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
+WATCH and CONNECT remain secondary routes. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only low-load spectator theater, not a dashboard. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
 
 The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes.
 
@@ -132,24 +132,27 @@ Stays out of primary nav. Honest stub if the route exists. Not part of first-ent
 
 ## Visual voice
 
-Reuse the existing Chamber token set. Do not invent a second brand.
+Canonical visual system: [VISUAL-DESIGN.md](VISUAL-DESIGN.md). Do not invent a second brand.
 
-| Role | Token / face |
+The 2026-08-14 Chamber token set below is **superseded** as player brand. It remains a historical first-entry decision. New implementation follows semantic tokens and three type voices.
+
+| Role | Current authority |
 |---|---|
-| Paper | night ledger `--color-paper` |
-| Ink | warm paper `--color-ink` |
-| Accent | copper `--color-accent` |
-| Display | Fraunces |
-| Body | Source Sans 3 |
-| Commands | IBM Plex Mono |
+| Surfaces | `color.surface.world` / `.panel` / `.band` |
+| Primary text | `color.text.primary` (bone) |
+| Active / available | `color.state.active` (electric cyan) |
+| Display | Syne (or role-equivalent) — world and region marks |
+| Interface | IBM Plex Sans — prose, controls, help |
+| Machine | IBM Plex Mono — command syntax, receipts, timestamps only |
 
-Beautification means type, material, and voice:
+Door and Chamber:
 
-- **Door:** large world name, short place line, one form. More air, less card stack.
-- **Chamber:** location title in display face, world text in body, commands in mono. Copper for place names. Teal for available actions.
-- Motion, if any, only on the door (slow fade of the place line). Chamber motion is none beyond focus/hover.
-- Honor `prefers-reduced-motion`.
-- No particle canvas, no research diagram, no fake 3D, no HUD.
+- **Door:** large world name (Display), short place line (Interface), one form. The door MAY keep more air than PLAY. Still not a brochure.
+- **Chamber:** location title in Display, world text in Interface, command input in Machine. Semantic color on the world-state strip. Available actions use `color.state.active`.
+- Motion only with semantic purpose ([VISUAL-DESIGN.md](VISUAL-DESIGN.md) §6). Honor `prefers-reduced-motion`.
+- No particle canvas, no research diagram, no fake 3D, no military HUD, no scanline overlay.
+
+**Superseded (do not reimplement):** night ledger / copper accent / Fraunces / Source Sans 3 as the player system; “more air, less card stack” as a universal PLAY rule; teal-on-copper as the accent pair.
 
 ---
 
@@ -223,6 +226,7 @@ Unchanged owners:
 |---|---|
 | PLAYER-ONBOARDING | Minimum authenticate → first action path |
 | HUMAN-PLAY / PLAY | Chamber information priority, text-first rule |
+| PLAYER-BRAND / VISUAL-DESIGN | Public identity, tokens, type, screens |
 | EXPERIENCE | Product model PLAY → NOTICE → TEST → CAPTURE → LEARN (not homepage chrome) |
 | AUTH-AND-IDENTITY | Principals, tokens, admin ≠ player |
 | FIRST-WORLD-OPERATIONS | Perihelion pin, world lifecycle |

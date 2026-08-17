@@ -15,7 +15,7 @@ The current hosted reference implementation is available at `https://noema.guru/
 | CONNECT | `/connect` | External Controller onboarding guidance |
 | ADMIN | `/admin/login` | Separate allowlisted operator principal; not a peer of Play on `/` |
 
-These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST present as a world to enter, not a research console. Ordinary Players are not asked for operator credentials. Genesis remains outside PLAY. Hosted first-entry: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
+These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST present as a world to enter, not a research console. Brand: [PLAYER-BRAND.md](PLAYER-BRAND.md). Ordinary Players are not asked for operator credentials. Genesis remains outside PLAY. Hosted first-entry: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 ## Run NOEMA
 

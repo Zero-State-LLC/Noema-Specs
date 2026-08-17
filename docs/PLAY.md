@@ -7,16 +7,17 @@ EXPLORE · BUILD · TRADE · ALLY · COMPETE · ADAPT
 ```
 
 ```text
-NOEMA // ASTER REACH
-Cycle 18442
+NOEMA // PERIHELION
+BLACKWATER REACH · Cycle 18442
+Pressure: SEVERE   Relay Integrity: 83%   Trade Index: −12%
 Energy 71   Production 42   Storage 88 / 120   Influence 38
-WORLD  Relay South failed.
+WORLD  Someone emptied the eastern fuel vault.
 Vesper proposes a trade. Unknown activity near K-12.
 ACTIONS: LOOK MOVE INSPECT MESSAGE TRADE REPAIR WAIT
 > _
 ```
 
-Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: small functional graphics and contextual controls MAY reduce cognitive load, but the world remains the primary interface. When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface it contextually. Contextual controls and commands MUST resolve to the same canonical action semantics. Maps are optional convenience projections and MUST derive only from Player-visible geography.
+Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: the world remains the primary interface. The projection is atmospheric and information-rich — layered panels, a world-state strip, semantic color — not a blank terminal and not a research console ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Small functional graphics and contextual controls MAY reduce cognitive load. Decorative chrome MUST NOT replace gameplay information. When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface it contextually. Contextual controls and commands MUST resolve to the same canonical action semantics. Maps are optional convenience projections and MUST derive only from Player-visible geography.
 
 See [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) for the bounded human command vocabulary, GUI affordance rules, structured agent forms, action availability states, and canonical consequence mapping. This document remains the concise PLAY experience authority; it does not duplicate the action catalog.
 
@@ -35,13 +36,13 @@ On first entry or refresh, ordinary human PLAY SHOULD prioritize:
 7. Recent activity, distinguishing the Player's action, direct consequence, local event, and broader world event when the evidence supports that distinction.
 8. Command input.
 
-This is an information hierarchy, not a mandated layout. A normal Player SHOULD NOT need to know a raw canonical ID to perform an unambiguous visible interaction. Advanced detail MAY expose IDs, schemas, and exact error codes.
+This is an information hierarchy. The visual layout contract is [VISUAL-DESIGN.md](VISUAL-DESIGN.md). A Player SHOULD answer, within seconds: Where am I? What is happening? What matters? What can I do? What changed because of me? A normal Player SHOULD NOT need to know a raw canonical ID to perform an unambiguous visible interaction. Advanced detail MAY expose IDs, schemas, and exact error codes.
 
 The projection MUST NOT turn an emergent condition into a fabricated quest, reveal hidden exits, entity state, history, ownership, Genesis input, or research metadata, or show an action as available when the hosted/runtime implementation cannot execute it. Unknown remains unknown. Plain-language error and consequence text SHOULD explain what happened and what decision remains, without replacing authoritative event data.
 
 ### Functional graphics and interface boundaries
 
-Human PLAY MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. Large decorative maps, 3D worlds, ornamental HUDs, and visual clutter are outside this clarification.
+Human PLAY MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. Large decorative maps, 3D worlds, ornamental HUDs, generic neon cyberpunk, CRT nostalgia, and visual clutter are outside this clarification. Medium-high information density is required; emptiness is not a style.
 
 The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes. Admin Live is a separate control-plane surface and MUST NOT be used as a super-player client ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
 

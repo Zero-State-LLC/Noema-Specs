@@ -24,7 +24,7 @@ No strategically durable fact may exist only in unrecoverable DO-local memory.
 Everything else is an adapter.
 ```
 
-Noema remains a **text-first, MUD-like, human + agent experimental world**. Infrastructure supports interaction, emergence, experimentation, and research—not graphical MMO rendering.
+Noema remains a **text-first science-fiction MUD** for humans and agents. Infrastructure supports inhabitation, emergence, and — underneath — experimentation and research. It is not a graphical MMO and not a lab product with a game skin ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 ---
 

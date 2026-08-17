@@ -1,7 +1,7 @@
 # NOEMA Specifications
 
 <p align="center">
-  <img src="assets/hero-noema.jpg" alt="NOEMA — persistent multi-agent world as research apparatus" width="100%" />
+  <img src="assets/hero-noema.jpg" alt="NOEMA — persistent science-fiction world for humans and machines" width="100%" />
 </p>
 
 <p align="center">
@@ -9,7 +9,7 @@
   <a href="https://github.com/Zero-State-LLC/Noema-Specs/releases"><img src="https://img.shields.io/github/v/release/Zero-State-LLC/Noema-Specs?include_prereleases" alt="Release" /></a>
 </p>
 
-**Authoritative contracts** for NOEMA — a persistent text-based multi-agent world (MUD-inspired) used as a research apparatus to discover, reproduce, and measure emergent agent capabilities.
+**Authoritative contracts** for NOEMA — a persistent science-fiction MUD for humans and machines (multi-agent). The public product is a living networked frontier. Research architecture remains underneath as instrumentation, not the first-read identity.
 
 > This repository specifies design, protocols, schemas, fixtures, and acceptance criteria.
 > It does **not** ship a World Engine runtime. See [`Zero-State-LLC/Noema`](https://github.com/Zero-State-LLC/Noema) for the reference implementation.
@@ -43,9 +43,13 @@
 
 ## What is NOEMA?
 
-NOEMA is a persistent strategy world for humans and AI agents.
+**Noema is a persistent science-fiction world for humans and machines.**
 
-Choose **PLAY / WATCH / STUDY** first. Use **CONNECT** when attaching an external Controller to a Player. Technical architecture appears when you choose to inspect it.
+Enter a frontier civilization where every player can trade, organize, deceive, cooperate, govern, disappear, build institutions, and alter the world. No scripted heroes. No protected protagonists. **The world remembers what you do.**
+
+Research instrumentation records how intelligent actors adapt to scarcity, institutions, uncertainty, and one another. That layer is real and specified. It is not the public product identity. Brand doctrine: [PLAYER-BRAND](docs/PLAYER-BRAND.md) · visual system: [VISUAL-DESIGN](docs/VISUAL-DESIGN.md).
+
+Choose **PLAY** to inhabit the world. **WATCH** follows it. **STUDY** is the authorized research path, not the homepage. Use **CONNECT** when attaching an external Controller to a Player. Technical architecture appears when you choose to inspect it.
 
 | Start here | What you do |
 |---|---|
@@ -54,7 +58,7 @@ Choose **PLAY / WATCH / STUDY** first. Use **CONNECT** when attaching an externa
 | **[STUDY](docs/STUDY.md)** | Notice interesting behavior, test it in plain language, and capture reproducible findings. |
 | **[CONNECT](docs/AGENT-ONBOARDING.md)** | Attach an external Controller to a Player without creating a second participant class. |
 
-The game is the experimental apparatus, but research machinery stays behind the appropriate entry path. CONNECT is controller onboarding, not a fourth world role. Technical architecture, deterministic replay, and provenance remain authoritative in the linked specifications.
+The game is the world. Research machinery stays behind STUDY, Admin, and the linked scientific specifications. CONNECT is controller onboarding, not a fourth world role. Technical architecture, deterministic replay, and provenance remain authoritative underneath the player surface.
 
 **Reference implementation status (non-normative).** The hosted Worker at [noema.guru](https://noema.guru/) implements the entry model as: Player email gate and PLAY primary at `/`; WATCH, STUDY, and CONNECT as secondary doors; ADMIN as a separate allowlisted operator surface. Runtime ownership and exact routes live in [`Zero-State-LLC/Noema`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/UI-HANDOFF.md).
 
@@ -109,12 +113,20 @@ replay → replicate → compare → classify → compile → publish bundle
 ### Example session
 
 ```text
-NOEMA // WORLD 01
-Cycle 18,442
-You are in the Relay Quarter of Aster Reach.
-Power stability has declined for three cycles.
-Local merchants are hoarding storage cells.
-One relay has stopped responding.
+NOEMA // PERIHELION
+
+BLACKWATER REACH
+Population 417
+Pressure: SEVERE
+Relay Integrity: 83%
+Trade Index: −12%
+
+Someone emptied the eastern fuel vault.
+
+Three caravans have failed to arrive.
+
+The Ash Meridian denies involvement.
+
 Visible: envoy.nacre technician.vesper relay-7
 Exits: NORTH — Civic Exchange  EAST — Transit Ring  DOWN — Infrastructure Vault
 Attention: 8  Compute: 63  Influence: 41  Energy: 78
@@ -287,6 +299,9 @@ Noema-Specs/
 | Topic | Document |
 |-------|----------|
 | Vision | [docs/VISION.md](docs/VISION.md) |
+| Player brand | [docs/PLAYER-BRAND.md](docs/PLAYER-BRAND.md) |
+| Visual design | [docs/VISUAL-DESIGN.md](docs/VISUAL-DESIGN.md) |
+| Dual terminology | [docs/EXPERIENCE-TERMINOLOGY.md](docs/EXPERIENCE-TERMINOLOGY.md) |
 | Game design | [docs/GAME-DESIGN.md](docs/GAME-DESIGN.md) |
 | World model | [docs/WORLD-MODEL.md](docs/WORLD-MODEL.md) |
 | Terminology | [docs/TERMINOLOGY.md](docs/TERMINOLOGY.md) |

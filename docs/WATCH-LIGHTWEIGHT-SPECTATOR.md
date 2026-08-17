@@ -17,7 +17,7 @@ Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/l
 
 ## 1. Doctrine
 
-WATCH is a **low-cognitive-load, read-only spectator window** into the live MUD. It is **enhanced terminal theater**: readable, atmospheric, low-noise, immediately understandable.
+WATCH is a **low-cognitive-load, read-only spectator window** into the live MUD. It is **enhanced world theater**: readable, atmospheric, low-noise, immediately understandable. It uses the player brand tokens ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)) at a lower information density than PLAY.
 
 A spectator MUST be able to answer, without opening PLAY:
 
@@ -54,7 +54,7 @@ Never a writer.
 Text-first Chamber theater.
 ```
 
-Preserve the text-first, minimal-graphics doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope. The only permitted canvas on public `/watch` is optional **NOEMA Phosphor Cartography** (§18): progressive enhancement of the same `watch-live/1.0` snapshot. TEXT remains complete and authoritative.
+Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope. The only permitted canvas on public `/watch` is optional **NOEMA Phosphor Cartography** (§18): progressive enhancement of the same `watch-live/1.0` snapshot. TEXT remains complete and authoritative.
 
 ---
 
@@ -369,7 +369,7 @@ Do not make the entire feed `aria-live`. At most the **headline** MAY be `aria-l
 - Room detail is a real `<details>`/`<summary>` (or equivalent button+region with `aria-expanded`).
 - Topology alternative: semantic list of public sites and public exits (required even if a `<pre>` exists).
 - Tiers MUST NOT be color-only: prefix or marker (`>` notable, `!` major) plus type weight.
-- Contrast follows the existing Chamber dark theme (ink on void; copper for emphasis, not sole meaning).
+- Contrast follows the player brand token set ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)): bone on graphite; `color.state.active` for emphasis, not sole meaning. Legacy copper is superseded.
 - Periodic updates MUST NOT flood AT. No live region on the feed.
 - Reduced motion as §8.
 
@@ -570,7 +570,7 @@ Atmospheric stills (hero, spectator plate, legends) MAY dress the public door. T
 | No-hidden-state-leakage | Hidden rooms, exits, entities, and players never enter layout or draw. |
 | One MAJOR | At most one MAJOR pulse at a time. |
 
-Palette: black / blue-black ground; copper / amber marks only.
+Palette: `color.surface.world` ground; `color.state.active` / `color.state.warning` marks only. Legacy copper/amber hex values below are **superseded** as brand; token remap is normative. Pixel-level atlas redraw is DEFERRED ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
 
 ### Render rules
 
@@ -586,13 +586,14 @@ Palette: black / blue-black ground; copper / amber marks only.
 
 **Name:** NOEMA Phosphor Glyph Atlas v0.1  
 **Cell size:** 8×8 logical pixels (preferred). 12×12 permitted only if 8×8 is illegible. Larger forbidden.  
-**Color model:** transparent + dim copper + bright copper/amber only.
+**Color model:** transparent + dim/full `color.state.active` + `color.state.warning` for caution marks. Legacy copper hex retained only until the atlas is redrawn.
 
 ```text
-GROUND  #0a0e14
-DIM     rgba(196, 122, 58, 0.45)
-FULL    #c47a3a
-BRIGHT  #e8a050
+GROUND  color.surface.world     (#0E1114 reference; legacy #0a0e14 permitted until redraw)
+DIM     color.state.active @ 45%
+FULL    color.state.active      (#3DDCFF reference)
+BRIGHT  color.state.warning     (#FFB020 reference)
+LEGACY  #c47a3a / #e8a050       SUPERSEDED; do not use in new assets
 ```
 
 **Delivery preference:**

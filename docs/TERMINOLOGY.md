@@ -2,6 +2,8 @@
 
 Canonical domains are defined in [CONTEXT.md](../CONTEXT.md). This document is the quick reference for spec authors.
 
+Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md). Public brand: [PLAYER-BRAND.md](PLAYER-BRAND.md). Do not put research-register terms on ordinary PLAY.
+
 | Term | Definition |
 | --- | --- |
 | Player | Persistent game-world participant. Humans and agent runtimes both act as Players. No human\|agent gameplay class split. |

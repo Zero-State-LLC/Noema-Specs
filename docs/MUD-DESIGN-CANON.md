@@ -124,7 +124,7 @@ A Player who can only inhabit the world for a few cycles must still leave a dura
 
 ### 10. Text-first accessibility is a product strength
 
-Text is not a temporary skin over a graphical MMO. It is why humans and agents can share one Player class, why replay is tractable, and why the world can be read as history ([HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md)).
+Text is not a temporary skin over a graphical MMO. It is why humans and agents can share one Player class, why replay is tractable, and why the world can be read as history ([HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md)). Text-first does not mean visually empty: the player surface is an inhabited frontier interface ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
 
 ---
 
