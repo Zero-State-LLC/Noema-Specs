@@ -1,0 +1,10 @@
+{
+  "slice_id": "access-policy-s1",
+  "catalog_id": "access-policy-catalog/s1",
+  "operation": "ACCESS_POLICY",
+  "scope": "EXIT",
+  "mode": "CLEAR",
+  "has_grant": true,
+  "acting_for": true,
+  "expected": { "outcome": "ACCEPT", "note": "EXIT CLEAR remains accepted." }
+}

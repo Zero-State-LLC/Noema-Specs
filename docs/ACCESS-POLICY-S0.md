@@ -4,7 +4,7 @@
 **Parent:** [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md)  
 **RFC:** [RFC-0101](../rfcs/RFC-0101-access-policy.md)  
 **Does not open:** ALLOW_ONLY · ROOM scope · ACCESS_POLICY help · WED/ATTEST help · YOUR POSITION · event-catalog/0.3  
-**Next:** ALLOW_ONLY / ROOM stay later pins
+**Next:** [ACCESS-POLICY-S1.md](ACCESS-POLICY-S1.md)
 
 S0 hosts the existing `COMMIT.ACCESS_POLICY` verb for **EXIT DENY and CLEAR** only. Authority is an occupied `GRANT_ACCESS` office. Restrictions reuse the live `access_restrictions` store and `ACCESS_RESTRICTED` event.
 

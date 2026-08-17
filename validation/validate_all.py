@@ -7903,6 +7903,60 @@ def check_access_policy_s0(Draft202012Validator) -> None:
     ok("ACCESS_POLICY S0: catalog, attempt fixtures, RFC-0101 Accepted")
 
 
+def evaluate_access_policy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]:
+    if attempt.get("operation") == "HELP_OMIT":
+        return "ACCEPT", None, bool(catalog.get("help_access_policy"))
+    scopes = set(catalog.get("scopes") or [])
+    modes = set(catalog.get("modes") or [])
+    if str(attempt.get("scope") or "") not in scopes:
+        return "REJECT", "FORM_FORBIDDEN", None
+    if str(attempt.get("mode") or "") not in modes:
+        return "REJECT", "FORM_FORBIDDEN", None
+    if catalog.get("acting_for_required") and attempt.get("acting_for") is False:
+        return "REJECT", "FORBIDDEN", None
+    if attempt.get("has_grant") is False:
+        return "REJECT", "FORBIDDEN", None
+    return "ACCEPT", None, None
+
+
+def check_access_policy_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "access-policy-catalog.s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "access-policy-catalog.s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "access-policy-attempt.s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"ACCESS_POLICY S1 catalog invalid: {errs[0].message}")
+    if catalog.get("help_access_policy") or catalog.get("help_wed") or catalog.get("help_attest") or catalog.get("new_verbs") or catalog.get("watch_ticker"):
+        fail("ACCESS_POLICY S1 must omit help, WED/ATTEST, new verbs, and WATCH ticker")
+    if set(catalog.get("scopes") or []) != {"EXIT", "ROOM"} or set(catalog.get("modes") or []) != {"DENY", "CLEAR"}:
+        fail("ACCESS_POLICY S1 must host EXIT and ROOM DENY/CLEAR")
+    if catalog.get("authority_profile") != "GRANT_ACCESS" or not catalog.get("acting_for_required"):
+        fail("ACCESS_POLICY S1 must require GRANT_ACCESS via acting_for")
+    rfc = (ROOT / "rfcs" / "RFC-0102-access-policy-room.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0102 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-room-ok.json",
+        "attempt-exit-ok.json",
+        "attempt-allow-only.json",
+        "attempt-omit-help.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "access-policy-s1" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, listed = evaluate_access_policy_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("listed") is not None and listed != exp["listed"]:
+            fail(f"{name}: listed {listed} expected {exp['listed']}")
+    ok("ACCESS_POLICY S1: catalog, attempt fixtures, RFC-0102 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -8899,6 +8953,7 @@ def main() -> None:
     check_diplomacy_s1(Draft202012Validator)
     check_diplomacy_s2(Draft202012Validator)
     check_access_policy_s0(Draft202012Validator)
+    check_access_policy_s1(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)
