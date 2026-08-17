@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s23",
+  "catalog_id": "construction-catalog/gc2-s23",
+  "operation": "SHARE",
+  "personal_owner": false,
+  "current_co_owners": 4,
+  "expected": { "outcome": "REJECT", "reason": "not_owner", "note": "A co-owner cannot SHARE." }
+}

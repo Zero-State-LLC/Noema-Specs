@@ -61,4 +61,4 @@ Ignore `co_owner_3_id` (treat a third SHARE as already shared).
 
 ## Unresolved
 
-Fourth co-owner is [RFC-0086](RFC-0086-fourth-co-owner.md). Fifth-and-later co-owners.
+Fourth co-owner is [RFC-0086](RFC-0086-fourth-co-owner.md). Fifth co-owner is [RFC-0087](RFC-0087-fifth-co-owner.md). Sixth-and-later co-owners.
