@@ -1,0 +1,9 @@
+{
+  "slice_id": "gc2-s21",
+  "catalog_id": "construction-catalog/gc2-s21",
+  "operation": "SHARE",
+  "personal_owner": true,
+  "current_co_owners": 2,
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "same_entity": true, "co_owners": 3, "note": "Owner may SHARE one more entered Player." }
+}

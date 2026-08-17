@@ -60,4 +60,4 @@ Ignore `co_owner_2_id` (treat a second SHARE as already shared).
 
 ## Unresolved
 
-Fourth-and-later co-owners. Comms cycle expiry.
+Third co-owner is [RFC-0085](RFC-0085-third-co-owner.md). Fourth-and-later co-owners.

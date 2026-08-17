@@ -4,7 +4,7 @@
 **Parent:** [GC5-S8-TRADE-NOTICE.md](GC5-S8-TRADE-NOTICE.md) · [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0084](../rfcs/RFC-0084-trade-notice-expiry.md)  
 **Does not open:** MARKET/TRADE_NOTICE verb · auto-TRADE · MESSAGE_EXPIRED · help advertising · WATCH ticker  
-**Next:** fourth-and-later co-owners
+**Next:** [GC2-S21-THIRD-CO-OWNER.md](GC2-S21-THIRD-CO-OWNER.md)
 
 S13 makes a public stall note take world-time. A trade notice is still last 1, then gone after one committed cycle.
 

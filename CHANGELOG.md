@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0085 Accepted / GC2-S21:** `BUILD.SHARE` may name a third entered Player (`co_owner_3_id`). A fourth SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0084 Accepted / GC5-S13:** a public `MESSAGE surface=TRADE_NOTICE` drops after one committed cycle. Last-1 overwrite unchanged. Does not open TRADE. WATCH silent. Help still omits market.
 
 ### Added
