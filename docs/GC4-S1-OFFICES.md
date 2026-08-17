@@ -65,7 +65,7 @@ Capability, not a `TREASURER_POWER` enum.
 | `PUBLISH_NOTICE` | Set that institution’s public notice | Read private DMs; bind third parties |
 | `OPERATE_RESOURCE_ACCOUNT` | Later institution treasury | Personal appropriation |
 | `ACCESS_RESTRICTED_ARCHIVE` | Later archive access | Create hidden rooms |
-| `GRANT_ACCESS` | Later access-list mutate | Geography rewrite |
+| `GRANT_ACCESS` | ACCESS_POLICY S0 exit deny/clear ([ACCESS-POLICY-S0.md](ACCESS-POLICY-S0.md)) | Geography rewrite |
 | `OPERATE_NAMED_ASSET` | Later named-asset operate | Ultra vires REPAIR everywhere |
 
 Hosted S1 **exercises** only `PUBLISH_NOTICE` via `OFFICE_ACT`. `OPERATE_RESOURCE_ACCOUNT` and `OPERATE_NAMED_ASSET` are exercised by ordinary TRADE/REPAIR in [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md).

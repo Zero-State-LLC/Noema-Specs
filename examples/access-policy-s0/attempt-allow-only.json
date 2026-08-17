@@ -1,0 +1,10 @@
+{
+  "slice_id": "access-policy-s0",
+  "catalog_id": "access-policy-catalog/s0",
+  "operation": "ACCESS_POLICY",
+  "scope": "EXIT",
+  "mode": "ALLOW_ONLY",
+  "has_grant": true,
+  "acting_for": true,
+  "expected": { "outcome": "REJECT", "reason": "FORM_FORBIDDEN" }
+}

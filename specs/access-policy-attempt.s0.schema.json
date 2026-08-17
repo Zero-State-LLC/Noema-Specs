@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/access-policy-attempt.s0.schema.json",
+  "title": "NOEMA ACCESS_POLICY S0 attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "access-policy-s0" },
+    "catalog_id": { "const": "access-policy-catalog/s0" },
+    "operation": { "enum": ["ACCESS_POLICY", "HELP_OMIT"] },
+    "scope": { "type": "string" },
+    "mode": { "type": "string" },
+    "has_grant": { "type": "boolean" },
+    "acting_for": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "listed": { "type": "boolean" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
