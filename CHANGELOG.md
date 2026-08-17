@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0105 Accepted / GC1-S6:** public titles. Other Players in a public room, and WATCH, see one third-person recognition line. LATENT and hidden rooms withhold. No new events. Self `practice_lines` unchanged. WED / ATTEST stay omitted.
+
+### Added
+
 - **Player brand closeout:** Slices 0–9 are implemented on `Zero-State-LLC/Noema` Worker HTML. Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. Historical gates `SPEC_COMPLETE` and `IMPLEMENTATION_READY` retained. Next brand slice is none. `docs/PLAYER-BRAND-IMPLEMENTATION.md`, `docs/ROADMAP.md`, `docs/PLAYER-BRAND.md`.
 
 ### Added

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-attempt.gc1-s6.schema.json",
+  "title": "NOEMA GC1-S6 public title attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc1-s6" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s6" },
+    "operation": { "const": "PUBLIC_TITLE" },
+    "surface": { "enum": ["play", "watch"] },
+    "viewer": { "enum": ["other", "self", "watch"] },
+    "handle": { "type": "string", "minLength": 1 },
+    "track": { "enum": ["explorer", "surveyor", "broker", "engineer"] },
+    "tracks": {
+      "type": "array",
+      "items": { "enum": ["explorer", "surveyor", "broker", "engineer"] },
+      "minItems": 1
+    },
+    "recognized": { "type": "boolean" },
+    "recognized_tracks": {
+      "type": "array",
+      "items": { "enum": ["explorer", "surveyor", "broker", "engineer"] }
+    },
+    "latent": { "type": "boolean" },
+    "latent_tracks": {
+      "type": "array",
+      "items": { "enum": ["explorer", "surveyor", "broker", "engineer"] }
+    },
+    "hidden_room": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "line": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

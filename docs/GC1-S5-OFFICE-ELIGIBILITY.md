@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0055.  
 **Depends on:** [GC1-S4-PRIOR-WORK.md](GC1-S4-PRIOR-WORK.md) · [GC4-S1-OFFICES.md](GC4-S1-OFFICES.md)  
 **RFC:** [RFC-0055](../rfcs/RFC-0055-office-eligibility.md)  
-**Does not open:** WATCH titles · class discounts · `ROLE_*` · evict-on-latent · Explorer/Surveyor gates
+**Does not open:** WATCH titles · class discounts · `ROLE_*` · evict-on-latent · Explorer/Surveyor gates  
+**Next:** [GC1-S6-PUBLIC-TITLES.md](GC1-S6-PUBLIC-TITLES.md) (RFC-0105)
 
 S5 lets a named office require a recognized Engineer or Broker. Others cannot sit that seat. It is not a title and not a cheaper verb.
 

@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "play",
+  "viewer": "self",
+  "handle": "sable",
+  "track": "surveyor",
+  "recognized": true,
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "SELF_ONLY",
+    "note": "Self PLAY keeps first-person practice_lines. No public title on self."
+  }
+}
