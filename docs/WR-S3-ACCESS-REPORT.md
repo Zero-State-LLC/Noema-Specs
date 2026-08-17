@@ -4,7 +4,7 @@
 **Parent:** [WR-S2-CONTEST-REPORT.md](WR-S2-CONTEST-REPORT.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0093](../rfcs/RFC-0093-access-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · ACCESS_POLICY help · YOUR POSITION · crime/diplomacy  
-**Next:** diplomacy / crime report sections
+**Next:** [WR-S4-CRIME-REPORT.md](WR-S4-CRIME-REPORT.md)
 
 S3 adds live public access restrictions to the existing 5-cycle report.
 

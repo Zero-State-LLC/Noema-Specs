@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s4",
+  "catalog_id": "world-report-catalog/wr-s4",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "crime_hidden": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "crime_lines": 0, "note": "Hidden-room crime is omitted." }
+}

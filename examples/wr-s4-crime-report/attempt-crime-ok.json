@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s4",
+  "catalog_id": "world-report-catalog/wr-s4",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "crime_public": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "crime_lines": 1, "note": "Public CRIME_DETECTED appears after five cycles." }
+}
