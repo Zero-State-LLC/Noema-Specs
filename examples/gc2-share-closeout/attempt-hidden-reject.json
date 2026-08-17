@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc2-s24",
+  "catalog_id": "construction-catalog/gc2-s24",
+  "operation": "SHARE",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms stay unshareable." }
+}

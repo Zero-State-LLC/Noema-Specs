@@ -4557,6 +4557,72 @@ def check_gc2_s23(Draft202012Validator) -> None:
     ok("GC2-S23 fifth co-owner: catalog, attempt fixtures, RFC-0087 Accepted")
 
 
+def evaluate_gc2_s24(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    if attempt.get("operation") == "CLOSEOUT":
+        extra["co_owners"] = int(catalog.get("max_co_owners") or 5)
+        return "ACCEPT", None, extra
+    if attempt.get("room_hidden") or catalog.get("hidden_share"):
+        return "REJECT", "hidden", extra
+    if attempt.get("personal_owner") is False:
+        return "REJECT", "not_owner", extra
+    current = int(attempt.get("current_co_owners") or 0)
+    cap = int(catalog.get("max_co_owners") or 5)
+    if current >= cap:
+        return "REJECT", "already_shared", extra
+    extra["same_entity"] = True
+    extra["co_owners"] = current + 1
+    return "ACCEPT", None, extra
+
+
+def check_gc2_s24(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s24.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s24.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s24.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S24 catalog invalid: {errs[0].message}")
+    if (
+        catalog.get("help_build")
+        or catalog.get("new_verbs")
+        or catalog.get("watch_share")
+        or catalog.get("institution_as_player")
+        or catalog.get("share_institution")
+        or catalog.get("roster")
+        or catalog.get("sixth_stamp")
+        or not catalog.get("family_closed")
+    ):
+        fail("GC2-S24 must close SHARE at five, reject roster/sixth stamp, and keep help BUILD off")
+    if catalog.get("max_co_owners") != 5:
+        fail("GC2-S24 must keep five co-owners")
+    rfc = (ROOT / "rfcs" / "RFC-0089-share-closeout.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0089 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S24-SHARE-CLOSEOUT.md").read_text(encoding="utf-8")
+    if "SHARE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S24 must keep SHARE on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-closeout-ok.json",
+        "attempt-sixth-reject.json",
+        "attempt-hidden-reject.json",
+        "attempt-stranger-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-share-closeout" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s24(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("co_owners") is not None and extra.get("co_owners") != exp["co_owners"]:
+            fail(f"{name}: co_owners {extra.get('co_owners')} expected {exp['co_owners']}")
+    ok("GC2-S24 SHARE closeout: catalog, attempt fixtures, RFC-0089 Accepted")
+
+
 def evaluate_wr_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     interval = int(catalog.get("interval_cycles") or 5)
     cycles = int(attempt.get("committed_cycles") or 0)
@@ -8224,6 +8290,7 @@ def main() -> None:
     check_gc2_s21(Draft202012Validator)
     check_gc2_s22(Draft202012Validator)
     check_gc2_s23(Draft202012Validator)
+    check_gc2_s24(Draft202012Validator)
     check_wr_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)

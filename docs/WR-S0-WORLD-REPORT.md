@@ -4,7 +4,7 @@
 **Parent:** [WORLD-REPORTS.md](WORLD-REPORTS.md) · [GAME-CYCLE.md](GAME-CYCLE.md) · [PLAY.md](PLAY.md)  
 **RFC:** [RFC-0088](../rfcs/RFC-0088-world-report.md)  
 **Does not open:** NEWS/REPORT verb · REPORT_* · WATCH ticker · YOUR POSITION · diplomacy/conflict sections  
-**Next:** SHARE family closeout (cap stands at 5)
+**Next:** [GC2-S24-SHARE-CLOSEOUT.md](GC2-S24-SHARE-CLOSEOUT.md)
 
 S0 makes the Chamber take world-time news. A public report is last 1, rebuilt every 5 committed cycles from live public infrastructure.
 

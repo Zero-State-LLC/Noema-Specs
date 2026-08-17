@@ -55,4 +55,4 @@ Ignore report rebuild (no `report_lines`).
 
 ## Unresolved
 
-YOUR POSITION block. Diplomacy / conflict / crime / access sections. SHARE family closeout (cap 5; no sixth stamp).
+YOUR POSITION block. Diplomacy / conflict / crime / access sections. SHARE family closeout is [RFC-0089](RFC-0089-share-closeout.md).

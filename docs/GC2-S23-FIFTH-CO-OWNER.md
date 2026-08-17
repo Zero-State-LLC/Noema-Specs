@@ -4,7 +4,7 @@
 **Parent:** [GC2-S22-FOURTH-CO-OWNER.md](GC2-S22-FOURTH-CO-OWNER.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0087](../rfcs/RFC-0087-fifth-co-owner.md)  
 **Does not open:** N-of-M roster · sixth co-owner · institution-as-Player · help BUILD · STRUCTURE_*  
-**Next:** sixth-and-later co-owners
+**Next:** [GC2-S24-SHARE-CLOSEOUT.md](GC2-S24-SHARE-CLOSEOUT.md)
 
 S23 lets the personal owner name one more Player on a public constructible. It is still not a title minigame.
 
@@ -52,7 +52,7 @@ S23 lets the personal owner name one more Player on a public constructible. It i
 ## Out of S23
 
 ```text
-sixth-and-later co-owners
+SHARE family closeout is [GC2-S24-SHARE-CLOSEOUT.md](GC2-S24-SHARE-CLOSEOUT.md)
 N-of-M roster
 share / vest mix
 STRUCTURE_*

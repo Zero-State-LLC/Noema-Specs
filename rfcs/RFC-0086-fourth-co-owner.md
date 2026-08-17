@@ -62,4 +62,4 @@ Ignore `co_owner_4_id` (treat a fourth SHARE as already shared).
 
 ## Unresolved
 
-Fifth co-owner is [RFC-0087](RFC-0087-fifth-co-owner.md). Sixth-and-later co-owners.
+Fifth co-owner is [RFC-0087](RFC-0087-fifth-co-owner.md). SHARE family closeout is [RFC-0089](RFC-0089-share-closeout.md).
