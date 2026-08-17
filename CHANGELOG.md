@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0096 Accepted / WR-S5:** public world report also lists public recorded reconstructions (`{label} is reconstructed.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No claim or author.
+
+### Added
+
 - **RFC-0095 Accepted / GC7 PLAY thaw:** Chamber `help` names CONTEST and `help contest` lists existing contest/defend/withdraw aliases. WED / ATTEST stay omitted. No HP. No SCAN/ATTACK.
 
 ### Added

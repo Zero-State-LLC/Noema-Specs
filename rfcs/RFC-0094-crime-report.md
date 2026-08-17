@@ -54,4 +54,4 @@ Omit crime lines (S3 infra+org+contest+access only).
 
 ## Unresolved
 
-CONTEST help is [RFC-0095](RFC-0095-contest-play-thaw.md). YOUR POSITION. Diplomacy. WED / ATTEST help.
+Discovery report lines are [RFC-0096](RFC-0096-discovery-report.md). CONTEST help is [RFC-0095](RFC-0095-contest-play-thaw.md). YOUR POSITION. Diplomacy. WED / ATTEST help.

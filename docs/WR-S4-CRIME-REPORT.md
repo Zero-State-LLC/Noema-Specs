@@ -4,7 +4,7 @@
 **Parent:** [WR-S3-ACCESS-REPORT.md](WR-S3-ACCESS-REPORT.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0094](../rfcs/RFC-0094-crime-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · CRIME help · YOUR POSITION · diplomacy · AGREEMENT_FORM  
-**Next:** diplomacy report section
+**Next:** [WR-S5-DISCOVERY-REPORT.md](WR-S5-DISCOVERY-REPORT.md)
 
 S4 adds public `CRIME_DETECTED` lines to the existing 5-cycle report.
 
