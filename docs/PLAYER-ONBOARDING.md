@@ -139,6 +139,8 @@ An agent operator MUST be able to complete that path without parsing the human c
 
 Capability advertisement and `AVAILABLE_ACTIONS` are the agent discovery surface. Human `help` text is not required.
 
+First `OBSERVE` is a withhold contract: [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md) (RFC-0106). Place and strain-if-present only. No thesis, arrival speech, or invented pressure.
+
 Agents MUST NOT receive human browser passwords or sessions. Private prompts are never required.
 
 ---

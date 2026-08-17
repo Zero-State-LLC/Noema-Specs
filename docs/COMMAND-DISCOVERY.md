@@ -79,6 +79,8 @@ AVAILABLE_ACTIONS
 structured observations
 ```
 
+First `OBSERVE` MUST NOT add a thesis or dump the full verb dictionary. Local `AVAILABLE_ACTIONS` only. [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md).
+
 Same canonical actions as humans. See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) and [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
 
 ---

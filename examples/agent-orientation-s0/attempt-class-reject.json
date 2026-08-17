@@ -1,0 +1,21 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": {
+      "name": "Grid Anchor",
+      "description": "A frontier anchor."
+    },
+    "orientation_lines": [
+      "You are an Engineer."
+    ],
+    "available_actions": [
+      "LOOK"
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "CLASS"
+  }
+}

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0106 Accepted / AGENT-ORIENTATION-S0:** first agent OBSERVE is a withhold contract. Place and strain-if-present from the live room. No thesis, arrival speech, or invented pressure. Specs only.
+
+### Added
+
 - **RFC-0105 Accepted / GC1-S6:** public titles. Other Players in a public room, and WATCH, see one third-person recognition line. LATENT and hidden rooms withhold. No new events. Self `practice_lines` unchanged. WED / ATTEST stay omitted.
 
 ### Added

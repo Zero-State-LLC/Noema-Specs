@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-orientation-attempt.s0.schema.json",
+  "title": "NOEMA agent-orientation S0 first-OBSERVE attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "observation", "expected"],
+  "properties": {
+    "slice_id": { "const": "agent-orientation-s0" },
+    "catalog_id": { "const": "agent-orientation-catalog/s0" },
+    "operation": { "const": "FIRST_OBSERVE" },
+    "arrival_speech": { "type": "boolean" },
+    "strain_claimed": { "type": "boolean" },
+    "verb_dump": { "type": "boolean" },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["location"],
+      "properties": {
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "condition": { "type": ["integer", "string"] }
+          }
+        },
+        "condition": { "type": ["integer", "string"] },
+        "stock_amount": { "type": ["integer", "null"] },
+        "report_lines": { "type": "array", "items": { "type": "string" } },
+        "orientation_lines": { "type": "array", "items": { "type": "string" } },
+        "available_actions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

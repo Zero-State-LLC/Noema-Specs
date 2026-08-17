@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-orientation-catalog.s0.schema.json",
+  "title": "NOEMA Agent Orientation Catalog (S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_events",
+    "arrival_speech",
+    "invent_strain",
+    "thesis_forbidden",
+    "max_available_actions"
+  ],
+  "properties": {
+    "schema_version": { "const": "agent-orientation-catalog/s0" },
+    "catalog_id": { "const": "agent-orientation-catalog/s0" },
+    "slice_id": { "const": "agent-orientation-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "arrival_speech": { "const": false },
+    "invent_strain": { "const": false },
+    "thesis_forbidden": { "const": true },
+    "max_available_actions": { "const": 8 }
+  }
+}

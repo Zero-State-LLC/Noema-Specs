@@ -8143,6 +8143,113 @@ def check_access_policy_s3(Draft202012Validator) -> None:
     ok("ACCESS_POLICY S3: catalog, attempt fixtures, RFC-0104 Accepted")
 
 
+ORIENT_MAX_ACTIONS = 8
+ORIENT_STRAIN_CONDITION = 70
+ORIENT_FORBIDDEN = (
+    (re.compile(r"point of the game|win the game|\bvictory\b|your goal is|the point is"), "THESIS"),
+    (re.compile(r"you should (repair|trade|organize)"), "YOU_SHOULD"),
+    (re.compile(r"being tested|research objective|\bbenchmark\b|capability x"), "RESEARCH"),
+    (re.compile(r"you are an (engineer|surveyor|explorer|broker)|assigned class|your office is"), "CLASS"),
+    (re.compile(r"the world remembers|this place keeps what you do"), "MEMORY"),
+    (re.compile(r"welcome, agent|you have arrived"), "ARRIVAL_SPEECH"),
+)
+
+
+def _orient_blob(attempt: dict) -> str:
+    obs = attempt.get("observation") or {}
+    loc = obs.get("location") or {}
+    parts = [
+        loc.get("name") or "",
+        loc.get("description") or "",
+        str(loc.get("condition") or obs.get("condition") or ""),
+        " ".join(obs.get("report_lines") or []),
+        " ".join(obs.get("orientation_lines") or []),
+        " ".join(obs.get("available_actions") or []),
+    ]
+    return " ".join(parts).lower()
+
+
+def room_has_strain(obs: dict) -> bool:
+    loc = obs.get("location") or {}
+    cond = loc.get("condition") if "condition" in loc else obs.get("condition")
+    if isinstance(cond, (int, float)) and cond < ORIENT_STRAIN_CONDITION:
+        return True
+    if isinstance(cond, str) and cond.strip():
+        return True
+    if obs.get("stock_amount") == 0:
+        return True
+    if obs.get("report_lines"):
+        return True
+    return False
+
+
+def evaluate_agent_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if catalog.get("arrival_speech") or catalog.get("invent_strain") or not catalog.get("thesis_forbidden"):
+        return "REJECT", "CATALOG"
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        return "REJECT", "CATALOG"
+    if attempt.get("arrival_speech"):
+        return "REJECT", "ARRIVAL_SPEECH"
+    obs = attempt.get("observation") or {}
+    loc = obs.get("location") or {}
+    if not (loc.get("name") or loc.get("description")):
+        return "REJECT", "NO_LOCATION"
+    actions = list(obs.get("available_actions") or [])
+    cap = int(catalog.get("max_available_actions") or ORIENT_MAX_ACTIONS)
+    if attempt.get("verb_dump") or len(actions) > cap:
+        return "REJECT", "VERB_DUMP"
+    if attempt.get("strain_claimed") and not room_has_strain(obs):
+        return "REJECT", "INVENTED_STRAIN"
+    blob = _orient_blob(attempt)
+    for rx, reason in ORIENT_FORBIDDEN:
+        if rx.search(blob):
+            return "REJECT", reason
+    return "ACCEPT", None
+
+
+def check_agent_orientation_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "agent-orientation-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "agent-orientation-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "agent-orientation-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"agent-orientation S0 catalog invalid: {errs[0].message}")
+    if catalog.get("arrival_speech") or catalog.get("invent_strain") or not catalog.get("thesis_forbidden"):
+        fail("agent-orientation S0 must forbid arrival speech, invented strain, and thesis")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("agent-orientation S0 must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0106-agent-orientation.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0106 must be Accepted")
+    slice_doc = (ROOT / "docs" / "AGENT-ORIENTATION-S0.md").read_text(encoding="utf-8")
+    if "arrival" not in slice_doc.lower() or "invent" not in slice_doc.lower() or "later" not in slice_doc.lower():
+        fail("AGENT-ORIENTATION-S0 must pin live-room, no arrival/invented strain, persistence later")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-location-ok.json",
+        "attempt-strain-present.json",
+        "attempt-quiet-room.json",
+        "attempt-thesis-reject.json",
+        "attempt-you-should-reject.json",
+        "attempt-class-reject.json",
+        "attempt-research-reject.json",
+        "attempt-arrival-reject.json",
+        "attempt-verb-dump-reject.json",
+        "attempt-invented-strain-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "agent-orientation-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_agent_orientation_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("agent-orientation S0: catalog, attempt fixtures, RFC-0106 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9143,6 +9250,7 @@ def main() -> None:
     check_access_policy_s1(Draft202012Validator)
     check_access_policy_s2(Draft202012Validator)
     check_access_policy_s3(Draft202012Validator)
+    check_agent_orientation_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

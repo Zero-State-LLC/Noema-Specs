@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": {
+      "name": "Grid Anchor",
+      "description": "A frontier anchor."
+    },
+    "available_actions": [
+      "LOOK",
+      "INSPECT"
+    ]
+  },
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "Location is enough. No strain required."
+  }
+}

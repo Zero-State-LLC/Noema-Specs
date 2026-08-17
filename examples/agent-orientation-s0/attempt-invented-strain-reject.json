@@ -1,0 +1,22 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "strain_claimed": true,
+  "observation": {
+    "location": {
+      "name": "Civic Exchange",
+      "description": "Open floor."
+    },
+    "orientation_lines": [
+      "The hidden vault is failing."
+    ],
+    "available_actions": [
+      "LOOK"
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "INVENTED_STRAIN"
+  }
+}
