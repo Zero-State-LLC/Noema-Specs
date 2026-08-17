@@ -1,0 +1,18 @@
+{
+  "schema_version": "world-report-catalog/wr-s4",
+  "catalog_id": "world-report-catalog/wr-s4",
+  "slice_id": "wr-s4",
+  "authority": "docs/WR-S4-CRIME-REPORT.md",
+  "rfc": "rfcs/RFC-0094-crime-report.md",
+  "extends": "world-report-catalog/wr-s3",
+  "new_verbs": [],
+  "new_events": [],
+  "interval_cycles": 5,
+  "retention": 1,
+  "source": "public_crime_detected",
+  "help_news": false,
+  "help_crime": false,
+  "watch_report": false,
+  "your_position": false,
+  "later_sections": false
+}

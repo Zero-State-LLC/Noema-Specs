@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0094 Accepted / WR-S4:** public world report also lists public `CRIME_DETECTED` (`{category} is detected.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No subject or method.
+
+### Added
+
 - **RFC-0093 Accepted / WR-S3:** public world report also lists live public access restrictions (`{room} {dir} is restricted.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb.
 
 ### Added

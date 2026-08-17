@@ -54,4 +54,4 @@ Omit access lines (S2 infra+org+contest only).
 
 ## Unresolved
 
-YOUR POSITION. Diplomacy / crime. CONTEST help.
+Crime report lines are [RFC-0094](RFC-0094-crime-report.md). YOUR POSITION. Diplomacy. CONTEST help.
