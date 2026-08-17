@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s2",
+  "catalog_id": "world-report-catalog/wr-s2",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "contest_open_hidden": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "contest_lines": 0, "note": "Hidden-room contest is omitted." }
+}

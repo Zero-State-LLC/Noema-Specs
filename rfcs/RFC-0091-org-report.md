@@ -50,4 +50,4 @@ Omit org lines (S0 infra only).
 
 ## Unresolved
 
-YOUR POSITION. Diplomacy / conflict / crime / access. CONTEST help.
+Contest report lines are [RFC-0092](RFC-0092-contest-report.md). YOUR POSITION. Diplomacy / crime / access. CONTEST help.

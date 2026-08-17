@@ -4764,6 +4764,50 @@ def check_wr_s1(Draft202012Validator) -> None:
     ok("WR-S1 organization report: catalog, attempt fixtures, RFC-0091 Accepted")
 
 
+def evaluate_wr_s2(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]:
+    interval = int(catalog.get("interval_cycles") or 5)
+    cycles = int(attempt.get("committed_cycles") or 0)
+    if cycles < interval or cycles % interval != 0:
+        return "ACCEPT", 0, 0
+    contest_lines = 1 if attempt.get("contest_open_public") else 0
+    return "ACCEPT", 1, contest_lines
+
+
+def check_wr_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "world-report-catalog.wr-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "world-report-catalog.wr-s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "world-report-attempt.wr-s2.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"WR-S2 catalog invalid: {errs[0].message}")
+    if catalog.get("help_news") or catalog.get("help_contest") or catalog.get("watch_report") or catalog.get("new_verbs"):
+        fail("WR-S2 must not add help news, help CONTEST, WATCH report, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0092-contest-report.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0092 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-contest-ok.json",
+        "attempt-hidden-omit.json",
+        "attempt-no-contest.json",
+        "attempt-before-interval.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "wr-s2-contest-report" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, kept, contest_lines = evaluate_wr_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+        if exp.get("contest_lines") is not None and contest_lines != exp["contest_lines"]:
+            fail(f"{name}: contest_lines {contest_lines} expected {exp['contest_lines']}")
+    ok("WR-S2 public contest report: catalog, attempt fixtures, RFC-0092 Accepted")
+
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -8380,6 +8424,7 @@ def main() -> None:
     check_wr_s0(Draft202012Validator)
     check_gc2_thaw_play(Draft202012Validator)
     check_wr_s1(Draft202012Validator)
+    check_wr_s2(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)
