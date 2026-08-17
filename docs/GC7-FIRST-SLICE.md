@@ -1,6 +1,6 @@
 # GC7 First Slice — Existing Contest Rhythm
 
-**Status:** Shipped as hosted isolated `CONTEST_DECLARE` → `CONTEST_RESOLVED` (RFC-0011 Accepted; reference runtime PR #81). Chamber help still omits CONTEST.  
+**Status:** Shipped as hosted isolated `CONTEST_DECLARE` → `CONTEST_RESOLVED` (RFC-0011 Accepted; reference runtime PR #81). Chamber help is [GC7-THAW-PLAY.md](GC7-THAW-PLAY.md).  
 **Parent:** [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **RFC:** [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md)  
 **Does not open:** `event-catalog/0.3` · new contest forms · `SCAN` / `ATTACK` · hit-point combat · character death

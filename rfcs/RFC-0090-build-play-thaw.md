@@ -50,4 +50,4 @@ Omit BUILD from Chamber help again.
 
 ## Unresolved
 
-CONTEST / WED / ATTEST help. WR-S1 org report is [RFC-0091](RFC-0091-org-report.md).
+CONTEST help is [RFC-0095](RFC-0095-contest-play-thaw.md). WED / ATTEST help.

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0095 Accepted / GC7 PLAY thaw:** Chamber `help` names CONTEST and `help contest` lists existing contest/defend/withdraw aliases. WED / ATTEST stay omitted. No HP. No SCAN/ATTACK.
+
+### Added
+
 - **RFC-0094 Accepted / WR-S4:** public world report also lists public `CRIME_DETECTED` (`{category} is detected.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No subject or method.
 
 ### Added

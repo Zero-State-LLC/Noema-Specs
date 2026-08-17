@@ -3,9 +3,10 @@
 **Status:** Executable specification. Runtime authorized with RFC-0042.  
 **Parent:** [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md)  
 **RFC:** [RFC-0042](../rfcs/RFC-0042-information-contest.md)  
-**Does not open:** `event-catalog/0.3` · HP · `SCAN` · Chamber help advertising CONTEST · claim rewrite
+**Does not open:** `event-catalog/0.3` · HP · `SCAN` · claim rewrite  
+**Next:** [GC7-THAW-PLAY.md](GC7-THAW-PLAY.md)
 
-S3 lets Players contest a **public record** already visible in the room. The engine does not leak hidden facts. Sealing blocks new `INSPECT`; it does not change ledgered `archive_claim`.
+S3 lets Players contest a **public record** already visible in the room. The engine does not leak hidden facts. Sealing blocks new `INSPECT`; it does not change ledgered `archive_claim`. Chamber help for the existing aliases is [GC7-THAW-PLAY.md](GC7-THAW-PLAY.md).
 
 ---
 

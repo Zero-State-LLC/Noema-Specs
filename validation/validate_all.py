@@ -7560,6 +7560,56 @@ def check_gc7_s3(Draft202012Validator) -> None:
     ok("GC7-S3 information contest: catalog, attempt fixtures, RFC-0042 Accepted")
 
 
+def evaluate_gc7_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]:
+    if attempt.get("operation") == "HELP_CONTEST":
+        return "ACCEPT", True if catalog.get("help_contest") else False
+    listed = False
+    if attempt.get("topic") == "wed":
+        listed = bool(catalog.get("help_wed"))
+    elif attempt.get("topic") == "attest":
+        listed = bool(catalog.get("help_attest"))
+    return "ACCEPT", listed
+
+
+def check_gc7_thaw_play(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "conflict-catalog.gc7-thaw-play.json")
+    catalog_schema = load_json(ROOT / "specs" / "conflict-catalog.gc7-thaw-play.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "conflict-attempt.gc7-thaw-play.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC7 thaw-play catalog invalid: {errs[0].message}")
+    if (
+        not catalog.get("help_contest")
+        or catalog.get("help_wed")
+        or catalog.get("help_attest")
+        or catalog.get("new_verbs")
+        or catalog.get("hp_combat")
+        or catalog.get("watch_contest")
+    ):
+        fail("GC7 thaw-play must list CONTEST help and omit WED/ATTEST, new verbs, HP, and WATCH")
+    rfc = (ROOT / "rfcs" / "RFC-0095-contest-play-thaw.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0095 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-help-contest.json",
+        "attempt-help-commands.json",
+        "attempt-omit-wed.json",
+        "attempt-omit-attest.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc7-thaw-play" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, listed = evaluate_gc7_thaw_play(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("listed") is not None and listed != exp["listed"]:
+            fail(f"{name}: listed {listed} expected {exp['listed']}")
+    ok("GC7 PLAY thaw: catalog, attempt fixtures, RFC-0095 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -8549,6 +8599,7 @@ def main() -> None:
     check_gc7_s1(Draft202012Validator)
     check_gc7_s2(Draft202012Validator)
     check_gc7_s3(Draft202012Validator)
+    check_gc7_thaw_play(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)
