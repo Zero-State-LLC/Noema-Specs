@@ -311,7 +311,7 @@ WATCH / public titles
 parameter-access upgrades
 ```
 
-An implementation MAY ship GC1-S0 derived self-lines. It MUST NOT ship recognition or mechanical benefits until those remaining gaps are closed.
+GC1-S0–S5 are shipped (recognition, Engineer quality, decay, prior-work, office eligibility). Remaining later items (focus-as-ledger, WATCH titles, parameter-access) stay closed unless a new RFC opens them.
 
 ---
 

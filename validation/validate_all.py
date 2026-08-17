@@ -4678,6 +4678,92 @@ def check_wr_s0(Draft202012Validator) -> None:
     ok("WR-S0 public world report: catalog, attempt fixtures, RFC-0088 Accepted")
 
 
+def evaluate_gc2_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]:
+    if attempt.get("operation") == "HELP_BUILD":
+        return "ACCEPT", True if catalog.get("help_build") else False
+    listed = False
+    if attempt.get("topic") == "contest":
+        listed = bool(catalog.get("help_contest"))
+    elif attempt.get("topic") == "attest":
+        listed = bool(catalog.get("help_attest"))
+    return "ACCEPT", listed
+
+
+def check_gc2_thaw_play(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-thaw-play.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-thaw-play.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-thaw-play.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2 thaw-play catalog invalid: {errs[0].message}")
+    if not catalog.get("help_build") or catalog.get("help_contest") or catalog.get("help_wed") or catalog.get("help_attest") or catalog.get("new_verbs"):
+        fail("GC2 thaw-play must list BUILD help and omit CONTEST/WED/ATTEST and new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0090-build-play-thaw.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0090 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-help-build.json",
+        "attempt-help-commands.json",
+        "attempt-omit-contest.json",
+        "attempt-omit-attest.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-thaw-play" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, listed = evaluate_gc2_thaw_play(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("listed") is not None and listed != exp["listed"]:
+            fail(f"{name}: listed {listed} expected {exp['listed']}")
+    ok("GC2 PLAY thaw: catalog, attempt fixtures, RFC-0090 Accepted")
+
+
+def evaluate_wr_s1(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]:
+    interval = int(catalog.get("interval_cycles") or 5)
+    cycles = int(attempt.get("committed_cycles") or 0)
+    if cycles < interval or cycles % interval != 0:
+        return "ACCEPT", 0, 0
+    org_lines = 1 if attempt.get("org_active") else 0
+    return "ACCEPT", 1, org_lines
+
+
+def check_wr_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "world-report-catalog.wr-s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "world-report-catalog.wr-s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "world-report-attempt.wr-s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"WR-S1 catalog invalid: {errs[0].message}")
+    if catalog.get("help_news") or catalog.get("watch_report") or catalog.get("new_verbs") or catalog.get("your_position"):
+        fail("WR-S1 must not add help news, WATCH report, YOUR POSITION, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0091-org-report.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0091 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-org-ok.json",
+        "attempt-no-org.json",
+        "attempt-before-interval.json",
+        "attempt-hidden-omit.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "wr-s1-org-report" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, kept, org_lines = evaluate_wr_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+        if exp.get("org_lines") is not None and org_lines != exp["org_lines"]:
+            fail(f"{name}: org_lines {org_lines} expected {exp['org_lines']}")
+    ok("WR-S1 organization report: catalog, attempt fixtures, RFC-0091 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -8292,6 +8378,8 @@ def main() -> None:
     check_gc2_s23(Draft202012Validator)
     check_gc2_s24(Draft202012Validator)
     check_wr_s0(Draft202012Validator)
+    check_gc2_thaw_play(Draft202012Validator)
+    check_wr_s1(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

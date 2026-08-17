@@ -129,7 +129,7 @@ GC5-S5 closed: MESSAGE board last 5; shout last 1 unchanged; WATCH silent
 GC5-S6 closed: MESSAGE surface=NOTICE; occupied PUBLISH_NOTICE; public room last 1; WATCH silent
 GC5-S7 closed: MESSAGE surface=CHANNEL; current members; last 1; unknown/outsider NOT_ADDRESSABLE; WATCH silent
 GC5-S8 closed: MESSAGE surface=TRADE_NOTICE; public room last 1; WATCH silent; no auto-TRADE
-cycle-based expiry
+cycle-based expiry closed: S9 shout · S10 board · S11 notice · S12 channel · S13 trade notice (1 committed cycle)
 ```
 
 Prefer extending `MESSAGE` parameters over a new verb.

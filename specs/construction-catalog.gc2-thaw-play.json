@@ -1,0 +1,16 @@
+{
+  "schema_version": "construction-catalog/gc2-thaw-play",
+  "catalog_id": "construction-catalog/gc2-thaw-play",
+  "slice_id": "gc2-thaw-play",
+  "authority": "docs/GC2-THAW-PLAY.md",
+  "rfc": "rfcs/RFC-0090-build-play-thaw.md",
+  "extends": "construction-catalog/gc2-s24",
+  "verb": "BUILD",
+  "new_verbs": [],
+  "new_events": [],
+  "help_build": true,
+  "help_contest": false,
+  "help_wed": false,
+  "help_attest": false,
+  "watch_build": false
+}

@@ -4,6 +4,14 @@
 
 ### Added
 
+- **RFC-0091 Accepted / WR-S1:** public world report also lists ACTIVE organizations (`{name} stands.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb.
+
+### Added
+
+- **RFC-0090 Accepted / GC2 PLAY thaw:** Chamber `help` names BUILD and `help build` lists existing construct/dismantle/upgrade/repurpose/restore/vest/share/connect aliases. CONTEST / WED / ATTEST stay omitted.
+
+### Added
+
 - **RFC-0089 Accepted / GC2-S24:** SHARE family closed at five co-owners. No `co_owner_6_id`. N-of-M roster stays closed. WATCH silent. Help still omits BUILD.
 
 ### Added

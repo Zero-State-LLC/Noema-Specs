@@ -178,10 +178,11 @@ GC4-S2 closed: institution TRADE/REPAIR via occupied office profiles
 GC4-S3 closed: time-bounded emergency grant overlay
 GC4-S4 closed: designated succession; no implicit jump
 GC4-S5 closed: CONSENSUS vacant-office consent; ceil(members/2)
+GC4-S6 closed: RULE_BASED MEMBER_ORDER; vacate walks membership
+GC4-S7 closed: INHERITED_BY_ORGANIZATION; vacate stays VACANT
 GC1-S5 closed: named office MAY require recognized Engineer/Broker
 event types ROLE_* (no silent catalog expansion)
 conflict-precedence — closed: published office_precedence or strict-subset scope; else fail closed
-rule-based succession
 ```
 
 Until a later slice, extra office profiles stay unhosted.

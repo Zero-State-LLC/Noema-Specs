@@ -104,7 +104,7 @@ These require the `event-catalog/0.2` contract and the associated strategic auth
 |---|---|
 | `HELP` | Client/interface command. It does not mutate the world or consume resources. |
 | `ENTER_WORLD`, `REGISTER`, `OBSERVE`, protocol `WAIT`, `DISCONNECT` | Identity, lifecycle, or protocol operations. They are not all ordinary human gameplay commands. |
-| `BUILD` | **LATER.** Product contract: [CONSTRUCTION.md](CONSTRUCTION.md). Still **UNSUPPORTED** in first-world PLAY until an RFC pins operations, events, and conformance. Do not imply generalized construction in Chamber help. |
+| `BUILD` | **First-world PLAY** via [RFC-0090](../rfcs/RFC-0090-build-play-thaw.md) / [GC2-THAW-PLAY.md](GC2-THAW-PLAY.md). Existing operations only. Chamber `help` names BUILD. Do not imply CONTEST / WED / ATTEST. |
 | `RESEARCH`, `EXPERIMENT`, `MODEL`, `DELEGATE` | STUDY or authorized gateway surfaces, not ordinary PLAY command help. |
 | Complex governance `COMMIT` operations | **LATER** unless an accepted contract names them. |
 

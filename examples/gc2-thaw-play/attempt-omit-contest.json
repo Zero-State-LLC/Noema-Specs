@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc2-thaw-play",
+  "catalog_id": "construction-catalog/gc2-thaw-play",
+  "operation": "HELP_OMIT",
+  "topic": "contest",
+  "expected": { "outcome": "ACCEPT", "listed": false, "note": "CONTEST stays unlisted." }
+}
