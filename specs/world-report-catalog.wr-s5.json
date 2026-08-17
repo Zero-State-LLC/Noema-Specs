@@ -1,0 +1,18 @@
+{
+  "schema_version": "world-report-catalog/wr-s5",
+  "catalog_id": "world-report-catalog/wr-s5",
+  "slice_id": "wr-s5",
+  "authority": "docs/WR-S5-DISCOVERY-REPORT.md",
+  "rfc": "rfcs/RFC-0096-discovery-report.md",
+  "extends": "world-report-catalog/wr-s4",
+  "new_verbs": [],
+  "new_events": [],
+  "interval_cycles": 5,
+  "retention": 1,
+  "source": "public_reconstructions",
+  "help_news": false,
+  "help_quest": false,
+  "watch_report": false,
+  "your_position": false,
+  "later_sections": false
+}

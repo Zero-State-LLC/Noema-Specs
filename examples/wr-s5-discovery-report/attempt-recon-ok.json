@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s5",
+  "catalog_id": "world-report-catalog/wr-s5",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "reconstruction_public": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "discovery_lines": 1, "note": "Public recorded reconstruction appears after five cycles." }
+}

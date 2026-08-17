@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-report-catalog.wr-s5.schema.json",
+  "title": "NOEMA World Report Catalog (WR-S5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "interval_cycles",
+    "retention",
+    "source",
+    "help_news",
+    "help_quest",
+    "watch_report",
+    "your_position",
+    "later_sections"
+  ],
+  "properties": {
+    "schema_version": { "const": "world-report-catalog/wr-s5" },
+    "catalog_id": { "const": "world-report-catalog/wr-s5" },
+    "slice_id": { "const": "wr-s5" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "world-report-catalog/wr-s4" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "interval_cycles": { "const": 5 },
+    "retention": { "const": 1 },
+    "source": { "const": "public_reconstructions" },
+    "help_news": { "const": false },
+    "help_quest": { "const": false },
+    "watch_report": { "const": false },
+    "your_position": { "const": false },
+    "later_sections": { "const": false }
+  }
+}

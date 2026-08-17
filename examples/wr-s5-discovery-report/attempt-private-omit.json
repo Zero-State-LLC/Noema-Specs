@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s5",
+  "catalog_id": "world-report-catalog/wr-s5",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "reconstruction_private": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "discovery_lines": 0, "note": "Private reconstruction is omitted." }
+}
