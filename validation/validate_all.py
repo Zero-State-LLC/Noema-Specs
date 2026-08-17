@@ -8015,6 +8015,48 @@ def check_access_policy_s2(Draft202012Validator) -> None:
     ok("ACCESS_POLICY S2: catalog, attempt fixtures, RFC-0103 Accepted")
 
 
+def evaluate_access_policy_s3(attempt: dict, catalog: dict) -> tuple[str, bool | None, bool | None]:
+    if attempt.get("operation") == "HELP_OMIT":
+        return "ACCEPT", False, None
+    listed = bool(catalog.get("help_access"))
+    schema = bool(catalog.get("help_access_policy"))
+    return "ACCEPT", listed, schema
+
+
+def check_access_policy_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "access-policy-catalog.s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "access-policy-catalog.s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "access-policy-attempt.s3.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"ACCESS_POLICY S3 catalog invalid: {errs[0].message}")
+    if not catalog.get("help_access") or catalog.get("help_access_policy") or catalog.get("help_wed") or catalog.get("help_attest") or catalog.get("new_verbs") or catalog.get("watch_ticker"):
+        fail("ACCESS_POLICY S3 must list ACCESS help and omit schema name, WED/ATTEST, new verbs, and WATCH ticker")
+    rfc = (ROOT / "rfcs" / "RFC-0104-access-policy-help.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0104 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-help-access.json",
+        "attempt-help-topic.json",
+        "attempt-omit-wed.json",
+        "attempt-omit-attest.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "access-policy-s3" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, listed, schema = evaluate_access_policy_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("listed") is not None and listed != exp["listed"]:
+            fail(f"{name}: listed {listed} expected {exp['listed']}")
+        if exp.get("schema_name") is not None and schema != exp["schema_name"]:
+            fail(f"{name}: schema_name {schema} expected {exp['schema_name']}")
+    ok("ACCESS_POLICY S3: catalog, attempt fixtures, RFC-0104 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9013,6 +9055,7 @@ def main() -> None:
     check_access_policy_s0(Draft202012Validator)
     check_access_policy_s1(Draft202012Validator)
     check_access_policy_s2(Draft202012Validator)
+    check_access_policy_s3(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

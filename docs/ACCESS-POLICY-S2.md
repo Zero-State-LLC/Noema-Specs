@@ -4,7 +4,7 @@
 **Parent:** [ACCESS-POLICY-S1.md](ACCESS-POLICY-S1.md) · [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)  
 **RFC:** [RFC-0103](../rfcs/RFC-0103-access-policy-allow-only.md)  
 **Does not open:** ACCESS_POLICY help · WED/ATTEST help · YOUR POSITION · event-catalog/0.3 · inbound-only locks  
-**Next:** ACCESS_POLICY help stays a later pin
+**Next:** [ACCESS-POLICY-S3.md](ACCESS-POLICY-S3.md)
 
 S2 adds **ALLOW_ONLY** to the existing `COMMIT.ACCESS_POLICY` verb. EXIT/ROOM DENY and CLEAR from S0/S1 stay. Authority, cost, and `ACCESS_RESTRICTED` stay.
 
