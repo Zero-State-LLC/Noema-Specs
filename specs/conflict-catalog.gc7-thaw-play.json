@@ -1,0 +1,18 @@
+{
+  "schema_version": "conflict-catalog/gc7-thaw-play",
+  "catalog_id": "conflict-catalog/gc7-thaw-play",
+  "slice_id": "gc7-thaw-play",
+  "authority": "docs/GC7-THAW-PLAY.md",
+  "rfc": "rfcs/RFC-0095-contest-play-thaw.md",
+  "event_catalog": "event-catalog/0.2",
+  "extends": "conflict-catalog/gc7-s3",
+  "new_verbs": [],
+  "new_events": [],
+  "new_forms": [],
+  "hp_combat": false,
+  "character_death": false,
+  "help_contest": true,
+  "help_wed": false,
+  "help_attest": false,
+  "watch_contest": false
+}

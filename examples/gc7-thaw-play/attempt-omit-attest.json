@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc7-thaw-play",
+  "catalog_id": "conflict-catalog/gc7-thaw-play",
+  "operation": "HELP_OMIT",
+  "topic": "attest",
+  "expected": { "outcome": "ACCEPT", "listed": false, "note": "ATTEST stays unlisted." }
+}

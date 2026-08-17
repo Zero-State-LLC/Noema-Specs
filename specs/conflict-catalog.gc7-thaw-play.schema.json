@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-catalog.gc7-thaw-play.schema.json",
+  "title": "NOEMA Conflict Catalog (GC7 PLAY thaw)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "new_verbs",
+    "help_contest",
+    "help_wed",
+    "help_attest",
+    "hp_combat",
+    "watch_contest"
+  ],
+  "properties": {
+    "schema_version": { "const": "conflict-catalog/gc7-thaw-play" },
+    "catalog_id": { "const": "conflict-catalog/gc7-thaw-play" },
+    "slice_id": { "const": "gc7-thaw-play" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "extends": { "const": "conflict-catalog/gc7-s3" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "new_forms": { "type": "array", "maxItems": 0 },
+    "hp_combat": { "const": false },
+    "character_death": { "const": false },
+    "help_contest": { "const": true },
+    "help_wed": { "const": false },
+    "help_attest": { "const": false },
+    "watch_contest": { "const": false }
+  }
+}

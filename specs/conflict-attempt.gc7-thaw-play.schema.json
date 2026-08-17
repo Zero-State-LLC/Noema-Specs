@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/conflict-attempt.gc7-thaw-play.schema.json",
+  "title": "NOEMA GC7 PLAY thaw attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc7-thaw-play" },
+    "catalog_id": { "const": "conflict-catalog/gc7-thaw-play" },
+    "operation": { "enum": ["HELP_CONTEST", "HELP_OMIT"] },
+    "topic": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "listed": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

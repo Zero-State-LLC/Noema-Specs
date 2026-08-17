@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc7-thaw-play",
+  "catalog_id": "conflict-catalog/gc7-thaw-play",
+  "operation": "HELP_CONTEST",
+  "topic": "commands",
+  "expected": { "outcome": "ACCEPT", "listed": true, "note": "KNOWN COMMANDS names CONTEST." }
+}

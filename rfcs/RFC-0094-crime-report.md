@@ -54,4 +54,4 @@ Omit crime lines (S3 infra+org+contest+access only).
 
 ## Unresolved
 
-YOUR POSITION. Diplomacy. CONTEST help.
+CONTEST help is [RFC-0095](RFC-0095-contest-play-thaw.md). YOUR POSITION. Diplomacy. WED / ATTEST help.
