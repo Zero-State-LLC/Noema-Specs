@@ -4,6 +4,10 @@
 
 ### Added
 
+- RFC-0113 / HOSTED-MP-CONTENTION: hosted first-accepted harvest; MESSAGE remains mail; no live chat.
+
+### Added
+
 - **RFC-0112 Accepted / GC1-S8:** Engineer overhaul parameter on existing REPAIR. Recognized MAINTAINED Engineer only. Extra energy +1, extra condition +5, cap 100. No new verb. No class discount.
 
 ### Added

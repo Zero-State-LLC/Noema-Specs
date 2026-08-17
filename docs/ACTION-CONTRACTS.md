@@ -247,6 +247,8 @@ Roles: `founder`, `officer`, `member`, `advisor`. These four are the GC4-S0 auth
 | events_on_failure | insufficient → no debit, no public event |
 | spectator_projection | public harvest notice: Player public identity harvested from public node; **no** amounts, inventory, or hidden node capacity ([SPECTATOR.md](SPECTATOR.md)) |
 
+Hosted colliding harvests: first command the World Durable Object accepts wins remaining `available`/`stock_amount`. The next is `FORBIDDEN` “Not enough stock available.” with no debit. This is not the frozen-cycle order in [SCHEDULER.md](SCHEDULER.md). See [HOSTED-MP-CONTENTION.md](HOSTED-MP-CONTENTION.md).
+
 ## COMMIT / REPAIR
 
 | Field | Contract |
