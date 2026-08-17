@@ -4,7 +4,7 @@
 **Parent:** [ACCESS-POLICY-S0.md](ACCESS-POLICY-S0.md) · [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)  
 **RFC:** [RFC-0102](../rfcs/RFC-0102-access-policy-room.md)  
 **Does not open:** ALLOW_ONLY · ACCESS_POLICY help · WED/ATTEST help · YOUR POSITION · event-catalog/0.3  
-**Next:** ALLOW_ONLY stays a later pin
+**Next:** [ACCESS-POLICY-S2.md](ACCESS-POLICY-S2.md)
 
 S1 adds **ROOM** scope to the existing `COMMIT.ACCESS_POLICY` verb. EXIT DENY/CLEAR from S0 stay. Authority, cost, and event stay S0.
 

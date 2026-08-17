@@ -1,0 +1,11 @@
+{
+  "slice_id": "access-policy-s2",
+  "catalog_id": "access-policy-catalog/s2",
+  "operation": "ACCESS_POLICY",
+  "scope": "EXIT",
+  "mode": "ALLOW_ONLY",
+  "has_grant": true,
+  "acting_for": true,
+  "named_list": true,
+  "expected": { "outcome": "ACCEPT", "note": "ALLOW_ONLY with GRANT_ACCESS and a named list is accepted." }
+}
