@@ -1,0 +1,21 @@
+{
+  "schema_version": "access-policy-catalog/s2",
+  "catalog_id": "access-policy-catalog/s2",
+  "slice_id": "access-policy-s2",
+  "authority": "docs/ACCESS-POLICY-S2.md",
+  "rfc": "rfcs/RFC-0103-access-policy-allow-only.md",
+  "event_catalog": "event-catalog/0.2",
+  "verb": "ACCESS_POLICY",
+  "scopes": ["EXIT", "ROOM"],
+  "modes": ["DENY", "CLEAR", "ALLOW_ONLY"],
+  "authority_profile": "GRANT_ACCESS",
+  "acting_for_required": true,
+  "allow_only_requires_named_list": true,
+  "new_verbs": [],
+  "new_events": [],
+  "help_access_policy": false,
+  "help_wed": false,
+  "help_attest": false,
+  "watch_ticker": false,
+  "default_duration_cycles": 4
+}

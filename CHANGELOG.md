@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0103 Accepted / ACCESS_POLICY S2:** ALLOW_ONLY on existing `COMMIT.ACCESS_POLICY`. Named list required. DENY still wins. Help still omits ACCESS_POLICY.
+
+### Added
+
 - **RFC-0102 Accepted / ACCESS_POLICY S1:** ROOM DENY/CLEAR on existing `COMMIT.ACCESS_POLICY`. EXIT S0 stays. Help still omits ACCESS_POLICY. No ALLOW_ONLY.
 
 ### Added

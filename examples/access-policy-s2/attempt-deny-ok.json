@@ -1,0 +1,10 @@
+{
+  "slice_id": "access-policy-s2",
+  "catalog_id": "access-policy-catalog/s2",
+  "operation": "ACCESS_POLICY",
+  "scope": "ROOM",
+  "mode": "DENY",
+  "has_grant": true,
+  "acting_for": true,
+  "expected": { "outcome": "ACCEPT", "note": "DENY remains accepted." }
+}

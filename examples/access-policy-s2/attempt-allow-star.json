@@ -1,0 +1,11 @@
+{
+  "slice_id": "access-policy-s2",
+  "catalog_id": "access-policy-catalog/s2",
+  "operation": "ACCESS_POLICY",
+  "scope": "EXIT",
+  "mode": "ALLOW_ONLY",
+  "has_grant": true,
+  "acting_for": true,
+  "named_list": false,
+  "expected": { "outcome": "REJECT", "reason": "INVALID_REQUEST" }
+}
