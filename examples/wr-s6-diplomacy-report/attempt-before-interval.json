@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s6",
+  "catalog_id": "world-report-catalog/wr-s6",
+  "operation": "REPORT",
+  "committed_cycles": 4,
+  "agreement_active_public": true,
+  "expected": { "outcome": "ACCEPT", "kept": 0, "diplomacy_lines": 0, "note": "Before the first interval there is no report." }
+}

@@ -4,7 +4,7 @@
 **Parent:** [DIPLOMACY-S0.md](DIPLOMACY-S0.md) · [DIPLOMACY.md](DIPLOMACY.md)  
 **RFC:** [RFC-0098](../rfcs/RFC-0098-diplomacy-terminate.md)  
 **Does not open:** other types · AGREEMENT help · WED/ATTEST help · diplomacy report · event-catalog/0.3  
-**Next:** remaining types or diplomacy report lines
+**Next:** [WR-S6-DIPLOMACY-REPORT.md](WR-S6-DIPLOMACY-REPORT.md)
 
 S1 hosts the existing `COMMIT.AGREEMENT_TERMINATE` verb for agreements already formed by S0.
 

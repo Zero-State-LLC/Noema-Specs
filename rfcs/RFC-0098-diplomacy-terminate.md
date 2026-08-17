@@ -54,4 +54,4 @@ Leave ACTIVE TRADE agreements unendable.
 
 ## Unresolved
 
-Other types. AGREEMENT help. Diplomacy report lines.
+Diplomacy report lines are [RFC-0099](RFC-0099-diplomacy-report.md). Other types. AGREEMENT help. YOUR POSITION.
