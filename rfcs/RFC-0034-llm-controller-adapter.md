@@ -14,7 +14,7 @@ NOEMA does not gain a new mind. An LLM is a Controller. The model proposes `{act
 
 Private cognition stays outside the gateway (ADR-002). Hosted ACT remains `POST /v1/command` (or isolated `/v1/operator/test-world/command`). No `AGENT_PLAYER`. No new world verbs.
 
-Executable work package (schemas, acceptance L01–L18, golden path): runtime `docs/superpowers/specs/2026-08-17-llm-agent-integration-v0.1.md`.
+Normative Specs document: [LLM-AGENT-INTEGRATION.md](../docs/LLM-AGENT-INTEGRATION.md). Runtime work package (schemas, L01–L18 tests): Noema `docs/superpowers/specs/2026-08-17-llm-agent-integration-v0.1.md`.
 
 ## Consequences
 
