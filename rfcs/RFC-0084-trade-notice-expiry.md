@@ -53,4 +53,4 @@ Ignore trade-notice age (keep last 1 until overwritten).
 
 ## Unresolved
 
-Third co-owner is [RFC-0085](RFC-0085-third-co-owner.md). Fourth co-owner is [RFC-0086](RFC-0086-fourth-co-owner.md). Fifth-and-later co-owners.
+Third co-owner is [RFC-0085](RFC-0085-third-co-owner.md). Fourth co-owner is [RFC-0086](RFC-0086-fourth-co-owner.md). Fifth co-owner is [RFC-0087](RFC-0087-fifth-co-owner.md). Sixth-and-later co-owners.

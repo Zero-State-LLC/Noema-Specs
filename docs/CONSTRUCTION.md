@@ -263,7 +263,8 @@ GC2-S19 closed: public route_link CONSTRUCT is IN_PROGRESS; live after 1 committ
 GC2-S20 closed: BUILD.SHARE second entered Player as co_owner_2_id; third SHARE FORBIDDEN
 GC2-S21 closed: BUILD.SHARE third entered Player as co_owner_3_id; fourth SHARE FORBIDDEN
 GC2-S22 closed: BUILD.SHARE fourth entered Player as co_owner_4_id; fifth SHARE FORBIDDEN
-fifth-and-later co-owners
+GC2-S23 closed: BUILD.SHARE fifth entered Player as co_owner_5_id; sixth SHARE FORBIDDEN
+sixth-and-later co-owners
 first-world PLAY advertising BUILD
 runtime implementation
 ```
