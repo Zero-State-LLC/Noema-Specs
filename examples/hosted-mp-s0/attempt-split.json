@@ -1,0 +1,8 @@
+{
+  "attempt_id": "split",
+  "stock": 2,
+  "first_amount": 1,
+  "second_amount": 1,
+  "split_stock": true,
+  "expected": { "outcome": "REJECT", "reason": "DOCTRINE" }
+}

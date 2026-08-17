@@ -1,0 +1,8 @@
+{
+  "attempt_id": "live-chat",
+  "stock": 1,
+  "first_amount": 1,
+  "second_amount": 0,
+  "live_chat": true,
+  "expected": { "outcome": "REJECT", "reason": "DOCTRINE" }
+}

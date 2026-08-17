@@ -1,0 +1,7 @@
+{
+  "attempt_id": "first-ok",
+  "stock": 2,
+  "first_amount": 1,
+  "second_amount": 1,
+  "expected": { "outcome": "ACCEPT" }
+}

@@ -1,0 +1,7 @@
+{
+  "attempt_id": "second-empty",
+  "stock": 1,
+  "first_amount": 1,
+  "second_amount": 1,
+  "expected": { "outcome": "REJECT", "reason": "NOT_ENOUGH_STOCK" }
+}
