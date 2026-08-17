@@ -1,0 +1,22 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": {
+      "name": "Grid Anchor",
+      "description": "A frontier anchor.",
+      "condition": 37
+    },
+    "orientation_lines": [
+      "You should repair the conduit."
+    ],
+    "available_actions": [
+      "REPAIR"
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "YOU_SHOULD"
+  }
+}

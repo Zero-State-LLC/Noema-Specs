@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "arrival_speech": true,
+  "observation": {
+    "location": {
+      "name": "Grid Anchor",
+      "description": "Welcome, agent."
+    },
+    "available_actions": [
+      "LOOK"
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ARRIVAL_SPEECH"
+  }
+}

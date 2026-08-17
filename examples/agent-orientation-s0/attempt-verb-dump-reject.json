@@ -1,0 +1,27 @@
+{
+  "slice_id": "agent-orientation-s0",
+  "catalog_id": "agent-orientation-catalog/s0",
+  "operation": "FIRST_OBSERVE",
+  "verb_dump": true,
+  "observation": {
+    "location": {
+      "name": "Grid Anchor",
+      "description": "A frontier anchor."
+    },
+    "available_actions": [
+      "LOOK",
+      "MOVE",
+      "INSPECT",
+      "HARVEST",
+      "REPAIR",
+      "TRADE",
+      "MESSAGE",
+      "WAIT",
+      "BUILD"
+    ]
+  },
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "VERB_DUMP"
+  }
+}
