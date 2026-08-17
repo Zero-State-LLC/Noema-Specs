@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-s22.schema.json",
+  "title": "NOEMA Construction Catalog (GC2-S22)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "help_build",
+    "watch_share",
+    "max_co_owners",
+    "institution_as_player",
+    "share_institution",
+    "hidden_share"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-s22" },
+    "catalog_id": { "const": "construction-catalog/gc2-s22" },
+    "slice_id": { "const": "gc2-s22" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s21" },
+    "verb": { "const": "BUILD" },
+    "operation": { "const": "SHARE" },
+    "max_co_owners": { "const": 4 },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "event_catalog": { "const": "event-catalog/0.1" },
+    "help_build": { "const": false },
+    "watch_share": { "const": false },
+    "institution_as_player": { "const": false },
+    "share_institution": { "const": false },
+    "hidden_share": { "const": false },
+    "cost_compute": { "const": 1 }
+  }
+}

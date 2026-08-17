@@ -4,7 +4,7 @@
 **Parent:** [GC2-S20-SECOND-CO-OWNER.md](GC2-S20-SECOND-CO-OWNER.md) · [CONSTRUCTION.md](CONSTRUCTION.md)  
 **RFC:** [RFC-0085](../rfcs/RFC-0085-third-co-owner.md)  
 **Does not open:** N-of-M roster · fourth co-owner · institution-as-Player · help BUILD · STRUCTURE_*  
-**Next:** fourth-and-later co-owners
+**Next:** [GC2-S22-FOURTH-CO-OWNER.md](GC2-S22-FOURTH-CO-OWNER.md)
 
 S21 lets the personal owner name one more Player on a public constructible. It is still not a title minigame.
 
@@ -50,7 +50,8 @@ S21 lets the personal owner name one more Player on a public constructible. It i
 ## Out of S21
 
 ```text
-fourth-and-later co-owners
+fourth co-owner is [GC2-S22-FOURTH-CO-OWNER.md](GC2-S22-FOURTH-CO-OWNER.md)
+fifth-and-later co-owners
 N-of-M roster
 share / vest mix
 STRUCTURE_*
