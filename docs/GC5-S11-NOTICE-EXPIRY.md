@@ -4,7 +4,7 @@
 **Parent:** [GC5-S6-NOTICE.md](GC5-S6-NOTICE.md) · [GC5-S10-BOARD-EXPIRY.md](GC5-S10-BOARD-EXPIRY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0082](../rfcs/RFC-0082-notice-expiry.md)  
 **Does not open:** NOTICE verb · CHANNEL/TRADE_NOTICE expiry · MESSAGE_EXPIRED · help advertising · WATCH ticker  
-**Next:** cycle expiry for CHANNEL / TRADE_NOTICE
+**Next:** [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
 
 S11 makes an institution notice take world-time. A public notice is still last 1, then gone after one committed cycle.
 
@@ -44,7 +44,8 @@ S11 makes an institution notice take world-time. A public notice is still last 1
 
 ```text
 NOTICE verb
-CHANNEL / TRADE_NOTICE expiry
+channel cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
+TRADE_NOTICE expiry
 MESSAGE_EXPIRED
 Chamber help NOTICE
 WATCH ticker

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/communication-catalog.gc5-s12.schema.json",
+  "title": "NOEMA Communication Catalog (GC5-S12)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "surface",
+    "help_channel",
+    "watch_channel",
+    "hidden_channel",
+    "leak_membership",
+    "retention",
+    "expire_cycles",
+    "trade_notice_expiry"
+  ],
+  "properties": {
+    "schema_version": { "const": "communication-catalog/gc5-s12" },
+    "catalog_id": { "const": "communication-catalog/gc5-s12" },
+    "slice_id": { "const": "gc5-s12" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "communication-catalog/gc5-s11" },
+    "verb": { "const": "MESSAGE" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "surface": { "const": "CHANNEL" },
+    "help_channel": { "const": false },
+    "watch_channel": { "const": false },
+    "hidden_channel": { "const": false },
+    "leak_membership": { "const": false },
+    "retention": { "const": 1 },
+    "expire_cycles": { "const": 1 },
+    "trade_notice_expiry": { "const": false },
+    "cost_compute": { "const": 1 }
+  }
+}

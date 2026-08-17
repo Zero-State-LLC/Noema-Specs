@@ -44,7 +44,9 @@ S10 makes board notices take world-time. A public board is still last 5, then th
 
 ```text
 BOARD verb
-CHANNEL / TRADE_NOTICE expiry
+notice cycle expiry is [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md)
+channel cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
+TRADE_NOTICE expiry
 MESSAGE_EXPIRED
 Chamber help board
 WATCH ticker

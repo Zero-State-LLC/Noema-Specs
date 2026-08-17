@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0083 Accepted / GC5-S12:** a member `MESSAGE surface=CHANNEL` drops after one committed cycle. Last-1 overwrite unchanged. Unknown org and non-member still share `NOT_ADDRESSABLE`. WATCH silent. Help still omits CHANNEL.
+
+### Added
+
 - **RFC-0082 Accepted / GC5-S11:** a public `MESSAGE surface=NOTICE` drops after one committed cycle. Last-1 overwrite unchanged. WATCH silent. Help still omits NOTICE.
 
 ### Added

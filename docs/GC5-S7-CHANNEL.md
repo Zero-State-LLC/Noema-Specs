@@ -4,7 +4,7 @@
 **Parent:** [GC5-S6-NOTICE.md](GC5-S6-NOTICE.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0065](../rfcs/RFC-0065-org-channel.md)  
 **Does not open:** CHANNEL/NOTICE verbs · membership leak · help advertising · hidden channels · cycle expiry  
-**Next:** [GC5-S8-TRADE-NOTICE.md](GC5-S8-TRADE-NOTICE.md)
+**Next:** [GC5-S8-TRADE-NOTICE.md](GC5-S8-TRADE-NOTICE.md) · cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
 
 S7 adds one MESSAGE surface. Current members may leave a note on the organization. It is not a channel verb.
 
@@ -49,7 +49,7 @@ S7 adds one MESSAGE surface. Current members may leave a note on the organizatio
 ```text
 CHANNEL verb
 membership roster on PLAY / WATCH
-cycle expiry
+cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
 Chamber help CHANNEL
 ```
 

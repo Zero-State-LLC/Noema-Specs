@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s12",
+  "catalog_id": "communication-catalog/gc5-s12",
+  "operation": "EXPIRE",
+  "committed_cycles": 1,
+  "expected": { "outcome": "ACCEPT", "kept": 0, "note": "One committed cycle drops the channel note." }
+}
