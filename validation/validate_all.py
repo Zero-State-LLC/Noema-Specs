@@ -8250,6 +8250,74 @@ def check_agent_orientation_s0(Draft202012Validator) -> None:
     ok("agent-orientation S0: catalog, attempt fixtures, RFC-0106 Accepted")
 
 
+def evaluate_agent_orientation_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not catalog.get("situation_fields"):
+        return "REJECT", "CATALOG"
+    base, reason = evaluate_agent_orientation_s0(attempt, catalog)
+    if base == "REJECT":
+        return base, reason
+    obs = attempt.get("observation") or {}
+    loc = obs.get("location") or {}
+    sit = obs.get("situation") or {}
+    place = sit.get("place")
+    if not (isinstance(place, str) and place.strip()):
+        return "REJECT", "MISSING_PLACE"
+    if place != (loc.get("name") or ""):
+        return "REJECT", "PLACE_MISMATCH"
+    strain = sit.get("strain")
+    has = room_has_strain(obs)
+    if has and not (isinstance(strain, str) and strain.strip()):
+        return "REJECT", "MISSING_STRAIN"
+    if not has and strain:
+        return "REJECT", "INVENTED_STRAIN"
+    blob = f"{place} {strain or ''}".lower()
+    for rx, why in ORIENT_FORBIDDEN:
+        if rx.search(blob):
+            return "REJECT", why
+    return "ACCEPT", None
+
+
+def check_agent_orientation_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "agent-orientation-catalog.s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "agent-orientation-catalog.s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "agent-orientation-attempt.s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"agent-orientation S1 catalog invalid: {errs[0].message}")
+    if not catalog.get("situation_fields"):
+        fail("agent-orientation S1 must enable situation_fields")
+    if catalog.get("arrival_speech") or catalog.get("invent_strain") or not catalog.get("thesis_forbidden"):
+        fail("agent-orientation S1 must keep S0 withhold flags")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("agent-orientation S1 must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0107-agent-orientation-situation.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0107 must be Accepted")
+    slice_doc = (ROOT / "docs" / "AGENT-ORIENTATION-S1.md").read_text(encoding="utf-8")
+    if "situation.place" not in slice_doc or "omit" not in slice_doc.lower():
+        fail("AGENT-ORIENTATION-S1 must pin situation.place and omit strain when quiet")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-place-ok.json",
+        "attempt-strain-present.json",
+        "attempt-quiet-omit-strain.json",
+        "attempt-missing-place-reject.json",
+        "attempt-invented-strain-reject.json",
+        "attempt-thesis-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "agent-orientation-s1" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_agent_orientation_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("agent-orientation S1: catalog, attempt fixtures, RFC-0107 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9251,6 +9319,7 @@ def main() -> None:
     check_access_policy_s2(Draft202012Validator)
     check_access_policy_s3(Draft202012Validator)
     check_agent_orientation_s0(Draft202012Validator)
+    check_agent_orientation_s1(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

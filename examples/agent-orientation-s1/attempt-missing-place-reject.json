@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-orientation-s1",
+  "catalog_id": "agent-orientation-catalog/s1",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": { "name": "Grid Anchor", "description": "A frontier anchor." },
+    "available_actions": ["LOOK"],
+    "situation": {}
+  },
+  "expected": { "outcome": "REJECT", "reason": "MISSING_PLACE" }
+}

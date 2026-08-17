@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0107 Accepted / AGENT-ORIENTATION-S1:** first OBSERVE attaches `situation.place` and optional `situation.strain` from live room facts. Quiet rooms omit strain. S0 withhold remains. No new verbs.
+
+### Added
+
 - **RFC-0106 Accepted / AGENT-ORIENTATION-S0:** first agent OBSERVE is a withhold contract. Place and strain-if-present from the live room. No thesis, arrival speech, or invented pressure. Specs only.
 
 ### Added

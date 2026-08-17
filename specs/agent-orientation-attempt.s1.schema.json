@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-orientation-attempt.s1.schema.json",
+  "title": "NOEMA agent-orientation S1 situation attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "observation", "expected"],
+  "properties": {
+    "slice_id": { "const": "agent-orientation-s1" },
+    "catalog_id": { "const": "agent-orientation-catalog/s1" },
+    "operation": { "const": "FIRST_OBSERVE" },
+    "arrival_speech": { "type": "boolean" },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["location"],
+      "properties": {
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "condition": { "type": ["integer", "string"] }
+          }
+        },
+        "condition": { "type": ["integer", "string"] },
+        "stock_amount": { "type": ["integer", "null"] },
+        "report_lines": { "type": "array", "items": { "type": "string" } },
+        "orientation_lines": { "type": "array", "items": { "type": "string" } },
+        "available_actions": { "type": "array", "items": { "type": "string" } },
+        "situation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "place": { "type": "string" },
+            "strain": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

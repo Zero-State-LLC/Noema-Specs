@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-orientation-s1",
+  "catalog_id": "agent-orientation-catalog/s1",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": { "name": "Grid Anchor", "description": "A frontier anchor.", "condition": 37 },
+    "available_actions": ["LOOK"],
+    "situation": { "place": "Grid Anchor", "strain": "The point of the game is to keep the relay alive." }
+  },
+  "expected": { "outcome": "REJECT", "reason": "THESIS" }
+}
