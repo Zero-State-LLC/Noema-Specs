@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0102 Accepted / ACCESS_POLICY S1:** ROOM DENY/CLEAR on existing `COMMIT.ACCESS_POLICY`. EXIT S0 stays. Help still omits ACCESS_POLICY. No ALLOW_ONLY.
+
+### Added
+
 - **RFC-0101 Accepted / ACCESS_POLICY S0:** hosted `COMMIT.ACCESS_POLICY` for EXIT DENY/CLEAR via occupied `GRANT_ACCESS`. Existing `ACCESS_RESTRICTED`. Help still omits ACCESS_POLICY. No ALLOW_ONLY. No ROOM scope.
 
 ### Added
