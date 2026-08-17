@@ -7701,6 +7701,57 @@ def check_diplomacy_s0(Draft202012Validator) -> None:
     ok("Diplomacy S0 TRADE form: catalog, attempt fixtures, RFC-0097 Accepted")
 
 
+def evaluate_diplomacy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]:
+    if attempt.get("operation") == "HELP_OMIT":
+        return "ACCEPT", None, bool(catalog.get("help_agreement") or catalog.get("help_terminate"))
+    if not catalog.get("terminate"):
+        return "REJECT", "NOT_IMPLEMENTED", None
+    if not attempt.get("has_reason"):
+        return "REJECT", "INVALID_REQUEST", None
+    if attempt.get("is_party") is False:
+        return "REJECT", "FORBIDDEN", None
+    if attempt.get("status") and attempt.get("status") != "ACTIVE":
+        return "REJECT", "FORBIDDEN", None
+    return "ACCEPT", None, None
+
+
+def check_diplomacy_s1(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "diplomacy-catalog.s1.json")
+    catalog_schema = load_json(ROOT / "specs" / "diplomacy-catalog.s1.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "diplomacy-attempt.s1.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"Diplomacy S1 catalog invalid: {errs[0].message}")
+    if catalog.get("help_agreement") or catalog.get("help_terminate") or catalog.get("new_verbs") or catalog.get("watch_ticker"):
+        fail("Diplomacy S1 must keep help, new verbs, and WATCH ticker off")
+    if not catalog.get("terminate"):
+        fail("Diplomacy S1 must host terminate")
+    rfc = (ROOT / "rfcs" / "RFC-0098-diplomacy-terminate.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0098 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-terminate-ok.json",
+        "attempt-missing-reason.json",
+        "attempt-bystander.json",
+        "attempt-omit-help.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "diplomacy-s1" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, listed = evaluate_diplomacy_s1(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("listed") is not None and listed != exp["listed"]:
+            fail(f"{name}: listed {listed} expected {exp['listed']}")
+    ok("Diplomacy S1 terminate: catalog, attempt fixtures, RFC-0098 Accepted")
+
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -8693,6 +8744,7 @@ def main() -> None:
     check_gc7_s3(Draft202012Validator)
     check_gc7_thaw_play(Draft202012Validator)
     check_diplomacy_s0(Draft202012Validator)
+    check_diplomacy_s1(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)
