@@ -3193,6 +3193,70 @@ def check_gc1_s6(Draft202012Validator) -> None:
     ok("GC1-S6 public titles: catalog, attempt fixtures, RFC-0105 Accepted")
 
 
+def evaluate_gc1_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]:
+    if attempt.get("operation") == "FOCUS_CLEAR":
+        return "ACCEPT", None, None
+    track = attempt.get("track")
+    if track not in (catalog.get("tracks") or []):
+        return "REJECT", "INVALID", None
+    viewer = attempt.get("viewer") or "self"
+    if attempt.get("hidden_room") and viewer != "self":
+        return "REJECT", "HIDDEN_ROOM", None
+    if attempt.get("latent") and viewer != "self":
+        return "REJECT", "LATENT", None
+    if viewer == "self":
+        return "ACCEPT", None, (catalog.get("self_lines") or {}).get(track)
+    handle = attempt.get("handle") or "sable"
+    template = (catalog.get("public_lines") or {}).get(track)
+    if not isinstance(template, str):
+        return "REJECT", "INVALID", None
+    return "ACCEPT", None, template.replace("{handle}", handle)
+
+
+def check_gc1_s7(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s7.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s7.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s7.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S7 catalog invalid: {errs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("focus_declared_event"):
+        fail("GC1-S7 must not add verbs, events, or FOCUS_DECLARED")
+    if catalog.get("decay_window_change") or catalog.get("recognition_required") or catalog.get("focus_cap") != 1:
+        fail("GC1-S7 must keep decay unchanged, recognition optional, and cap 1")
+    rfc = (ROOT / "rfcs" / "RFC-0110-focus-declaration.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0110 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC1-S7-FOCUS.md").read_text(encoding="utf-8")
+    if "FOCUS_DECLARED" not in slice_doc or "LATENT" not in slice_doc:
+        fail("GC1-S7 must reject FOCUS_DECLARED and pin LATENT withhold")
+    help_doc = (ROOT / "docs" / "GC1-S7-FOCUS.md").read_text(encoding="utf-8")
+    if "WED" not in help_doc or "ATTEST" not in help_doc:
+        fail("GC1-S7 must keep WED / ATTEST omitted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-self-surveyor.json",
+        "attempt-public-ok.json",
+        "attempt-clear.json",
+        "attempt-latent-withheld.json",
+        "attempt-hidden-withheld.json",
+        "attempt-watch-ok.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s7" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, line = evaluate_gc1_s7(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("line") and line != exp["line"]:
+            fail(f"{name}: line {line} expected {exp['line']}")
+    ok("GC1-S7 focus declaration: catalog, attempt fixtures, RFC-0110 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -9343,6 +9407,7 @@ def main() -> None:
     check_gc1_s4(Draft202012Validator)
     check_gc1_s5(Draft202012Validator)
     check_gc1_s6(Draft202012Validator)
+    check_gc1_s7(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)

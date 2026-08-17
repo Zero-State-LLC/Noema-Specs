@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.gc1-s7.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S7)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_events",
+    "focus_declared_event",
+    "decay_window_change",
+    "recognition_required",
+    "focus_cap",
+    "tracks",
+    "self_lines",
+    "public_lines"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s7" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s7" },
+    "slice_id": { "const": "gc1-s7" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "mastery-catalog/gc1-s6" },
+    "verb": { "const": "COMMIT" },
+    "operation": { "const": "FOCUS" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "focus_declared_event": { "const": false },
+    "decay_window_change": { "const": false },
+    "recognition_required": { "const": false },
+    "focus_cap": { "const": 1 },
+    "tracks": { "const": ["explorer", "surveyor", "broker", "engineer"] },
+    "self_lines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["explorer", "surveyor", "broker", "engineer"],
+      "properties": {
+        "explorer": { "const": "You are focusing on the rooms." },
+        "surveyor": { "const": "You are focusing on survey work." },
+        "broker": { "const": "You are focusing on exchanges." },
+        "engineer": { "const": "You are focusing on infrastructure." }
+      }
+    },
+    "public_lines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["explorer", "surveyor", "broker", "engineer"],
+      "properties": {
+        "explorer": { "const": "{handle} is focusing on the rooms." },
+        "surveyor": { "const": "{handle} is focusing on survey work." },
+        "broker": { "const": "{handle} is focusing on exchanges." },
+        "engineer": { "const": "{handle} is focusing on infrastructure." }
+      }
+    }
+  }
+}

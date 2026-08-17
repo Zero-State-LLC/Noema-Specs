@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0105.  
 **Depends on:** [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md) · [GC1-S5-OFFICE-ELIGIBILITY.md](GC1-S5-OFFICE-ELIGIBILITY.md)  
 **RFC:** [RFC-0105](../rfcs/RFC-0105-public-titles.md)  
-**Does not open:** focus-as-ledger · `FOCUS_DECLARED` · `event-catalog/0.3` · WED / ATTEST help · XP / practice counts on WATCH
+**Does not open:** `FOCUS_DECLARED` event · `event-catalog/0.3` · WED / ATTEST help · XP / practice counts on WATCH  
+**Next:** [GC1-S7-FOCUS.md](GC1-S7-FOCUS.md) (RFC-0110)
 
 S6 lets other Players in a **public** room, and WATCH, see one world-native recognition line derived from existing GC1-S1 evidence. It is not a class, not a new event, and not a cheaper verb.
 

@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0110 Accepted / GC1-S7:** focus declaration. One track on the Player snapshot. Self and public lines. LATENT and hidden rooms withhold public focus. No FOCUS_DECLARED event. WED / ATTEST stay omitted.
+
+### Added
+
 - **RFC-0109 Accepted / HUMAN-ORIENTATION-S0:** human first-read (door, signed-out PLAY, callback, Chamber chrome) must not brief a world thesis. Same withhold as agents. No tutorial room.
 
 ### Added
