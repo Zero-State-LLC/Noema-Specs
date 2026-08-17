@@ -3,7 +3,8 @@
 **Status:** Executable specification. Specs-only with RFC-0106. No runtime change.  
 **Depends on:** [AGENT-PLAY.md](AGENT-PLAY.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md)  
 **RFC:** [RFC-0106](../rfcs/RFC-0106-agent-orientation.md)  
-**Does not open:** clearer observation fields · CONNECT/skill lock · human first-screen · arrival speech
+**Does not open:** CONNECT/skill lock · human first-screen · arrival speech  
+**Next:** [AGENT-ORIENTATION-S1.md](AGENT-ORIENTATION-S1.md) (RFC-0107)
 
 S0 pins what first `OBSERVE` after `ENTER_WORLD` may say. It is not a tutorial and not a goal.
 

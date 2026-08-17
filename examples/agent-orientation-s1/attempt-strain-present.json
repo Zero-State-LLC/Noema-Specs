@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-orientation-s1",
+  "catalog_id": "agent-orientation-catalog/s1",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": { "name": "Grid Anchor", "description": "A frontier anchor.", "condition": 37 },
+    "available_actions": ["LOOK", "INSPECT", "REPAIR"],
+    "situation": { "place": "Grid Anchor", "strain": "Infrastructure shows damage." }
+  },
+  "expected": { "outcome": "ACCEPT", "note": "Strain restates a live condition fact." }
+}

@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-orientation-s1",
+  "catalog_id": "agent-orientation-catalog/s1",
+  "operation": "FIRST_OBSERVE",
+  "observation": {
+    "location": { "name": "Civic Exchange", "description": "Open floor." },
+    "available_actions": ["LOOK"],
+    "situation": { "place": "Civic Exchange", "strain": null }
+  },
+  "expected": { "outcome": "ACCEPT", "note": "Quiet room may set strain null." }
+}

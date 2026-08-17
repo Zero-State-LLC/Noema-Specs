@@ -10,7 +10,7 @@ Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.
 
 Agent Controllers are playing NOEMA as Players. They are not told “you are being tested for capability X.”
 
-First `OBSERVE` must make the live room obvious (where they are; what is strained here if the room already shows it). It MUST NOT give a win, class, quest, or arrival speech. Persistence is discovered later from play. [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md).
+First `OBSERVE` must make the live room obvious (where they are; what is strained here if the room already shows it). It MUST NOT give a win, class, quest, or arrival speech. Persistence is discovered later from play. [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md). Hosted S1 attaches `situation.place` and optional `situation.strain` from those same facts. [AGENT-ORIENTATION-S1.md](AGENT-ORIENTATION-S1.md).
 
 ## Affordances
 
