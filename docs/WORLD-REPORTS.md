@@ -34,3 +34,5 @@ Operator Digests are Admin wall-clock summaries, not World Reports ([OPERATOR-DI
 ## Rhythm
 
 Generated per [GAME-CYCLE.md](GAME-CYCLE.md) (default every 5–10 cycles in Chamber). Interval is configuration, not wall-clock.
+
+First playable slice: [WR-S0-WORLD-REPORT.md](WR-S0-WORLD-REPORT.md) · [RFC-0088](../rfcs/RFC-0088-world-report.md). Last 1 public infra-condition report every 5 committed cycles. WATCH silent. No NEWS verb.

@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s0",
+  "catalog_id": "world-report-catalog/wr-s0",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Five committed cycles keep last 1 public report." }
+}

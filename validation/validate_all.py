@@ -4557,6 +4557,61 @@ def check_gc2_s23(Draft202012Validator) -> None:
     ok("GC2-S23 fifth co-owner: catalog, attempt fixtures, RFC-0087 Accepted")
 
 
+def evaluate_wr_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    interval = int(catalog.get("interval_cycles") or 5)
+    cycles = int(attempt.get("committed_cycles") or 0)
+    if attempt.get("room_hidden"):
+        return "ACCEPT", None, 0
+    if cycles < interval or cycles % interval != 0:
+        return "ACCEPT", None, 0
+    return "ACCEPT", None, 1
+
+
+def check_wr_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "world-report-catalog.wr-s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "world-report-catalog.wr-s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "world-report-attempt.wr-s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"WR-S0 catalog invalid: {errs[0].message}")
+    if (
+        catalog.get("help_news")
+        or catalog.get("watch_report")
+        or catalog.get("new_verbs")
+        or catalog.get("your_position")
+        or catalog.get("later_sections")
+    ):
+        fail("WR-S0 must not add help news, WATCH report, YOUR POSITION, later sections, or new verbs")
+    if catalog.get("interval_cycles") != 5 or catalog.get("retention") != 1:
+        fail("WR-S0 must keep last-1 report every 5 cycles")
+    rfc = (ROOT / "rfcs" / "RFC-0088-world-report.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0088 must be Accepted")
+    slice_doc = (ROOT / "docs" / "WR-S0-WORLD-REPORT.md").read_text(encoding="utf-8")
+    if "report_lines" not in slice_doc or "WATCH" not in slice_doc:
+        fail("WR-S0 must keep report_lines on PLAY and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-interval-ok.json",
+        "attempt-before-interval.json",
+        "attempt-hidden-omit.json",
+        "attempt-same-cycle.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "wr-s0-world-report" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, kept = evaluate_wr_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+    ok("WR-S0 public world report: catalog, attempt fixtures, RFC-0088 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -8169,6 +8224,7 @@ def main() -> None:
     check_gc2_s21(Draft202012Validator)
     check_gc2_s22(Draft202012Validator)
     check_gc2_s23(Draft202012Validator)
+    check_wr_s0(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)
