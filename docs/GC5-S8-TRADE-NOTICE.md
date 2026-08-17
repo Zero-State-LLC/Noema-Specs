@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0066.  
 **Parent:** [GC5-S7-CHANNEL.md](GC5-S7-CHANNEL.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0066](../rfcs/RFC-0066-trade-notice.md)  
-**Does not open:** MARKET/TRADE_NOTICE verbs · auto-TRADE · price oracle · help advertising · hidden stalls
+**Does not open:** MARKET/TRADE_NOTICE verbs · auto-TRADE · price oracle · help advertising · hidden stalls · cycle expiry  
+**Next:** cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 
 S8 adds one MESSAGE surface. A trade notice is heard in the public room. It is not a trade verb.
 
@@ -49,7 +50,7 @@ auto-open TRADE
 price oracle
 WATCH ticker
 Chamber help market
-cycle expiry
+cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 ```
 
 ---

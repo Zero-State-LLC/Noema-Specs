@@ -53,4 +53,4 @@ Ignore shout age (keep last 1 until overwritten).
 
 ## Unresolved
 
-Board cycle expiry is [RFC-0081](RFC-0081-board-expiry.md). Notice cycle expiry is [RFC-0082](RFC-0082-notice-expiry.md). Channel cycle expiry is [RFC-0083](RFC-0083-channel-expiry.md). Cycle expiry for TRADE_NOTICE.
+Board cycle expiry is [RFC-0081](RFC-0081-board-expiry.md). Notice cycle expiry is [RFC-0082](RFC-0082-notice-expiry.md). Channel cycle expiry is [RFC-0083](RFC-0083-channel-expiry.md). Trade-notice cycle expiry is [RFC-0084](RFC-0084-trade-notice-expiry.md).

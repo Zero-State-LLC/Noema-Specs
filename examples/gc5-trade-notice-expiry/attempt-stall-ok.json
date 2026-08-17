@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s13",
+  "catalog_id": "communication-catalog/gc5-s13",
+  "operation": "TRADE_NOTICE",
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Public trade notice still keeps last 1." }
+}

@@ -4,7 +4,7 @@
 **Parent:** [GC5-S7-CHANNEL.md](GC5-S7-CHANNEL.md) · [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0083](../rfcs/RFC-0083-channel-expiry.md)  
 **Does not open:** CHANNEL verb · TRADE_NOTICE expiry · MESSAGE_EXPIRED · help advertising · WATCH ticker · membership leak  
-**Next:** cycle expiry for TRADE_NOTICE
+**Next:** [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 
 S12 makes an org channel note take world-time. A member note is still last 1, then gone after one committed cycle.
 
@@ -46,7 +46,7 @@ S12 makes an org channel note take world-time. A member note is still last 1, th
 
 ```text
 CHANNEL verb
-TRADE_NOTICE expiry
+trade-notice cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 MESSAGE_EXPIRED
 Chamber help CHANNEL
 WATCH ticker

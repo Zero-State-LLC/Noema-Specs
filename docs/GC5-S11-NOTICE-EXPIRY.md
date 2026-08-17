@@ -45,7 +45,7 @@ S11 makes an institution notice take world-time. A public notice is still last 1
 ```text
 NOTICE verb
 channel cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
-TRADE_NOTICE expiry
+trade-notice cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 MESSAGE_EXPIRED
 Chamber help NOTICE
 WATCH ticker
