@@ -52,7 +52,7 @@ S20 lets the personal owner name one more Player on a public constructible. It i
 third co-owner is [GC2-S21-THIRD-CO-OWNER.md](GC2-S21-THIRD-CO-OWNER.md)
 fourth co-owner is [GC2-S22-FOURTH-CO-OWNER.md](GC2-S22-FOURTH-CO-OWNER.md)
 fifth co-owner is [GC2-S23-FIFTH-CO-OWNER.md](GC2-S23-FIFTH-CO-OWNER.md)
-sixth-and-later co-owners
+SHARE family closeout is [GC2-S24-SHARE-CLOSEOUT.md](GC2-S24-SHARE-CLOSEOUT.md)
 N-of-M roster
 share / vest mix
 STRUCTURE_*

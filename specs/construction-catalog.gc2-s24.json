@@ -1,0 +1,23 @@
+{
+  "schema_version": "construction-catalog/gc2-s24",
+  "catalog_id": "construction-catalog/gc2-s24",
+  "slice_id": "gc2-s24",
+  "authority": "docs/GC2-S24-SHARE-CLOSEOUT.md",
+  "rfc": "rfcs/RFC-0089-share-closeout.md",
+  "extends": "construction-catalog/gc2-s23",
+  "verb": "BUILD",
+  "operation": "SHARE",
+  "max_co_owners": 5,
+  "family_closed": true,
+  "sixth_stamp": false,
+  "roster": false,
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_share": false,
+  "institution_as_player": false,
+  "share_institution": false,
+  "hidden_share": false,
+  "cost_compute": 1
+}

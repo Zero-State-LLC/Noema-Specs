@@ -1,0 +1,6 @@
+{
+  "slice_id": "gc2-s24",
+  "catalog_id": "construction-catalog/gc2-s24",
+  "operation": "CLOSEOUT",
+  "expected": { "outcome": "ACCEPT", "co_owners": 5, "note": "SHARE family stays closed at five co-owners." }
+}

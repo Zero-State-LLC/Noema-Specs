@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0089 Accepted / GC2-S24:** SHARE family closed at five co-owners. No `co_owner_6_id`. N-of-M roster stays closed. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0088 Accepted / WR-S0:** last-1 public world report rebuilds every 5 committed cycles from live public infrastructure condition. PLAY `report_lines`. WATCH silent. No NEWS verb.
 
 ### Added
