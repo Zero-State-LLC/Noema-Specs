@@ -4,7 +4,7 @@
 **Parent:** [ACCESS-POLICY-S2.md](ACCESS-POLICY-S2.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md)  
 **RFC:** [RFC-0104](../rfcs/RFC-0104-access-policy-help.md)  
 **Does not open:** WED/ATTEST help · YOUR POSITION · event-catalog/0.3 · new modes  
-**Next:** WED / ATTEST help stay parked
+**Next:** ACCESS_POLICY S0–S3 is the hosted family. WED / ATTEST help stay parked. Do not invent S4.
 
 S3 lets Chamber PLAY name ACCESS. The operations are the ones already hosted in S0–S2.
 
