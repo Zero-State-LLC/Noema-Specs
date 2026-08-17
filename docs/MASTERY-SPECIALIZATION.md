@@ -319,16 +319,26 @@ self + public lines; LATENT/hidden withhold public
 no FOCUS_DECLARED event; no decay-window change
 ```
 
+### Closed for GC1-S8 ([GC1-S8-PARAMETER-ACCESS.md](GC1-S8-PARAMETER-ACCESS.md))
+
+```text
+REPAIR extent=overhaul
+recognized MAINTAINED Engineer only
+extra energy +1; extra condition +5; cap 100
+ordinary REPAIR unchanged
+no OVERHAUL verb; no class discount
+```
+
 ### Still open (later)
 
 ```text
 event types if recognition is ever ledgered
-parameter-access upgrades
 multi-focus cap 1–3
 decay-window credit for focus
+further parameters on BUILD / TRADE / INSPECT
 ```
 
-GC1-S0–S7 are specified (recognition through focus declaration). Remaining later items (parameter-access, multi-focus, decay credit) stay closed unless a new RFC opens them.
+GC1-S0–S8 are specified (recognition through first parameter-access). Remaining later items (multi-focus, decay credit, further parameters) stay closed unless a new RFC opens them.
 
 ---
 

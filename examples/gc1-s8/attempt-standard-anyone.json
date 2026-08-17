@@ -1,0 +1,15 @@
+{
+  "slice_id": "gc1-s8",
+  "catalog_id": "mastery-catalog/gc1-s8",
+  "operation": "REPAIR",
+  "extent": "standard",
+  "track": "explorer",
+  "recognized": false,
+  "energy": 2,
+  "expected": {
+    "outcome": "ACCEPT",
+    "extra_energy": 0,
+    "extra_condition": 0,
+    "note": "Ordinary REPAIR is unchanged."
+  }
+}

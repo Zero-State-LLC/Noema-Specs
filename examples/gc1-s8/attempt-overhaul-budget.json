@@ -1,0 +1,14 @@
+{
+  "slice_id": "gc1-s8",
+  "catalog_id": "mastery-catalog/gc1-s8",
+  "operation": "REPAIR",
+  "extent": "overhaul",
+  "track": "engineer",
+  "recognized": true,
+  "latent": false,
+  "energy": 0,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "BUDGET"
+  }
+}
