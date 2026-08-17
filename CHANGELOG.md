@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0104 Accepted / ACCESS_POLICY S3:** Chamber `help` names ACCESS; `help access` lists deny/clear/allow. WED / ATTEST / schema name ACCESS_POLICY stay omitted.
+
+### Added
+
 - **RFC-0103 Accepted / ACCESS_POLICY S2:** ALLOW_ONLY on existing `COMMIT.ACCESS_POLICY`. Named list required. DENY still wins. Help still omits ACCESS_POLICY.
 
 ### Added

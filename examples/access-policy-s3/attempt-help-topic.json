@@ -1,0 +1,7 @@
+{
+  "slice_id": "access-policy-s3",
+  "catalog_id": "access-policy-catalog/s3",
+  "operation": "HELP_ACCESS",
+  "topic": "access",
+  "expected": { "outcome": "ACCEPT", "listed": true, "schema_name": false }
+}

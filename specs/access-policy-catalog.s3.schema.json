@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/access-policy-catalog.s3.schema.json",
+  "title": "NOEMA ACCESS_POLICY Catalog (S3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "verb",
+    "help_access",
+    "help_access_policy",
+    "help_wed",
+    "help_attest",
+    "new_verbs",
+    "watch_ticker"
+  ],
+  "properties": {
+    "schema_version": { "const": "access-policy-catalog/s3" },
+    "catalog_id": { "const": "access-policy-catalog/s3" },
+    "slice_id": { "const": "access-policy-s3" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "verb": { "const": "ACCESS_POLICY" },
+    "scopes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "enum": ["EXIT", "ROOM"] }
+    },
+    "modes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "enum": ["DENY", "CLEAR", "ALLOW_ONLY"] }
+    },
+    "authority_profile": { "const": "GRANT_ACCESS" },
+    "acting_for_required": { "const": true },
+    "allow_only_requires_named_list": { "const": true },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "help_access": { "const": true },
+    "help_access_policy": { "const": false },
+    "help_wed": { "const": false },
+    "help_attest": { "const": false },
+    "watch_ticker": { "const": false },
+    "default_duration_cycles": { "type": "integer", "minimum": 1, "maximum": 8 }
+  }
+}
