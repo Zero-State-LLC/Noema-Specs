@@ -1,0 +1,17 @@
+{
+  "schema_version": "diplomacy-catalog/s1",
+  "catalog_id": "diplomacy-catalog/s1",
+  "slice_id": "diplomacy-s1",
+  "authority": "docs/DIPLOMACY-S1.md",
+  "rfc": "rfcs/RFC-0098-diplomacy-terminate.md",
+  "event_catalog": "event-catalog/0.2",
+  "extends": "diplomacy-catalog/s0",
+  "verb": "AGREEMENT_TERMINATE",
+  "agreement_types": ["TRADE"],
+  "new_verbs": [],
+  "new_events": [],
+  "help_agreement": false,
+  "help_terminate": false,
+  "terminate": true,
+  "watch_ticker": false
+}

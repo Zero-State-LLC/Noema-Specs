@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0098 Accepted / Diplomacy S1:** hosted `COMMIT.AGREEMENT_TERMINATE`. A party ends an ACTIVE TRADE agreement with `AGREEMENT_BROKEN`. Help still omits AGREEMENT. No new types.
+
+### Added
+
 - **RFC-0097 Accepted / Diplomacy S0:** hosted `COMMIT.AGREEMENT_FORM` for TRADE only. Offer then accept. `AGREEMENT_FORMED` on accept. Help still omits AGREEMENT. No terminate. Other types stay `FORM_FORBIDDEN`.
 
 ### Added

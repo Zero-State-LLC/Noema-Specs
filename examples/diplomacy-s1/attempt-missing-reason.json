@@ -1,0 +1,9 @@
+{
+  "slice_id": "diplomacy-s1",
+  "catalog_id": "diplomacy-catalog/s1",
+  "operation": "AGREEMENT_TERMINATE",
+  "has_reason": false,
+  "is_party": true,
+  "status": "ACTIVE",
+  "expected": { "outcome": "REJECT", "reason": "INVALID_REQUEST", "note": "Terminate requires a catalog reason." }
+}

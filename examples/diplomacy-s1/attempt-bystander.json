@@ -1,0 +1,9 @@
+{
+  "slice_id": "diplomacy-s1",
+  "catalog_id": "diplomacy-catalog/s1",
+  "operation": "AGREEMENT_TERMINATE",
+  "has_reason": true,
+  "is_party": false,
+  "status": "ACTIVE",
+  "expected": { "outcome": "REJECT", "reason": "FORBIDDEN", "note": "A bystander cannot break the contract." }
+}

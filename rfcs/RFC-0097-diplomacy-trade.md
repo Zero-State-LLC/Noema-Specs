@@ -56,4 +56,4 @@ Return `NOT_IMPLEMENTED` for `form agreement` again.
 
 ## Unresolved
 
-TERMINATE. Other types. AGREEMENT help. Diplomacy report lines.
+Terminate is [RFC-0098](RFC-0098-diplomacy-terminate.md). Other types. AGREEMENT help. Diplomacy report lines.

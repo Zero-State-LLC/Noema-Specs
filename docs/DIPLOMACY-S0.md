@@ -4,7 +4,7 @@
 **Parent:** [DIPLOMACY.md](DIPLOMACY.md) · [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md)  
 **RFC:** [RFC-0097](../rfcs/RFC-0097-diplomacy-trade.md)  
 **Does not open:** AGREEMENT_TERMINATE · other types · AGREEMENT help · WED/ATTEST help · diplomacy report · event-catalog/0.3  
-**Next:** AGREEMENT_TERMINATE or remaining types
+**Next:** [DIPLOMACY-S1.md](DIPLOMACY-S1.md)
 
 S0 hosts the existing `COMMIT.AGREEMENT_FORM` verb for **TRADE** only.
 
