@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "play",
+  "viewer": "other",
+  "handle": "nacre",
+  "track": "explorer",
+  "recognized": true,
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "ACCEPT",
+    "line": "nacre knows these rooms.",
+    "note": "Explorer public line is third-person knows, not is known for."
+  }
+}

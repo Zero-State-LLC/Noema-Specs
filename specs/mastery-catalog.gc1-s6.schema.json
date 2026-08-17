@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/mastery-catalog.gc1-s6.schema.json",
+  "title": "NOEMA Mastery Catalog (GC1-S6)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_events",
+    "watch_titles",
+    "class_discount",
+    "latent_public",
+    "hidden_room_titles",
+    "public_title_cap",
+    "practice_counts_public",
+    "self_practice_unchanged",
+    "public_lines"
+  ],
+  "properties": {
+    "schema_version": { "const": "mastery-catalog/gc1-s6" },
+    "catalog_id": { "const": "mastery-catalog/gc1-s6" },
+    "slice_id": { "const": "gc1-s6" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "mastery-catalog/gc1-s5" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "watch_titles": { "const": true },
+    "class_discount": { "const": false },
+    "latent_public": { "const": false },
+    "hidden_room_titles": { "const": false },
+    "public_title_cap": { "const": 1 },
+    "practice_counts_public": { "const": false },
+    "self_practice_unchanged": { "const": true },
+    "public_lines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["explorer", "surveyor", "broker", "engineer"],
+      "properties": {
+        "explorer": { "const": "{handle} knows these rooms." },
+        "surveyor": { "const": "{handle} is known for survey work." },
+        "broker": { "const": "{handle} is known for closing exchanges." },
+        "engineer": { "const": "{handle} is known for keeping infrastructure alive." }
+      }
+    }
+  }
+}

@@ -302,16 +302,24 @@ LATENT still sits; no evict
 no WATCH titles; no class discounts
 ```
 
+### Closed for GC1-S6 ([GC1-S6-PUBLIC-TITLES.md](GC1-S6-PUBLIC-TITLES.md))
+
+```text
+other Players in a public room see one third-person title
+WATCH sees the same public line
+LATENT withholds; hidden rooms withhold
+cap 1; no new events; self practice_lines unchanged
+```
+
 ### Still open (later)
 
 ```text
 focus as ledgered declaration (if ever)
 event types if recognition is ever ledgered
-WATCH / public titles
 parameter-access upgrades
 ```
 
-GC1-S0–S5 are shipped (recognition, Engineer quality, decay, prior-work, office eligibility). Remaining later items (focus-as-ledger, WATCH titles, parameter-access) stay closed unless a new RFC opens them.
+GC1-S0–S6 are specified (recognition, Engineer quality, decay, prior-work, office eligibility, public titles). Remaining later items (focus-as-ledger, parameter-access) stay closed unless a new RFC opens them.
 
 ---
 

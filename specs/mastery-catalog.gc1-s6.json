@@ -1,0 +1,23 @@
+{
+  "schema_version": "mastery-catalog/gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "slice_id": "gc1-s6",
+  "authority": "docs/GC1-S6-PUBLIC-TITLES.md",
+  "rfc": "rfcs/RFC-0105-public-titles.md",
+  "extends": "mastery-catalog/gc1-s5",
+  "new_verbs": [],
+  "new_events": [],
+  "watch_titles": true,
+  "class_discount": false,
+  "latent_public": false,
+  "hidden_room_titles": false,
+  "public_title_cap": 1,
+  "practice_counts_public": false,
+  "self_practice_unchanged": true,
+  "public_lines": {
+    "explorer": "{handle} knows these rooms.",
+    "surveyor": "{handle} is known for survey work.",
+    "broker": "{handle} is known for closing exchanges.",
+    "engineer": "{handle} is known for keeping infrastructure alive."
+  }
+}

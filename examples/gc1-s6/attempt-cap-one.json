@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "play",
+  "viewer": "other",
+  "handle": "sable",
+  "tracks": ["explorer", "surveyor"],
+  "recognized_tracks": ["explorer", "surveyor"],
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "ACCEPT",
+    "line": "sable knows these rooms.",
+    "note": "Cap 1. Prefer explorer display order over surveyor."
+  }
+}

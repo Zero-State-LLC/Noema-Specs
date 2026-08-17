@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "play",
+  "viewer": "other",
+  "handle": "sable",
+  "track": "surveyor",
+  "recognized": true,
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "ACCEPT",
+    "line": "sable is known for survey work.",
+    "note": "Recognized Surveyor yields one third-person public line."
+  }
+}

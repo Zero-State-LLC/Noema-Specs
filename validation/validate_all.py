@@ -3107,6 +3107,92 @@ def check_gc1_s5(Draft202012Validator) -> None:
     ok("GC1-S5 office eligibility: catalog, attempt fixtures, RFC-0055 Accepted")
 
 
+TRACK_DISPLAY_ORDER = ("explorer", "surveyor", "broker", "engineer")
+
+
+def evaluate_gc1_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]:
+    if attempt.get("hidden_room"):
+        return "REJECT", "HIDDEN_ROOM", None
+    if attempt.get("viewer") == "self":
+        return "REJECT", "SELF_ONLY", None
+    source = list(attempt.get("tracks") or ([attempt["track"]] if attempt.get("track") else []))
+    recognized: set[str] = set(attempt.get("recognized_tracks") or [])
+    if attempt.get("recognized") and attempt.get("track"):
+        recognized.add(attempt["track"])
+    latent: set[str] = set(attempt.get("latent_tracks") or [])
+    if attempt.get("latent") and attempt.get("track"):
+        latent.add(attempt["track"])
+    picked = None
+    for track in TRACK_DISPLAY_ORDER:
+        if track not in source:
+            continue
+        if track not in recognized:
+            continue
+        if track in latent:
+            continue
+        picked = track
+        break
+    if not picked:
+        if recognized and recognized <= latent:
+            return "REJECT", "LATENT", None
+        if any(t in latent for t in source if t in recognized):
+            return "REJECT", "LATENT", None
+        return "REJECT", "UNRECOGNIZED", None
+    lines = catalog.get("public_lines") or {}
+    template = lines.get(picked)
+    if not isinstance(template, str):
+        return "REJECT", "UNRECOGNIZED", None
+    handle = attempt.get("handle") or "sable"
+    return "ACCEPT", None, template.replace("{handle}", handle)
+
+
+def check_gc1_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s6.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s6.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S6 catalog invalid: {errs[0].message}")
+    if not catalog.get("watch_titles"):
+        fail("GC1-S6 must enable watch_titles")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("class_discount"):
+        fail("GC1-S6 must not add verbs, events, or class discounts")
+    if catalog.get("latent_public") or catalog.get("hidden_room_titles") or catalog.get("practice_counts_public"):
+        fail("GC1-S6 must withhold LATENT, hidden-room, and practice-count titles")
+    if catalog.get("public_title_cap") != 1 or not catalog.get("self_practice_unchanged"):
+        fail("GC1-S6 must cap public titles at 1 and leave self practice unchanged")
+    rfc = (ROOT / "rfcs" / "RFC-0105-public-titles.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0105 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC1-S6-PUBLIC-TITLES.md").read_text(encoding="utf-8")
+    if "LATENT" not in slice_doc or "Hidden rooms" not in slice_doc or "Cap" not in slice_doc:
+        fail("GC1-S6 must pin LATENT withhold, hidden rooms, and cap 1")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-surveyor-public.json",
+        "attempt-latent-withheld.json",
+        "attempt-hidden-room.json",
+        "attempt-unrecognized.json",
+        "attempt-explorer-public.json",
+        "attempt-watch-same.json",
+        "attempt-cap-one.json",
+        "attempt-self-unchanged.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s6" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, line = evaluate_gc1_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("line") and line != exp["line"]:
+            fail(f"{name}: line {line} expected {exp['line']}")
+    ok("GC1-S6 public titles: catalog, attempt fixtures, RFC-0105 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -8979,6 +9065,7 @@ def main() -> None:
     check_gc1_s3(Draft202012Validator)
     check_gc1_s4(Draft202012Validator)
     check_gc1_s5(Draft202012Validator)
+    check_gc1_s6(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)

@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "watch",
+  "viewer": "watch",
+  "handle": "sable",
+  "track": "surveyor",
+  "recognized": true,
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "ACCEPT",
+    "line": "sable is known for survey work.",
+    "note": "WATCH uses the same public line as PLAY."
+  }
+}

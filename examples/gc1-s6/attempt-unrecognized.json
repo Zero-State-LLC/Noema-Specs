@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s6",
+  "catalog_id": "mastery-catalog/gc1-s6",
+  "operation": "PUBLIC_TITLE",
+  "surface": "play",
+  "viewer": "other",
+  "handle": "sable",
+  "track": "surveyor",
+  "recognized": false,
+  "latent": false,
+  "hidden_room": false,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "UNRECOGNIZED",
+    "note": "Practicing-only work is not a public title."
+  }
+}
