@@ -4,7 +4,7 @@
 **Parent:** [WR-S1-ORG-REPORT.md](WR-S1-ORG-REPORT.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0092](../rfcs/RFC-0092-contest-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · CONTEST help · YOUR POSITION · crime/access  
-**Next:** diplomacy / crime / access report sections
+**Next:** [WR-S3-ACCESS-REPORT.md](WR-S3-ACCESS-REPORT.md)
 
 S2 adds public open contests to the existing 5-cycle report.
 

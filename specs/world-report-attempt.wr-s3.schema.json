@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/world-report-attempt.wr-s3.schema.json",
+  "title": "NOEMA WR-S3 access-report attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "wr-s3" },
+    "catalog_id": { "const": "world-report-catalog/wr-s3" },
+    "operation": { "enum": ["REPORT"] },
+    "committed_cycles": { "type": "integer", "minimum": 0 },
+    "restriction_live_public": { "type": "boolean" },
+    "restriction_hidden": { "type": "boolean" },
+    "restriction_expired": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "kept": { "type": "integer" },
+        "access_lines": { "type": "integer" },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

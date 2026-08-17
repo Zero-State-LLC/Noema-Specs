@@ -4807,6 +4807,48 @@ def check_wr_s2(Draft202012Validator) -> None:
     ok("WR-S2 public contest report: catalog, attempt fixtures, RFC-0092 Accepted")
 
 
+def evaluate_wr_s3(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]:
+    interval = int(catalog.get("interval_cycles") or 5)
+    cycles = int(attempt.get("committed_cycles") or 0)
+    if cycles < interval or cycles % interval != 0:
+        return "ACCEPT", 0, 0
+    access_lines = 1 if attempt.get("restriction_live_public") else 0
+    return "ACCEPT", 1, access_lines
+
+
+def check_wr_s3(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "world-report-catalog.wr-s3.json")
+    catalog_schema = load_json(ROOT / "specs" / "world-report-catalog.wr-s3.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "world-report-attempt.wr-s3.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"WR-S3 catalog invalid: {errs[0].message}")
+    if catalog.get("help_news") or catalog.get("help_access_policy") or catalog.get("watch_report") or catalog.get("new_verbs"):
+        fail("WR-S3 must not add help news, ACCESS_POLICY, WATCH report, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0093-access-report.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0093 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-access-ok.json",
+        "attempt-hidden-omit.json",
+        "attempt-expired-omit.json",
+        "attempt-before-interval.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "wr-s3-access-report" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, kept, access_lines = evaluate_wr_s3(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+        if exp.get("access_lines") is not None and access_lines != exp["access_lines"]:
+            fail(f"{name}: access_lines {access_lines} expected {exp['access_lines']}")
+    ok("WR-S3 public access report: catalog, attempt fixtures, RFC-0093 Accepted")
+
 
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
@@ -8425,6 +8467,7 @@ def main() -> None:
     check_gc2_thaw_play(Draft202012Validator)
     check_wr_s1(Draft202012Validator)
     check_wr_s2(Draft202012Validator)
+    check_wr_s3(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

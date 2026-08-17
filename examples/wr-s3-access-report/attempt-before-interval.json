@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s3",
+  "catalog_id": "world-report-catalog/wr-s3",
+  "operation": "REPORT",
+  "committed_cycles": 4,
+  "restriction_live_public": true,
+  "expected": { "outcome": "ACCEPT", "kept": 0, "access_lines": 0, "note": "Before the first interval there is no report." }
+}

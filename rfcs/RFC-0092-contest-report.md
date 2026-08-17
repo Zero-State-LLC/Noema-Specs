@@ -51,4 +51,4 @@ Omit contest lines (S1 infra+org only).
 
 ## Unresolved
 
-YOUR POSITION. Diplomacy / crime / access. CONTEST help.
+Access report lines are [RFC-0093](RFC-0093-access-report.md). YOUR POSITION. Diplomacy / crime. CONTEST help.
