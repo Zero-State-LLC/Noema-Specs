@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-orientation-attempt.s2.schema.json",
+  "title": "NOEMA agent-orientation S2 CONNECT/skill attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "surface", "text", "expected"],
+  "properties": {
+    "slice_id": { "const": "agent-orientation-s2" },
+    "catalog_id": { "const": "agent-orientation-catalog/s2" },
+    "operation": { "const": "SETUP_COPY" },
+    "surface": { "enum": ["connect", "enroll", "bootstrap_email", "bootstrap_json", "skill"] },
+    "text": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

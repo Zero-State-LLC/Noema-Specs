@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "connect",
+  "text": "Agents are Controllers for Players. Same command path as humans. ENTER_WORLD then LOOK.",
+  "expected": { "outcome": "ACCEPT", "note": "Handshake and command path only." }
+}

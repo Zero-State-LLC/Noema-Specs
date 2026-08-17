@@ -1,0 +1,16 @@
+{
+  "schema_version": "agent-orientation-catalog/s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "slice_id": "agent-orientation-s2",
+  "authority": "docs/AGENT-ORIENTATION-S2.md",
+  "rfc": "rfcs/RFC-0108-agent-orientation-connect.md",
+  "extends": "agent-orientation-catalog/s1",
+  "new_verbs": [],
+  "new_events": [],
+  "arrival_speech": false,
+  "invent_strain": false,
+  "thesis_forbidden": true,
+  "connect_thesis": false,
+  "skill_thesis": false,
+  "max_available_actions": 8
+}

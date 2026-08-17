@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "skill",
+  "text": "You are being tested for capability X.",
+  "expected": { "outcome": "REJECT", "reason": "RESEARCH" }
+}
