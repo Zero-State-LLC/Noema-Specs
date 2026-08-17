@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Player brand closeout:** Slices 0–9 are implemented on `Zero-State-LLC/Noema` Worker HTML. Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. Historical gates `SPEC_COMPLETE` and `IMPLEMENTATION_READY` retained. Next brand slice is none. `docs/PLAYER-BRAND-IMPLEMENTATION.md`, `docs/ROADMAP.md`, `docs/PLAYER-BRAND.md`.
+
+### Added
+
 - **RFC-0104 Accepted / ACCESS_POLICY S3:** Chamber `help` names ACCESS; `help access` lists deny/clear/allow. WED / ATTEST / schema name ACCESS_POLICY stay omitted.
 
 ### Added

@@ -26,11 +26,11 @@ S1 slices remain SPEC GAP until each has an Accepted RFC, fixtures, and an expli
 crypto / wallets / x402
 v0.8 Phenomena
 production Genesis activate / force-supersede / reseed
-Chamber help advertising BUILD / CONTEST / WED / ATTEST
+Chamber help advertising WED / ATTEST
 ```
 
 GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). GC1-S4 prior-work Explorer/Surveyor/Broker benefits are [RFC-0044](../rfcs/RFC-0044-prior-work-benefits.md). GC1-S5 office eligibility is [RFC-0055](../rfcs/RFC-0055-office-eligibility.md). Remaining GC1 (focus, public titles) stays later.
 
 ## Runtime rule
 
-Ranks 1–8 plus GC5-S2 are hosted. GC1-S2 / GC1-S3 are specified (S3 hosted with RFC-0043). GC3-S2–S6 (RFC-0034–0038) are specified. Help still omits ATTEST / BUILD / CONTEST / WED.
+Ranks 1–8 plus GC5-S2 are hosted. GC1-S2 / GC1-S3 are specified (S3 hosted with RFC-0043). GC3-S2–S6 (RFC-0034–0038) are specified. ACCESS_POLICY S0–S3 is hosted (RFC-0101–0104). Chamber help names BUILD, CONTEST, AGREEMENT, and ACCESS. WED / ATTEST stay omitted.

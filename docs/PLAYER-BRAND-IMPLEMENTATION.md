@@ -5,8 +5,8 @@
 **Kind:** presentation implementation plan.  
 **Not** a protocol, schema, Genesis, world-rule, or frontend rewrite. No RFC. **Do not implement the redesign in the same change as this document.**
 
-**Runtime pin (audit):** `Zero-State-LLC/Noema` `origin/main` @ `2b5e8d2` (Diplomacy S2). Hosted surface: `workers/noema`.  
-**Specs pin:** this tree, including `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`.
+**Runtime pin (closeout):** `Zero-State-LLC/Noema` `origin/main` @ `c5a9bc0` (ACCESS_POLICY S3; brand Slices 0–9 already on main). Hosted surface: `workers/noema` at `https://noema.guru`.  
+**Specs pin:** this tree, including `NOEMA_PLAYER_BRAND_SPEC_COMPLETE` and `NOEMA_PLAYER_BRAND_IMPLEMENTED`.
 
 Does not replace [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [PLAY.md](PLAY.md), [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md), or [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Those remain product contracts. This document says **how the existing Worker HTML will migrate**.
 
@@ -17,11 +17,13 @@ Related: [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) · [PLAYER-ONBOA
 ## Status
 
 ```text
-NOEMA_PLAYER_BRAND_SPEC_COMPLETE
-NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY
+SPECIFIED     NOEMA_PLAYER_BRAND_SPEC_COMPLETE
+READY         NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY
+IMPLEMENTED   NOEMA_PLAYER_BRAND_IMPLEMENTED
+VERIFIED      brand-visual-qa + brand-baseline + live /play tokens (hosted)
 ```
 
-Frontend visual-identity **coding** starts at Slice 0, after this plan is accepted. Slice 0 does not change pixels. Slice 1 is the first visual change.
+Historical: coding started at Slice 0 after this plan was accepted. Slices 0–9 are shipped on the Worker. This document remains the migration map. Do not reopen the redesign.
 
 ---
 
@@ -506,7 +508,7 @@ Paths relative to `workers/noema/`.
 
 ## 15. Implementation slices
 
-Each slice is one PR-sized runtime change. Specs already frozen.
+Each slice was one PR-sized runtime change. **All slices below are SHIPPED** on `Zero-State-LLC/Noema` (PRs #221–#230). Specs remain the contract; do not re-run the campaign.
 
 ### Slice 0 — Baseline capture
 
@@ -666,14 +668,15 @@ Frontend may show **raw existing lines** (`relay-7 condition 83.`, `{form} is co
 
 ```text
 NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY
+NOEMA_PLAYER_BRAND_IMPLEMENTED
 ```
 
-Smallest unblock if this were blocked: none for planning. Smallest process unblock for coding Slice 1: merge the brand spec PR so `origin/main` specs match this plan.
+Campaign closed. Hosted PLAY/WATCH/Admin on `noema.guru` serve the Slice 0–9 contracts. Phosphor pixel-art copper remap remains **DEFERRED** (not a brand-campaign reopen).
 
 ### Next executable slice
 
 ```text
-SLICE 0 — Baseline capture
+none — player brand
 ```
 
-No visual redesign in that slice. After it, Slice 1 (tokens + `toPlayerView`) is the first pixel change.
+Gameplay continues from ACCESS_POLICY S3 (RFC-0104). WED / ATTEST help stay parked. Do not invent ACCESS_POLICY S4.

@@ -15,9 +15,10 @@ Related: [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXP
 
 ```text
 NOEMA_PLAYER_BRAND_SPEC_COMPLETE
+NOEMA_PLAYER_BRAND_IMPLEMENTED
 ```
 
-Runtime and frontend implementation of the player visual identity MUST NOT begin until this gate is `COMPLETE`. This document, [VISUAL-DESIGN.md](VISUAL-DESIGN.md), and the dual-layer mapping in [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) close the gate.
+`SPEC_COMPLETE` authorized implementation. Slices 0–9 are on `Zero-State-LLC/Noema` Worker HTML (see [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md)). This document, [VISUAL-DESIGN.md](VISUAL-DESIGN.md), and the dual-layer mapping in [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) remain the presentation contract. Do not start another visual-identity campaign unless a defect is filed.
 
 This specification does **not** thaw first-world mechanics ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)). It closes an **IMPLEMENTATION AMBIGUITY** and a **PROVEN PLAYER-USABILITY DEFECT**: the public product still reads as a research apparatus with a game attached. Action taxonomy, world rules, Genesis, claim labels, and human/agent Player parity remain frozen.
 
@@ -374,9 +375,10 @@ These systems are **substructure**. The game-facing layer and scientific layer M
 
 ```text
 NOEMA_PLAYER_BRAND_SPEC_COMPLETE
+NOEMA_PLAYER_BRAND_IMPLEMENTED
 ```
 
-Frontend implementation of the new visual identity MUST NOT begin until all of the following are specified. Status as of this document:
+The specification gate below authorized implementation. Slices 0–9 are hosted. Do not begin another visual-identity campaign until a defect is filed. Status of the original specification requirements:
 
 | Required | Authority | Status |
 |---|---|---|
