@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0093 Accepted / WR-S3:** public world report also lists live public access restrictions (`{room} {dir} is restricted.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb.
+
+### Added
+
 - **RFC-0092 Accepted / WR-S2:** public world report also lists OPEN contests in public rooms (`{form} is contested.`). Same 5-cycle last-1 rebuild. WATCH silent. Help still omits CONTEST.
 
 ### Added

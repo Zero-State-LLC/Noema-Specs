@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s3",
+  "catalog_id": "world-report-catalog/wr-s3",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "restriction_expired": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "access_lines": 0, "note": "Expired restriction is omitted." }
+}
