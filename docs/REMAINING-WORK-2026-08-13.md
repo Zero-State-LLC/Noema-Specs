@@ -3,7 +3,8 @@
 **Status:** Analysis snapshot after S0 closeout. Not a thaw. Not a release.  
 **Authority:** [GC-S0-CLOSEOUT-2026-08-13.md](GC-S0-CLOSEOUT-2026-08-13.md) · [GC-S1-ORDER.md](GC-S1-ORDER.md)  
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
-**Does not open:** Genesis reseed, crypto, SERIALIZABLE cycle fence, GC1-S2 benefits, Chamber help for BUILD / CONTEST / WED / ATTEST.
+**Supersede (2026-08-17):** live `/ready` is still that genesis, seq **94**, HEALTHY. GC1-S2–S5, GC2 through S24, comms expiry, WR-S0, and first-world BUILD help (RFC-0090) shipped after this snapshot. Do not treat the SQL/bootstrap “blocked” lines below as current.  
+**Does not open:** Genesis reseed, crypto, CONTEST / WED / ATTEST help.
 
 Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Hosted SQL/RPC apply and isolated-world verification remain open. Perihelion canonical bootstrap remains blocked. GC1-S2 remains DEFERRED.
 

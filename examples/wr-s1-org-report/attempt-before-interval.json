@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s1",
+  "catalog_id": "world-report-catalog/wr-s1",
+  "operation": "REPORT",
+  "committed_cycles": 4,
+  "org_active": true,
+  "expected": { "outcome": "ACCEPT", "kept": 0, "org_lines": 0, "note": "Before the first interval there is no report." }
+}

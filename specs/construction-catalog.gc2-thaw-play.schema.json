@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/construction-catalog.gc2-thaw-play.schema.json",
+  "title": "NOEMA Construction Catalog (GC2 PLAY thaw)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "help_build",
+    "help_contest",
+    "help_wed",
+    "help_attest",
+    "watch_build"
+  ],
+  "properties": {
+    "schema_version": { "const": "construction-catalog/gc2-thaw-play" },
+    "catalog_id": { "const": "construction-catalog/gc2-thaw-play" },
+    "slice_id": { "const": "gc2-thaw-play" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "extends": { "const": "construction-catalog/gc2-s24" },
+    "verb": { "const": "BUILD" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "help_build": { "const": true },
+    "help_contest": { "const": false },
+    "help_wed": { "const": false },
+    "help_attest": { "const": false },
+    "watch_build": { "const": false }
+  }
+}

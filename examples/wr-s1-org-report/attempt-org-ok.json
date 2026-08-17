@@ -1,0 +1,9 @@
+{
+  "slice_id": "wr-s1",
+  "catalog_id": "world-report-catalog/wr-s1",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "org_active": true,
+  "room_hidden": false,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "org_lines": 1, "note": "Active org appears with infra after five cycles." }
+}

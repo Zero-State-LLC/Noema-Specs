@@ -1,0 +1,17 @@
+{
+  "schema_version": "world-report-catalog/wr-s1",
+  "catalog_id": "world-report-catalog/wr-s1",
+  "slice_id": "wr-s1",
+  "authority": "docs/WR-S1-ORG-REPORT.md",
+  "rfc": "rfcs/RFC-0091-org-report.md",
+  "extends": "world-report-catalog/wr-s0",
+  "new_verbs": [],
+  "new_events": [],
+  "interval_cycles": 5,
+  "retention": 1,
+  "source": "public_live_infrastructure_and_active_orgs",
+  "help_news": false,
+  "watch_report": false,
+  "your_position": false,
+  "later_sections": false
+}
