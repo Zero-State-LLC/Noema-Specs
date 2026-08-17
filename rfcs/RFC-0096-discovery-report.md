@@ -55,4 +55,4 @@ Omit discovery lines (S4 infra+org+contest+access+crime only).
 
 ## Unresolved
 
-YOUR POSITION. Diplomacy. WED / ATTEST help.
+Diplomacy S0 is [RFC-0097](RFC-0097-diplomacy-trade.md). YOUR POSITION. WED / ATTEST help.

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/diplomacy-catalog.s0.schema.json",
+  "title": "NOEMA Diplomacy Catalog (S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "verb",
+    "agreement_types",
+    "new_verbs",
+    "help_agreement",
+    "help_terminate",
+    "terminate",
+    "watch_ticker"
+  ],
+  "properties": {
+    "schema_version": { "const": "diplomacy-catalog/s0" },
+    "catalog_id": { "const": "diplomacy-catalog/s0" },
+    "slice_id": { "const": "diplomacy-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "verb": { "const": "AGREEMENT_FORM" },
+    "agreement_types": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": { "const": "TRADE" }
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "help_agreement": { "const": false },
+    "help_terminate": { "const": false },
+    "terminate": { "const": false },
+    "watch_ticker": { "const": false }
+  }
+}

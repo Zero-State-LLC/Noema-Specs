@@ -1,0 +1,8 @@
+{
+  "slice_id": "diplomacy-s0",
+  "catalog_id": "diplomacy-catalog/s0",
+  "operation": "AGREEMENT_FORM",
+  "agreement_type": "NON_AGGRESSION",
+  "party_count": 2,
+  "expected": { "outcome": "REJECT", "reason": "FORM_FORBIDDEN", "note": "Non-TRADE types stay closed." }
+}

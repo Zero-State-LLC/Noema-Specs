@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0097 Accepted / Diplomacy S0:** hosted `COMMIT.AGREEMENT_FORM` for TRADE only. Offer then accept. `AGREEMENT_FORMED` on accept. Help still omits AGREEMENT. No terminate. Other types stay `FORM_FORBIDDEN`.
+
+### Added
+
 - **RFC-0096 Accepted / WR-S5:** public world report also lists public recorded reconstructions (`{label} is reconstructed.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No claim or author.
 
 ### Added
