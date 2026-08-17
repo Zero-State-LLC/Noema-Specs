@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/human-orientation-attempt.s0.schema.json",
+  "title": "NOEMA human-orientation S0 first-read attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "surface", "text", "expected"],
+  "properties": {
+    "slice_id": { "const": "human-orientation-s0" },
+    "catalog_id": { "const": "human-orientation-catalog/s0" },
+    "operation": { "const": "FIRST_READ" },
+    "surface": { "enum": ["door", "play_signed_out", "play_callback", "chamber_chrome"] },
+    "text": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

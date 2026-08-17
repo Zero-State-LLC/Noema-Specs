@@ -1,0 +1,14 @@
+{
+  "schema_version": "human-orientation-catalog/s0",
+  "catalog_id": "human-orientation-catalog/s0",
+  "slice_id": "human-orientation-s0",
+  "authority": "docs/HUMAN-ORIENTATION-S0.md",
+  "rfc": "rfcs/RFC-0109-human-orientation.md",
+  "new_verbs": [],
+  "new_events": [],
+  "arrival_speech": false,
+  "invent_strain": false,
+  "thesis_forbidden": true,
+  "tutorial_room": false,
+  "class_picker": false
+}

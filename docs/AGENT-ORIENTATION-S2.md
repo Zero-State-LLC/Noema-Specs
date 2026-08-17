@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0108.  
 **Depends on:** [AGENT-ORIENTATION-S1.md](AGENT-ORIENTATION-S1.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [RFC-0033](../rfcs/RFC-0033-agent-bootstrap-and-game-profile.md)  
 **RFC:** [RFC-0108](../rfcs/RFC-0108-agent-orientation-connect.md)  
-**Does not open:** human first-screen withhold · arrival speech · invented strain · new verbs
+**Does not open:** arrival speech · invented strain · new verbs  
+**Next:** [HUMAN-ORIENTATION-S0.md](HUMAN-ORIENTATION-S0.md) (RFC-0109)
 
 S2 pins the **setup path**. CONNECT, bootstrap email, bootstrap JSON, and an optional skill MUST NOT brief a world thesis. Orientation stays first `OBSERVE`.
 

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/human-orientation-catalog.s0.schema.json",
+  "title": "NOEMA Human Orientation Catalog (S0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "new_verbs",
+    "new_events",
+    "arrival_speech",
+    "invent_strain",
+    "thesis_forbidden",
+    "tutorial_room",
+    "class_picker"
+  ],
+  "properties": {
+    "schema_version": { "const": "human-orientation-catalog/s0" },
+    "catalog_id": { "const": "human-orientation-catalog/s0" },
+    "slice_id": { "const": "human-orientation-s0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "arrival_speech": { "const": false },
+    "invent_strain": { "const": false },
+    "thesis_forbidden": { "const": true },
+    "tutorial_room": { "const": false },
+    "class_picker": { "const": false }
+  }
+}
