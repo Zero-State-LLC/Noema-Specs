@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0099 Accepted / WR-S6:** public world report also lists ACTIVE public agreements (`{type} is agreed.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No party names.
+
+### Added
+
 - **RFC-0098 Accepted / Diplomacy S1:** hosted `COMMIT.AGREEMENT_TERMINATE`. A party ends an ACTIVE TRADE agreement with `AGREEMENT_BROKEN`. Help still omits AGREEMENT. No new types.
 
 ### Added

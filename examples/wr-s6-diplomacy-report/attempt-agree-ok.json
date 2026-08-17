@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s6",
+  "catalog_id": "world-report-catalog/wr-s6",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "agreement_active_public": true,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "diplomacy_lines": 1, "note": "Active public TRADE agreement appears after five cycles." }
+}

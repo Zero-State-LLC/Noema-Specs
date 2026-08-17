@@ -4936,6 +4936,50 @@ def check_wr_s5(Draft202012Validator) -> None:
     ok("WR-S5 public discovery report: catalog, attempt fixtures, RFC-0096 Accepted")
 
 
+def evaluate_wr_s6(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]:
+    interval = int(catalog.get("interval_cycles") or 5)
+    cycles = int(attempt.get("committed_cycles") or 0)
+    if cycles < interval or cycles % interval != 0:
+        return "ACCEPT", 0, 0
+    diplomacy_lines = 1 if attempt.get("agreement_active_public") else 0
+    return "ACCEPT", 1, diplomacy_lines
+
+
+def check_wr_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "world-report-catalog.wr-s6.json")
+    catalog_schema = load_json(ROOT / "specs" / "world-report-catalog.wr-s6.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "world-report-attempt.wr-s6.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"WR-S6 catalog invalid: {errs[0].message}")
+    if catalog.get("help_news") or catalog.get("help_agreement") or catalog.get("watch_report") or catalog.get("new_verbs"):
+        fail("WR-S6 must not add help news, AGREEMENT help, WATCH report, or new verbs")
+    rfc = (ROOT / "rfcs" / "RFC-0099-diplomacy-report.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0099 must be Accepted")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-agree-ok.json",
+        "attempt-offered-omit.json",
+        "attempt-broken-omit.json",
+        "attempt-before-interval.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "wr-s6-diplomacy-report" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, kept, diplomacy_lines = evaluate_wr_s6(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+        if exp.get("diplomacy_lines") is not None and diplomacy_lines != exp["diplomacy_lines"]:
+            fail(f"{name}: diplomacy_lines {diplomacy_lines} expected {exp['diplomacy_lines']}")
+    ok("WR-S6 public diplomacy report: catalog, attempt fixtures, RFC-0099 Accepted")
+
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -8706,6 +8750,7 @@ def main() -> None:
     check_wr_s3(Draft202012Validator)
     check_wr_s4(Draft202012Validator)
     check_wr_s5(Draft202012Validator)
+    check_wr_s6(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

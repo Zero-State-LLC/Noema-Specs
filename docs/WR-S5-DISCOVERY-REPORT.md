@@ -4,7 +4,7 @@
 **Parent:** [WR-S4-CRIME-REPORT.md](WR-S4-CRIME-REPORT.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0096](../rfcs/RFC-0096-discovery-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · QUEST help · YOUR POSITION · diplomacy · AGREEMENT_FORM · open TRADE rows  
-**Next:** [DIPLOMACY-S0.md](DIPLOMACY-S0.md)
+**Next:** [WR-S6-DIPLOMACY-REPORT.md](WR-S6-DIPLOMACY-REPORT.md)
 
 S5 adds public reconstructions to the existing 5-cycle report.
 
