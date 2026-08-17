@@ -3326,6 +3326,69 @@ def check_gc1_s8(Draft202012Validator) -> None:
     ok("GC1-S8 parameter access: catalog, attempt fixtures, RFC-0112 Accepted")
 
 
+def evaluate_hosted_mp_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if attempt.get("live_chat") or attempt.get("split_stock") or attempt.get("cycle_freeze"):
+        return "REJECT", "DOCTRINE"
+    if attempt.get("new_verb"):
+        return "REJECT", "NEW_VERB"
+    stock = int(attempt.get("stock") or 0)
+    first = int(attempt.get("first_amount") or 0)
+    second = int(attempt.get("second_amount") or 0)
+    miss = catalog.get("miss_line") or "Not enough stock available."
+    if first < 1 or first > stock:
+        return "REJECT", "FIRST_INVALID"
+    remaining = stock - first
+    if second > remaining:
+        attempt["_miss_line"] = miss
+        return "REJECT", "NOT_ENOUGH_STOCK"
+    return "ACCEPT", None
+
+
+def check_hosted_mp_s0(Draft202012Validator) -> None:
+    catalog_path = ROOT / "specs" / "hosted-mp-catalog.s0.json"
+    if not catalog_path.exists():
+        fail("hosted-mp-catalog.s0.json missing")
+    catalog = load_json(catalog_path)
+    catalog_schema = load_json(ROOT / "specs" / "hosted-mp-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "hosted-mp-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"hosted-mp catalog invalid: {errs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("live_chat"):
+        fail("hosted-mp must not add verbs, events, or live chat")
+    if catalog.get("resolution") != "first_accepted":
+        fail("hosted-mp resolution must be first_accepted")
+    if catalog.get("miss_line") != "Not enough stock available.":
+        fail("hosted-mp must pin miss_line")
+    if catalog.get("watch_amounts"):
+        fail("hosted-mp must forbid WATCH amounts")
+    rfc = (ROOT / "rfcs" / "RFC-0113-hosted-multiplayer-contention.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0113 must be Accepted")
+    slice_doc = (ROOT / "docs" / "HOSTED-MP-CONTENTION.md").read_text(encoding="utf-8")
+    if "first-accepted" not in slice_doc.lower() or "MESSAGE" not in slice_doc or "live chat" not in slice_doc.lower():
+        fail("HOSTED-MP-CONTENTION must pin first-accepted, MESSAGE, and reject live chat")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-first-ok.json",
+        "attempt-second-empty.json",
+        "attempt-split.json",
+        "attempt-live-chat.json",
+        "attempt-new-verb.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "hosted-mp-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_hosted_mp_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("hosted-mp S0: catalog, fixtures, RFC-0113 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -9599,6 +9662,7 @@ def main() -> None:
     check_gc1_s6(Draft202012Validator)
     check_gc1_s7(Draft202012Validator)
     check_gc1_s8(Draft202012Validator)
+    check_hosted_mp_s0(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)
