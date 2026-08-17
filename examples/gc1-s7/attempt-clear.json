@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc1-s7",
+  "catalog_id": "mastery-catalog/gc1-s7",
+  "operation": "FOCUS_CLEAR",
+  "viewer": "self",
+  "expected": { "outcome": "ACCEPT", "note": "Clear removes the focus line." }
+}

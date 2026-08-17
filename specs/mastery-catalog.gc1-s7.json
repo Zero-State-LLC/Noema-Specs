@@ -1,0 +1,29 @@
+{
+  "schema_version": "mastery-catalog/gc1-s7",
+  "catalog_id": "mastery-catalog/gc1-s7",
+  "slice_id": "gc1-s7",
+  "authority": "docs/GC1-S7-FOCUS.md",
+  "rfc": "rfcs/RFC-0110-focus-declaration.md",
+  "extends": "mastery-catalog/gc1-s6",
+  "verb": "COMMIT",
+  "operation": "FOCUS",
+  "new_verbs": [],
+  "new_events": [],
+  "focus_declared_event": false,
+  "decay_window_change": false,
+  "recognition_required": false,
+  "focus_cap": 1,
+  "tracks": ["explorer", "surveyor", "broker", "engineer"],
+  "self_lines": {
+    "explorer": "You are focusing on the rooms.",
+    "surveyor": "You are focusing on survey work.",
+    "broker": "You are focusing on exchanges.",
+    "engineer": "You are focusing on infrastructure."
+  },
+  "public_lines": {
+    "explorer": "{handle} is focusing on the rooms.",
+    "surveyor": "{handle} is focusing on survey work.",
+    "broker": "{handle} is focusing on exchanges.",
+    "engineer": "{handle} is focusing on infrastructure."
+  }
+}

@@ -311,15 +311,24 @@ LATENT withholds; hidden rooms withhold
 cap 1; no new events; self practice_lines unchanged
 ```
 
+### Closed for GC1-S7 ([GC1-S7-FOCUS.md](GC1-S7-FOCUS.md))
+
+```text
+one declared focus track on the Player snapshot
+self + public lines; LATENT/hidden withhold public
+no FOCUS_DECLARED event; no decay-window change
+```
+
 ### Still open (later)
 
 ```text
-focus as ledgered declaration (if ever)
 event types if recognition is ever ledgered
 parameter-access upgrades
+multi-focus cap 1–3
+decay-window credit for focus
 ```
 
-GC1-S0–S6 are specified (recognition, Engineer quality, decay, prior-work, office eligibility, public titles). Remaining later items (focus-as-ledger, parameter-access) stay closed unless a new RFC opens them.
+GC1-S0–S7 are specified (recognition through focus declaration). Remaining later items (parameter-access, multi-focus, decay credit) stay closed unless a new RFC opens them.
 
 ---
 

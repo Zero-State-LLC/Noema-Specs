@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc1-s7",
+  "catalog_id": "mastery-catalog/gc1-s7",
+  "operation": "FOCUS",
+  "track": "surveyor",
+  "viewer": "self",
+  "expected": { "outcome": "ACCEPT", "line": "You are focusing on survey work." }
+}

@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc1-s7",
+  "catalog_id": "mastery-catalog/gc1-s7",
+  "operation": "FOCUS",
+  "track": "surveyor",
+  "viewer": "other",
+  "handle": "sable",
+  "latent": true,
+  "hidden_room": false,
+  "expected": { "outcome": "REJECT", "reason": "LATENT" }
+}

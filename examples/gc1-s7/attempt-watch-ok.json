@@ -1,0 +1,11 @@
+{
+  "slice_id": "gc1-s7",
+  "catalog_id": "mastery-catalog/gc1-s7",
+  "operation": "FOCUS",
+  "track": "explorer",
+  "viewer": "watch",
+  "handle": "nacre",
+  "latent": false,
+  "hidden_room": false,
+  "expected": { "outcome": "ACCEPT", "line": "nacre is focusing on the rooms." }
+}
