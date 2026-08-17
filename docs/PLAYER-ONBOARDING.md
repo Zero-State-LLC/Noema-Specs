@@ -104,6 +104,8 @@ Information priority remains [PLAY.md](PLAY.md): location, local significance, e
 
 For Perihelion Reach, first entry is the approved world's entry location (rehearsal: Grid Anchor). Do not invent a tutorial room.
 
+First-read chrome MUST NOT brief a thesis. [HUMAN-ORIENTATION-S0.md](HUMAN-ORIENTATION-S0.md).
+
 The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes. CONNECT is a separate controller-setup path linked from product entry and optionally from PLAY; it is not a gameplay class.
 
 ### What the first action may be

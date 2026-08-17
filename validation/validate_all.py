@@ -8369,6 +8369,57 @@ def check_agent_orientation_s2(Draft202012Validator) -> None:
     ok("agent-orientation S2: catalog, attempt fixtures, RFC-0108 Accepted")
 
 
+def evaluate_human_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if catalog.get("arrival_speech") or catalog.get("tutorial_room") or catalog.get("class_picker"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("thesis_forbidden") or catalog.get("new_verbs") or catalog.get("new_events"):
+        return "REJECT", "CATALOG"
+    blob = str(attempt.get("text") or "").lower()
+    for rx, why in ORIENT_FORBIDDEN:
+        if rx.search(blob):
+            return "REJECT", why
+    return "ACCEPT", None
+
+
+def check_human_orientation_s0(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "human-orientation-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "human-orientation-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "human-orientation-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"human-orientation S0 catalog invalid: {errs[0].message}")
+    if catalog.get("tutorial_room") or catalog.get("class_picker") or catalog.get("arrival_speech"):
+        fail("human-orientation S0 must forbid tutorial room, class picker, and arrival speech")
+    if catalog.get("new_verbs") or catalog.get("new_events") or not catalog.get("thesis_forbidden"):
+        fail("human-orientation S0 must not add verbs or events and must forbid a thesis")
+    rfc = (ROOT / "rfcs" / "RFC-0109-human-orientation.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0109 must be Accepted")
+    slice_doc = (ROOT / "docs" / "HUMAN-ORIENTATION-S0.md").read_text(encoding="utf-8")
+    if "first" not in slice_doc.lower() or "thesis" not in slice_doc.lower():
+        fail("HUMAN-ORIENTATION-S0 must pin first-read thesis withhold")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-door-ok.json",
+        "attempt-chamber-ok.json",
+        "attempt-door-thesis-reject.json",
+        "attempt-play-should-reject.json",
+        "attempt-callback-research-reject.json",
+        "attempt-chamber-arrival-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "human-orientation-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_human_orientation_s0(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("human-orientation S0: catalog, attempt fixtures, RFC-0109 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9372,6 +9423,7 @@ def main() -> None:
     check_agent_orientation_s0(Draft202012Validator)
     check_agent_orientation_s1(Draft202012Validator)
     check_agent_orientation_s2(Draft202012Validator)
+    check_human_orientation_s0(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

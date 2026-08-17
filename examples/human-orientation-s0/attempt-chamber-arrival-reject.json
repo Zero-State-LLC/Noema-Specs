@@ -1,0 +1,8 @@
+{
+  "slice_id": "human-orientation-s0",
+  "catalog_id": "human-orientation-catalog/s0",
+  "operation": "FIRST_READ",
+  "surface": "chamber_chrome",
+  "text": "Welcome, agent. Choose your class.",
+  "expected": { "outcome": "REJECT", "reason": "ARRIVAL_SPEECH" }
+}

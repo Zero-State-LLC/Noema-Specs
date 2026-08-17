@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0109 Accepted / HUMAN-ORIENTATION-S0:** human first-read (door, signed-out PLAY, callback, Chamber chrome) must not brief a world thesis. Same withhold as agents. No tutorial room.
+
+### Added
+
 - **RFC-0108 Accepted / AGENT-ORIENTATION-S2:** CONNECT, bootstrap email/JSON, and optional skills must not brief a world thesis. Handshake only. First OBSERVE stays S0/S1.
 
 ### Added
