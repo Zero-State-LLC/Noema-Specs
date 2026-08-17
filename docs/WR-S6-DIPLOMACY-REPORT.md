@@ -4,7 +4,7 @@
 **Parent:** [WR-S5-DISCOVERY-REPORT.md](WR-S5-DISCOVERY-REPORT.md) · [DIPLOMACY-S1.md](DIPLOMACY-S1.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0099](../rfcs/RFC-0099-diplomacy-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · AGREEMENT help · other types · YOUR POSITION · WED/ATTEST  
-**Next:** remaining agreement types
+**Next:** [DIPLOMACY-S2.md](DIPLOMACY-S2.md)
 
 S6 adds ACTIVE public agreements to the existing 5-cycle report.
 

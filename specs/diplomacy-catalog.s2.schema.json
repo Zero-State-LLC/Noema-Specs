@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/diplomacy-catalog.s2.schema.json",
+  "title": "NOEMA Diplomacy Catalog (S2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "event_catalog",
+    "verb",
+    "agreement_types",
+    "new_verbs",
+    "help_agreement",
+    "help_wed",
+    "help_attest",
+    "terminate",
+    "watch_ticker"
+  ],
+  "properties": {
+    "schema_version": { "const": "diplomacy-catalog/s2" },
+    "catalog_id": { "const": "diplomacy-catalog/s2" },
+    "slice_id": { "const": "diplomacy-s2" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string" },
+    "event_catalog": { "const": "event-catalog/0.2" },
+    "extends": { "const": "diplomacy-catalog/s1" },
+    "verb": { "const": "AGREEMENT_FORM" },
+    "agreement_types": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "enum": [
+          "TRADE",
+          "NON_AGGRESSION",
+          "ACCESS",
+          "RESOURCE_COMMITMENT",
+          "MUTUAL_DEFENSE"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "help_agreement": { "const": true },
+    "help_wed": { "const": false },
+    "help_attest": { "const": false },
+    "terminate": { "const": true },
+    "watch_ticker": { "const": false }
+  }
+}

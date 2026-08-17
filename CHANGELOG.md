@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0100 Accepted / Diplomacy S2:** remaining agreement types, live effects, and Chamber `help agreement`. TRADE / NON_AGGRESSION / ACCESS / RESOURCE_COMMITMENT / MUTUAL_DEFENSE. WED / ATTEST stay omitted.
+
+### Added
+
 - **RFC-0099 Accepted / WR-S6:** public world report also lists ACTIVE public agreements (`{type} is agreed.`). Same 5-cycle last-1 rebuild. WATCH silent. No NEWS verb. No party names.
 
 ### Added

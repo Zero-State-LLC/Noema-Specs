@@ -1,0 +1,24 @@
+{
+  "schema_version": "diplomacy-catalog/s2",
+  "catalog_id": "diplomacy-catalog/s2",
+  "slice_id": "diplomacy-s2",
+  "authority": "docs/DIPLOMACY-S2.md",
+  "rfc": "rfcs/RFC-0100-diplomacy-closeout.md",
+  "event_catalog": "event-catalog/0.2",
+  "extends": "diplomacy-catalog/s1",
+  "verb": "AGREEMENT_FORM",
+  "agreement_types": [
+    "TRADE",
+    "NON_AGGRESSION",
+    "ACCESS",
+    "RESOURCE_COMMITMENT",
+    "MUTUAL_DEFENSE"
+  ],
+  "new_verbs": [],
+  "new_events": [],
+  "help_agreement": true,
+  "help_wed": false,
+  "help_attest": false,
+  "terminate": true,
+  "watch_ticker": false
+}
