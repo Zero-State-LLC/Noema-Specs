@@ -1,0 +1,6 @@
+{
+  "slice_id": "access-policy-s0",
+  "catalog_id": "access-policy-catalog/s0",
+  "operation": "HELP_OMIT",
+  "expected": { "outcome": "ACCEPT", "listed": false }
+}

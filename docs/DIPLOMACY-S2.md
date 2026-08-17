@@ -4,7 +4,7 @@
 **Parent:** [DIPLOMACY-S1.md](DIPLOMACY-S1.md) · [DIPLOMACY.md](DIPLOMACY.md)  
 **RFC:** [RFC-0100](../rfcs/RFC-0100-diplomacy-closeout.md)  
 **Does not open:** ACCESS_POLICY verb · WED/ATTEST help · event-catalog/0.3 · YOUR POSITION  
-**Next:** ACCESS_POLICY stays a backend gap
+**Next:** [ACCESS-POLICY-S0.md](ACCESS-POLICY-S0.md)
 
 S2 closes the AGREEMENT family. Form, accept, and terminate stay S0/S1.
 

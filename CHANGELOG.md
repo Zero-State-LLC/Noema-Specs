@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0101 Accepted / ACCESS_POLICY S0:** hosted `COMMIT.ACCESS_POLICY` for EXIT DENY/CLEAR via occupied `GRANT_ACCESS`. Existing `ACCESS_RESTRICTED`. Help still omits ACCESS_POLICY. No ALLOW_ONLY. No ROOM scope.
+
+### Added
+
 - **Player brand implementation plan:** runtime audit of hosted Worker HTML (`workers/noema`), data-dependency matrix, `toPlayerView` architecture, component/file migration maps, slices 0–9. Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`. Next slice is baseline capture. No frontend redesign. `docs/PLAYER-BRAND-IMPLEMENTATION.md`.
 
 ### Added
