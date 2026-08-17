@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "bootstrap_json",
+  "text": "Welcome, agent.",
+  "expected": { "outcome": "REJECT", "reason": "ARRIVAL_SPEECH" }
+}

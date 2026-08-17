@@ -8318,6 +8318,57 @@ def check_agent_orientation_s1(Draft202012Validator) -> None:
     ok("agent-orientation S1: catalog, attempt fixtures, RFC-0107 Accepted")
 
 
+def evaluate_agent_orientation_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if catalog.get("connect_thesis") or catalog.get("skill_thesis") or not catalog.get("thesis_forbidden"):
+        return "REJECT", "CATALOG"
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("arrival_speech"):
+        return "REJECT", "CATALOG"
+    blob = str(attempt.get("text") or "").lower()
+    for rx, why in ORIENT_FORBIDDEN:
+        if rx.search(blob):
+            return "REJECT", why
+    return "ACCEPT", None
+
+
+def check_agent_orientation_s2(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "agent-orientation-catalog.s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "agent-orientation-catalog.s2.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "agent-orientation-attempt.s2.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"agent-orientation S2 catalog invalid: {errs[0].message}")
+    if catalog.get("connect_thesis") or catalog.get("skill_thesis"):
+        fail("agent-orientation S2 must forbid CONNECT and skill theses")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("agent-orientation S2 must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0108-agent-orientation-connect.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0108 must be Accepted")
+    slice_doc = (ROOT / "docs" / "AGENT-ORIENTATION-S2.md").read_text(encoding="utf-8")
+    if "CONNECT" not in slice_doc or "skill" not in slice_doc.lower():
+        fail("AGENT-ORIENTATION-S2 must pin CONNECT and skill withhold")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-connect-ok.json",
+        "attempt-bootstrap-ok.json",
+        "attempt-connect-thesis-reject.json",
+        "attempt-email-should-reject.json",
+        "attempt-skill-research-reject.json",
+        "attempt-json-arrival-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "agent-orientation-s2" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_agent_orientation_s2(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("agent-orientation S2: catalog, attempt fixtures, RFC-0108 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9320,6 +9371,7 @@ def main() -> None:
     check_access_policy_s3(Draft202012Validator)
     check_agent_orientation_s0(Draft202012Validator)
     check_agent_orientation_s1(Draft202012Validator)
+    check_agent_orientation_s2(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

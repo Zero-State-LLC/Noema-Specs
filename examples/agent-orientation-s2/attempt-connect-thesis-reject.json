@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "connect",
+  "text": "The point of the game is to keep the relay alive.",
+  "expected": { "outcome": "REJECT", "reason": "THESIS" }
+}

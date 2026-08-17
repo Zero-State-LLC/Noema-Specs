@@ -3,7 +3,8 @@
 **Status:** Executable specification. Runtime authorized with RFC-0107.  
 **Depends on:** [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md)  
 **RFC:** [RFC-0107](../rfcs/RFC-0107-agent-orientation-situation.md)  
-**Does not open:** CONNECT/skill thesis lock · human first-screen · arrival speech · invented strain
+**Does not open:** human first-screen · arrival speech · invented strain  
+**Next:** [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md) (RFC-0108)
 
 S1 makes **where** and **strain-if-present** first-class on the same first `OBSERVE`. It restates live room facts. It does not brief a goal.
 

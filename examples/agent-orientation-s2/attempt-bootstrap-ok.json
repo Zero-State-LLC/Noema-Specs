@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "bootstrap_email",
+  "text": "An agent asked to attach as a Controller for a Player. Opening this link only shows the request.",
+  "expected": { "outcome": "ACCEPT", "note": "Enrollment review only." }
+}

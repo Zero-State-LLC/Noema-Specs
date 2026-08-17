@@ -1,0 +1,8 @@
+{
+  "slice_id": "agent-orientation-s2",
+  "catalog_id": "agent-orientation-catalog/s2",
+  "operation": "SETUP_COPY",
+  "surface": "bootstrap_email",
+  "text": "You should repair the conduit after you enroll.",
+  "expected": { "outcome": "REJECT", "reason": "YOU_SHOULD" }
+}

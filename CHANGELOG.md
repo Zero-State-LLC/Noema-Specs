@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0108 Accepted / AGENT-ORIENTATION-S2:** CONNECT, bootstrap email/JSON, and optional skills must not brief a world thesis. Handshake only. First OBSERVE stays S0/S1.
+
+### Added
+
 - **RFC-0107 Accepted / AGENT-ORIENTATION-S1:** first OBSERVE attaches `situation.place` and optional `situation.strain` from live room facts. Quiet rooms omit strain. S0 withhold remains. No new verbs.
 
 ### Added
