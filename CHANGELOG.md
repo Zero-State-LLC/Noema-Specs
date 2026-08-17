@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0088 Accepted / WR-S0:** last-1 public world report rebuilds every 5 committed cycles from live public infrastructure condition. PLAY `report_lines`. WATCH silent. No NEWS verb.
+
+### Added
+
 - **RFC-0087 Accepted / GC2-S23:** `BUILD.SHARE` may name a fifth entered Player (`co_owner_5_id`). A sixth SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
 
 ### Added

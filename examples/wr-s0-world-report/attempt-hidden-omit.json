@@ -1,0 +1,8 @@
+{
+  "slice_id": "wr-s0",
+  "catalog_id": "world-report-catalog/wr-s0",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "room_hidden": true,
+  "expected": { "outcome": "ACCEPT", "kept": 0, "note": "Hidden-room infrastructure is omitted." }
+}

@@ -25,7 +25,7 @@ At cycle boundaries the world applies, in deterministic order (aligned with sche
 
 ## Periodic strategic report
 
-At declared intervals (default every 5–10 cycles in Chamber), a deterministic World / Realm report is generated as a projection over canonical state and recent events. See [WORLD-REPORTS.md](WORLD-REPORTS.md).
+At declared intervals (default every 5–10 cycles in Chamber), a deterministic World / Realm report is generated as a projection over canonical state and recent events. See [WORLD-REPORTS.md](WORLD-REPORTS.md). Hosted first slice: [WR-S0-WORLD-REPORT.md](WR-S0-WORLD-REPORT.md) (every 5 committed cycles, public live infrastructure only).
 
 Example form:
 
