@@ -1,0 +1,22 @@
+{
+  "schema_version": "mastery-catalog/gc1-s8",
+  "catalog_id": "mastery-catalog/gc1-s8",
+  "slice_id": "gc1-s8",
+  "authority": "docs/GC1-S8-PARAMETER-ACCESS.md",
+  "rfc": "rfcs/RFC-0112-parameter-access.md",
+  "extends": "mastery-catalog/gc1-s7",
+  "verb": "COMMIT",
+  "operation": "REPAIR",
+  "parameter": "extent",
+  "extents": ["standard", "overhaul"],
+  "new_verbs": [],
+  "new_events": [],
+  "class_discount": false,
+  "overhaul_track": "engineer",
+  "overhaul_requires_recognized": true,
+  "overhaul_requires_maintained": true,
+  "overhaul_energy_extra": 1,
+  "overhaul_condition_extra": 5,
+  "condition_cap": 100,
+  "success_line": "You overhaul {label}."
+}

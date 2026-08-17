@@ -1,0 +1,17 @@
+{
+  "slice_id": "gc1-s8",
+  "catalog_id": "mastery-catalog/gc1-s8",
+  "operation": "REPAIR",
+  "extent": "overhaul",
+  "track": "engineer",
+  "recognized": true,
+  "latent": false,
+  "energy": 3,
+  "label": "Relay Trunk",
+  "expected": {
+    "outcome": "ACCEPT",
+    "extra_energy": 1,
+    "extra_condition": 5,
+    "line": "You overhaul Relay Trunk."
+  }
+}

@@ -3258,6 +3258,74 @@ def check_gc1_s7(Draft202012Validator) -> None:
     ok("GC1-S7 focus declaration: catalog, attempt fixtures, RFC-0110 Accepted")
 
 
+def evaluate_gc1_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None, int | None, str | None]:
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("class_discount"):
+        return "REJECT", "CATALOG", None, None, None
+    if catalog.get("parameter") != "extent" or catalog.get("overhaul_track") != "engineer":
+        return "REJECT", "CATALOG", None, None, None
+    extra_e = int(catalog["overhaul_energy_extra"])
+    extra_c = int(catalog["overhaul_condition_extra"])
+    extent = attempt.get("extent") or "standard"
+    if extent == "standard":
+        return "ACCEPT", None, 0, 0, None
+    if extent != "overhaul":
+        return "REJECT", "INVALID", None, None, None
+    if attempt.get("track") != "engineer" or not attempt.get("recognized"):
+        return "REJECT", "LOCKED", None, None, None
+    if attempt.get("latent"):
+        return "REJECT", "LATENT", None, None, None
+    if int(attempt.get("energy") or 0) < extra_e:
+        return "REJECT", "BUDGET", None, None, None
+    label = attempt.get("label") or "it"
+    line = str(catalog.get("success_line") or "").replace("{label}", label)
+    return "ACCEPT", None, extra_e, extra_c, line
+
+
+def check_gc1_s8(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "mastery-catalog.gc1-s8.json")
+    catalog_schema = load_json(ROOT / "specs" / "mastery-catalog.gc1-s8.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "mastery-attempt.gc1-s8.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC1-S8 catalog invalid: {errs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("class_discount"):
+        fail("GC1-S8 must not add verbs, events, or class discounts")
+    if catalog.get("overhaul_energy_extra") != 1 or catalog.get("overhaul_condition_extra") != 5:
+        fail("GC1-S8 must pin overhaul extras +1 energy / +5 condition")
+    rfc = (ROOT / "rfcs" / "RFC-0112-parameter-access.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0112 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC1-S8-PARAMETER-ACCESS.md").read_text(encoding="utf-8")
+    if "overhaul" not in slice_doc.lower() or "LATENT" not in slice_doc or "WED" not in slice_doc:
+        fail("GC1-S8 must pin overhaul, LATENT lock, and WED omit")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-overhaul-engineer.json",
+        "attempt-standard-anyone.json",
+        "attempt-overhaul-unrecognized.json",
+        "attempt-overhaul-latent.json",
+        "attempt-overhaul-surveyor.json",
+        "attempt-overhaul-budget.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc1-s8" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra_e, extra_c, line = evaluate_gc1_s8(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("extra_energy") is not None and extra_e != exp["extra_energy"]:
+            fail(f"{name}: extra_energy {extra_e} expected {exp['extra_energy']}")
+        if exp.get("extra_condition") is not None and extra_c != exp["extra_condition"]:
+            fail(f"{name}: extra_condition {extra_c} expected {exp['extra_condition']}")
+        if exp.get("line") and line != exp["line"]:
+            fail(f"{name}: line {line} expected {exp['line']}")
+    ok("GC1-S8 parameter access: catalog, attempt fixtures, RFC-0112 Accepted")
+
+
 def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]:
     classes = {c["class_id"]: c for c in catalog["classes"]}
     op = attempt.get("operation")
@@ -9530,6 +9598,7 @@ def main() -> None:
     check_gc1_s5(Draft202012Validator)
     check_gc1_s6(Draft202012Validator)
     check_gc1_s7(Draft202012Validator)
+    check_gc1_s8(Draft202012Validator)
     check_gc2_s0(Draft202012Validator)
     check_gc2_s1(Draft202012Validator)
     check_gc2_s2(Draft202012Validator)

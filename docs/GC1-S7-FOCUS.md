@@ -3,7 +3,9 @@
 **Status:** Executable specification. Runtime authorized with RFC-0110.  
 **Depends on:** [GC1-S6-PUBLIC-TITLES.md](GC1-S6-PUBLIC-TITLES.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md)  
 **RFC:** [RFC-0110](../rfcs/RFC-0110-focus-declaration.md)  
-**Does not open:** `FOCUS_DECLARED` event · `event-catalog/0.3` · decay-window change · parameter-access · WED / ATTEST help
+**Does not open:** `FOCUS_DECLARED` event · `event-catalog/0.3` · decay-window change · WED / ATTEST help
+
+Parameter-access is closed by [GC1-S8-PARAMETER-ACCESS.md](GC1-S8-PARAMETER-ACCESS.md).
 
 S7 lets a Player **declare one focus track**. It is soft intent on the world snapshot. It is not a class, not recognition, and not a cheaper verb.
 

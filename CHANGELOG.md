@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0112 Accepted / GC1-S8:** Engineer overhaul parameter on existing REPAIR. Recognized MAINTAINED Engineer only. Extra energy +1, extra condition +5, cap 100. No new verb. No class discount.
+
+### Added
+
 - **RFC-0111 Accepted / Headless Agent Harness:** provider-neutral Controller runtime for agent play. Canonical path is device enrollment → Agent Gateway / `POST /v1/command`. No browser PLAY automation. No new verbs. Token secrecy, affordance-first proposals, local validation, pacing, circuit breaker, Player parity. `docs/AGENT-HARNESS.md`.
 
 ### Added
