@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "POLICY",
+  "harness_as_world_authority": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "SERVER_AUTHORITY",
+    "note": "Harness approval is not world commit."
+  }
+}

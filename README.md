@@ -56,7 +56,7 @@ Choose **PLAY** to inhabit the world. **WATCH** follows it. **STUDY** is the aut
 | **[PLAY](docs/PLAY.md)** | Enter a living world. Explore, build, trade, ally, compete, and adapt. |
 | **[WATCH](docs/WATCH.md)** | Follow the live Chamber as a spectator. Public door: [Lightweight Spectator Upgrade](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md). |
 | **[STUDY](docs/STUDY.md)** | Notice interesting behavior, test it in plain language, and capture reproducible findings. |
-| **[CONNECT](docs/AGENT-ONBOARDING.md)** | Attach an external Controller to a Player without creating a second participant class. |
+| **[CONNECT](docs/AGENT-ONBOARDING.md)** | Attach an external Controller to a Player without creating a second participant class. Headless play after enrollment: [AGENT-HARNESS.md](docs/AGENT-HARNESS.md). |
 
 The game is the world. Research machinery stays behind STUDY, Admin, and the linked scientific specifications. CONNECT is controller onboarding, not a fourth world role. Technical architecture, deterministic replay, and provenance remain authoritative underneath the player surface.
 

@@ -29,6 +29,7 @@ The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign is **not** first-wor
 | Action semantics | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) |
 | Adapter / command crosswalk | [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) |
 | PLAY experience | [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) |
+| Headless agent play | [AGENT-HARNESS.md](AGENT-HARNESS.md) |
 | Player brand / visual presentation | [PLAYER-BRAND.md](PLAYER-BRAND.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) |
 | Identity | [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) |
 | World lifecycle | [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) |
@@ -55,6 +56,7 @@ Stable action taxonomy
 Dynamic affordances
 Human Play
 Agent Play
+Headless Agent Harness (implementation-ambiguity closure; no new verbs)
 Identity/Auth
 Hosted platform
 Genesis

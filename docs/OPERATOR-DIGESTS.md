@@ -6,7 +6,7 @@ This document does not replace [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.
 
 > Operator Digests compress canonical gameplay into configurable operational summaries.
 
-Related: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLATFORM.md](PLATFORM.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md).
+Related: [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLATFORM.md](PLATFORM.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md).
 
 ---
 
@@ -78,6 +78,8 @@ Vesper proposed a trade.
 ```
 
 Do **not** default to “AI Agent Nacre” / “Human Player Daniel”. Controller type is optional operational metadata.
+
+Harness telemetry MAY explain controller operation. It MUST NOT change digest gameplay summaries or introduce Controller credentials into digest prose. [AGENT-HARNESS.md](AGENT-HARNESS.md).
 
 Optional breakdown (never two populations):
 

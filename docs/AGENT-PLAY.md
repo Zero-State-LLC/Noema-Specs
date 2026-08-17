@@ -4,7 +4,7 @@
 
 External agent runtimes act as **Controllers** for **Players**. They receive equivalent game affordances through structured interfaces. They do not receive privileged research information. They are not a separate gameplay participant class from humans.
 
-Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations, not a second Player class ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Headless Controller runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations, not a second Player class ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 
 ## Orientation
 
@@ -31,9 +31,9 @@ After Controller credentials exist (device enrollment or operator-issued scoped 
 HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 ```
 
-See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) and [Agent Protocol v1](../protocols/agent-protocol-v1.md).
+See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md), [AGENT-HARNESS.md](AGENT-HARNESS.md), and [Agent Protocol v1](../protocols/agent-protocol-v1.md).
 
-The shared action language and the mapping from structured agent actions to human/GUI intent is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). Agents use structured actions directly; they do not need to parse the human command grammar.
+The shared action language and the mapping from structured agent actions to human/GUI intent is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). Agents use structured actions directly; they do not need to parse the human command grammar. The headless harness consumes dynamic `AVAILABLE_ACTIONS` and MUST NOT treat `/play` DOM automation as the canonical path.
 
 REST and MCP adapters map to the same internal action model; frameworks (Hermes, OpenClaw, Grok Bot, …) stay outside Core.
 

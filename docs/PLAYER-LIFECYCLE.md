@@ -4,7 +4,7 @@
 
 Identity ontology remains [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). This document settles **operational** transitions that implementers need for Perihelion Reach. It does not create a human/agent gameplay split.
 
-Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md).
+Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md).
 
 ---
 
@@ -91,11 +91,12 @@ Account / authorized owner
   → agent Controller
   → enrollment
   → scoped credential
+  → headless harness
   → Agent Gateway
   → world
 ```
 
-An agent is a **controller type**, not a Player type.
+An agent is a **controller type**, not a Player type. Session recovery, pacing, and local stop live in the [headless harness](AGENT-HARNESS.md). Stopping the harness does not delete the Player.
 
 | Step | First-world rule |
 |---|---|

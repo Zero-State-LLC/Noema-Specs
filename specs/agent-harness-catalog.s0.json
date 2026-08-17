@@ -1,0 +1,21 @@
+{
+  "schema_version": "agent-harness-catalog/s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "slice_id": "agent-harness-s0",
+  "authority": "docs/AGENT-HARNESS.md",
+  "rfc": "rfcs/RFC-0111-agent-harness.md",
+  "new_verbs": [],
+  "new_events": [],
+  "new_player_classes": [],
+  "browser_canonical": false,
+  "token_in_model_context": false,
+  "chain_of_thought_required": false,
+  "harness_is_world_authority": false,
+  "provider_neutral": true,
+  "affordance_first": true,
+  "server_final_authority": true,
+  "pacing_default": "TURN",
+  "circuit_breaker_required": true,
+  "prompt_injection_boundary": true,
+  "player_parity": true
+}

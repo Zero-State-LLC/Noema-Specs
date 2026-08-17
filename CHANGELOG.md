@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0111 Accepted / Headless Agent Harness:** provider-neutral Controller runtime for agent play. Canonical path is device enrollment → Agent Gateway / `POST /v1/command`. No browser PLAY automation. No new verbs. Token secrecy, affordance-first proposals, local validation, pacing, circuit breaker, Player parity. `docs/AGENT-HARNESS.md`.
+
+### Added
+
 - **RFC-0110 Accepted / GC1-S7:** focus declaration. One track on the Player snapshot. Self and public lines. LATENT and hidden rooms withhold public focus. No FOCUS_DECLARED event. WED / ATTEST stay omitted.
 
 ### Added

@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "CONTEXT",
+  "treats_world_text_as_instruction": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "INJECTION",
+    "note": "World text cannot override harness policy."
+  }
+}

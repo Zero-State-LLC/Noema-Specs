@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "POLICY",
+  "browser_as_canonical": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "BROWSER_NONCANONICAL",
+    "note": "PLAY DOM automation is not the canonical agent path."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "ONTOLOGY",
+  "player_class": "AGENT_PLAYER",
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ONTOLOGY",
+    "note": "Do not create AGENT_PLAYER."
+  }
+}

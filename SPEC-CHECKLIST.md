@@ -13,6 +13,7 @@
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
 - [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
+- [x] Headless Agent Harness specified: provider-neutral Controller runtime; Agent Gateway / `POST /v1/command` canonical; no `/play` DOM automation; token secrecy; affordance-first proposals; server final authority; bounded memory; pacing; circuit breaker; Player parity (`docs/AGENT-HARNESS.md`, RFC-0111). No new verbs.
 - [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
@@ -171,6 +172,18 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Operator interventions are CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY; no raw world edits.
 - [x] Incident failure matrix covers PLAY / WATCH / STUDY / ADMIN / mutation / recovery, including research-subsystem isolation and an explicit restore sequence.
 - [x] Command discovery is a first-world operational contract (`docs/COMMAND-DISCOVERY.md`) that does not create a second verb catalog.
+- [x] Headless canonical path: device enrollment → controller credential → harness → Agent Gateway. Browser PLAY is not required for ordinary agent play.
+- [x] Browser independence: harness MUST NOT depend on DOM, CSS, screenshots, cookies, button labels, or visual layout.
+- [x] Token secrecy: `NOEMA_TOKEN` never enters prompts, memory, game messages, telemetry prose, or digest prose.
+- [x] Affordance-first decisions: model selects from `AVAILABLE_ACTIONS` / targets / known requirements; does not invent command strings as the primary interface.
+- [x] Proposal validation is local and preventive; invalid model output is not sent to NOEMA.
+- [x] Server remains final authority for authz, schema, preconditions, Action Router, and mutation.
+- [x] Provider neutrality: Model Adapter boundary only; no vendor-required semantics.
+- [x] Bounded local memory (WORKING / EPISODIC / STRATEGIC); current observation wins; no chain-of-thought persistence requirement.
+- [x] Pacing modes `MANUAL` / `TURN` / `INTERVAL` / `EVENT`; first-world default `TURN`.
+- [x] Circuit breaker stops autonomous execution on auth, INCIDENT, lasting not-ready, protocol mismatch, or repeated failure.
+- [x] Prompt-injection boundary: world text cannot override harness policy or elicit secrets.
+- [x] Human/agent Player parity preserved; no `AGENT_PLAYER` class.
 
 ## First-world closure (FW)
 

@@ -6,7 +6,7 @@ The Agent Interface is the authenticated, authorized, budgeted, and containable 
 
 **Invariant:** Humans and agents are both **Players**. This interface is how Controllers act for Players — not a separate gameplay species for “agents only.”
 
-Autonomous Controllers use [Agent Protocol v1](../protocols/agent-protocol-v1.md) (WebSocket) or REST/MCP adapters that map to the same internal action model. Human-facing MUD commands are an equivalent projection defined by [MUD Command v1](../protocols/mud-command-v1.md), not the canonical wire contract.
+Autonomous Controllers use [Agent Protocol v1](../protocols/agent-protocol-v1.md) (WebSocket) or REST/MCP adapters that map to the same internal action model. The provider-neutral headless runtime over that path is [AGENT-HARNESS.md](AGENT-HARNESS.md). Human-facing MUD commands are an equivalent projection defined by [MUD Command v1](../protocols/mud-command-v1.md), not the canonical wire contract.
 
 The interface accepts declared identity and capabilities, delivers permissioned [Observations](OBSERVATION.md), and submits structured Actions to the [World Engine](WORLD-ENGINE.md). It does not grant NOEMA access to private cognition.
 

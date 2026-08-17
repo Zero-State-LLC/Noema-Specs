@@ -1,0 +1,20 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "PROPOSE",
+  "proposal": {
+    "action": "HACK_RELAY",
+    "target_id": "entity.relay-trunk",
+    "arguments": {},
+    "mutating": true
+  },
+  "available_actions": ["LOOK", "REPAIR", "WAIT"],
+  "visible_targets": ["entity.relay-trunk"],
+  "new_verb": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "INVALID_PROPOSAL",
+    "note": "Invented verbs are blocked locally."
+  }
+}
