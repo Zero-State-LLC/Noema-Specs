@@ -4,7 +4,7 @@
 **Parent:** [WR-S0-WORLD-REPORT.md](WR-S0-WORLD-REPORT.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md)  
 **RFC:** [RFC-0091](../rfcs/RFC-0091-org-report.md)  
 **Does not open:** NEWS verb · REPORT_* · WATCH ticker · YOUR POSITION · diplomacy/conflict  
-**Next:** this report leftover (orgs) is closed
+**Next:** [WR-S2-CONTEST-REPORT.md](WR-S2-CONTEST-REPORT.md)
 
 S1 adds public institutions to the existing 5-cycle report.
 

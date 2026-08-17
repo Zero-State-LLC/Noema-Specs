@@ -1,0 +1,7 @@
+{
+  "slice_id": "wr-s2",
+  "catalog_id": "world-report-catalog/wr-s2",
+  "operation": "REPORT",
+  "committed_cycles": 5,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "contest_lines": 0, "note": "No contest lines when none are OPEN in public rooms." }
+}
