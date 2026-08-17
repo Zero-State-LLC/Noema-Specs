@@ -1,0 +1,8 @@
+{
+  "slice_id": "gc2-s22",
+  "catalog_id": "construction-catalog/gc2-s22",
+  "operation": "SHARE",
+  "personal_owner": true,
+  "current_co_owners": 4,
+  "expected": { "outcome": "REJECT", "reason": "already_shared", "note": "A fifth SHARE is FORBIDDEN." }
+}

@@ -4445,6 +4445,62 @@ def check_gc2_s21(Draft202012Validator) -> None:
     ok("GC2-S21 third co-owner: catalog, attempt fixtures, RFC-0085 Accepted")
 
 
+def evaluate_gc2_s22(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]:
+    extra: dict = {}
+    if attempt.get("room_hidden") or catalog.get("hidden_share"):
+        return "REJECT", "hidden", extra
+    if attempt.get("personal_owner") is False:
+        return "REJECT", "not_owner", extra
+    current = int(attempt.get("current_co_owners") or 0)
+    cap = int(catalog.get("max_co_owners") or 4)
+    if current >= cap:
+        return "REJECT", "already_shared", extra
+    extra["same_entity"] = True
+    extra["co_owners"] = current + 1
+    return "ACCEPT", None, extra
+
+
+def check_gc2_s22(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "construction-catalog.gc2-s22.json")
+    catalog_schema = load_json(ROOT / "specs" / "construction-catalog.gc2-s22.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "construction-attempt.gc2-s22.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC2-S22 catalog invalid: {errs[0].message}")
+    if catalog.get("help_build") or catalog.get("new_verbs") or catalog.get("watch_share") or catalog.get("institution_as_player") or catalog.get("share_institution"):
+        fail("GC2-S22 must not add help BUILD, new verbs, WATCH share, institution-as-Player, or institution SHARE")
+    if catalog.get("max_co_owners") != 4:
+        fail("GC2-S22 must keep four co-owners")
+    rfc = (ROOT / "rfcs" / "RFC-0086-fourth-co-owner.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0086 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC2-S22-FOURTH-CO-OWNER.md").read_text(encoding="utf-8")
+    if "SHARE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC2-S22 must keep SHARE on BUILD and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-fourth-ok.json",
+        "attempt-fifth-reject.json",
+        "attempt-hidden-reject.json",
+        "attempt-stranger-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc2-fourth-co-owner" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, extra = evaluate_gc2_s22(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("same_entity") is not None and extra.get("same_entity") != exp["same_entity"]:
+            fail(f"{name}: same_entity mismatch")
+        if exp.get("co_owners") is not None and extra.get("co_owners") != exp["co_owners"]:
+            fail(f"{name}: co_owners {extra.get('co_owners')} expected {exp['co_owners']}")
+    ok("GC2-S22 fourth co-owner: catalog, attempt fixtures, RFC-0086 Accepted")
+
+
 def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     trades = fixture.get("trades") or {}
@@ -8055,6 +8111,7 @@ def main() -> None:
     check_gc2_s19(Draft202012Validator)
     check_gc2_s20(Draft202012Validator)
     check_gc2_s21(Draft202012Validator)
+    check_gc2_s22(Draft202012Validator)
     check_gc3_s0(Draft202012Validator)
     check_gc3_s1(Draft202012Validator)
     check_gc3_s2(Draft202012Validator)

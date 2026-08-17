@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0086 Accepted / GC2-S22:** `BUILD.SHARE` may name a fourth entered Player (`co_owner_4_id`). A fifth SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
+
+### Added
+
 - **RFC-0085 Accepted / GC2-S21:** `BUILD.SHARE` may name a third entered Player (`co_owner_3_id`). A fourth SHARE is `FORBIDDEN`. WATCH silent. Help still omits BUILD.
 
 ### Added

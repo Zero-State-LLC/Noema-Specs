@@ -1,0 +1,20 @@
+{
+  "schema_version": "construction-catalog/gc2-s22",
+  "catalog_id": "construction-catalog/gc2-s22",
+  "slice_id": "gc2-s22",
+  "authority": "docs/GC2-S22-FOURTH-CO-OWNER.md",
+  "rfc": "rfcs/RFC-0086-fourth-co-owner.md",
+  "extends": "construction-catalog/gc2-s21",
+  "verb": "BUILD",
+  "operation": "SHARE",
+  "max_co_owners": 4,
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "help_build": false,
+  "watch_share": false,
+  "institution_as_player": false,
+  "share_institution": false,
+  "hidden_share": false,
+  "cost_compute": 1
+}
