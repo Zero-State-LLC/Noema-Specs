@@ -50,7 +50,7 @@ NOTICE verb
 long-range notice
 WATCH ticker
 Chamber help NOTICE
-cycle expiry
+notice cycle expiry is [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md)
 ```
 
 ---

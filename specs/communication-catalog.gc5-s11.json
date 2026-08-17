@@ -1,0 +1,20 @@
+{
+  "schema_version": "communication-catalog/gc5-s11",
+  "catalog_id": "communication-catalog/gc5-s11",
+  "slice_id": "gc5-s11",
+  "authority": "docs/GC5-S11-NOTICE-EXPIRY.md",
+  "rfc": "rfcs/RFC-0082-notice-expiry.md",
+  "extends": "communication-catalog/gc5-s10",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "NOTICE",
+  "help_notice": false,
+  "watch_notice": false,
+  "hidden_notice": false,
+  "retention": 1,
+  "expire_cycles": 1,
+  "channel_expiry": false,
+  "trade_notice_expiry": false,
+  "cost_compute": 1
+}

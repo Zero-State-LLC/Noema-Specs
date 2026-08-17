@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s11",
+  "catalog_id": "communication-catalog/gc5-s11",
+  "operation": "EXPIRE",
+  "committed_cycles": 0,
+  "expected": { "outcome": "ACCEPT", "kept": 1, "note": "Same-cycle notice still stands." }
+}
