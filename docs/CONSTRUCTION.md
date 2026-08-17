@@ -261,6 +261,7 @@ GC2-S17 closed: public defensive_work CONSTRUCT is IN_PROGRESS; live after 1 com
 GC2-S18 closed: public archive_annex CONSTRUCT is IN_PROGRESS; live after 1 committed cycle; attention discount live-only
 GC2-S19 closed: public route_link CONSTRUCT is IN_PROGRESS; live after 1 committed cycle; cargo waiver live-only; no new exit
 GC2-S20 closed: BUILD.SHARE second entered Player as co_owner_2_id; third SHARE FORBIDDEN
+GC2-S21 closed: BUILD.SHARE third entered Player as co_owner_3_id; fourth SHARE FORBIDDEN
 fourth-and-later co-owners
 first-world PLAY advertising BUILD
 runtime implementation
