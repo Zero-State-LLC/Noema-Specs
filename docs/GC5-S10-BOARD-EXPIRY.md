@@ -4,7 +4,7 @@
 **Parent:** [GC5-S5-RETENTION.md](GC5-S5-RETENTION.md) · [GC5-S9-SHOUT-EXPIRY.md](GC5-S9-SHOUT-EXPIRY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md)  
 **RFC:** [RFC-0081](../rfcs/RFC-0081-board-expiry.md)  
 **Does not open:** BOARD verb · NOTICE/CHANNEL/TRADE_NOTICE expiry · MESSAGE_EXPIRED · help advertising · WATCH ticker  
-**Next:** cycle expiry for NOTICE / CHANNEL / TRADE_NOTICE
+**Next:** [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md)
 
 S10 makes board notices take world-time. A public board is still last 5, then those notices are gone after one committed cycle.
 
@@ -44,7 +44,7 @@ S10 makes board notices take world-time. A public board is still last 5, then th
 
 ```text
 BOARD verb
-NOTICE / CHANNEL / TRADE_NOTICE expiry
+CHANNEL / TRADE_NOTICE expiry
 MESSAGE_EXPIRED
 Chamber help board
 WATCH ticker

@@ -6400,6 +6400,54 @@ def check_gc5_s10(Draft202012Validator) -> None:
     ok("GC5-S10 board cycle expiry: catalog, attempt fixtures, RFC-0081 Accepted")
 
 
+def evaluate_gc5_s11(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
+    if attempt.get("operation") == "NOTICE":
+        if attempt.get("room_hidden") or catalog.get("hidden_notice"):
+            return "REJECT", "hidden", None
+        return "ACCEPT", None, 1
+    kept = 0 if int(attempt.get("committed_cycles") or 0) >= int(catalog.get("expire_cycles") or 1) else 1
+    return "ACCEPT", None, kept
+
+
+def check_gc5_s11(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "communication-catalog.gc5-s11.json")
+    catalog_schema = load_json(ROOT / "specs" / "communication-catalog.gc5-s11.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "communication-attempt.gc5-s11.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC5-S11 catalog invalid: {errs[0].message}")
+    if catalog.get("help_notice") or catalog.get("watch_notice") or catalog.get("new_verbs") or catalog.get("channel_expiry"):
+        fail("GC5-S11 must not add help NOTICE, WATCH notice, new verbs, or channel expiry")
+    if catalog.get("expire_cycles") != 1 or catalog.get("retention") != 1:
+        fail("GC5-S11 must keep last-1 notice and expire after 1 cycle")
+    rfc = (ROOT / "rfcs" / "RFC-0082-notice-expiry.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0082 must be Accepted")
+    slice_doc = (ROOT / "docs" / "GC5-S11-NOTICE-EXPIRY.md").read_text(encoding="utf-8")
+    if "NOTICE" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC5-S11 must keep NOTICE on MESSAGE and WATCH silent")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-notice-ok.json",
+        "attempt-hidden-reject.json",
+        "attempt-expire-ok.json",
+        "attempt-same-cycle.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "gc5-notice-expiry" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason, kept = evaluate_gc5_s11(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+        if exp.get("kept") is not None and kept != exp["kept"]:
+            fail(f"{name}: kept {kept} expected {exp['kept']}")
+    ok("GC5-S11 notice cycle expiry: catalog, attempt fixtures, RFC-0082 Accepted")
+
+
 def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict:
     subject = fixture["subject_id"]
     archive = fixture.get("archive") or {}
@@ -7869,6 +7917,7 @@ def main() -> None:
     check_gc5_s8(Draft202012Validator)
     check_gc5_s9(Draft202012Validator)
     check_gc5_s10(Draft202012Validator)
+    check_gc5_s11(Draft202012Validator)
     check_gc6_s0(Draft202012Validator)
     check_gc6_s1(Draft202012Validator)
     check_gc7_s0(Draft202012Validator)

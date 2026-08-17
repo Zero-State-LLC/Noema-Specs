@@ -1,0 +1,7 @@
+{
+  "slice_id": "gc5-s11",
+  "catalog_id": "communication-catalog/gc5-s11",
+  "operation": "NOTICE",
+  "room_hidden": true,
+  "expected": { "outcome": "REJECT", "reason": "hidden", "note": "Hidden rooms stay unnoticed." }
+}
