@@ -29,7 +29,7 @@ Only formal ledgered agreements produce automatic world-visible mechanical conse
 
 Organizations + messaging enable the social layer ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).
 
-First hosted slice: [DIPLOMACY-S0.md](DIPLOMACY-S0.md) · [RFC-0097](../rfcs/RFC-0097-diplomacy-trade.md). TRADE form only.
+Hosted family: [DIPLOMACY-S0.md](DIPLOMACY-S0.md) · [DIPLOMACY-S1.md](DIPLOMACY-S1.md) · [DIPLOMACY-S2.md](DIPLOMACY-S2.md) · [RFC-0100](../rfcs/RFC-0100-diplomacy-closeout.md).
 
 ## v0.2 formal agreements (RFC-0002 Accepted)
 

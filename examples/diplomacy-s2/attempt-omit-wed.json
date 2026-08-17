@@ -1,0 +1,7 @@
+{
+  "slice_id": "diplomacy-s2",
+  "catalog_id": "diplomacy-catalog/s2",
+  "operation": "HELP_OMIT",
+  "topic": "wed",
+  "expected": { "outcome": "ACCEPT", "listed": false, "note": "WED stays unlisted." }
+}

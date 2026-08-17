@@ -1,0 +1,7 @@
+{
+  "slice_id": "diplomacy-s2",
+  "catalog_id": "diplomacy-catalog/s2",
+  "operation": "AGREEMENT_FORM",
+  "agreement_type": "NON_AGGRESSION",
+  "expected": { "outcome": "ACCEPT", "note": "All five catalog types may form." }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/diplomacy-attempt.s2.schema.json",
+  "title": "NOEMA Diplomacy S2 attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "diplomacy-s2" },
+    "catalog_id": { "const": "diplomacy-catalog/s2" },
+    "operation": { "enum": ["AGREEMENT_FORM", "HELP_AGREEMENT", "HELP_OMIT"] },
+    "agreement_type": { "type": "string" },
+    "topic": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "listed": { "type": "boolean" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

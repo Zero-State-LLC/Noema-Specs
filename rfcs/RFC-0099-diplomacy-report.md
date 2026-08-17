@@ -54,4 +54,4 @@ Omit diplomacy lines (S5 report only).
 
 ## Unresolved
 
-Other types. AGREEMENT help. YOUR POSITION. WED / ATTEST help.
+Remaining types and AGREEMENT help are [RFC-0100](RFC-0100-diplomacy-closeout.md). YOUR POSITION. WED / ATTEST help.
