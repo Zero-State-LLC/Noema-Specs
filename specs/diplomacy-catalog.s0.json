@@ -1,0 +1,16 @@
+{
+  "schema_version": "diplomacy-catalog/s0",
+  "catalog_id": "diplomacy-catalog/s0",
+  "slice_id": "diplomacy-s0",
+  "authority": "docs/DIPLOMACY-S0.md",
+  "rfc": "rfcs/RFC-0097-diplomacy-trade.md",
+  "event_catalog": "event-catalog/0.2",
+  "verb": "AGREEMENT_FORM",
+  "agreement_types": ["TRADE"],
+  "new_verbs": [],
+  "new_events": [],
+  "help_agreement": false,
+  "help_terminate": false,
+  "terminate": false,
+  "watch_ticker": false
+}

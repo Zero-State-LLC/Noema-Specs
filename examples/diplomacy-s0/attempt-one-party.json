@@ -1,0 +1,8 @@
+{
+  "slice_id": "diplomacy-s0",
+  "catalog_id": "diplomacy-catalog/s0",
+  "operation": "AGREEMENT_FORM",
+  "agreement_type": "TRADE",
+  "party_count": 1,
+  "expected": { "outcome": "REJECT", "reason": "INVALID_REQUEST", "note": "A formal agreement needs two parties." }
+}
