@@ -18,6 +18,7 @@
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
 - [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).
 - [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
+- [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`. Next executable slice is Slice 0 baseline. No frontend redesign in the plan change.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)

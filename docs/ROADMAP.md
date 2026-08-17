@@ -8,7 +8,7 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **WATCH — Lightweight Spectator Upgrade** (informal “WATCH v1.5”; not a product pin): public `/watch` as low-load world theater — one notable event, public world graph, bounded recent events, optional room detail. Spec: [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Does not reopen spectator-projection/1.0 or event catalogs.
 
-**Player brand (presentation gate):** [PLAYER-BRAND.md](PLAYER-BRAND.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md). Status `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. Runtime/frontend visual-identity work MUST NOT begin until this gate; the next step is an implementation plan in `Zero-State-LLC/Noema`, not an uncontrolled rewrite. Does not reopen world rules.
+**Player brand (presentation gate):** [PLAYER-BRAND.md](PLAYER-BRAND.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md). Status `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. Implementation architecture: [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md) (`NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`). Next executable work is Slice 0 (baseline capture) in `Zero-State-LLC/Noema`, then Slice 1 tokens/`toPlayerView`. Not an uncontrolled rewrite. Does not reopen world rules.
 
 **Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 

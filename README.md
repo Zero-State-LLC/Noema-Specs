@@ -301,6 +301,7 @@ Noema-Specs/
 | Vision | [docs/VISION.md](docs/VISION.md) |
 | Player brand | [docs/PLAYER-BRAND.md](docs/PLAYER-BRAND.md) |
 | Visual design | [docs/VISUAL-DESIGN.md](docs/VISUAL-DESIGN.md) |
+| Brand implementation plan | [docs/PLAYER-BRAND-IMPLEMENTATION.md](docs/PLAYER-BRAND-IMPLEMENTATION.md) |
 | Dual terminology | [docs/EXPERIENCE-TERMINOLOGY.md](docs/EXPERIENCE-TERMINOLOGY.md) |
 | Game design | [docs/GAME-DESIGN.md](docs/GAME-DESIGN.md) |
 | World model | [docs/WORLD-MODEL.md](docs/WORLD-MODEL.md) |

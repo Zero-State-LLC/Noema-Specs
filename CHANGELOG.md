@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Player brand implementation plan:** runtime audit of hosted Worker HTML (`workers/noema`), data-dependency matrix, `toPlayerView` architecture, component/file migration maps, slices 0–9. Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`. Next slice is baseline capture. No frontend redesign. `docs/PLAYER-BRAND-IMPLEMENTATION.md`.
+
+### Added
+
 - **Player brand / visual design:** public product is a living networked frontier, not a research apparatus. Dual semantic registers, semantic color tokens, three type voices, component taxonomy, twelve representative screen contracts, player/admin split, motion, a11y, responsive, acceptance. Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. Specs only — no runtime frontend. `docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, expanded `docs/EXPERIENCE-TERMINOLOGY.md`. Night-ledger/copper/Fraunces first-entry voice superseded as presentation.
 
 ### Added
