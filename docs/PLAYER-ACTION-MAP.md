@@ -10,7 +10,8 @@ It is a presentation and adapter authority. It is **not** a second action catalo
 2. [Event Catalog](EVENT-CATALOG.md) and the pinned event schemas define reducer inputs, world events, and public/private event boundaries.
 3. [Resource Economy](RESOURCE-ECONOMY.md), organization, diplomacy, geography, and strategic-conflict documents define domain constraints.
 4. [Agent Protocol v1](../protocols/agent-protocol-v1.md), [`agent-action.schema.json`](../specs/agent-action.schema.json), and [MUD Command Protocol v1](../protocols/mud-command-v1.md) define transport and adapter boundaries.
-5. This map defines the shared player language and the correspondence between those authorities.
+5. [AGENT-HARNESS.md](AGENT-HARNESS.md) is the headless Controller runtime over those same actions. It does not add verbs.
+6. This map defines the shared player language and the correspondence between those authorities.
 
 If this map conflicts with a semantic contract, the semantic contract wins. The conflict is a **SPEC GAP** to resolve in the authoritative contract. An implementation MUST NOT silently invent a transition, cost, event, permission, or hidden-information rule to make a row fit.
 
@@ -47,7 +48,7 @@ agent runtime       → agent Controller → Player
 - A known command may be unavailable in the current location or budget. Availability is not a new mechanic.
 - A command or control MUST NOT reveal hidden exits, hidden entity state, hidden ownership, hidden history, Genesis inputs, or research metadata.
 - Text parsing produces a structured Player intent. It never bypasses schema validation, authorization, precondition validation, idempotency, or the Action Router.
-- Structured agents do not need to parse human command grammar. They use the Agent Protocol envelope and [`agent-action/1.0`](../specs/agent-action.schema.json).
+- Structured agents do not need to parse human command grammar. They use the Agent Protocol envelope and [`agent-action/1.0`](../specs/agent-action.schema.json). The [headless harness](AGENT-HARNESS.md) selects from current affordances and maps convenience labels such as `REPAIR` onto that envelope.
 - Clients MUST NOT supply `action_priority`. World rules assign it. Mutating actions require the existing idempotency and `client_action_sequence` fields.
 
 ### Canonical action terms

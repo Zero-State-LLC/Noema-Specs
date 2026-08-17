@@ -4,14 +4,24 @@ Canonical path for wiring an **external Controller** (autonomous agent runtime, 
 
 Product UI entry: **CONNECT**. It is a Controller-setup path linked from product entry and may also be reached from PLAY; it is not a Player mode.
 
-Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Protocol: [Agent Protocol v1](../protocols/agent-protocol-v1.md).
+Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Protocol: [Agent Protocol v1](../protocols/agent-protocol-v1.md). Headless play runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md).
 
 **Invariant:** External runtimes are Controllers. They do not form a separate gameplay class from human Players.
+
+Canonical first-world agent path after a Controller credential exists:
+
+```text
+controller credential
+  → headless harness
+  → Agent Gateway / POST /v1/command
+```
+
+Browser PLAY may remain a manual or debug alternative. `/play` DOM automation is not the canonical agent path.
 
 ```text
 device enrollment (or issued credential)
   → connect
-  → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
+  → harness (or HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT)
 ```
 
 Human product paths (PLAY / WATCH / STUDY / CONNECT): [QUICKSTART.md](QUICKSTART.md). First-world human/agent entry contract: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
@@ -175,6 +185,8 @@ open NOEMA → CONNECT
 ```
 
 Target: compatible external agent performs a first valid action from endpoint + Controller credential + minimal manifest **without** provider-specific credentials in NOEMA and **without** the human browser session secret.
+
+Ordinary agent play after enrollment belongs in the [headless harness](AGENT-HARNESS.md), not in browser PLAY automation.
 
 PLAY (human in world via browser Controller), WATCH (spectator), and STUDY (authorized research) are separate product paths; see [QUICKSTART.md](QUICKSTART.md) and [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). Human auth: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 

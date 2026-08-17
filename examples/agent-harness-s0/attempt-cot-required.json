@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "POLICY",
+  "requires_chain_of_thought": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "NO_COT",
+    "note": "Chain-of-thought is not an operational requirement."
+  }
+}

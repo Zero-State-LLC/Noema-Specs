@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "PROPOSE",
+  "proposal": {
+    "action": "REPAIR",
+    "target_id": "entity.relay-trunk",
+    "arguments": {},
+    "mutating": true
+  },
+  "available_actions": ["LOOK", "REPAIR", "WAIT"],
+  "visible_targets": ["entity.relay-trunk"],
+  "player_class": "PLAYER",
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "Advertised REPAIR on a visible target becomes a command."
+  }
+}

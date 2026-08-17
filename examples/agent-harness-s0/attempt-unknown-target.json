@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "PROPOSE",
+  "proposal": {
+    "action": "INSPECT",
+    "target_id": "entity.hidden-vault",
+    "arguments": {},
+    "mutating": false
+  },
+  "available_actions": ["LOOK", "INSPECT", "WAIT"],
+  "visible_targets": ["entity.relay-trunk"],
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "INVALID_PROPOSAL",
+    "note": "Targets that are not visible are blocked locally."
+  }
+}

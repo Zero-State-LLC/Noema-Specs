@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "CONTEXT",
+  "adds_hidden_fact": true,
+  "world_status": "ACTIVE",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "HIDDEN_FACT",
+    "note": "The observation adapter must not add hidden facts."
+  }
+}

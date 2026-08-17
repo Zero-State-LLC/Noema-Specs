@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "SESSION",
+  "proposal": {
+    "action": "HARVEST",
+    "target_id": "entity.ore-1",
+    "arguments": {},
+    "mutating": true
+  },
+  "available_actions": ["HARVEST"],
+  "visible_targets": ["entity.ore-1"],
+  "world_status": "INCIDENT",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "WORLD_INCIDENT",
+    "note": "INCIDENT stops mutation."
+  }
+}

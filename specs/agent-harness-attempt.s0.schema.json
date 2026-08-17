@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-harness-attempt.s0.schema.json",
+  "title": "NOEMA headless agent harness attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "agent-harness-s0" },
+    "catalog_id": { "const": "agent-harness-catalog/s0" },
+    "operation": {
+      "enum": [
+        "PROPOSE",
+        "CONTEXT",
+        "ONTOLOGY",
+        "SESSION",
+        "POLICY"
+      ]
+    },
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": { "type": "string" },
+        "target_id": { "type": ["string", "null"] },
+        "arguments": { "type": "object" },
+        "mutating": { "type": "boolean" }
+      }
+    },
+    "available_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "visible_targets": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "player_class": { "type": "string" },
+    "browser_as_canonical": { "type": "boolean" },
+    "secrets_in_model_context": { "type": "boolean" },
+    "requires_chain_of_thought": { "type": "boolean" },
+    "harness_as_world_authority": { "type": "boolean" },
+    "adds_hidden_fact": { "type": "boolean" },
+    "new_verb": { "type": "boolean" },
+    "treats_world_text_as_instruction": { "type": "boolean" },
+    "world_status": {
+      "enum": ["ACTIVE", "PAUSED", "INCIDENT", "ARCHIVED", "PREVIEW"]
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

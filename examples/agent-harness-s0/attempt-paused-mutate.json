@@ -1,0 +1,19 @@
+{
+  "slice_id": "agent-harness-s0",
+  "catalog_id": "agent-harness-catalog/s0",
+  "operation": "SESSION",
+  "proposal": {
+    "action": "REPAIR",
+    "target_id": "entity.relay-trunk",
+    "arguments": {},
+    "mutating": true
+  },
+  "available_actions": ["REPAIR"],
+  "visible_targets": ["entity.relay-trunk"],
+  "world_status": "PAUSED",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "WORLD_PAUSED",
+    "note": "PAUSED stops mutation."
+  }
+}

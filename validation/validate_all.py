@@ -63,6 +63,7 @@ REQUIRED_DOCS = [
     "docs/OPERATIONS.md",
     "docs/SPECTATOR-ONBOARDING.md",
     "docs/AGENT-ONBOARDING.md",
+    "docs/AGENT-HARNESS.md",
     "docs/ADMIN-LIVE-OPERATIONS.md",
     "docs/WORLD-OPERATIONS.md",
     "docs/PLAYER-LIFECYCLE.md",
@@ -8484,6 +8485,127 @@ def check_human_orientation_s0(Draft202012Validator) -> None:
     ok("human-orientation S0: catalog, attempt fixtures, RFC-0109 Accepted")
 
 
+FORBIDDEN_HARNESS_PLAYER_CLASSES = {"AGENT_PLAYER", "BOT_PLAYER", "AUTONOMOUS_PLAYER"}
+
+
+def evaluate_agent_harness(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if catalog.get("browser_canonical") or catalog.get("token_in_model_context"):
+        return "REJECT", "CATALOG"
+    if catalog.get("chain_of_thought_required") or catalog.get("harness_is_world_authority"):
+        return "REJECT", "CATALOG"
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_player_classes"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("provider_neutral") or not catalog.get("affordance_first"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("server_final_authority") or not catalog.get("circuit_breaker_required"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("prompt_injection_boundary") or not catalog.get("player_parity"):
+        return "REJECT", "CATALOG"
+    if catalog.get("pacing_default") != "TURN":
+        return "REJECT", "CATALOG"
+    player_class = attempt.get("player_class")
+    if player_class in FORBIDDEN_HARNESS_PLAYER_CLASSES:
+        return "REJECT", "ONTOLOGY"
+    if attempt.get("browser_as_canonical"):
+        return "REJECT", "BROWSER_NONCANONICAL"
+    if attempt.get("secrets_in_model_context"):
+        return "REJECT", "TOKEN_SECRECY"
+    if attempt.get("requires_chain_of_thought"):
+        return "REJECT", "NO_COT"
+    if attempt.get("harness_as_world_authority"):
+        return "REJECT", "SERVER_AUTHORITY"
+    if attempt.get("adds_hidden_fact"):
+        return "REJECT", "HIDDEN_FACT"
+    if attempt.get("treats_world_text_as_instruction"):
+        return "REJECT", "INJECTION"
+    proposal = attempt.get("proposal") or {}
+    mutating = bool(proposal.get("mutating"))
+    status = attempt.get("world_status") or "ACTIVE"
+    if mutating and status == "PAUSED":
+        return "REJECT", "WORLD_PAUSED"
+    if mutating and status == "INCIDENT":
+        return "REJECT", "WORLD_INCIDENT"
+    if mutating and status in ("ARCHIVED", "PREVIEW"):
+        return "REJECT", "WORLD_NOT_READY"
+    if attempt.get("new_verb"):
+        return "REJECT", "INVALID_PROPOSAL"
+    action = proposal.get("action")
+    if action:
+        available = attempt.get("available_actions") or []
+        if action not in available:
+            return "REJECT", "INVALID_PROPOSAL"
+        target = proposal.get("target_id")
+        if target:
+            visible = attempt.get("visible_targets") or []
+            if target not in visible:
+                return "REJECT", "INVALID_PROPOSAL"
+    return "ACCEPT", None
+
+
+def check_agent_harness(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "agent-harness-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "agent-harness-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "agent-harness-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"agent-harness catalog invalid: {errs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_player_classes"):
+        fail("agent-harness must not add verbs, events, or Player classes")
+    if catalog.get("browser_canonical") or catalog.get("token_in_model_context"):
+        fail("agent-harness must forbid browser-canonical play and tokens in model context")
+    if catalog.get("chain_of_thought_required") or catalog.get("harness_is_world_authority"):
+        fail("agent-harness must not require chain-of-thought or claim world authority")
+    if not catalog.get("provider_neutral") or not catalog.get("affordance_first"):
+        fail("agent-harness must be provider-neutral and affordance-first")
+    if not catalog.get("server_final_authority") or not catalog.get("circuit_breaker_required"):
+        fail("agent-harness must keep server authority and require a circuit breaker")
+    if not catalog.get("prompt_injection_boundary") or not catalog.get("player_parity"):
+        fail("agent-harness must pin prompt-injection boundary and Player parity")
+    if catalog.get("pacing_default") != "TURN":
+        fail("agent-harness first-world pacing default must be TURN")
+    rfc = (ROOT / "rfcs" / "RFC-0111-agent-harness.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0111 must be Accepted")
+    doc = (ROOT / "docs" / "AGENT-HARNESS.md").read_text(encoding="utf-8")
+    for token in (
+        "The model proposes. The harness constrains and transports. NOEMA decides.",
+        "POST /v1/command",
+        "NOEMA_TOKEN",
+        "AGENT_PLAYER",
+        "AVAILABLE_ACTIONS",
+        "TURN",
+        "Circuit breaker",
+    ):
+        if token not in doc:
+            fail(f"AGENT-HARNESS.md must pin {token!r}")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-valid-repair.json",
+        "attempt-invented-verb.json",
+        "attempt-token-in-prompt.json",
+        "attempt-browser-canonical.json",
+        "attempt-agent-player-class.json",
+        "attempt-world-text-injection.json",
+        "attempt-hidden-fact.json",
+        "attempt-harness-as-authority.json",
+        "attempt-cot-required.json",
+        "attempt-paused-mutate.json",
+        "attempt-incident-mutate.json",
+        "attempt-unknown-target.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "agent-harness-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_agent_harness(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("agent-harness S0: catalog, attempt fixtures, RFC-0111 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9489,6 +9611,7 @@ def main() -> None:
     check_agent_orientation_s1(Draft202012Validator)
     check_agent_orientation_s2(Draft202012Validator)
     check_human_orientation_s0(Draft202012Validator)
+    check_agent_harness(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

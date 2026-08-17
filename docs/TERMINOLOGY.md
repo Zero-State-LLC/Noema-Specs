@@ -18,6 +18,14 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 | PlayerSession | Gameplay session binding Player + Controller + World; separate from credentials. |
 | Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
 | Agent Gateway | Public edge isolating external Controllers; hosted as Cloudflare Worker; REST / WebSocket / MCP adapters. |
+| Headless Harness | Provider-neutral Controller runtime for agent play via the Agent Gateway. Not a Player class and not a second Agent Protocol. See AGENT-HARNESS.md. |
+| Model Adapter | Provider-neutral boundary `decide(context) → ActionProposal`. Hermes, OpenAI-compatible, Ollama, Grok, OpenClaw, and callbacks are non-normative examples. |
+| Action Proposal | Model output naming `action`, `target_id`, and `arguments`. Intent/confidence/reason_summary are advisory. |
+| Harness Policy | Controller-local allow/deny, rate, and high-impact gates. Does not change canonical action semantics. |
+| Local Memory | Controller-local WORKING / EPISODIC / STRATEGIC notes. Not world truth. Current observation wins on conflict. |
+| Harness Telemetry | Controller-operation records. Distinct from canonical gameplay evidence and Operator Digests. |
+| Pacing Mode | `MANUAL` / `TURN` / `INTERVAL` / `EVENT`. First-world default is `TURN`. |
+| Circuit Breaker | Automatic harness stop on auth failure, INCIDENT, lasting not-ready, protocol mismatch, operator stop, or repeated invalid/rejected actions. |
 | World Engine | Simulation authority. Live: Durable Object operational state; durable history: settled Postgres ledger. |
 | PlayerPrincipal | Authenticated edge principal (player + session + controller + scopes) consumed by the World Engine. |
 | Platform | Cloudflare (live) + Supabase (durable identity/history). See PLATFORM.md. |
@@ -78,6 +86,8 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 - Do not model human and agent as separate gameplay participant classes; both are Players.
 - Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
 - Do not let external Controllers write canonical world state directly.
+- Do not treat `/play` DOM automation as the canonical agent path; the headless harness uses the Agent Gateway.
+- Do not put Controller tokens in model context, agent memory, game messages, telemetry prose, or digest prose.
 - Do not treat Admin as a Player privilege or introduce ADMIN_PLAYER / GM_PLAYER.
 - Do not treat World Services as Players, NPC citizens, or LLM authorities.
 - Do not add PREVIEW / MAINTENANCE / DEGRADED / RECOVERING to `World.status`; PREVIEW is Genesis-only and the others are health or procedures.
