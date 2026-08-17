@@ -53,7 +53,7 @@ NOEMA is now specified as a full persistent strategic text game.
 
 ### Design invariant
 
-The game must remain interesting enough that humans want to play and watch, and that agents encounter real open-ended strategic situations. Research instrumentation observes this game. It does not replace it.
+The game must remain interesting enough that humans want to play and watch, and that agents encounter real open-ended strategic situations. Research instrumentation observes this game. It does not replace it. Public identity is the frontier world ([PLAYER-BRAND.md](PLAYER-BRAND.md)), not the research loop.
 
 Prefer:
 
@@ -69,7 +69,7 @@ over:
 
 ## Interaction model
 
-Human-facing play should feel like a classic MUD or BBS terminal (structurally related to long-running strategy games such as Barren Realms Elite). Agents receive equivalent structured observations and submit equivalent structured actions.
+Human-facing play should feel like inhabiting a long-running science-fiction MUD — structurally related to persistent text worlds such as classic MUDs and BBS strategy games, visually an interface into a future civilization rather than a retro terminal skin ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Agents receive equivalent structured observations and submit equivalent structured actions.
 
 ```text
 PLAYER:   open NOEMA → PLAY → enter Chamber
@@ -108,8 +108,9 @@ Wire verb list remains in [mud-command-v1.md](../protocols/mud-command-v1.md) an
 ## Example view
 
 ```text
-NOEMA // WORLD 01
-Cycle 18,442
+NOEMA // PERIHELION
+BLACKWATER REACH · Cycle 18,442
+Pressure: SEVERE   Relay Integrity: 83%   Trade Index: −12%
 You are in the Relay Quarter of Aster Reach.
 Power stability has declined for three cycles.
 Local merchants are hoarding storage cells.

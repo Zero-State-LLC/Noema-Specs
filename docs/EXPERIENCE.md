@@ -2,11 +2,13 @@
 
 ## Canonical product model
 
-The product-facing model is normative for ordinary documentation and navigation:
+The product-facing **research-workflow** model is normative for STUDY documentation and navigation:
 
 ```text
 PLAY → NOTICE → TEST → CAPTURE → LEARN
 ```
+
+The player-facing **product hierarchy** is Game → World → Mystery → Agency → Competition/cooperation → Social information → Institutions/economy → Emergence → Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). The research workflow does not outrank that hierarchy on PLAY or the world door.
 
 | User concept | Technical system |
 |---|---|
@@ -32,11 +34,11 @@ NOEMA
 └── ADMIN LIVE    (allowlisted control-plane; not a public product door)
 ```
 
-PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection — for the public hosted door, a low-load terminal-theater window ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)), not a dashboard. STUDY is an authorized research workflow. CONNECT is a controller-onboarding path that attaches an external runtime to a Player; it MUST NOT imply that agents are a second participant class. Admin Live asks whether the world is operating correctly, MUST remain outside ordinary PLAY, and MUST NOT be exposed as a public WATCH/PLAY door ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose only information required for the next meaningful decision, with a text/structured route for every core action on desktop, mobile, terminal, and agent API.
+PLAY is a complete strategic game. WATCH is an entertaining, permissioned derived projection — for the public hosted door, a low-load terminal-theater window ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)), not a dashboard. STUDY is an authorized research workflow. CONNECT is a controller-onboarding path that attaches an external runtime to a Player; it MUST NOT imply that agents are a second participant class. Admin Live asks whether the world is operating correctly, MUST remain outside ordinary PLAY, and MUST NOT be exposed as a public WATCH/PLAY door ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Internal subsystem names MUST NOT be required to finish an ordinary flow. The complexity budget is: expose the information required for the next meaningful decision at medium-high density, with progressive disclosure for the rest, and a text/structured route for every core action on desktop, mobile, terminal, and agent API. Visual execution: [VISUAL-DESIGN.md](VISUAL-DESIGN.md). Player-facing identity: [PLAYER-BRAND.md](PLAYER-BRAND.md).
 
 ### Hosted reference projection (non-normative)
 
-The reference runtime currently projects this contract at `https://noema.guru/`. The root is a **world door**: Perihelion Reach, one place line, Player email. PLAY is the only primary action. WATCH and CONNECT are secondary. STUDY is not in primary navigation. ADMIN remains a separate allowlisted operator route and MUST NOT share first-read rank with Play. First-read copy is game/place/play, not research apparatus. The detailed hosted first-entry contract is [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md). Runtime URLs, HTML ownership, and deployment details remain non-normative and may change without changing the product model above.
+The reference runtime currently projects this contract at `https://noema.guru/`. The root is a **world door**: Perihelion Reach, one place line, Player email. PLAY is the only primary action. WATCH and CONNECT are secondary. STUDY is not in primary navigation. ADMIN remains a separate allowlisted operator route and MUST NOT share first-read rank with Play. First-read copy is game/place/play, not research apparatus. Player-facing hierarchy is Game → World → Mystery → Agency → … → Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). The detailed hosted first-entry contract is [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md). Runtime URLs, HTML ownership, and deployment details remain non-normative and may change without changing the product model above.
 
 ## PLAY usability contract
 
@@ -58,7 +60,7 @@ When the current observation, a valid target, and known preconditions identify a
 
 After an action, the human projection SHOULD make the action, success or failure, and observable consequence understandable in plain language. Stable machine error codes and event records remain authoritative and available through advanced detail. Partial observability, historical uncertainty, and Genesis's admin-only boundary remain unchanged.
 
-The first-entry acceptance target is that a fresh human-controlled Player can enter a valid world, orient, identify a meaningful opportunity, perform a supported action, understand its consequence, and identify another available decision without an external manual. This is a usability criterion, not a literal timing or telemetry requirement. PLAY remains lightweight, keyboard-operable, accessible, and usable on narrow screens; complex graphical presentation is not a requirement.
+The first-entry acceptance target is that a fresh human-controlled Player can enter a valid world, orient, identify a meaningful opportunity, perform a supported action, understand its consequence, and identify another available decision without an external manual. This is a usability criterion, not a literal timing or telemetry requirement. PLAY remains keyboard-operable, accessible, and usable on narrow screens. It is text-first and information-rich, not visually empty. Complex 3D or cinematic presentation is not a requirement. Medium-high density and semantic color are required ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
 
 Administrative work is the explicit exception to the PLAY presentation rule: PLAY remains a text-first world interface, while authorized ADMIN surfaces MAY use graphical forms, tables, maps, charts, and dialogs when they improve visibility, safety, or error prevention. ADMIN controls MUST remain outside ordinary PLAY.
 
@@ -98,4 +100,5 @@ A conforming experience proves all of the following:
 21. Human and agent Controllers remain peers for the same Player ontology; controller type is metadata, not a gameplay class.
 22. Text commands and contextual controls share canonical action semantics, and unavailable or hidden actions are not presented as available.
 23. A fresh human-controlled Player can complete the first-entry orientation/action/consequence/next-decision path without a literal time benchmark.
-24. PLAY remains text-first but not text-only, with accessible lightweight projections and an explicit separate graphical ADMIN exception.
+24. PLAY remains text-first but not text-only, with accessible information-rich projections, semantic color, and an explicit separate ADMIN register.
+25. Player-facing presentation follows [PLAYER-BRAND.md](PLAYER-BRAND.md) and [VISUAL-DESIGN.md](VISUAL-DESIGN.md): game-first hierarchy, dual semantics, no research-dominant PLAY chrome.

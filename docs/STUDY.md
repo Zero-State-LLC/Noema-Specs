@@ -1,6 +1,8 @@
 # STUDY
 
-STUDY is the authorized research interface. Its ordinary workflow is:
+STUDY is the authorized research interface. Research vocabulary is correct here. It MUST NOT be the first-read product identity or a first-time fork on the world door ([PLAYER-BRAND.md](PLAYER-BRAND.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
+
+Its ordinary workflow is:
 
 ```text
 NOTICE → TEST → COMPARE → CAPTURE

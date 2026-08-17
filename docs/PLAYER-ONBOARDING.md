@@ -32,6 +32,20 @@ continue
 
 No tutorial wall. No research-stack lecture. No Genesis controls.
 
+Fantasy sequence (the session should *feel* like this):
+
+```text
+enter world
+  → establish identity
+  → understand immediate situation
+  → take an action
+  → observe consequence
+  → encounter another player, institution, or signal
+  → discover deeper systems progressively
+```
+
+Legal auth, consent, and data policy remain required where applicable. They are structurally separate from the game fantasy ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
+
 This is a usability acceptance target, not a literal timer ([PLAY.md](PLAY.md), [EXPERIENCE.md](EXPERIENCE.md)).
 
 ---
@@ -159,7 +173,7 @@ Ordinary first-world onboarding MUST NOT expose:
 - controller and session IDs as required fields;
 - research claim labels as gameplay UI.
 
-WATCH and STUDY remain available as **separate** entry choices, not steps in the PLAY tutorial.
+WATCH and STUDY remain available as **separate** entry choices, not steps in the PLAY tutorial. Research-participation disclosure, if legally required, is a separate sheet — not the first-read identity.
 
 ---
 

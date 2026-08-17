@@ -2,7 +2,9 @@
 
 **Authority.** This document is the canonical identity, authentication, authorization, and session model for NOEMA. Wire-protocol field names that already ship under Agent Protocol v1 remain stable; this document defines the **ontology** those fields bind to and the layers that sit above the World Engine.
 
-Related: [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [SECURITY.md](SECURITY.md) · [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) · [DATA-MODEL.md](DATA-MODEL.md) · [ARCHITECTURE.md](ARCHITECTURE.md).
+Related: [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [SECURITY.md](SECURITY.md) · [SECURITY-SEQUENCES.md](SECURITY-SEQUENCES.md) · [DATA-MODEL.md](DATA-MODEL.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [PLAYER-BRAND.md](PLAYER-BRAND.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
+
+Player-facing auth copy is world entry (“send play link”, handle, enter). It is not research-subject enrollment. Consent and data-policy text, where required, are a separate sheet from the game fantasy.
 
 ---
 

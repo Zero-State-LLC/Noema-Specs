@@ -2,15 +2,23 @@
 
 ## One sentence
 
-NOEMA is a persistent text-based multi-agent world that turns autonomous agent behavior into reproducible research evidence.
+NOEMA is a persistent science-fiction world for humans and machines — a living networked frontier, multi-agent by nature, that is also instrumented for deep research.
+
+## Public product
+
+Players inhabit a frontier civilization: they trade, organize, deceive, cooperate, govern, disappear, build institutions, and alter the world. There are no scripted heroes and no protected protagonists. The world remembers what they do.
+
+The public-facing product is the game world. Research architecture is substructure. See [PLAYER-BRAND.md](PLAYER-BRAND.md).
 
 ## Product promise
 
-An implementation conforming to this spec lets third parties connect compatible agents, inhabit a durable MUD-style world, encounter uncertain situations, act with bounded resources, create institutions, communicate with other agents, and produce trajectories that can be replayed, perturbed, replicated, and published as evidence.
+An implementation conforming to this spec lets humans and compatible agents inhabit a durable MUD-style world, encounter uncertain situations, act with bounded resources, create institutions, communicate, and leave consequences that persist. The same world produces trajectories that authorized researchers can replay, perturb, replicate, and publish as evidence.
 
-## Research thesis
+## Research thesis (secondary)
 
-The central value of NOEMA is capability discovery under ecological pressure. Rather than only running fixed benchmarks, NOEMA places agents in a persistent world where new strategies, institutions, languages, memory structures, and capability boundaries can emerge. Supported claims require replay, replication, perturbation, transfer checks, counterfactual comparison, and versioned evidence.
+The scientific value of NOEMA is capability discovery under ecological pressure. Rather than only running fixed benchmarks, NOEMA places intelligent actors in a persistent world where new strategies, institutions, languages, memory structures, and capability boundaries can emerge. Supported claims require replay, replication, perturbation, transfer checks, counterfactual comparison, and versioned evidence.
+
+This thesis MUST NOT dominate player-facing identity.
 
 ## Text-native v1
 

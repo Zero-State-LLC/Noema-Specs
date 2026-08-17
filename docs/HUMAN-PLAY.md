@@ -2,13 +2,13 @@
 
 ## Feel
 
-Text-first terminal experience:
+Text-first world interface — an inhabited frontier surface, not a research console and not a blank terminal skin:
 
 ```text
 read world → issue command → inspect consequence → read messages/news → decide
 ```
 
-Text-first does not mean text-only. The human projection MAY include small functional controls or graphics when they make the current world state, choice, or consequence easier to understand. Every player-facing element MUST improve comprehension, decision-making, or action; otherwise it SHOULD be removed or deferred.
+Text-first does not mean text-only, and it does not mean terminal-only. The human projection is information-rich and visually structured ([VISUAL-DESIGN.md](VISUAL-DESIGN.md), [PLAYER-BRAND.md](PLAYER-BRAND.md)). It MAY include small functional controls or graphics when they make the current world state, choice, or consequence easier to understand. Every player-facing element MUST improve comprehension, decision-making, or action; otherwise it SHOULD be removed or deferred. A terminal Controller remains valid; it is not the brand.
 
 Structural MUD lessons (not setting clones): [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md). Mature-world depth campaign: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md).
 
@@ -20,7 +20,7 @@ See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). World Services are in-world in
 
 ## Primary interface
 
-MUD-style command line + clear status lines ([GAME-DESIGN.md](GAME-DESIGN.md), [mud-command-v1.md](../protocols/mud-command-v1.md)).
+MUD-style command line + world-state strip + location panel + contextual actions ([GAME-DESIGN.md](GAME-DESIGN.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md), [mud-command-v1.md](../protocols/mud-command-v1.md)). Room prose uses the Interface type voice. Command syntax uses the Machine voice. Monospace is not the universal PLAY font.
 
 The complete human-command, contextual-action, and canonical-action crosswalk is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). A contextual control and its text equivalent are two inputs to the same Player action, not separate mechanics.
 
@@ -80,7 +80,9 @@ Human PLAY SHOULD translate stable machine errors into plain game-language guida
 - Recent history / reports ([WORLD-REPORTS.md](WORLD-REPORTS.md))
 - Realm summary ([REALMS.md](REALMS.md))
 
-Dashboards must never replace the textual world as the primary PLAY experience. This restriction is not universal: authorized ADMIN operations MAY use graphical forms, tables, maps, charts, and dialogs when they improve visibility, controls, safety, or error prevention. Administrative controls remain outside ordinary PLAY.
+Dashboards must never replace the textual world as the primary PLAY experience. PLAY is still dense with world information: strip, signals, institutions, pressure, actions. That density is world texture, not an analytics product.
+
+This restriction is not universal: authorized ADMIN operations MAY use graphical forms, tables, maps, charts, and dialogs when they improve visibility, controls, safety, or error prevention. Administrative controls remain outside ordinary PLAY and use operator vocabulary ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 ## Authentication (human path)
 
@@ -114,11 +116,11 @@ CONNECT (attach an external Controller to a Player), WATCH, and STUDY are separa
 
 ## Product choice
 
-The primary human-facing choice is **PLAY**, with **WATCH** and **STUDY** as secondary product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. See [Experience](EXPERIENCE.md).
+The primary human-facing choice is **PLAY**, with **WATCH** and **STUDY** as secondary product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. Player-facing hierarchy puts Game and World above Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). See [Experience](EXPERIENCE.md).
 
 ## Accessibility, mobile, and performance
 
-Human PLAY SHOULD support keyboard operation without a mouse, visible focus, semantic controls, strong contrast, readable text, non-color-only state communication, and reduced motion. On narrow screens, prioritize location, what matters here, contextual actions, command input, and recent consequences; secondary status and history MAY collapse. The preferred implementation remains lightweight HTML/CSS/small client logic or an equivalent lightweight technology.
+Human PLAY SHOULD support keyboard operation without a mouse, visible focus, semantic controls, strong contrast, readable text, non-color-only state communication, and reduced motion. On narrow screens, prioritize location, what matters here, contextual actions, command input, and recent consequences; secondary status and history MAY collapse. The preferred implementation remains lightweight HTML/CSS/small client logic or an equivalent lightweight technology. Visual tokens, type roles, and screen contracts are [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
 
 ## Parity with agent Controllers
 

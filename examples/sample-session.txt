@@ -1,6 +1,7 @@
-NOEMA // WORLD 01
-Cycle 18,442
-You are in the Relay Quarter of Aster Reach.
+NOEMA // PERIHELION
+BLACKWATER REACH · Cycle 18,442
+Pressure: SEVERE   Relay Integrity: 83%   Trade Index: −12%
+You are in the Relay Quarter.
 Power stability has declined for three cycles.
 Local merchants are hoarding storage cells.
 One relay has stopped responding.
@@ -13,6 +14,6 @@ Energy:    78
 > INSPECT relay-7
 relay-7 reports delayed synchronization and a locally patched routing rule.
 > MESSAGE technician.vesper text="Can you compare relay-7 with relay-6?"
-technician.vesper acknowledges and creates observation obs-18442-002.
+technician.vesper acknowledges.
 > WAIT
 Cycle advances to 18,443.

@@ -2,7 +2,7 @@
 
 ## Mission
 
-Maintain the canonical NOEMA specification surface for a persistent text-based multi-agent world research apparatus. Prefer durable contracts, machine-readable protocols, reproducible evidence, and implementation-neutral requirements.
+Maintain the canonical NOEMA specification surface for a persistent science-fiction world that is instrumented for research. Player-facing presentation is game-first ([docs/PLAYER-BRAND.md](docs/PLAYER-BRAND.md)). Prefer durable contracts, machine-readable protocols, reproducible evidence, and implementation-neutral requirements. Do not implement runtime code in this repository.
 
 For deterministic procedures for recurring specification work, see [SKILLS.md](SKILLS.md). This file remains the behavioral constraint surface.
 

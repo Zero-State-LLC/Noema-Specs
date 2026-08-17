@@ -1,6 +1,6 @@
 # Integration Surface with Zero State / Abraxas Ecosystem
 
-NOEMA is designed as an implementation-neutral research apparatus. The following surfaces are intentional extension points for existing Zero State systems (Abraxas symbolic engines, signal foragers, Brier-calibrated forecasting, Capability Graph consumers, etc.).
+NOEMA is designed as an implementation-neutral persistent world that is also a research substrate. The following surfaces are intentional extension points for existing Zero State systems (Abraxas symbolic engines, signal foragers, Brier-calibrated forecasting, Capability Graph consumers, etc.). Player-facing presentation remains game-first ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 ## 1. Claim-label and provenance interop
 All NOEMA evidence uses OBSERVED / INFERRED / SPECULATIVE / NOT_COMPUTABLE. External systems SHOULD consume these labels without remapping. Provenance digests and version lineages are content-addressed and can be referenced from Abraxas-style run envelopes.

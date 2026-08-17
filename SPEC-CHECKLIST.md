@@ -17,6 +17,8 @@
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
 - [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).
+- [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
+- [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`. Next executable slice is Slice 0 baseline. No frontend redesign in the plan change.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
@@ -147,7 +149,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Advanced and reproducibility detail remains accessible.
 - [x] Versioned intent and error translations remain machine-authoritative.
 - [x] Player and public WATCH views do not leak hidden research metadata.
-- [x] WATCH Lightweight Spectator Upgrade specified: public door is terminal theater (notable event, world graph, bounded feed, optional room detail); `NORMAL`/`NOTABLE`/`MAJOR` are display tiers only; hidden topology stays off WATCH; no dashboard/broadcast/AI-director ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
+- [x] WATCH Lightweight Spectator Upgrade specified: public door is low-load world theater (notable event, world graph, bounded feed, optional room detail); `NORMAL`/`NOTABLE`/`MAJOR` are display tiers only; hidden topology stays off WATCH; no dashboard/broadcast/AI-director ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - [x] Optional WATCH Phosphor Cartography specified: Canvas 2D sketch of `watch-live/1.0` only; TEXT remains authority; no hidden leak; no WebGL; no pin bump ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18).
 - [x] Experience fixtures and validation coverage exist.
 - [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
