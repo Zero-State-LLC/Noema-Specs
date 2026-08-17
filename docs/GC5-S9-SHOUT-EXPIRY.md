@@ -46,7 +46,7 @@ S9 makes a shout take world-time. A public shout is still last 1, then gone afte
 SHOUT verb
 notice cycle expiry is [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md)
 channel cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
-TRADE_NOTICE expiry
+trade-notice cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 MESSAGE_EXPIRED
 Chamber help shout
 WATCH ticker

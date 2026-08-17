@@ -1,0 +1,20 @@
+{
+  "schema_version": "communication-catalog/gc5-s13",
+  "catalog_id": "communication-catalog/gc5-s13",
+  "slice_id": "gc5-s13",
+  "authority": "docs/GC5-S13-TRADE-NOTICE-EXPIRY.md",
+  "rfc": "rfcs/RFC-0084-trade-notice-expiry.md",
+  "extends": "communication-catalog/gc5-s12",
+  "verb": "MESSAGE",
+  "new_verbs": [],
+  "new_events": [],
+  "surface": "TRADE_NOTICE",
+  "help_market": false,
+  "watch_trade_notice": false,
+  "hidden_stall": false,
+  "auto_trade": false,
+  "price_oracle": false,
+  "retention": 1,
+  "expire_cycles": 1,
+  "cost_compute": 1
+}

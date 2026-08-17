@@ -48,7 +48,7 @@ SHOUT / BOARD verb
 shout cycle expiry is [GC5-S9-SHOUT-EXPIRY.md](GC5-S9-SHOUT-EXPIRY.md)
 board cycle expiry is [GC5-S10-BOARD-EXPIRY.md](GC5-S10-BOARD-EXPIRY.md)
 channel cycle expiry is [GC5-S12-CHANNEL-EXPIRY.md](GC5-S12-CHANNEL-EXPIRY.md)
-TRADE_NOTICE cycle expiry
+trade-notice cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 unlimited board
 Chamber help board
 ```

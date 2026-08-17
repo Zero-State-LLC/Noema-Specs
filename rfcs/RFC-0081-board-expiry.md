@@ -53,4 +53,4 @@ Ignore board notice age (keep last 5 until overwritten).
 
 ## Unresolved
 
-Notice cycle expiry is [RFC-0082](RFC-0082-notice-expiry.md). Channel cycle expiry is [RFC-0083](RFC-0083-channel-expiry.md). Cycle expiry for TRADE_NOTICE. Fourth-and-later co-owners.
+Notice cycle expiry is [RFC-0082](RFC-0082-notice-expiry.md). Channel cycle expiry is [RFC-0083](RFC-0083-channel-expiry.md). Trade-notice cycle expiry is [RFC-0084](RFC-0084-trade-notice-expiry.md). Fourth-and-later co-owners.
