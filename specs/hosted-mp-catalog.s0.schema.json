@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://noema.guru/specs/hosted-mp-catalog.s0.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "resolution",
+    "miss_line",
+    "new_verbs",
+    "new_events",
+    "live_chat",
+    "watch_amounts",
+    "coordination_verb"
+  ],
+  "properties": {
+    "schema_version": { "const": "hosted-mp-catalog/s0" },
+    "catalog_id": { "type": "string" },
+    "slice_id": { "const": "hosted-mp-s0" },
+    "authority": { "type": "string" },
+    "rfc": { "type": "string" },
+    "resolution": { "const": "first_accepted" },
+    "miss_line": { "type": "string" },
+    "miss_code": { "type": "string" },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "live_chat": { "const": false },
+    "cycle_freeze": { "const": false },
+    "split_stock": { "const": false },
+    "watch_amounts": { "const": false },
+    "coordination_verb": { "const": "MESSAGE" }
+  },
+  "additionalProperties": false
+}

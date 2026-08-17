@@ -3,6 +3,7 @@
 **Status:** Product authority for civilization-scale communication. P1. Phase GC-B.  
 **Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
 **Preserves:** `MESSAGE` as the stable verb ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).  
+Hosted coordination uses this verb (mailbox) and existing shout/board surfaces. Do not add a live-chat protocol. [HOSTED-MP-CONTENTION.md](HOSTED-MP-CONTENTION.md).
 **Does not replace:** [WORLD-REPORTS.md](WORLD-REPORTS.md) (derived news) · [OBSERVATION.md](OBSERVATION.md)
 
 This package expands **surfaces, routing, and failure** around `MESSAGE`. It does not create `SHOUT`, `BOARD`, or `RUMOR` verbs unless an RFC proves a distinct transition that `MESSAGE` + target/scope cannot express.

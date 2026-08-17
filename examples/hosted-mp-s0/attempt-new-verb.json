@@ -1,0 +1,8 @@
+{
+  "attempt_id": "new-verb",
+  "stock": 1,
+  "first_amount": 1,
+  "second_amount": 0,
+  "new_verb": "CHAT",
+  "expected": { "outcome": "REJECT", "reason": "NEW_VERB" }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "hosted-mp-catalog/s0",
+  "catalog_id": "hosted-mp-catalog/s0",
+  "slice_id": "hosted-mp-s0",
+  "authority": "docs/HOSTED-MP-CONTENTION.md",
+  "rfc": "rfcs/RFC-0113-hosted-multiplayer-contention.md",
+  "resolution": "first_accepted",
+  "miss_line": "Not enough stock available.",
+  "miss_code": "FORBIDDEN",
+  "new_verbs": [],
+  "new_events": [],
+  "live_chat": false,
+  "cycle_freeze": false,
+  "split_stock": false,
+  "watch_amounts": false,
+  "coordination_verb": "MESSAGE"
+}

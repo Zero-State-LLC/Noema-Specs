@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://noema.guru/specs/hosted-mp-attempt.s0.schema.json",
+  "type": "object",
+  "required": ["attempt_id", "expected"],
+  "properties": {
+    "attempt_id": { "type": "string" },
+    "stock": { "type": "integer", "minimum": 0 },
+    "first_amount": { "type": "integer", "minimum": 0 },
+    "second_amount": { "type": "integer", "minimum": 0 },
+    "live_chat": { "type": "boolean" },
+    "split_stock": { "type": "boolean" },
+    "cycle_freeze": { "type": "boolean" },
+    "new_verb": { "type": "string" },
+    "expected": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}
