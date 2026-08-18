@@ -1,0 +1,44 @@
+# Hosted compatibility layers
+
+**Authority.** How to read Specs pins against the hosted Stage 0 runtime.  
+**Not** a new world rule, verb, or Genesis change.
+
+Related: [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md) · runtime `spec-compat.json`.
+
+---
+
+## Three layers
+
+| Layer | Owns | Does not own |
+|---|---|---|
+| **CORE COMPATIBILITY** | v0.1–v0.7 freeze, C01–C26, ADR-005 digest identity | later product chrome, later ADRs |
+| **ADDITIVE ACCEPTED AUTHORITY** | named Accepted ADR/RFC on Specs `main` after the freeze SHA | live Perihelion reseed |
+| **HOSTED PRODUCT AUTHORITY** | first-entry, chrome, Watch-first admission | Python replay goldens |
+
+The runtime file `spec-compat.json` `specs.commit` is the **core** pin. It is not a claim that every later Accepted ADR is implemented on the Durable Object.
+
+---
+
+## ADR-008 for this production stage
+
+ADR-008 replay conformance (cycle unit, order key, unknown seed streams hard-fail, `world_state_digest`, golden `v01-seed`, observation/WATCH post-commit) applies to the **Python canonical / replay implementation**.
+
+The hosted Durable Object is governed by its settlement / sequence / `settlement_health` contracts. That is not a contradiction: Python remains the ADR-005 / ADR-008 digest authority; Perihelion is not a C01–C26 digest target.
+
+Do not implement ADR-008 as a live Worker experiment on Perihelion.
+
+---
+
+## Ontology vs hosted admission
+
+Humans and agents remain one Player class.
+
+The hosted product MAY refuse human/hybrid inhabit at the gateway (`POST /v1/command` and WebSocket ACT). That is admission policy, not a second ontology.
+
+---
+
+## Frozen Genesis vs later geography ADRs
+
+Perihelion Reach is already ACTIVE. Room count on that world is part of the frozen Genesis identity. Later ADR-006 “exactly 10 rooms” is proven on isolated chamber-world fixtures. Changing the live room set requires a new Genesis / `world_version`, not an ad-hoc edit.
+
+See the runtime closeout report in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.
