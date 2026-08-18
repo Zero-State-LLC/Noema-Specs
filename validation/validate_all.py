@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -64,6 +65,7 @@ REQUIRED_DOCS = [
     "docs/SPECTATOR-ONBOARDING.md",
     "docs/AGENT-ONBOARDING.md",
     "docs/AGENT-HARNESS.md",
+    "docs/AGENT-SEAL-S0.md",
     "docs/ADMIN-LIVE-OPERATIONS.md",
     "docs/WORLD-OPERATIONS.md",
     "docs/PLAYER-LIFECYCLE.md",
@@ -8737,6 +8739,89 @@ def check_agent_harness(Draft202012Validator) -> None:
     ok("agent-harness S0: catalog, attempt fixtures, RFC-0111 Accepted")
 
 
+SEAL_HASH_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
+
+
+def evaluate_sealed_prompt_text(text: str) -> tuple[str, str | None]:
+    blob = str(text or "").lower()
+    for rx, why in ORIENT_FORBIDDEN:
+        if rx.search(blob):
+            return "REJECT", why
+    return "ACCEPT", None
+
+
+def evaluate_sealed_attach(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if attempt.get("operation") == "PROMPT_WITHHOLD":
+        return evaluate_sealed_prompt_text(str(attempt.get("prompt_text") or ""))
+    if not catalog.get("live_required") or catalog.get("isolated_required"):
+        return "REJECT", "CATALOG"
+    if attempt.get("prompt_text"):
+        return "REJECT", "PROMPT_ON_WIRE"
+    tenant = attempt.get("tenant")
+    controller = attempt.get("controller_type")
+    if tenant == "isolated" or controller == "human":
+        return "ACCEPT", None
+    presented = attempt.get("prompt_version_hash")
+    if not presented:
+        return "REJECT", "SEAL_REQUIRED"
+    accepted = {row.get("prompt_version_hash") for row in (catalog.get("accepted_seals") or [])}
+    if not SEAL_HASH_RE.match(str(presented)) or presented not in accepted:
+        return "REJECT", "SEAL_MISMATCH"
+    return "ACCEPT", None
+
+
+def check_sealed_live_attach(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "sealed-prompt-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "sealed-prompt-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "sealed-attach-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"sealed-prompt catalog invalid: {errs[0].message}")
+    if not catalog.get("live_required") or catalog.get("isolated_required"):
+        fail("sealed-live-attach must require live and not require isolated")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("sealed-live-attach must not add verbs or events")
+    rfc = (ROOT / "rfcs" / "RFC-0115-sealed-live-attach.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0115 must be Accepted")
+    slice_doc = (ROOT / "docs" / "AGENT-SEAL-S0.md").read_text(encoding="utf-8")
+    for token in ("sealed attach", "isolated", "X-Noema-Seal", "hash"):
+        if token.lower() not in slice_doc.lower():
+            fail(f"AGENT-SEAL-S0 must pin {token!r}")
+    prompt_path = ROOT / str(catalog["prompt_file"])
+    if not prompt_path.is_file():
+        fail(f"sealed prompt file missing: {catalog['prompt_file']}")
+    digest = "sha256:" + hashlib.sha256(prompt_path.read_bytes()).hexdigest()
+    accepted = [row.get("prompt_version_hash") for row in (catalog.get("accepted_seals") or [])]
+    if digest not in accepted:
+        fail(f"catalog hash does not match {catalog['prompt_file']}: {digest}")
+    prompt_outcome, prompt_reason = evaluate_sealed_prompt_text(prompt_path.read_text(encoding="utf-8"))
+    if prompt_outcome != "ACCEPT":
+        fail(f"published sealed prompt withhold failed: {prompt_reason}")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-live-hash-ok.json",
+        "attempt-live-missing-reject.json",
+        "attempt-live-wrong-reject.json",
+        "attempt-isolated-no-hash-ok.json",
+        "attempt-human-no-hash-ok.json",
+        "attempt-prompt-on-wire-reject.json",
+        "attempt-prompt-text-ok.json",
+        "attempt-prompt-thesis-reject.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "sealed-live-attach-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_sealed_attach(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("sealed-live-attach S0: catalog, prompt hash, fixtures, RFC-0115 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9745,6 +9830,7 @@ def main() -> None:
     check_agent_orientation_s2(Draft202012Validator)
     check_human_orientation_s0(Draft202012Validator)
     check_agent_harness(Draft202012Validator)
+    check_sealed_live_attach(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

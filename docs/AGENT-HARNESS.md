@@ -302,7 +302,7 @@ infer secret state
 
 Derived convenience labels MUST remain clearly derived. Current canonical observation wins over local memory when they conflict.
 
-Do not brief a hidden world thesis. First OBSERVE remains the live-room withhold contract. [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md).
+Do not brief a hidden world thesis. First OBSERVE remains the live-room withhold contract. [AGENT-ORIENTATION-S0.md](AGENT-ORIENTATION-S0.md). Live agent attach additionally requires the published sealed-prompt hash. [AGENT-SEAL-S0.md](AGENT-SEAL-S0.md).
 
 ---
 

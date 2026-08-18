@@ -14,6 +14,7 @@
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
 - [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
 - [x] Headless Agent Harness specified: provider-neutral Controller runtime; Agent Gateway / `POST /v1/command` canonical; no `/play` DOM automation; token secrecy; affordance-first proposals; server final authority; bounded memory; pacing; circuit breaker; Player parity (`docs/AGENT-HARNESS.md`, RFC-0111). No new verbs.
+- [x] Sealed live attach (RFC-0115 Accepted): live agent controllers present the published `prompt_version_hash`; isolated and human PLAY unchecked; official client has no `--goal` / `--prompt` / `--system` / `--brief`; prompt text never on the wire (`docs/AGENT-SEAL-S0.md`).
 - [x] GC1-S8 parameter access (RFC-0112 Accepted): `REPAIR` `extent=overhaul` for recognized MAINTAINED Engineer only; extra energy +1; extra condition +5; cap 100; no new verb; no class discount (`docs/GC1-S8-PARAMETER-ACCESS.md`).
 - [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.

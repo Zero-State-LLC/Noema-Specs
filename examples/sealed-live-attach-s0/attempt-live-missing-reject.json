@@ -1,0 +1,9 @@
+{
+  "slice_id": "sealed-live-attach-s0",
+  "catalog_id": "sealed-prompt-catalog/s0",
+  "operation": "ATTACH",
+  "tenant": "live",
+  "controller_type": "agent",
+  "surface": "command",
+  "expected": { "outcome": "REJECT", "reason": "SEAL_REQUIRED" }
+}

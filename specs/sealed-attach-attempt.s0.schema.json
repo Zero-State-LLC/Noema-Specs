@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/sealed-attach-attempt.s0.schema.json",
+  "title": "NOEMA sealed-live-attach S0 attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "sealed-live-attach-s0" },
+    "catalog_id": { "const": "sealed-prompt-catalog/s0" },
+    "operation": { "enum": ["ATTACH", "PROMPT_WITHHOLD"] },
+    "tenant": { "enum": ["live", "isolated"] },
+    "controller_type": { "enum": ["agent", "human"] },
+    "prompt_version_hash": { "type": "string" },
+    "prompt_text": { "type": "string" },
+    "surface": { "enum": ["auth", "command", "prompt_file"] },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "sealed-prompt-catalog/s0",
+  "catalog_id": "sealed-prompt-catalog/s0",
+  "slice_id": "sealed-live-attach-s0",
+  "authority": "docs/AGENT-SEAL-S0.md",
+  "rfc": "rfcs/RFC-0115-sealed-live-attach.md",
+  "prompt_file": "examples/sealed-prompt/s0.txt",
+  "accepted_seals": [
+    {
+      "prompt_id": "sealed-prompt/s0",
+      "prompt_version_hash": "sha256:9b9c211c156a9b49e700fa39e409733099a38df9d95c7f6fb90ca3e9e740a395"
+    }
+  ],
+  "live_required": true,
+  "isolated_required": false,
+  "new_verbs": [],
+  "new_events": []
+}

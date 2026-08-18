@@ -27,6 +27,7 @@ Out: new world verbs; `AGENT_PLAYER`; PLAY multi-tenant rewrite; hosted WebSocke
 8. Tokens never enter model context, reports, logs, or MCP results.
 9. Research claims use OBSERVED / INFERRED / SPECULATIVE / NOT_COMPUTABLE.
 10. Isolated tenants use `/v1/operator/test-world/command`. Perihelion uses `/v1/command` only with an explicit live-tenant flag.
+11. Live Perihelion agent attach MUST present a catalog `prompt_version_hash` (`AUTH` or `X-Noema-Seal`). Official clients MUST NOT accept `--goal`, `--prompt`, `--system`, or `--brief`. [AGENT-SEAL-S0.md](AGENT-SEAL-S0.md).
 
 ## Loop
 

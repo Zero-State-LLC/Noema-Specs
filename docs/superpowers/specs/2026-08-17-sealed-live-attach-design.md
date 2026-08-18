@@ -1,6 +1,6 @@
 # Sealed live attach — operator cannot brief the agent
 
-**Status:** approved — awaiting implementation plan  
+**Status:** approved — implementing  
 **Date:** 2026-08-17  
 **Host:** `https://noema.guru`  
 **Does not activate, reseed, or force-supersede Genesis.**  
