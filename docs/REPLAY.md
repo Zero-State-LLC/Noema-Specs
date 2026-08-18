@@ -69,6 +69,8 @@ For NOEMA v0.1 acceptance, the declared boundary MUST require all of the followi
 2. an identical final canonical WorldState digest; and
 3. identical observation digests at every declared focal-agent observation point.
 
+Normative replay unit, stream registry, per-cycle `world_state_digest`, and harness interface: [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md).
+
 The replay loads a full serializable WorldState snapshot identified by cycle, sequence number, schema version, content digest, and world version, then applies events in strict sequence order through the versioned reducers. Any permitted nondeterminism MUST use a named and recorded stream such as `noise_stream_id`. An implementation MAY declare stricter comparisons, but it MUST NOT weaken this profile while claiming v0.1 replay acceptance.
 
 ## Equivalence boundary

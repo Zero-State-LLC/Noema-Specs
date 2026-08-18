@@ -508,6 +508,7 @@ def check_required_structure() -> None:
             "adr/ADR-005-v01-equivalence-boundary.md",
             "adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md",
             "adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md",
+            "adr/ADR-008-replay-conformance-and-deterministic-hardening.md",
             "validation/validate_all.py",
         ]
     )
@@ -9759,6 +9760,36 @@ def check_adr007_atomic_rooms(Draft202012Validator) -> None:
     ok("ADR-007 atomic rooms: schema, seeds, CHAMBER-MAP/GEOGRAPHY pointers")
 
 
+def check_adr008_replay() -> None:
+    adr = (ROOT / "adr" / "ADR-008-replay-conformance-and-deterministic-hardening.md").read_text(
+        encoding="utf-8"
+    )
+    status = adr.split("## Status", 1)[-1][:200]
+    if "Accepted" not in status:
+        fail("ADR-008 must be Accepted")
+    for pin in (
+        "action_priority",
+        "client_action_sequence",
+        "world_state_digest",
+        "hard fail",
+        "EQUIVALENT",
+        "v01-seed",
+    ):
+        if pin not in adr:
+            fail(f"ADR-008 must pin {pin}")
+    replay = (ROOT / "docs" / "REPLAY.md").read_text(encoding="utf-8")
+    sched = (ROOT / "docs" / "SCHEDULER.md").read_text(encoding="utf-8")
+    engine = (ROOT / "docs" / "WORLD-ENGINE.md").read_text(encoding="utf-8")
+    if "ADR-008" not in replay or "ADR-008" not in sched or "ADR-008" not in engine:
+        fail("REPLAY, SCHEDULER, and WORLD-ENGINE must point at ADR-008")
+    seed = ROOT / "examples" / "v01-seed" / "world-seed.json"
+    traj = ROOT / "examples" / "v01-seed" / "sample-trajectory.jsonl"
+    digest = ROOT / "examples" / "v01-seed" / "expected-final-state-digest.txt"
+    if not seed.exists() or not traj.exists() or not digest.exists():
+        fail("ADR-008 golden trajectory files missing under examples/v01-seed/")
+    ok("ADR-008 replay conformance: ADR Accepted, pointers, v01-seed golden")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -9883,6 +9914,7 @@ def main() -> None:
     check_agent_harness(Draft202012Validator)
     check_sealed_live_attach(Draft202012Validator)
     check_adr007_atomic_rooms(Draft202012Validator)
+    check_adr008_replay()
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)

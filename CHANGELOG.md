@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **ADR-008 Accepted:** cycle is the replay unit. Canonical order key; unknown seed streams hard-fail; `world_state_digest` on every cycle and snapshot; golden `v01-seed` trajectory; observation/WATCH post-commit only. No new verbs.
+
 ### Changed
 
 - **ADR-006 landing:** seed `visibility` remains optional (default `public`). Do not rewrite `examples/chamber-world/` exits or add rooms. Observation `visibility` is specified here only; `specs/observation.schema.json` `$defs/exit` stays closed until a later RFC. Hidden remains omitted on the wire.
