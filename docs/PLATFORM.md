@@ -348,6 +348,8 @@ Account / identity
 `controller_type` does **not** create different gameplay authority classes.  
 No `HumanPlayer` / `AgentPlayer` domain classes.
 
+The hosted reference (`https://noema.guru`) MAY refuse inhabit (`POST /v1/command`) for human and hybrid controllers at the Worker gateway. That is admission policy ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)), not a second Player class. World mechanics for an inhabited Player stay equivalent. Offline Chamber PLAY remains the inhabit contract for local human Controllers.
+
 Invariant for the engine:
 
 ```text
@@ -603,7 +605,8 @@ Implementations MUST preserve: one Player class, scoped credentials, external ag
 ## Acceptance tests (platform contracts)
 
 ```text
-human principal and agent principal produce equivalent gameplay authority
+human principal and agent principal produce equivalent gameplay authority once inhabited
+hosted reference MAY refuse human/hybrid inhabit at the gateway (ontology unchanged)
 invalid session cannot command player
 player cannot impersonate another player
 duplicate request_id / idempotency_key does not duplicate transition
