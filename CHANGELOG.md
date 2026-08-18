@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **ADR-006 landing:** seed `visibility` remains optional (default `public`). Do not rewrite `examples/chamber-world/` exits or add rooms. Observation `visibility` is specified here only; `specs/observation.schema.json` `$defs/exit` stays closed until a later RFC. Hidden remains omitted on the wire.
+
 ### Added
 
 - **ADR-007 Accepted:** rooms are atomic graph nodes. Intra-room exploration is LOOK/INSPECT/state/records only. Seed rooms require non-empty `strategic_roles` and `allows_substructure: false`. No sub-rooms, coordinates, or LLM interiors.
