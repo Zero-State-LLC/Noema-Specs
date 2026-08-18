@@ -507,6 +507,7 @@ def check_required_structure() -> None:
             "adr/ADR-004-world-truth-isolation.md",
             "adr/ADR-005-v01-equivalence-boundary.md",
             "adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md",
+            "adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md",
             "validation/validate_all.py",
         ]
     )
@@ -9709,6 +9710,55 @@ def check_gc10_s2(Draft202012Validator) -> None:
     ok("GC10-S2 irreversible scar: catalog, attempt fixtures, RFC-0051 Accepted")
 
 
+def check_adr007_atomic_rooms(Draft202012Validator) -> None:
+    adr = (ROOT / "adr" / "ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md").read_text(
+        encoding="utf-8"
+    )
+    if "Atomic Rooms" not in adr or "allows_substructure" not in adr:
+        fail("ADR-007 must freeze atomic rooms and allows_substructure")
+    chamber = (ROOT / "docs" / "CHAMBER-MAP.md").read_text(encoding="utf-8")
+    geo = (ROOT / "docs" / "GEOGRAPHY.md").read_text(encoding="utf-8")
+    if "ADR-007" not in chamber or "ADR-007" not in geo:
+        fail("CHAMBER-MAP and GEOGRAPHY must point at ADR-007")
+    seed_schema = load_json(ROOT / "specs" / "world-seed.schema.json")
+    room_schema = seed_schema["properties"]["rooms"]["items"]
+    required = set(room_schema.get("required") or [])
+    if "strategic_roles" not in required or "allows_substructure" not in required:
+        fail("world-seed room schema must require strategic_roles and allows_substructure")
+    room_v = Draft202012Validator(room_schema)
+    roles = {
+        "resource",
+        "infrastructure",
+        "chokepoint",
+        "information",
+        "trade",
+        "starting_position",
+    }
+    for rel in (
+        "examples/chamber-world/world-seed.json",
+        "examples/v01-seed/world-seed.json",
+        "examples/v01-strategic/world-seed.json",
+        "examples/v02-strategic-conflict/world-seed.json",
+    ):
+        seed = load_json(ROOT / rel)
+        for room in seed.get("rooms") or []:
+            rerr = list(room_v.iter_errors(room))
+            if rerr:
+                fail(f"{rel} room {room.get('room_id')} invalid: {rerr[0].message}")
+            declared = set(room.get("strategic_roles") or [])
+            if not declared or not declared.issubset(roles):
+                fail(f"{rel} room {room.get('room_id')} has invalid strategic_roles")
+            if room.get("allows_substructure") is not False:
+                fail(f"{rel} room {room.get('room_id')} must set allows_substructure false")
+    empty = load_json(ROOT / "examples" / "adr007" / "invalid-room-empty-roles.json")
+    if not list(room_v.iter_errors(empty)):
+        fail("empty strategic_roles must fail world-seed room schema")
+    nested = load_json(ROOT / "examples" / "adr007" / "invalid-room-substructure.json")
+    if not list(room_v.iter_errors(nested)):
+        fail("allows_substructure true must fail world-seed room schema")
+    ok("ADR-007 atomic rooms: schema, seeds, CHAMBER-MAP/GEOGRAPHY pointers")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -9832,6 +9882,7 @@ def main() -> None:
     check_human_orientation_s0(Draft202012Validator)
     check_agent_harness(Draft202012Validator)
     check_sealed_live_attach(Draft202012Validator)
+    check_adr007_atomic_rooms(Draft202012Validator)
     check_gc8_s0(Draft202012Validator)
     check_gc8_s1(Draft202012Validator)
     check_gc8_s2(Draft202012Validator)
