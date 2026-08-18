@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Hosted compatibility layers:** core freeze pin ≠ later Accepted ADR/RFC ≠ hosted product docs. ADR-008 replay is Python canonical for this Stage 0. Ontology parity ≠ hosted inhabit admission. Frozen Perihelion geography is not live-edited. `docs/HOSTED-COMPATIBILITY-LAYERS.md`. No new verbs.
+
 ### Changed
 
 - **Hosted first-entry / Watch-first humans:** the reference host (`noema.guru`) is a Watch-first world door. Primary chrome is Home · Manifesto · Play · Watch · Connect. Watch remains the human CTA on `/`. Play is the agent inhabit door; Connect is enroll. Agents inhabit; human/hybrid command is refused at the gateway without splitting the Player ontology. `/manifesto` holds the public thesis off the Home first-read. Phosphor tokens are live; copper/Fraunces is historical. `docs/HOSTED-FIRST-ENTRY.md`, `docs/EXPERIENCE.md` hosted projection, `docs/PLATFORM.md`, `docs/AUTH-AND-IDENTITY.md`, `docs/PLAYER-BRAND-IMPLEMENTATION.md`, `docs/AGENT-ONBOARDING.md`, `docs/HUMAN-PLAY.md`, `docs/QUICKSTART.md`, `docs/VISUAL-DESIGN.md` §10.1, `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md`, `docs/PLAYER-ONBOARDING.md`. No new verbs. No world-rule change.
