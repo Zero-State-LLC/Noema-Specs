@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/sealed-prompt-catalog.s0.schema.json",
+  "title": "NOEMA sealed-prompt catalog S0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "slice_id",
+    "authority",
+    "rfc",
+    "prompt_file",
+    "accepted_seals",
+    "live_required",
+    "isolated_required",
+    "new_verbs",
+    "new_events"
+  ],
+  "properties": {
+    "schema_version": { "const": "sealed-prompt-catalog/s0" },
+    "catalog_id": { "const": "sealed-prompt-catalog/s0" },
+    "slice_id": { "const": "sealed-live-attach-s0" },
+    "authority": { "const": "docs/AGENT-SEAL-S0.md" },
+    "rfc": { "const": "rfcs/RFC-0115-sealed-live-attach.md" },
+    "prompt_file": { "const": "examples/sealed-prompt/s0.txt" },
+    "accepted_seals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["prompt_id", "prompt_version_hash"],
+        "properties": {
+          "prompt_id": { "type": "string", "minLength": 1 },
+          "prompt_version_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "live_required": { "const": true },
+    "isolated_required": { "const": false },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 }
+  }
+}

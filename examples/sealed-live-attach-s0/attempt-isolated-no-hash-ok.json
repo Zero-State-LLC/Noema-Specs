@@ -1,0 +1,9 @@
+{
+  "slice_id": "sealed-live-attach-s0",
+  "catalog_id": "sealed-prompt-catalog/s0",
+  "operation": "ATTACH",
+  "tenant": "isolated",
+  "controller_type": "agent",
+  "surface": "command",
+  "expected": { "outcome": "ACCEPT", "note": "Isolated testers may attach without a seal." }
+}

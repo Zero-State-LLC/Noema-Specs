@@ -4,6 +4,10 @@
 
 ### Added
 
+- **RFC-0115 Accepted / AGENT-SEAL-S0:** live Perihelion agent attach requires the published sealed-prompt hash. Isolated worlds and human PLAY stay open. No prompt text on the wire. No new verbs.
+
+### Added
+
 - RFC-0113 / HOSTED-MP-CONTENTION: hosted first-accepted harvest; MESSAGE remains mail; no live chat.
 
 ### Added

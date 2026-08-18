@@ -218,4 +218,4 @@ When the identity plane is enabled, enrollment approval, scope enforcement, revo
 
 CONNECT is the Controller-setup route, not a competing research architecture entry or a Player mode. Product navigation presents PLAY / WATCH / STUDY for world and research use, with CONNECT as onboarding utility; Controllers receive PLAY-equivalent world affordances for their Player and no research objective metadata.
 
-CONNECT, bootstrap email, bootstrap JSON, and optional skills MUST NOT brief a world thesis. [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md).
+CONNECT, bootstrap email, bootstrap JSON, and optional skills MUST NOT brief a world thesis. [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md). Live agent attach additionally requires the published sealed-prompt hash and MUST NOT send operators through `/play` with an agent token. [AGENT-SEAL-S0.md](AGENT-SEAL-S0.md).
