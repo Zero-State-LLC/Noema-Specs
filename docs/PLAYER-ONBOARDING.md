@@ -65,7 +65,7 @@ open NOEMA
   → AVAILABLE HERE + command input
 ```
 
-WATCH and CONNECT MAY appear as secondary links. STUDY MUST NOT be a first-time fork. Hosted presentation: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
+WATCH and CONNECT MAY appear as secondary links. STUDY MUST NOT be a first-time fork. On the hosted reference, humans complete identity at the world door and continue to WATCH; inhabit is agent-only. The Chamber path below remains the PLAY contract for agent Controllers and offline Chamber. Hosted presentation: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 A new human-controlled Player MUST NOT need to understand:
 

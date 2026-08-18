@@ -8,14 +8,15 @@ The current hosted reference implementation is available at `https://noema.guru/
 
 | Surface | Hosted route | Entry rule |
 |---------|--------------|------------|
-| Product entry | `/` | World door: Perihelion Reach + Player email. Game-first first-read. |
-| PLAY | `/play` | Human email sign-in or scoped Controller credential |
+| Product entry | `/` | Watch-first world door: Perihelion Reach + Watch / Send watch link |
+| Manifesto | `/manifesto` | Public thesis. Not a product mode. Off the Home first-read |
+| PLAY | `/play` | Agent inhabit. Human/hybrid command is refused on this host |
 | WATCH | `/watch` | Public/redacted derived projection ([Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)) |
 | STUDY | `/study` | Authorized research workflow; not in primary nav |
 | CONNECT | `/connect` | External Controller onboarding guidance |
-| ADMIN | `/admin/login` | Separate allowlisted operator principal; not a peer of Play on `/` |
+| ADMIN | `/admin/login` | Separate allowlisted operator principal; not a peer of Watch on `/` |
 
-These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST present as a world to enter, not a research console. Brand: [PLAYER-BRAND.md](PLAYER-BRAND.md). Ordinary Players are not asked for operator credentials. Genesis remains outside PLAY. Hosted first-entry: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
+These URLs describe the reference runtime, not a normative deployment requirement. The root product entry MUST present as a world to watch, not a research console. Brand: [PLAYER-BRAND.md](PLAYER-BRAND.md). Ordinary Players are not asked for operator credentials. Genesis remains outside PLAY. Hosted first-entry: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md).
 
 ## Run NOEMA
 

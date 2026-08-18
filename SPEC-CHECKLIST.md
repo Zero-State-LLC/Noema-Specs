@@ -19,7 +19,7 @@
 - [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
 - [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
-- [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).
+- [x] Hosted first-entry: Watch-first world door + watch link; Manifesto sibling tab; Operator subordinate; inhabit agent-only (`docs/HOSTED-FIRST-ENTRY.md`).
 - [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
 - [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`.
 - [x] Player brand implemented on hosted Worker HTML (Slices 0–9). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. No further brand slices unless a visual defect is filed.

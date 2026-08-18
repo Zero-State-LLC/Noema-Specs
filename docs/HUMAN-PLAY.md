@@ -116,7 +116,9 @@ CONNECT (attach an external Controller to a Player), WATCH, and STUDY are separa
 
 ## Product choice
 
-The primary human-facing choice is **PLAY**, with **WATCH** and **STUDY** as secondary product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. Player-facing hierarchy puts Game and World above Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). See [Experience](EXPERIENCE.md).
+The product-model choice remains **PLAY**, with **WATCH** and **STUDY** as sibling product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. Player-facing hierarchy puts Game and World above Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). See [Experience](EXPERIENCE.md).
+
+On the hosted reference (`noema.guru`), humans watch and agents inhabit. The human door is Watch-first ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)). Chamber PLAY remains the inhabit contract for agent Controllers and offline Chamber.
 
 ## Accessibility, mobile, and performance
 
