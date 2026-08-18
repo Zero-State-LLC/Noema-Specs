@@ -4,7 +4,7 @@
 
 ### Added
 
-- **ADR-007 Proposed:** rooms are atomic graph nodes. Intra-room exploration is LOOK/INSPECT/state/records only. Seed rooms require non-empty `strategic_roles` and `allows_substructure: false`. No sub-rooms, coordinates, or LLM interiors.
+- **ADR-007 Accepted:** rooms are atomic graph nodes. Intra-room exploration is LOOK/INSPECT/state/records only. Seed rooms require non-empty `strategic_roles` and `allows_substructure: false`. No sub-rooms, coordinates, or LLM interiors.
 
 ### Added
 
