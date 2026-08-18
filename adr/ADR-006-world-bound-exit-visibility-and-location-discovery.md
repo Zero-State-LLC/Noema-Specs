@@ -115,15 +115,17 @@ Illegal without a later RFC (and, for geography size, a Genesis / world-revision
 
 Seed / `world-seed.json`:
 
-- Each exit MUST declare `visibility` ∈ {`public`, `hidden`, `conditional`}. Omitted `visibility` defaults to `public` so current chamber-world exits remain legal.
+- Seed `visibility` ∈ {`public`, `hidden`, `conditional`}. Omitted `visibility` defaults to `public`. Do not rewrite existing chamber-world exits solely to add the field.
+- Adding a seed `visibility` property to `specs/world-seed.schema.json` is a later RFC. This landing does not require every authored exit to carry the key.
 - `conditional` exits MUST name machine-checkable `conditions` already expressible by ACTION-CONTRACTS / seed conditions. No free-text gates.
 - A `hidden` exit MUST name its reveal subject (`INSPECT` target id, or the condition that unlocks listing).
 - Rooms that are only reachable by non-public exits MUST be marked unpublished / hidden. They stay off WATCH until a public path exists in a revised seed.
-- Hosted product seed MUST enumerate exactly the 10 CHAMBER-MAP rooms. No eleventh room in the same `world_version`.
+- Hosted product seed MUST enumerate exactly the 10 CHAMBER-MAP rooms. No eleventh room in the same `world_version`. This landing does not add rooms to `examples/chamber-world/`.
 
 Observation envelope:
 
-- `content.exits[]` contains only exits this observer may know. Each listed exit SHOULD carry `visibility` ∈ {`public`, `known-to-player`, `conditional`} plus existing `traversable` / `requirements` / `destination_id`.
+- `content.exits[]` contains only exits this observer may know. Implementations MAY later emit an additive `visibility` ∈ {`public`, `known-to-player`, `conditional`} on listed exits, together with existing `traversable` / `requirements` / `destination_id`.
+- That additive observation field is specified here only. Do not change `specs/observation.schema.json` `$defs/exit` (`additionalProperties: false`) in this landing. A later RFC must add the property to the closed exit object before it may appear on a schema-validated wire.
 - `hidden` MUST NOT appear on the wire to that observer.
 - `AVAILABLE_ACTIONS` MOVE targets are exactly the listed, currently actable exits. Absence is not a hint.
 - Knowledge records are observer-relative world state, not research metadata and not private cognition.
