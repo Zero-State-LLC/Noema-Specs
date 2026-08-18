@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **Hosted first-entry / Watch-first humans:** the reference host (`noema.guru`) is a Watch-first world door. Human chrome is Home · Manifesto · Watch. Agents inhabit; human/hybrid command is refused. `/manifesto` holds the public thesis off the Home first-read. Public WATCH feed lines use the same handle rule as occupancy labels. `docs/HOSTED-FIRST-ENTRY.md`, `docs/EXPERIENCE.md` hosted projection, `docs/HUMAN-PLAY.md`, `docs/QUICKSTART.md`, `docs/VISUAL-DESIGN.md` §10.1, `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md`, `docs/PLAYER-ONBOARDING.md`. No new verbs. No world-rule change.
+
 ### Added
 
 - **ADR-008 Accepted:** cycle is the replay unit. Canonical order key; unknown seed streams hard-fail; `world_state_digest` on every cycle and snapshot; golden `v01-seed` trajectory; observation/WATCH post-commit only. No new verbs.

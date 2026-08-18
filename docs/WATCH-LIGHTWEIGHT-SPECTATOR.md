@@ -300,7 +300,7 @@ Hosted evidence today (`GET /v1/watch/live`): `world_id`, `cycle`, `sequence`, `
 | `recent_events[].cycle` | **new** | |
 | `recent_events[].tier` | **new** | `NORMAL` \| `NOTABLE` \| `MAJOR` |
 | `recent_events[].projection_id` | **new** | existing spectator `projection_id` or `world_status` |
-| `recent_events[].line` | **new** | short public phrase |
+| `recent_events[].line` | **new** | short public phrase; actor names use the same public-handle rule as `rooms[].public_player_labels[]`. `smoke-*` / `op.*` / `operator.*` stay “A player” |
 | `recent_events[].room_id` | optional | public room or omitted |
 | `recent_events[].occurred_at` | optional | display clock; MUST NOT imply ledger time authority |
 | `notable_event` | **derivable** | selected headline object or `null` |
