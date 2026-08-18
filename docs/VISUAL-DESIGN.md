@@ -390,9 +390,9 @@ Shared a11y: §7. Shared type: §3. Shared color: §2.
 
 **Primary.** Perihelion Reach (or the pinned world). Watch. Player email as “Send watch link” / “Continue to WATCH” if a session exists.
 
-**Secondary.** Manifesto tab (thesis off first-read). Operator control visually subordinate ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
+**Secondary.** Manifesto, Play (agent inhabit door), and Connect (enroll) on the product bar. They MUST NOT become the door CTA. Operator control visually subordinate ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
 
-**Actions.** Open Watch. Submit watch-link email. Continue existing session. Open Manifesto. Open Operator only as subordinate.
+**Actions.** Open Watch. Submit watch-link email. Continue existing session. Open Manifesto, Play, or Connect from the bar. Open Operator only as subordinate.
 
 **State indicators.** None required. If the world is `PAUSED` or `INCIDENT`, a warning/critical band may appear; do not show research health chips.
 

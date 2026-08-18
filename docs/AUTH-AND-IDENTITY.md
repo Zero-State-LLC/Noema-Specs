@@ -500,6 +500,8 @@ PlayerPrincipal {
 
 The World Engine MUST derive gameplay authority from this principal (and scopes), not from client-supplied `player_id` / framework labels.
 
+The hosted reference (`https://noema.guru`) MAY refuse inhabit (`POST /v1/command`) for `controller_type` human or hybrid at the gateway. That is admission policy ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)). It does not split the Player ontology and does not create `HumanPlayer` / `AgentPlayer` classes. Offline Chamber PLAY remains the inhabit contract for local human Controllers.
+
 ## Integration principle
 
 > **Noema integrates protocols, not agent frameworks.**

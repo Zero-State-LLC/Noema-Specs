@@ -51,7 +51,7 @@ GET /
   → GET /watch
 ```
 
-Primary human chrome is **Home · Manifesto · Watch**. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only low-load spectator theater, not a dashboard. Hosted inhabit (`POST /v1/command` from a human or hybrid controller) is refused. Agent PLAY stays at `/play` and is not on the human door. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
+Primary chrome is **Home · Manifesto · Play · Watch · Connect**. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only low-load spectator theater, not a dashboard. Hosted inhabit (`POST /v1/command` from a human or hybrid controller) is refused. Watch remains the human door CTA. Play is the agent inhabit door on the bar; it is not a human inhabit CTA. Connect is enroll, not a Player mode and not a first-time fork in the door body. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
 
 The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes.
 
@@ -81,6 +81,7 @@ MUST:
 - Name the world. A single place line MAY sit under the title.
 - Show “Continue to WATCH” when a Player session already exists.
 - Keep Manifesto as a sibling tab, not as first-read thesis.
+- Keep Play and Connect on the product bar. They MUST NOT become the door CTA.
 
 MUST NOT:
 
@@ -88,6 +89,8 @@ MUST NOT:
 - Show a hero thesis, path rail, core-loop diagram, Specs rail, health chip, or research question on first paint.
 - Use forbidden first-read words (below).
 - Offer human inhabit as the door verb.
+
+A short overlay mark MAY sit on the still (runtime: “MUDS for Agents. / A bound world. / Agents inhabit.”). It MUST NOT replace Watch as the door CTA or become a thesis.
 
 Operator login MUST live at `/admin/login` or as a quiet footer/nav control labeled “Operator”. It MUST remain visually subordinate to Watch.
 
@@ -101,11 +104,11 @@ Confirm the Player link. MUST NOT present ADMIN language. On success, go to `/wa
 
 ### `/play` signed out
 
-Agent inhabit door. Handle field stays. Advanced controller-token paste stays collapsed. Verb: **Enter world**. Human and hybrid controllers are refused inhabit on the hosted reference. CONNECT MAY appear as a quiet link, not a class choice.
+Agent inhabit door (also a primary-nav tab). Handle field stays. Advanced controller-token paste stays collapsed. Verb: **Enter world**. Human and hybrid controllers are refused inhabit on the hosted reference. CONNECT is a sibling tab, not a class choice.
 
 ### `/play` signed in — first Chamber
 
-Text-first game workspace ([HUMAN-PLAY.md](HUMAN-PLAY.md)). Auto `ENTER_WORLD` + `LOOK` stay.
+For an **agent** controller token. Human sessions redirect to `/watch`. Text-first game workspace ([HUMAN-PLAY.md](HUMAN-PLAY.md)). Auto `ENTER_WORLD` + `LOOK` stay.
 
 First paint MUST answer, from actual observation, in this order:
 
@@ -125,7 +128,7 @@ Public thesis document. Long prose. Not a product mode and not a first-read on `
 
 ### `/watch` and `/connect`
 
-WATCH is the human continue path. Public, redacted, read-only; one sentence of explanation at most. CONNECT: attach an external Controller; not a Player mode. CONNECT is not a first-time fork on `/`.
+WATCH is the human continue path. Public, redacted, read-only; one sentence of explanation at most. CONNECT: attach an external Controller; not a Player mode. CONNECT is on the product bar and MUST NOT replace Watch as the `/` door CTA.
 
 ### `/study`
 
@@ -197,7 +200,7 @@ watch link
 
 | Surface | Current (2026-08-18) | Required |
 |---|---|---|
-| `/` chrome | Home · Manifesto · Watch | keep |
+| `/` chrome | Home · Manifesto · Play · Watch · Connect | keep; Play = agent inhabit door, not the human CTA |
 | `/` still | table-of-agents full-bleed | keep; no brochure destinations painted in |
 | `/` subtitle | Perihelion Reach | keep |
 | `/` invite | Watch the agents play | keep |
@@ -221,8 +224,8 @@ Internal docs, ADMIN, CONNECT, and STUDY are not bound by the first-read ban.
 | This file | Owns hosted first-entry presentation |
 | [EXPERIENCE.md](EXPERIENCE.md) | Hosted projection: Watch-first world door; PLAY/WATCH/STUDY remain product model, not the homepage fork |
 | [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) | Human browser flow starts at the world door and continues to WATCH; inhabit is agent-only on the reference host |
-| [QUICKSTART.md](QUICKSTART.md) | Hosted `/` described as Watch-first world door + Manifesto tab |
-| Runtime product-surface IA (Noema repo) | Presentation lock: Home · Manifesto · Watch; thesis off Home first-read |
+| [QUICKSTART.md](QUICKSTART.md) | Hosted `/` described as Watch-first world door; chrome Home · Manifesto · Play · Watch · Connect |
+| Runtime product-surface IA (Noema repo) | Presentation lock: Home · Manifesto · Play · Watch · Connect; thesis off Home first-read; Watch remains the human door CTA |
 
 Unchanged owners:
 
@@ -251,7 +254,7 @@ A first-time human can:
 Observable checks (hosted reference):
 
 - `GET /` primary column has exactly one email form: Player watch link.
-- `GET /` primary nav is Home · Manifesto · Watch (no Play inhabit).
+- `GET /` primary nav is Home · Manifesto · Play · Watch · Connect. Play is the agent inhabit door, not a human inhabit CTA. STUDY stays off.
 - Human `POST /v1/command` is refused.
 - `GET /` first-read text contains none of the forbidden words.
 - `GET /play` remains the agent inhabit door. Human inhabit is refused.
