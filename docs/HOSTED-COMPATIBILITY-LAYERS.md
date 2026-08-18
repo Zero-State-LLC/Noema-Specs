@@ -39,6 +39,16 @@ The hosted product MAY refuse human/hybrid inhabit at the gateway (`POST /v1/com
 
 ## Frozen Genesis vs later geography ADRs
 
-Perihelion Reach is already ACTIVE. Room count on that world is part of the frozen Genesis identity. Later ADR-006 “exactly 10 rooms” is proven on isolated chamber-world fixtures. Changing the live room set requires a new Genesis / `world_version`, not an ad-hoc edit.
+Perihelion Reach `genesis.ef578f4ffceeccd0` is already ACTIVE. Its authored room set is frozen identity.
 
-See the runtime closeout report in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.
+ADR-006 **exactly 10 rooms** applies to:
+
+- `examples/chamber-world/` product seed
+- isolated hosted fixtures
+- any new hosted `world_version`
+
+It does **not** require reseeding the activated world. Public WATCH on 2026-08-18 listed five rooms. That is the frozen map, not a runtime spawn bug.
+
+Changing the live room set requires a new Genesis / `world_version`, not an ad-hoc edit.
+
+See [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing and the runtime closeout in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.

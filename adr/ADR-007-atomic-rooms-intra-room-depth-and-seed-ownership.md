@@ -18,7 +18,7 @@ NOEMA v0.1 Chamber is a finite graph of strategically distinct rooms. Visual map
 
 Current canon already states:
 
-- Hosted first world is exactly 10 rooms; Chamber family band is 8–15 ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md), [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)).
+- Chamber-world / isolated hosted product seed is exactly 10 rooms; Chamber family band is 8–15. Live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated map ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing, [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)).
 - Rooms are not decorative; each must have a strategic reason ([GEOGRAPHY.md](../docs/GEOGRAPHY.md)).
 - Movement is exit-based ([ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md) `MOVE`).
 - Agents discover via structured observations and `AVAILABLE_ACTIONS` ([COMMAND-DISCOVERY.md](../docs/COMMAND-DISCOVERY.md)).
