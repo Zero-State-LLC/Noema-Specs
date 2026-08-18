@@ -21,7 +21,11 @@
       "entity_ids": [
         "entity.relay-7",
         "entity.cell-generator"
-      ]
+      ],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.civic-exchange",
@@ -30,13 +34,22 @@
       "entity_ids": [
         "entity.storage-cell-cache",
         "entity.archive-ledger-obsolescing"
-      ]
+      ],
+      "strategic_roles": [
+        "trade",
+        "information"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.transit-ring",
       "name": "Transit Ring",
       "description": "Corridor between districts.",
-      "entity_ids": []
+      "entity_ids": [],
+      "strategic_roles": [
+        "chokepoint"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.infrastructure-vault",
@@ -44,7 +57,11 @@
       "description": "Maintenance under Relay Quarter.",
       "entity_ids": [
         "entity.vault-production-node"
-      ]
+      ],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     }
   ],
   "exits": [

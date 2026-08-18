@@ -18,7 +18,12 @@
       "room_id": "room.civic-exchange",
       "name": "Civic Exchange",
       "description": "Central meeting and trade hub. High visibility.",
-      "entity_ids": []
+      "entity_ids": [],
+      "strategic_roles": [
+        "trade",
+        "starting_position"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.relay-quarter",
@@ -26,7 +31,11 @@
       "description": "Primary communication infrastructure. Early degradation pressure.",
       "entity_ids": [
         "entity.relay-main"
-      ]
+      ],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.foundry-corridor",
@@ -35,19 +44,32 @@
       "entity_ids": [
         "entity.foundry-production",
         "entity.foundry-ore-node"
-      ]
+      ],
+      "strategic_roles": [
+        "resource",
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.transit-ring",
       "name": "Transit Ring",
       "description": "Movement hub with multiple exits. Chokepoint potential.",
-      "entity_ids": []
+      "entity_ids": [],
+      "strategic_roles": [
+        "chokepoint"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.infrastructure-vault",
       "name": "Infrastructure Vault",
       "description": "Hardened maintenance and logistics space. Defensible.",
-      "entity_ids": []
+      "entity_ids": [],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.archive",
@@ -55,7 +77,11 @@
       "description": "Knowledge and document focus. Low material, high information.",
       "entity_ids": [
         "entity.archive-ledger-obsolescing"
-      ]
+      ],
+      "strategic_roles": [
+        "information"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.outer-works",
@@ -63,7 +89,11 @@
       "description": "Edge location. Exploration gateway and risk.",
       "entity_ids": [
         "entity.outer-cache-node"
-      ]
+      ],
+      "strategic_roles": [
+        "resource"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.storage-district",
@@ -71,7 +101,11 @@
       "description": "Logistics node. High storage_bay potential.",
       "entity_ids": [
         "entity.storage-bay-a"
-      ]
+      ],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.generator-hall",
@@ -79,13 +113,21 @@
       "description": "Power generation. Critical for production modifiers.",
       "entity_ids": [
         "entity.cell-generator"
-      ]
+      ],
+      "strategic_roles": [
+        "infrastructure"
+      ],
+      "allows_substructure": false
     },
     {
       "room_id": "room.frontier-gate",
       "name": "Frontier Gate",
       "description": "Edge of known map. Leads toward later expansion.",
-      "entity_ids": []
+      "entity_ids": [],
+      "strategic_roles": [
+        "chokepoint"
+      ],
+      "allows_substructure": false
     }
   ],
   "exits": [

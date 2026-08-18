@@ -4,6 +4,10 @@
 
 ### Added
 
+- **ADR-007 Proposed:** rooms are atomic graph nodes. Intra-room exploration is LOOK/INSPECT/state/records only. Seed rooms require non-empty `strategic_roles` and `allows_substructure: false`. No sub-rooms, coordinates, or LLM interiors.
+
+### Added
+
 - **ADR-006 Accepted:** first-world room bound (hosted 10; Chamber band 8–15), closed exit visibility set (`public` / `known-to-player` / `hidden` / `conditional`), and local-only discovery. No runtime room spawn. No social auto-map. No new verbs.
 
 ### Added
