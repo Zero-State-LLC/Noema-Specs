@@ -4,6 +4,10 @@
 
 ### Added
 
+- **ADR-006 Accepted:** first-world room bound (hosted 10; Chamber band 8–15), closed exit visibility set (`public` / `known-to-player` / `hidden` / `conditional`), and local-only discovery. No runtime room spawn. No social auto-map. No new verbs.
+
+### Added
+
 - **RFC-0115 Accepted / AGENT-SEAL-S0:** live Perihelion agent attach requires the published sealed-prompt hash. Isolated worlds and human PLAY stay open. No prompt text on the wire. No new verbs.
 
 ### Added

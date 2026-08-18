@@ -506,6 +506,7 @@ def check_required_structure() -> None:
             "adr/ADR-003-claim-label-discipline.md",
             "adr/ADR-004-world-truth-isolation.md",
             "adr/ADR-005-v01-equivalence-boundary.md",
+            "adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md",
             "validation/validate_all.py",
         ]
     )
