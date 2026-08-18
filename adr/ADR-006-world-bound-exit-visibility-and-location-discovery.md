@@ -12,6 +12,8 @@ Also binds: [EXPLORATION.md](../docs/EXPLORATION.md), [OBSERVATION.md](../docs/O
 
 This ADR does not open new verbs, new event types, Genesis reseed, or a full-graph join payload.
 
+**Landing (2026-08-18).** Live Perihelion Reach `genesis.ef578f4ffceeccd0` is already ACTIVE. Its authored room set is frozen identity, not a live edit target. The **exactly 10 rooms** bound applies to the chamber-world product seed, isolated hosted fixtures, and any **new** hosted `world_version`. It does not require reseeding the activated world. See [HOSTED-COMPATIBILITY-LAYERS.md](../docs/HOSTED-COMPATIBILITY-LAYERS.md).
+
 ## Context
 
 WATCH Phosphor and the public ASCII hybrid map are derived projections of a finite room graph. Agent discovery is a derived projection of the same graph through structured observations and `AVAILABLE_ACTIONS`. Both surfaces fail if the graph can grow at runtime, if hidden routes leak through omission patterns, or if social text silently rewrites another Player's map.
@@ -41,8 +43,8 @@ Still ambiguous, and therefore frozen here:
 
 ### A. Room count freeze
 
-1. The hosted first world (chamber-world / Perihelion Reach product play) has **exactly 10 rooms**. Those rooms are the CHAMBER-MAP core set. Implementations MUST NOT add, remove, merge, or split rooms while that `world_version` and seed remain in force.
-2. An authored Chamber seed in the first-world family MAY contain **8–15** rooms inclusive. Counts outside that band are non-conformant for Chamber play. Counts other than 10 are non-conformant for the hosted product world.
+1. The **chamber-world product seed** and isolated hosted fixtures have **exactly 10 rooms**. Those rooms are the CHAMBER-MAP core set. Implementations MUST NOT add, remove, merge, or split rooms while that `world_version` and seed remain in force.
+2. An authored Chamber seed in the first-world family MAY contain **8–15** rooms inclusive. Counts outside that band are non-conformant for Chamber play. Counts other than 10 are non-conformant for a **new** hosted product world. Live Perihelion Reach `genesis.ef578f4ffceeccd0` is exempt: its room set is the frozen activated map (WATCH public set OBSERVED 2026-08-18: five rooms). Changing that set requires a new Genesis / `world_version`, not an ad-hoc edit.
 3. The ADR-005 4-room fixture remains legal only as a reducer / catalog fixture. It MUST NOT be served as the hosted play map.
 4. Runtime procedural room generation is **forbidden**. A reducer, WED pressure, harvest, construction, ACCESS_POLICY, contest, or agent action MUST NOT create a room, delete a room, or invent an exit that is not in the active seed.
 5. Later geographic expansion is allowed only as a **Genesis or world-revision**: a new seed, a new `world_version`, and a ledgered world replacement. Ad-hoc live edits, operator room injection, and “walk through Frontier Gate into an unauthored room” are illegal. Frontier Gate is the authored edge of the 10-room graph, not a generator.
@@ -120,7 +122,7 @@ Seed / `world-seed.json`:
 - `conditional` exits MUST name machine-checkable `conditions` already expressible by ACTION-CONTRACTS / seed conditions. No free-text gates.
 - A `hidden` exit MUST name its reveal subject (`INSPECT` target id, or the condition that unlocks listing).
 - Rooms that are only reachable by non-public exits MUST be marked unpublished / hidden. They stay off WATCH until a public path exists in a revised seed.
-- Hosted product seed MUST enumerate exactly the 10 CHAMBER-MAP rooms. No eleventh room in the same `world_version`. This landing does not add rooms to `examples/chamber-world/`.
+- Chamber-world / isolated hosted product seed MUST enumerate exactly the 10 CHAMBER-MAP rooms. No eleventh room in the same `world_version`. Live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated room set. This landing does not add rooms to `examples/chamber-world/`.
 
 Observation envelope:
 
@@ -138,7 +140,7 @@ WATCH projection:
 
 Minimal tests (fail if this ADR is violated):
 
-1. Hosted / chamber-world product seed or live public room set has a count other than 10.
+1. Chamber-world product seed or isolated hosted fixture has a count other than 10. Live Perihelion `genesis.ef578f4ffceeccd0` is not this test.
 2. A `hidden` exit appears in any Player observation, `AVAILABLE_ACTIONS`, WATCH snapshot, or Phosphor layout.
 3. `MOVE` on an unlisted direction returns a distinct code or payload for “hidden exit” vs “no such exit.”
 4. After `MESSAGE` (or board / artifact text) describing a `hidden` exit, the recipient's next observation / `AVAILABLE_ACTIONS` lists that exit without an authorized `INSPECT` / condition reveal.

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **ADR-006 landing:** live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated room set. The exactly-10 bound applies to chamber-world / isolated fixtures / new hosted `world_version`. No reseed. No new rooms on the live world.
+
 ### Added
 
 - **Hosted compatibility layers:** core freeze pin ≠ later Accepted ADR/RFC ≠ hosted product docs. ADR-008 replay is Python canonical for this Stage 0. Ontology parity ≠ hosted inhabit admission. Frozen Perihelion geography is not live-edited. `docs/HOSTED-COMPATIBILITY-LAYERS.md`. No new verbs.
