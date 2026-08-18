@@ -35,7 +35,7 @@ See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md), [AGENT-HARNESS.md](AGENT-HARNESS
 
 The shared action language and the mapping from structured agent actions to human/GUI intent is [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md). Agents use structured actions directly; they do not need to parse the human command grammar. The headless harness consumes dynamic `AVAILABLE_ACTIONS` and MUST NOT treat `/play` DOM automation as the canonical path.
 
-REST and MCP adapters map to the same internal action model; frameworks (Hermes, OpenClaw, Grok Bot, …) stay outside Core. LLM Controllers use the same model: the runtime proposes `{action, target_id, arguments}`; the harness validates; NOEMA decides ([LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md), [RFC-0034](../rfcs/RFC-0034-llm-controller-adapter.md)).
+REST and MCP adapters map to the same internal action model; frameworks (Hermes, OpenClaw, Grok Bot, …) stay outside Core. LLM Controllers use the same model: the runtime proposes `{action, target_id, arguments}`; the harness validates; NOEMA decides ([LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md), [RFC-0114](../rfcs/RFC-0114-llm-controller-adapter.md)).
 
 Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
 

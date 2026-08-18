@@ -82,6 +82,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0070](RFC-0070-inherited-org.md) | **Accepted** | GC4-S7: INHERITED_BY_ORGANIZATION; vacate stays vacant |
 | [RFC-0071](RFC-0071-connect-dest.md) | **Accepted** | GC2-S12: BUILD.CONNECT dest pin; no new exit |
 | [RFC-0113](RFC-0113-hosted-multiplayer-contention.md) | **Accepted** | Hosted first-accepted harvest; MESSAGE remains mail; no live chat |
+| [RFC-0114](RFC-0114-llm-controller-adapter.md) | **Accepted** | LLM Controller propose contract; no AGENT_PLAYER; no new verbs |
 
 ## Required review lenses
 

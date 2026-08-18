@@ -1,7 +1,7 @@
 # LLM Controller Integration (v0.1)
 
 **Version:** v0.1  
-**RFC:** [RFC-0034](../rfcs/RFC-0034-llm-controller-adapter.md)
+**RFC:** [RFC-0114](../rfcs/RFC-0114-llm-controller-adapter.md)
 
 An LLM runtime is a **Controller for a Player**. It is not a second Player class and not a mind inside the World Engine.
 
