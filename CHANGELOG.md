@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **Remaining-work honesty:** GC1-S2 is hosted (RFC-0040). SPEC GAP is later GC1 (parameter-access), not S2.
+
 - **Checklist link:** isolated-proof item points at the Noema runtime-readiness doc on GitHub. Relative `docs/RUNTIME-READINESS-2026-08-13.md` is not in this repo.
 
 - **Remaining-work snapshot:** isolated Worker/DO/SQL proof is shipped; do not apply hosted world-head SQL. GC1-S2 remains DEFERRED. Host STUDY stays stub. No Recover. No Genesis reseed.
