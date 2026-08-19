@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **Checklist link:** isolated-proof item points at the Noema runtime-readiness doc on GitHub. Relative `docs/RUNTIME-READINESS-2026-08-13.md` is not in this repo.
+
 - **Remaining-work snapshot:** isolated Worker/DO/SQL proof is shipped; do not apply hosted world-head SQL. GC1-S2 remains DEFERRED. Host STUDY stays stub. No Recover. No Genesis reseed.
 
 - **SQL-head inspect:** SPEC-CHECKLIST records the 2026-08-19 read-only SQL session. Perihelion head matches `/ready` (105/307/rev 176). Isolated `inspect-s0` head is present. No Recover. No Genesis reseed.
