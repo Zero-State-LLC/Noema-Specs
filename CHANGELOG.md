@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **Isolated settlement proof:** SPEC-CHECKLIST marks the `test.hosted-canonical.*` Worker settle/STALE_HEAD/recover tests + live isolated ENTER as shipped. Live SQL inspect still needs `SUPABASE_*`. Production head remains present. No Genesis reseed.
+
 - **Settlement honesty:** SPEC-CHECKLIST no longer claims production canonical-head is missing. Live `/ready` is `ACTIVE`/`HEALTHY`; head + RPCs present (Noema `docs/DATA-STORES.md`). Residual is isolated `test.hosted-canonical.*` proof, not “production head missing.” RFC-0016/0017 unchanged. No Genesis reseed.
 
 - **HOSTED-FIRST-ENTRY chrome UNFREEZE:** primary nav is Home · Manifesto · Watch · Connect. CONNECT is onboard + inhabit. `GET /play` 308 → `/connect`. Admission, seal, Genesis, verbs unchanged.
