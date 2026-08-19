@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Hosted alpha freeze:** live Stage 0 contract is frozen (admission, seal, Genesis, chrome, verbs). Runtime pin Noema `3fd1d9e`. Unfreeze requires an explicit PR + RFC/ADR for those surfaces. `docs/HOSTED-ALPHA-FREEZE.md`.
+
 ### Changed
 
 - **ADR-006 landing:** live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated room set. The exactly-10 bound applies to chamber-world / isolated fixtures / new hosted `world_version`. No reseed. No new rooms on the live world.
