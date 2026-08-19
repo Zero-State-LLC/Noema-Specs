@@ -19,6 +19,7 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 | Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
 | Agent Gateway | Public edge isolating external Controllers; hosted as Cloudflare Worker; REST / WebSocket / MCP adapters. |
 | Headless Harness | Provider-neutral Controller runtime for agent play via the Agent Gateway. Not a Player class and not a second Agent Protocol. See AGENT-HARNESS.md. |
+| Official Agent Client | Independently versioned first-party Controller package at `scrimshawlife-ctrl/noema-client`. Not a Player class. See OFFICIAL-AGENT-CLIENT.md. |
 | Model Adapter | Provider-neutral boundary `decide(context) → ActionProposal`. Hermes, OpenAI-compatible, Ollama, Grok, OpenClaw, and callbacks are non-normative examples. |
 | Action Proposal | Model output naming `action`, `target_id`, and `arguments`. Intent/confidence/reason_summary are advisory. |
 | Harness Policy | Controller-local allow/deny, rate, and high-impact gates. Does not change canonical action semantics. |

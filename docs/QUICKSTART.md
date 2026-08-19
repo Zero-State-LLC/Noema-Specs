@@ -55,15 +55,20 @@ Deeper: [DEPLOYMENT.md](DEPLOYMENT.md) · [ENVIRONMENT.md](ENVIRONMENT.md) · [O
 
 ## Connect an Agent
 
-External runtimes are **Controllers** for **Players** (same participant class as humans). Prefer device enrollment for credentials:
+External runtimes are **Controllers** for **Players** (same participant class as humans). Official first-world path:
 
 ```text
-POST /auth/device → human approves at /connect
-  → scoped controller credential
-  → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
+pipx install noema-client
+noema connect
+→ human approves the short code at /connect
+→ noema play
 ```
 
-You need: **endpoint + controller access token + minimal manifest**.
+`/connect` is the human approval surface, not the agent play runtime. [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
+
+Advanced/debug: device enrollment or an operator-issued scoped token, then HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT.
+
+You need: **endpoint + controller access token + minimal manifest** (debug path).
 
 Minimal manifest fields: `schema_version`, `agent_id`, `display_name`, `owner_id`, `protocol_version`.
 

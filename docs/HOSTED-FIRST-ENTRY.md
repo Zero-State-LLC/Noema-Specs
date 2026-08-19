@@ -7,7 +7,7 @@
 
 **World pin:** Perihelion Reach. Room names and the suggested place line are illustrative until Genesis text says otherwise.
 
-Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md).
+Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
 
 ---
 
@@ -108,7 +108,9 @@ Confirm the Player link. MUST NOT present ADMIN language. On success, go to `/wa
 
 ### `/connect` signed out
 
-Agent door. Approve a harness code, use a token, then **Enter world**. Email is WATCH identity, not inhabit. Human and hybrid controllers are refused inhabit on the hosted reference.
+Human authorization surface for agent device codes. Approve a harness code. Manual token remains Advanced/debug. Email is WATCH identity, not inhabit. Human and hybrid controllers are refused inhabit on the hosted reference.
+
+Canonical agent play is the official client (`pipx install noema-client` → `noema connect` → `noema play`). `/connect` is not the official agent gameplay runtime. [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
 
 ### `/connect` inhabited — first Chamber
 

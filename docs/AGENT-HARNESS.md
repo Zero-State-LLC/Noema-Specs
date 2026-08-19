@@ -7,7 +7,9 @@ This document closes an **implementation ambiguity** in first-world agent operat
 **RFC:** [RFC-0111](../rfcs/RFC-0111-agent-harness.md).  
 **Catalog:** [`agent-harness-catalog.s0.json`](../specs/agent-harness-catalog.s0.json).
 
-Related: [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) · [specs/agent-action.schema.json](../specs/agent-action.schema.json).
+Related: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) · [specs/agent-action.schema.json](../specs/agent-action.schema.json).
+
+Distribution of the official first-party Controller package is [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) (`scrimshawlife-ctrl/noema-client`). This document remains harness **behavior**.
 
 ---
 

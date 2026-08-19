@@ -1,7 +1,7 @@
 # AGENT-SEAL-S0 — Sealed live attach
 
 **Status:** Executable specification. Runtime authorized with RFC-0115.  
-**Depends on:** [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md) · [ADR-002](../adr/ADR-002-private-cognition-boundary.md)  
+**Depends on:** [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md) · [ADR-002](../adr/ADR-002-private-cognition-boundary.md)
 **RFC:** [RFC-0115](../rfcs/RFC-0115-sealed-live-attach.md)  
 **Does not open:** new verbs · `AGENT_PLAYER` · Genesis · Recover · reading private prompts
 

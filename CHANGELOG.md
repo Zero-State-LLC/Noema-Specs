@@ -4,6 +4,8 @@
 
 ### Added
 
+- **Official external agent client:** RFC-0116 Accepted. `docs/OFFICIAL-AGENT-CLIENT.md` names `scrimshawlife-ctrl/noema-client` as the first-party Controller package. Server/client split, `/connect` as human approval, install/`noema connect` onboarding. No new verbs. No Genesis.
+
 - **MUD-native interaction campaign:** `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md` plus plan/tasks. Additive PLAY-depth (parser, room grammar, HELP, traces). No new verbs. No Genesis.
 
 ### Changed

@@ -4,7 +4,9 @@
 **Provenance class:** primarily **SPECULATIVE** as implementation target for the product runtime; reconciles with **OBSERVED** reference Python modular monolith in [`Zero-State-LLC/Noema`](https://github.com/Zero-State-LLC/Noema) as a local/dev and logical-module baseline.
 
 Does **not** redefine game mechanics, event catalogs, or claim labels.  
-Related: [ARCHITECTURE.md](ARCHITECTURE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY.md](SECURITY.md).
+Related: [ARCHITECTURE.md](ARCHITECTURE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY.md](SECURITY.md).
+
+The official first-party Controller package lives outside this hosted stack, at `scrimshawlife-ctrl/noema-client`. The Worker remains world/gateway authority.
 
 ---
 

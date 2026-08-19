@@ -1,0 +1,11 @@
+{
+  "slice_id": "official-agent-client-s0",
+  "catalog_id": "official-agent-client-catalog/s0",
+  "operation": "DISTRIBUTE",
+  "official_repo": "scrimshawlife-ctrl/noema-client",
+  "player_class": "PLAYER",
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "Named official Controller repo; server remains world authority."
+  }
+}
