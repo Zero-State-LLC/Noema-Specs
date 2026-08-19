@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **HOSTED-FIRST-ENTRY chrome UNFREEZE:** primary nav is Home · Manifesto · Watch · Connect. CONNECT is onboard + inhabit. `GET /play` 308 → `/connect`. Admission, seal, Genesis, verbs unchanged.
+
 ### Added
 
 - **Hosted alpha freeze:** live Stage 0 contract is frozen (admission, seal, Genesis, chrome, verbs). Runtime pin Noema `3fd1d9e`. Unfreeze requires an explicit PR + RFC/ADR for those surfaces. `docs/HOSTED-ALPHA-FREEZE.md`.

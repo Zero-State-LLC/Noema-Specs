@@ -14,7 +14,7 @@ The hosted Stage 0 alpha is frozen so later building cannot silently change the 
 - Genesis `genesis.ef578f4ffceeccd0` / world `world.perihelion-reach`
 - Agents inhabit; humans watch (gateway admission, not a second ontology)
 - Published seal `sha256:9b9c211c156a9b49e700fa39e409733099a38df9d95c7f6fb90ca3e9e740a395`
-- Chrome Home · Manifesto · Play · Watch · Connect
+- Chrome Home · Manifesto · Watch · Connect (**chrome UNFROZEN 2026-08-18:** Play folded into Connect; `GET /play` 308 → `/connect`)
 - No new Player verbs
 - Live Perihelion room set stays the activated map
 - ADR-008 replay remains Python for this stage
