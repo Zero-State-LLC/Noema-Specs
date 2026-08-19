@@ -8,7 +8,7 @@
 **Supersede (2026-08-19 OBSERVED):** Isolated Worker/DO/SQL proof shipped (Noema #318 INSPECT 200 on `inspect-s0`; #320 SQL-head inspect). Perihelion SQL head matches `/ready` (105/307/rev 176). Do **not** apply the world-head SQL files — hosted objects already exist. Do not Recover. Do not reseed.  
 **Does not open:** Genesis reseed, crypto, CONTEST / WED / ATTEST help.
 
-Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Production SQL/RPC apply is OBSERVED done. Isolated-world verification is shipped. Perihelion canonical bootstrap is **not** the residual (head adopted). GC1-S2 remains DEFERRED. Host STUDY stays stub.
+Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Production SQL/RPC apply is OBSERVED done. Isolated-world verification is shipped. Perihelion canonical bootstrap is **not** the residual (head adopted). GC1-S2 same-asset Engineer quality is hosted (RFC-0040). Later GC1 (parameter-access) stays later. Host STUDY stays stub.
 
 ---
 
@@ -55,14 +55,14 @@ The three world-head / canonical-settlement SQL files are on disk. Hosted object
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-Canonical-head infrastructure is implemented, deployed, and SQL-verified. Isolated ENTER/INSPECT/SQL-head proof shipped. GC1-S2 remains DEFERRED. Host STUDY stays stub.
+Canonical-head infrastructure is implemented, deployed, and SQL-verified. Isolated ENTER/INSPECT/SQL-head proof shipped. GC1-S2 is hosted (RFC-0040). Host STUDY stays stub.
 
 ---
 
 ## SPEC GAP (later RFC)
 
 ```text
-GC1-S2 mechanical benefits (doctrine DEFER)
+GC1 parameter-access and later unshipped mastery slices
 ```
 
 ---
@@ -83,4 +83,4 @@ host STUDY unstub
 
 1. Do not re-apply hosted world-head SQL.  
 2. Do not Recover or bootstrap Perihelion from incomplete legacy events.  
-3. Do not implement GC1-S2 benefits.
+3. Do not implement unshipped GC1 slices (parameter-access). GC1-S2 is already hosted.
