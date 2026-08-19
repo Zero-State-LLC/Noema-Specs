@@ -4,9 +4,10 @@
 **Authority:** [GC-S0-CLOSEOUT-2026-08-13.md](GC-S0-CLOSEOUT-2026-08-13.md) · [GC-S1-ORDER.md](GC-S1-ORDER.md)  
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Supersede (2026-08-17):** live `/ready` is still that genesis, seq **94**, HEALTHY. GC1-S2–S5, GC2 through S24, comms expiry, WR-S0, and first-world BUILD help (RFC-0090) shipped after this snapshot. Do not treat the SQL/bootstrap “blocked” lines below as current.  
+**Supersede (2026-08-18 OBSERVED):** `GET https://noema.guru/ready` is `ACTIVE` / `HEALTHY`, cycle 105, sequence **303**, same genesis. Production head + RPCs are present (Noema `docs/DATA-STORES.md`). Residual is isolated `test.hosted-canonical.*` re-runnable proof — not “production head missing.” Do not Recover again. Do not reseed.  
 **Does not open:** Genesis reseed, crypto, CONTEST / WED / ATTEST help.
 
-Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Hosted SQL/RPC apply and isolated-world verification remain open. Perihelion canonical bootstrap remains blocked. GC1-S2 remains DEFERRED.
+Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Production SQL/RPC apply is OBSERVED done. Isolated-world verification remains the residual. Perihelion canonical bootstrap is **not** the residual (head adopted). GC1-S2 remains DEFERRED.
 
 ---
 
@@ -34,8 +35,8 @@ Use this file to analyze what is left. Canonical-head Worker code is deployed (N
 | GC10-S0 pressure | RFC-0014 | Yes (#82). Silent if drop would go below 25 |
 | GC10-S1 more classes | **RFC-0027** | Hosted this run. Resource stock + access restriction. S0 remains. No Admin spawn |
 | World-time | **RFC-0019** | WAIT quorum (#80) |
-| Head + fence | **RFC-0016 / 0017** | Worker shipped; **SQL / RPC apply unverified** |
-| Atomic canonical settlement | runtime #96 | Deployed `272a993`. Isolated verification **blocked**. Perihelion bootstrap **blocked** |
+| Head + fence | **RFC-0016 / 0017** | Worker shipped; hosted SQL/RPC **present** (2026-08-17 SQL + 2026-08-18 `/ready`) |
+| Atomic canonical settlement | runtime #96 | Deployed. Isolated `test.hosted-canonical.*` proof is the residual. Perihelion head **present** — do not bootstrap |
 | Archive writer pin | **RFC-0018** | INSPECT is not a writer |
 | Attest spec | **RFC-0020** | Hosted `COMMIT.ATTEST`. Help omits ATTEST |
 | GC5-S1 delay | **RFC-0021** | Hosted this run. 25–49 delays 1 cycle |
@@ -69,8 +70,7 @@ Canonical-head infrastructure is implemented and deployed, not hosted-verified. 
 
 ```text
 GC1-S2 mechanical benefits (doctrine DEFER)
-canonical-head SQL/RPC apply + isolated verification (operator)
-Perihelion canonical bootstrap (blocked: no verified snapshot)
+isolated Worker/DO/SQL proof on test.hosted-canonical.* (re-runnable)
 ```
 
 ---

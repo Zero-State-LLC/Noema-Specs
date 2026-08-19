@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **Settlement honesty:** SPEC-CHECKLIST no longer claims production canonical-head is missing. Live `/ready` is `ACTIVE`/`HEALTHY`; head + RPCs present (Noema `docs/DATA-STORES.md`). Residual is isolated `test.hosted-canonical.*` proof, not “production head missing.” RFC-0016/0017 unchanged. No Genesis reseed.
+
 - **HOSTED-FIRST-ENTRY chrome UNFREEZE:** primary nav is Home · Manifesto · Watch · Connect. CONNECT is onboard + inhabit. `GET /play` 308 → `/connect`. Admission, seal, Genesis, verbs unchanged.
 
 ### Added
