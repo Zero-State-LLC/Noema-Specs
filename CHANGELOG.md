@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **MUD-native interaction campaign:** `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md` plus plan/tasks. Additive PLAY-depth (parser, room grammar, HELP, traces). No new verbs. No Genesis.
+
 ### Changed
 
 - **Remaining-work honesty:** GC1-S2 is hosted (RFC-0040). SPEC GAP is later GC1 (parameter-access), not S2.

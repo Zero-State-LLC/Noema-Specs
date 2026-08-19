@@ -4,7 +4,7 @@
 
 This is not a second command catalog. Canonical verbs, aliases, costs, and consequences remain [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) and [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md).
 
-Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [EXPERIENCE.md](EXPERIENCE.md).
+Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md).
 
 ---
 
