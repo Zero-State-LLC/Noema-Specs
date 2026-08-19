@@ -5,9 +5,10 @@
 **Hosted evidence:** Noema `docs/RUNTIME-READINESS-2026-08-13.md` · live Perihelion `ACTIVE` / `HEALTHY` / `genesis.ef578f4ffceeccd0` (cycle 0, seq 75 at last check).  
 **Supersede (2026-08-17):** live `/ready` is still that genesis, seq **94**, HEALTHY. GC1-S2–S5, GC2 through S24, comms expiry, WR-S0, and first-world BUILD help (RFC-0090) shipped after this snapshot. Do not treat the SQL/bootstrap “blocked” lines below as current.  
 **Supersede (2026-08-18 OBSERVED):** `GET https://noema.guru/ready` is `ACTIVE` / `HEALTHY`, cycle 105, sequence **303**, same genesis. Production head + RPCs are present (Noema `docs/DATA-STORES.md`). Residual is isolated `test.hosted-canonical.*` re-runnable proof — not “production head missing.” Do not Recover again. Do not reseed.  
+**Supersede (2026-08-19 OBSERVED):** Isolated Worker/DO/SQL proof shipped (Noema #318 INSPECT 200 on `inspect-s0`; #320 SQL-head inspect). Perihelion SQL head matches `/ready` (105/307/rev 176). Do **not** apply the world-head SQL files — hosted objects already exist. Do not Recover. Do not reseed.  
 **Does not open:** Genesis reseed, crypto, CONTEST / WED / ATTEST help.
 
-Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Production SQL/RPC apply is OBSERVED done. Isolated-world verification remains the residual. Perihelion canonical bootstrap is **not** the residual (head adopted). GC1-S2 remains DEFERRED.
+Use this file to analyze what is left. Canonical-head Worker code is deployed (Noema #96 / `272a993`). Production SQL/RPC apply is OBSERVED done. Isolated-world verification is shipped. Perihelion canonical bootstrap is **not** the residual (head adopted). GC1-S2 remains DEFERRED. Host STUDY stays stub.
 
 ---
 
@@ -46,23 +47,15 @@ Frozen catalogs `action-contracts.v01.json` and `event-types.0.2.json` are uncha
 
 ---
 
-## Operator (blocks reconstructable heads)
+## Operator (historical — do not apply)
 
-Apply on hosted Postgres (project `dezykkherxlaysxyvgbs` unless Worker `SUPABASE_URL` says otherwise):
-
-```text
-Noema/supabase/migrations/20260813210000_noema_world_heads.sql
-Noema/supabase/migrations/20260813223000_noema_world_head_fence.sql
-Noema/supabase/migrations/20260813233000_noema_atomic_canonical_settlement.sql
-```
-
-Until that runs, the deployed #96 Worker fail-closes mutating ACK (`p_allow_bootstrap=false`). Do not fabricate a Perihelion canonical head. Production command routing has no isolated test world.
+The three world-head / canonical-settlement SQL files are on disk. Hosted objects (tables + both RPCs + Perihelion head) were read 2026-08-17 and again 2026-08-19. **Do not re-apply.** Do not fabricate a Perihelion canonical head. Isolated `test.hosted-canonical.*` is the operator test-world path; production PLAY stays Perihelion.
 
 ---
 
 ## Spec-ready, not authorized (explicit implementation pass)
 
-Canonical-head infrastructure is implemented and deployed, not hosted-verified. Operator SQL + isolated world path remain. GC1-S2 remains DEFERRED.
+Canonical-head infrastructure is implemented, deployed, and SQL-verified. Isolated ENTER/INSPECT/SQL-head proof shipped. GC1-S2 remains DEFERRED. Host STUDY stays stub.
 
 ---
 
@@ -70,7 +63,6 @@ Canonical-head infrastructure is implemented and deployed, not hosted-verified. 
 
 ```text
 GC1-S2 mechanical benefits (doctrine DEFER)
-isolated Worker/DO/SQL proof on test.hosted-canonical.* (re-runnable)
 ```
 
 ---
@@ -82,12 +74,13 @@ crypto / wallets / x402
 v0.6B / v0.6C
 v0.8 Phenomena
 production Genesis activate / force-supersede / reseed
+host STUDY unstub
 ```
 
 ---
 
 ## Suggested analysis order
 
-1. Operator: apply the three world-head / canonical-settlement SQL files.  
-2. Do not bootstrap Perihelion from incomplete legacy events.  
+1. Do not re-apply hosted world-head SQL.  
+2. Do not Recover or bootstrap Perihelion from incomplete legacy events.  
 3. Do not implement GC1-S2 benefits.
