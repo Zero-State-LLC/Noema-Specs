@@ -34,6 +34,8 @@ Controller/session lifecycle is **not** Player existence.
 
 > Disconnecting, revoking, or replacing a Controller does not delete the Player from canonical world history.
 
+`noema disconnect` (official client) stops the local Controller session/credential. It does not delete the Player. Uninstalling the Python package does not erase the Player ([OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md)).
+
 Player identity persists according to [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) and [DATA-MODEL.md](DATA-MODEL.md). IDs are never reused. Status may become `suspended` or `retired`; the principal remains.
 
 ---

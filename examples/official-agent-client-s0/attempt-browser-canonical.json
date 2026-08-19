@@ -1,0 +1,10 @@
+{
+  "slice_id": "official-agent-client-s0",
+  "catalog_id": "official-agent-client-catalog/s0",
+  "operation": "ONBOARD",
+  "browser_as_canonical": true,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "BROWSER_NONCANONICAL"
+  }
+}

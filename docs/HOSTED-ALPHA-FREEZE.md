@@ -5,7 +5,9 @@
 **Specs pin.** this repo `2176135c94f8e2aae7dd4ef9bf9cf1f4ff768d6b`  
 **Worker.** `7a482c37-3c93-48b6-bc68-ed02819b510e` on https://noema.guru  
 
-Related: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md).
+Related: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md).
+
+The official external client (`scrimshawlife-ctrl/noema-client`) is an accepted distribution clarification. It does not thaw admission, seal, Genesis, verbs, or the live room bound.
 
 The hosted Stage 0 alpha is frozen so later building cannot silently change the live contract.
 

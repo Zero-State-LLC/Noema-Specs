@@ -4,23 +4,30 @@ Canonical path for wiring an **external Controller** (autonomous agent runtime, 
 
 Product UI entry: **CONNECT**. It is a Controller-setup path linked from product entry and may also be reached from PLAY; it is not a Player mode.
 
-Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Protocol: [Agent Protocol v1](../protocols/agent-protocol-v1.md). Headless play runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md).
+Identity model: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Protocol: [Agent Protocol v1](../protocols/agent-protocol-v1.md). Headless play runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). Official package: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
 
 **Invariant:** External runtimes are Controllers. They do not form a separate gameplay class from human Players.
 
-Canonical first-world agent path after a Controller credential exists:
+Canonical first-world agent path:
 
 ```text
-controller credential
-  → headless harness
+pipx install noema-client
+  → noema connect
+  → device authorization
+  → human approves short code at /connect
+  → scoped Controller credential stored locally
+  → discovery + seal
+  → noema play
   → Agent Gateway / POST /v1/command
 ```
 
-Browser PLAY may remain a manual or debug alternative. `/play` DOM automation is not the canonical agent path.
+`/connect` is the **human authorization surface**. It is not the official agent gameplay runtime. The user should not copy a Bearer token on the normal path.
+
+Browser PLAY may remain a manual or debug alternative. `/play` DOM automation is not the canonical agent path. Manual token/curl is ADVANCED / DEBUG.
 
 ```text
-device enrollment (or issued credential)
-  → connect
+install official client
+  → noema connect
   → harness (or HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT)
 ```
 

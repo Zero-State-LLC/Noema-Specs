@@ -65,6 +65,7 @@ REQUIRED_DOCS = [
     "docs/SPECTATOR-ONBOARDING.md",
     "docs/AGENT-ONBOARDING.md",
     "docs/AGENT-HARNESS.md",
+    "docs/OFFICIAL-AGENT-CLIENT.md",
     "docs/AGENT-SEAL-S0.md",
     "docs/ADMIN-LIVE-OPERATIONS.md",
     "docs/WORLD-OPERATIONS.md",
@@ -8825,6 +8826,111 @@ def check_sealed_live_attach(Draft202012Validator) -> None:
     ok("sealed-live-attach S0: catalog, prompt hash, fixtures, RFC-0115 Accepted")
 
 
+FORBIDDEN_CLIENT_PLAYER_CLASSES = {
+    "AGENT_PLAYER",
+    "BOT_PLAYER",
+    "AUTONOMOUS_PLAYER",
+    "CLIENT_PLAYER",
+    "NOEMA_AGENT_PLAYER",
+}
+
+
+def evaluate_official_agent_client(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_player_classes"):
+        return "REJECT", "CATALOG"
+    if catalog.get("browser_canonical") or catalog.get("client_is_world_authority"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("provider_neutral") or not catalog.get("discovery_first"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("seal_fail_closed") or not catalog.get("copy_first"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("admin_secrets_forbidden") or catalog.get("mcp_required"):
+        return "REJECT", "CATALOG"
+    if not catalog.get("operator_brief_flags_forbidden"):
+        return "REJECT", "CATALOG"
+    if catalog.get("official_repo") != "scrimshawlife-ctrl/noema-client":
+        return "REJECT", "CATALOG"
+    repo = attempt.get("official_repo")
+    if repo is not None and repo != "scrimshawlife-ctrl/noema-client":
+        return "REJECT", "REPO"
+    player_class = attempt.get("player_class")
+    if player_class in FORBIDDEN_CLIENT_PLAYER_CLASSES:
+        return "REJECT", "ONTOLOGY"
+    if attempt.get("client_is_world_authority"):
+        return "REJECT", "SERVER_AUTHORITY"
+    if attempt.get("browser_as_canonical"):
+        return "REJECT", "BROWSER_NONCANONICAL"
+    if attempt.get("stores_admin_secret"):
+        return "REJECT", "LEAST_PRIVILEGE"
+    if attempt.get("operator_brief_flags"):
+        return "REJECT", "SEAL"
+    if attempt.get("delete_internal_first"):
+        return "REJECT", "COPY_FIRST"
+    if attempt.get("perihelion_ci"):
+        return "REJECT", "NO_LIVE_CI"
+    if attempt.get("skill_teaches_strategy"):
+        return "REJECT", "SKILL_STRATEGY"
+    if attempt.get("skip_discovery"):
+        return "REJECT", "DISCOVERY"
+    if attempt.get("mcp_required") or attempt.get("provider_required"):
+        return "REJECT", "PROVIDER"
+    return "ACCEPT", None
+
+
+def check_official_agent_client(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "official-agent-client-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "official-agent-client-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "official-agent-client-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"official-agent-client catalog invalid: {errs[0].message}")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_player_classes"):
+        fail("official-agent-client must not add verbs, events, or Player classes")
+    if catalog.get("official_repo") != "scrimshawlife-ctrl/noema-client":
+        fail("official-agent-client must name scrimshawlife-ctrl/noema-client")
+    rfc = (ROOT / "rfcs" / "RFC-0116-official-agent-client.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0116 must be Accepted")
+    doc = (ROOT / "docs" / "OFFICIAL-AGENT-CLIENT.md").read_text(encoding="utf-8")
+    for token in (
+        "scrimshawlife-ctrl/noema-client",
+        "NOEMA owns world authority",
+        "human authorization surface",
+        "pipx install noema-client",
+        "noema connect",
+        "GET /.well-known/noema-agent.json",
+        "AGENT_PLAYER",
+        "CLIENT_PLAYER",
+        "COPY / REFACTOR",
+    ):
+        if token not in doc:
+            fail(f"OFFICIAL-AGENT-CLIENT.md must pin {token!r}")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in (
+        "attempt-valid-repo.json",
+        "attempt-client-player-class.json",
+        "attempt-client-world-authority.json",
+        "attempt-browser-canonical.json",
+        "attempt-admin-secret.json",
+        "attempt-operator-brief.json",
+        "attempt-delete-internal-first.json",
+        "attempt-perihelion-ci.json",
+        "attempt-skill-strategy.json",
+        "attempt-skip-discovery.json",
+    ):
+        fixture = load_json(ROOT / "examples" / "official-agent-client-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_official_agent_client(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("official-agent-client S0: catalog, attempt fixtures, RFC-0116 Accepted")
+
+
 def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     claimed = attempt.get("claimed") or {}
     if claimed.get("mastery_yield_bonus") or (
@@ -9912,6 +10018,7 @@ def main() -> None:
     check_agent_orientation_s2(Draft202012Validator)
     check_human_orientation_s0(Draft202012Validator)
     check_agent_harness(Draft202012Validator)
+    check_official_agent_client(Draft202012Validator)
     check_sealed_live_attach(Draft202012Validator)
     check_adr007_atomic_rooms(Draft202012Validator)
     check_adr008_replay()

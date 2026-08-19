@@ -365,7 +365,7 @@ After Supabase login, Noema verifies the JWT server-side, creates or links an Ac
 
 ## Agent authentication (device enrollment)
 
-External agents enroll as Controllers via a **device-code** style flow. They do not share human browser credentials.
+External agents enroll as Controllers via a **device-code** style flow. They do not share human browser credentials. The official first-party client (`scrimshawlife-ctrl/noema-client`) initiates this flow via `noema connect`; `/connect` is the human approval surface ([OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md)).
 
 ### Conceptual flow
 
