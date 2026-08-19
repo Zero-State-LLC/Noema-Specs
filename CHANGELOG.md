@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **SQL-head inspect:** SPEC-CHECKLIST records the 2026-08-19 read-only SQL session. Perihelion head matches `/ready` (105/307/rev 176). Isolated `inspect-s0` head is present. No Recover. No Genesis reseed.
+
 - **Isolated INSPECT + #317 pin:** SPEC-CHECKLIST records live `isolated-inspect.mjs` INSPECT 200 on `test.hosted-canonical.inspect-s0` (`entity.way-lamp`) and production Worker `90b31d30` (`5755a25`). Live SQL inspect still needs `SUPABASE_*`. No Genesis reseed.
 
 - **Isolated settlement proof:** SPEC-CHECKLIST marks the `test.hosted-canonical.*` Worker settle/STALE_HEAD/recover tests + live isolated ENTER as shipped. Live SQL inspect still needs `SUPABASE_*`. Production head remains present. No Genesis reseed.
