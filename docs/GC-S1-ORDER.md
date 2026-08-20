@@ -29,7 +29,7 @@ production Genesis activate / force-supersede / reseed
 Chamber help advertising WED / ATTEST
 ```
 
-GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). GC1-S4 prior-work Explorer/Surveyor/Broker benefits are [RFC-0044](../rfcs/RFC-0044-prior-work-benefits.md). GC1-S5 office eligibility is [RFC-0055](../rfcs/RFC-0055-office-eligibility.md). GC1-S6 public titles is [RFC-0105](../rfcs/RFC-0105-public-titles.md). GC1-S7 focus declaration is [RFC-0110](../rfcs/RFC-0110-focus-declaration.md). Remaining GC1 (parameter-access) stays later.
+GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-0043](../rfcs/RFC-0043-mastery-decay.md). GC1-S4 prior-work Explorer/Surveyor/Broker benefits are [RFC-0044](../rfcs/RFC-0044-prior-work-benefits.md). GC1-S5 office eligibility is [RFC-0055](../rfcs/RFC-0055-office-eligibility.md). GC1-S6 public titles is [RFC-0105](../rfcs/RFC-0105-public-titles.md). GC1-S7 focus declaration is [RFC-0110](../rfcs/RFC-0110-focus-declaration.md). GC1-S8 parameter-access (RFC-0112) is hosted: structured `COMMIT.REPAIR` `extent=overhaul` for recognized, maintained Engineers. Later GC1 stays later.
 
 ## Runtime rule
 

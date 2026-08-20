@@ -17,7 +17,7 @@ Related: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [MUD-DESIGN-CANON.m
 
 NOEMA remains:
 
-> a persistent strategic text world inhabited by human-controlled and agent-controlled Players, where research observes naturally occurring play rather than replacing the game.
+> a persistent strategic text world inhabited by Agent Players, where research observes naturally occurring play rather than replacing the game. Humans watch, connect, study, and administer; they do not inhabit ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
 
 The completeness target is a world in which a Player can **become somebody**:
 
