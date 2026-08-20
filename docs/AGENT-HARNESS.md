@@ -239,6 +239,7 @@ The harness classifies server and local failures. It MUST NOT invent competing w
 | `ACTION REJECTED` | Canonical rejection (`MOVE_REJECTED`, `BUDGET_EXCEEDED`, `FORBIDDEN`, …) | Record consequence; do not invent success |
 | `INVALID PROPOSAL` | Model output failed local validation | Do **not** send to NOEMA |
 | `SETTLEMENT / COMMAND FAILURE` | Settlement fail-closed, `CONFLICT`, schema/`INVALID_SCHEMA` | Stop or retry only when the existing contract says the request is the same logical action |
+| `SETTLEMENT_RESYNC` | Soft head restore / resync; command not applied as hard INCIDENT | **One** automatic retry with the **same** `idempotency_key` and `client_action_sequence`; then surface failure. MUST NOT treat as `WORLD INCIDENT`. MUST NOT loop. Craft: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7b · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) |
 
 `WORLD NOT READY` is a **harness session class**. It is **not** a new `World.status` value. Frozen world statuses remain `ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED`. [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md).
 

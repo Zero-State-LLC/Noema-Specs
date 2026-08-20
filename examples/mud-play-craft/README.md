@@ -41,6 +41,10 @@ COMMAND         / AVAILABLE HERE
 
 [agent-observation-layers.sketch.json](agent-observation-layers.sketch.json) maps Feature B layers to conceptual agent fields (**not** a wire schema; RFC required before protocol change).
 
+## Hosted audit
+
+[hosted-play-audit-checklist.md](hosted-play-audit-checklist.md) — advisory C9 checklist for local/isolated/Perihelion inhabit (no reseed).
+
 ## QA checklist
 
 For each projection file:

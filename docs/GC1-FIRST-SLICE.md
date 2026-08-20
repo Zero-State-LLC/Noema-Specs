@@ -139,6 +139,8 @@ After ordinary observation projection, the PLAY adapter MAY append at most **thr
 | `track.broker.01` | `You have been closing exchanges.` |
 | `track.engineer.01` | `You have been keeping infrastructure alive.` |
 
+**Presentation craft:** lines SHOULD sit under Feature B `STATUS` (after budgets), not mixed into static DESCRIPTION. See [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7 (C7).
+
 Rules:
 
 - Never print integer counts, ranks, XP, levels, or research confidence.

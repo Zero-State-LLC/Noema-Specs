@@ -6,6 +6,7 @@
 
 - **MUD Play Craft C3/C4/C8 flesh-out:** status strip (Feature B STATUS + T1.6), PLAY failure four-beat + plain-language table (T1.4 / craft §5; not research experience-error catalog), short-session S-MARK-10 (T1.7). Spec: `docs/MUD-PLAY-CRAFT.md`. No new verbs. No Genesis.
 - **MUD Play Craft C1 (+ C2 sketch):** non-normative Chamber room projections for Civic Exchange, Relay Quarter, Foundry Corridor under `examples/mud-play-craft/` (Feature B order + STATUS). Conceptual agent layer sketch JSON (not wire). Task T1.8. No Genesis.
+- **MUD Play Craft C5–C9:** post-MOVE orientation without double LOOK attention (ATTENTION-PROJECTION note); official client/harness single `SETTLEMENT_RESYNC` retry; GC1 practice crumbs under STATUS; advisory hosted PLAY audit checklist. Spec: `docs/MUD-PLAY-CRAFT.md` §7a–7c. No new verbs. No Genesis.
 
 ### Added
 

@@ -32,3 +32,7 @@ Include only identifiers needed to act (room name / entity label). All optional 
 ## Exhaustion
 
 Failed insufficient attention: cost 0 (v0.1 rule). No subjective “quality” language in contracts—only explicit field sets.
+
+## Post-MOVE orientation (craft)
+
+Successful `MOVE` SHOULD carry a destination orientation bundle using the same attention field sets as LOOK **after** MOVE cost reservation, without charging a second LOOK attention debit. Failed MOVE carries no destination bundle. Clients MUST NOT auto-spam LOOK when the current observation already orients this room. Detail: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7a. No new verb. If bundling requires ledger/event changes, use the RFC process.
