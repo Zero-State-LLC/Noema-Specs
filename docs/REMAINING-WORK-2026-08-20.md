@@ -44,6 +44,7 @@ Core-loop semantic changes still need an RFC.
 | S5 Home/CONNECT low-noise | Same `noema.low_noise` client preference as WATCH. Home hides the hero; CONNECT keeps text-complete code entry. Runtime `#426`. |
 | Geography / construction inheritance traces | Genesis `RUIN` projects as Feature D scar without `scar:true` (live Perihelion, no reseed). GC2 `unclaimed` works project as construction residue on LOOK / WATCH / Home. Future genesis stamps `scar:true` on ruin entities. Runtime inherit-trace packet. |
 | GC3-S2–S6 social memory | LOOK `social_memory_lines`, TRADE_CAUTION extra compute, and `/v1/watch/live` `public_descriptor_lines` were hosted. WATCH now paints Public bands (dangerous / deceptive) and stays silent when empty. Never `reliable` on WATCH. |
+| STUDY unstub | Study is on the product bar. `/study` is observational public record from `/v1/watch/live`. Lab capture is not hosted. Not a Player path. |
 
 ---
 
@@ -83,9 +84,9 @@ Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Per
 
 S0–S6 reducers, LOOK lines, TRADE_CAUTION, and WATCH JSON were already hosted. The remaining gap was S2 on the Chamber: `public_descriptor_lines` now paint under Public and stay hidden when silent. Home excerpt may carry the same public bands. GC3-S7 preferred discounts stay out of this packet.
 
-### 6. STUDY unstub (P5)
+### 6. STUDY unstub (P5) — shipped
 
-Hosted STUDY is a stub. Thaw allows product IA to put Study back on the bar. RFC-0120: STUDY is not a Player path.
+Study is on primary chrome. `/study` reads the public WATCH projection. It does not inhabit, does not rewrite the ledger, and does not host NOTICE → TEST → CAPTURE. RFC-0120 unchanged.
 
 ### 7. C2 agent observation layers (P6)
 
@@ -106,7 +107,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**STUDY unstub** (item 6), or optional later Native Interaction traces (insignia, memorials, rumor). Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
+**Optional later Native Interaction traces** (insignia, memorials, rumor), or C2 observation layers if a structured agent proves current observation insufficient. Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
 
 ---
 
