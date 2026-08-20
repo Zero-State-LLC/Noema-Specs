@@ -9271,6 +9271,10 @@ def check_gc8_s6(Draft202012Validator) -> None:
         fail("GC8-S6 must not add verbs, currency, crypto, or WATCH cargo")
     if not catalog.get("work_consumes_cargo"):
         fail("GC8-S6 must set work_consumes_cargo")
+    slice_doc = (ROOT / "docs" / "GC8-S6-WORK-CARGO.md").read_text(encoding="utf-8")
+    for token in ("UPGRADE", "REPURPOSE", "RESTORE"):
+        if token not in slice_doc or token not in rfc:
+            fail(f"GC8-S6 / RFC-0118 must list {token} as consume cargo")
     empty = evaluate_gc8_s6({"op": "repair", "storage": 16}, catalog)
     if empty.get("ok") or empty.get("reason") != "NO_MATERIALS":
         fail(f"empty hold repair: {empty}")

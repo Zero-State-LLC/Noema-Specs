@@ -12,7 +12,7 @@ No new Player verbs. AUTH-INFRA-CLASS amounts unchanged. Do not invert live `sto
 
 ## Proposed change
 
-Work verbs consume cargo (free storage up). TRADE `storage: N` is cargo (giver free storage +N, receiver −N). HARVEST unchanged. WATCH silent on pack.
+Work verbs consume cargo (free storage up). That includes REPAIR, CONSTRUCT, **UPGRADE, REPURPOSE, and RESTORE**. TRADE `storage: N` is cargo (giver free storage +N, receiver −N). HARVEST unchanged. DISMANTLE salvage still fills hold. WATCH silent on pack.
 
 Catalog: `specs/economy-catalog.gc8-s6.json`. Slice: `docs/GC8-S6-WORK-CARGO.md`.
 
@@ -26,7 +26,7 @@ Additive sign flip. Worlds ignoring S6 keep today's lockout-to-work.
 
 ## Validation
 
-`check_gc8_s6`: empty-hold work reject; cargo work storage +1; TRADE cargo 15→16 / 16→15; no new verbs.
+`check_gc8_s6`: empty-hold work reject; cargo work storage +1; TRADE cargo 15→16 / 16→15; UPGRADE/REPURPOSE/RESTORE listed as consume cargo; no new verbs.
 
 ## Rollback
 

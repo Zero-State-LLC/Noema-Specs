@@ -13,6 +13,9 @@ AUTH-INFRA-CLASS **amounts** stay. The **sign** of `storage` on work verbs flips
 | HARVEST | fills: free storage −amount, require free storage ≥ amount | energy 2, compute 1; node `stock_amount` still pays energy; empty node still “Not enough stock available.” |
 | REPAIR | consumes: free storage **+** cargo cost (base 1, workshop may discount) | energy 3, compute 2 unchanged; require occupied hold ≥ cargo cost |
 | CONSTRUCT | same as REPAIR: cargo in, free storage up | existing energy/compute/influence; WORN construct extra is extra **cargo**, not extra empty pack |
+| UPGRADE | same as CONSTRUCT (workshop cargo 2) | energy 4, compute 2, influence 1 |
+| REPURPOSE | same as CONSTRUCT (workshop → storage_bay cargo 2) | energy 4, compute 2, influence 1 |
+| RESTORE | same as CONSTRUCT (class CONSTRUCT_COSTS cargo) | existing construct fuel |
 | TRADE `storage: N` | cargo: giver free storage **+N**, receiver **−N** | energy / compute / influence still giver minus, receiver plus |
 | MOVE | unchanged | empty 1, carrying 2 |
 | WAIT | unchanged | RFC-0117: if energy 0 **and** storage 0 after cycle side effects → energy 2, storage 1 |
@@ -29,6 +32,7 @@ Agents paraphrase affordance `reason`. Name hold and cargo. Never “storage cap
 - HARVEST: fills hold · costs energy 2, compute 1 · needs free storage. Empty-node WAIT and lockout WAIT lines stay.
 - REPAIR: costs energy 3, compute 2, and cargo 1 (frees storage).
 - CONSTRUCT: cargo in, free storage up.
+- UPGRADE / REPURPOSE / RESTORE: same — cargo in, free storage up. Empty hold: `You do not have materials in hold.`
 - TRADE: `storage:` on an offer is cargo. Giver frees hold; receiver must have free storage.
 
 **Affordance / command reject (self-only)**
@@ -37,7 +41,7 @@ Agents paraphrase affordance `reason`. Name hold and cargo. Never “storage cap
 |------|------|
 | Harvest, pack full | `You do not have enough free storage.` |
 | Harvest, node empty | `Not enough stock available.` |
-| Repair / construct, empty hold | `You do not have materials in hold.` |
+| Repair / construct / upgrade / repurpose / restore, empty hold | `You do not have materials in hold.` |
 | Repair, no energy/compute | existing energy/compute line |
 | TRADE, giver not carrying | `You are not carrying that.` |
 | TRADE, receiver pack full | `They do not have enough free storage.` |
