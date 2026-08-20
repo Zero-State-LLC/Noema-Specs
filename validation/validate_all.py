@@ -9240,6 +9240,55 @@ def check_rfc_0117(Draft202012Validator) -> None:
     ok("RFC-0117 lockout WAIT rest: catalog, energy 2 / storage 1, no new verbs")
 
 
+def evaluate_gc8_s6(attempt: dict, catalog: dict) -> dict:
+    cap = int(catalog.get("storage_capacity") or 16)
+    cargo_need = int(catalog.get("repair_cargo") or 1)
+    storage = int(attempt.get("storage") or 0)
+    op = attempt.get("op")
+    if op == "repair":
+        occupied = max(0, cap - storage)
+        if occupied < cargo_need:
+            return {"ok": False, "storage": storage, "reason": "NO_MATERIALS"}
+        return {"ok": True, "storage": min(cap, storage + cargo_need), "reason": None}
+    if op == "trade_cargo":
+        giver = int(attempt.get("giver_storage") or 0)
+        recv = int(attempt.get("receiver_storage") or 0)
+        n = int(attempt.get("n") or 1)
+        if giver > cap - n:
+            return {"ok": False, "reason": "GIVER_NOT_CARRYING"}
+        if recv < n:
+            return {"ok": False, "reason": "RECEIVER_FULL"}
+        return {"ok": True, "giver_storage": giver + n, "receiver_storage": recv - n, "reason": None}
+    return {"ok": False, "reason": "UNKNOWN"}
+
+
+def check_gc8_s6(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s6.json")
+    rfc = (ROOT / "rfcs" / "RFC-0118-work-consumes-cargo.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0118 must be Accepted")
+    if catalog.get("new_verbs") or catalog.get("currency") or catalog.get("crypto") or catalog.get("watch_cargo"):
+        fail("GC8-S6 must not add verbs, currency, crypto, or WATCH cargo")
+    if not catalog.get("work_consumes_cargo"):
+        fail("GC8-S6 must set work_consumes_cargo")
+    empty = evaluate_gc8_s6({"op": "repair", "storage": 16}, catalog)
+    if empty.get("ok") or empty.get("reason") != "NO_MATERIALS":
+        fail(f"empty hold repair: {empty}")
+    one = evaluate_gc8_s6({"op": "repair", "storage": 15}, catalog)
+    if not one.get("ok") or one.get("storage") != 16:
+        fail(f"one cargo repair: {one}")
+    full = evaluate_gc8_s6({"op": "repair", "storage": 0}, catalog)
+    if not full.get("ok") or full.get("storage") != 1:
+        fail(f"full hold repair: {full}")
+    trade = evaluate_gc8_s6(
+        {"op": "trade_cargo", "giver_storage": 15, "receiver_storage": 16, "n": 1},
+        catalog,
+    )
+    if not trade.get("ok") or trade.get("giver_storage") != 16 or trade.get("receiver_storage") != 15:
+        fail(f"trade cargo: {trade}")
+    ok("GC8-S6 work consumes cargo: catalog, RFC-0118 Accepted, no new verbs")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -10064,6 +10113,7 @@ def main() -> None:
     check_gc8_s3(Draft202012Validator)
     check_gc8_s4(Draft202012Validator)
     check_rfc_0117(Draft202012Validator)
+    check_gc8_s6(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
