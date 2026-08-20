@@ -556,9 +556,18 @@ Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` 
 **Pin:** none. Uses `watch-live/1.0` only.  
 **Hosted reference (non-normative):** TEXT default on `https://noema.guru/watch`; PIXEL is a spectator opt-in.
 
-Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY, STUDY, or Admin Live.
+Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY or STUDY. On Admin it exists only as the operator-scoped Admin Watch PIXEL of §18.1; it MUST NOT appear on Admin Live in any other form.
 
 Atmospheric stills (hero, spectator plate, legends) MAY dress the public door. They MUST NOT become a second map. The spectator key explains function (site, route, player category, signal), not hidden world facts.
+
+### 18.1 Admin Watch PIXEL (operator-scoped exception)
+
+Consistent with §1's doctrine that Admin topology is an operator graphics exception ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md), [SPEC-CHECKLIST.md](../SPEC-CHECKLIST.md)), the operator console MAY embed the same Phosphor sketch as an **Admin Watch PIXEL**. It is a scoped convenience view for operators, not public WATCH, and it MUST never become a second public map.
+
+- It MUST render only inside an authenticated operator session. No public or unauthenticated route may serve it.
+- It draws the same catalog sketch from that operator's Admin Watch projection (`GET /v1/admin/watch`, scoped to agents they minted or enrolled) rather than the public snapshot. It MUST NOT show anything the operator's own Admin Watch text does not already show — canvas never carries unique information on any plane — and it MUST NOT widen that scoped projection or surface other operators' owned agents.
+- It MUST NOT replace or restyle Admin Live's canonical operator topology, which remains governed by [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md).
+- All §18 doctrine (glyph laws, render rules, motion bounds, budgets) applies to the shared sketch code wherever it renders.
 
 ### Doctrine
 
@@ -694,4 +703,5 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 - TEXT and canvas-failure leave semantic HTML fully usable
 - Idle = no continuous animation frames
 - Budgets respected
-- WATCH remains non-mutating; PLAY / STUDY / Admin Live unchanged
+- Admin Watch PIXEL served only inside an authenticated operator session; no public route exposes it
+- WATCH remains non-mutating; PLAY / STUDY unchanged; Admin Live carries only the §18.1 operator-scoped PIXEL

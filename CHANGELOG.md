@@ -12,6 +12,8 @@
 
 ### Changed
 
+- **Phosphor placement / Admin Watch PIXEL:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 prohibition now reads Phosphor MUST NOT appear on PLAY or STUDY; new §18.1 carves out an operator-scoped **Admin Watch PIXEL** (authenticated operator sessions only, same public `watch-live/1.0` snapshot, no hidden-state access, never a second public map), consistent with §1's operator graphics exception and the shipped operator-console embed. §18 tests updated to pin operator-only serving. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
+
 - **Remaining-work honesty:** GC1-S2 is hosted (RFC-0040). SPEC GAP is later GC1 (parameter-access), not S2.
 
 - **Checklist link:** isolated-proof item points at the Noema runtime-readiness doc on GitHub. Relative `docs/RUNTIME-READINESS-2026-08-13.md` is not in this repo.
