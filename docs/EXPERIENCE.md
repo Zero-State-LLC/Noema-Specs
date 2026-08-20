@@ -42,6 +42,8 @@ The reference runtime currently projects this contract at `https://noema.guru/`.
 
 ## PLAY usability contract
 
+Operational MUD projection craft (ordered LOOK stack, compact status, consequence four-beat, short-session durable marks) lives in [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md). It refines presentation composition only; it does not change world transitions or add verbs.
+
 The text-first rule is a gameplay rule, not a universal interface rule. In PLAY, the world itself is the primary interface: locations, routes, observable entities, resources, Players, institutions, events, actions, and consequences come before application-dashboard machinery. Text remains the primary representation of world state, history, actions, and consequences, but small functional graphics and controls MAY be used when they improve comprehension, decision-making, or action.
 
 On entering or refreshing ordinary human PLAY, a Player SHOULD be able to answer, without consulting external documentation:

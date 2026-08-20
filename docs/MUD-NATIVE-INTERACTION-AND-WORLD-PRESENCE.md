@@ -3,6 +3,7 @@
 **Status:** Specification campaign — additive PLAY-depth work.  
 **Method:** Spec-Driven Development: constitution/context → specify → plan → tasks → implementation.  
 **Package:** [spec](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [plan](MUD-NATIVE-INTERACTION-PLAN.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
+**Craft companion (checklist / backlog, not a second campaign):** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)  
 **Depends on:** [CONTEXT.md](../CONTEXT.md) · [MUD-DESIGN-CANON](MUD-DESIGN-CANON.md) · [COMMAND-DISCOVERY](COMMAND-DISCOVERY.md) · [PLAYER-ACTION-MAP](PLAYER-ACTION-MAP.md) · [ACTION-CONTRACTS](ACTION-CONTRACTS.md) · [HUMAN-PLAY](HUMAN-PLAY.md) · [DEEP-TIME](DEEP-TIME.md) · [WATCH](WATCH.md).  
 **Does not reopen:** Genesis, frozen verbs, settlement semantics, v0.8, crypto.
 

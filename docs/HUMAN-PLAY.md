@@ -10,7 +10,7 @@ read world → issue command → inspect consequence → read messages/news → 
 
 Text-first does not mean text-only, and it does not mean terminal-only. The human projection is information-rich and visually structured ([VISUAL-DESIGN.md](VISUAL-DESIGN.md), [PLAYER-BRAND.md](PLAYER-BRAND.md)). It MAY include small functional controls or graphics when they make the current world state, choice, or consequence easier to understand. Every player-facing element MUST improve comprehension, decision-making, or action; otherwise it SHOULD be removed or deferred. A terminal Controller remains valid; it is not the brand.
 
-Structural MUD lessons (not setting clones): [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md). Mature-world depth campaign: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md).
+Structural MUD lessons (not setting clones): [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md). PLAY projection craft (room stack, status, consequences, short-session marks): [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md). Mature-world depth campaign: [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md).
 
 ## Ontology
 
