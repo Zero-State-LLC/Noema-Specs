@@ -1,7 +1,8 @@
 # MUD Play Craft
 
-**Status:** Design-craft companion (horizon-locked). Non-normative for world transitions.  
+**Status:** Design-craft companion (horizon-locked). **Specs-complete** for C1–C9 (see [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)); C2 sketch-only until optional wire RFC. Non-normative for world transitions.  
 **Feeds:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) (executable interaction campaign)  
+**Runtime sequencing:** [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)  
 **Ancestry:** [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)  
 **Rejection test:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **Does not replace:** Native Interaction Features A–F · [EXPERIENCE.md](EXPERIENCE.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [ATTENTION-PROJECTION.md](ATTENTION-PROJECTION.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md)
@@ -17,7 +18,7 @@ EXPERIENCE / HUMAN-PLAY   → product usability contracts
 
 This document records **MUD craft improvements** that deepen existing NOEMA systems without expanding the product horizon. When a checklist item is ready for implementation, it becomes or extends a Native Interaction task/RFC — it does not fork a second interaction campaign.
 
-**Flesh-out path:** extend §8 work queue and Native Interaction tasks; do not invent parallel Feature letters here.
+**Flesh-out path:** C1–C9 are fleshed. Further work is **runtime** (see [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)) or optional C2 wire RFC — do not invent parallel Feature letters here.
 
 ---
 
@@ -411,6 +412,8 @@ Does not change Specs law. Operators/implementers tick items against noema.guru 
 | C6 | Official client SETTLEMENT_RESYNC single retry | **Fleshed** §7b | OFFICIAL-AGENT-CLIENT + AGENT-HARNESS |
 | C7 | Practice crumb wording table | **Fleshed** §7 (crumbs) | GC1-S0 lines + STATUS placement |
 | C9 | Hosted PLAY audit vs craft checklist | **Fleshed** §7c | [hosted-play-audit-checklist.md](../examples/mud-play-craft/hosted-play-audit-checklist.md) advisory |
+
+**Queue closed for Specs.** Runtime phase order and “when to RFC” live in [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md). Do not re-open C1–C9 as open craft items without a defect report.
 
 ---
 

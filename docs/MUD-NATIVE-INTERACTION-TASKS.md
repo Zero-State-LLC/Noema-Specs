@@ -231,11 +231,10 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 ## Cross-cutting
 
 ### TX.0 Craft companion backlog
-Horizon-locked craft from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8:
-- **C1–C9 fleshed** in craft doc; fixtures under `examples/mud-play-craft/` (projections, agent sketch, hosted audit checklist).
-- Native Interaction tasks: T1.4, T1.6, T1.7, T1.8.
-- Client/harness: OFFICIAL-AGENT-CLIENT §12.1 RESYNC; AGENT-HARNESS §9; ATTENTION-PROJECTION post-MOVE note.
-- C2 remains sketch-only until RFC for wire fields.
+Horizon-locked craft from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md):
+- **Specs-complete** C1–C9 (C2 sketch-only) — [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md) for runtime phases R0–R5.
+- Native Interaction implementation continues via S0–S7 tasks below; S1 SHOULD include T1.4 / T1.6 (four-beat + STATUS).
+- Do not expand craft horizon here; file runtime PRs against Noema / client citing closeout phases.
 
 ### TX.1 Specs reconciliation
 Update/cross-link:
