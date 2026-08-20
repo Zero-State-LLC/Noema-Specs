@@ -4,6 +4,7 @@
 
 ### Added
 
+- **RFC-0119 WAIT cargo fuel:** successful WAIT, after RFC-0117 lockout rest, burns 1 cargo for +2 energy (clamp 80) when occupied hold ≥ 1 and energy is below grant. Skip if lockout rest applied this WAIT. No new verbs. No currency. WATCH silent. Slice GC8-S7. Catalog `economy-catalog.gc8-s7.json`.
 - **MUD Play Craft specs closeout:** `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` seals C1–C9 (C2 sketch-only), defines runtime phases R0–R5, and records timing vs Native Interaction / Perihelion (no reseed). Relands C5–C9 craft that missed #188 squash. No new verbs. No Genesis.
 - **MUD Play Craft C3/C4/C8 flesh-out:** status strip (Feature B STATUS + T1.6), PLAY failure four-beat + plain-language table (T1.4 / craft §5; not research experience-error catalog), short-session S-MARK-10 (T1.7). Spec: `docs/MUD-PLAY-CRAFT.md`. No new verbs. No Genesis.
 - **MUD Play Craft C1 (+ C2 sketch):** non-normative Chamber room projections for Civic Exchange, Relay Quarter, Foundry Corridor under `examples/mud-play-craft/` (Feature B order + STATUS). Conceptual agent layer sketch JSON (not wire). Task T1.8. No Genesis.

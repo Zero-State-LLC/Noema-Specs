@@ -9298,6 +9298,60 @@ def check_gc8_s6(Draft202012Validator) -> None:
     ok("GC8-S6 work consumes cargo: catalog, RFC-0118 Accepted, no new verbs")
 
 
+def evaluate_gc8_s7(attempt: dict, catalog: dict) -> dict:
+    energy = int(attempt.get("energy") or 0)
+    storage = int(attempt.get("storage") or 0)
+    cap = int(catalog.get("storage_capacity") or 16)
+    grant = int(catalog.get("energy_grant") or 80)
+    fuel_cargo = int(catalog.get("fuel_cargo") or 1)
+    fuel_energy = int(catalog.get("fuel_energy") or 2)
+    if energy == 0 and storage == 0:
+        return {"energy": 2, "storage": 1, "fueled": False, "lockout": True}
+    occupied = max(0, cap - storage)
+    if occupied >= fuel_cargo and energy < grant:
+        return {
+            "energy": min(grant, energy + fuel_energy),
+            "storage": min(cap, storage + fuel_cargo),
+            "fueled": True,
+            "lockout": False,
+        }
+    return {"energy": energy, "storage": storage, "fueled": False, "lockout": False}
+
+
+def check_gc8_s7(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.gc8-s7.json")
+    rfc = (ROOT / "rfcs" / "RFC-0119-wait-cargo-fuel.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0119 must be Accepted")
+    if catalog.get("new_verbs") or catalog.get("currency") or catalog.get("crypto") or catalog.get("watch_cargo"):
+        fail("GC8-S7 must not add verbs, currency, crypto, or WATCH cargo")
+    if int(catalog.get("fuel_cargo") or 0) != 1 or int(catalog.get("fuel_energy") or 0) != 2:
+        fail("GC8-S7 must burn 1 cargo for +2 energy")
+    if int(catalog.get("energy_grant") or 0) != 80 or not catalog.get("skip_after_lockout_rest"):
+        fail("GC8-S7 must clamp energy 80 and skip after lockout rest")
+    economy = (ROOT / "docs" / "RESOURCE-ECONOMY.md").read_text(encoding="utf-8")
+    if "RFC-0119" not in economy:
+        fail("RESOURCE-ECONOMY.md must name RFC-0119")
+    slice_doc = (ROOT / "docs" / "GC8-S7-WAIT-CARGO-FUEL.md").read_text(encoding="utf-8")
+    if "WAIT" not in slice_doc or "WATCH" not in slice_doc:
+        fail("GC8-S7 must pin WAIT cargo fuel and keep WATCH silent")
+    if "Waiting can burn cargo for energy." not in slice_doc:
+        fail("GC8-S7 must pin PLAY copy Waiting can burn cargo for energy.")
+    cargo = evaluate_gc8_s7({"energy": 10, "storage": 14}, catalog)
+    if cargo != {"energy": 12, "storage": 15, "fueled": True, "lockout": False}:
+        fail(f"cargo WAIT fuel: {cargo}")
+    full = evaluate_gc8_s7({"energy": 80, "storage": 14}, catalog)
+    if full["fueled"] or full["energy"] != 80 or full["storage"] != 14:
+        fail(f"energy grant skip: {full}")
+    lockout = evaluate_gc8_s7({"energy": 0, "storage": 0}, catalog)
+    if lockout != {"energy": 2, "storage": 1, "fueled": False, "lockout": True}:
+        fail(f"lockout WAIT must not also fuel: {lockout}")
+    empty = evaluate_gc8_s7({"energy": 0, "storage": 16}, catalog)
+    if empty["fueled"] or empty["energy"] != 0 or empty["storage"] != 16:
+        fail(f"empty hold WAIT must not fuel: {empty}")
+    ok("GC8-S7 WAIT cargo fuel: catalog, RFC-0119 Accepted, no new verbs")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -10123,6 +10177,7 @@ def main() -> None:
     check_gc8_s4(Draft202012Validator)
     check_rfc_0117(Draft202012Validator)
     check_gc8_s6(Draft202012Validator)
+    check_gc8_s7(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
