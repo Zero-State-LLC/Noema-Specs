@@ -31,6 +31,9 @@ Core-loop semantic changes still need an RFC.
 | GC1-S0–S6, GC2 through S24, GC4 offices, ACCESS_POLICY S0–S3 | Hosted; RFCs Accepted |
 | S6/S7 WATCH NOW/RECENTLY/WORLD + Home excerpt | Hosted |
 | Official client `noema-client==0.1.8` | PyPI |
+| Agent LOOK CONSTRUCT + ATTEST | Specs `#202`; runtime `#415` |
+| Agent LOOK DISMANTLE/UPGRADE/REPURPOSE/RESTORE | Specs `#203`; runtime `#416` |
+| Agent LOOK VEST/SHARE/CONNECT | This packet |
 
 ---
 
@@ -43,22 +46,20 @@ Highest leverage first. Each row is implementable from existing RFCs/docs unless
 Reducer already hosts COMMIT operations that LOOK does not advertise:
 
 ```text
-CONSTRUCT UPGRADE REPURPOSE RESTORE DISMANTLE CONNECT SHARE VEST
 CONTEST_DECLARE CONTEST_DEFEND CONTEST_WITHDRAW
 AGREEMENT_FORM AGREEMENT_TERMINATE
 ACCESS_POLICY
-ATTEST
 RECONSTRUCT RECONSTRUCT_PUBLISH RECONSTRUCT_SUPERSEDE
 ORG_OFFICE_RETIRE
 ORG_EMERGENCY_*
 ORG_SUCCESSION_*
 ```
 
-LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward rules), ATTEST (unclaimed artifact × infrastructure subject).
+LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits).
 
-Agents cannot discover BUILD/CONTEST/AGREEMENT/ACCESS/ATTEST/reconstruct from structured observation. Same defect GC1-S8/S7 just closed. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
+Agents cannot discover CONTEST/AGREEMENT/ACCESS/reconstruct/emergency/succession from structured observation. Same defect GC1-S8/S7 closed for BUILD. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
 
-Official client 0.1.8 also needs `extent` / `track` / `clear` on ActionProposal if it does not already forward them.
+Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` on ActionProposal if it does not already forward them.
 
 ### 2. Native Interaction leftovers (P1)
 
@@ -107,7 +108,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Agent BUILD/CONTEST/AGREEMENT/ACCESS/ATTEST affordances** (item 1). CONSTRUCT, ATTEST, DISMANTLE, UPGRADE, REPURPOSE, RESTORE are on LOOK. Remaining: VEST/SHARE/CONNECT, CONTEST, AGREEMENT, ACCESS_POLICY, RECONSTRUCT, emergency/succession.
+**Agent CONTEST/AGREEMENT/ACCESS affordances** (item 1). Full BUILD family + ATTEST are on LOOK. Remaining: CONTEST, AGREEMENT, ACCESS_POLICY, RECONSTRUCT, emergency/succession.
 
 ---
 
