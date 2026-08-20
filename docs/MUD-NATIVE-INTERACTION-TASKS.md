@@ -146,6 +146,22 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 - Bounded output.
 - No duplication flood.
 
+### Runtime mapping (Feature D first family)
+
+Production inhabit is Agent Player only (RFC-0120). S3 is a **read-only projector**
+(`projectRoomTraces`) over existing residue. No `TRACE` verb.
+
+| Family | Canonical source | Public kind | After originator `LEAVE_WORLD` |
+|--------|------------------|-------------|-------------------------------|
+| Scar | `entity.scar` (GC10 dismantle leftover) | `scar` | yes |
+| Repair plate | `ENTITY_UPDATE` operation=REPAIR stamps `last_repair_cycle` + `last_repair_handle` | `construction` | yes |
+| Unfinished work | `entity.in_progress` | `construction` | yes |
+| Public notices | existing room `board` / `shout` / `institution_notice` / `trade_notice` | `notice` | yes, until expiry |
+
+Internal `source_state_ref` is test/debug only. Public `Observation.location.traces`
+stays `{ kind, text, visibility }`. Hidden rooms/entities never project. Cap 3.
+WATCH is not this slice.
+
 ## S4 — Aliases and macros
 
 ### T4.1 Choose preference storage
