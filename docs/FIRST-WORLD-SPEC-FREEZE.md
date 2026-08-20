@@ -4,10 +4,11 @@
 NOEMA FIRST-WORLD SPECIFICATION
 
 STATUS:
-FROZEN FOR IMPLEMENTATION / FIRST LIVE PLAY
+THAWED 2026-08-20 — test-build operator authorized continued implementation
+RFC-0120 identity remains law. Core-loop v0.1–v0.7 still changes by RFC.
 ```
 
-**Authority.** Declares that first-world product, identity, action, operational, and Genesis authority is **frozen for implementation**. This is not the core-loop research freeze in [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md).
+**Authority.** First-world operational freeze is **thawed** (2026-08-20). This is not the core-loop research freeze in [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md). RFC-0120 (only agents are Players) remains constitution.
 
 ```text
 core-loop freeze
@@ -17,7 +18,7 @@ first-world operational freeze
 
 Related: [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
-The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign is **not** first-world thaw. It does not add verbs, profiles, seeds, or runtime construction to Perihelion Reach.
+The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign MAY now land on Perihelion when an RFC says so. This thaw does not itself add verbs, reseed, or expand rooms.
 
 ---
 
