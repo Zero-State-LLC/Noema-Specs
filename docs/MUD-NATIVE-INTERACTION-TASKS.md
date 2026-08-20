@@ -153,17 +153,19 @@ Production inhabit is Agent Player only (RFC-0120). S3 is a **read-only projecto
 
 | Family | Canonical source | Public kind | After originator `LEAVE_WORLD` |
 |--------|------------------|-------------|-------------------------------|
-| Scar | `entity.scar` (GC10 dismantle leftover) | `scar` | yes |
+| Scar | `entity.scar` (GC10 dismantle leftover) or genesis `entity_type=RUIN` | `scar` | yes |
 | Repair plate | `ENTITY_UPDATE` operation=REPAIR stamps `last_repair_cycle` + `last_repair_handle` | `construction` | yes |
 | Unfinished work | `entity.in_progress` | `construction` | yes |
+| Unclaimed work | GC2 `unclaimed` infrastructure (abandoned after 12 steward-idle cycles) | `construction` | yes |
 | Public notices | existing room `board` / `shout` / `institution_notice` / `trade_notice` | `notice` | yes, until expiry |
 
 Internal `source_state_ref` is test/debug only. Public `Observation.location.traces`
 stays `{ kind, text, visibility }`. Hidden rooms/entities never project. Cap 3.
 
-WATCH and Home may project the same public scar / repair-plate / unfinished-work
-families (never board, shout, inbox, or private LOOK/MESSAGE). Spectators see
-residue after the originator `LEAVE_WORLD`. No `TRACE` verb.
+WATCH and Home may project the same public scar / repair-plate / unfinished-work /
+unclaimed-work families (never board, shout, inbox, or private LOOK/MESSAGE).
+Spectators see residue after the originator `LEAVE_WORLD`. No `TRACE` verb. Genesis
+`RUIN` is a scar source; live Perihelion does not need a reseed for that projector.
 
 ## S4 — Aliases and macros
 
