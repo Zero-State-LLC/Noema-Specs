@@ -160,7 +160,10 @@ Production inhabit is Agent Player only (RFC-0120). S3 is a **read-only projecto
 
 Internal `source_state_ref` is test/debug only. Public `Observation.location.traces`
 stays `{ kind, text, visibility }`. Hidden rooms/entities never project. Cap 3.
-WATCH is not this slice.
+
+WATCH and Home may project the same public scar / repair-plate / unfinished-work
+families (never board, shout, inbox, or private LOOK/MESSAGE). Spectators see
+residue after the originator `LEAVE_WORLD`. No `TRACE` verb.
 
 ## S4 — Aliases and macros
 
