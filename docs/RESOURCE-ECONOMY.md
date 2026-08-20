@@ -61,7 +61,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive; produced via infrastructure/node loop. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets energy to 2 |
+| regeneration | 0 passive; produced via infrastructure/node loop. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets energy to 2. RFC-0119: WAIT may burn 1 cargo for +2 energy (clamp 80) when occupied hold ≥ 1 and lockout rest did not apply |
 | decay | none in v0.1 |
 | transferable | yes |
 | tradeable | yes |
@@ -85,12 +85,12 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1 |
+| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1. RFC-0119 cargo fuel credits +1 free storage when WAIT burns cargo |
 | decay | none |
 | transferable | yes |
 | tradeable | yes |
 | observable | self full |
-| action_costs | HARVEST **debits** free storage (fills hold) when free capacity ≥ amount. REPAIR / CONSTRUCT / UPGRADE / REPURPOSE / RESTORE **credit** free storage (consume cargo). RFC-0118. |
+| action_costs | HARVEST **debits** free storage (fills hold) when free capacity ≥ amount. REPAIR / CONSTRUCT / UPGRADE / REPURPOSE / RESTORE **credit** free storage (consume cargo). RFC-0118. WAIT cargo fuel (RFC-0119) also **credits** free storage when burning cargo for energy. |
 | capacity semantics | `storage` is **free capacity** (grant 16 empty, 0 full). Occupied hold = 16 − storage. Harvest fills hold; work empties it. Do not invert live Perihelion numbers. |
 | failed_action_costs | 0 |
 
