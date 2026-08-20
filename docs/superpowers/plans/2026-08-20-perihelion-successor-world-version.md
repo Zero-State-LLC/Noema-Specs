@@ -79,12 +79,12 @@ Live Perihelion Reach is ACTIVE at `genesis.ef578f4ffceeccd0` with a frozen 5-ro
 
 ## Context
 
-- [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)
-- [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)
-- [GENESIS.md](../docs/GENESIS.md)
-- [WORLD-OPERATIONS.md](../docs/WORLD-OPERATIONS.md)
-- [RFC-0120](RFC-0120-agent-only-player-identity.md)
-- Design: [docs/superpowers/specs/2026-08-20-perihelion-successor-world-version-design.md](../docs/superpowers/specs/2026-08-20-perihelion-successor-world-version-design.md)
+- [ADR-006](../../../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)
+- [CHAMBER-MAP.md](../../CHAMBER-MAP.md)
+- [GENESIS.md](../../GENESIS.md)
+- [WORLD-OPERATIONS.md](../../WORLD-OPERATIONS.md)
+- [RFC-0120](../../../rfcs/RFC-0120-agent-only-player-identity.md)
+- Design: [docs/superpowers/specs/2026-08-20-perihelion-successor-world-version-design.md](../specs/2026-08-20-perihelion-successor-world-version-design.md)
 
 ## Proposed change
 
@@ -189,7 +189,7 @@ Delete the RFC PR / Worker PR. Live Perihelion is untouched. A local `world.peri
 `rfcs/README.md` — add after RFC-0120:
 
 ```markdown
-| [RFC-0121](RFC-0121-perihelion-successor-world-version.md) | **Accepted** | Perihelion successor `world.perihelion-reach-2`; 10-room CHAMBER-MAP; no live reseed |
+| [RFC-0121](../../../rfcs/RFC-0121-perihelion-successor-world-version.md) | **Accepted** | Perihelion successor `world.perihelion-reach-2`; 10-room CHAMBER-MAP; no live reseed |
 ```
 
 `CHANGELOG.md` Unreleased: one bullet that RFC-0121 specifies the successor, does not reseed, does not flip production `DEFAULT_WORLD_ID`.
