@@ -225,23 +225,19 @@ acceptance:
 | CONNECT new enrollment player_id | MATCH (from device, not approver) |
 | Structured `target_id` discovery | MATCH |
 | Chamber production Role.PLAYER mutate | MATCH (refused) |
-| Chamber local `can_mutate_world()` | INTENTIONAL SPLIT (dev tooling) |
-| Live Perihelion historical CONNECT keys | GOVERNANCE_ESCALATION_REQUIRED |
+| Chamber `can_mutate_world()` | MATCH (Role.AGENT only) |
+| Live CONNECT leftover occupancy | MATCH (rebind onto `ctrl.device.*` Agent Player; leftover human/hybrid inhabit evicted). Historical ledger payloads are not rewritten. |
 
 ---
 
 ## GOVERNANCE
 
 ```yaml
-status: GOVERNANCE_ESCALATION_REQUIRED
+status: CLOSED
 reason: >
-  Live CONNECT currently uses the human approver's player_id as the Agent Player
-  identity. Remapping existing Perihelion world.players / event player_id /
-  office holders would rewrite canonical identity.
-affected_contract: CONNECT device enrollment player_id binding
-why_current_architecture_cannot_satisfy: >
-  RFC-0120 requires new enrollments to allocate a distinct Agent Player.
-  It forbids casual history rewrite. P4 must therefore be split-horizon:
-  future issuance vs preserved past keys. A full live remap is out of
-  campaign scope until a separate migration RFC authorizes it.
+  Identity UNFREEZE 2026-08-20 on the hosted test build. Live occupancy,
+  trades, org members, and offices rebind from leftover human-bound
+  player_id onto the CONNECT device Agent Player. Leftover
+  controller_type=human|hybrid inhabit rows are evicted. Canonical
+  event payloads keep the prior player_id (replay provenance).
 ```
