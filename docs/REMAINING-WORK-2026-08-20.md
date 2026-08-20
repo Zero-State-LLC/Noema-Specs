@@ -42,6 +42,7 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK office retire / emergency / succession | Specs `#210`; runtime `#423` |
 | Isolated + first Perihelion ATTEST | Isolated `attest-s0` OPERATING; live Dead Spur `entity.archive-ledger` → `entity.relay-7` OPERATING. Runtime `#424–#425`. Genesis `genesis.ef578f4ffceeccd0` unchanged. |
 | S5 Home/CONNECT low-noise | Same `noema.low_noise` client preference as WATCH. Home hides the hero; CONNECT keeps text-complete code entry. Runtime `#426`. |
+| Geography / construction inheritance traces | Genesis `RUIN` projects as Feature D scar without `scar:true` (live Perihelion, no reseed). GC2 `unclaimed` works project as construction residue on LOOK / WATCH / Home. Future genesis stamps `scar:true` on ruin entities. Runtime inherit-trace packet. |
 
 ---
 
@@ -64,7 +65,7 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 | S0 parser | No — NON-CANONICAL DEV TOOLING |
 | S1 room grammar | Mostly hosted (STATUS, HAPPENED, traces) |
 | S2 HELP | Chamber/tooling; agent path is affordances (item 1) |
-| S3 traces | First family hosted; later families (insignia, memorials, rumor) optional |
+| S3 traces | First family hosted (scar including genesis RUIN, repair plate, unfinished, unclaimed). Later families (insignia, memorials, rumor) optional |
 | S4 aliases | Client 0.1.7 preference layer |
 | S5 low-noise | Hosted. WATCH, Home, and CONNECT share the client preference. |
 | S6/S7 | Hosted |
@@ -73,9 +74,9 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 
 Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Perihelion: Dead Spur ledger `entity.archive-ledger` names Grid Anchor `entity.relay-7` OPERATING. No `QUEST`. Genesis unchanged.
 
-### 4. Geography / construction inheritance (P3)
+### 4. Geography / construction inheritance (P3) — traces shipped
 
-10-room bound is thawed. Expanding Perihelion or a new `world_version` is now legal. Feature D plates only appear after REPAIR; genesis scars may not be flagged `scar:true`. Construction that later Players inherit is hosted in GC2 reducers — the gap is **legibility** (affordance + traces + WATCH), not missing BUILD code.
+10-room bound is thawed. Expanding Perihelion or a new `world_version` is still an ops decision, not more BUILD code. Feature D now projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed. Remaining geography work is expanding the bound world, not residue legibility.
 
 ### 5. GC3-S2–S6 social memory (P4)
 
@@ -104,7 +105,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Geography / construction inheritance legibility** (item 4). Optional later Native Interaction traces (insignia, memorials, rumor). Still no `QUEST`, no reseed.
+**GC3-S2–S6 social memory** (item 5), or optional later Native Interaction traces (insignia, memorials, rumor). Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
 
 ---
 
