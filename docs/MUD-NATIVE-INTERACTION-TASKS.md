@@ -158,14 +158,18 @@ Production inhabit is Agent Player only (RFC-0120). S3 is a **read-only projecto
 | Unfinished work | `entity.in_progress` | `construction` | yes |
 | Unclaimed work | GC2 `unclaimed` infrastructure (abandoned after 12 steward-idle cycles) | `construction` | yes |
 | Public notices | existing room `board` / `shout` / `institution_notice` / `trade_notice` | `notice` | yes, until expiry |
+| Public rumor | GC5 PUBLIC claim whose `subject_ref` is this room or an entity here | `notice` | yes |
+| Org insignia | `owner_id` of live infrastructure names an org | `notice` | yes |
+| Vacant-office memorial | VACANT office of an org that has a mark in this room | `notice` | yes |
 
 Internal `source_state_ref` is test/debug only. Public `Observation.location.traces`
 stays `{ kind, text, visibility }`. Hidden rooms/entities never project. Cap 3.
 
 WATCH and Home may project the same public scar / repair-plate / unfinished-work /
-unclaimed-work families (never board, shout, inbox, or private LOOK/MESSAGE).
-Spectators see residue after the originator `LEAVE_WORLD`. No `TRACE` verb. Genesis
-`RUIN` is a scar source; live Perihelion does not need a reseed for that projector.
+unclaimed-work / public-rumor / insignia / memorial families (never board, shout,
+inbox, private rumor, or private LOOK/MESSAGE). Spectators see residue after the
+originator `LEAVE_WORLD`. No `TRACE` verb. Genesis `RUIN` is a scar source; live
+Perihelion does not need a reseed for that projector.
 
 ## S4 — Aliases and macros
 
