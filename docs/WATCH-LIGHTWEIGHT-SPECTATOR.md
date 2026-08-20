@@ -173,14 +173,44 @@ Primary (accessible):
   active sites get a restrained marker (e.g. trailing *)
 
 Optional atmosphere (aria-hidden="true"):
-  a compact <pre> generated from the same public graph
-  only when public site count ≤ 8 and no node degree > 3
-  otherwise omit the <pre>
+  the ASCII cartogram of §4.B.1, derived from the same public graph
+  fallback when the cartogram does not fit: a compact per-site line
+  list, or omit the <pre> entirely
 ```
 
 Hidden rooms, hidden exits, and unpublished topology MUST NOT appear. Runtime evidence (`redactedPublicWorld` currently lists every Chamber room) is **not** authority when it conflicts with this rule.
 
 Mobile: drop the `<pre>` if it would require horizontal scrolling. Keep the semantic list. Do not require a two-dimensional map to understand “where people are.”
+
+#### 4.B.1 ASCII cartogram (TEXT-mode map)
+
+**Status:** Specified. Presentation only. No new `watch-live/1.0` fields. No pin bump. No RFC.
+
+The optional `<pre>` is a **two-dimensional ASCII cartogram**, not a per-site line list. It is the TEXT-mode sibling of the §18 Phosphor sketch: MUD-native, terminal-first, and spatial.
+
+**Shared layout (single source of spatial truth):**
+
+- The cartogram MUST be rasterized from the **same deterministic public layout** the §18 Phosphor sketch draws (public rooms + public exits only, direction-seeded placement, collision nudging). TEXT and PIXEL MUST agree on the world's arrangement; two independent layouts drifting apart is a defect.
+- Identical public snapshot → identical cartogram, character for character.
+
+**Rendering rules:**
+
+```text
+site        [NAME] in brackets, monospace, truncated to a fixed cap
+active      trailing * (activity or public players); not color-only
+occupancy   public player count after the name when > 0, e.g. [RELAY HUB]*3
+MAJOR site  ! marker while that site holds the current MAJOR headline
+routes      character connectors ( - | \ / ) between placed sites
+            following the layout's edge endpoints; no invented edges
+```
+
+- Grid budget: the cartogram MUST fit a bounded character grid (reference class **≤ 78 columns × 24 rows**). When the public graph cannot fit the budget, fall back to the compact per-site line list or omit the `<pre>`. The former ≤ 8-sites / degree ≤ 3 gate is superseded by this fit rule.
+- The `<pre>` remains `aria-hidden="true"` atmosphere. The semantic site list remains the accessible authority and MUST always be present. The cartogram never carries unique information.
+- Site labels are untrusted world text: render through the same safe-label path as the canvas (`textContent`-class escaping).
+- Below the stacking breakpoint the `<pre>` stays hidden (§10). No horizontal scrolling requirement may be introduced by the cartogram.
+- A spectator-picked site (§4.F / PIXEL click) MAY carry a distinguishing mark in the cartogram. Static marks only — the cartogram never animates.
+
+Hidden rooms, hidden exits, and unpublished topology MUST NOT appear at any stage: layout, rasterization, or fallback.
 
 ### C. Location activity
 
@@ -559,6 +589,7 @@ Runtime MUST cover:
 - visible recent-events count in 5–8
 - stale / offline / incident / zero-player / no-sites
 - topology with missing connections (no invented edges)
+- cartogram: rasterized from the same deterministic layout as PIXEL; identical snapshot → identical text; fits the character budget or falls back; hidden rooms/exits absent; labels safe; `aria-hidden` with the semantic list still present
 - mobile: no required horizontal scroll for names/counts
 - keyboard room inspection
 - consequence line: band-only (`ok`/`degraded`/`failed`), never condition integers, amounts, or counts; absent when unprovable; server-derived
