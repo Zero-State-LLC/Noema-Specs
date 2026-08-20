@@ -90,8 +90,8 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 | transferable | yes |
 | tradeable | yes |
 | observable | self full |
-| action_costs | HARVEST requires free capacity ≥ harvested amount (capacity check, not debit); REPAIR materials may debit storage |
-| capacity semantics | agent may hold at most `storage` units of harvested **material lots** tracked as the `storage` resource itself in v0.1 (storage is both capacity metric and material stock) |
+| action_costs | HARVEST **debits** free storage (fills hold) when free capacity ≥ amount. REPAIR / CONSTRUCT / UPGRADE / REPURPOSE / RESTORE **credit** free storage (consume cargo). RFC-0118. |
+| capacity semantics | `storage` is **free capacity** (grant 16 empty, 0 full). Occupied hold = 16 − storage. Harvest fills hold; work empties it. Do not invert live Perihelion numbers. |
 | failed_action_costs | 0 |
 
 ## Production / consumption loop
