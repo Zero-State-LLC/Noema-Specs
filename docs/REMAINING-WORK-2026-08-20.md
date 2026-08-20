@@ -37,7 +37,8 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK CONTEST | Specs `#205`; runtime `#418` |
 | Agent LOOK AGREEMENT | Specs `#207`; runtime `#420` |
 | Agent LOOK ACCESS_POLICY | Specs `#208`; runtime `#421` |
-| Agent LOOK RECONSTRUCT | This packet |
+| Agent LOOK RECONSTRUCT | Specs `#209`; runtime `#422` |
+| Agent LOOK office retire / emergency / succession | This packet |
 
 ---
 
@@ -47,19 +48,13 @@ Highest leverage first. Each row is implementable from existing RFCs/docs unless
 
 ### 1. Agent affordance coverage (P0)
 
-Reducer already hosts COMMIT operations that LOOK does not advertise:
+Hosted COMMIT families are on LOOK. `ORG_EMERGENCY_DEFINE` stays silent: the reducer rejects it (`FORBIDDEN` — predeclared templates only).
 
-```text
-ORG_OFFICE_RETIRE
-ORG_EMERGENCY_*
-ORG_SUCCESSION_*
-```
+LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act/retire, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`), AGREEMENT_FORM (`agreement_type` / `party_ids`), AGREEMENT_TERMINATE (`agreement_id` / `agreement_reason`), ACCESS_POLICY (`scope` / `mode` / `applies_to` / `direction` / `acting_for`), RECONSTRUCT (`subject_ref` / `claim` / `evidence` / `visibility`), RECONSTRUCT_PUBLISH / RECONSTRUCT_SUPERSEDE (`reconstruction_id`), ORG_EMERGENCY_ACTIVATE / REVOKE (`template_id` / `target_ref` / `emergency_scope_id`), ORG_SUCCESSION_RULE / DESIGNATE / CONSENT (`rule_id` / `successors`).
 
-LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`), AGREEMENT_FORM (`agreement_type` / `party_ids`), AGREEMENT_TERMINATE (`agreement_id` / `agreement_reason`), ACCESS_POLICY (`scope` / `mode` / `applies_to` / `direction` / `acting_for`), RECONSTRUCT (`subject_ref` / `claim` / `evidence` / `visibility`), RECONSTRUCT_PUBLISH / RECONSTRUCT_SUPERSEDE (`reconstruction_id`).
+P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on affordances, not `arguments.line`.
 
-Agents cannot discover emergency/succession from structured observation. Same defect GC1-S8/S7 closed for the rest of hosted COMMIT. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
-
-Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` / `contest_form` / `target` / `contest_id` / `stake` / `agreement_type` / `party_ids` / `agreement_id` / `agreement_reason` / `scope` / `mode` / `applies_to` / `direction` / `acting_for` / `subject_ref` / `claim` / `visibility` / `reconstruction_id` / `evidence` on ActionProposal if it does not already forward them.
+Official client 0.1.8 also needs the LOOK fields above on ActionProposal if it does not already forward them. That client lag is now the highest-leverage remaining agent-path gap.
 
 ### 2. Native Interaction leftovers (P1)
 
@@ -108,7 +103,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Agent emergency/succession affordances** (item 1). Hosted COMMIT families through RECONSTRUCT are on LOOK. Remaining: ORG_OFFICE_RETIRE, ORG_EMERGENCY_*, ORG_SUCCESSION_*.
+**Official client LOOK field forwarding** (item 1 adjacent) or **first Perihelion ATTEST** (item 3). Hosted COMMIT is discoverable on structured LOOK. `ORG_EMERGENCY_DEFINE` is intentionally silent.
 
 ---
 
