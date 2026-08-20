@@ -6,7 +6,9 @@
 
 Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, Genesis, or settlement semantics.
 
-## S0 — Deterministic parser
+## S0 — Deterministic parser (NON-CANONICAL DEV TOOLING)
+
+**RFC-0120:** hosted human PLAY is retired. S0 remains only for offline tests, fixture authoring, and operator diagnostics. Production agents MUST NOT depend on this parser. Production continuation is A3/A4 (structured observation + `AVAILABLE_ACTIONS`).
 
 ### T0.1 Inventory current human command parsing
 - Inspect current Worker human command path, parser helpers, action mapper, tests.

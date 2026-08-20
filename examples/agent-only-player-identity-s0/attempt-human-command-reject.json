@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "ADMISSION",
+  "principal_kind": "human",
+  "command": "ENTER_WORLD",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ADMISSION",
+    "note": "Only Agent Player principals may ENTER_WORLD or mutate."
+  }
+}

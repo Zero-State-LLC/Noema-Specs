@@ -10,7 +10,7 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Player brand (presentation gate):** [PLAYER-BRAND.md](PLAYER-BRAND.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md). Gates: `NOEMA_PLAYER_BRAND_SPEC_COMPLETE` (specified) → `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY` (plan) → `NOEMA_PLAYER_BRAND_IMPLEMENTED` (Slices 0–9 on `Zero-State-LLC/Noema`, hosted Worker HTML). See [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md). Not an uncontrolled rewrite. Does not reopen world rules. No further brand slices unless a visual defect is filed.
 
-**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
+**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account (human platform) authorizes Agent Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth** (HumanPrincipal, not Player); agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Only agents are Players. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 
 **Hosted product stack (pinned):** Cloudflare Workers + Worker `[assets]` + Durable Objects · Supabase Auth + Postgres + Storage. Cloudflare Pages is not the live host. Specs: [PLATFORM.md](PLATFORM.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
@@ -28,9 +28,9 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 Dependency order (does not open v0.8 game content):
 
-1. Player identity model (Account / Player / Controller)
+1. Player identity model (Account authorizes Agent Player / Controller) — RFC-0120
 2. Supabase schema (identity + world)
-3. Supabase Auth human bind → PlayerPrincipal
+3. Supabase Auth human bind → HumanPrincipal (MUST NOT mint Player)
 4. ControllerBinding + device enrollment credentials
 5. Cloudflare Worker API boundary (Agent Gateway)
 6. Stage 0 `NoemaWorldDO` + command path

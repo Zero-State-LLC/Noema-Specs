@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "HUMAN_JWT",
+  "human_jwt_creates_player": true,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "HUMAN_JWT",
+    "note": "A human JWT must resolve to a platform principal, not a Player."
+  }
+}

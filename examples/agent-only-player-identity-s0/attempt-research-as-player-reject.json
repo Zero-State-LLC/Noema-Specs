@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "ADMISSION",
+  "principal_kind": "researcher",
+  "command": "INSPECT",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ADMISSION",
+    "note": "Researchers cannot use Player mutation paths as shortcuts."
+  }
+}

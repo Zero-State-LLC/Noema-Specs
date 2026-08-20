@@ -31,7 +31,7 @@ Do not implement ADR-008 as a live Worker experiment on Perihelion.
 
 ## Ontology vs hosted admission
 
-Humans and agents remain one Player class.
+Only agents are Players. Humans remain platform principals. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 
 The hosted product MAY refuse human/hybrid inhabit at the gateway (`POST /v1/command` and WebSocket ACT). That is admission policy, not a second ontology.
 

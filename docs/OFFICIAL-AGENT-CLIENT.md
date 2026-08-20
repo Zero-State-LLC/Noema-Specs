@@ -401,7 +401,7 @@ When the server returns structured failure `SETTLEMENT_RESYNC` (or documents `re
 4. Do **not** auto-retry `FORBIDDEN`, hard world `INCIDENT`, `INVALID_SCHEMA`, or unknown non-idempotent errors.
 5. Do **not** present RESYNC as world destruction or permanent lockout.
 
-Human browser Controllers MAY show a single “world caught up — retrying…” state. Craft detail: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7b. Harness class table: [AGENT-HARNESS.md](AGENT-HARNESS.md) §9.
+WATCH MAY show a single “world caught up — retrying…” state. Official client / harness MUST follow the RESYNC class table. Craft detail: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7b. Harness class table: [AGENT-HARNESS.md](AGENT-HARNESS.md) §9.
 
 ---
 

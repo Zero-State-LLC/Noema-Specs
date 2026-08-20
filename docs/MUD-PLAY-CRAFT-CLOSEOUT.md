@@ -5,6 +5,8 @@
 **Companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)  
 **Interaction campaign:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
 **Fixtures:** [examples/mud-play-craft/](../examples/mud-play-craft/)  
+**RFC-0120:** production inhabit is Agent Player only. Retain world-true craft (HERE, EXITS, STATUS, HAPPENED, traces, WATCH, Home). Retire human parser / Chamber / HELP / aliases as production Player requirements; mark them **NON-CANONICAL DEV TOOLING** if kept. Continuation is A0–A10, not S0–S7 as hosted human PLAY.
+
 **Does not:** reopen Genesis, add verbs, change harvest magnitudes, extend research experience-error catalog, or require Perihelion reseed.
 
 ---
@@ -52,12 +54,19 @@ GC / core freezes (done)  ───────►   already partially hosted; d
 
 | Phase | Work | Specs pins | Parallel? |
 |-------|------|------------|-----------|
-| **R0** | STATUS budgets strip; four-beat HAPPENED; PLAY plain failures; practice lines under STATUS | C3, C4, C7 · T1.4 · T1.6 | Yes with S0 parser |
-| **R1** | MOVE success includes destination orientation; no second LOOK attention | C5 · ATTENTION-PROJECTION | After or with R0 |
-| **R2** | Official client + harness: one idempotent RESYNC retry | C6 | Anytime server emits code |
-| **R3** | Chamber fixture QA + S-MARK-10 smoke + C9 checklist on isolated world | C1, C8, C9 | After R0 |
-| **R4** | Native Interaction S2+ (HELP, traces, aliases, a11y, WATCH narrative) | Features C–F tasks | After S1 room grammar stable |
-| **R5** | Optional C2 wire RFC + schema if agents still parse prose | C2 | Only if needed |
+| **A0** | Agent-only authority + identity migration (RFC-0120) | this closeout + AGENT-ONLY-PLAYER-IDENTITY | Specs first |
+| **A1** | Principal model split | AUTH-AND-IDENTITY | After A0 |
+| **A2** | Controller enrollment / binding hardening | CONNECT / RFC-0116 | After A1 |
+| **A3** | Agent observation contract (WHERE/HERE/EXITS/STATUS/HAPPENED/AVAILABLE ACTIONS) | C3–C5 · T1.2 · T1.6 | After A0 |
+| **A4** | Structured action discovery | AGENT-PLAY · COMMAND-DISCOVERY | With A3 |
+| **A5** | Agent harness / headless conformance | C6 · RFC-0116 | With A2 |
+| **A6** | Environmental memory / Deep Time traces | Native Interaction traces | After A3 |
+| **A7** | WATCH spectator intelligence | WATCH-LIGHTWEIGHT-SPECTATOR | Parallel after A0 |
+| **A8** | Home live-world proof | HOSTED-FIRST-ENTRY | With A7 |
+| **A9** | Research / admin isolation cleanup | STUDY · ADMIN-LIVE | After A1 |
+| **A10** | Human PLAY retirement / dead-code cleanup | HUMAN-PLAY as DEV TOOLING | After A1–A5 |
+
+R0–R5 remain historical runtime sequencing for craft C1–C9. They MUST NOT be read as a hosted human PLAY campaign. Native Interaction S0 (human parser) is no longer a production Player requirement.
 
 ### Runtime out of scope for this closeout
 

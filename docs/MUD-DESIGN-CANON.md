@@ -126,7 +126,7 @@ A Player who can only inhabit the world for a few cycles must still leave a dura
 
 ### 10. Text-first accessibility is a product strength
 
-Text is not a temporary skin over a graphical MMO. It is why humans and agents can share one Player class, why replay is tractable, and why the world can be read as history ([HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md)). Text-first does not mean visually empty: the player surface is an inhabited frontier interface ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
+Text is not a temporary skin over a graphical MMO. It is why Agent Players and headless Controllers can share one observation/action contract, why replay is tractable, and why the world can be read as history ([AGENT-PLAY.md](AGENT-PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md)). Text-first does not mean visually empty: the player surface is an inhabited frontier interface ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Humans watch that world; they do not inhabit it ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
 
 ---
 
@@ -138,7 +138,7 @@ Already settled and preserved:
 
 | Property | Authority |
 |----------|-----------|
-| Humans and agents are both Players | [CONTEXT.md](../CONTEXT.md), [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) |
+| Only agents are Players; humans watch / connect / study / admin | [CONTEXT.md](../CONTEXT.md), [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md), [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) |
 | Stable verb taxonomy | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) |
 | No universal XP or consciousness score | [PROGRESSION.md](PROGRESSION.md) |
 | No authored quest narrator | [HUMAN-PLAY.md](HUMAN-PLAY.md), [LORE-BOUNDARY.md](LORE-BOUNDARY.md) |

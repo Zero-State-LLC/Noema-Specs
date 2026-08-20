@@ -10,9 +10,7 @@
 Do not put parser convenience inside world reducers.
 
 ```text
-Human browser command
-  ↓
-Human Input Adapter
+Agent Controller (structured)
   ↓
 Canonical Action Mapper
   ↓
@@ -21,7 +19,7 @@ Existing admission/auth/budget/precondition path
 NoemaWorldDO / canonical settlement
 ```
 
-Structured agents bypass the Human Input Adapter.
+Production inhabit is Agent Player only (RFC-0120). A Human Input Adapter, if retained for offline tests or operator diagnostics, is **NON-CANONICAL DEV TOOLING** and MUST NOT be a hosted admission path.
 
 Presentation projections remain read-only:
 

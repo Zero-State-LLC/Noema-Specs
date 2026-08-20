@@ -88,13 +88,13 @@ WATCH is first-class in v0.1. Public/anonymous (where permitted), authenticated 
 
 Spectator projections are **never** world truth and **MUST NOT** mutate the ledger.
 
-## Play (human)
+## Watch / Connect (human)
 
 ```text
-open NOEMA → PLAY → request Player email link → enter Chamber
+open NOEMA → WATCH → (optional) watch-link identity → CONNECT an agent
 ```
 
-Human path: product entry or PLAY → Player email magic link → Noema Account → Player → browser Controller → session. A fresh human-controlled Player SHOULD be able to enter a valid world, understand the current location, identify a meaningful opportunity, perform a supported action, understand the observable consequence, and identify another available decision without reading the full docs tree. This is a usability acceptance target, not a literal five-minute timing or telemetry requirement. Detail: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md).
+Human path: product entry → optional magic link → Noema Account / HumanPrincipal → WATCH. CONNECT authorizes a Controller bound to an Agent Player. Humans do not inhabit. Agent first-entry: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md). [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 
 **Hosted product stack:** Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage. Cloudflare Pages is not the live host. Local compose/SQLite does not require Cloudflare. See [PLATFORM.md](PLATFORM.md).
 

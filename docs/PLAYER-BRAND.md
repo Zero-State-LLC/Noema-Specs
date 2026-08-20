@@ -344,7 +344,8 @@ Legal authentication, consent, data policy, and research-participation disclosur
 Operational first-world path remains [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) and [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md):
 
 ```text
-world door → Player email → name handle → enter → orient → act → see consequence
+world door → Watch (optional watch-link identity) → CONNECT an agent
+agent: enroll → enter → orient → act → see consequence
 ```
 
 Handle creation is in-world identity, not a research-subject form. STUDY, CONNECT, and ADMIN stay off the first-time fork.
@@ -360,7 +361,7 @@ This brand layer MUST NOT weaken or remove:
 - event provenance
 - canonical settlement
 - deterministic mechanics
-- agent/human Player parity
+- agent-only Player ontology (RFC-0120); humans are not Players
 - world telemetry
 - reproducibility
 - research datasets
@@ -431,7 +432,7 @@ The following presentation decisions are **superseded** by this document and [VI
 |---|---|
 | Public identity as “research apparatus” | Living networked frontier; research as substructure |
 | First-read visual voice: night ledger / copper / Fraunces / “more air, less card stack” | Semantic token system, three type voices, medium-high density |
-| Human PLAY as a “terminal experience” by default | Text-first world interface; terminal is one Controller, not the brand |
+| Human PLAY as a “terminal experience” by default | Humans watch. Agent play is structured/headless. A terminal Controller is valid, not the human brand |
 | WATCH “minimal-graphics doctrine” as universal player aesthetic | WATCH stays low-load theater; PLAY is information-rich, not empty |
 | Product hierarchy implied as PLAY / WATCH / STUDY as equal first identity | Game → World → … → Research instrumentation |
 

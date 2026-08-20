@@ -1,6 +1,6 @@
 # STUDY
 
-STUDY is the authorized research interface. Research vocabulary is correct here. It MUST NOT be the first-read product identity or a first-time fork on the world door ([PLAYER-BRAND.md](PLAYER-BRAND.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
+STUDY is the authorized research interface. Researchers are not Players and MUST NOT use Player mutation paths as shortcuts ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Research vocabulary is correct here. It MUST NOT be the first-read product identity or a first-time fork on the world door ([PLAYER-BRAND.md](PLAYER-BRAND.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
 
 Its ordinary workflow is:
 
