@@ -1,7 +1,8 @@
 # MUD-Native Interaction — Tasks
 
 **Implements:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md)  
-**Plan:** [MUD-NATIVE-INTERACTION-PLAN.md](MUD-NATIVE-INTERACTION-PLAN.md)
+**Plan:** [MUD-NATIVE-INTERACTION-PLAN.md](MUD-NATIVE-INTERACTION-PLAN.md)  
+**Craft companion / backlog:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)
 
 Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, Genesis, or settlement semantics.
 
@@ -205,10 +206,18 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 
 ## Cross-cutting
 
+### TX.0 Craft companion backlog
+Optional horizon-locked craft items from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8 (C1–C9). Promote into S0–S7 tasks when ready; do not treat as a second campaign. Priority candidates:
+- C3 status strip (human + structured)
+- C4 experience-error plain language for live codes
+- C5 post-MOVE orientation vs attention double-charge (RFC if normative)
+- C8 short-session mark scenario (≤10 acts)
+
 ### TX.1 Specs reconciliation
 Update/cross-link:
 - `README.md`
 - `docs/MUD-DESIGN-CANON.md`
+- `docs/MUD-PLAY-CRAFT.md`
 - `docs/COMMAND-DISCOVERY.md`
 - `CHANGELOG.md`
 - any applicable acceptance/checklist map.

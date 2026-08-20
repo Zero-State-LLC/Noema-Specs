@@ -3,6 +3,7 @@
 **Status:** Design-ancestry authority. Non-normative for world transitions.  
 **Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
 **Interaction campaign:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [plan](MUD-NATIVE-INTERACTION-PLAN.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
+**Play craft companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)  
 **Does not replace:** [GAME-DESIGN.md](GAME-DESIGN.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md)
 
 This document records the **structural lessons** NOEMA takes from major MUD traditions. It is not a setting bible, a rules clone, or a second product thesis.
@@ -175,3 +176,9 @@ a global score
 an authored quest
 a research metric as a Player reward
 ```
+
+---
+
+## Play craft
+
+Structural lessons above are composed into operational PLAY projection craft in [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md): room stack, status line, consequence four-beat, short-session marks, and adapter discipline. That document does not expand the product horizon and does not replace this canon.

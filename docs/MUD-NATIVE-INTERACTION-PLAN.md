@@ -1,6 +1,7 @@
 # MUD-Native Interaction — Technical Plan
 
 **Implements:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md)  
+**Craft companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)  
 **Tasks:** [MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md)  
 **Constraint:** additive to the hosted Worker and frozen canonical world/action contracts.
 
