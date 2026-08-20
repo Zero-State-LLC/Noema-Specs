@@ -316,8 +316,8 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 | C3 | Status strip | **Fleshed** §4 | Feature B STATUS + **T1.6** |
 | C4 | PLAY failure plain language | **Fleshed** §5 | T1.4 + PLAYER-ACTION-MAP §7 pointer |
 | C8 | Short-session mark scenario | **Fleshed** §6 | **T1.7** S-MARK-10 |
-| C1 | Chamber example full room projections (3 rooms) | open | examples/ + T1.x |
-| C2 | Agent observation ↔ Feature B field sketch | open | RFC if wire changes |
+| C1 | Chamber example full room projections (3 rooms) | **Fleshed** | [examples/mud-play-craft/](../examples/mud-play-craft/) + **T1.8** |
+| C2 | Agent observation ↔ Feature B field sketch | **Sketch** | [agent-observation-layers.sketch.json](../examples/mud-play-craft/agent-observation-layers.sketch.json) — RFC if wire |
 | C5 | Post-MOVE orientation LOOK vs attention double-charge | open | RFC if normative cost |
 | C6 | Official client SETTLEMENT_RESYNC single retry | open | OFFICIAL-AGENT-CLIENT / client |
 | C7 | Practice crumb wording table | open | MASTERY projection + PLAY |
@@ -358,3 +358,4 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 - [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) §7 · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [ATTENTION-PROJECTION.md](ATTENTION-PROJECTION.md)
 - [protocols/mud-command-v1.md](../protocols/mud-command-v1.md)
 - [examples/chamber-world/](../examples/chamber-world/)
+- [examples/mud-play-craft/](../examples/mud-play-craft/) — C1 Chamber Feature B projections + C2 agent layer sketch

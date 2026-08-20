@@ -88,6 +88,13 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 - Spec: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §6.
 - No Genesis change.
 
+### T1.8 Chamber projection examples (craft C1)
+- Non-normative fixtures under `examples/mud-play-craft/`.
+- Three rooms: Civic Exchange, Relay Quarter, Foundry Corridor — Feature B order including STATUS.
+- Seed-backed names/exits/entities only; no invented quest content.
+- Optional agent layer sketch JSON (not wire schema).
+- QA: DESCRIPTION without live lists; room-local PRESSURE; AVAILABLE HERE ⊆ visible affordances.
+
 ## S2 — Contextual discovery and HELP
 
 ### T2.1 Local action selector
@@ -225,8 +232,9 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 
 ### TX.0 Craft companion backlog
 Horizon-locked craft from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8:
-- **C3/C4/C8 fleshed** → T1.4, T1.6, T1.7 above.
-- Still open to promote: C1 chamber full projections, C2 agent field sketch, C5 post-MOVE LOOK cost, C6 client resync retry, C7 practice crumbs, C9 hosted audit.
+- **C1/C3/C4/C8 fleshed** → T1.4, T1.6, T1.7, T1.8; fixtures in `examples/mud-play-craft/`.
+- **C2 sketch only** (agent layer JSON) — RFC before wire.
+- Still open: C5 post-MOVE LOOK cost, C6 client resync retry, C7 practice crumbs, C9 hosted audit.
 
 ### TX.1 Specs reconciliation
 Update/cross-link:
