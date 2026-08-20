@@ -794,6 +794,8 @@ The machine contract and event catalog remain authoritative. Human projections t
 | Schema/target failure | Ask for a valid visible target or parameter; do not guess or dispatch a partial action. |
 | Accepted action | Show the action, accepted result, resource changes where observable, and the next observable consequence. |
 
+Craft specialization (four-beat HAPPENED, extended PLAY plain-language table including `UNREACHABLE`, `SETTLEMENT_RESYNC`, empty HARVEST, ambiguity): [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §5. That table does not replace this section and does not extend the research experience-error catalog.
+
 The adapter must preserve event causality. It may summarize `MOVE` as “You reached East Relay,” but it must not claim that an unrelated world event was caused by the Player without evidence.
 
 ---

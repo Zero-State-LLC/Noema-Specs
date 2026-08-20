@@ -54,7 +54,7 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 - No reducer dependency.
 
 ### T1.2 Stable room ordering
-- Room name → description → optional pressure → HERE → EXITS → HAPPENED → command.
+- Room name → description → optional pressure → HERE → EXITS → **STATUS** → HAPPENED → command.
 - Stable HERE/EXIT ordering.
 - AC: 7–10.
 
@@ -64,12 +64,29 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 
 ### T1.4 Consequence translation
 - Map success/failure/partial/wait to concise world-native sentence.
+- Prefer four-beat craft (tried / ok|fail / changed / next) from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §5.
 - Preserve machine error code in debug state.
+- PLAY plain-language table in craft §5.2 (not research experience-error catalog).
 - AC: 9.
 
 ### T1.5 Mobile/desktop room QA
 - 375×812 and desktop reference width.
 - Room, one legal action, and consequence understandable without dashboard rail.
+
+### T1.6 STATUS strip (craft C3)
+- Render compact budgets after EXITS (energy, attention, compute, storage, influence).
+- Human one-liner or expanded STATUS block; structured observation carries same budget keys.
+- No HP/XP/research scores; no new resources.
+- Optional flags only when session already knows them (`energy_floor_risk`, `play_blocked`).
+- Spec: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §4.
+- Tests: LOOK/MOVE surface energy + ≥1 other budget without side panel.
+
+### T1.7 Short-session mark scenario S-MARK-10 (craft C8)
+- Manual or automated presentation test on Chamber seed.
+- ≤10 meaningful acts → at least one rank 1–4 durable/informational mark legible in HAPPENED and/or Feature D trace.
+- Not a score, achievement, or research metric.
+- Spec: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §6.
+- No Genesis change.
 
 ## S2 — Contextual discovery and HELP
 
@@ -207,11 +224,9 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 ## Cross-cutting
 
 ### TX.0 Craft companion backlog
-Optional horizon-locked craft items from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8 (C1–C9). Promote into S0–S7 tasks when ready; do not treat as a second campaign. Priority candidates:
-- C3 status strip (human + structured)
-- C4 experience-error plain language for live codes
-- C5 post-MOVE orientation vs attention double-charge (RFC if normative)
-- C8 short-session mark scenario (≤10 acts)
+Horizon-locked craft from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8:
+- **C3/C4/C8 fleshed** → T1.4, T1.6, T1.7 above.
+- Still open to promote: C1 chamber full projections, C2 agent field sketch, C5 post-MOVE LOOK cost, C6 client resync retry, C7 practice crumbs, C9 hosted audit.
 
 ### TX.1 Specs reconciliation
 Update/cross-link:
