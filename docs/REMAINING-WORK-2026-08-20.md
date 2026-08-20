@@ -45,6 +45,7 @@ Core-loop semantic changes still need an RFC.
 | Geography / construction inheritance traces | Genesis `RUIN` projects as Feature D scar without `scar:true` (live Perihelion, no reseed). GC2 `unclaimed` works project as construction residue on LOOK / WATCH / Home. Future genesis stamps `scar:true` on ruin entities. Runtime inherit-trace packet. |
 | GC3-S2–S6 social memory | LOOK `social_memory_lines`, TRADE_CAUTION extra compute, and `/v1/watch/live` `public_descriptor_lines` were hosted. WATCH now paints Public bands (dangerous / deceptive) and stays silent when empty. Never `reliable` on WATCH. |
 | STUDY unstub | Study is on the product bar. `/study` is observational public record from `/v1/watch/live`. Lab capture is not hosted. Not a Player path. |
+| Later Feature D traces | Public rumor, org insignia on owned works, and vacant-office memorials project as notice traces on LOOK / WATCH / Home. Private rumor stays off. Cap 3. No `TRACE` verb. |
 
 ---
 
@@ -67,7 +68,7 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 | S0 parser | No — NON-CANONICAL DEV TOOLING |
 | S1 room grammar | Mostly hosted (STATUS, HAPPENED, traces) |
 | S2 HELP | Chamber/tooling; agent path is affordances (item 1) |
-| S3 traces | First family hosted (scar including genesis RUIN, repair plate, unfinished, unclaimed). Later families (insignia, memorials, rumor) optional |
+| S3 traces | Hosted: scar, repair plate, unfinished, unclaimed, public rumor, org insignia, vacant-office memorials. Cap 3. |
 | S4 aliases | Client 0.1.7 preference layer |
 | S5 low-noise | Hosted. WATCH, Home, and CONNECT share the client preference. |
 | S6/S7 | Hosted |
@@ -107,7 +108,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Optional later Native Interaction traces** (insignia, memorials, rumor), or C2 observation layers if a structured agent proves current observation insufficient. Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
+**C2 observation layers** only if a structured agent proves current observation cannot recover Feature B layers — no RFC yet. Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
 
 ---
 
