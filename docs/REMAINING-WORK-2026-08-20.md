@@ -36,7 +36,8 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK VEST/SHARE/CONNECT | Specs `#204`; runtime `#417` |
 | Agent LOOK CONTEST | Specs `#205`; runtime `#418` |
 | Agent LOOK AGREEMENT | Specs `#207`; runtime `#420` |
-| Agent LOOK ACCESS_POLICY | This packet |
+| Agent LOOK ACCESS_POLICY | Specs `#208`; runtime `#421` |
+| Agent LOOK RECONSTRUCT | This packet |
 
 ---
 
@@ -49,17 +50,16 @@ Highest leverage first. Each row is implementable from existing RFCs/docs unless
 Reducer already hosts COMMIT operations that LOOK does not advertise:
 
 ```text
-RECONSTRUCT RECONSTRUCT_PUBLISH RECONSTRUCT_SUPERSEDE
 ORG_OFFICE_RETIRE
 ORG_EMERGENCY_*
 ORG_SUCCESSION_*
 ```
 
-LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`), AGREEMENT_FORM (`agreement_type` / `party_ids`), AGREEMENT_TERMINATE (`agreement_id` / `agreement_reason`), ACCESS_POLICY (`scope` / `mode` / `applies_to` / `direction` / `acting_for`).
+LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`), AGREEMENT_FORM (`agreement_type` / `party_ids`), AGREEMENT_TERMINATE (`agreement_id` / `agreement_reason`), ACCESS_POLICY (`scope` / `mode` / `applies_to` / `direction` / `acting_for`), RECONSTRUCT (`subject_ref` / `claim` / `evidence` / `visibility`), RECONSTRUCT_PUBLISH / RECONSTRUCT_SUPERSEDE (`reconstruction_id`).
 
-Agents cannot discover reconstruct/emergency/succession from structured observation. Same defect GC1-S8/S7 closed for BUILD, CONTEST, AGREEMENT, and ACCESS. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
+Agents cannot discover emergency/succession from structured observation. Same defect GC1-S8/S7 closed for the rest of hosted COMMIT. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
 
-Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` / `contest_form` / `target` / `contest_id` / `stake` / `agreement_type` / `party_ids` / `agreement_id` / `agreement_reason` / `scope` / `mode` / `applies_to` / `direction` / `acting_for` on ActionProposal if it does not already forward them.
+Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` / `contest_form` / `target` / `contest_id` / `stake` / `agreement_type` / `party_ids` / `agreement_id` / `agreement_reason` / `scope` / `mode` / `applies_to` / `direction` / `acting_for` / `subject_ref` / `claim` / `visibility` / `reconstruction_id` / `evidence` on ActionProposal if it does not already forward them.
 
 ### 2. Native Interaction leftovers (P1)
 
@@ -108,7 +108,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Agent RECONSTRUCT affordances** (item 1). Full BUILD family + ATTEST + CONTEST + AGREEMENT + ACCESS_POLICY are on LOOK. Remaining: RECONSTRUCT, emergency/succession.
+**Agent emergency/succession affordances** (item 1). Hosted COMMIT families through RECONSTRUCT are on LOOK. Remaining: ORG_OFFICE_RETIRE, ORG_EMERGENCY_*, ORG_SUCCESSION_*.
 
 ---
 
