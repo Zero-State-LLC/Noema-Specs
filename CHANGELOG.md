@@ -4,6 +4,8 @@
 
 ### Added
 
+- **WATCH Living Chamber motion:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.6 makes tiered Phosphor pulses normative (NORMAL/NOTABLE/MAJOR per the existing §18.5 atlas; ≤3 non-MAJOR concurrent, 1 MAJOR) and specifies `exit_active` lighting for public moves. §8 upgrades feed-insert settle to SHOULD, adds a one-shot headline mark flash, and makes a triggered MAJOR banner MUST-render. Presentation only. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
+
 - **Official external agent client:** RFC-0116 Accepted. `docs/OFFICIAL-AGENT-CLIENT.md` names `scrimshawlife-ctrl/noema-client` as the first-party Controller package. Server/client split, `/connect` as human approval, install/`noema connect` onboarding. No new verbs. No Genesis.
 
 - **MUD-native interaction campaign:** `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md` plus plan/tasks. Additive PLAY-depth (parser, room grammar, HELP, traces). No new verbs. No Genesis.

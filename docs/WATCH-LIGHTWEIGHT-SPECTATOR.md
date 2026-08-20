@@ -350,9 +350,10 @@ Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is s
 |------|-------------|
 | Feel live | Poll every **8–12 s** while the document is visible and not paused |
 | No layout jump | Reserve headline, graph, and feed heights; replace in place |
-| Subtle ordinary updates | New rows MAY start brighter, then settle within one interval |
+| Subtle ordinary updates | New rows SHOULD start brighter, then settle within one interval. Opacity/brightness only; no layout motion |
+| Headline change | A newly selected NOTABLE or MAJOR headline MAY flash its tier mark once (≤ 400 ms); no loop |
 | Old events quieter | Visual fade only; no deletion flash |
-| MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe |
+| MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe. When a MAJOR headline triggers the banner it MUST actually render — banner chrome that is permanently `display:none` is a defect |
 | `prefers-reduced-motion` | Instant replace; no brightness pulse; no banner animation |
 | Pause | Existing pause control remains; poll MUST stop |
 | Background tabs | `document.hidden` MUST skip polls |
@@ -492,6 +493,8 @@ Runtime MUST cover:
 - mobile: no required horizontal scroll for names/counts
 - keyboard room inspection
 - `prefers-reduced-motion`
+- feed insert settle: new rows brighten then settle within one interval; reduced-motion inserts instantly
+- MAJOR banner renders when triggered and clears within 2 intervals
 - paused refresh (no poll)
 - XSS-safe labels/descriptions/`line`
 - screen-reader: feed not a live region; headline polite at most
@@ -563,7 +566,7 @@ Atmospheric stills (hero, spectator plate, legends) MAY dress the public door. T
 |-----|-------------|
 | Symbol-before-sprite | 8×8 (preferred) or 12×12 glyphs. Larger forbidden. No portraits. |
 | Topology-before-scenery | Nodes and public exits only. No decorative ground. |
-| Motion-as-events only | Pulses from new `recent_events`. No ambient loop. |
+| Motion-as-events only | Pulses from new `recent_events`, all three tiers per §18.6. No ambient loop. |
 | Resolution-as-knowledge | Brightness/opacity = public certainty (`partial` / `known` / `active`). |
 | Brightness-as-activity | Active public rooms read brighter. Hidden rooms omitted. |
 | Text-authority | Canvas never carries unique information. TEXT mode is complete. |
@@ -654,11 +657,40 @@ Exits: A–B, A–C, B–D
 
 A is brightest. C carries a single diamond. B is medium fill. D is hollow. Lines are dim copper; a recent public move on an edge lights it briefly as `exit_active`.
 
+### 18.6 Living Chamber motion (tiered pulses and exit lighting)
+
+**Status:** Specified. Presentation only. No new `watch-live/1.0` fields. No pin bump. No RFC.
+
+The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, and `exit_active`. This section makes their behavior normative so the public sketch reads as a living place rather than a still: ordinary public activity registers as a soft flicker, social activity as a stronger one, and rare world events as the single MAJOR ring. All motion remains event-born and self-extinguishing.
+
+**Pulse collection (deterministic):**
+
+1. A pulse is born only from a `recent_events` entry whose `sequence` is newer than the last rendered snapshot sequence **and** whose `room_id` is a public room in the current layout.
+2. Tier maps directly: `NORMAL` → `pulse_normal`, `NOTABLE` → `pulse_notable`, `MAJOR` → `pulse_major`. No client-side interest scoring.
+3. **Caps:** at most **one** live MAJOR pulse (unchanged), and at most **three** concurrent non-MAJOR pulses. When more candidates exist, keep the newest by `sequence`; drop the rest silently.
+4. Per-tier lifetimes stay short (NORMAL shortest, MAJOR longest, all under ~1 s of drawing). Pulses expire on their own; expiry stops the frame loop (idle = zero rAF).
+5. `prefers-reduced-motion: reduce` → **zero** pulses of any tier, zero rAF, no exit lighting. Unchanged.
+
+**Exit lighting (`exit_active`):**
+
+- A newly observed public `agent_move` event whose `room_id` is public lights the public edges touching that room as `exit_active` for the lifetime of that event's pulse, then they return to dim.
+- Only edges already in the public layout may light. Hidden or unpublished topology MUST NOT be inferred, brightened, or hinted.
+- Exit lighting is a still-frame brightness change, not a traveling animation. No particle, no dash-crawl, no direction sweep.
+
+**Bounds (unchanged doctrine):**
+
+- No ambient loop; a quiet Chamber draws zero frames.
+- At most one MAJOR treatment at a time across banner + pulse.
+- TEXT remains complete and authoritative; a spectator who never opens PIXEL misses nothing factual.
+- Budgets in §18.5 are unchanged.
+
 ### Tests
 
 - Hidden rooms / exits / players never appear in canvas layout
 - Deterministic layout for an identical public snapshot
-- Reduced-motion: no pulses, no rAF
+- Tiered pulse collection deterministic: same window → same pulses; NORMAL/NOTABLE born only for new public-room sequences; non-MAJOR concurrency capped at 3 (newest win); MAJOR capped at 1
+- `exit_active` lights only existing public edges touching the moved-into room; hidden edges never light
+- Reduced-motion: no pulses of any tier, no rAF, no exit lighting
 - TEXT and canvas-failure leave semantic HTML fully usable
 - Idle = no continuous animation frames
 - Budgets respected
