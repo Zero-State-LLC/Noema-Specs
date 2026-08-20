@@ -1,8 +1,8 @@
 # RFC-0120 runtime work packets
 
 **Campaign:** `noema-agent-only-player-identity`  
-**Spec pin:** `Zero-State-LLC/Noema-Specs` `main` `978e199e0b78a4333ea7bc057b4cde1b2d9612b8` plus this RFC branch.  
-**Runtime pin:** `Zero-State-LLC/Noema` `main` `3599a84e2d5c500953b523aabbcd6a877bb1b700`
+**Spec pin:** `Zero-State-LLC/Noema-Specs` `main` `93b6963b50326c01118c3a0a338bafbf9323f94a` (`#193` RFC-0120).  
+**Runtime pin:** `Zero-State-LLC/Noema` `main` `c8191ca6cd99b21fcb782e8c5ed296e755e91042` (P13) plus P12/P14 acceptance in Noema `docs/RFC-0120-ACCEPTANCE.md`.
 
 P0 is this specs PR. Do not parallelize P1–P5 unless file boundaries are independent.
 
@@ -12,8 +12,8 @@ Do not reseed Perihelion. Do not rewrite Genesis. Do not rewrite canonical event
 packet_version: noema-agent-only/v1
 identity:
   campaign: agent-only-player-identity
-  spec_ref: 978e199e0b78a4333ea7bc057b4cde1b2d9612b8
-  runtime_ref: 3599a84e2d5c500953b523aabbcd6a877bb1b700
+  spec_ref: 93b6963b50326c01118c3a0a338bafbf9323f94a
+  runtime_ref: c8191ca6cd99b21fcb782e8c5ed296e755e91042
 constraints:
   agents_only_players: true
   no_reseed: true
@@ -203,30 +203,30 @@ acceptance:
 | P11 | Research/admin isolation (researcher ≠ Player; admin ≠ Player) |
 | P12 | Environmental traces / Deep Time |
 | P13 | WATCH cleanup (primary human surface; no private leak) |
-| P14 | Final product acceptance |
+| P14 | Final product acceptance — MATCH. Runtime verdict `RFC-0120 RUNTIME ACCEPTED` in Noema `docs/RFC-0120-ACCEPTANCE.md`. Residuals: live Perihelion remap (governance); Chamber `can_mutate_world()` local tooling; human parser as NON-CANONICAL DEV TOOLING. |
 
 ---
 
-## Runtime matrix summary (pin `3599a84`)
+## Runtime matrix summary (pin `c8191ca` + P14)
 
 | Area | Classification |
 | --- | --- |
 | `/v1/command` non-agent 403 | MATCH |
 | WS AUTH/ACT non-agent 403 | MATCH |
+| DO `/command` `requireAgentPlayer` | MATCH |
 | GET `/play` 308 `/connect` | MATCH |
 | WATCH public spectator | MATCH |
-| STUDY stub | MATCH |
+| STUDY stub / Deep Time ingest | MATCH (RESEARCHER/ADMIN; `mutates_world: false`) |
 | official noema-client agent-only | MATCH |
-| ControllerType tri-state | PARTIAL |
-| Admin mint human tokens | PARTIAL |
-| Magic-link Player JWT | PARTIAL |
-| Population counting | PARTIAL |
-| Principal resolution | DRIFT |
-| Supabase JWT → PlayerPrincipal | DRIFT |
-| CONNECT binds agent to human player_id | DRIFT |
-| Chamber Python humans mutate | DRIFT |
-| Missing controller_type defaults agent | DRIFT |
-| DO applyCommand skips denyNonAgentPlay | PARTIAL |
+| Human JWT / magic-link is HumanPrincipal | MATCH |
+| Live mint human/hybrid | MATCH (refused) |
+| Missing `controller_type` fails closed | MATCH |
+| Leftover human/hybrid access tokens | MATCH (HumanPrincipal; no inhabit; no ledger rewrite) |
+| CONNECT new enrollment player_id | MATCH (from device, not approver) |
+| Structured `target_id` discovery | MATCH |
+| Chamber production Role.PLAYER mutate | MATCH (refused) |
+| Chamber local `can_mutate_world()` | INTENTIONAL SPLIT (dev tooling) |
+| Live Perihelion historical CONNECT keys | GOVERNANCE_ESCALATION_REQUIRED |
 
 ---
 
