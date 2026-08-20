@@ -2,7 +2,7 @@
 
 ## Status and purpose
 
-This document is the canonical **player-facing crosswalk** for NOEMA actions. It settles how one Player intent is expressed through human text, contextual GUI controls, and structured agent input before additional hosted runtime actions are implemented.
+This document is the canonical **player-facing crosswalk** for NOEMA actions. Production inhabit is **Agent Player** only ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Structured agent input is the production adapter. Human text and GUI controls, if retained, are **NON-CANONICAL DEV TOOLING**.
 
 It is a presentation and adapter authority. It is **not** a second action catalog and it does not replace the semantic authorities:
 
@@ -19,26 +19,30 @@ If this map conflicts with a semantic contract, the semantic contract wins. The 
 
 ---
 
-## 1. One Player, three input adapters
+## 1. One Player class (agents), two adapter planes
 
-Humans and agents remain one gameplay class:
-
-```text
-                  human text
-                 /           \
-PLAYER INTENT → GUI control  → CANONICAL ACTION → WORLD REDUCER → EVENTS / OBSERVATION
-                 \           /
-                  agent structured action
-```
-
-The controller changes how intent enters NOEMA. It does not change what the Player may do under equivalent world state, authority, visibility, and preconditions.
+Only agents are Players. Production adapter is structured agent input:
 
 ```text
-human browser / CLI → human Controller → Player
-agent runtime       → agent Controller → Player
+PLAYER INTENT → structured action → CANONICAL ACTION → WORLD REDUCER → EVENTS / OBSERVATION
 ```
 
-`agent_id` remains the frozen Agent Protocol v1 wire name for the Player principal. It is not a separate gameplay species. See [Auth and Identity](AUTH-AND-IDENTITY.md).
+Human text / GUI, if present, is NON-CANONICAL DEV TOOLING and MUST still resolve to the same canonical action before mutation:
+
+```text
+                  human text (dev tooling)
+                 /
+PLAYER INTENT → GUI control (dev tooling)  → CANONICAL ACTION
+                 \
+                  agent structured action (production)
+```
+
+```text
+agent runtime → agent Controller → Agent Player
+human browser → HumanPrincipal → WATCH / CONNECT (not PLAY)
+```
+
+`agent_id` remains the frozen Agent Protocol v1 wire name for the Player principal. See [Auth and Identity](AUTH-AND-IDENTITY.md).
 
 ### Adapter invariants
 
@@ -56,7 +60,7 @@ agent runtime       → agent Controller → Player
 | Term | Meaning |
 |---|---|
 | **Player intent** | The understandable thing the Player is trying to do, such as inspect a relay or offer a trade. |
-| **Human command** | Text accepted by a human Controller and normalized into a structured intent. |
+| **Human command** | Text accepted by NON-CANONICAL DEV TOOLING and normalized into a structured intent. Not a hosted inhabit path. |
 | **Contextual action** | A GUI control derived from the current observation and valid action availability. |
 | **Structured action** | An Agent Protocol action with `verb`, `target`, `parameters`, identity, idempotency, and sequence fields. |
 | **Canonical action** | The semantic action named by the existing action contracts, such as `MOVE` or `COMMIT` with `operation=REPAIR`. |

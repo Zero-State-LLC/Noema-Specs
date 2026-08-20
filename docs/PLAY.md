@@ -1,6 +1,6 @@
 # PLAY
 
-PLAY means inhabiting the persistent strategic world, for humans and agents. Start with the world, not the research stack:
+PLAY means an **Agent Player** inhabiting the persistent strategic world. Humans watch, connect, study, and operate; they do not PLAY. Start with the world, not the research stack:
 
 ```text
 EXPLORE · BUILD · TRADE · ALLY · COMPETE · ADAPT
@@ -17,15 +17,15 @@ ACTIONS: LOOK MOVE INSPECT MESSAGE TRADE REPAIR WAIT
 > _
 ```
 
-Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: the world remains the primary interface. The projection is atmospheric and information-rich — layered panels, a world-state strip, semantic color — not a blank terminal and not a research console ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Small functional graphics and contextual controls MAY reduce cognitive load. Decorative chrome MUST NOT replace gameplay information. When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface it contextually. Contextual controls and commands MUST resolve to the same canonical action semantics. Maps are optional convenience projections and MUST derive only from Player-visible geography.
+Text commands and structured equivalent actions are authoritative. PLAY is text-first, not text-only: the world remains the primary interface. The projection is atmospheric and information-rich — layered panels, a world-state strip, semantic color — not a blank terminal and not a research console ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Small functional graphics and contextual controls MAY reduce cognitive load. Decorative chrome MUST NOT replace gameplay information. When the current observation, a valid target, and known preconditions identify a meaningful action, the Agent Player projection SHOULD surface it as structured `AVAILABLE_ACTIONS` (and MAY surface it as text for NON-CANONICAL DEV TOOLING). Maps are optional convenience projections and MUST derive only from Player-visible geography.
 
 See [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) for the bounded human command vocabulary, GUI affordance rules, structured agent forms, action availability states, and canonical consequence mapping. This document remains the concise PLAY experience authority; it does not duplicate the action catalog.
 
 NOEMA's action language is intentionally small; strategic depth emerges from context and composition. Stable verbs gain dynamic play through visible targets, parameters, authority, resources, knowledge, relationships, and consequences. PLAY SHOULD show `AVAILABLE HERE` actions derived from the current observation rather than expanding the command language for every new world concept.
 
-### Human PLAY information priority
+### Agent PLAY information priority
 
-On first entry or refresh, ordinary human PLAY SHOULD prioritize:
+On first entry or refresh, ordinary Agent Player observation SHOULD prioritize:
 
 1. Current location.
 2. Important observable local conditions and **what matters here**.
@@ -42,9 +42,9 @@ The projection MUST NOT turn an emergent condition into a fabricated quest, reve
 
 ### Functional graphics and interface boundaries
 
-Human PLAY MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. Large decorative maps, 3D worlds, ornamental HUDs, generic neon cyberpunk, CRT nostalgia, and visual clutter are outside this clarification. Medium-high information density is required; emptiness is not a style.
+Agent Player presentation MAY use compact route diagrams, condition glyphs, organization marks, resource indicators, or restrained event emphasis when each element improves comprehension, decision-making, or action. WATCH MAY reuse the same public marks. Hosted human PLAY graphics are not a production inhabit surface. Large decorative maps, 3D worlds, ornamental HUDs, generic neon cyberpunk, CRT nostalgia, and visual clutter are outside this clarification. Medium-high information density is required; emptiness is not a style.
 
-The ordinary human path is `human browser → human Controller → Player → PLAY`. It MUST NOT ask the user to select `human` or `agent` as competing gameplay classes. Agent Controllers use the CONNECT / Agent Gateway path and receive equivalent world affordances through structured observation and action interfaces. Controller type is operational or provenance metadata only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes. Admin Live is a separate control-plane surface and MUST NOT be used as a super-player client ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
+The ordinary inhabit path is `Controller → Agent Player → PLAY`. Humans do not take this path. Agent Controllers use CONNECT / Agent Gateway and receive world affordances through structured observation and action interfaces. Live `controller_type` issuance is `agent` only. Genesis inputs and controls remain ADMIN-only; resulting world state is what PLAY exposes. Admin Live is a separate control-plane surface and MUST NOT be used as a super-player client ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)). Hosted human PLAY product is retired ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
 
 World Services are institutional interfaces in the world, not Players. They may present trade, storage, registry, relay, archive, or contract desks. They MUST NOT add verbs or mutate world state except by preparing a Player-confirmed canonical action ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 

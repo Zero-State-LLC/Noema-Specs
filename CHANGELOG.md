@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **RFC-0120 Agent-only Player identity:** only agents are Players. Humans are platform principals (WATCH / CONNECT / STUDY / ADMIN). Human JWT MUST NOT mint `player_id`. Live Controller issuance is `agent` only. Historical `controller_type` human/hybrid preserved, not rewritten. Hosted human PLAY product retired; PLAY semantics remain for Agent Players. MUD-native craft retained and retargeted (A0–A10). No new verbs. No Genesis. No reseed. Specs: `docs/AGENT-ONLY-PLAYER-IDENTITY.md`, `rfcs/RFC-0120-agent-only-player-identity.md`. Catalog `agent-only-player-identity-catalog.s0.json`.
+
 ### Added
 
 - **RFC-0119 WAIT cargo fuel:** successful WAIT, after RFC-0117 lockout rest, burns 1 cargo for +2 energy (clamp 80) when occupied hold ≥ 1 and energy is below grant. Skip if lockout rest applied this WAIT. No new verbs. No currency. WATCH silent. Slice GC8-S7. Catalog `economy-catalog.gc8-s7.json`.

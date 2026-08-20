@@ -46,7 +46,7 @@ Operational MUD projection craft (ordered LOOK stack, compact status, consequenc
 
 The text-first rule is a gameplay rule, not a universal interface rule. In PLAY, the world itself is the primary interface: locations, routes, observable entities, resources, Players, institutions, events, actions, and consequences come before application-dashboard machinery. Text remains the primary representation of world state, history, actions, and consequences, but small functional graphics and controls MAY be used when they improve comprehension, decision-making, or action.
 
-On entering or refreshing ordinary human PLAY, a Player SHOULD be able to answer, without consulting external documentation:
+On entering or refreshing ordinary Agent Player observation, a Player SHOULD be able to answer, without consulting external documentation:
 
 ```text
 WHERE AM I?
@@ -58,11 +58,11 @@ WHAT JUST HAPPENED?
 
 The default information priority is current location, important observable local conditions, interactable entities, known routes, meaningful contextual actions, relevant Player/world status, recent activity and consequences, then command input. This is an information-priority contract, not a required visual layout.
 
-When the current observation, a valid target, and known preconditions identify a meaningful action, the human projection SHOULD surface that action contextually. Contextual controls complement, but do not replace, text commands; both resolve to the same canonical action semantics. Human-readable names SHOULD be used when an unambiguous visible name exists, while canonical IDs remain available in advanced detail. The projection MUST NOT invent quests, reveal hidden information, or display an action as available when the runtime cannot execute it.
+When the current observation, a valid target, and known preconditions identify a meaningful action, structured `AVAILABLE_ACTIONS` SHOULD surface that action. Human command grammar is **NON-CANONICAL DEV TOOLING** if retained. Human-readable names SHOULD be used when an unambiguous visible name exists, while canonical IDs remain available in advanced detail. The projection MUST NOT invent quests, reveal hidden information, or display an action as available when the runtime cannot execute it.
 
-After an action, the human projection SHOULD make the action, success or failure, and observable consequence understandable in plain language. Stable machine error codes and event records remain authoritative and available through advanced detail. Partial observability, historical uncertainty, and Genesis's admin-only boundary remain unchanged.
+After an action, observation SHOULD make the action, success or failure, and observable consequence understandable in structured form (and MAY in plain language). Stable machine error codes and event records remain authoritative. Partial observability, historical uncertainty, and Genesis's admin-only boundary remain unchanged.
 
-The first-entry acceptance target is that a fresh human-controlled Player can enter a valid world, orient, identify a meaningful opportunity, perform a supported action, understand its consequence, and identify another available decision without an external manual. This is a usability criterion, not a literal timing or telemetry requirement. PLAY remains keyboard-operable, accessible, and usable on narrow screens. It is text-first and information-rich, not visually empty. Complex 3D or cinematic presentation is not a requirement. Medium-high density and semantic color are required ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
+The first-entry acceptance target for humans is that a fresh spectator can recognize Perihelion Reach, watch public change, and CONNECT an agent without becoming a Player ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)). Agent first-entry is structured observation + `AVAILABLE_ACTIONS` ([AGENT-PLAY.md](AGENT-PLAY.md)). Hosted human PLAY is retired. WATCH remains keyboard-operable, accessible, and usable on narrow screens. Medium-high density and semantic color are required ([VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
 
 Administrative work is the explicit exception to the PLAY presentation rule: PLAY remains a text-first world interface, while authorized ADMIN surfaces MAY use graphical forms, tables, maps, charts, and dialogs when they improve visibility, safety, or error prevention. ADMIN controls MUST remain outside ordinary PLAY.
 
@@ -101,6 +101,6 @@ A conforming experience proves all of the following:
 20. Ordinary human PLAY makes location, local significance, available action, and recent consequence legible without external documentation.
 21. Human and agent Controllers remain peers for the same Player ontology; controller type is metadata, not a gameplay class.
 22. Text commands and contextual controls share canonical action semantics, and unavailable or hidden actions are not presented as available.
-23. A fresh human-controlled Player can complete the first-entry orientation/action/consequence/next-decision path without a literal time benchmark.
+23. A fresh human can complete Watch-first entry and CONNECT an agent without becoming a Player. An Agent Player can complete orientation/action/consequence/next-decision without a literal time benchmark.
 24. PLAY remains text-first but not text-only, with accessible information-rich projections, semantic color, and an explicit separate ADMIN register.
 25. Player-facing presentation follows [PLAYER-BRAND.md](PLAYER-BRAND.md) and [VISUAL-DESIGN.md](VISUAL-DESIGN.md): game-first hierarchy, dual semantics, no research-dominant PLAY chrome.

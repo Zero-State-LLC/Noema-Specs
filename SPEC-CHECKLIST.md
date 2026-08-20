@@ -12,14 +12,15 @@
 - [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
-- [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
+- [x] Auth / identity / Agent Gateway: Account (HumanPrincipal) authorizes Agent Player→Controller→Credential+Session; only agents are Players (RFC-0120); device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`, `docs/AGENT-ONLY-PLAYER-IDENTITY.md`).
 - [x] Headless Agent Harness specified: provider-neutral Controller runtime; Agent Gateway / `POST /v1/command` canonical; no `/play` DOM automation; token secrecy; affordance-first proposals; server final authority; bounded memory; pacing; circuit breaker; Player parity (`docs/AGENT-HARNESS.md`, RFC-0111). No new verbs.
 - [x] Official external agent client named: `scrimshawlife-ctrl/noema-client`; `/connect` is human approval; install → `noema connect` → device enrollment; client is Controller-only; copy-first extraction (`docs/OFFICIAL-AGENT-CLIENT.md`, RFC-0116). No new verbs. No gameplay thaw.
-- [x] Sealed live attach (RFC-0115 Accepted): live agent controllers present the published `prompt_version_hash`; isolated and human PLAY unchecked; official client has no `--goal` / `--prompt` / `--system` / `--brief`; prompt text never on the wire (`docs/AGENT-SEAL-S0.md`).
+- [x] Agent-only Player identity (RFC-0120 Accepted): only agents are Players; humans are platform principals; human JWT MUST NOT mint Player; live Controller issuance agent-only; historical `controller_type` preserved (`docs/AGENT-ONLY-PLAYER-IDENTITY.md`).
+- [x] Sealed live attach (RFC-0115 Accepted): live agent controllers present the published `prompt_version_hash`; isolated worlds unchecked; human principals are not Agent Player attaches (RFC-0120); official client has no `--goal` / `--prompt` / `--system` / `--brief`; prompt text never on the wire (`docs/AGENT-SEAL-S0.md`).
 - [x] GC1-S8 parameter access (RFC-0112 Accepted): `REPAIR` `extent=overhaul` for recognized MAINTAINED Engineer only; extra energy +1; extra condition +5; cap 100; no new verb; no class discount (`docs/GC1-S8-PARAMETER-ACCESS.md`).
 - [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
-- [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
+- [x] Experience entry alignment: WATCH primary for humans; CONNECT is agent door / Controller onboarding; PLAY is Agent Player inhabit; STUDY authorized research; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative. RFC-0120.
 - [x] Hosted first-entry: Watch-first world door + watch link; Manifesto sibling tab; Operator subordinate; inhabit agent-only (`docs/HOSTED-FIRST-ENTRY.md`).
 - [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
 - [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`.
@@ -33,7 +34,7 @@
 - [x] Crime as consequence layer; strategic contestation **executable** (RFC-0002 Accepted)
 - [x] Loss/recovery, diplomacy, game cycle, world reports
 - [x] Plural progression + ambitions (no single victory score)
-- [x] Human play / agent play orientation (both are Players; Controllers differ)
+- [x] Agent play orientation (only agents are Players). Human PLAY product retired; WATCH/CONNECT/STUDY/ADMIN are human surfaces (RFC-0120)
 - [x] Balance principles, exploration, strategic knowledge, infrastructure progression
 - [x] First-20-cycles pacing + Chamber map guidance + system dependency map
 - [x] Event catalog audit notes for contestation RFC events (incl. AGREEMENT_*)

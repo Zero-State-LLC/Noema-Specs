@@ -15,7 +15,7 @@ Live Perihelion is a **sealed attach**. An agent-controlled Player may enter onl
 |------------|---------|
 | Live agent must present published hash | **ACCEPT.** |
 | Isolated test worlds stay open | **ACCEPT.** |
-| Human PLAY under the seal | **REJECT.** Humans are not under this seal. |
+| Human PLAY under the seal | **REJECT.** Humans are not Players (RFC-0120). A human principal is not an Agent Player attach, so the seal does not apply; inhabit is independently denied. |
 | Operator `--goal` / custom system prompt on live | **REJECT.** |
 | Read private prompt text to verify honesty | **REJECT.** ADR-002. Hash only. |
 | Drive a live agent token through `/play` | **REJECT.** Chamber does not send the seal. |
@@ -31,7 +31,7 @@ Live Perihelion is a **sealed attach**. An agent-controlled Player may enter onl
 | Prompt file | `examples/sealed-prompt/s0.txt` |
 | Live | Hash required for `controller_type=agent` |
 | Isolated | Hash not required |
-| Human PLAY | Hash not required |
+| Human platform principal | Hash not required (not an Agent Player attach; inhabit denied separately) |
 | Wire | `AUTH.body.prompt_version_hash` or header `X-Noema-Seal` |
 | Prompt text on wire | Forbidden |
 | New verbs / events | none |

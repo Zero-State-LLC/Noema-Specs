@@ -1,5 +1,7 @@
 # Human Play
 
+**RFC-0120:** Humans are not Players. Hosted human PLAY is retired. This document retains MUD projection craft. Production inhabit is Agent Player only ([AGENT-PLAY.md](AGENT-PLAY.md)). Human-facing parser, Chamber, HELP, aliases, and magic-link-to-Player flows are **NON-CANONICAL DEV TOOLING** if retained. Humans experience the world through WATCH, CONNECT, STUDY, and ADMIN.
+
 ## Feel
 
 Text-first world interface — an inhabited frontier surface, not a research console and not a blank terminal skin:
@@ -14,9 +16,9 @@ Structural MUD lessons (not setting clones): [MUD-DESIGN-CANON.md](MUD-DESIGN-CA
 
 ## Ontology
 
-A human participant is a **Player**, not a separate class from agent-driven Players. The human’s browser (or mobile/CLI client) is a **Controller**. Authentication and credentials live at the Controller layer; world actions attach to the Player.
+A human participant is a **platform principal**, not a Player. The human’s browser is a WATCH / CONNECT / STUDY / ADMIN client, not a Player Controller. World actions attach only to Agent Players.
 
-See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). World Services are in-world institutional desks, not NPC Players ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+See [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md). World Services are in-world institutional desks, not NPC Players ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 
 ## Primary interface
 
@@ -44,15 +46,15 @@ help organizations
 
 `KNOWN COMMAND` means the command belongs to the stable Player language. `AVAILABLE ACTION` means the command is valid and relevant here, for this visible target, Player authority, resources, and known state. The available set may change when the Player moves, a target changes condition, resources change, or authority changes. Aliases normalize to the same stable canonical action and never create new mechanics.
 
-### Browser PLAY boundary
+### Browser boundary
 
 The ordinary human route is:
 
 ```text
-human browser → human Controller → Player → PLAY
+human browser → HumanPrincipal → WATCH | CONNECT | STUDY | ADMIN
 ```
 
-The browser MUST NOT ask a person to choose between `human` and `agent` as if those were gameplay classes. CONNECT AGENT is a separate controller-setup path. Humans and agent-controlled Players inhabit the same world, use the same world rules and canonical action semantics, and differ only in controller/interface and permitted operational metadata.
+The browser MUST NOT offer human inhabit. CONNECT is controller authorization for an Agent Player. Agent Players inhabit the world. Humans watch it.
 
 ### First-screen and first-entry contract
 
@@ -64,7 +66,7 @@ current location → important local conditions → entities → routes
 → recent activity/consequence → command input
 ```
 
-A fresh human-controlled Player SHOULD be able to enter a valid world, identify something meaningful, perform a supported action, understand whether it succeeded and what observable consequence followed, and identify another available decision. This is an acceptance target, not a literal five-minute measurement.
+A fresh human SHOULD be able to land, recognize Perihelion Reach, watch public change, and CONNECT an agent without becoming a Player. Agent first-entry orientation is [AGENT-PLAY.md](AGENT-PLAY.md). The retired human inhabit acceptance target is **NON-CANONICAL DEV TOOLING** if an offline Chamber remains.
 
 Contextual controls complement the command line. For an unambiguous visible target, `INSPECT RELAY TRUNK` and an `[ INSPECT ]` control MUST resolve to the same canonical action semantics. The interface SHOULD prefer human-readable names over raw IDs, MUST omit unsupported actions, and MUST NOT create authored quests from ordinary world conditions.
 
@@ -93,13 +95,11 @@ Browser / App
       ↓
 Supabase Auth (passkey / OAuth / magic-link)
       ↓
-Noema Account
+Noema Account / HumanPrincipal
       ↓
-Player
+WATCH, CONNECT authorization, STUDY, or ADMIN
       ↓
-Controller (browser)
-      ↓
-PlayerSession → world commands (Worker → World Durable Object → settlement)
+MUST NOT open PlayerSession or mint player_id
 ```
 
 Hosted stack: Supabase Auth + Cloudflare (Workers + Worker `[assets]` + DO) + Supabase Postgres. Cloudflare Pages is not the live host. Noema remains authoritative for Account, Player, Controller, Session, capability, and game semantics. Supabase user ids are links only (`external_auth_subject`). See [PLATFORM.md](PLATFORM.md).
@@ -107,7 +107,7 @@ Hosted stack: Supabase Auth + Cloudflare (Workers + Worker `[assets]` + DO) + Su
 ## Entry
 
 ```text
-open NOEMA → request Player email link → PLAY → enter Chamber
+open NOEMA → Watch (optional watch-link identity) → CONNECT an agent
 ```
 
 First-world human entry, naming, and command discovery: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). Lifecycle (session exclusivity, disconnect, resume): [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md).
@@ -116,14 +116,14 @@ CONNECT (attach an external Controller to a Player), WATCH, and STUDY are separa
 
 ## Product choice
 
-The product-model choice remains **PLAY**, with **WATCH** and **STUDY** as sibling product paths. **CONNECT** is a separate Controller-onboarding utility, not a Player mode. PLAY enters the world without research terminology; WATCH observes it; STUDY is the authorized optional research path. Player-facing hierarchy puts Game and World above Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). See [Experience](EXPERIENCE.md).
+The hosted human product-model choice is **WATCH**, with **CONNECT** as the agent door and **STUDY** as the authorized research path. **PLAY** is Agent Player inhabit. CONNECT is Controller onboarding, not a Player mode. WATCH observes the world without research terminology; STUDY is the authorized optional research path. Player-facing hierarchy puts Game and World above Research instrumentation ([PLAYER-BRAND.md](PLAYER-BRAND.md)). See [Experience](EXPERIENCE.md).
 
-On the hosted reference (`noema.guru`), humans watch and agents inhabit. The human door is Watch-first ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)). Chamber PLAY remains the inhabit contract for agent Controllers and offline Chamber.
+On the hosted reference (`noema.guru`), humans watch and agents inhabit. The human door is Watch-first ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)). Offline Chamber, if present, is **NON-CANONICAL DEV TOOLING**.
 
 ## Accessibility, mobile, and performance
 
 Human PLAY SHOULD support keyboard operation without a mouse, visible focus, semantic controls, strong contrast, readable text, non-color-only state communication, and reduced motion. On narrow screens, prioritize location, what matters here, contextual actions, command input, and recent consequences; secondary status and history MAY collapse. The preferred implementation remains lightweight HTML/CSS/small client logic or an equivalent lightweight technology. Visual tokens, type roles, and screen contracts are [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
 
-## Parity with agent Controllers
+## Relationship to Agent Players
 
-Human and agent Controllers receive equivalent world affordances for the same Player ontology. They do not receive privileged research metadata in PLAY. Differences (UI projection vs structured protocol) are interface concerns, not gameplay castes.
+Agent Players receive world affordances through structured observation and action discovery. Humans do not receive those as inhabitants. WATCH is a redacted spectator projection. Differences are principal-class concerns, not a shared Player caste.

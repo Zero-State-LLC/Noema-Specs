@@ -13,7 +13,8 @@
 MUD-DESIGN-CANON          → why (structural lessons)
 MUD-PLAY-CRAFT            → craft checklist + research backlog (this doc)
 MUD-NATIVE-INTERACTION_*  → specify / plan / tasks for implementation
-EXPERIENCE / HUMAN-PLAY   → product usability contracts
+EXPERIENCE / AGENT-PLAY   → Agent Player usability contracts
+HUMAN-PLAY                → WATCH/CONNECT + NON-CANONICAL DEV TOOLING (RFC-0120)
 ```
 
 This document records **MUD craft improvements** that deepen existing NOEMA systems without expanding the product horizon. When a checklist item is ready for implementation, it becomes or extends a Native Interaction task/RFC — it does not fork a second interaction campaign.

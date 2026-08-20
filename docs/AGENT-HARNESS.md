@@ -39,7 +39,7 @@ PLAYER
 
 Do **not** create `AGENT_PLAYER`, `BOT_PLAYER`, or `AUTONOMOUS_PLAYER`.
 
-An agent-controlled Player has the same world identity, verbs, budgets, membership, and consequences as a human-controlled Player under equivalent state and permission. Controller type is provenance, not gameplay class. [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+An Agent Player has world identity, verbs, budgets, membership, and consequences. Humans are not this principal. Controller type among agent clients is provenance, not a second Player class. [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 
 ---
 
@@ -90,7 +90,7 @@ button labels
 visual layout
 ```
 
-Frontend redesign MUST NOT break agent play. The human PLAY UI remains for humans and for operator approval of device enrollment.
+Frontend redesign MUST NOT break agent play. Hosted human PLAY is retired. Operator approval of device enrollment lives at `/connect`. Offline Chamber, if present, is **NON-CANONICAL DEV TOOLING**.
 
 ---
 

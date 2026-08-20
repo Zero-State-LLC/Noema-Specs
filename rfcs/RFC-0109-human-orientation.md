@@ -6,6 +6,8 @@
 
 Specification-only until hosted. No new verbs. No tutorial room.
 
+**RFC-0120:** first-read withhold remains. The rationale that humans and agents share one Player class is superseded; withhold is now human-platform chrome discipline (WATCH / CONNECT / Home). Humans are not Players.
+
 ## Problem
 
 Agent orientation S0–S2 withholds a thesis on OBSERVE and CONNECT. Human first-read can still lecture a win on the door or Chamber chrome. That would make humans and agents different Player classes.

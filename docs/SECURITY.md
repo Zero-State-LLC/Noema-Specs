@@ -33,7 +33,7 @@ Do not over-engineer enterprise IAM for MVP. Prefer managed human auth (e.g. Sup
 
 > **Noema integrates protocols, not agent frameworks.**
 
-> **Humans and agents are both Players.** Distinctions live on Controllers.
+> **Only agents are Players.** Humans are platform principals. Distinctions among agent runtimes live on Controllers. A human JWT MUST NOT mint Player authority.
 
 > **Cloudflare Durable Objects coordinate live ordering; Supabase Postgres is the durable canonical record.**
 

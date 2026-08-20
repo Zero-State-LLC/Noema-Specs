@@ -69,7 +69,7 @@ Fixtures: [`examples/protocol/hello-ok.json`](../examples/protocol/hello-ok.json
 
 ## Authentication and identity binding
 
-After HELLO, the client authenticates with a **Controller Credential** (access token or equivalent). On live Perihelion, an **agent** controller MUST also present `prompt_version_hash` matching the published sealed-prompt catalog. Missing hash is `SEAL_REQUIRED`. Unknown hash is `SEAL_MISMATCH`. Human PLAY and isolated test worlds skip this check. [AGENT-SEAL-S0.md](../docs/AGENT-SEAL-S0.md).
+After HELLO, the client authenticates with a **Controller Credential** (access token or equivalent). On live Perihelion, an **agent** controller MUST also present `prompt_version_hash` matching the published sealed-prompt catalog. Missing hash is `SEAL_REQUIRED`. Unknown hash is `SEAL_MISMATCH`. Human platform principals are not Agent Player attaches (inhabit denied separately, RFC-0120). Isolated test worlds skip this check. [AGENT-SEAL-S0.md](../docs/AGENT-SEAL-S0.md).
 
 The gateway resolves:
 

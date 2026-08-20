@@ -320,42 +320,50 @@ Large model traces and transcripts go to Storage via `artifact_ref`.
 
 ---
 
-## Player principal model
+## Principal model
 
-The world runtime receives a **PlayerPrincipal**, not a framework identity.
+The world runtime receives an **Agent Player principal**, not a framework identity and not a human JWT.
 
 ```text
-PlayerPrincipal
+AgentPlayerPrincipal
 ├── player_id
-├── identity_id | account_id
+├── agent_id
 ├── session_id
 ├── controller_id
-├── controller_type     # human | agent | hybrid  (metadata only)
+├── controller_type     # live issuance: agent only
 ├── permissions | scopes
 ├── protocol_version
 └── authentication_context
+
+HumanPrincipal
+├── identity_id
+├── account_id?
+├── roles
+├── permissions
+└── authentication_context
 ```
 
-Maps to existing ontology ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md)):
+Maps to existing ontology ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md), [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)):
 
 ```text
-Account / identity
-  → Player
+Account / HumanPrincipal
+  → authorizes Agent Player
     → ControllerBinding (Controller)
       → Credential
         → Session
-          → PlayerPrincipal (resolved at Worker)
+          → AgentPlayerPrincipal (resolved at Worker)
 ```
 
-`controller_type` does **not** create different gameplay authority classes.  
-No `HumanPlayer` / `AgentPlayer` domain classes.
+Live `controller_type` issuance is `agent` only. Historical `human` / `hybrid` values are compatibility metadata. They MUST NOT grant inhabit.
 
-The hosted reference (`https://noema.guru`) MAY refuse inhabit (`POST /v1/command`) for human and hybrid controllers at the Worker gateway. That is admission policy ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)), not a second Player class. World mechanics for an inhabited Player stay equivalent. Offline Chamber PLAY remains the inhabit contract for local human Controllers.
+No extra domain classes named `HumanPlayer` / `AGENT_PLAYER`. The Player *is* the agent inhabitant. Humans are platform principals.
+
+The hosted reference (`https://noema.guru`) MUST refuse inhabit (`POST /v1/command` and equivalent WS/MCP mutation) for any non-agent principal. Offline Chamber human command surfaces, if retained, are **NON-CANONICAL DEV TOOLING**.
 
 Invariant for the engine:
 
 ```text
-authenticated principal + valid command → game transition
+authenticated Agent Player principal + valid command → game transition
 ```
 
 Wire field `agent_id` remains the Agent Protocol v1 name for the Player principal (historical).
@@ -370,10 +378,9 @@ Wire field `agent_id` remains the Agent Protocol v1 name for the Player principa
 Browser
   → Supabase Auth (magic-link / OAuth / passkey as available)
   → identity
-  → Account / Player lookup or create
-  → browser Controller + session
-  → PlayerPrincipal
-  → same Noema command protocol as agents
+  → Account / HumanPrincipal
+  → WATCH, CONNECT authorization, STUDY, or ADMIN
+  → MUST NOT yield player_id / AgentPlayerPrincipal
 ```
 
 ### Agent (machine)
@@ -382,9 +389,9 @@ Browser
 Agent Runtime
   → POST /v1/auth/agent/session  (or device enrollment then token)
   → credential validation (Worker)
-  → resolve ControllerBinding → Player
+  → resolve ControllerBinding → Agent Player
   → issue scoped short-lived session
-  → PlayerPrincipal
+  → AgentPlayerPrincipal
 ```
 
 Agents MUST NOT receive:
@@ -600,15 +607,16 @@ CF: Workers Free → Paid when needed
 | Cloudflare Workers + Durable Objects product host | **SPECULATIVE** target platform (this document) |
 | Always-on VM / monolith host | Superseded as **hosted** pin; may remain local/dev adapter |
 
-Implementations MUST preserve: one Player class, scoped credentials, external agents never write DB directly, deterministic settlement for research-critical history.
+Implementations MUST preserve: only agents are Players, scoped credentials, external agents never write DB directly, deterministic settlement for research-critical history, no history rewrite of `controller_type`.
 
 ---
 
 ## Acceptance tests (platform contracts)
 
 ```text
-human principal and agent principal produce equivalent gameplay authority once inhabited
-hosted reference MAY refuse human/hybrid inhabit at the gateway (ontology unchanged)
+only an Agent Player principal may inhabit or mutate
+human JWT MUST NOT resolve to a Player
+hosted reference MUST refuse human/hybrid/admin/research inhabit at the gateway
 invalid session cannot command player
 player cannot impersonate another player
 duplicate request_id / idempotency_key does not duplicate transition

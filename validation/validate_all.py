@@ -67,6 +67,7 @@ REQUIRED_DOCS = [
     "docs/AGENT-HARNESS.md",
     "docs/OFFICIAL-AGENT-CLIENT.md",
     "docs/AGENT-SEAL-S0.md",
+    "docs/AGENT-ONLY-PLAYER-IDENTITY.md",
     "docs/ADMIN-LIVE-OPERATIONS.md",
     "docs/WORLD-OPERATIONS.md",
     "docs/PLAYER-LIFECYCLE.md",
@@ -10044,6 +10045,112 @@ def check_adr008_replay() -> None:
     ok("ADR-008 replay conformance: ADR Accepted, pointers, v01-seed golden")
 
 
+FORBIDDEN_LEGACY_PLAYER_PHRASE = "Humans and agents are both Players"
+
+RFC_0120_ATTEMPTS = (
+    "attempt-human-is-player-reject.json",
+    "attempt-agent-is-player-ok.json",
+    "attempt-human-jwt-player-reject.json",
+    "attempt-human-jwt-escalate-agent-reject.json",
+    "attempt-live-mint-human-reject.json",
+    "attempt-live-mint-hybrid-reject.json",
+    "attempt-live-mint-agent-ok.json",
+    "attempt-human-command-reject.json",
+    "attempt-admin-as-player-reject.json",
+    "attempt-research-as-player-reject.json",
+    "attempt-watch-without-player-ok.json",
+    "attempt-connect-authorize-ok.json",
+    "attempt-history-rewrite-reject.json",
+    "attempt-genesis-reseed-reject.json",
+)
+
+
+def evaluate_agent_only_player_identity(attempt: dict, catalog: dict) -> tuple[str, str | None]:
+    if not catalog.get("only_agents_are_players"):
+        return "REJECT", "CATALOG"
+    if catalog.get("humans_can_inhabit") or catalog.get("human_jwt_creates_player"):
+        return "REJECT", "CATALOG"
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("new_player_classes"):
+        return "REJECT", "CATALOG"
+    if catalog.get("genesis_change") or catalog.get("reseed") or catalog.get("settlement_rewrite"):
+        return "REJECT", "CATALOG"
+    if catalog.get("history_rewrite") or catalog.get("human_play_canonical"):
+        return "REJECT", "CATALOG"
+    if list(catalog.get("live_controller_issuance") or []) != ["agent"]:
+        return "REJECT", "CATALOG"
+    if not catalog.get("preserve_historical_controller_metadata"):
+        return "REJECT", "CATALOG"
+
+    if attempt.get("human_is_player"):
+        return "REJECT", "ONTOLOGY"
+    if attempt.get("human_jwt_creates_player"):
+        return "REJECT", "HUMAN_JWT"
+    if attempt.get("human_jwt_controller_type") == "agent":
+        return "REJECT", "ESCALATION"
+    if attempt.get("issuance_plane") == "live" and attempt.get("mint_controller_type") in (
+        "human",
+        "hybrid",
+    ):
+        return "REJECT", "ISSUANCE"
+    if attempt.get("rewrite_historical_controller_type"):
+        return "REJECT", "HISTORY"
+    if attempt.get("genesis_change") or attempt.get("reseed") or attempt.get("new_verbs"):
+        return "REJECT", "FREEZE"
+    if attempt.get("operation") == "ADMISSION" and attempt.get("principal_kind") in (
+        "human",
+        "admin",
+        "researcher",
+        "spectator",
+    ):
+        return "REJECT", "ADMISSION"
+    return "ACCEPT", None
+
+
+def check_rfc_0120(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "agent-only-player-identity-catalog.s0.json")
+    catalog_schema = load_json(ROOT / "specs" / "agent-only-player-identity-catalog.s0.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "agent-only-player-identity-attempt.s0.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"agent-only-player-identity catalog invalid: {errs[0].message}")
+    rfc = (ROOT / "rfcs" / "RFC-0120-agent-only-player-identity.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0120 must be Accepted")
+    context = (ROOT / "CONTEXT.md").read_text(encoding="utf-8")
+    if FORBIDDEN_LEGACY_PLAYER_PHRASE in context:
+        fail("CONTEXT.md must not retain 'Humans and agents are both Players'")
+    if "Only agents are Players" not in context:
+        fail("CONTEXT.md must state that only agents are Players")
+    auth = (ROOT / "docs" / "AUTH-AND-IDENTITY.md").read_text(encoding="utf-8")
+    if FORBIDDEN_LEGACY_PLAYER_PHRASE in auth:
+        fail("AUTH-AND-IDENTITY.md must not retain 'Humans and agents are both Players'")
+    if "Only agents are Players" not in auth:
+        fail("AUTH-AND-IDENTITY.md must state that only agents are Players")
+    slice_doc = (ROOT / "docs" / "AGENT-ONLY-PLAYER-IDENTITY.md").read_text(encoding="utf-8")
+    for token in (
+        "Only agents are Players",
+        "HumanPrincipal",
+        "AgentPlayerPrincipal",
+        "NON-CANONICAL DEV TOOLING",
+        "controller_type=human",
+    ):
+        if token not in slice_doc:
+            fail(f"AGENT-ONLY-PLAYER-IDENTITY.md must pin {token!r}")
+    attempt_v = Draft202012Validator(attempt_schema)
+    for name in RFC_0120_ATTEMPTS:
+        fixture = load_json(ROOT / "examples" / "agent-only-player-identity-s0" / name)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{name} invalid: {ferrs[0].message}")
+        outcome, reason = evaluate_agent_only_player_identity(fixture, catalog)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{name}: reason {reason} expected {exp['reason']}")
+    ok("RFC-0120 agent-only Player identity: catalog, constitution, fixtures")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -10178,6 +10285,7 @@ def main() -> None:
     check_rfc_0117(Draft202012Validator)
     check_gc8_s6(Draft202012Validator)
     check_gc8_s7(Draft202012Validator)
+    check_rfc_0120(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)

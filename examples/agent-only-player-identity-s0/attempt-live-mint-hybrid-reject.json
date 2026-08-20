@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "LIVE_MINT",
+  "mint_controller_type": "hybrid",
+  "issuance_plane": "live",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ISSUANCE",
+    "note": "Hybrid Controller minting is not a production capability."
+  }
+}

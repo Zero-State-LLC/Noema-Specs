@@ -1,0 +1,11 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "ONTOLOGY",
+  "human_is_player": false,
+  "principal_kind": "agent_player",
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "A Player is a durable in-world agent identity."
+  }
+}

@@ -102,8 +102,8 @@ PLAYER
 ├── PLAY                     PLAY
 ├── Player Action Map        PLAYER-ACTION-MAP
 ├── Dynamic Affordances      PLAYER-ACTION-MAP
-├── Human Play               HUMAN-PLAY
-├── Agent Play               AGENT-PLAY, AGENT-ONBOARDING
+├── Human surfaces           HUMAN-PLAY (WATCH/CONNECT; inhabit retired), HOSTED-FIRST-ENTRY
+├── Agent Play               AGENT-PLAY, AGENT-ONBOARDING, AGENT-ONLY-PLAYER-IDENTITY
 ├── Player Lifecycle         PLAYER-LIFECYCLE
 ├── Onboarding               PLAYER-ONBOARDING
 └── Command Discovery        COMMAND-DISCOVERY, PLAYER-ACTION-MAP
@@ -155,7 +155,7 @@ Before production Genesis of Perihelion Reach, operators MUST be able to:
 2. Confirm PLAY, WATCH, and Admin Live redaction (no profile / seed / story-seed IDs on Player or public WATCH).
 3. Take a verify-passing backup.
 4. Activate once; refuse ordinary reseed afterward.
-5. Enter as a human-controlled Player and as an agent-controlled Player to the same world.
+5. WATCH as a human platform principal and inhabit as an Agent Player in the same world. A human JWT MUST NOT inhabit.
 6. Run `noema verify` (or hosted equivalent) to `NOEMA VERIFY: PASS`.
 7. Show Admin Live pulse for `ACTIVE` + healthy settlement.
 8. Demonstrate `PAUSED` rejects mutating PLAY and resume returns `ACTIVE`.

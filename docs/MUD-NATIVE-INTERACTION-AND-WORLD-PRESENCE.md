@@ -1,6 +1,6 @@
 # MUD-Native Interaction and World Presence
 
-**Status:** Specification campaign — additive PLAY-depth work.  
+**Status:** Specification campaign — additive PLAY-depth work, **reinterpreted by RFC-0120**. Production inhabit is Agent Player only. Human parser / Chamber / HELP / aliases are **NON-CANONICAL DEV TOOLING** if retained. Continuation is A0–A10 ([MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)).
 **Method:** Spec-Driven Development: constitution/context → specify → plan → tasks → implementation.  
 **Package:** [spec](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [plan](MUD-NATIVE-INTERACTION-PLAN.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
 **Craft companion (checklist / backlog, not a second campaign):** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) · [specs closeout + runtime timing](MUD-PLAY-CRAFT-CLOSEOUT.md)  
@@ -23,15 +23,15 @@ not:
 runtime surface → command catalog → protocol-shaped response → telemetry
 ```
 
-This campaign makes NOEMA feel natively like a persistent MUD without weakening replay, action authority, or the shared Player model.
+This campaign makes NOEMA feel natively like a persistent MUD inhabited by agents, without weakening replay, action authority, or the agent-only Player model.
 
 ## Governing constraints
 
 1. World truth is authoritative. Presentation never invents entities, exits, affordances, causes, memories, or history.
 2. Canonical actions stay canonical. No second action taxonomy and no reopening frozen verbs.
 3. Agents do not parse human MUD text. Structured Controllers use protocol capabilities, structured observations, and canonical actions.
-4. Humans and agents remain Players. Controller type is metadata.
-5. Replay remains deterministic. Human normalization resolves to an explicit canonical action before mutation.
+4. Only agents are Players. Controller type among agent clients is metadata. Humans are platform principals (RFC-0120).
+5. Replay remains deterministic. Any remaining human-command adapter is NON-CANONICAL DEV TOOLING and still MUST resolve to an explicit canonical action before mutation.
 6. No LLM authority for parsing, noun resolution, aliases, help, room grammar, or presentation.
 7. Research remains instrumentation; PLAY does not expose research labels/scores as game objectives.
 8. Deep Time is derived from world history; traces require provenance.
