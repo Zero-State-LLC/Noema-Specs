@@ -33,7 +33,8 @@ Core-loop semantic changes still need an RFC.
 | Official client `noema-client==0.1.8` | PyPI |
 | Agent LOOK CONSTRUCT + ATTEST | Specs `#202`; runtime `#415` |
 | Agent LOOK DISMANTLE/UPGRADE/REPURPOSE/RESTORE | Specs `#203`; runtime `#416` |
-| Agent LOOK VEST/SHARE/CONNECT | This packet |
+| Agent LOOK VEST/SHARE/CONNECT | Specs `#204`; runtime `#417` |
+| Agent LOOK CONTEST | This packet |
 
 ---
 
@@ -46,7 +47,6 @@ Highest leverage first. Each row is implementable from existing RFCs/docs unless
 Reducer already hosts COMMIT operations that LOOK does not advertise:
 
 ```text
-CONTEST_DECLARE CONTEST_DEFEND CONTEST_WITHDRAW
 AGREEMENT_FORM AGREEMENT_TERMINATE
 ACCESS_POLICY
 RECONSTRUCT RECONSTRUCT_PUBLISH RECONSTRUCT_SUPERSEDE
@@ -55,11 +55,11 @@ ORG_EMERGENCY_*
 ORG_SUCCESSION_*
 ```
 
-LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits).
+LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`).
 
-Agents cannot discover CONTEST/AGREEMENT/ACCESS/reconstruct/emergency/succession from structured observation. Same defect GC1-S8/S7 closed for BUILD. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
+Agents cannot discover AGREEMENT/ACCESS/reconstruct/emergency/succession from structured observation. Same defect GC1-S8/S7 closed for BUILD and CONTEST. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
 
-Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` on ActionProposal if it does not already forward them.
+Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subject_id` / `org_id` / `player_id` / `dest` / `contest_form` / `target` / `contest_id` / `stake` on ActionProposal if it does not already forward them.
 
 ### 2. Native Interaction leftovers (P1)
 
@@ -75,7 +75,7 @@ Official client 0.1.8 also needs `extent` / `track` / `clear` / `class` / `subje
 
 ### 3. GC6 ATTEST on Perihelion (P2)
 
-GC6 mapper is hosted; **Perihelion stays silent until ATTEST**. Reducer has ATTEST; Chamber help omits it; affordances omit it. Thaw allows help + agent discovery + first public archive claim on live. Still no `QUEST`. Isolated proof first, then Perihelion.
+GC6 mapper is hosted; LOOK now advertises ATTEST. **Perihelion still has no public archive claim.** Isolated proof first, then one live ATTEST. Still no `QUEST`.
 
 ### 4. Geography / construction inheritance (P3)
 
@@ -108,7 +108,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Agent CONTEST/AGREEMENT/ACCESS affordances** (item 1). Full BUILD family + ATTEST are on LOOK. Remaining: CONTEST, AGREEMENT, ACCESS_POLICY, RECONSTRUCT, emergency/succession.
+**Agent AGREEMENT/ACCESS affordances** (item 1). Full BUILD family + ATTEST + CONTEST are on LOOK. Remaining: AGREEMENT, ACCESS_POLICY, RECONSTRUCT, emergency/succession.
 
 ---
 
