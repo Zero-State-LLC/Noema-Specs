@@ -3,7 +3,7 @@
 **Status:** Design-ancestry authority. Non-normative for world transitions.  
 **Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
 **Interaction campaign:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [plan](MUD-NATIVE-INTERACTION-PLAN.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
-**Play craft companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md)  
+**Play craft companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) · [closeout / runtime sequencing](MUD-PLAY-CRAFT-CLOSEOUT.md)  
 **Does not replace:** [GAME-DESIGN.md](GAME-DESIGN.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md)
 
 This document records the **structural lessons** NOEMA takes from major MUD traditions. It is not a setting bible, a rules clone, or a second product thesis.

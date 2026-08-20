@@ -1,7 +1,8 @@
 # MUD Play Craft
 
-**Status:** Design-craft companion (horizon-locked). Non-normative for world transitions.  
+**Status:** Design-craft companion (horizon-locked). **Specs-complete** for C1–C9 (see [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)); C2 sketch-only until optional wire RFC. Non-normative for world transitions.  
 **Feeds:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) (executable interaction campaign)  
+**Runtime sequencing:** [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)  
 **Ancestry:** [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)  
 **Rejection test:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)  
 **Does not replace:** Native Interaction Features A–F · [EXPERIENCE.md](EXPERIENCE.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [ATTENTION-PROJECTION.md](ATTENTION-PROJECTION.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md)
@@ -17,7 +18,7 @@ EXPERIENCE / HUMAN-PLAY   → product usability contracts
 
 This document records **MUD craft improvements** that deepen existing NOEMA systems without expanding the product horizon. When a checklist item is ready for implementation, it becomes or extends a Native Interaction task/RFC — it does not fork a second interaction campaign.
 
-**Flesh-out path:** extend §8 work queue and Native Interaction tasks; do not invent parallel Feature letters here.
+**Flesh-out path:** C1–C9 are fleshed. Further work is **runtime** (see [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md)) or optional C2 wire RFC — do not invent parallel Feature letters here.
 
 ---
 
@@ -46,9 +47,12 @@ Live risk (with Native Interaction): interaction drift and thin consequence/stat
 | Status / budgets glance | RESOURCE-ECONOMY | **Feature B STATUS** + **T1.6** (C3) |
 | Consequence four-beat | EXPERIENCE, PLAYER-ACTION-MAP §7 | Feature B HAPPENED + **T1.4** (C4) |
 | Short-session mark ranking | Deep Time usability pin; GC3/GC5 | Feature D + **T1.7** S-MARK-10 (C8) |
+| Post-MOVE orientation | ATTENTION-PROJECTION, MOVE observation | Craft §7a (C5) |
+| RESYNC client retry | OFFICIAL-AGENT-CLIENT, AGENT-HARNESS | Craft §7b (C6) |
+| Practice crumbs | GC1-S0 / RFC-0004 | STATUS placement craft §7 (C7) |
+| Hosted audit | examples checklist | Craft §7c (C9) advisory |
 | Local asymmetry legibility | GEOGRAPHY, GC8 | Feature B PRESSURE / AFFORDANCE |
-| Practice crumbs | MASTERY projection only | Craft wording only |
-| Soft resync UX | settlement patterns | Client recommendation |
+| Soft resync UX | settlement patterns | C6 + §5.2 |
 
 ### Out of scope (DEFER / forbidden)
 
@@ -292,20 +296,106 @@ ENTER → LOOK (Relay Quarter pressure)
 - Same-room presence is first-class in HERE.
 - `MESSAGE` remains the verb; no SAY/EMOTE/SHOUT unless RFC + doctrine (prefer MESSAGE scope).
 
-### Practice crumbs
+### Practice crumbs (C7 — fleshed)
 
-PLAY MAY show short PRACTICING crumbs where mastery projection already emits them. No mechanical benefits in this doc. No research capability labels in PLAY.
+Authority for track lines and when they appear: [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) (RFC-0004 derived projection). Craft only places and composes them.
 
-### Chamber pressure hints (illustrative, seed-owned)
+**Placement (Feature B):**
 
-| Chamber room | Asymmetry to surface when true |
-|--------------|--------------------------------|
-| Relay Quarter | Relay condition band / MESSAGE range pressure |
-| Foundry Corridor | Production/resource node stock |
-| Archive | Knowledge/inspect depth; low material |
-| Generator Hall | Power/infra criticality |
-| Outer Works / Frontier Gate | Exploration edge / risk |
-| Civic Exchange | Social density / trade presence |
+```text
+STATUS
+energy … · attention …
+PRACTICE (optional, ≤3 lines, self only)
+  You have been keeping infrastructure alive.
+```
+
+| Rule | Detail |
+|------|--------|
+| Source | Only tracks already in `PRACTICING` per GC1-S0 catalog |
+| Cap | At most three lines; `display_order` ascending |
+| Wording | Exact GC1-S0 lines (do not invent new track copy here) |
+| Numbers | Never counts, XP, levels, ranks, research confidence |
+| Others | Never another Player’s practice |
+| Affordances | Never add/hide controls because of practice |
+| WATCH | No mastery projection |
+| Failure | Legal fail MAY weight practice per mastery parent doc; `FORBIDDEN` spam does not |
+
+**GC1-S0 line table (repeat for implementers):**
+
+| `track_id` | Line |
+|------------|------|
+| `track.explorer.01` | `You have been learning the rooms.` |
+| `track.surveyor.01` | `You have been doing survey work.` |
+| `track.broker.01` | `You have been closing exchanges.` |
+| `track.engineer.01` | `You have been keeping infrastructure alive.` |
+
+After REPAIR HAPPENED, STATUS MAY refresh so an engineer line appears on the same screen without a second LOOK when the observation already includes derived practice.
+
+---
+
+## 7a. Post-MOVE orientation vs attention (C5 — fleshed)
+
+**Problem:** Classic MUDs auto-show the destination room after movement. NOEMA charges attention for `LOOK` (default 1). A naive “MOVE then client LOOK” double-taxes attention and trains thrash.
+
+### 7a.1 Preferred product rule (presentation + observation bundle)
+
+1. A **successful** `MOVE` response SHOULD include a **destination orientation bundle** sufficient to render Feature B layers the Player is allowed to see at current attention **without** requiring a second `LOOK` command.
+2. That bundle is part of the MOVE observation/consequence projection, not a free hidden verb.
+3. Attention accounting:
+   - **Bundle on MOVE success:** charge only MOVE’s normal costs (energy/attention per ACTION-CONTRACTS). Do **not** also debit LOOK attention for the bundled orientation.
+   - **No bundle (legacy/partial client):** client MAY send `LOOK`; LOOK attention applies normally.
+4. **Failed MOVE:** no destination bundle; no LOOK charge.
+5. **Reduced/minimal attention:** bundle uses the same field sets as ATTENTION-PROJECTION for the Player’s attention *after* MOVE cost reservation (same as a LOOK would at that attention).
+6. Client MUST NOT auto-spam LOOK every tick “to be safe” when the last MOVE/observation already carried a fresh orientation for this `room_id` + observation epoch.
+
+### 7a.2 SPEC GAP / RFC trigger
+
+If a deployment cannot attach orientation to MOVE without changing event catalog or double-writing ledger facts, open an RFC. Until then:
+
+- Craft + adapters treat bundled orientation as **derived presentation of the post-MOVE observation** already produced by settlement.
+- No new verb (`ORIENT`, `GLANCE`, …).
+
+### 7a.3 Acceptance (C5)
+
+1. Documented path exists where MOVE success → full Feature B read without a second paid LOOK.
+2. Attention never pays LOOK+MOVE for one successful step when bundle is present.
+3. ATTENTION-PROJECTION field sets still apply to the bundle.
+
+---
+
+## 7b. SETTLEMENT_RESYNC client retry (C6 — fleshed)
+
+**Homes:** [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) typed failures · craft §5.2.
+
+### 7b.1 Meaning
+
+`SETTLEMENT_RESYNC` means the world head was restored/soft-resynced; the command did **not** apply as a hard INCIDENT. Safe to retry the **same logical action** once.
+
+### 7b.2 Official client / harness rules
+
+| Rule | Detail |
+|------|--------|
+| Detect | Structured `error.code == SETTLEMENT_RESYNC` or equivalent documented alias; `retryable: true` when present |
+| Retry count | **Exactly one** automatic retry |
+| Identity | Same `idempotency_key` and same `client_action_sequence` as the original attempt |
+| Backoff | Optional short jitter; MUST NOT busy-loop |
+| On second failure | Surface four-beat FAIL; stop auto-retry; do not open INCIDENT theater |
+| Non-goals | No retry on `FORBIDDEN`, hard `INCIDENT`, `INVALID_SCHEMA`, or non-idempotent unknown codes |
+| Humans | Browser MAY show “world caught up — retrying…” once, then plain failure |
+
+### 7b.3 Acceptance (C6)
+
+1. Official client doc states single idempotent retry.
+2. Harness failure table lists RESYNC under retryable settlement class without equating it to WORLD INCIDENT.
+3. Infinite retry and double-apply are forbidden.
+
+---
+
+## 7c. Hosted PLAY audit checklist (C9 — advisory)
+
+**Non-normative.** Runtime audit aid: [examples/mud-play-craft/hosted-play-audit-checklist.md](../examples/mud-play-craft/hosted-play-audit-checklist.md).
+
+Does not change Specs law. Operators/implementers tick items against noema.guru or local Worker without reseeding Perihelion.
 
 ---
 
@@ -318,10 +408,12 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 | C8 | Short-session mark scenario | **Fleshed** §6 | **T1.7** S-MARK-10 |
 | C1 | Chamber example full room projections (3 rooms) | **Fleshed** | [examples/mud-play-craft/](../examples/mud-play-craft/) + **T1.8** |
 | C2 | Agent observation ↔ Feature B field sketch | **Sketch** | [agent-observation-layers.sketch.json](../examples/mud-play-craft/agent-observation-layers.sketch.json) — RFC if wire |
-| C5 | Post-MOVE orientation LOOK vs attention double-charge | open | RFC if normative cost |
-| C6 | Official client SETTLEMENT_RESYNC single retry | open | OFFICIAL-AGENT-CLIENT / client |
-| C7 | Practice crumb wording table | open | MASTERY projection + PLAY |
-| C9 | Hosted PLAY audit vs craft checklist | open | runtime repo (advisory) |
+| C5 | Post-MOVE orientation LOOK vs attention double-charge | **Fleshed** §7a | ATTENTION-PROJECTION note + adapter; RFC if ledger must change |
+| C6 | Official client SETTLEMENT_RESYNC single retry | **Fleshed** §7b | OFFICIAL-AGENT-CLIENT + AGENT-HARNESS |
+| C7 | Practice crumb wording table | **Fleshed** §7 (crumbs) | GC1-S0 lines + STATUS placement |
+| C9 | Hosted PLAY audit vs craft checklist | **Fleshed** §7c | [hosted-play-audit-checklist.md](../examples/mud-play-craft/hosted-play-audit-checklist.md) advisory |
+
+**Queue closed for Specs.** Runtime phase order and “when to RFC” live in [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md). Do not re-open C1–C9 as open craft items without a defect report.
 
 ---
 
@@ -332,7 +424,7 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 | Causes not industries | Pass |
 | No eighth primitive | Pass |
 | Verb stability | Pass |
-| Decision density | Pass intent (C3–C8) |
+| Decision density | Pass intent (C1–C9) |
 | No second campaign fork | Pass — feeds Native Interaction |
 | Horizon lock | Pass |
 
@@ -341,11 +433,11 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 ## 10. Acceptance (companion)
 
 1. Does not conflict with Feature B room order or Features A–F constraints (STATUS is additive presentation).
-2. Cold reader knows implementation homes: T1.4 / T1.6 / T1.7.
+2. Cold reader knows implementation homes: T1.4 / T1.6 / T1.7 / T1.8 / C5–C7 docs.
 3. Human/agent layer semantics called out without inventing wire fields.
 4. No GC3/GC5/GC8 pin breakage; research experience-error catalog untouched.
 5. Forbidden list holds.
-6. C3, C4, C8 sections are detailed enough to implement presentation tests.
+6. C1–C9 are detailed enough for presentation tests or client work (C9 advisory only).
 
 ---
 
@@ -356,6 +448,7 @@ PLAY MAY show short PRACTICING crumbs where mastery projection already emits the
 - [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)
 - [EXPERIENCE.md](EXPERIENCE.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md)
 - [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) §7 · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [ATTENTION-PROJECTION.md](ATTENTION-PROJECTION.md)
+- [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md)
 - [protocols/mud-command-v1.md](../protocols/mud-command-v1.md)
 - [examples/chamber-world/](../examples/chamber-world/)
-- [examples/mud-play-craft/](../examples/mud-play-craft/) — C1 Chamber Feature B projections + C2 agent layer sketch
+- [examples/mud-play-craft/](../examples/mud-play-craft/) — C1 projections, C2 sketch, C9 audit checklist

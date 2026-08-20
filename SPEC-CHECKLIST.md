@@ -243,6 +243,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Architecture-design frontier: reducer registry landed; RFC-0016 hosted durable world head Accepted. SERIALIZABLE cycle fence remains later. No stack change.
 - [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
 - [x] MUD-native interaction campaign (spec only): `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md`, plan, tasks. No new verbs. No Genesis. Not a runtime thaw.
+- [x] MUD Play Craft companion specs-complete (C1–C9; C2 sketch): `docs/MUD-PLAY-CRAFT.md`, `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` (runtime phases R0–R5), `examples/mud-play-craft/`. No new verbs. No Genesis. Runtime remains separate.
 - [x] S0 closeout + S1 order: `docs/GC-S0-CLOSEOUT-2026-08-13.md`, `docs/GC-S1-ORDER.md`.
 - [x] RFC-0017 Accepted: hosted cycle fence / STALE_HEAD / crash-retry. No event-catalog/0.3.
 - [x] RFC-0018 Accepted: archive-claim writer pin. INSPECT not a writer. No Genesis pack.

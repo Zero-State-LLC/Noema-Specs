@@ -4,11 +4,10 @@
 
 ### Added
 
+- **MUD Play Craft specs closeout:** `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` seals C1–C9 (C2 sketch-only), defines runtime phases R0–R5, and records timing vs Native Interaction / Perihelion (no reseed). Relands C5–C9 craft that missed #188 squash. No new verbs. No Genesis.
 - **MUD Play Craft C3/C4/C8 flesh-out:** status strip (Feature B STATUS + T1.6), PLAY failure four-beat + plain-language table (T1.4 / craft §5; not research experience-error catalog), short-session S-MARK-10 (T1.7). Spec: `docs/MUD-PLAY-CRAFT.md`. No new verbs. No Genesis.
 - **MUD Play Craft C1 (+ C2 sketch):** non-normative Chamber room projections for Civic Exchange, Relay Quarter, Foundry Corridor under `examples/mud-play-craft/` (Feature B order + STATUS). Conceptual agent layer sketch JSON (not wire). Task T1.8. No Genesis.
-
-### Added
-
+- **MUD Play Craft C5–C9:** post-MOVE orientation without double LOOK attention (ATTENTION-PROJECTION note); official client/harness single `SETTLEMENT_RESYNC` retry; GC1 practice crumbs under STATUS; advisory hosted PLAY audit checklist. Spec: `docs/MUD-PLAY-CRAFT.md` §7a–7c. No new verbs. No Genesis.
 - **MUD Play Craft companion:** `docs/MUD-PLAY-CRAFT.md` — horizon-locked PLAY projection craft checklist (status glance, consequence four-beat, short-session marks, Feature B layer rules). Feeds the existing MUD-Native Interaction campaign; does not add verbs, reopen freezes, or fork a second campaign. Cross-linked from MUD-DESIGN-CANON, Native Interaction spec, EXPERIENCE, HUMAN-PLAY, GAME-SYSTEM-MAP, GAME-DESIGN, ROADMAP, README.
 
 - **WATCH Living Chamber motion:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.6 makes tiered Phosphor pulses normative (NORMAL/NOTABLE/MAJOR per the existing §18.5 atlas; ≤3 non-MAJOR concurrent, 1 MAJOR) and specifies `exit_active` lighting for public moves. §8 upgrades feed-insert settle to SHOULD, adds a one-shot headline mark flash, and makes a triggered MAJOR banner MUST-render. Presentation only. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
