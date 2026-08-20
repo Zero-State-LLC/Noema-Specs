@@ -9204,6 +9204,42 @@ def check_gc8_s4(Draft202012Validator) -> None:
     ok("GC8-S4 cargo MOVE: catalog, attempt fixtures, RFC-0048 Accepted")
 
 
+def evaluate_lockout_wait(attempt: dict, catalog: dict) -> dict:
+    energy = int(attempt.get("energy") or 0)
+    storage = int(attempt.get("storage") or 0)
+    if energy == int(catalog["lockout_energy"]) and storage == int(catalog["lockout_storage"]):
+        return {
+            "energy": int(catalog["rest_energy"]),
+            "storage": int(catalog["rest_storage"]),
+            "restored": True,
+        }
+    return {"energy": energy, "storage": storage, "restored": False}
+
+
+def check_rfc_0117(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "economy-catalog.lockout-wait.json")
+    rfc = (ROOT / "rfcs" / "RFC-0117-lockout-wait-rest.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0117 must be Accepted")
+    if catalog.get("new_verbs") or catalog.get("new_events") or catalog.get("currency") or catalog.get("watch_lockout"):
+        fail("RFC-0117 must not add verbs, events, currency, or WATCH lockout")
+    if int(catalog.get("rest_energy") or 0) != 2 or int(catalog.get("rest_storage") or 0) != 1:
+        fail("RFC-0117 must rest energy 2 and storage 1")
+    slice_doc = (ROOT / "docs" / "GC8-S5-LOCKOUT-WAIT.md").read_text(encoding="utf-8")
+    if "energy 0" not in slice_doc or "storage 0" not in slice_doc or "WAIT" not in slice_doc:
+        fail("GC8-S5 must pin lockout WAIT rest")
+    economy = (ROOT / "docs" / "RESOURCE-ECONOMY.md").read_text(encoding="utf-8")
+    if "RFC-0117" not in economy:
+        fail("RESOURCE-ECONOMY.md must name RFC-0117")
+    lockout = evaluate_lockout_wait({"energy": 0, "storage": 0}, catalog)
+    if lockout != {"energy": 2, "storage": 1, "restored": True}:
+        fail(f"lockout WAIT rest: got {lockout}")
+    held = evaluate_lockout_wait({"energy": 0, "storage": 5}, catalog)
+    if held["restored"] or held["energy"] != 0 or held["storage"] != 5:
+        fail(f"non-lockout WAIT must not rest: got {held}")
+    ok("RFC-0117 lockout WAIT rest: catalog, energy 2 / storage 1, no new verbs")
+
+
 def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool:
     if ev.get("event_type") != catalog.get("evidence_event"):
         return False
@@ -10027,6 +10063,7 @@ def main() -> None:
     check_gc8_s2(Draft202012Validator)
     check_gc8_s3(Draft202012Validator)
     check_gc8_s4(Draft202012Validator)
+    check_rfc_0117(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
