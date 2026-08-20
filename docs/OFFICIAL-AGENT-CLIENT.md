@@ -391,6 +391,20 @@ No reseed. No Genesis operation. No strategic/high-impact action for proof.
 
 ---
 
+## 12.1 SETTLEMENT_RESYNC (official client)
+
+When the server returns structured failure `SETTLEMENT_RESYNC` (or documents `retryable: true` for that code):
+
+1. Automatically retry **once** with the **same** `idempotency_key` and **same** `client_action_sequence`.
+2. Optional short backoff/jitter; no busy loop.
+3. If the retry fails, surface the failure to the controller/user and **stop** auto-retry.
+4. Do **not** auto-retry `FORBIDDEN`, hard world `INCIDENT`, `INVALID_SCHEMA`, or unknown non-idempotent errors.
+5. Do **not** present RESYNC as world destruction or permanent lockout.
+
+Human browser Controllers MAY show a single “world caught up — retrying…” state. Craft detail: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7b. Harness class table: [AGENT-HARNESS.md](AGENT-HARNESS.md) §9.
+
+---
+
 ## 13. README and skill layout
 
 The external README should answer: what this is, install, connect, play, use with an agent skill, use from Python, security, troubleshooting, protocol compatibility. Do not duplicate complete NOEMA game documentation.

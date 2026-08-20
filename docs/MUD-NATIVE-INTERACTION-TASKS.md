@@ -232,9 +232,10 @@ Use test-first, dependency-ordered work. Do not reopen frozen canonical verbs, G
 
 ### TX.0 Craft companion backlog
 Horizon-locked craft from [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §8:
-- **C1/C3/C4/C8 fleshed** → T1.4, T1.6, T1.7, T1.8; fixtures in `examples/mud-play-craft/`.
-- **C2 sketch only** (agent layer JSON) — RFC before wire.
-- Still open: C5 post-MOVE LOOK cost, C6 client resync retry, C7 practice crumbs, C9 hosted audit.
+- **C1–C9 fleshed** in craft doc; fixtures under `examples/mud-play-craft/` (projections, agent sketch, hosted audit checklist).
+- Native Interaction tasks: T1.4, T1.6, T1.7, T1.8.
+- Client/harness: OFFICIAL-AGENT-CLIENT §12.1 RESYNC; AGENT-HARNESS §9; ATTENTION-PROJECTION post-MOVE note.
+- C2 remains sketch-only until RFC for wire fields.
 
 ### TX.1 Specs reconciliation
 Update/cross-link:
