@@ -124,6 +124,7 @@ DESCRIPTION
 PRESSURE        optional and observable only
 HERE            visible Players/entities
 EXITS           observable exits
+STATUS          compact budgets + flags (craft: MUD-PLAY-CRAFT §4)
 HAPPENED        latest Player-relevant consequence
 COMMAND         input
 ```
@@ -149,9 +150,18 @@ EXITS:
 - `direction — known destination name` when observable/known;
 - do not reveal unknown graph knowledge.
 
+STATUS:
+- existing budgets only (energy, attention, compute, storage, influence);
+- glanceable without a dashboard rail;
+- sequence/controller/research labels Advanced/debug by default;
+- structured agents receive equivalent budget fields (no parsing human one-liner);
+- detailed craft: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §4.
+
 HAPPENED:
 - concise, world-native consequence;
-- protocol/event/sequence IDs not required for comprehension.
+- prefer four-beat craft (tried / ok|fail / changed / next) per [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §5;
+- protocol/event/sequence IDs not required for comprehension;
+- machine error codes retained in Advanced/debug.
 
 ## Feature C — Contextual action discovery and HELP
 
