@@ -12,7 +12,7 @@
 
 ### Changed
 
-- **Phosphor placement / Admin Watch PIXEL:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 prohibition now reads Phosphor MUST NOT appear on PLAY or STUDY; new §18.1 carves out an operator-scoped **Admin Watch PIXEL** (authenticated operator sessions only, same public `watch-live/1.0` snapshot, no hidden-state access, never a second public map), consistent with §1's operator graphics exception and the shipped operator-console embed. §18 tests updated to pin operator-only serving. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
+- **Phosphor placement / Admin Watch PIXEL:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 prohibition now reads Phosphor MUST NOT appear on PLAY or STUDY; new §18.1 carves out an operator-scoped **Admin Watch PIXEL** (authenticated operator sessions only, drawing that operator's Admin Watch projection — `GET /v1/admin/watch`, scoped to agents they minted or enrolled — with no unique canvas information and no other operators' agents, never a second public map), consistent with §1's operator graphics exception and the shipped operator-console embed. §18 tests updated to pin operator-only serving. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
 
 - **Remaining-work honesty:** GC1-S2 is hosted (RFC-0040). SPEC GAP is later GC1 (parameter-access), not S2.
 
