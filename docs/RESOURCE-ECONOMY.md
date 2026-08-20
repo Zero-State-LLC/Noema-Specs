@@ -61,7 +61,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive; produced via infrastructure/node loop |
+| regeneration | 0 passive; produced via infrastructure/node loop. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets energy to 2 |
 | decay | none in v0.1 |
 | transferable | yes |
 | tradeable | yes |
@@ -85,7 +85,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive |
+| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1 |
 | decay | none |
 | transferable | yes |
 | tradeable | yes |
