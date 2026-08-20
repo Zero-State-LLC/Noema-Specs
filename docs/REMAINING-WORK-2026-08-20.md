@@ -54,7 +54,7 @@ ORG_EMERGENCY_*
 ORG_SUCCESSION_*
 ```
 
-LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), ATTEST (unclaimed artifact × infrastructure subject).
+LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward rules), ATTEST (unclaimed artifact × infrastructure subject).
 
 Agents cannot discover BUILD/CONTEST/AGREEMENT/ACCESS/ATTEST/reconstruct from structured observation. Same defect GC1-S8/S7 just closed. No new verbs. RFC-0120: put fields on affordances, do not revive `arguments.line`.
 
@@ -107,7 +107,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Agent BUILD/CONTEST/AGREEMENT/ACCESS/ATTEST affordances** (item 1). CONSTRUCT + ATTEST are first. Remaining COMMIT ops still missing from LOOK.
+**Agent BUILD/CONTEST/AGREEMENT/ACCESS/ATTEST affordances** (item 1). CONSTRUCT, ATTEST, DISMANTLE, UPGRADE, REPURPOSE, RESTORE are on LOOK. Remaining: VEST/SHARE/CONNECT, CONTEST, AGREEMENT, ACCESS_POLICY, RECONSTRUCT, emergency/succession.
 
 ---
 
