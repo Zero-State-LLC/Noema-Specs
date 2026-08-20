@@ -9271,6 +9271,11 @@ def check_gc8_s6(Draft202012Validator) -> None:
         fail("GC8-S6 must not add verbs, currency, crypto, or WATCH cargo")
     if not catalog.get("work_consumes_cargo"):
         fail("GC8-S6 must set work_consumes_cargo")
+    economy = (ROOT / "docs" / "RESOURCE-ECONOMY.md").read_text(encoding="utf-8")
+    if "capacity check, not debit" in economy.lower():
+        fail("RESOURCE-ECONOMY must not describe HARVEST as capacity-check-not-debit")
+    if "debits" not in economy or "fills hold" not in economy:
+        fail("RESOURCE-ECONOMY must say HARVEST debits free storage (fills hold)")
     slice_doc = (ROOT / "docs" / "GC8-S6-WORK-CARGO.md").read_text(encoding="utf-8")
     for token in ("UPGRADE", "REPURPOSE", "RESTORE"):
         if token not in slice_doc or token not in rfc:

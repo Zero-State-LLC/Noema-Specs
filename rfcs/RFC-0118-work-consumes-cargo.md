@@ -12,7 +12,7 @@ No new Player verbs. AUTH-INFRA-CLASS amounts unchanged. Do not invert live `sto
 
 ## Proposed change
 
-Work verbs consume cargo (free storage up). That includes REPAIR, CONSTRUCT, **UPGRADE, REPURPOSE, and RESTORE**. TRADE `storage: N` is cargo (giver free storage +N, receiver −N). HARVEST unchanged. DISMANTLE salvage still fills hold. WATCH silent on pack.
+Work verbs consume cargo (free storage up). That includes REPAIR, CONSTRUCT, **UPGRADE, REPURPOSE, and RESTORE**. TRADE `storage: N` is cargo (giver free storage +N, receiver −N). HARVEST **debits** free storage (fills hold) — not a capacity-check-without-debit. DISMANTLE salvage still fills hold. WATCH silent on pack. RESOURCE-ECONOMY tracks this hosted truth.
 
 Catalog: `specs/economy-catalog.gc8-s6.json`. Slice: `docs/GC8-S6-WORK-CARGO.md`.
 
