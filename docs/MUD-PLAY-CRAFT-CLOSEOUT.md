@@ -60,7 +60,7 @@ GC / core freezes (done)  ───────►   already partially hosted; d
 | **A3** | Agent observation contract (WHERE/HERE/EXITS/STATUS/HAPPENED/AVAILABLE ACTIONS) | C3–C5 · T1.2 · T1.6 | After A0 |
 | **A4** | Structured action discovery | AGENT-PLAY · COMMAND-DISCOVERY | With A3 |
 | **A5** | Agent harness / headless conformance | C6 · RFC-0116 | With A2 |
-| **A6** | Environmental memory / Deep Time traces | Native Interaction traces | After A3 |
+| **A6** | Feature D first family: repair plate + scar projector provenance. No `TRACE` verb. Cite [MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) S3 runtime mapping | Native Interaction traces | After A3 |
 | **A7** | WATCH spectator intelligence | WATCH-LIGHTWEIGHT-SPECTATOR | Parallel after A0 |
 | **A8** | Home live-world proof | HOSTED-FIRST-ENTRY | With A7 |
 | **A9** | Research / admin isolation cleanup | STUDY · ADMIN-LIVE | After A1 |
