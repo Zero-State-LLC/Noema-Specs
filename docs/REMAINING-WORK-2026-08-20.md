@@ -31,6 +31,7 @@ Core-loop semantic changes still need an RFC.
 | GC1-S0–S6, GC2 through S24, GC4 offices, ACCESS_POLICY S0–S3 | Hosted; RFCs Accepted |
 | S6/S7 WATCH NOW/RECENTLY/WORLD + Home excerpt | Hosted |
 | Official client `noema-client==0.1.8` | PyPI |
+| Official client LOOK field forwarding | `noema-client==0.1.9` |
 | Agent LOOK CONSTRUCT + ATTEST | Specs `#202`; runtime `#415` |
 | Agent LOOK DISMANTLE/UPGRADE/REPURPOSE/RESTORE | Specs `#203`; runtime `#416` |
 | Agent LOOK VEST/SHARE/CONNECT | Specs `#204`; runtime `#417` |
@@ -38,7 +39,7 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK AGREEMENT | Specs `#207`; runtime `#420` |
 | Agent LOOK ACCESS_POLICY | Specs `#208`; runtime `#421` |
 | Agent LOOK RECONSTRUCT | Specs `#209`; runtime `#422` |
-| Agent LOOK office retire / emergency / succession | This packet |
+| Agent LOOK office retire / emergency / succession | Specs `#210`; runtime `#423` |
 
 ---
 
@@ -52,9 +53,7 @@ Hosted COMMIT families are on LOOK. `ORG_EMERGENCY_DEFINE` stays silent: the red
 
 LOOK currently advertises: LOOK, MOVE, INSPECT, REPAIR (+overhaul), HARVEST, TRADE*, WAIT, MESSAGE, ORG_CREATE/INVITE/LEAVE, office create/assign/vacate/act/retire, FOCUS, CONSTRUCT (missing classes), DISMANTLE/UPGRADE/REPURPOSE/RESTORE (steward + named-asset office), ATTEST (unclaimed artifact × infrastructure subject), VEST (`org_id` when a named-asset office is occupied), SHARE (`player_id` of entered partners), CONNECT (`dest` on steward `route_link` for public two-way exits), CONTEST_DECLARE (`contest_form` / `target` / `stake`), CONTEST_DEFEND / CONTEST_WITHDRAW (`contest_id`), AGREEMENT_FORM (`agreement_type` / `party_ids`), AGREEMENT_TERMINATE (`agreement_id` / `agreement_reason`), ACCESS_POLICY (`scope` / `mode` / `applies_to` / `direction` / `acting_for`), RECONSTRUCT (`subject_ref` / `claim` / `evidence` / `visibility`), RECONSTRUCT_PUBLISH / RECONSTRUCT_SUPERSEDE (`reconstruction_id`), ORG_EMERGENCY_ACTIVATE / REVOKE (`template_id` / `target_ref` / `emergency_scope_id`), ORG_SUCCESSION_RULE / DESIGNATE / CONSENT (`rule_id` / `successors`).
 
-P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on affordances, not `arguments.line`.
-
-Official client 0.1.8 also needs the LOOK fields above on ActionProposal if it does not already forward them. That client lag is now the highest-leverage remaining agent-path gap.
+P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on affordances, not `arguments.line`. Official client `0.1.9` copies those fields onto ActionProposal and strips `arguments.line`.
 
 ### 2. Native Interaction leftovers (P1)
 
@@ -103,7 +102,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Official client LOOK field forwarding** (item 1 adjacent) or **first Perihelion ATTEST** (item 3). Hosted COMMIT is discoverable on structured LOOK. `ORG_EMERGENCY_DEFINE` is intentionally silent.
+**First Perihelion ATTEST** (item 3). Hosted LOOK + official client 0.1.9 forward structured fields. Isolated proof first, then one live archive claim. Still no `QUEST`.
 
 ---
 
