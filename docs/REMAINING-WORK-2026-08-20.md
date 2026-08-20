@@ -41,6 +41,7 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK RECONSTRUCT | Specs `#209`; runtime `#422` |
 | Agent LOOK office retire / emergency / succession | Specs `#210`; runtime `#423` |
 | Isolated + first Perihelion ATTEST | Isolated `attest-s0` OPERATING; live Dead Spur `entity.archive-ledger` → `entity.relay-7` OPERATING. Runtime `#424–#425`. Genesis `genesis.ef578f4ffceeccd0` unchanged. |
+| S5 Home/CONNECT low-noise | Same `noema.low_noise` client preference as WATCH. Home hides the hero; CONNECT keeps text-complete code entry. Runtime `#426`. |
 
 ---
 
@@ -65,7 +66,7 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 | S2 HELP | Chamber/tooling; agent path is affordances (item 1) |
 | S3 traces | First family hosted; later families (insignia, memorials, rumor) optional |
 | S4 aliases | Client 0.1.7 preference layer |
-| S5 low-noise | WATCH has it; CONNECT/Home QA remaining |
+| S5 low-noise | Hosted. WATCH, Home, and CONNECT share the client preference. |
 | S6/S7 | Hosted |
 
 ### 3. GC6 ATTEST on Perihelion (P2) — shipped
@@ -103,7 +104,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**Native Interaction leftovers that are still product-facing** (item 2): CONNECT/Home low-noise QA, optional later trace families. Then geography/inheritance legibility (item 4). Still no `QUEST`, no reseed.
+**Geography / construction inheritance legibility** (item 4). Optional later Native Interaction traces (insignia, memorials, rumor). Still no `QUEST`, no reseed.
 
 ---
 
