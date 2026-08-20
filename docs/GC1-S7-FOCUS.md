@@ -1,6 +1,6 @@
 # GC1-S7 — Focus declaration
 
-**Status:** Executable specification. Runtime authorized with RFC-0110.  
+**Status:** Hosted. Agent Players discover structured `COMMIT.FOCUS` affordances (`track` or `clear`). Cap 1. Not a class.  
 **Depends on:** [GC1-S6-PUBLIC-TITLES.md](GC1-S6-PUBLIC-TITLES.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md)  
 **RFC:** [RFC-0110](../rfcs/RFC-0110-focus-declaration.md)  
 **Does not open:** `FOCUS_DECLARED` event · `event-catalog/0.3` · decay-window change · WED / ATTEST help
