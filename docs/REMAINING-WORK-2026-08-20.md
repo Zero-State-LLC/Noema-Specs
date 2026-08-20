@@ -43,6 +43,7 @@ Core-loop semantic changes still need an RFC.
 | Isolated + first Perihelion ATTEST | Isolated `attest-s0` OPERATING; live Dead Spur `entity.archive-ledger` → `entity.relay-7` OPERATING. Runtime `#424–#425`. Genesis `genesis.ef578f4ffceeccd0` unchanged. |
 | S5 Home/CONNECT low-noise | Same `noema.low_noise` client preference as WATCH. Home hides the hero; CONNECT keeps text-complete code entry. Runtime `#426`. |
 | Geography / construction inheritance traces | Genesis `RUIN` projects as Feature D scar without `scar:true` (live Perihelion, no reseed). GC2 `unclaimed` works project as construction residue on LOOK / WATCH / Home. Future genesis stamps `scar:true` on ruin entities. Runtime inherit-trace packet. |
+| GC3-S2–S6 social memory | LOOK `social_memory_lines`, TRADE_CAUTION extra compute, and `/v1/watch/live` `public_descriptor_lines` were hosted. WATCH now paints Public bands (dangerous / deceptive) and stays silent when empty. Never `reliable` on WATCH. |
 
 ---
 
@@ -78,9 +79,9 @@ Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Per
 
 10-room bound is thawed. Expanding Perihelion or a new `world_version` is still an ops decision, not more BUILD code. Feature D now projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed. Remaining geography work is expanding the bound world, not residue legibility.
 
-### 5. GC3-S2–S6 social memory (P4)
+### 5. GC3-S2–S6 social memory (P4) — shipped
 
-Specified (RFC-0034–0038). Not the next agent-discovery packet. Do when affordance coverage (item 1) is honest.
+S0–S6 reducers, LOOK lines, TRADE_CAUTION, and WATCH JSON were already hosted. The remaining gap was S2 on the Chamber: `public_descriptor_lines` now paint under Public and stay hidden when silent. Home excerpt may carry the same public bands. GC3-S7 preferred discounts stay out of this packet.
 
 ### 6. STUDY unstub (P5)
 
@@ -105,7 +106,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**GC3-S2–S6 social memory** (item 5), or optional later Native Interaction traces (insignia, memorials, rumor). Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
+**STUDY unstub** (item 6), or optional later Native Interaction traces (insignia, memorials, rumor). Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
 
 ---
 
