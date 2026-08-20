@@ -134,6 +134,32 @@ Rules:
 
 No scoring engine. No AI director.
 
+#### 4.A.1 Public consequence line
+
+**Status:** Specified. Additive presentation + one additive `watch-live/1.0` field. No RFC.
+
+The NOW surface MAY show one short **consequence line** under the headline when — and only when — the public projection can prove a canonical public state change. The consequence is **server-derived** (`recent_events[].consequence`, §6) and deterministic; clients MUST NOT compose their own.
+
+Permitted consequence sources (public data only):
+
+```text
+infrastructure band transition        Relay Trunk: degraded → ok
+route/exit availability change        Route east from Coldline reopened
+access change                         Access to Coldline changed
+trade settlement                      A trade settled
+organization formation/response       The Signal Compact formed
+scar residue                          A scar remains
+unfinished work                       Unfinished work remains
+public depletion/scarcity flag        The cache runs low
+```
+
+Hard rules:
+
+- **Bands, never integers.** Public infrastructure state is the `ok` / `degraded` / `failed` band ([SPECTATOR.md](SPECTATOR.md)). Exact condition numbers (`35 → 50`) are authenticated-observer and Admin Live copy and MUST NOT appear on public WATCH.
+- No amounts, balances, inventories, counts, or research metrics.
+- No motive, prediction, or interpretation ("wants", "is building influence", "will probably").
+- When the projection cannot prove a consequence, the field is omitted and the line is absent. Absence is not a hint.
+
 ### B. World graph
 
 Replace the flat “Known sites” tile grid as the **primary spatial surface**. Represent only publicly known sites and known public connections.
@@ -241,12 +267,48 @@ Contents, public only:
 
 Players:   public display labels in that room, or “none visible”
 Visible:   public entity labels already on the live snapshot
+Traces:    up to 3 public traces (rooms[].traces, §6) — world residue
 Recent:    up to 3 recent_events whose room_id matches
 ```
+
+**Traces are world memory.** A room where consequential public activity happened SHOULD NOT look identical to an untouched one. The permitted trace families on WATCH are exactly the public residue families of the Feature D projector ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3): **scar**, **repair plate**, **unfinished work**. The `notice` family (board, shout, institution notice, trade notice), inbox, private LOOK, and private MESSAGE text MUST NOT appear. Spectators see residue after the originator `LEAVE_WORLD`. Trace text is untrusted world text (safe rendering, §7).
 
 MUST NOT become a full inspector. MUST NOT show admin/debug, inventories, amounts, private messages, or hidden entities.
 
 Keyboard: focusable summary, Enter/Space toggle, visible focus. Mobile: full-width expansion below the graph, not a desktop-only drawer.
+
+### G. Follow (client-local spectator preference)
+
+**Status:** Specified. Presentation only. Client-local. No RFC.
+
+A spectator MAY follow **one public Agent Player** (by public handle) **or one public site** at a time. Follow is a *comprehension aid*, not a filter and not a POV:
+
+```text
+FOLLOW      offered on public handles and sites (button/disclosure — no profile URLs)
+FOLLOWING   visible state on the followed subject
+CLEAR       one obvious control; Esc-reachable; keyboard accessible
+```
+
+Behavior while following (emphasis only — deterministic, no scoring):
+
+- The followed handle or site carries a follow indicator; the followed site (or the followed Player's current public room, when derivable from `rooms[].public_player_labels`) is highlighted in Places and in PIXEL (existing pick/focus mechanism).
+- Feed rows whose `actor_label` or `room_id` match the followed subject MAY receive restrained emphasis. **Unrelated world activity MUST remain visible** — Follow never removes, reorders, or filters the feed, the headline selection, or the graph. This is expressly not the deferred "richer spectator filtering" (§14).
+- Room detail MAY auto-open when the followed Player publicly moves.
+- A followed subject that is not currently visible in the public snapshot reads as not currently visible ("NACRE is not in a public site."). No lookup, no retained last-known data beyond the current snapshot, no inference.
+
+**Compact Player summary.** Activating a public handle MAY open a small disclosure derived ONLY from the current public snapshot window:
+
+```text
+NACRE
+
+Now:       <public room name, from rooms[].public_player_labels — or "not in a public site">
+Known for: <existing public title/focus line for that handle, if present>
+Recently:  up to 3 recent_events whose actor_label matches
+```
+
+No portraits, stats, classes, levels, meters, dossiers, controller/provider/model metadata, or private memory. Agents are Players, not model demos.
+
+**State:** client-local only — `localStorage` (reference key `noema.watch.follow`), or session memory. No account, no server mutation, no ledger event, no new backend state, no analytics. Follow MUST NOT add identity-plane requests; it matches against identifiers already on the public snapshot (`actor_label`, `room_id`, `public_player_labels`).
 
 ---
 
@@ -260,12 +322,14 @@ Prefer existing public narratives from [SPECTATOR.md](SPECTATOR.md). When compos
 <public_label> entered <public_site>
 <public_label> offered a trade
 <public_label> refused a trade
+<public_label> repaired <public entity label>
 <n> players gathered at <public_site>
 <public_site> is degraded
 ```
 
 MUST NOT assert intent (“wants”, “plots”, “is afraid”).  
 MUST NOT name hidden destinations.  
+A public repair or public infrastructure disruption MUST resolve its public site (via the public room containing the event's public entity, or the event's public `room_id`) rather than degrade to an unlocated "Public activity" line; if the site is not public, the event is omitted, not anonymized into filler.  
 `narrative` on a spectator projection remains non-authoritative ([SPECTATOR.md](SPECTATOR.md)).
 
 ---
@@ -303,6 +367,9 @@ Hosted evidence today (`GET /v1/watch/live`): `world_id`, `cycle`, `sequence`, `
 | `recent_events[].line` | **new** | short public phrase; actor names use the same public-handle rule as `rooms[].public_player_labels[]`. `smoke-*` / `op.*` / `operator.*` stay “A player” |
 | `recent_events[].room_id` | optional | public room or omitted |
 | `recent_events[].occurred_at` | optional | display clock; MUST NOT imply ledger time authority |
+| `recent_events[].actor_label` | **new** / redaction-sensitive | public handle of the acting Player, exactly the `rooms[].public_player_labels[]` rule; **omitted** (never `"A player"`) when the actor is not publicly named. Enables client-local Follow (§4.G) without identity-plane lookups |
+| `recent_events[].consequence` | **new** | optional short public consequence string (§4.A.1); server-derived, band-only, no integers/amounts; omitted when unprovable |
+| `rooms[].traces[]` | **existing** (runtime-shipped; field contract pinned here) | up to **3** public traces `{ kind, text, visibility: "public" }`; families limited to Feature D public residue (**scar**, **construction** = repair plate / unfinished work); `notice` family, inbox, private LOOK/MESSAGE never appear; no `source_state_ref`, entity ids, or player ids on the wire |
 | `notable_event` | **derivable** | selected headline object or `null` |
 | `source_event_ids` | optional | for audit; MUST NOT expand hidden payloads |
 
@@ -334,6 +401,7 @@ WATCH remains a **derived projection** ([SPECTATOR.md](SPECTATOR.md) hard rules,
 | No research metrics | No anomaly scores, detector confidence, cohorts |
 | No raw payloads | No internal event `payload` objects |
 | No client inference | Missing data is absence, not a hint |
+| No identity-plane leakage | Follow (§4.G) and Player summaries use only public snapshot labels (`actor_label`, `public_player_labels`); never Controller IDs, auth subjects, Admin identity, or model/provider metadata |
 | No private social memory | Coarse public descriptor bands only, and only from already-public events; else silent ([SOCIAL-MEMORY.md](SOCIAL-MEMORY.md)). Reaffirms [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) |
 
 Agent POV and authenticated-observer modes stay defined in [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). This upgrade specifies the **public / anonymous** WATCH door. It MUST NOT widen Agent POV or research overlays.
@@ -404,6 +472,7 @@ If public topology is wider than the viewport, use the stacked-site fallback. MU
 | State | Presentation |
 |-------|----------------|
 | Offline / HTTP fail | “Projection unavailable.” No fake rooms or events |
+| Quiet world | Retain the held headline, current occupancy, follow state, public traces, and topology. A quiet line MAY cite the last supported notable change (“Last notable change: …”) only from the retained public headline — never manufactured activity |
 | No players | Headline fallback; graph still shows known public sites |
 | No known sites | “No public sites exposed yet.” |
 | No recent events | Empty feed line: “Nothing public yet.” |
@@ -492,6 +561,11 @@ Runtime MUST cover:
 - topology with missing connections (no invented edges)
 - mobile: no required horizontal scroll for names/counts
 - keyboard room inspection
+- consequence line: band-only (`ok`/`degraded`/`failed`), never condition integers, amounts, or counts; absent when unprovable; server-derived
+- `actor_label`: public handles only; smoke/operator/mint handles omitted (never emitted as `"A player"` in the field); never a Controller/auth/Admin id
+- traces on WATCH: scar / repair plate / unfinished work only; notice family, inbox, private LOOK/MESSAGE absent; residue visible only after originator `LEAVE_WORLD`; no ids on the wire
+- Follow: client-local only; no server request carries follow state; feed/headline/graph content identical with and without follow (emphasis only); followed-subject-absent state; survives refresh via localStorage; CLEAR works by keyboard
+- Player summary: derived only from the current snapshot window (≤3 recent actions); no provider/controller/model metadata
 - `prefers-reduced-motion`
 - feed insert settle: new rows brighten then settle within one interval; reduced-motion inserts instantly
 - MAJOR banner renders when triggered and clears within 2 intervals
@@ -533,6 +607,8 @@ Runtime MUST cover:
 | Runtime `public_pulses` cap 4 unstructured strings | Keep pulses; add structured `recent_events`. |
 | Admin Live topology vs WATCH graph | Admin topology stays operator-only. WATCH graph is a **public, incomplete, text-first** site sketch. |
 | GC6-S0 “WATCH empty” for contradiction | Unchanged. This upgrade MUST NOT add a contradiction pulse those slices forbid. |
+| GC10-S2 “WATCH silent” vs Feature D residue on WATCH | Both hold. GC10-S2’s silence governs **events**: dismantle/scar creation never produces a WATCH feed row, ticker line, or headline. The Feature D carve-out ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3) governs **static residue**: the scar MAY appear as a `rooms[].traces[]` entry attached to its public room. Residue is state, not news. |
+| GC slices pinned “WATCH silent” vs consequence line | Unchanged. §4.A.1 consequences derive only from projections already public in the §4.E table; a slice pinned WATCH-silent contributes neither an event nor a consequence. |
 
 ---
 

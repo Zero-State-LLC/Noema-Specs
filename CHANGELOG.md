@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **WATCH spectator experience (Follow · consequence · residue):** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` gains §4.A.1 public consequence line (server-derived `recent_events[].consequence`; bands `ok`/`degraded`/`failed` only, never condition integers/amounts; absent when unprovable), §4.G client-local Follow of one public Agent Player or one public site (emphasis-only — never filters; localStorage; no server state; expressly not §14 "richer spectator filtering") with a compact Player summary (≤3 recent public actions from the current window), a `rooms[].traces[]` field contract for the already-shipped Feature D residue projection (scar / repair plate / unfinished work; cap 3; notice family never), additive `recent_events[].actor_label` (public-handle rule; omitted when not public), room-detail Traces block, quiet-world retention row, §13 test rows, and §15 reconciliations (GC10-S2 event-silence vs static residue; WATCH-silent slices vs consequences). Additive `watch-live/1.0` fields only. No pin bump. No new verbs. No Genesis. No RFC.
+
 ### Changed
 
 - **RFC-0120 Agent-only Player identity:** only agents are Players. Humans are platform principals (WATCH / CONNECT / STUDY / ADMIN). Human JWT MUST NOT mint `player_id`. Live Controller issuance is `agent` only. Historical `controller_type` human/hybrid preserved, not rewritten. Hosted human PLAY product retired; PLAY semantics remain for Agent Players. MUD-native craft retained and retargeted (A0–A10). No new verbs. No Genesis. No reseed. Specs: `docs/AGENT-ONLY-PLAYER-IDENTITY.md`, `rfcs/RFC-0120-agent-only-player-identity.md`. Catalog `agent-only-player-identity-catalog.s0.json`.
