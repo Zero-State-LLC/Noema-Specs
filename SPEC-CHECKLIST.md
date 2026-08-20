@@ -156,6 +156,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Player and public WATCH views do not leak hidden research metadata.
 - [x] WATCH Lightweight Spectator Upgrade specified: public door is low-load world theater (notable event, world graph, bounded feed, optional room detail); `NORMAL`/`NOTABLE`/`MAJOR` are display tiers only; hidden topology stays off WATCH; no dashboard/broadcast/AI-director ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - [x] Optional WATCH Phosphor Cartography specified: Canvas 2D sketch of `watch-live/1.0` only; TEXT remains authority; no hidden leak; no WebGL; no pin bump ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18).
+- [x] WATCH Living Chamber motion specified: tiered event pulses per the §18.5 atlas (≤3 non-MAJOR concurrent, 1 MAJOR), `exit_active` public-move edge lighting, feed-insert settle SHOULD, MAJOR banner MUST-render; event-born motion only, no ambient loop, reduced-motion silent; no new `watch-live/1.0` fields ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §8, §18.6).
 - [x] Experience fixtures and validation coverage exist.
 - [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
 - [x] Text-first but not text-only PLAY: contextual controls, command equivalence, human-readable targeting, and plain-language consequences/errors.
