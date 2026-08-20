@@ -182,11 +182,13 @@ Hidden rooms, hidden exits, and unpublished topology MUST NOT appear. Runtime ev
 
 Mobile: drop the `<pre>` if it would require horizontal scrolling. Keep the semantic list. Do not require a two-dimensional map to understand “where people are.”
 
-#### 4.B.1 ASCII cartogram (TEXT-mode map)
+#### 4.B.1 ASCII cartogram (TEXT-mode fallback map)
 
 **Status:** Specified. Presentation only. No new `watch-live/1.0` fields. No pin bump. No RFC.
 
 The optional `<pre>` is a **two-dimensional ASCII cartogram**, not a per-site line list. It is the TEXT-mode sibling of the §18 Phosphor sketch: MUD-native, terminal-first, and spatial.
+
+**Role: fallback, not default.** The default first-glance cartography of the public door is the graphical §18 Phosphor sketch (see §18 render rules). The ASCII cartogram renders only when the spectator selects TEXT mode or the canvas is unavailable/failed. It MUST NOT render alongside the live canvas — one map at a time.
 
 **Shared layout (single source of spatial truth):**
 
@@ -661,7 +663,7 @@ Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` 
 
 **Status:** Specified optional layer. Not a product-version pin.  
 **Pin:** none. Uses `watch-live/1.0` only.  
-**Hosted reference (non-normative):** TEXT default on `https://noema.guru/watch`; PIXEL is a spectator opt-in.
+**Hosted reference (non-normative):** `https://noema.guru/watch` shows the Phosphor sketch by default when Canvas 2D is available; TEXT is one keystroke away.
 
 Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY or STUDY. On Admin it exists only as the operator-scoped Admin Watch PIXEL of §18.1; it MUST NOT appear on Admin Live in any other form.
 
@@ -697,7 +699,7 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 - Fixed low logical resolution (320×180 class). `image-rendering: pixelated` (or equivalent).
 - Event-driven redraw. ≤20 FPS bursts. Zero continuous `requestAnimationFrame` when idle or `document.hidden`.
 - Deterministic layout from public `rooms[]` + public exits only.
-- TEXT / PIXEL toggle, keyboard-accessible. **Default is TEXT.**
+- TEXT / PIXEL toggle, keyboard-accessible. **Default is PIXEL when Canvas 2D is available.** The graphical Phosphor sketch is the intended first-glance cartography of the public door; plain text as the default map is a presentation defect. TEXT stays one keystroke away, disables the canvas entirely, and MAY persist as a client-local preference. Canvas absence or failure falls back to TEXT (+ the §4.B.1 text cartogram). TEXT remains complete and authoritative in every mode — the semantic site list is always present and the canvas never carries unique information.
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.
 
