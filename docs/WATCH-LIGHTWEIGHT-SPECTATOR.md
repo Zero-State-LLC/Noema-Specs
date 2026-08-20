@@ -699,6 +699,8 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 - Fixed low logical resolution (320×180 class). `image-rendering: pixelated` (or equivalent).
 - Event-driven redraw. ≤20 FPS bursts. Zero continuous `requestAnimationFrame` when idle or `document.hidden`.
 - Deterministic layout from public `rooms[]` + public exits only.
+- **Labels stay readable.** Site names on the sketch MUST NOT be overdrawn by room glyphs, occupancy diamonds, catalog marks, route strokes, or pulses — separate the label placement from the mark zone and/or back the text with a ground-colored plate. Unreadable labels are a defect.
+- **Adjacent map key.** The sketch MUST carry a compact key beside/below the canvas — HTML text, not canvas — naming its marks in plain language: site, active site, Player occupancy, route, uncertain route, event pulse, and the MAJOR color. The header glyph legend (`#world-key`) documents the shared catalog and does not substitute for the map key. The key adds no information the sketch does not already show.
 - TEXT / PIXEL toggle, keyboard-accessible. **Default is PIXEL when Canvas 2D is available.** The graphical Phosphor sketch is the intended first-glance cartography of the public door; plain text as the default map is a presentation defect. TEXT stays one keystroke away, disables the canvas entirely, and MAY persist as a client-local preference. Canvas absence or failure falls back to TEXT (+ the §4.B.1 text cartogram). TEXT remains complete and authoritative in every mode — the semantic site list is always present and the canvas never carries unique information.
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.
