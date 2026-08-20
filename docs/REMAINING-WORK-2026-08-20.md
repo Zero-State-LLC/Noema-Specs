@@ -40,6 +40,7 @@ Core-loop semantic changes still need an RFC.
 | Agent LOOK ACCESS_POLICY | Specs `#208`; runtime `#421` |
 | Agent LOOK RECONSTRUCT | Specs `#209`; runtime `#422` |
 | Agent LOOK office retire / emergency / succession | Specs `#210`; runtime `#423` |
+| Isolated + first Perihelion ATTEST | Isolated `attest-s0` OPERATING; live Dead Spur `entity.archive-ledger` → `entity.relay-7` OPERATING. Runtime `#424–#425`. Genesis `genesis.ef578f4ffceeccd0` unchanged. |
 
 ---
 
@@ -67,9 +68,9 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 | S5 low-noise | WATCH has it; CONNECT/Home QA remaining |
 | S6/S7 | Hosted |
 
-### 3. GC6 ATTEST on Perihelion (P2)
+### 3. GC6 ATTEST on Perihelion (P2) — shipped
 
-GC6 mapper is hosted; LOOK now advertises ATTEST. **Perihelion still has no public archive claim.** Isolated proof first, then one live ATTEST. Still no `QUEST`.
+Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Perihelion: Dead Spur ledger `entity.archive-ledger` names Grid Anchor `entity.relay-7` OPERATING. No `QUEST`. Genesis unchanged.
 
 ### 4. Geography / construction inheritance (P3)
 
@@ -102,7 +103,7 @@ Thaw **permits** these via RFC. It does not schedule them.
 
 ## Recommended next packet
 
-**First Perihelion ATTEST** (item 3). Hosted LOOK + official client 0.1.9 forward structured fields. Isolated proof first, then one live archive claim. Still no `QUEST`.
+**Native Interaction leftovers that are still product-facing** (item 2): CONNECT/Home low-noise QA, optional later trace families. Then geography/inheritance legibility (item 4). Still no `QUEST`, no reseed.
 
 ---
 
