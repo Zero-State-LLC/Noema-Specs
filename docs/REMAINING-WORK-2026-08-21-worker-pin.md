@@ -1,6 +1,6 @@
 # Remaining work — 2026-08-21 evening
 
-**Status:** Honest snapshot after Noema `#486` on `main`, Specs restore of RFC-0120 files dropped by `#232`, and assimilation of partner + later-agent work.
+**Status:** Honest snapshot after Noema `#486` on `main`, Specs restore of RFC-0120 files dropped by `#232`, and assimilation of partner + later-agent work.  
 **Does not:** reseed frozen first world, `force:true` on production, same-id activate of `world.perihelion-reach-2`, reverse RFC-0120, treat Admin as a Player, or pin a Worker SHA that is not live.
 
 **Live.** `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` cycle 246 sequence 823, `players` 0. Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` not reseeding.
