@@ -307,3 +307,12 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
 - [ ] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
 - [ ] Runtime implementation follows frozen spec (P5 in semantic-evolution-assimilation-plan.md)
+
+## WATCH Real-Time Mapping (v0.1+)
+
+- [ ] `docs/WATCH-REAL-TIME-MAPPING.md` created (modular layers, extension points)
+- [ ] Cross-references added to WATCH.md and WATCH-LIGHTWEIGHT-SPECTATOR.md
+- [ ] Designed for easy expansion (new layers, metrics, mechanics, interaction modes)
+- [ ] Integration with Deep Time (scars), EWM, and Semantic layers documented
+- [ ] Accessibility & cognitive load requirements included
+- [ ] Phased roadmap with future hooks defined
