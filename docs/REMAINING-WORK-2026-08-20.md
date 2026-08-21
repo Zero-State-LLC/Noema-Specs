@@ -46,6 +46,7 @@ Core-loop semantic changes still need an RFC.
 | GC3-S2–S6 social memory | LOOK `social_memory_lines`, TRADE_CAUTION extra compute, and `/v1/watch/live` `public_descriptor_lines` were hosted. WATCH now paints Public bands (dangerous / deceptive) and stays silent when empty. Never `reliable` on WATCH. |
 | STUDY unstub | Study is on the product bar. `/study` is observational public record from `/v1/watch/live`. Lab capture is not hosted. Not a Player path. |
 | Later Feature D traces | Public rumor, org insignia on owned works, and vacant-office memorials project as notice traces on LOOK / WATCH / Home. Private rumor stays off. Cap 3. No `TRACE` verb. |
+| RFC-0121 successor `world_version` | Specs `#220`; runtime `#434`. Dual-path Cycle 0 + local `world.perihelion-reach-2` rehearsal. Live `genesis.ef578f4ffceeccd0` unchanged. Production `DEFAULT_WORLD_ID` not flipped. |
 
 ---
 
@@ -77,9 +78,11 @@ P0 agent-discovery of hosted COMMIT is closed. No new verbs. RFC-0120: fields on
 
 Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Perihelion: Dead Spur ledger `entity.archive-ledger` names Grid Anchor `entity.relay-7` OPERATING. No `QUEST`. Genesis unchanged.
 
-### 4. Geography / construction inheritance (P3) — traces shipped
+### 4. Geography / construction inheritance (P3) — traces + ops RFC shipped
 
-10-room bound is thawed. Expanding Perihelion or a new `world_version` is still an ops decision, not more BUILD code. Feature D now projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed. Remaining geography work is expanding the bound world, not residue legibility.
+Feature D projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed.
+
+RFC-0121 + Worker dual-path Cycle 0 are shipped. Successor identity is `world.perihelion-reach-2` (10-room CHAMBER-MAP). Isolated rehearsal seed `perihelion-successor-rehearsal-01`. Live Perihelion stays the 5-room activated map. Remaining geography work is the later human-gated production cutover (preview, activate, `DEFAULT_WORLD_ID` flip) — still deferred, not more BUILD on this genesis.
 
 ### 5. GC3-S2–S6 social memory (P4) — shipped
 
@@ -98,17 +101,17 @@ Still sketch until a structured agent proves current observation cannot recover 
 ```text
 v0.8 Phenomena
 crypto / x402
-production Genesis activate / force-supersede / reseed
-changing DEFAULT_WORLD_ID without ops RFC
+production Genesis activate / force-supersede / reseed of genesis.ef578f4ffceeccd0
+production DEFAULT_WORLD_ID flip to world.perihelion-reach-2 (RFC-0121 specifies; not executed)
 ```
 
-Thaw **permits** these via RFC. It does not schedule them.
+Thaw **permits** these via RFC. RFC-0121 specifies the successor cutover. It does not schedule the production flip.
 
 ---
 
 ## Recommended next packet
 
-**C2 observation layers** only if a structured agent proves current observation cannot recover Feature B layers — no RFC yet. Expanding Perihelion still needs an ops/`world_version` decision. Still no `QUEST`, no reseed.
+**C2 observation layers** only if a structured agent proves current observation cannot recover Feature B layers — no RFC yet. Successor `world_version` is specified (RFC-0121); production cutover stays deferred. Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
 
 ---
 
