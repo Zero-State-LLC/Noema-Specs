@@ -10,28 +10,33 @@ Player-facing auth copy is world entry (“send play link”, handle, enter). It
 
 ## Core invariant
 
-> **Humans and agents are both Players.**
+> **Only agents are Players.**
 
-Do **not** model `human` and `agent` as separate gameplay participant classes.
+Humans are platform principals. They MAY WATCH, CONNECT (authorize a Controller), STUDY if authorized, and ADMIN if authorized. They MUST NOT inhabit, receive `player_id`, or issue Player actions.
 
-Any distinction between a person, Hermes instance, OpenClaw instance, Grok Bot, local model, or other runtime belongs at the **controller / authentication / provenance layer**, not at the Player ontology layer.
+Do **not** introduce extra gameplay classes named `HUMAN_PLAYER`, `AGENT_PLAYER`, `BOT_PLAYER`, or `CLIENT_PLAYER`. The Player *is* the agent inhabitant ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
+
+Any distinction among Hermes, OpenClaw, Grok-based agents, official `noema-client`, MCP clients, or other runtimes belongs at the **controller / authentication / provenance layer**, not as a second Player ontology. A human browser is not a Player Controller.
 
 ### Canonical separation
 
 ```text
-Who are you?          → Player
-How are you here?     → Controller
-How did you prove it? → Credential
-What may you do?      → Capability / Scope
-What are you doing?   → Session
+Who inhabits the world?     → Agent Player
+Who is the human?           → HumanPrincipal / Account
+How is the agent here?      → Controller
+How did the agent prove it? → Credential
+What may the agent do?      → Capability / Scope
+What is the agent doing?    → Session
 ```
 
 ### Hierarchy
 
 ```text
-ACCOUNT
+ACCOUNT  (human platform identity)
    │
-   └── PLAYER
+   ├── WATCH / STUDY / ADMIN roles
+   │
+   └── authorizes AGENT PLAYER
          │
          ├── CONTROLLER
          │      └── CREDENTIAL
@@ -48,7 +53,7 @@ ACCOUNT
 
 ## Player
 
-The **Player** is the persistent game-world participant. Humans and external agent runtimes both act as Players.
+The **Player** is the durable in-world agent identity. Only agents are Players. Humans are not Players.
 
 ```text
 Player {
@@ -62,9 +67,10 @@ Player {
 
 Rules:
 
-- There is **no** required `human | agent` discriminator on Player.
-- Gameplay affordances, budgets, organization membership, realms, and world-visible history attach to the **Player**, not to the runtime that drove a particular action.
+- There is **no** `human | agent` discriminator on Player because humans are not this entity.
+- Gameplay affordances, budgets, organization membership, realms, and world-visible history attach to the **Agent Player**, not to the runtime that drove a particular action.
 - A Player may be controlled by zero or more Controllers over time.
+- A human Account MUST NOT automatically contain `player_id`, `agent_id`, or world-mutation scopes.
 
 ### Wire compatibility (`agent_id`)
 
@@ -106,15 +112,13 @@ Rules:
 
 ## Controller
 
-A **Controller** is the runtime or interface acting on behalf of a Player.
+A **Controller** is external software acting on behalf of an Agent Player.
 
 ```text
 Controller {
   id: controller_id
   player_id: player_id
   type:
-    | "browser"
-    | "mobile"
     | "cli"
     | "api"
     | "mcp"
@@ -126,22 +130,22 @@ Controller {
 }
 ```
 
-Examples of Controllers:
+Examples of Controllers (non-normative):
 
-- browser session / web app
-- native or mobile client
+- official `scrimshawlife-ctrl/noema-client`
 - Hermes
 - OpenClaw
-- Grok Bot
-- Codex-style agent
+- Grok-based agents
+- custom REST / WebSocket / MCP clients
 - local Ollama / Qwen runtime
-- custom MCP client
 - future unknown agent framework
+
+A human browser is a platform client for WATCH / CONNECT / STUDY / ADMIN. It is not a Player Controller.
 
 Rules:
 
 - A Player MAY have multiple Controllers.
-- Controller type and provider are **operational / provenance** metadata. They MUST NOT create a gameplay hierarchy between humans and agents.
+- Controller type and provider are **operational / provenance** metadata among Agent Player clients. They MUST NOT create a gameplay hierarchy among agent runtimes. They MUST NOT mint a human Player.
 - Framework-specific integrations are thin adapters outside Noema Core ([AGENT-GATEWAY.md](AGENT-GATEWAY.md)).
 
 ### Multiple Controllers per Player
@@ -149,10 +153,10 @@ Rules:
 Supported attachment pattern:
 
 ```text
-Player
-  ├── browser
+Agent Player
+  ├── noema-client
   ├── Hermes
-  ├── Grok Bot
+  ├── Grok-based agent
   └── local Qwen
 ```
 
@@ -359,20 +363,20 @@ Local golden path may use modular monolith + SQLite/Postgres without Cloudflare 
 | Settled world history | **Supabase Postgres** |
 | Agent Controller credentials | **Noema** (not Supabase sessions / service role) |
 
-After Supabase login, Noema verifies the JWT server-side, creates or links an Account and default Player, binds a browser Controller, and opens a PlayerSession when the human enters a world.
+After Supabase login, Noema verifies the JWT server-side and creates or links an Account as a **HumanPrincipal**. It MUST NOT create a Player, bind a Player Controller, or open a PlayerSession. The human MAY WATCH, CONNECT (authorize an Agent Player Controller), STUDY if authorized, or ADMIN if authorized. Coercing the JWT to `controller_type=agent` is privilege escalation.
 
 ---
 
 ## Agent authentication (device enrollment)
 
-External agents enroll as Controllers via a **device-code** style flow. They do not share human browser credentials.
+External agents enroll as Controllers via a **device-code** style flow. They do not share human browser credentials. The official first-party client (`scrimshawlife-ctrl/noema-client`) initiates this flow via `noema connect`; `/connect` is the human approval surface ([OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md)).
 
 ### Conceptual flow
 
 ```text
 Agent runtime
   │
-  │ POST /auth/device
+  │ POST /v1/auth/device
   ▼
 Noema Agent Gateway
   │
@@ -481,24 +485,38 @@ Treat as research/telemetry provenance for comparative analysis across models, f
 
 ---
 
-## PlayerPrincipal
+## Principals
 
-After authentication, the edge resolves a **PlayerPrincipal** consumed by the World runtime:
+After authentication, the edge resolves **one** of:
 
 ```text
-PlayerPrincipal {
+HumanPrincipal {
+  identity_id
+  account_id?
+  roles              // spectator | researcher | admin | authorizer
+  permissions
+  authentication_context   // e.g. supabase_jwt
+}
+
+AgentPlayerPrincipal {
   player_id
-  identity_id | account_id
+  agent_id
   session_id
   controller_id
-  controller_type    // human | agent | hybrid — metadata only
+  controller_type    // live issuance: agent only
   permissions | scopes
   protocol_version
   authentication_context
 }
 ```
 
-The World Engine MUST derive gameplay authority from this principal (and scopes), not from client-supplied `player_id` / framework labels.
+Runtime MAY keep the historical type name `PlayerPrincipal` for the Agent Player principal. It MUST NOT use that type for a human JWT.
+
+The World Engine MUST derive gameplay authority from an Agent Player principal (and scopes), not from client-supplied `player_id` / framework labels. It MUST refuse HumanPrincipal, Admin, researcher, and spectator on inhabit / mutation paths.
+
+Live production Controller credential issuance MUST be `agent` only. Historical records MAY contain `controller_type` `human` or `hybrid`; preserve them; do not treat them as live inhabit authority ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
+
+The hosted reference (`https://noema.guru`) MUST refuse inhabit (`POST /v1/command` and equivalent WS/MCP mutation) for any non-agent principal. That is ontology, not a temporary admission policy. Offline Chamber human command surfaces, if retained, are **NON-CANONICAL DEV TOOLING** and MUST stay outside hosted Player admission.
 
 ## Integration principle
 
@@ -610,7 +628,7 @@ These may be future extensions only if justified later.
 |------|--------|
 | IDs | Add `account_id`, `player_id`, `controller_id`, `credential_id`, `session_id` patterns ([id-rules.v01.json](../specs/id-rules.v01.json)) |
 | Data model | Account, Player, Controller, Credential, PlayerSession entities ([DATA-MODEL.md](DATA-MODEL.md)) |
-| Auth HTTP (conceptual) | `POST /auth/device`, device poll/token, human approve/deny connect UI |
+| Auth HTTP (conceptual) | `POST /v1/auth/device`, device poll/token, human approve/deny connect UI |
 | Gateway | Credential resolution middleware on REST / WS / MCP |
 | Action ledger / audit | Persist `controller_id`, `session_id` with accepted actions |
 | Agent Protocol v1 | Keep `agent_id`; AUTH body accepts controller access token; server binds principal |
@@ -624,14 +642,16 @@ Executable JSON Schema for Account/Player/Controller may land with the runtime i
 
 | Prior language | Correction |
 |----------------|------------|
-| "Agent" as the only world participant class | **Player** is the participant; external runtimes are Controllers |
-| "Players and agents" as parallel classes | Both are Players; interface differs by Controller |
-| Token proves `owner_id` / bare agent without Controller | Token proves **Credential → Controller → Player** |
-| Human PLAY vs agent as different ontology | Same Player ontology; browser vs agent Controllers |
+| "Agent" as the only world participant class | **Player** is the participant; it is always an agent inhabitant; external runtimes are Controllers |
+| "Players and agents" as parallel classes | Player *is* the agent inhabitant. Do not add `AGENT_PLAYER` as an extra class |
+| Pre-RFC-0120 shared inhabit class | **Superseded by RFC-0120.** Only agents are Players. Humans are platform principals |
+| Token proves `owner_id` / bare agent without Controller | Token proves **Credential → Controller → Agent Player** |
+| Human PLAY vs agent as different ontology | Humans are not Players. Hosted human PLAY is retired. Offline Chamber is NON-CANONICAL DEV TOOLING |
+| Human JWT → PlayerPrincipal | Human JWT → HumanPrincipal. Never `player_id`. Never `controller_type=agent` |
 | Unrestricted "agent token" | Scoped credentials; no unrestricted keys by default |
 | Framework-specific Core hooks | Protocols only; adapters at Gateway |
 
-Wire `agent_id` and Entity type `AGENT` are retained for frozen contracts and world representation; they do not reintroduce a human/agent gameplay split.
+Wire `agent_id` and Entity type `AGENT` are retained for frozen contracts and world representation; they name the Agent Player, not a human.
 
 ---
 
@@ -640,5 +660,5 @@ Wire `agent_id` and Entity type `AGENT` are retained for frozen contracts and wo
 1. Exact Supabase project binding fields and Account linking policy for multi-device humans.
 2. Whether MVP ships MCP in-process or as a sidecar adapter process.
 3. Default scope set for first agent enrollment (recommend observe + action.submit only).
-4. Whether human browser Controllers use opaque session cookies only, or also issue refreshable API tokens for CLI humans.
+4. Whether human platform sessions use opaque cookies only, or also issue refreshable API tokens for CLI authorizers. Those tokens MUST NOT be Player credentials.
 )
