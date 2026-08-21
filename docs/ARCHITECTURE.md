@@ -126,3 +126,16 @@ Worker Gateway → DO World runtime → settle to Postgres
 **Local / reference:** modular monolith (e.g. Python Chamber runtime) remains valid for offline conformance and development; module boundaries match the logical subsystems above. See [DEPLOYMENT.md](DEPLOYMENT.md) · [ENGINEERING.md](ENGINEERING.md).
 
 Out of MVP platform scope: K8s, Redis, Kafka, dedicated WS fleets, multi-region DO sharding, framework-specific backends inside Core, complex multi-controller arbitration.
+
+## Semantic Evolution (v0.1) and Economy EWM
+
+Hosted PLAY (`world.perihelion-reach-3`) runs the `EWM_ENHANCED` genesis profile. Semantic Evolution v0.1 is a **sidecar on existing verbs** — not a new command catalog.
+
+- Optional ASP signal (`certainty` 0–1, `grounding` in `observed | inferred-from-stock | inferred-from-belief | hearsay | genesis`, `stochasticity` 0–1, `assumptions[]`) on MESSAGE, ATTEST, TRADE, and ORG_CREATE. Missing signal is legal. Malformed certainty/grounding is `INVALID_REQUEST` and does not apply.
+- Before ATTEST, TRADE acceptance, or ORG_CREATE, hearsay and `inferred-from-belief` are quarantined (`FORBIDDEN`) so they do not mutate stock, archive claims, or org state. `observed`, `inferred-from-stock`, and `genesis` proceed.
+- Image / second-order reputation is **privileged** (player runtime, health, SAR). WATCH MUST NOT emit a public reputation scalar ([GC3-S0](GC3-FIRST-SLICE.md)).
+- Ops health (`economic_health` / SAR) reports ASI composite, `reputation_stability`, and `cascading_risk`. Cascading risk uses **Forman–Ricci** on the TRADE/ATTEST/ORG/MESSAGE graph (not Wasserstein Ollivier). LOOK may attach `signaling_quality`, `drift_alerts`, `cascading_risk`, `protocol_strength`, `reputation_summary` (self only), and `active_norms`. Missing signals do not inflate `semantic_drift`.
+- Grounded MESSAGE/ATTEST/TRADE increment per-room `protocol_strength`; under high `harvest_pressure`, compact signals count double. Affordances stay advertised; TRADE accept / HARVEST / CONSTRUCT may carry `hint`. ATTEST claims must match colocated durable state (DESTROYED vs sound infrastructure is `FORBIDDEN`).
+- New `EWM_ENHANCED` Cycle 0 worlds seed `protocol_strength` on the entry room and archetype `signaling_styles`. Live genesis `94d0961984b2b4f8` is not reseeding.
+
+See [SEMANTIC-EVOLUTION-SPEC.md](SEMANTIC-EVOLUTION-SPEC.md) · [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md).
