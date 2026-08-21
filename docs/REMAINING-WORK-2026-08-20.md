@@ -1,5 +1,7 @@
 # Remaining work — 2026-08-20 thaw analysis
 
+**Supersede (2026-08-21):** live successor inhabit + partner operator hats: [REMAINING-WORK-2026-08-21.md](REMAINING-WORK-2026-08-21.md).
+
 **Status:** Ranked work after hosted-alpha + first-world operational thaw.  
 **Does not:** reseed Perihelion, reverse RFC-0120, or skip RFCs for v0.1–v0.7 machine-contract changes.  
 **Live.** `https://noema.guru` `/ready` ACTIVE `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121 cutover). Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
