@@ -2,11 +2,11 @@
 
 **Version:** v0.1 (Draft)  
 **Date:** 2026-08-21  
-**Status:** Specs-first. Implementation follows review.  
+**Status:** Draft v0.1. Runtime v0.1 surface shipped on existing verbs (optional ASP, hearsay quarantine, privileged image, ASI / reputation_stability / cascading_risk). Open contracts (ASI weights, exact wire shape) stay operator/SAR-heavy. Image scores are not WATCH-public (GC3-S0).  
 **Source:** semantic-evolution-assimilation-plan.md (extends Economy EWM Spec v0.1)  
 **Related:**  
-- Economy EWM Spec (local draft)  
-- AGENT-HARNESS.md, ARCHITECTURE.md, SPEC-CHECKLIST.md  
+- [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)  
+- [AGENT-HARNESS.md](AGENT-HARNESS.md), [ARCHITECTURE.md](ARCHITECTURE.md), [SPEC-CHECKLIST.md](../SPEC-CHECKLIST.md)  
 - arXiv references: 2601.04170 (Agent Drift), 2606.19356 (Argent Signaling), 2505.12872 (Emergent Foraging Language), 2412.10270 (Cultural Cooperation), 2603.13325 (Semantic-Geometric Co-evolution)
 
 ## 1. Overview

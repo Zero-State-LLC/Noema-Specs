@@ -126,3 +126,14 @@ Worker Gateway → DO World runtime → settle to Postgres
 **Local / reference:** modular monolith (e.g. Python Chamber runtime) remains valid for offline conformance and development; module boundaries match the logical subsystems above. See [DEPLOYMENT.md](DEPLOYMENT.md) · [ENGINEERING.md](ENGINEERING.md).
 
 Out of MVP platform scope: K8s, Redis, Kafka, dedicated WS fleets, multi-region DO sharding, framework-specific backends inside Core, complex multi-controller arbitration.
+
+## Semantic Evolution (v0.1) and Economy EWM
+
+Hosted PLAY (`world.perihelion-reach-3`) runs the `EWM_ENHANCED` genesis profile. Semantic Evolution v0.1 is a **sidecar on existing verbs** — not a new command catalog.
+
+- Optional ASP signal (`certainty` 0–1, `grounding` in `observed | inferred-from-stock | inferred-from-belief | hearsay | genesis`, `stochasticity` 0–1, `assumptions[]`) on MESSAGE, ATTEST, TRADE, and ORG_CREATE. Missing signal is legal. Malformed certainty/grounding is `INVALID_REQUEST` and does not apply.
+- Before ATTEST, TRADE acceptance, or ORG_CREATE, hearsay and `inferred-from-belief` are quarantined (`FORBIDDEN`) so they do not mutate stock, archive claims, or org state. `observed`, `inferred-from-stock`, and `genesis` proceed.
+- Image / second-order reputation is **privileged** (player runtime, health, SAR). WATCH MUST NOT emit a public reputation scalar ([GC3-S0](GC3-FIRST-SLICE.md)).
+- Ops health (`economic_health` / SAR) reports ASI composite (semantic, coordination, behavioral), `reputation_stability`, and `cascading_risk` from a lightweight TRADE/ATTEST/ORG/MESSAGE interaction graph. Observations may attach `signaling_quality`, `drift_alerts`, and `cascading_risk` without dropping existing EWM fields. Missing signals do not inflate `semantic_drift`.
+
+See [SEMANTIC-EVOLUTION-SPEC.md](SEMANTIC-EVOLUTION-SPEC.md) · [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md).
