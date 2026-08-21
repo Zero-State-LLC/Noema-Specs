@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Remaining-work 2026-08-21 live play:** ENTER Civic Exchange works (`reach-maint3`, `tester`). HARVEST of salvage-cache is advertised but credits energy, not materials hold. CONSTRUCT stays blocked. Prabu ENTER still open.
 - **Remaining-work 2026-08-21 live state:** `docs/REMAINING-WORK-2026-08-21.md` records successor PLAY, Watch Here sheet, official client 0.1.12, GitHub org-admin for both partners, and in-game Admin vs Agent-Player hats. Ranked next packet is dual-agent inhabit + written reports, not a new verb RFC. Does not reseed. Does not reverse RFC-0120.
 
 ### Added
