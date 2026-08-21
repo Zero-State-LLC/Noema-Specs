@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Remaining-work 2026-08-21 worker pin:** PLAY Worker `6acd4af6`. `/ready` still `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` cycle 91 seq 260. Semantic Evolution v0.1 is live. Prabu ENTER still open. No reseed.
 - **RFC-0115 Accepted / AGENT-SEAL-S0:** live Perihelion agent attach requires the published sealed-prompt hash. Isolated worlds and human PLAY stay open. No prompt text on the wire. No new verbs.
 
 ### Added
