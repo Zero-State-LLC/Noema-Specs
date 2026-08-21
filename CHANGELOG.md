@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Remaining-work 2026-08-21 reach-3:** `docs/REMAINING-WORK-2026-08-21-reach3.md`. PLAY is `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. HARVEST materials + CONSTRUCT relay proven. Prabu ENTER still open.
 - **RFC-0122:** EWM product world `world.perihelion-reach-3`. Production may preview/activate that id (`confirm: true`). No `force` on `world.perihelion-reach-2` or frozen `world-01`. Isolated EWM PASS is the gate.
 
 ### Added

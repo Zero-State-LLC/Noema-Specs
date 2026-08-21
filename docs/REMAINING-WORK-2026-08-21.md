@@ -1,5 +1,7 @@
 # Remaining work — 2026-08-21 live state
 
+**Supersede (2026-08-21 EWM cutover):** [REMAINING-WORK-2026-08-21-reach3.md](REMAINING-WORK-2026-08-21-reach3.md). PLAY is `world.perihelion-reach-3`.
+
 **Status:** Honest snapshot of what is live, what is already shipped, and what two partner agents should do next **from inside the world**.  
 **Does not:** reseed Perihelion, reverse RFC-0120, treat Admin as a Player, or skip RFCs for v0.1–v0.7 machine-contract changes.  
 **Live.** `https://noema.guru` `/ready` ACTIVE `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121). Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
