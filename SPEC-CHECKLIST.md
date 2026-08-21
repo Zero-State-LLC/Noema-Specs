@@ -311,13 +311,13 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 
 ## Semantic Evolution & Drift (v0.1+)
 
-- [ ] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
+- [x] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
   - Signaling Layer (Argent Signaling Protocol style: @C certainty, @G grounding, @S stochasticity, assumptions)
   - Agent Drift metrics (ASI composite: semantic, coordination, behavioral)
   - Reputation, image scoring, justified punishment, second-order norms, cultural evolution
   - Semantic-Geometric Co-evolution (content + topology/curvature for early risk)
   - Ontological grounding and consistency checks
   - Integration with EWM layers (beliefs, co-evolve, SAR, observations, genesis)
-- [ ] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
-- [ ] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
-- [ ] Runtime implementation follows frozen spec (P5 in semantic-evolution-assimilation-plan.md)
+- [x] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
+- [x] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
+- [x] Runtime v0.1 surface shipped on existing verbs (Noema p5-01 `#461`, p5-02 `#462`, p5-03 image/quarantine/cascading-risk): optional ASP on MESSAGE / ATTEST / TRADE / ORG_CREATE; missing signal legal; malformed certainty/grounding is `INVALID_REQUEST`; hearsay / `inferred-from-belief` quarantined before ATTEST, TRADE accept, and ORG_CREATE mutate world state; privileged `image_score` / `conduct_toward` (not a WATCH reputation scalar — GC3-S0); justified TRADE-reject costs punisher influence; second-order from conduct toward positive-image counterparties; `economic_health` / SAR reports ASI plus `reputation_stability` and `cascading_risk`; observation/ops attach `signaling_quality`, `drift_alerts`, `cascading_risk` without dropping EWM fields. Missing signals do not inflate `semantic_drift`. No new verbs. Full cultural-generation tracking and Ollivier–Ricci remain later.
