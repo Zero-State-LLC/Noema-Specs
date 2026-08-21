@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "ADMISSION",
+  "principal_kind": "admin",
+  "command": "LOOK",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ADMISSION",
+    "note": "Admin is never a Player role."
+  }
+}

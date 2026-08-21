@@ -1,0 +1,10 @@
+{
+  "slice_id": "official-agent-client-s0",
+  "catalog_id": "official-agent-client-catalog/s0",
+  "operation": "EXTRACT",
+  "delete_internal_first": true,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "COPY_FIRST"
+  }
+}
