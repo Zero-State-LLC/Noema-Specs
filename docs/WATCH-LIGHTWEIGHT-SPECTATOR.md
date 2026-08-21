@@ -663,3 +663,8 @@ A is brightest. C carries a single diamond. B is medium fill. D is hollow. Lines
 - Idle = no continuous animation frames
 - Budgets respected
 - WATCH remains non-mutating; PLAY / STUDY / Admin Live unchanged
+
+## Relationship to Real-Time Mapping
+This lightweight upgrade is the low-cognitive-load default. A separate, more visual and layered real-time mapping system (with explicit support for future expansion) is defined in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md).
+
+The two surfaces are intended to coexist.

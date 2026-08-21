@@ -735,3 +735,10 @@
   Non-Markovian scars, trajectory-based evidence/reconstruction, path-dependent ratchets, succession inheritance, multi-timescale co-evolution.  
   Integration table added to `SEMANTIC-EVOLUTION-SPEC.md`.  
   PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/232
+
+### Added
+- **WATCH Real-Time Mapping System v0.1**: `docs/WATCH-REAL-TIME-MAPPING.md`
+  Rich, glanceable, expandable spectator mapping & dashboard layer.
+  Modular layer architecture with explicit Extension Points for future mechanics.
+  Integrates scars (Deep Time), EWM metrics, and semantic signals.
+  Designed to coexist with the lightweight theater surface.

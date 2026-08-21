@@ -182,3 +182,6 @@ The hosted public door is [WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTW
 | `MAJOR` | Rare public events (failed infrastructure, shortage, discovery, public contest resolution, incident freshness) |
 
 The complete table, headline hold rules, and feed bound live in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Clients MUST NOT score “interest.”
+
+## Real-Time Mapping
+The rich visual spectator mapping system is specified separately in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). It is built as an expandable layer on top of the core spectator projection contracts.

@@ -26,3 +26,13 @@ When the world is `PAUSED` or `INCIDENT`, or settlement is behind the live head,
 History surfaces as drama, not a raw ledger: `TIMELINE`, foundings, successions, collapses, landmarks, discoveries. Derived significance uses versioned rules (`historical-significance/0.6`). See [Deep Time](DEEP-TIME.md).
 
 WATCH may show derived world age / known historical sites / surviving institutions. It MUST NOT expose administrative Story Seeds, world seeds, or undiscovered Genesis internals by default.
+
+## Real-Time Mapping Layer
+A richer, more visual real-time spectator mapping experience is defined in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md).
+
+This layer is designed for expandability:
+- Modular stackable layers
+- Explicit Extension Points for new mechanics, overlays, and interaction modes
+- Separate from the lightweight low-cognitive-load default
+
+The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. The real-time mapping system is an opt-in richer projection.
