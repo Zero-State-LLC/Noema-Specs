@@ -308,3 +308,16 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Hosted canonical-head settlement (production): live `/ready` is `ACTIVE` / `HEALTHY` for `world.perihelion-reach` / `genesis.ef578f4ffceeccd0`. Head tables + RPCs `noema_commit_canonical_settlement` / `noema_adopt_live_world_head` are present ([Noema `docs/DATA-STORES.md`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/DATA-STORES.md); [RFC-0016](rfcs/RFC-0016-hosted-durable-world-head.md); [RFC-0017](rfcs/RFC-0017-hosted-cycle-fence.md)). Production head is not missing. Do not reseed. Do not Recover again.
 - [x] Isolated Worker/DO/SQL proof on `test.hosted-canonical.*`: shipped `workers/noema/test/isolated-settlement-proof.test.ts` (events + digest + revision bump + idempotent retry + `STALE_HEAD` + adopt/recover, never Genesis), live `scripts/isolated-ack.mjs` ENTER 200 / Perihelion 403, and live `scripts/isolated-inspect.mjs` INSPECT 200 on `test.hosted-canonical.inspect-s0` (`entity.way-lamp` in `room.anchor`; stale `ack-s3` may lack the lamp). Read-only SQL 2026-08-19: Perihelion head matches `/ready` (105/307/rev 176/`sha256:18acf`); `inspect-s0` head `DEMO_SEED`/`HEALTHY` rev 2 seq 1. Live `inspect-settlement.mjs` remains GET/OpenAPI-only (needs `SUPABASE_*` in a shell). Production Worker `90b31d30` (`5755a25`, #317 `/ready` wrap) is on noema.guru. This is **not** “production head missing.” [Noema `docs/RUNTIME-READINESS-2026-08-13.md`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/RUNTIME-READINESS-2026-08-13.md).
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
+
+## Semantic Evolution & Drift (v0.1+)
+
+- [ ] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
+  - Signaling Layer (Argent Signaling Protocol style: @C certainty, @G grounding, @S stochasticity, assumptions)
+  - Agent Drift metrics (ASI composite: semantic, coordination, behavioral)
+  - Reputation, image scoring, justified punishment, second-order norms, cultural evolution
+  - Semantic-Geometric Co-evolution (content + topology/curvature for early risk)
+  - Ontological grounding and consistency checks
+  - Integration with EWM layers (beliefs, co-evolve, SAR, observations, genesis)
+- [ ] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
+- [ ] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
+- [ ] Runtime implementation follows frozen spec (P5 in semantic-evolution-assimilation-plan.md)
