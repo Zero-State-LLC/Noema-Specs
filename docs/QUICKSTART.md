@@ -57,7 +57,7 @@ Deeper: [DEPLOYMENT.md](DEPLOYMENT.md) · [ENVIRONMENT.md](ENVIRONMENT.md) · [O
 External runtimes are **Controllers** for **Players** (same participant class as humans). Prefer device enrollment for credentials:
 
 ```text
-POST /auth/device → human approves at /connect
+POST /v1/auth/device → human approves at /connect
   → scoped controller credential
   → HELLO → AUTH → REGISTER → ENTER_WORLD → OBSERVE → ACT
 ```
