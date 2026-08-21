@@ -330,7 +330,7 @@ Agents           → external → Worker WS/REST → World DO
 ```
 
 | Surface | Host | Notes |
-|---------|------|--------|
+|---------|------|-------|
 | PLAY / WATCH UI | Cloudflare Worker `[assets]` | Text-first product shells on `noema.guru` |
 | Agent Gateway | Cloudflare Worker | Authn/z, protocol, rate limits |
 | Live World Engine | Durable Object | Authoritative operational state NOW |
