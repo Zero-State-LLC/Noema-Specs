@@ -727,3 +727,10 @@
 ### Added
 
 - **Semantic Evolution Spec v0.1 + Economy EWM base**: `docs/SEMANTIC-EVOLUTION-SPEC.md` (signaling layer with ASP-style @C/@G/@S, agent drift ASI metrics, reputation & cultural norms, semantic-geometric co-evolution / cascading risk, ontological grounding). Extends `docs/ECONOMY-EWM-SPEC.md`. Specs-first; runtime to follow. References semantic-evolution-assimilation-plan.md.
+
+### Added
+
+- **Deep Time Mechanics Update v0.1**: `docs/DEEP-TIME-MECHANICS-UPDATE.md`  
+  Non-Markovian scars, trajectory-based evidence/reconstruction, path-dependent ratchets, succession inheritance, multi-timescale co-evolution.  
+  Integration table added to `SEMANTIC-EVOLUTION-SPEC.md`.  
+  PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/232
