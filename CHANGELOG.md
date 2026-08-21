@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Semantic Evolution p5-04:** protocol_strength under harvest pressure, LOOK `reputation_summary` / `active_norms`, affordance `hint`, ATTEST ontological consistency, Forman–Ricci cascading_risk, EWM genesis signaling seeds on new worlds only. Not WATCH-public. Not Wasserstein Ollivier. Not a live reseed.
 - **Semantic Evolution v0.1 pin:** SPEC-CHECKLIST Semantic Evolution items checked against the shipped runtime (optional ASP on MESSAGE/ATTEST/TRADE/ORG_CREATE; hearsay quarantine; privileged image; ASI + reputation_stability + cascading_risk). ARCHITECTURE.md and AGENT-HARNESS.md cross-link `SEMANTIC-EVOLUTION-SPEC.md` and `ECONOMY-EWM-SPEC.md`. No new verbs. Image scores are not WATCH-public (GC3-S0).
 - **Remaining-work 2026-08-21 reach-3:** `docs/REMAINING-WORK-2026-08-21-reach3.md`. PLAY is `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. HARVEST materials + CONSTRUCT relay proven. Prabu ENTER still open.
 - **RFC-0122:** EWM product world `world.perihelion-reach-3`. Production may preview/activate that id (`confirm: true`). No `force` on `world.perihelion-reach-2` or frozen `world-01`. Isolated EWM PASS is the gate.

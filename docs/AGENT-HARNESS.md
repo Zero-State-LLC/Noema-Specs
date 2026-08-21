@@ -872,7 +872,7 @@ event-catalog/0.3
 
 Runtime implementation belongs in `Zero-State-LLC/Noema`. Prefer refactoring the existing reference client into a reusable headless harness library over introducing browser automation or a heavyweight external agent framework.
 
-Optional ASP signal metadata (`@C` / `@G` / `@S` / `assumptions`) on MESSAGE, ATTEST, TRADE, and ORG_CREATE is **transport**. The harness MUST forward a well-formed `signal` object or omit it; it MUST NOT invent a new verb, rewrite grounding, or treat image/reputation as a Player-facing affordance. Server gates hearsay before ATTEST, TRADE accept, and ORG_CREATE mutate world state. Image scores stay privileged (not WATCH-public). See [SEMANTIC-EVOLUTION-SPEC.md](SEMANTIC-EVOLUTION-SPEC.md) · [ARCHITECTURE.md](ARCHITECTURE.md).
+Optional ASP signal metadata (`@C` / `@G` / `@S` / `assumptions`) on MESSAGE, ATTEST, TRADE, and ORG_CREATE is **transport**. The harness MUST forward a well-formed `signal` object or omit it; it MUST NOT invent a new verb, rewrite grounding, or treat image/reputation as a Player-facing affordance. Server gates hearsay before ATTEST, TRADE accept, and ORG_CREATE mutate world state. LOOK fields `hint`, `reputation_summary`, and `active_norms` are forwarded as received; they MUST NOT appear on WATCH. Image scores stay privileged (not WATCH-public). See [SEMANTIC-EVOLUTION-SPEC.md](SEMANTIC-EVOLUTION-SPEC.md) · [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Version:** v0.1 (Draft)  
 **Date:** 2026-08-21  
-**Status:** Draft v0.1. Runtime v0.1 surface shipped on existing verbs (optional ASP, hearsay quarantine, privileged image, ASI / reputation_stability / cascading_risk). Open contracts (ASI weights, exact wire shape) stay operator/SAR-heavy. Image scores are not WATCH-public (GC3-S0).  
+**Status:** Draft v0.1. Runtime includes optional ASP, hearsay quarantine, privileged image/second_order, protocol_strength under harvest pressure, LOOK `reputation_summary` / `active_norms`, affordance `hint`s, ATTEST ontological consistency, Forman–Ricci cascading_risk (not Wasserstein Ollivier), and genesis signaling seeds on new `EWM_ENHANCED` worlds only. Image scores are not WATCH-public (GC3-S0). Open contracts (ASI weights) stay operator/SAR-heavy.  
 **Source:** semantic-evolution-assimilation-plan.md (extends Economy EWM Spec v0.1)  
 **Related:**  
 - [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)  
