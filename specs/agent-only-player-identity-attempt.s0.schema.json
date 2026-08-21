@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/agent-only-player-identity-attempt.s0.schema.json",
+  "title": "NOEMA agent-only player identity attempt S0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "agent-only-player-identity-s0" },
+    "catalog_id": { "const": "agent-only-player-identity-catalog/s0" },
+    "operation": {
+      "enum": [
+        "ONTOLOGY",
+        "HUMAN_JWT",
+        "LIVE_MINT",
+        "ADMISSION",
+        "WATCH",
+        "CONNECT",
+        "HISTORY",
+        "FREEZE"
+      ]
+    },
+    "human_is_player": { "type": "boolean" },
+    "human_jwt_creates_player": { "type": "boolean" },
+    "human_jwt_controller_type": { "type": "string" },
+    "mint_controller_type": { "enum": ["human", "hybrid", "agent"] },
+    "issuance_plane": { "enum": ["live", "isolated", "historical"] },
+    "principal_kind": {
+      "enum": ["human", "agent_player", "admin", "researcher", "spectator"]
+    },
+    "command": { "type": "string" },
+    "rewrite_historical_controller_type": { "type": "boolean" },
+    "new_verbs": { "type": "boolean" },
+    "genesis_change": { "type": "boolean" },
+    "reseed": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
