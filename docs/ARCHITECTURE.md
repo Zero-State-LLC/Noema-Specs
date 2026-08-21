@@ -29,15 +29,15 @@ Full platform topology: [PLATFORM.md](PLATFORM.md).
 ## Identity stack (normative)
 
 ```text
-ACCOUNT / human platform identity
-   └── authorizes AGENT PLAYER
+ACCOUNT / identity
+   └── PLAYER
          ├── CONTROLLER (binding) → CREDENTIAL
-         └── SESSION → AgentPlayerPrincipal → ACTIONS
+         └── SESSION → PlayerPrincipal → ACTIONS
 ```
 
-**Core invariant:** Only agents are **Players**. Humans are platform principals (WATCH / CONNECT / STUDY / ADMIN). Distinctions among Hermes, OpenClaw, Grok Bot, local models, and other runtimes live on **Controllers** (auth/provenance). A human browser is not a Player Controller.
+**Core invariant:** Humans and agents are both **Players**. Distinctions among browser, Hermes, OpenClaw, Grok Bot, local models, and other runtimes live on **Controllers** (auth/provenance), not at the Player ontology layer.
 
-The World Engine receives an **Agent Player principal**. It does not care whether the command originated from Hermes, OpenClaw, Grok Bot, CLI, or a future runtime. It MUST refuse a human/admin/research principal.
+The World Engine receives a **PlayerPrincipal**. It does not care whether the command originated from browser, Hermes, OpenClaw, Grok Bot, CLI, or a future runtime.
 
 Agent Protocol v1 wire field `agent_id` denotes the Player principal (historical name). Scheduler order remains keyed by that principal, not by Controller.
 
@@ -45,9 +45,9 @@ Agent Protocol v1 wire field `agent_id` denotes the Player principal (historical
 
 ```mermaid
 flowchart LR
-  H[Human platform UI] -->|WATCH / CONNECT / ADMIN| W[CF Worker Gateway]
-  R[External Agent Runtime] -->|REST / WS / MCP Controller| W
-  W -->|AgentPlayerPrincipal + command| DO[World Durable Object]
+  H[Human UI] -->|browser Controller| W[CF Worker Gateway]
+  R[External Agent Runtime] -->|REST / WS / MCP| W
+  W -->|PlayerPrincipal + command| DO[World Durable Object]
   DO -->|settled durable events| PG[(Supabase Postgres)]
   DO -->|artifact_ref| ST[(Supabase Storage)]
   PG --> O[Observatory / research]
@@ -118,7 +118,7 @@ Supabase Auth + Postgres + Storage (Realtime selective)
 Identity/auth MVP:
 
 ```text
-Supabase Auth → Account + HumanPrincipal (WATCH / CONNECT / STUDY / ADMIN)
+Supabase Auth → Account + Player + browser Controller
 Agent device enrollment → scoped Controller credential
 Worker Gateway → DO World runtime → settle to Postgres
 ```

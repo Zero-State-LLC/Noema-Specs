@@ -2,9 +2,9 @@
 
 ## Principle
 
-External agent runtimes act as **Controllers** for **Agent Players**. They receive game affordances through structured interfaces. They do not receive privileged research information. Humans are not a gameplay participant class. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
+External agent runtimes act as **Controllers** for **Players**. They receive equivalent game affordances through structured interfaces. They do not receive privileged research information. They are not a separate gameplay participant class from humans.
 
-Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Headless Controller runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). Official package: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations, not a second Player class ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Headless Controller runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations, not a second Player class ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
 
 ## Orientation
 
@@ -43,8 +43,8 @@ Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-
 
 Agent Controllers participate through PLAY-equivalent structured affordances for their Player. The compact default projection contains `LOCATION`, `STATUS`, visible `EVENTS`, and `AVAILABLE_ACTIONS`; it never adds hidden research metadata. Agent STUDY interaction, if enabled, is a policy-gated proposal interface ([STUDY.md](STUDY.md)).
 
-`AVAILABLE_ACTIONS` is a derived, contextual projection rather than a fixed global list. Each entry SHOULD identify the stable canonical action, visible target, required parameters, and known preconditions that the Player is authorized to see. Agents receive world semantics through structured observation and `AVAILABLE_ACTIONS`. They MUST NOT be required to parse human command grammar. Agent affordances MUST NOT generate new verbs or reveal hidden entities, exits, ownership, history, agreements, Genesis information, or research metadata.
+`AVAILABLE_ACTIONS` is a derived, contextual projection rather than a fixed global list. Each entry SHOULD identify the stable canonical action, visible target, required parameters, and known preconditions that the Player is authorized to see. Agents receive the same world semantics as human Players under equivalent state and permissions, but do not need to parse human command grammar. Agent affordances MUST NOT generate new verbs or reveal hidden entities, exits, ownership, history, agreements, Genesis information, or research metadata.
 
 ## Provenance
 
-Accepted actions record which Controller produced them (`controller_id`, session, optional framework/model metadata) for research comparison. Provenance MUST NOT create a gameplay hierarchy among Agent Players. Historical `controller_type` human/hybrid values are compatibility metadata only.
+Accepted actions record which Controller produced them (`controller_id`, session, optional framework/model metadata) for research comparison. Provenance MUST NOT create a gameplay hierarchy between human-driven and agent-driven Players.

@@ -1,7 +1,7 @@
 # AGENT-SEAL-S0 — Sealed live attach
 
 **Status:** Executable specification. Runtime authorized with RFC-0115.  
-**Depends on:** [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md) · [ADR-002](../adr/ADR-002-private-cognition-boundary.md)
+**Depends on:** [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md) · [ADR-002](../adr/ADR-002-private-cognition-boundary.md)  
 **RFC:** [RFC-0115](../rfcs/RFC-0115-sealed-live-attach.md)  
 **Does not open:** new verbs · `AGENT_PLAYER` · Genesis · Recover · reading private prompts
 
@@ -15,7 +15,7 @@ Live Perihelion is a **sealed attach**. An agent-controlled Player may enter onl
 |------------|---------|
 | Live agent must present published hash | **ACCEPT.** |
 | Isolated test worlds stay open | **ACCEPT.** |
-| Human PLAY under the seal | **REJECT.** Humans are not Players (RFC-0120). A human principal is not an Agent Player attach, so the seal does not apply; inhabit is independently denied. |
+| Human PLAY under the seal | **REJECT.** Humans are not under this seal. |
 | Operator `--goal` / custom system prompt on live | **REJECT.** |
 | Read private prompt text to verify honesty | **REJECT.** ADR-002. Hash only. |
 | Drive a live agent token through `/play` | **REJECT.** Chamber does not send the seal. |
@@ -31,7 +31,7 @@ Live Perihelion is a **sealed attach**. An agent-controlled Player may enter onl
 | Prompt file | `examples/sealed-prompt/s0.txt` |
 | Live | Hash required for `controller_type=agent` |
 | Isolated | Hash not required |
-| Human platform principal | Hash not required (not an Agent Player attach; inhabit denied separately) |
+| Human PLAY | Hash not required |
 | Wire | `AUTH.body.prompt_version_hash` or header `X-Noema-Seal` |
 | Prompt text on wire | Forbidden |
 | New verbs / events | none |

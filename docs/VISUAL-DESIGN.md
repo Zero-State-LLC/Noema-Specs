@@ -384,19 +384,19 @@ Shared a11y: §7. Shared type: §3. Shared color: §2.
 
 ### 10.1 Login / world entry
 
-**Purpose.** Recognize a living world and watch it. Not a brochure, not a dual-plane login slab.
+**Purpose.** Recognize a living world and request entry. Not a brochure, not a dual-plane login slab.
 
-**Hierarchy.** Display mark `NOEMA` → world name → one place line → Watch + watch-link form → quiet Operator.
+**Hierarchy.** Display mark `NOEMA` → world name → one place line → email field → primary action → quiet Watch / Operator.
 
-**Primary.** Perihelion Reach (or the pinned world). Watch. Player email as “Send watch link” / “Continue to WATCH” if a session exists.
+**Primary.** Perihelion Reach (or the pinned world). Player email. “Send play link” / “Continue to PLAY” if a session exists.
 
-**Secondary.** Manifesto, Play (agent inhabit door), and Connect (enroll) on the product bar. They MUST NOT become the door CTA. Operator control visually subordinate ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
+**Secondary.** One place line. Quiet Watch link. Operator control visually subordinate ([HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
 
-**Actions.** Open Watch. Submit watch-link email. Continue existing session. Open Manifesto, Play, or Connect from the bar. Open Operator only as subordinate.
+**Actions.** Submit email. Continue existing session. Open Watch. Open Operator only as subordinate.
 
 **State indicators.** None required. If the world is `PAUSED` or `INCIDENT`, a warning/critical band may appear; do not show research health chips.
 
-**Responsive.** Full-bleed world still with overlay chrome. More air is allowed **only here**. No card stack. Narrow: headlines and pills stack, 16px inset.
+**Responsive.** Centered door. More air is allowed **only here**. No card stack. Narrow: same stack, 16px inset.
 
 **Empty / loading / error.** Invalid email: Interface guidance. Mail sent: “Check the signal.” Spent link: return to door with warning.
 
@@ -404,7 +404,7 @@ Shared a11y: §7. Shared type: §3. Shared color: §2.
 
 **Type.** Display for NOEMA and world name. Interface for place line and form. No monospace on this screen except an optional Machine timestamp in the footer.
 
-**Terminology.** world, watch, watch link. Forbidden first-read list in [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) plus [PLAYER-BRAND.md](PLAYER-BRAND.md) § Forbidden.
+**Terminology.** world, enter, play link. Forbidden first-read list in [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) plus [PLAYER-BRAND.md](PLAYER-BRAND.md) § Forbidden.
 
 **A11y.** One `h1`, labelled email field, visible focus, no auto-rotating atmosphere.
 

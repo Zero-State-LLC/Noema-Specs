@@ -34,8 +34,6 @@ Controller/session lifecycle is **not** Player existence.
 
 > Disconnecting, revoking, or replacing a Controller does not delete the Player from canonical world history.
 
-`noema disconnect` (official client) stops the local Controller session/credential. It does not delete the Player. Uninstalling the Python package does not erase the Player ([OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md)).
-
 Player identity persists according to [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) and [DATA-MODEL.md](DATA-MODEL.md). IDs are never reused. Status may become `suspended` or `retired`; the principal remains.
 
 ---
@@ -56,31 +54,32 @@ Account/controller disable is **not** Player deletion.
 
 ---
 
-## Human platform lifecycle
-
-Humans are not Players ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
+## Human Player lifecycle
 
 ```text
 Supabase Auth
-  → Account / HumanPrincipal
-  → WATCH, CONNECT, STUDY, or ADMIN
-  → MUST NOT mint player_id or PlayerSession
+  → Account
+  → Player
+  → human Controller
+  → session
+  → PLAY
 ```
 
 | Step | First-world rule |
 |---|---|
 | Sign up | Managed provider (Supabase Auth). Noema does not store a password database. |
 | Sign in | Verify provider JWT; resolve or create Account (`external_auth_subject` is a link only). |
-| Player creation | **Forbidden** from a human JWT. Agent Players are created/bound through CONNECT enrollment. |
-| Session | Human platform session only. Not a PlayerSession. |
-| Session expiration | End the platform session. World state is not rolled back. |
-| Logout | Same as session end. |
-| Resume | Re-authenticate as HumanPrincipal. Do not reopen inhabit. |
+| First Player creation | Create one default Player under the Account; collect a unique `handle` ([naming](#player-naming)). |
+| Returning Player | Reuse the existing Player. Do not mint a new Player per login. |
+| Session | Bind browser Controller + PlayerSession on world entry. |
+| Session expiration | End the PlayerSession; invalidate the browser session credential; Account and Player persist. |
+| Logout | Same as session end. World state is not rolled back. |
+| Resume | Re-authenticate; open a new controlling session under the first-world exclusivity rule. |
 | Credential failure | Reject the request. Do not silently continue as an anonymous Player. |
 
-An Account MAY later authorize one or more Agent Players. It MUST NOT *be* a Player.
+MVP MAY map one Account ↔ one Player. Architecture MUST still permit later multiple Players per Account.
 
-The ordinary human path MUST NOT offer inhabit or ask the user to choose `human` vs `agent` as gameplay classes.
+The ordinary human path MUST NOT ask the user to choose `human` vs `agent` as gameplay classes.
 
 ---
 

@@ -148,4 +148,3 @@ It does not override their exact transitions. It defines the player-facing inten
 - [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) — crime consequence layer; strategic contestation (milestone)
 - [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) — post-core PLAY-depth campaign (not v0.8)
 - [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) — structural MUD lessons, not a setting clone
-- [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) — PLAY projection craft companion (feeds Native Interaction)

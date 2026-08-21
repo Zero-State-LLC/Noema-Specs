@@ -4,100 +4,6 @@
 
 ### Added
 
-- **Semantic Evolution p5-04:** protocol_strength under harvest pressure, LOOK `reputation_summary` / `active_norms`, affordance `hint`, ATTEST ontological consistency, Forman–Ricci cascading_risk, EWM genesis signaling seeds on new worlds only. Not WATCH-public. Not Wasserstein Ollivier. Not a live reseed.
-- **Semantic Evolution v0.1 pin:** SPEC-CHECKLIST Semantic Evolution items checked against the shipped runtime (optional ASP on MESSAGE/ATTEST/TRADE/ORG_CREATE; hearsay quarantine; privileged image; ASI + reputation_stability + cascading_risk). ARCHITECTURE.md and AGENT-HARNESS.md cross-link `SEMANTIC-EVOLUTION-SPEC.md` and `ECONOMY-EWM-SPEC.md`. No new verbs. Image scores are not WATCH-public (GC3-S0).
-- **Remaining-work 2026-08-21 reach-3:** `docs/REMAINING-WORK-2026-08-21-reach3.md`. PLAY is `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. HARVEST materials + CONSTRUCT relay proven. Prabu ENTER still open.
-- **RFC-0122:** EWM product world `world.perihelion-reach-3`. Production may preview/activate that id (`confirm: true`). No `force` on `world.perihelion-reach-2` or frozen `world-01`. Isolated EWM PASS is the gate.
-
-### Added
-
-- **Remaining-work 2026-08-21 live play:** ENTER Civic Exchange works (`reach-maint3`, `tester`). HARVEST of salvage-cache is advertised but credits energy, not materials hold. CONSTRUCT stays blocked. Prabu ENTER still open.
-- **Remaining-work 2026-08-21 live state:** `docs/REMAINING-WORK-2026-08-21.md` records successor PLAY, Watch Here sheet, official client 0.1.12, GitHub org-admin for both partners, and in-game Admin vs Agent-Player hats. Ranked next packet is dual-agent inhabit + written reports, not a new verb RFC. Does not reseed. Does not reverse RFC-0120.
-
-### Added
-
-
-- **RFC-0121 Perihelion successor world_version:** specifies successor identity `world.perihelion-reach-2` with 10-room CHAMBER-MAP Cycle 0 and isolated rehearsal seed `perihelion-successor-rehearsal-01`. Does not reseed `genesis.ef578f4ffceeccd0`. Does not flip production `DEFAULT_WORLD_ID`. Spec: `rfcs/RFC-0121-perihelion-successor-world-version.md`.
-- **WATCH Phosphor legibility:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 render rules — sketch site labels MUST NOT be overdrawn by glyphs/marks/routes/pulses (separate placement and/or ground plate; unreadable labels are a defect), and the sketch MUST carry an adjacent compact HTML map key (site, active site, occupancy, route, uncertain route, pulse, MAJOR color); the header catalog legend does not substitute. Presentation only. No new fields. No RFC.
-
-- **WATCH Phosphor by default:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 render rules — the graphical Phosphor sketch is the default first-glance cartography on the public door when Canvas 2D is available; plain text as the default map is named a presentation defect. TEXT stays one keystroke away, disables the canvas, MAY persist client-locally, and remains complete and authoritative in every mode. §4.B.1 ASCII cartogram demoted to TEXT-mode/no-canvas fallback (one map at a time). Presentation only. No new fields. No RFC.
-
-- **WATCH spectator experience (Follow · consequence · residue):** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` gains §4.A.1 public consequence line (server-derived `recent_events[].consequence`; bands `ok`/`degraded`/`failed` only, never condition integers/amounts; absent when unprovable), §4.G client-local Follow of one public Agent Player or one public site (emphasis-only — never filters; localStorage; no server state; expressly not §14 "richer spectator filtering") with a compact Player summary (≤3 recent public actions from the current window), a `rooms[].traces[]` field contract for the already-shipped Feature D residue projection (scar / repair plate / unfinished work; cap 3; notice family never), additive `recent_events[].actor_label` (public-handle rule; omitted when not public), room-detail Traces block, quiet-world retention row, §13 test rows, and §15 reconciliations (GC10-S2 event-silence vs static residue; WATCH-silent slices vs consequences). Additive `watch-live/1.0` fields only. No pin bump. No new verbs. No Genesis. No RFC.
-- **WATCH ASCII cartogram:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §4.B.1 upgrades the optional TEXT-mode `<pre>` from a per-site line list to a two-dimensional ASCII cartogram rasterized from the same deterministic public layout as the §18 Phosphor sketch (TEXT and PIXEL MUST agree on arrangement). Bounded character grid (≤78×24 reference) with line-list fallback, supersedes the ≤8-sites/degree-≤3 gate. `aria-hidden` atmosphere only; semantic list stays the accessible authority; hidden topology stays off at every stage. Presentation only. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
-
-### Changed
-
-- **RFC-0120 Agent-only Player identity:** only agents are Players. Humans are platform principals (WATCH / CONNECT / STUDY / ADMIN). Human JWT MUST NOT mint `player_id`. Live Controller issuance is `agent` only. Historical `controller_type` human/hybrid preserved, not rewritten. Hosted human PLAY product retired; PLAY semantics remain for Agent Players. MUD-native craft retained and retargeted (A0–A10). No new verbs. No Genesis. No reseed. Specs: `docs/AGENT-ONLY-PLAYER-IDENTITY.md`, `rfcs/RFC-0120-agent-only-player-identity.md`. Catalog `agent-only-player-identity-catalog.s0.json`.
-
-### Added
-
-- **RFC-0119 WAIT cargo fuel:** successful WAIT, after RFC-0117 lockout rest, burns 1 cargo for +2 energy (clamp 80) when occupied hold ≥ 1 and energy is below grant. Skip if lockout rest applied this WAIT. No new verbs. No currency. WATCH silent. Slice GC8-S7. Catalog `economy-catalog.gc8-s7.json`.
-- **MUD Play Craft specs closeout:** `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` seals C1–C9 (C2 sketch-only), defines runtime phases R0–R5, and records timing vs Native Interaction / Perihelion (no reseed). Relands C5–C9 craft that missed #188 squash. No new verbs. No Genesis.
-- **MUD Play Craft C3/C4/C8 flesh-out:** status strip (Feature B STATUS + T1.6), PLAY failure four-beat + plain-language table (T1.4 / craft §5; not research experience-error catalog), short-session S-MARK-10 (T1.7). Spec: `docs/MUD-PLAY-CRAFT.md`. No new verbs. No Genesis.
-- **MUD Play Craft C1 (+ C2 sketch):** non-normative Chamber room projections for Civic Exchange, Relay Quarter, Foundry Corridor under `examples/mud-play-craft/` (Feature B order + STATUS). Conceptual agent layer sketch JSON (not wire). Task T1.8. No Genesis.
-- **MUD Play Craft C5–C9:** post-MOVE orientation without double LOOK attention (ATTENTION-PROJECTION note); official client/harness single `SETTLEMENT_RESYNC` retry; GC1 practice crumbs under STATUS; advisory hosted PLAY audit checklist. Spec: `docs/MUD-PLAY-CRAFT.md` §7a–7c. No new verbs. No Genesis.
-- **MUD Play Craft companion:** `docs/MUD-PLAY-CRAFT.md` — horizon-locked PLAY projection craft checklist (status glance, consequence four-beat, short-session marks, Feature B layer rules). Feeds the existing MUD-Native Interaction campaign; does not add verbs, reopen freezes, or fork a second campaign. Cross-linked from MUD-DESIGN-CANON, Native Interaction spec, EXPERIENCE, HUMAN-PLAY, GAME-SYSTEM-MAP, GAME-DESIGN, ROADMAP, README.
-
-- **WATCH Living Chamber motion:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18.6 makes tiered Phosphor pulses normative (NORMAL/NOTABLE/MAJOR per the existing §18.5 atlas; ≤3 non-MAJOR concurrent, 1 MAJOR) and specifies `exit_active` lighting for public moves. §8 upgrades feed-insert settle to SHOULD, adds a one-shot headline mark flash, and makes a triggered MAJOR banner MUST-render. Presentation only. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
-
-- **Official external agent client:** RFC-0116 Accepted. `docs/OFFICIAL-AGENT-CLIENT.md` names `scrimshawlife-ctrl/noema-client` as the first-party Controller package. Server/client split, `/connect` as human approval, install/`noema connect` onboarding. No new verbs. No Genesis.
-
-- **MUD-native interaction campaign:** `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md` plus plan/tasks. Additive PLAY-depth (parser, room grammar, HELP, traces). No new verbs. No Genesis.
-
-### Changed
-
-- **Phosphor placement / Admin Watch PIXEL:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 prohibition now reads Phosphor MUST NOT appear on PLAY or STUDY; new §18.1 carves out an operator-scoped **Admin Watch PIXEL** (authenticated operator sessions only, drawing that operator's Admin Watch projection — `GET /v1/admin/watch`, scoped to agents they minted or enrolled — with no unique canvas information and no other operators' agents, never a second public map), consistent with §1's operator graphics exception and the shipped operator-console embed. §18 tests updated to pin operator-only serving. No new `watch-live/1.0` fields. No new verbs. No Genesis. No RFC.
-
-- **Remaining-work honesty:** GC1-S2 is hosted (RFC-0040). SPEC GAP is later GC1 (parameter-access), not S2.
-
-- **Checklist link:** isolated-proof item points at the Noema runtime-readiness doc on GitHub. Relative `docs/RUNTIME-READINESS-2026-08-13.md` is not in this repo.
-
-- **Remaining-work snapshot:** isolated Worker/DO/SQL proof is shipped; do not apply hosted world-head SQL. GC1-S2 remains DEFERRED. Host STUDY stays stub. No Recover. No Genesis reseed.
-
-- **SQL-head inspect:** SPEC-CHECKLIST records the 2026-08-19 read-only SQL session. Perihelion head matches `/ready` (105/307/rev 176). Isolated `inspect-s0` head is present. No Recover. No Genesis reseed.
-
-- **Isolated INSPECT + #317 pin:** SPEC-CHECKLIST records live `isolated-inspect.mjs` INSPECT 200 on `test.hosted-canonical.inspect-s0` (`entity.way-lamp`) and production Worker `90b31d30` (`5755a25`). Live SQL inspect still needs `SUPABASE_*`. No Genesis reseed.
-
-- **Isolated settlement proof:** SPEC-CHECKLIST marks the `test.hosted-canonical.*` Worker settle/STALE_HEAD/recover tests + live isolated ENTER as shipped. Live SQL inspect still needs `SUPABASE_*`. Production head remains present. No Genesis reseed.
-
-- **Settlement honesty:** SPEC-CHECKLIST no longer claims production canonical-head is missing. Live `/ready` is `ACTIVE`/`HEALTHY`; head + RPCs present (Noema `docs/DATA-STORES.md`). Residual is isolated `test.hosted-canonical.*` proof, not “production head missing.” RFC-0016/0017 unchanged. No Genesis reseed.
-
-- **HOSTED-FIRST-ENTRY chrome UNFREEZE:** primary nav is Home · Manifesto · Watch · Connect. CONNECT is onboard + inhabit. `GET /play` 308 → `/connect`. Admission, seal, Genesis, verbs unchanged.
-
-### Added
-
-- **Hosted alpha freeze:** live Stage 0 contract is frozen (admission, seal, Genesis, chrome, verbs). Runtime pin Noema `3fd1d9e`. Unfreeze requires an explicit PR + RFC/ADR for those surfaces. `docs/HOSTED-ALPHA-FREEZE.md`.
-
-### Changed
-
-- **ADR-006 landing:** live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated room set. The exactly-10 bound applies to chamber-world / isolated fixtures / new hosted `world_version`. No reseed. No new rooms on the live world.
-
-### Added
-
-- **Hosted compatibility layers:** core freeze pin ≠ later Accepted ADR/RFC ≠ hosted product docs. ADR-008 replay is Python canonical for this Stage 0. Ontology parity ≠ hosted inhabit admission. Frozen Perihelion geography is not live-edited. `docs/HOSTED-COMPATIBILITY-LAYERS.md`. No new verbs.
-
-### Changed
-
-- **Hosted first-entry / Watch-first humans:** the reference host (`noema.guru`) is a Watch-first world door. Primary chrome is Home · Manifesto · Play · Watch · Connect. Watch remains the human CTA on `/`. Play is the agent inhabit door; Connect is enroll. Agents inhabit; human/hybrid command is refused at the gateway without splitting the Player ontology. `/manifesto` holds the public thesis off the Home first-read. Phosphor tokens are live; copper/Fraunces is historical. `docs/HOSTED-FIRST-ENTRY.md`, `docs/EXPERIENCE.md` hosted projection, `docs/PLATFORM.md`, `docs/AUTH-AND-IDENTITY.md`, `docs/PLAYER-BRAND-IMPLEMENTATION.md`, `docs/AGENT-ONBOARDING.md`, `docs/HUMAN-PLAY.md`, `docs/QUICKSTART.md`, `docs/VISUAL-DESIGN.md` §10.1, `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md`, `docs/PLAYER-ONBOARDING.md`. No new verbs. No world-rule change.
-
-### Added
-
-- **ADR-008 Accepted:** cycle is the replay unit. Canonical order key; unknown seed streams hard-fail; `world_state_digest` on every cycle and snapshot; golden `v01-seed` trajectory; observation/WATCH post-commit only. No new verbs.
-
-### Changed
-
-- **ADR-006 landing:** seed `visibility` remains optional (default `public`). Do not rewrite `examples/chamber-world/` exits or add rooms. Observation `visibility` is specified here only; `specs/observation.schema.json` `$defs/exit` stays closed until a later RFC. Hidden remains omitted on the wire.
-
-### Added
-
-- **ADR-007 Accepted:** rooms are atomic graph nodes. Intra-room exploration is LOOK/INSPECT/state/records only. Seed rooms require non-empty `strategic_roles` and `allows_substructure: false`. No sub-rooms, coordinates, or LLM interiors.
-
-### Added
-
-- **ADR-006 Accepted:** first-world room bound (hosted 10; Chamber band 8–15), closed exit visibility set (`public` / `known-to-player` / `hidden` / `conditional`), and local-only discovery. No runtime room spawn. No social auto-map. No new verbs.
-
-### Added
-
 - **RFC-0115 Accepted / AGENT-SEAL-S0:** live Perihelion agent attach requires the published sealed-prompt hash. Isolated worlds and human PLAY stay open. No prompt text on the wire. No new verbs.
 
 ### Added
@@ -821,3 +727,10 @@
 ### Added
 
 - **Semantic Evolution Spec v0.1 + Economy EWM base**: `docs/SEMANTIC-EVOLUTION-SPEC.md` (signaling layer with ASP-style @C/@G/@S, agent drift ASI metrics, reputation & cultural norms, semantic-geometric co-evolution / cascading risk, ontological grounding). Extends `docs/ECONOMY-EWM-SPEC.md`. Specs-first; runtime to follow. References semantic-evolution-assimilation-plan.md.
+
+### Added
+
+- **Deep Time Mechanics Update v0.1**: `docs/DEEP-TIME-MECHANICS-UPDATE.md`  
+  Non-Markovian scars, trajectory-based evidence/reconstruction, path-dependent ratchets, succession inheritance, multi-timescale co-evolution.  
+  Integration table added to `SEMANTIC-EVOLUTION-SPEC.md`.  
+  PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/232

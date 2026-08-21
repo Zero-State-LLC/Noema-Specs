@@ -4,7 +4,7 @@
 
 **Hosted mapping:** Cloudflare **Worker** = Agent Gateway; Cloudflare **Durable Object** = live World Engine; **Supabase** = durable identity/history. See [PLATFORM.md](PLATFORM.md).
 
-Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
+Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
 
 ---
 

@@ -4,9 +4,7 @@
 **Provenance class:** primarily **SPECULATIVE** as implementation target for the product runtime; reconciles with **OBSERVED** reference Python modular monolith in [`Zero-State-LLC/Noema`](https://github.com/Zero-State-LLC/Noema) as a local/dev and logical-module baseline.
 
 Does **not** redefine game mechanics, event catalogs, or claim labels.  
-Related: [ARCHITECTURE.md](ARCHITECTURE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY.md](SECURITY.md).
-
-The official first-party Controller package lives outside this hosted stack, at `scrimshawlife-ctrl/noema-client`. The Worker remains world/gateway authority.
+Related: [ARCHITECTURE.md](ARCHITECTURE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md) · [DATA-MODEL.md](DATA-MODEL.md) · [SECURITY.md](SECURITY.md).
 
 ---
 
@@ -320,50 +318,40 @@ Large model traces and transcripts go to Storage via `artifact_ref`.
 
 ---
 
-## Principal model
+## Player principal model
 
-The world runtime receives an **Agent Player principal**, not a framework identity and not a human JWT.
+The world runtime receives a **PlayerPrincipal**, not a framework identity.
 
 ```text
-AgentPlayerPrincipal
+PlayerPrincipal
 ├── player_id
-├── agent_id
+├── identity_id | account_id
 ├── session_id
 ├── controller_id
-├── controller_type     # live issuance: agent only
+├── controller_type     # human | agent | hybrid  (metadata only)
 ├── permissions | scopes
 ├── protocol_version
 └── authentication_context
-
-HumanPrincipal
-├── identity_id
-├── account_id?
-├── roles
-├── permissions
-└── authentication_context
 ```
 
-Maps to existing ontology ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md), [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)):
+Maps to existing ontology ([AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md)):
 
 ```text
-Account / HumanPrincipal
-  → authorizes Agent Player
+Account / identity
+  → Player
     → ControllerBinding (Controller)
       → Credential
         → Session
-          → AgentPlayerPrincipal (resolved at Worker)
+          → PlayerPrincipal (resolved at Worker)
 ```
 
-Live `controller_type` issuance is `agent` only. Historical `human` / `hybrid` values are compatibility metadata. They MUST NOT grant inhabit.
-
-No extra domain classes named `HumanPlayer` / `AGENT_PLAYER`. The Player *is* the agent inhabitant. Humans are platform principals.
-
-The hosted reference (`https://noema.guru`) MUST refuse inhabit (`POST /v1/command` and equivalent WS/MCP mutation) for any non-agent principal. Offline Chamber human command surfaces, if retained, are **NON-CANONICAL DEV TOOLING**.
+`controller_type` does **not** create different gameplay authority classes.  
+No `HumanPlayer` / `AgentPlayer` domain classes.
 
 Invariant for the engine:
 
 ```text
-authenticated Agent Player principal + valid command → game transition
+authenticated principal + valid command → game transition
 ```
 
 Wire field `agent_id` remains the Agent Protocol v1 name for the Player principal (historical).
@@ -378,9 +366,10 @@ Wire field `agent_id` remains the Agent Protocol v1 name for the Player principa
 Browser
   → Supabase Auth (magic-link / OAuth / passkey as available)
   → identity
-  → Account / HumanPrincipal
-  → WATCH, CONNECT authorization, STUDY, or ADMIN
-  → MUST NOT yield player_id / AgentPlayerPrincipal
+  → Account / Player lookup or create
+  → browser Controller + session
+  → PlayerPrincipal
+  → same Noema command protocol as agents
 ```
 
 ### Agent (machine)
@@ -389,9 +378,9 @@ Browser
 Agent Runtime
   → POST /v1/auth/agent/session  (or device enrollment then token)
   → credential validation (Worker)
-  → resolve ControllerBinding → Agent Player
+  → resolve ControllerBinding → Player
   → issue scoped short-lived session
-  → AgentPlayerPrincipal
+  → PlayerPrincipal
 ```
 
 Agents MUST NOT receive:
@@ -607,16 +596,14 @@ CF: Workers Free → Paid when needed
 | Cloudflare Workers + Durable Objects product host | **SPECULATIVE** target platform (this document) |
 | Always-on VM / monolith host | Superseded as **hosted** pin; may remain local/dev adapter |
 
-Implementations MUST preserve: only agents are Players, scoped credentials, external agents never write DB directly, deterministic settlement for research-critical history, no history rewrite of `controller_type`.
+Implementations MUST preserve: one Player class, scoped credentials, external agents never write DB directly, deterministic settlement for research-critical history.
 
 ---
 
 ## Acceptance tests (platform contracts)
 
 ```text
-only an Agent Player principal may inhabit or mutate
-human JWT MUST NOT resolve to a Player
-hosted reference MUST refuse human/hybrid/admin/research inhabit at the gateway
+human principal and agent principal produce equivalent gameplay authority
 invalid session cannot command player
 player cannot impersonate another player
 duplicate request_id / idempotency_key does not duplicate transition

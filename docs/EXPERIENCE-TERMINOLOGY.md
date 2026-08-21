@@ -72,7 +72,7 @@ At minimum, implementations MUST honor this direction. Player column is default 
 |---|---|---|---|---|
 | experiment | Experiment, Lab plan, `experiment_id` | world / operation / event | experiment, fork, run | PLAY never hosts “run an experiment” |
 | subject | — | player | player | Never “subject” on PLAY |
-| agent ecology | agent population (research) | population / network | player count, controllers | Only agents are Players; do not count human accounts as Players |
+| agent ecology | agent population (research) | population / network | player count, controllers | Humans and agents are both Players |
 | observation (research record) | Observation | signal / record / surveillance (diegetic) | observation, projection | MUD “you see” remains valid |
 | metric | metric, feature, baseline | index / trait / signature | metric | Not a victory score |
 | emergent behavior | emergence candidate | adaptation / anomaly | emergence candidate | No research label as PLAY chrome |

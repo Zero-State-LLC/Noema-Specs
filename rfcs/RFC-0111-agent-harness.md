@@ -59,4 +59,4 @@ Ignore the harness document. Existing Agent Gateway, Agent Protocol v1, and huma
 
 ## Unresolved
 
-Numeric pacing and circuit-breaker thresholds. Official package name and CLI: [RFC-0116](RFC-0116-official-agent-client.md).
+Runtime library shape in `Zero-State-LLC/Noema`. Exact CLI syntax. Numeric pacing and circuit-breaker thresholds.

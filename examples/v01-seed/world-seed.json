@@ -20,21 +20,13 @@
       "description": "Civic infrastructure district of Aster Reach. Power stability is declining.",
       "entity_ids": [
         "entity.relay-7"
-      ],
-      "strategic_roles": [
-        "infrastructure"
-      ],
-      "allows_substructure": false
+      ]
     },
     {
       "room_id": "room.transit-ring",
       "name": "Transit Ring",
       "description": "Curved corridor linking districts. Low traffic.",
-      "entity_ids": [],
-      "strategic_roles": [
-        "chokepoint"
-      ],
-      "allows_substructure": false
+      "entity_ids": []
     },
     {
       "room_id": "room.civic-exchange",
@@ -43,22 +35,13 @@
       "entity_ids": [
         "entity.storage-cell-cache",
         "entity.archive-ledger-obsolescing"
-      ],
-      "strategic_roles": [
-        "trade",
-        "information"
-      ],
-      "allows_substructure": false
+      ]
     },
     {
       "room_id": "room.infrastructure-vault",
       "name": "Infrastructure Vault",
       "description": "Restricted maintenance space under Relay Quarter.",
-      "entity_ids": [],
-      "strategic_roles": [
-        "infrastructure"
-      ],
-      "allows_substructure": false
+      "entity_ids": []
     }
   ],
   "exits": [

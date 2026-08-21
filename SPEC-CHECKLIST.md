@@ -12,16 +12,14 @@
 - [x] v0.6 admin-only Genesis: 3 profiles, story seeds, Cycle 0 result, G01–G09, player/admin boundary.
 - [x] v0.7 Minimal LEARN: behavior nodes, closed edges, evidence lineage, K01–K12, simple LEARN projection.
 - [x] Core-loop freeze audit: `docs/SPEC-FREEZE-CORE-LOOP.md` (v0.1–v0.7 implementable; runtime next).
-- [x] Auth / identity / Agent Gateway: Account (HumanPrincipal) authorizes Agent Player→Controller→Credential+Session; only agents are Players (RFC-0120); device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`, `docs/AGENT-ONLY-PLAYER-IDENTITY.md`).
+- [x] Auth / identity / Agent Gateway: Account→Player→Controller→Credential+Session; humans and agents both Players; device enrollment; scoped caps; REST/WS/MCP gateway; threat model; MVP boundary (`docs/AUTH-AND-IDENTITY.md`, `docs/AGENT-GATEWAY.md`).
 - [x] Headless Agent Harness specified: provider-neutral Controller runtime; Agent Gateway / `POST /v1/command` canonical; no `/play` DOM automation; token secrecy; affordance-first proposals; server final authority; bounded memory; pacing; circuit breaker; Player parity (`docs/AGENT-HARNESS.md`, RFC-0111). No new verbs.
-- [x] Official external agent client named: `scrimshawlife-ctrl/noema-client`; `/connect` is human approval; install → `noema connect` → device enrollment; client is Controller-only; copy-first extraction (`docs/OFFICIAL-AGENT-CLIENT.md`, RFC-0116). No new verbs. No gameplay thaw.
-- [x] Agent-only Player identity (RFC-0120 Accepted): only agents are Players; humans are platform principals; human JWT MUST NOT mint Player; live Controller issuance agent-only; historical `controller_type` preserved (`docs/AGENT-ONLY-PLAYER-IDENTITY.md`).
-- [x] Sealed live attach (RFC-0115 Accepted): live agent controllers present the published `prompt_version_hash`; isolated worlds unchecked; human principals are not Agent Player attaches (RFC-0120); official client has no `--goal` / `--prompt` / `--system` / `--brief`; prompt text never on the wire (`docs/AGENT-SEAL-S0.md`).
+- [x] Sealed live attach (RFC-0115 Accepted): live agent controllers present the published `prompt_version_hash`; isolated and human PLAY unchecked; official client has no `--goal` / `--prompt` / `--system` / `--brief`; prompt text never on the wire (`docs/AGENT-SEAL-S0.md`).
 - [x] GC1-S8 parameter access (RFC-0112 Accepted): `REPAIR` `extent=overhaul` for recognized MAINTAINED Engineer only; extra energy +1; extra condition +5; cap 100; no new verb; no class discount (`docs/GC1-S8-PARAMETER-ACCESS.md`).
 - [x] Hosted product stack pinned: Cloudflare Workers + Worker `[assets]` + Durable Objects + Supabase Auth/Postgres/Storage (`docs/PLATFORM.md`). Cloudflare Pages is not the live host.
 - [x] Player-only domain participant; ControllerBinding metadata; PlayerPrincipal at edge.
-- [x] Experience entry alignment: WATCH primary for humans; CONNECT is agent door / Controller onboarding; PLAY is Agent Player inhabit; STUDY authorized research; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative. RFC-0120.
-- [x] Hosted first-entry: Watch-first world door + watch link; Manifesto sibling tab; Operator subordinate; inhabit agent-only (`docs/HOSTED-FIRST-ENTRY.md`).
+- [x] Experience entry alignment: PLAY primary; WATCH/STUDY secondary product paths; CONNECT is Controller onboarding, not a Player mode; ADMIN remains a separate control-plane principal; hosted runtime projection documented as non-normative.
+- [x] Hosted first-entry: world door + Player email; game-first first-read; Operator subordinate; Chamber first screen text-first (`docs/HOSTED-FIRST-ENTRY.md`).
 - [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
 - [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`.
 - [x] Player brand implemented on hosted Worker HTML (Slices 0–9). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. No further brand slices unless a visual defect is filed.
@@ -34,7 +32,7 @@
 - [x] Crime as consequence layer; strategic contestation **executable** (RFC-0002 Accepted)
 - [x] Loss/recovery, diplomacy, game cycle, world reports
 - [x] Plural progression + ambitions (no single victory score)
-- [x] Agent play orientation (only agents are Players). Human PLAY product retired; WATCH/CONNECT/STUDY/ADMIN are human surfaces (RFC-0120)
+- [x] Human play / agent play orientation (both are Players; Controllers differ)
 - [x] Balance principles, exploration, strategic knowledge, infrastructure progression
 - [x] First-20-cycles pacing + Chamber map guidance + system dependency map
 - [x] Event catalog audit notes for contestation RFC events (incl. AGREEMENT_*)
@@ -157,12 +155,6 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] Player and public WATCH views do not leak hidden research metadata.
 - [x] WATCH Lightweight Spectator Upgrade specified: public door is low-load world theater (notable event, world graph, bounded feed, optional room detail); `NORMAL`/`NOTABLE`/`MAJOR` are display tiers only; hidden topology stays off WATCH; no dashboard/broadcast/AI-director ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - [x] Optional WATCH Phosphor Cartography specified: Canvas 2D sketch of `watch-live/1.0` only; TEXT remains authority; no hidden leak; no WebGL; no pin bump ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18).
-- [x] Admin Watch PIXEL scoped: Phosphor MUST NOT appear on PLAY or STUDY; the operator console MAY embed the same sketch as an operator-only Admin Watch PIXEL (authenticated sessions only, drawing that operator's Admin Watch projection — `GET /v1/admin/watch`, scoped to agents they minted or enrolled — with no unique canvas information and no other operators' agents, never a second public map) per the operator graphics exception ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18.1).
-- [x] WATCH spectator experience specified (Follow · consequence · residue): §4.A.1 server-derived public consequence line (bands only, never integers/amounts, absent when unprovable); §4.G client-local Follow of one public Player or site (emphasis-only, never filters, localStorage, no identity-plane requests) + compact Player summary from the current window; `rooms[].traces[]` field contract for shipped Feature D residue (scar/repair plate/unfinished work, cap 3, notice family never, post-LEAVE_WORLD); additive `recent_events[].actor_label` / `recent_events[].consequence`; GC10-S2 event-silence vs static residue reconciled ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §4.A.1, §4.F, §4.G, §6, §15).
-- [x] WATCH Phosphor legibility: sketch labels never overdrawn (placement/ground plate); adjacent compact HTML map key required, distinct from the catalog legend ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18 render rules).
-- [x] WATCH Phosphor default: §18 PIXEL sketch is the default public-door cartography (Canvas 2D permitting); TEXT one keystroke away, complete and authoritative; §4.B.1 cartogram is the TEXT/no-canvas fallback, never alongside the canvas ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18, §4.B.1).
-- [x] WATCH ASCII cartogram specified: TEXT-mode `<pre>` is a 2D cartogram rasterized from the same deterministic public layout as Phosphor PIXEL; bounded grid with line-list fallback; `aria-hidden` atmosphere; semantic list remains accessible authority; hidden topology never enters layout, rasterization, or fallback ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §4.B.1).
-- [x] WATCH Living Chamber motion specified: tiered event pulses per the §18.5 atlas (≤3 non-MAJOR concurrent, 1 MAJOR), `exit_active` public-move edge lighting, feed-insert settle SHOULD, MAJOR banner MUST-render; event-born motion only, no ambient loop, reduced-motion silent; no new `watch-live/1.0` fields ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §8, §18.6).
 - [x] Experience fixtures and validation coverage exist.
 - [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
 - [x] Text-first but not text-only PLAY: contextual controls, command equivalence, human-readable targeting, and plain-language consequences/errors.
@@ -247,11 +239,6 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Projection freshness and Player knowledge stay distinct from research stores.
 - [x] Architecture-design frontier: reducer registry landed; RFC-0016 hosted durable world head Accepted. SERIALIZABLE cycle fence remains later. No stack change.
 - [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
-- [x] Remaining-work live-state snapshot: `docs/REMAINING-WORK-2026-08-21.md` (2026-08-21). Successor inhabit + partner operator hats. Not a thaw. Not authorization.
-- [x] RFC-0122 Accepted: EWM product world `world.perihelion-reach-3`. No force on reach-2 or frozen first world. Isolated PASS is the gate.
-- [x] Remaining-work reach-3 snapshot: `docs/REMAINING-WORK-2026-08-21-reach3.md`. HARVEST materials + CONSTRUCT relay proven live.
-- [x] MUD-native interaction campaign (spec only): `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md`, plan, tasks. No new verbs. No Genesis. Not a runtime thaw.
-- [x] MUD Play Craft companion specs-complete (C1–C9; C2 sketch): `docs/MUD-PLAY-CRAFT.md`, `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` (runtime phases R0–R5), `examples/mud-play-craft/`. No new verbs. No Genesis. Runtime remains separate.
 - [x] S0 closeout + S1 order: `docs/GC-S0-CLOSEOUT-2026-08-13.md`, `docs/GC-S1-ORDER.md`.
 - [x] RFC-0017 Accepted: hosted cycle fence / STALE_HEAD / crash-retry. No event-catalog/0.3.
 - [x] RFC-0018 Accepted: archive-claim writer pin. INSPECT not a writer. No Genesis pack.
@@ -305,19 +292,18 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0029 Accepted: institutional TRADE/REPAIR via occupied office profiles. No new verbs. Emergency scopes and succession remain later.
 - [x] RFC-0030 Accepted: emergency scopes as time-bounded grants. Designated succession remains later.
 - [x] RFC-0031 Accepted: designated institutional succession. No implicit jump. Emergency remaining duration. Consensus/dynasty remain out.
-- [x] Hosted canonical-head settlement (production): live `/ready` is `ACTIVE` / `HEALTHY` for `world.perihelion-reach` / `genesis.ef578f4ffceeccd0`. Head tables + RPCs `noema_commit_canonical_settlement` / `noema_adopt_live_world_head` are present ([Noema `docs/DATA-STORES.md`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/DATA-STORES.md); [RFC-0016](rfcs/RFC-0016-hosted-durable-world-head.md); [RFC-0017](rfcs/RFC-0017-hosted-cycle-fence.md)). Production head is not missing. Do not reseed. Do not Recover again.
-- [x] Isolated Worker/DO/SQL proof on `test.hosted-canonical.*`: shipped `workers/noema/test/isolated-settlement-proof.test.ts` (events + digest + revision bump + idempotent retry + `STALE_HEAD` + adopt/recover, never Genesis), live `scripts/isolated-ack.mjs` ENTER 200 / Perihelion 403, and live `scripts/isolated-inspect.mjs` INSPECT 200 on `test.hosted-canonical.inspect-s0` (`entity.way-lamp` in `room.anchor`; stale `ack-s3` may lack the lamp). Read-only SQL 2026-08-19: Perihelion head matches `/ready` (105/307/rev 176/`sha256:18acf`); `inspect-s0` head `DEMO_SEED`/`HEALTHY` rev 2 seq 1. Live `inspect-settlement.mjs` remains GET/OpenAPI-only (needs `SUPABASE_*` in a shell). Production Worker `90b31d30` (`5755a25`, #317 `/ready` wrap) is on noema.guru. This is **not** “production head missing.” [Noema `docs/RUNTIME-READINESS-2026-08-13.md`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/RUNTIME-READINESS-2026-08-13.md).
+- [ ] Hosted canonical-head settlement: Worker #96 deployed; SQL/RPC apply and isolated verification not yet observed. Perihelion bootstrap blocked.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
 
 ## Semantic Evolution & Drift (v0.1+)
 
-- [x] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
+- [ ] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
   - Signaling Layer (Argent Signaling Protocol style: @C certainty, @G grounding, @S stochasticity, assumptions)
   - Agent Drift metrics (ASI composite: semantic, coordination, behavioral)
   - Reputation, image scoring, justified punishment, second-order norms, cultural evolution
   - Semantic-Geometric Co-evolution (content + topology/curvature for early risk)
   - Ontological grounding and consistency checks
   - Integration with EWM layers (beliefs, co-evolve, SAR, observations, genesis)
-- [x] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
-- [x] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
-- [x] Runtime v0.1 surface shipped on existing verbs (Noema p5-01 `#461`, p5-02 `#462`, p5-03 `#463`/`#464`, p5-04 protocol/ontology): optional ASP on MESSAGE / ATTEST / TRADE / ORG_CREATE; missing signal legal; malformed certainty/grounding is `INVALID_REQUEST`; hearsay / `inferred-from-belief` quarantined before ATTEST, TRADE accept, and ORG_CREATE mutate world state; privileged `image_score` / `conduct_toward` / `second_order` (not a WATCH reputation scalar — GC3-S0); LOOK `reputation_summary` (self only) and `active_norms`; affordance `hint` (TRADE standing, HARVEST/CONSTRUCT under pressure) without hiding verbs; `protocol_strength` increments on grounded success (compact +2 when harvest_pressure > 4); ATTEST ontological gate (claim vs colocated condition/scar; `entity.*` assumptions must be in-room); Forman–Ricci `cascading_risk` (not Wasserstein Ollivier); `EWM_ENHANCED` Cycle 0 seeds protocol_strength + signaling_styles for **new** worlds only. Missing signals do not inflate `semantic_drift`. No new verbs. Wasserstein Ollivier, live cultural-generation, and official-client chrome remain later.
+- [ ] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
+- [ ] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
+- [ ] Runtime implementation follows frozen spec (P5 in semantic-evolution-assimilation-plan.md)

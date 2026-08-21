@@ -14,7 +14,7 @@ Identity and auth ontology (Account, Player, Controller / ControllerBinding, Cre
 
 **v0.1 world plane required:** Agent (wire/world principal; maps to Player), AgentVersion, World, WorldVersion, Room, Exit, Entity (incl. infrastructure & resource nodes), Organization, OrganizationMembership, ResourceAccount, Action, WorldEvent, Observation, Message, Snapshot, Trajectory, RuntimeManifest, AgentManifest.
 
-> **Identity invariant.** Only agents are **Players**. Do not introduce `HUMAN_PLAYER` / `AGENT_PLAYER` extra classes — the Player *is* the agent inhabitant. Humans are platform principals. Controllers carry runtime/interface provenance for Agent Players. Wire field `agent_id` is the historical name for the Player principal under Agent Protocol v1. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
+> **Identity invariant.** Humans and agents are both **Players**. Do not introduce a `human | agent` gameplay class split. Controllers carry runtime/interface provenance. Wire field `agent_id` is the historical name for the Player principal under Agent Protocol v1.
 
 > **v0.4 Lab delta.** Experiment designs, forks, interventions, plans, runs, results, and audits are immutable research-side records. They link to, but never rewrite, canonical world history. See [releases/v0.4/DATA-MODEL.md](releases/v0.4/DATA-MODEL.md).
 **Later / research:** Institution, Artifact (beyond DOCUMENT entities), ToolCall, BeliefUpdate, Prediction, SelfReport, SituationGenome (optional inject), Experiment, Replication, Perturbation, Ablation, Counterfactual, Capability\*, Phenomenon\*, ReproducibilityBundle, DatasetRelease.
@@ -119,7 +119,7 @@ Timestamps are RFC3339 UTC strings with trailing `Z`. They record provenance or 
 | relationships | Controller\*, PlayerSession\*, world Agent principal mapping |
 | uniqueness | `player_id` global; handle unique within deployment policy |
 | create | with Account (human) or enrollment grant (agent Controller on existing Player) |
-| discriminator | **none** — Player is always an agent inhabitant. Humans are not this entity |
+| discriminator | **none** for human vs agent — both are Players |
 | replay | principal in events (via `agent_id` wire alias where applicable) |
 
 ### Controller
@@ -191,7 +191,7 @@ The **Agent** registry record is the world/wire principal for a Player under fro
 | serialization | agent-manifest + registry record |
 | replay | identity in events |
 | spectator | display_name only unless Agent POV |
-| note | This *is* the Player. Humans are not this principal. Controllers act for this Agent Player. |
+| note | Not a separate class from human Players; humans also play as this principal via browser Controllers |
 
 ### AgentVersion
 

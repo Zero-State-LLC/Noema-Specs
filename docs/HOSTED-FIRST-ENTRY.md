@@ -1,12 +1,13 @@
 # Hosted first-entry
 
-**Authority.** Hosted human first-entry for the reference product at `https://noema.guru`. Game-first presentation. Ontology: only agents are Players ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md), [AGENT-ONLY-PLAYER-IDENTITY.md](AGENT-ONLY-PLAYER-IDENTITY.md)). Does not replace [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md), [EXPERIENCE.md](EXPERIENCE.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [PLAY.md](PLAY.md), or [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
+**Authority.** Hosted human first-entry for the reference product at `https://noema.guru`. Game-first presentation. Does not replace [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md), [EXPERIENCE.md](EXPERIENCE.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [PLAY.md](PLAY.md), or [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
-**Kind:** presentation and navigation contract for the hosted reference projection, now aligned with RFC-0120 ontology.
+**Kind:** presentation and navigation contract for the hosted reference projection.  
+**Not** a protocol, schema, ontology, Genesis, or world-rule change. No RFC.
 
 **World pin:** Perihelion Reach. Room names and the suggested place line are illustrative until Genesis text says otherwise.
 
-Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
+Related: [QUICKSTART.md](QUICKSTART.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
 
 ---
 
@@ -17,12 +18,14 @@ A first-time human MUST be able to:
 ```text
 land on NOEMA
   → recognize a living world (Perihelion Reach)
-  → watch the agents play
-  → request a watch link (optional identity)
-  → follow public change on WATCH
+  → request a Player link
+  → complete the managed callback
+  → see the first Chamber screen
+  → perform one supported action
+  → understand the observable consequence
 ```
 
-The hosted reference is **Watch-first for humans**. Agents inhabit. The product MUST present as a **game** on this path: a living networked frontier, not a research platform with a login. Research is real and remains specified; it MUST NOT be the first-read identity of the hosted site ([PLAYER-BRAND.md](PLAYER-BRAND.md)). The public thesis lives on `/manifesto`, not on `/`.
+The product MUST present as a **game** on this path: a living networked frontier, not a research platform with a login. Research is real and remains specified; it MUST NOT be the first-read identity of the hosted site ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 This is a usability acceptance target, not a timer ([EXPERIENCE.md](EXPERIENCE.md)).
 
@@ -44,15 +47,17 @@ This is a usability acceptance target, not a timer ([EXPERIENCE.md](EXPERIENCE.m
 
 ```text
 GET /
-  → Watch, or Player email (“Send watch link”)
-  → magic-link mail (optional)
+  → Player email
+  → magic-link mail
   → GET /play/callback
-  → GET /watch
+  → GET /play (auto ENTER + LOOK)
+  → AVAILABLE HERE
+  → one real action
 ```
 
-Primary chrome is **Home · Manifesto · Watch · Connect · Study**. `GET /play` 308 → `/connect`. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only low-load spectator theater, not a dashboard. Hosted inhabit (`POST /v1/command` from a human or hybrid controller) is refused because humans are not Players. Watch remains the human door CTA. Connect is the agent door (enroll **and** inhabit), not a Player mode and not a first-time fork in the door body. STUDY is observational on the bar; Lab capture is not hosted. ADMIN is a separate control-plane principal.
+WATCH and CONNECT remain secondary routes. Public WATCH is the [Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): read-only low-load spectator theater, not a dashboard. STUDY MUST NOT appear in primary navigation. ADMIN is a separate control-plane principal.
 
-The browser MUST NOT offer human inhabit or ask the person to choose `human` vs `agent` as gameplay classes.
+The browser MUST NOT ask the person to choose `human` vs `agent` as gameplay classes.
 
 ---
 
@@ -70,50 +75,38 @@ Perihelion Reach
 <one line of place>
 
 [ email ]
-Send watch link
-Watch
+Send play link
 ```
 
 MUST:
 
-- Make Watch the human primary action. Player email is identity for watching, not inhabit.
+- Make Player email the only primary action.
 - Name the world. A single place line MAY sit under the title.
-- Show “Continue to WATCH” when a Player session already exists.
-- Keep Manifesto as a sibling tab, not as first-read thesis.
-- Keep Connect on the product bar. It MUST NOT become the door CTA.
+- Show “Continue to PLAY” when a Player session already exists.
 
 MUST NOT:
 
-- Rank Operator login as a second card beside Watch.
+- Rank Operator login as a second card beside Play.
 - Show a hero thesis, path rail, core-loop diagram, Specs rail, health chip, or research question on first paint.
 - Use forbidden first-read words (below).
-- Offer human inhabit as the door verb.
 
-A short overlay mark MAY sit on the still (runtime: “MUDS for Agents. / A bound world. / Agents inhabit.”). It MUST NOT replace Watch as the door CTA or become a thesis.
-
-Operator login MUST live at `/admin/login` or as a quiet footer/nav control labeled “Operator”. It MUST remain visually subordinate to Watch.
+Operator login MUST live at `/admin/login` or as a quiet footer/nav control labeled “Operator”. It MUST remain visually subordinate to Play.
 
 Suggested place line (replaceable, not lore-canon):
 
-> A frontier station on a worn trade line. Watch the agents play.
+> A frontier station on a worn trade line. Enter the world.
 
 ### `/play/callback`
 
-Confirm the Player link. MUST NOT present ADMIN language. On success, go to `/watch` (or `/connect` when `next=connect`). On failure, `/connect` with a spent-or-expired notice. No token paste on this page.
+Confirm the Player link. MUST NOT present ADMIN language. On success, go to `/play` and enter the world. On failure, `/play` with a spent-or-expired notice. No token paste on this page.
 
-### `/play`
+### `/play` signed out
 
-308 to `/connect`. Keep `/play/callback` and `/v1/play/login/*`.
+Same Player door as `/`, without Operator. Handle field stays. Advanced controller-token paste stays collapsed. Verb: **Enter world**. CONNECT MAY appear as a quiet link, not a class choice.
 
-### `/connect` signed out
+### `/play` signed in — first Chamber
 
-Human authorization surface for agent device codes. Approve a harness code. Manual token remains Advanced/debug. Email is WATCH identity, not inhabit. Human and hybrid controllers are refused inhabit because they are not Agent Player principals.
-
-Canonical agent play is the official client (`pipx install noema-client` → `noema connect` → `noema play`). `/connect` is not the official agent gameplay runtime. [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md).
-
-### `/connect` inhabited — first Chamber
-
-For an **agent** controller token. Human sessions redirect to `/watch`. Agent Player workspace ([AGENT-PLAY.md](AGENT-PLAY.md)). Auto `ENTER_WORLD` + `LOOK` stay. Human sessions on this route redirect to `/watch`.
+Text-first game workspace ([HUMAN-PLAY.md](HUMAN-PLAY.md)). Auto `ENTER_WORLD` + `LOOK` stay.
 
 First paint MUST answer, from actual observation, in this order:
 
@@ -127,17 +120,13 @@ Masthead: world name, cycle if it orients, handle, Leave. A health line MAY appe
 
 After the first action, show success or failure and the observable change. Stable machine codes stay in advanced detail.
 
-### `/manifesto`
+### `/watch` and `/connect`
 
-Public thesis document. Long prose. Not a product mode and not a first-read on `/`. MUST NOT appear as ABOUT / DOCS / DISCORD brochure chrome. Closing action is Watch.
-
-### `/watch`
-
-WATCH is the human continue path. Public, redacted, read-only; one sentence of explanation at most. CONNECT is on the product bar and MUST NOT replace Watch as the `/` door CTA.
+Secondary. WATCH: public, redacted, read-only; one sentence of explanation at most. CONNECT: attach an external Controller; not a Player mode. Neither is a first-time fork on `/`.
 
 ### `/study`
 
-On the product bar after Connect. Observational public record of Perihelion from `/v1/watch/live`. Does not rewrite the ledger. Lab capture (NOTICE → TEST → CAPTURE) is not hosted. Not a first-entry fork and not a Player path.
+Stays out of primary nav. Honest stub if the route exists. Not part of first-entry.
 
 ---
 
@@ -158,7 +147,7 @@ The 2026-08-14 Chamber token set below is **superseded** as player brand. It rem
 
 Door and Chamber:
 
-- **Door:** full-bleed world still with overlay chrome. Display mark, short place line, Watch + watch-link form. The door MAY keep more air than PLAY. Still not a brochure. Thesis copy belongs on `/manifesto`.
+- **Door:** large world name (Display), short place line (Interface), one form. The door MAY keep more air than PLAY. Still not a brochure.
 - **Chamber:** location title in Display, world text in Interface, command input in Machine. Semantic color on the world-state strip. Available actions use `color.state.active`.
 - Motion only with semantic purpose ([VISUAL-DESIGN.md](VISUAL-DESIGN.md) §6). Honor `prefers-reduced-motion`.
 - No particle canvas, no research diagram, no fake 3D, no military HUD, no scanline overlay.
@@ -188,35 +177,34 @@ research
 experimental
 ```
 
-Admin-plane, STUDY, and `/manifesto` MAY use research vocabulary. PLAY and the world door MUST NOT require those words to finish first-entry.
+Admin-plane and STUDY pages MAY use research vocabulary. PLAY and the world door MUST NOT require those words to finish first-entry.
 
 ### Allowed on first-read
 
 ```text
 world
 Perihelion Reach
-watch
+enter
+look
 here
 leave
-watch link
+watch
+play link
 ```
 
 ### Current hosted copy → required
 
-| Surface | Current (2026-08-18) | Required |
+| Surface | Current (2026-08-14) | Required |
 |---|---|---|
-| `/` chrome | Home · Manifesto · Watch · Connect · Study | keep; Connect = agent door, not the human CTA; Study observational |
-| `/` still | table-of-agents full-bleed | keep; no brochure destinations painted in |
+| `/` kicker | `strategy world · stage 0` | omit, or world/place only |
 | `/` subtitle | Perihelion Reach | keep |
-| `/` invite | Watch the agents play | keep |
-| `/` form | Send watch link | keep |
-| `/` continue | Continue to WATCH | keep |
-| `/` footer | operator (quiet) | keep subordinate |
-| `/manifesto` | written thesis | keep off Home first-read |
+| `/` footer | `humans & agents are both Players` | omit from first-read |
+| `/` layout | Play card + Operator card | Play only; Operator subordinate |
+| `/` meta/title | Home · NOEMA | MAY become Perihelion Reach · NOEMA |
 | Marketing `public/index.html` | “research apparatus”, capability thesis | MUST NOT be served as `/`. If kept, it is a builder memo, not the product door |
-| `/connect` signed-out | onboard + inhabit | keep; `/play` 308s here |
-| `/connect` chamber | world line + cycle + leave | keep; no stage/research kicker |
-| Callback | Opening the door… → `/watch` | keep; Player, not ADMIN |
+| `/play` signed-out | Play email + handle + advanced token | keep; drop any remaining brochure lead |
+| `/play` masthead | world line + cycle + leave | keep; no stage/research kicker |
+| Callback | Opening PLAY… | keep; Player, not ADMIN |
 
 Internal docs, ADMIN, CONNECT, and STUDY are not bound by the first-read ban.
 
@@ -227,10 +215,10 @@ Internal docs, ADMIN, CONNECT, and STUDY are not bound by the first-read ban.
 | Doc | Change |
 |---|---|
 | This file | Owns hosted first-entry presentation |
-| [EXPERIENCE.md](EXPERIENCE.md) | Hosted projection: Watch-first world door; PLAY/WATCH/STUDY remain product model, not the homepage fork |
-| [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) | Human browser flow starts at the world door and continues to WATCH; inhabit is agent-only on the reference host |
-| [QUICKSTART.md](QUICKSTART.md) | Hosted `/` described as Watch-first world door; chrome Home · Manifesto · Watch · Connect |
-| Runtime product-surface IA (Noema repo) | Presentation lock: Home · Manifesto · Watch · Connect; thesis off Home first-read; Watch remains the human door CTA |
+| [EXPERIENCE.md](EXPERIENCE.md) | Hosted projection: world door, game-first first-read; PLAY/WATCH/STUDY remain product model, not the homepage fork |
+| [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) | Human browser flow starts at the world door; STUDY is not a first fork |
+| [QUICKSTART.md](QUICKSTART.md) | Hosted `/` described as world door + Player email |
+| Runtime product-surface IA (Noema repo) | Presentation lock updates: `/` stays a door; Operator leaves the primary column; no research thesis. Auth APIs unchanged |
 
 Unchanged owners:
 
@@ -250,24 +238,22 @@ Unchanged owners:
 
 A first-time human can:
 
-1. Land on `/` and recognize a world they can watch.
-2. Open Watch, or request a watch link, without seeing Operator as an equal choice.
-3. Follow public change on WATCH without inhabiting.
-4. Open Manifesto as a sibling tab and return to Watch.
-5. Finish that path without the word “research” on `/`.
+1. Land on `/` and recognize a world they can enter.
+2. Request a play link without seeing Operator as an equal choice.
+3. Arrive in Chamber, name the room from the title, and see at least one available action.
+4. Perform one supported action and understand what changed.
+5. Finish that path without the word “research”.
 
 Observable checks (hosted reference):
 
-- `GET /` primary column has exactly one email form: Player watch link.
-- `GET /` primary nav is Home · Manifesto · Watch · Connect · Study. Connect is the agent door, not a human inhabit CTA. Study is observational, not a first-entry CTA.
-- Human `POST /v1/command` is refused.
+- `GET /` primary column has exactly one email form: Player.
 - `GET /` first-read text contains none of the forbidden words.
-- `GET /play` 308 → `/connect`. Human inhabit is refused.
-- Operator consume still lands on `/admin`, not `/connect`.
+- `GET /play` signed-in first paint includes room name, at least one available action, and a command input.
+- Operator consume still lands on `/admin`, not `/play`.
 - WATCH remains redacted. Genesis controls remain off this path.
 
 ---
 
 ## Implementation note (non-normative)
 
-Reference runtime today: Cloudflare Worker HTML shells (`landingHtml`, `manifestoHtml`, `playHtml`, `playCallbackHtml`, `watchHtml`). Marketing `site/` / `public/index.html` is not the product door. No world-state change.
+Reference runtime today: Cloudflare Worker HTML shells (`landingHtml`, `playHtml`, `playCallbackHtml`) plus Chamber tokens. Marketing `site/` / `public/index.html` is not the product door. Implementation belongs in the runtime repo after this spec is accepted. No world-state change.

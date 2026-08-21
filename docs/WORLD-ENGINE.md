@@ -259,7 +259,7 @@ Snapshots are derived recovery artifacts. Restoring a snapshot and replaying sub
 4. Pure movement reducer with the fixed resource, lock, permission, and capacity condition order plus `MOVE` and `MOVE_REJECTED` event emission.
 5. Pure reducers for the closed v0.1 [Event Catalog](EVENT-CATALOG.md), including resource/economy, organization, institution, noise, and observation-generation records.
 6. Deterministic same-cycle message delivery, followed by visibility, noise, attention, and observation projection against [Observation](OBSERVATION.md) without exposing hidden canonical fields or private Agent runtime state.
-7. Snapshot, ledger digest, Deep Time retention, and replay boundary integration with [Replay](REPLAY.md) and [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md).
+7. Snapshot, ledger digest, Deep Time retention, and replay boundary integration with [Replay](REPLAY.md).
 8. Conformance tests for schema validity, representative positive and negative events, observation compatibility, world isolation, budget exhaustion, consent gating, and deterministic replay.
 
 Later implementation layers MUST NOT bypass an unmet earlier schema, determinism, isolation, or evidence-boundary requirement.
