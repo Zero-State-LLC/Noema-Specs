@@ -89,6 +89,7 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0118](RFC-0118-work-consumes-cargo.md) | **Accepted** | Work consumes cargo |
 | [RFC-0119](RFC-0119-wait-cargo-fuel.md) | **Accepted** | WAIT burns cargo for energy |
 | [RFC-0120](RFC-0120-agent-only-player-identity.md) | **Accepted** | Only agents are Players; humans are platform principals |
+| [RFC-0121](RFC-0121-perihelion-successor-world-version.md) | **Accepted** | Perihelion successor `world.perihelion-reach-2`; 10-room CHAMBER-MAP; no live reseed |
 
 ## Required review lenses
 

@@ -51,4 +51,6 @@ It does **not** require reseeding the activated world. Public WATCH on 2026-08-1
 
 Changing the live room set requires a new Genesis / `world_version`, not an ad-hoc edit.
 
+That successor is RFC-0121: `world.perihelion-reach-2`, not an edit of `genesis.ef578f4ffceeccd0`.
+
 See [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing, [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md), and the runtime closeout in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.

@@ -4,6 +4,7 @@
 
 ### Added
 
+- **RFC-0121 Perihelion successor world_version:** specifies successor identity `world.perihelion-reach-2` with 10-room CHAMBER-MAP Cycle 0 and isolated rehearsal seed `perihelion-successor-rehearsal-01`. Does not reseed `genesis.ef578f4ffceeccd0`. Does not flip production `DEFAULT_WORLD_ID`. Spec: `rfcs/RFC-0121-perihelion-successor-world-version.md`.
 - **WATCH Phosphor legibility:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 render rules — sketch site labels MUST NOT be overdrawn by glyphs/marks/routes/pulses (separate placement and/or ground plate; unreadable labels are a defect), and the sketch MUST carry an adjacent compact HTML map key (site, active site, occupancy, route, uncertain route, pulse, MAJOR color); the header catalog legend does not substitute. Presentation only. No new fields. No RFC.
 
 - **WATCH Phosphor by default:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 render rules — the graphical Phosphor sketch is the default first-glance cartography on the public door when Canvas 2D is available; plain text as the default map is named a presentation defect. TEXT stays one keystroke away, disables the canvas, MAY persist client-locally, and remains complete and authoritative in every mode. §4.B.1 ASCII cartogram demoted to TEXT-mode/no-canvas fallback (one map at a time). Presentation only. No new fields. No RFC.

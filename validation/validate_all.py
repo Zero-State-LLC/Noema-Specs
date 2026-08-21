@@ -10151,6 +10151,27 @@ def check_rfc_0120(Draft202012Validator) -> None:
     ok("RFC-0120 agent-only Player identity: catalog, constitution, fixtures")
 
 
+def check_rfc_0121() -> None:
+    rfc = (ROOT / "rfcs" / "RFC-0121-perihelion-successor-world-version.md").read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1].split("##", 1)[0]:
+        fail("RFC-0121 must be Accepted")
+    for needle in (
+        "world.perihelion-reach-2",
+        "genesis.ef578f4ffceeccd0",
+        "perihelion-successor-rehearsal-01",
+        "room.civic-exchange",
+        "POLICY_DENIED",
+        "RFC-0120",
+    ):
+        if needle not in rfc:
+            fail(f"RFC-0121 missing {needle}")
+    if "reseed `genesis.ef578f4ffceeccd0`" in rfc.lower() and "Do not reseed" not in rfc:
+        fail("RFC-0121 must forbid live reseed")
+    if "Do not reseed" not in rfc and "no reseed" not in rfc.lower():
+        fail("RFC-0121 must forbid live reseed")
+    ok("RFC-0121 Perihelion successor world_version")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -10286,6 +10307,7 @@ def main() -> None:
     check_gc8_s6(Draft202012Validator)
     check_gc8_s7(Draft202012Validator)
     check_rfc_0120(Draft202012Validator)
+    check_rfc_0121()
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
