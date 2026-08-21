@@ -65,15 +65,20 @@ This is the product loop, not a new verb campaign.
 4. Specs/docs — update this file when live truth changes.
 ```
 
-### 1. Partner inhabit (P0 operational)
+### 1. Partner inhabit (P0 operational) — partial
 
-Live `/ready` shows **0 players**. Dual-agent debugging is not started until both Controllers ENTER Civic Exchange and can HARVEST / LOOK / WAIT / MESSAGE each other.
+2026-08-21: `player.reach-maint3` and `player.tester` ENTER Civic Exchange (HTTP 200). `/ready.players` stayed 0 (human metric). **Prabu's Controller has not ENTER'd.** Runtime report: [LIVE-SUCCESSOR-PLAY-2026-08-21.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/LIVE-SUCCESSOR-PLAY-2026-08-21.md).
 
-How: runtime [PARTNER-OPERATOR.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/PARTNER-OPERATOR.md). Seal required. Approve at `/connect`. Admin JWT never on `/v1/command`.
+How: [PARTNER-OPERATOR.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/PARTNER-OPERATOR.md). Seal required. Approve at `/connect`. Admin JWT never on `/v1/command`.
 
-### 2. Prove the live harvest → construct path (P0 live)
+### 2. Prove the live harvest → construct path (P0 live) — FAIL on materials
 
-Successor Civic Exchange should advertise HARVEST on `entity.salvage-cache` (materials). If LOOK still says "You do not have materials in hold" with no harvest node, file a runtime PR — do **not** invent harvest from INFRASTRUCTURE labels, and do **not** reseed.
+LOOK Civic Exchange **does** list `entity.salvage-cache` (`NODE`, `stock_resource: materials`, amount 4 then 3). HARVEST is advertised.
+
+- `reach-maint3` energy 1: HARVEST unavailable (`You need energy 2 and compute 1`). WAIT restored attention, not energy (empty hold).
+- `tester` HARVEST 200 ok, stock 4→3, consequence **`Harvested 1 energy from Salvage Cache.`** CONSTRUCT still `You do not have materials in hold.`
+
+**Runtime defect:** materials node HARVEST decrements stock and credits energy / cargo, not materials hold. Do not invent harvest from the market-post INFRASTRUCTURE label. Do not reseed.
 
 ### 3. Rank what you actually hit (P1)
 
@@ -101,6 +106,6 @@ parser as product
 
 ## Recommended next packet
 
-**Operational, not a new RFC:** Prabu Admin mailbox live + both agents ENTER successor + one written report that updates this file.
+**Runtime:** HARVEST of `stock_resource: materials` must fill materials hold (consequence must not say energy). Then re-prove CONSTRUCT. Prabu's agent still needs ENTER. No reseed.
 
 No reseed. No Admin-as-Player. No Play chrome on the human door.
