@@ -1,0 +1,17 @@
+{
+  "schema_version": "economy-catalog/gc8-s7",
+  "catalog_id": "economy-catalog/gc8-s7",
+  "slice_id": "gc8-s7",
+  "authority": "docs/GC8-S7-WAIT-CARGO-FUEL.md",
+  "rfc": "rfcs/RFC-0119-wait-cargo-fuel.md",
+  "new_verbs": [],
+  "new_events": [],
+  "currency": false,
+  "crypto": false,
+  "watch_cargo": false,
+  "storage_capacity": 16,
+  "energy_grant": 80,
+  "fuel_cargo": 1,
+  "fuel_energy": 2,
+  "skip_after_lockout_rest": true
+}

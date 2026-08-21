@@ -1,0 +1,16 @@
+{
+  "schema_version": "economy-catalog/gc8-s6",
+  "catalog_id": "economy-catalog/gc8-s6",
+  "slice_id": "gc8-s6",
+  "authority": "docs/GC8-S6-WORK-CARGO.md",
+  "rfc": "rfcs/RFC-0118-work-consumes-cargo.md",
+  "new_verbs": [],
+  "new_events": [],
+  "currency": false,
+  "wallet": false,
+  "crypto": false,
+  "work_consumes_cargo": true,
+  "storage_capacity": 16,
+  "repair_cargo": 1,
+  "watch_cargo": false
+}

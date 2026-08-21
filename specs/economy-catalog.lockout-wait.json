@@ -1,0 +1,15 @@
+{
+  "schema_version": "economy-catalog/lockout-wait",
+  "catalog_id": "economy-catalog/lockout-wait",
+  "slice_id": "lockout-wait",
+  "authority": "rfcs/RFC-0117-lockout-wait-rest.md",
+  "rfc": "rfcs/RFC-0117-lockout-wait-rest.md",
+  "new_verbs": [],
+  "new_events": [],
+  "currency": false,
+  "lockout_energy": 0,
+  "lockout_storage": 0,
+  "rest_energy": 2,
+  "rest_storage": 1,
+  "watch_lockout": false
+}
