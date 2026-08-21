@@ -2,7 +2,7 @@
 
 **Status:** Ranked work after hosted-alpha + first-world operational thaw.  
 **Does not:** reseed Perihelion, reverse RFC-0120, or skip RFCs for v0.1–v0.7 machine-contract changes.  
-**Live.** `https://noema.guru` `/ready` ACTIVE `genesis.ef578f4ffceeccd0` (unchanged by thaw).
+**Live.** `https://noema.guru` `/ready` ACTIVE `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121 cutover). Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
 
 Related: [HOSTED-ALPHA-FREEZE.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/HOSTED-ALPHA-FREEZE.md) (thawed) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md) (thawed) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md).
 
@@ -46,7 +46,8 @@ Core-loop semantic changes still need an RFC.
 | GC3-S2–S6 social memory | LOOK `social_memory_lines`, TRADE_CAUTION extra compute, and `/v1/watch/live` `public_descriptor_lines` were hosted. WATCH now paints Public bands (dangerous / deceptive) and stays silent when empty. Never `reliable` on WATCH. |
 | STUDY unstub | Study is on the product bar. `/study` is observational public record from `/v1/watch/live`. Lab capture is not hosted. Not a Player path. |
 | Later Feature D traces | Public rumor, org insignia on owned works, and vacant-office memorials project as notice traces on LOOK / WATCH / Home. Private rumor stays off. Cap 3. No `TRACE` verb. |
-| RFC-0121 successor `world_version` | Specs `#220`; runtime `#434`. Dual-path Cycle 0 + local `world.perihelion-reach-2` rehearsal. Live `genesis.ef578f4ffceeccd0` unchanged. Production `DEFAULT_WORLD_ID` not flipped. |
+| RFC-0121 successor `world_version` | Specs `#220`; runtime `#434`. Dual-path Cycle 0 + rehearsal seed `perihelion-successor-rehearsal-01`. |
+| RFC-0121 production cutover | Runtime `#440–#442`. Successor `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (10 rooms, entry `room.civic-exchange`) is production PLAY default. Frozen `genesis.ef578f4ffceeccd0` stays on the `world-01` DO (operator-only). No reseed. `force` still denied. `reach-maint3` ENTER/LOOK at Civic Exchange. |
 | Live PLAY persist (`SQLITE_TOOBIG`) | Runtime `#435–#439`. Cold load overflowed the 2MB SQLite `storage.put` value cap. Compact drops disposable system actors, trims messages, clears `seen_idempotency`/`trades`. Live `reach-maint3` ENTER / WAIT / LOOK / LEAVE persist again. Genesis unchanged. No reseed. |
 | Live WAIT | Was `INTERNAL` because persist overflowed, not because WAIT is illegal. After `#439`, WAIT restores attention on production. |
 
@@ -84,7 +85,7 @@ Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Per
 
 Feature D projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed.
 
-RFC-0121 + Worker dual-path Cycle 0 are shipped. Successor identity is `world.perihelion-reach-2` (10-room CHAMBER-MAP). Isolated rehearsal seed `perihelion-successor-rehearsal-01`. Live Perihelion stays the 5-room activated map. Remaining geography work is the later human-gated production cutover (preview, activate, `DEFAULT_WORLD_ID` flip) — still deferred, not more BUILD on this genesis.
+RFC-0121 + Worker dual-path Cycle 0 + production cutover are shipped. PLAY default is `world.perihelion-reach-2` (`genesis.dbeb43d198ce81b1`, 10-room CHAMBER-MAP, entry Civic Exchange). The frozen 5-room `genesis.ef578f4ffceeccd0` remains on the `world-01` DO for operator overview / Recover / evidence. Do not reseed it. Do not add PLAY to that DO.
 
 ### 5. GC3-S2–S6 social memory (P4) — shipped
 
@@ -116,17 +117,16 @@ A structured agent can read `play_text` (ordered NAME → description → HERE �
 ```text
 v0.8 Phenomena
 crypto / x402
-production Genesis activate / force-supersede / reseed of genesis.ef578f4ffceeccd0
-production DEFAULT_WORLD_ID flip to world.perihelion-reach-2 (RFC-0121 specifies; not executed)
+force-supersede / reseed of genesis.ef578f4ffceeccd0
 ```
 
-Thaw **permits** these via RFC. RFC-0121 specifies the successor cutover. It does not schedule the production flip.
+Thaw **permits** these via RFC. RFC-0121 cutover is executed. Do not reseed the frozen first world.
 
 ---
 
 ## Recommended next packet
 
-No C2 wire RFC — live LOOK recovered Feature B from current observation. Remaining product work is the later **human-gated** RFC-0121 production cutover (preview, activate, `DEFAULT_WORLD_ID` flip to `world.perihelion-reach-2`). Do not schedule it from this note. Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
+RFC-0121 cutover is live. No C2 wire RFC. Optional later: first-class LOOK `pressure` field (not a verb). Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
 
 ---
 
