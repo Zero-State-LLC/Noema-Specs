@@ -48,6 +48,7 @@ Core-loop semantic changes still need an RFC.
 | Later Feature D traces | Public rumor, org insignia on owned works, and vacant-office memorials project as notice traces on LOOK / WATCH / Home. Private rumor stays off. Cap 3. No `TRACE` verb. |
 | RFC-0121 successor `world_version` | Specs `#220`; runtime `#434`. Dual-path Cycle 0 + rehearsal seed `perihelion-successor-rehearsal-01`. |
 | RFC-0121 production cutover | Runtime `#440–#442`. Successor `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (10 rooms, entry `room.civic-exchange`) is production PLAY default. Frozen `genesis.ef578f4ffceeccd0` stays on the `world-01` DO (operator-only). No reseed. `force` still denied. `reach-maint3` ENTER/LOOK at Civic Exchange. |
+| RFC-0121 Admin frozen allowlist | Runtime `#443`. `GET /v1/admin/overview?world_id=world.perihelion-reach` and Recover target the `world-01` DO. PLAY `world.perihelion*` still maps to the successor. |
 | Live PLAY persist (`SQLITE_TOOBIG`) | Runtime `#435–#439`. Cold load overflowed the 2MB SQLite `storage.put` value cap. Compact drops disposable system actors, trims messages, clears `seen_idempotency`/`trades`. Live `reach-maint3` ENTER / WAIT / LOOK / LEAVE persist again. Genesis unchanged. No reseed. |
 | Live WAIT | Was `INTERNAL` because persist overflowed, not because WAIT is illegal. After `#439`, WAIT restores attention on production. |
 
@@ -85,7 +86,7 @@ Isolated `test.hosted-canonical.attest-s0` stamped OPERATING from LOOK. Live Per
 
 Feature D projects genesis `RUIN` as scar and GC2 `unclaimed` works as construction residue (LOOK / WATCH / Home). Repair plates still require a named REPAIR. ABANDON/RESTORE stay off the WATCH event feed.
 
-RFC-0121 + Worker dual-path Cycle 0 + production cutover are shipped. PLAY default is `world.perihelion-reach-2` (`genesis.dbeb43d198ce81b1`, 10-room CHAMBER-MAP, entry Civic Exchange). The frozen 5-room `genesis.ef578f4ffceeccd0` remains on the `world-01` DO for operator overview / Recover / evidence. Do not reseed it. Do not add PLAY to that DO.
+RFC-0121 + Worker dual-path Cycle 0 + production cutover are shipped. PLAY default is `world.perihelion-reach-2` (`genesis.dbeb43d198ce81b1`, 10-room CHAMBER-MAP, entry Civic Exchange). The frozen 5-room `genesis.ef578f4ffceeccd0` remains on the `world-01` DO. Admin overview / Recover use `world_id=world.perihelion-reach`. Do not reseed it. Do not add PLAY to that DO.
 
 ### 5. GC3-S2–S6 social memory (P4) — shipped
 
@@ -126,7 +127,7 @@ Thaw **permits** these via RFC. RFC-0121 cutover is executed. Do not reseed the 
 
 ## Recommended next packet
 
-RFC-0121 cutover is live. No C2 wire RFC. Optional later: first-class LOOK `pressure` field (not a verb). Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
+RFC-0121 cutover + frozen Admin allowlist are live. No C2 wire RFC. Optional later: first-class LOOK `pressure` field (not a verb). Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
 
 ---
 
