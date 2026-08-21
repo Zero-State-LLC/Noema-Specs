@@ -47,6 +47,8 @@ Core-loop semantic changes still need an RFC.
 | STUDY unstub | Study is on the product bar. `/study` is observational public record from `/v1/watch/live`. Lab capture is not hosted. Not a Player path. |
 | Later Feature D traces | Public rumor, org insignia on owned works, and vacant-office memorials project as notice traces on LOOK / WATCH / Home. Private rumor stays off. Cap 3. No `TRACE` verb. |
 | RFC-0121 successor `world_version` | Specs `#220`; runtime `#434`. Dual-path Cycle 0 + local `world.perihelion-reach-2` rehearsal. Live `genesis.ef578f4ffceeccd0` unchanged. Production `DEFAULT_WORLD_ID` not flipped. |
+| Live PLAY persist (`SQLITE_TOOBIG`) | Runtime `#435–#439`. Cold load overflowed the 2MB SQLite `storage.put` value cap. Compact drops disposable system actors, trims messages, clears `seen_idempotency`/`trades`. Live `reach-maint3` ENTER / WAIT / LOOK / LEAVE persist again. Genesis unchanged. No reseed. |
+| Live WAIT | Was `INTERNAL` because persist overflowed, not because WAIT is illegal. After `#439`, WAIT restores attention on production. |
 
 ---
 
@@ -92,9 +94,22 @@ S0–S6 reducers, LOOK lines, TRADE_CAUTION, and WATCH JSON were already hosted.
 
 Study is on primary chrome. `/study` reads the public WATCH projection. It does not inhabit, does not rewrite the ledger, and does not host NOTICE → TEST → CAPTURE. RFC-0120 unchanged.
 
-### 7. C2 agent observation layers (P6)
+### 7. C2 agent observation layers (P6) — proof, no RFC
 
-Still sketch until a structured agent proves current observation cannot recover Feature B layers. Do not RFC yet.
+Live `reach-maint3` LOOK on Grid Anchor (cycle 163, after WAIT restored attention) recovers Feature B without a wire RFC:
+
+| Layer | First-class JSON | Also in `play_text` |
+|-------|------------------|---------------------|
+| place / NAME | `location.name`, `situation.place` | first line |
+| description | `location.description` | second line |
+| pressure | **missing as a field** | strain in the description (“contested access”); HERE condition lines |
+| here | `players_here` | `HERE` block |
+| exits | `location.exits` | `EXITS` block |
+| status | `budgets` | `STATUS` + practice `Work` lines |
+| happened | `consequence` | `HAPPENED` |
+| available_here / COMMAND | `affordances` (50), `available_actions` (8) | not restated as a COMMAND block |
+
+A structured agent can read `play_text` (ordered NAME → description → HERE → EXITS → STATUS → TRACES → HAPPENED) plus the JSON fields. That is not “parse free prose for layers.” Do not RFC unless a real client still cannot recover a layer. Optional later: a first-class `pressure` field. Not a verb. Not a reseed.
 
 ### 8. Core-loop / Genesis ops (defer)
 
@@ -111,7 +126,7 @@ Thaw **permits** these via RFC. RFC-0121 specifies the successor cutover. It doe
 
 ## Recommended next packet
 
-**C2 observation layers** only if a structured agent proves current observation cannot recover Feature B layers — no RFC yet. Successor `world_version` is specified (RFC-0121); production cutover stays deferred. Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
+No C2 wire RFC — live LOOK recovered Feature B from current observation. Remaining product work is the later **human-gated** RFC-0121 production cutover (preview, activate, `DEFAULT_WORLD_ID` flip to `world.perihelion-reach-2`). Do not schedule it from this note. Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
 
 ---
 
