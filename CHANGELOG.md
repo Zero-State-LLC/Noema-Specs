@@ -4,6 +4,11 @@
 
 ### Added
 
+- **Remaining-work 2026-08-21 live state:** `docs/REMAINING-WORK-2026-08-21.md` records successor PLAY, Watch Here sheet, official client 0.1.12, GitHub org-admin for both partners, and in-game Admin vs Agent-Player hats. Ranked next packet is dual-agent inhabit + written reports, not a new verb RFC. Does not reseed. Does not reverse RFC-0120.
+
+### Added
+
+
 - **RFC-0121 Perihelion successor world_version:** specifies successor identity `world.perihelion-reach-2` with 10-room CHAMBER-MAP Cycle 0 and isolated rehearsal seed `perihelion-successor-rehearsal-01`. Does not reseed `genesis.ef578f4ffceeccd0`. Does not flip production `DEFAULT_WORLD_ID`. Spec: `rfcs/RFC-0121-perihelion-successor-world-version.md`.
 - **WATCH Phosphor legibility:** `docs/WATCH-LIGHTWEIGHT-SPECTATOR.md` §18 render rules — sketch site labels MUST NOT be overdrawn by glyphs/marks/routes/pulses (separate placement and/or ground plate; unreadable labels are a defect), and the sketch MUST carry an adjacent compact HTML map key (site, active site, occupancy, route, uncertain route, pulse, MAJOR color); the header catalog legend does not substitute. Presentation only. No new fields. No RFC.
 
