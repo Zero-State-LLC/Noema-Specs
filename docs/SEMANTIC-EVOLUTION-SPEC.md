@@ -181,3 +181,22 @@ New or extended profiles (e.g., `EWM_ENHANCED` + semantic variant) should seed:
 - Emergent Language from Cooperative Foraging (arXiv:2505.12872)  
 - Cultural Evolution of Cooperation among LLM Agents (arXiv:2412.10270)  
 - Auditing Cascading Risks via Semantic–Geometric Co-evolution (arXiv:2603.13325)
+## Deep Time Integration (2026-08)
+This semantic layer is further extended by `DEEP-TIME-MECHANICS-UPDATE.md` for long-horizon persistence, scars as trajectory effects, historical reconstruction as inference, and multi-timescale norm evolution.
+
+## 11. Deep Time Integration Table (2026-08)
+
+This layer integrates with the Deep Time foundation via the following extensions (see `DEEP-TIME-MECHANICS-UPDATE.md` for full spec):
+
+| EWM / Semantic Component | Deep Time Extension | Effect / Fields |
+|--------------------------|---------------------|-----------------|
+| BeliefState + co_evolve | HistoricalTrajectorySummary + ScarVector | Non-Markovian rate/affordance modifiers from past trajectories |
+| ATTEST / Evidence | EvidenceFragment (trajectory + grounding) | Reconstruction as inference over noisy historical paths; fidelity scores |
+| ORG / Norms | Path-dependence + reversal_cost | Slow cultural ratchets; lock-in on established institutions |
+| Succession | scar_vector + trajectory_digest + lore_seeds inheritance | Leaders carry forward scars and compressed history |
+| Genesis / living micro-events | Foundational scars + lore crystallisation | Deep-time events at genesis or SAR-proposed |
+| Observation | scars[], historical_context, lore_attractors, path_dependence_index | History-sensitive affordances and visibility |
+| SAR / economic_health | Multi-timescale metrics (scar_persistence, reconstruction_fidelity, historical_alignment) | Separate fast (EWM) and slow (Deep Time) health loops |
+| Lore / Names / Boundaries | Slow attractors with historical weight | Path-dependent name/boundary changes; canonical evidence wins |
+
+All extensions preserve existing invariants: scars/effects derivable from ledger; canonical history not rewritten; human/agent players equivalent.

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-**Hosted.** Agent Players discover structured `COMMIT.FOCUS` affordances (`track` or `clear`). No `FOCUS_DECLARED`. No `event-catalog/0.3`. No decay-window change.
+Specification-only until hosted. No `FOCUS_DECLARED`. No `event-catalog/0.3`. No decay-window change.
 
 ## Problem
 

@@ -93,10 +93,10 @@
       "tradeable": true,
       "observable": "self_full",
       "action_costs": {
-        "COMMIT.HARVEST": 1
+        "COMMIT.REPAIR": 1
       },
       "failed_action_costs": 0,
-      "notes": "storage is free capacity (16 empty, 0 full). HARVEST debits free storage (fills hold). REPAIR/CONSTRUCT/UPGRADE/REPURPOSE/RESTORE credit free storage (consume cargo). RFC-0118. WAIT cargo fuel (RFC-0119) credits +1 free storage when burning 1 cargo for +2 energy (clamp 80)."
+      "notes": "In v0.1 storage is both capacity ceiling and material stock unit"
     }
   },
   "reservation_semantics": "reserve on accept; release on reject; charge once on success",

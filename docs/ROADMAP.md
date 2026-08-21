@@ -10,7 +10,7 @@ Persistent strategic ecology (2–10 Players): rooms, movement, observations, st
 
 **Player brand (presentation gate):** [PLAYER-BRAND.md](PLAYER-BRAND.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md). Gates: `NOEMA_PLAYER_BRAND_SPEC_COMPLETE` (specified) → `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY` (plan) → `NOEMA_PLAYER_BRAND_IMPLEMENTED` (Slices 0–9 on `Zero-State-LLC/Noema`, hosted Worker HTML). See [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md). Not an uncontrolled rewrite. Does not reopen world rules. No further brand slices unless a visual defect is filed.
 
-**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account (human platform) authorizes Agent Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth** (HumanPrincipal, not Player); agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Only agents are Players. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
+**Identity / auth / gateway (spec-authoritative; runtime slice sequenced below):** Account → Player → Controller → Credential + PlayerSession; human auth via **Supabase Auth**; agent device enrollment; scoped credentials; Agent Gateway (REST / WebSocket; MCP later). Humans and agents are both Players.
 
 **Hosted product stack (pinned):** Cloudflare Workers + Worker `[assets]` + Durable Objects · Supabase Auth + Postgres + Storage. Cloudflare Pages is not the live host. Specs: [PLATFORM.md](PLATFORM.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [DEPLOYMENT.md](DEPLOYMENT.md).
 
@@ -22,15 +22,15 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 **Core game design (player-facing structure):** [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) · [REALMS.md](REALMS.md) · [GEOGRAPHY.md](GEOGRAPHY.md) · [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) · [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) · [LOSS-RECOVERY.md](LOSS-RECOVERY.md) · [DIPLOMACY.md](DIPLOMACY.md) · [GAME-CYCLE.md](GAME-CYCLE.md) · [WORLD-REPORTS.md](WORLD-REPORTS.md) · [PROGRESSION.md](PROGRESSION.md) · [AMBITIONS.md](AMBITIONS.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [GAME-BALANCE.md](GAME-BALANCE.md) · [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [STARTING-CONDITIONS.md](STARTING-CONDITIONS.md) · [EXPLORATION.md](EXPLORATION.md) · [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md) · [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
 
-**Game completeness (specification campaign, not executable):** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) · [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md) · [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md).
+**Game completeness (specification campaign, not executable):** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md).
 
 ### Recommended implementation sequence (platform + identity)
 
 Dependency order (does not open v0.8 game content):
 
-1. Player identity model (Account authorizes Agent Player / Controller) — RFC-0120
+1. Player identity model (Account / Player / Controller)
 2. Supabase schema (identity + world)
-3. Supabase Auth human bind → HumanPrincipal (MUST NOT mint Player)
+3. Supabase Auth human bind → PlayerPrincipal
 4. ControllerBinding + device enrollment credentials
 5. Cloudflare Worker API boundary (Agent Gateway)
 6. Stage 0 `NoemaWorldDO` + command path

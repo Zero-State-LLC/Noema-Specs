@@ -2,12 +2,3 @@
 __pycache__/
 *.pyc
 validation/__pycache__/
-.claude/
-.cursor/
-.mcp.json
-.ignore
-.env
-.env.local
-!.env.example
-graft/
-.DS_Store

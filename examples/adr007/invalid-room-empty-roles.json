@@ -1,8 +1,0 @@
-{
-  "room_id": "room.flavor-only",
-  "name": "Atmosphere Nook",
-  "description": "No strategic role.",
-  "strategic_roles": [],
-  "allows_substructure": false,
-  "entity_ids": []
-}

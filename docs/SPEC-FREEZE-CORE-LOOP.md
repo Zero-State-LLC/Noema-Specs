@@ -213,8 +213,8 @@ Do **not** start as first code:
 
 1. Modular monolith + compose golden path (`/health`, `/ready`, `/version`).
 2. World engine + ledger + scheduler + observation + messages.
-3. Agent PLAY path (structured observation + actions).
-4. Agent connect (minimal protocol). Human WATCH / CONNECT (not inhabit).
+3. Human PLAY path (text/structured).
+4. Agent connect (minimal protocol).
 5. WATCH LIVE projection (permissioned).
 6. Backup/restart persistence (C-suite ops cases).
 

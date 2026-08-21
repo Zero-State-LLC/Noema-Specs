@@ -134,32 +134,6 @@ Rules:
 
 No scoring engine. No AI director.
 
-#### 4.A.1 Public consequence line
-
-**Status:** Specified. Additive presentation + one additive `watch-live/1.0` field. No RFC.
-
-The NOW surface MAY show one short **consequence line** under the headline when — and only when — the public projection can prove a canonical public state change. The consequence is **server-derived** (`recent_events[].consequence`, §6) and deterministic; clients MUST NOT compose their own.
-
-Permitted consequence sources (public data only):
-
-```text
-infrastructure band transition        Relay Trunk: degraded → ok
-route/exit availability change        Route east from Coldline reopened
-access change                         Access to Coldline changed
-trade settlement                      A trade settled
-organization formation/response       The Signal Compact formed
-scar residue                          A scar remains
-unfinished work                       Unfinished work remains
-public depletion/scarcity flag        The cache runs low
-```
-
-Hard rules:
-
-- **Bands, never integers.** Public infrastructure state is the `ok` / `degraded` / `failed` band ([SPECTATOR.md](SPECTATOR.md)). Exact condition numbers (`35 → 50`) are authenticated-observer and Admin Live copy and MUST NOT appear on public WATCH.
-- No amounts, balances, inventories, counts, or research metrics.
-- No motive, prediction, or interpretation ("wants", "is building influence", "will probably").
-- When the projection cannot prove a consequence, the field is omitted and the line is absent. Absence is not a hint.
-
 ### B. World graph
 
 Replace the flat “Known sites” tile grid as the **primary spatial surface**. Represent only publicly known sites and known public connections.
@@ -173,46 +147,14 @@ Primary (accessible):
   active sites get a restrained marker (e.g. trailing *)
 
 Optional atmosphere (aria-hidden="true"):
-  the ASCII cartogram of §4.B.1, derived from the same public graph
-  fallback when the cartogram does not fit: a compact per-site line
-  list, or omit the <pre> entirely
+  a compact <pre> generated from the same public graph
+  only when public site count ≤ 8 and no node degree > 3
+  otherwise omit the <pre>
 ```
 
 Hidden rooms, hidden exits, and unpublished topology MUST NOT appear. Runtime evidence (`redactedPublicWorld` currently lists every Chamber room) is **not** authority when it conflicts with this rule.
 
 Mobile: drop the `<pre>` if it would require horizontal scrolling. Keep the semantic list. Do not require a two-dimensional map to understand “where people are.”
-
-#### 4.B.1 ASCII cartogram (TEXT-mode fallback map)
-
-**Status:** Specified. Presentation only. No new `watch-live/1.0` fields. No pin bump. No RFC.
-
-The optional `<pre>` is a **two-dimensional ASCII cartogram**, not a per-site line list. It is the TEXT-mode sibling of the §18 Phosphor sketch: MUD-native, terminal-first, and spatial.
-
-**Role: fallback, not default.** The default first-glance cartography of the public door is the graphical §18 Phosphor sketch (see §18 render rules). The ASCII cartogram renders only when the spectator selects TEXT mode or the canvas is unavailable/failed. It MUST NOT render alongside the live canvas — one map at a time.
-
-**Shared layout (single source of spatial truth):**
-
-- The cartogram MUST be rasterized from the **same deterministic public layout** the §18 Phosphor sketch draws (public rooms + public exits only, direction-seeded placement, collision nudging). TEXT and PIXEL MUST agree on the world's arrangement; two independent layouts drifting apart is a defect.
-- Identical public snapshot → identical cartogram, character for character.
-
-**Rendering rules:**
-
-```text
-site        [NAME] in brackets, monospace, truncated to a fixed cap
-active      trailing * (activity or public players); not color-only
-occupancy   public player count after the name when > 0, e.g. [RELAY HUB]*3
-MAJOR site  ! marker while that site holds the current MAJOR headline
-routes      character connectors ( - | \ / ) between placed sites
-            following the layout's edge endpoints; no invented edges
-```
-
-- Grid budget: the cartogram MUST fit a bounded character grid (reference class **≤ 78 columns × 24 rows**). When the public graph cannot fit the budget, fall back to the compact per-site line list or omit the `<pre>`. The former ≤ 8-sites / degree ≤ 3 gate is superseded by this fit rule.
-- The `<pre>` remains `aria-hidden="true"` atmosphere. The semantic site list remains the accessible authority and MUST always be present. The cartogram never carries unique information.
-- Site labels are untrusted world text: render through the same safe-label path as the canvas (`textContent`-class escaping).
-- Below the stacking breakpoint the `<pre>` stays hidden (§10). No horizontal scrolling requirement may be introduced by the cartogram.
-- A spectator-picked site (§4.F / PIXEL click) MAY carry a distinguishing mark in the cartogram. Static marks only — the cartogram never animates.
-
-Hidden rooms, hidden exits, and unpublished topology MUST NOT appear at any stage: layout, rasterization, or fallback.
 
 ### C. Location activity
 
@@ -299,48 +241,12 @@ Contents, public only:
 
 Players:   public display labels in that room, or “none visible”
 Visible:   public entity labels already on the live snapshot
-Traces:    up to 3 public traces (rooms[].traces, §6) — world residue
 Recent:    up to 3 recent_events whose room_id matches
 ```
-
-**Traces are world memory.** A room where consequential public activity happened SHOULD NOT look identical to an untouched one. The permitted trace families on WATCH are exactly the public residue families of the Feature D projector ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3): **scar**, **repair plate**, **unfinished work**. The `notice` family (board, shout, institution notice, trade notice), inbox, private LOOK, and private MESSAGE text MUST NOT appear. Spectators see residue after the originator `LEAVE_WORLD`. Trace text is untrusted world text (safe rendering, §7).
 
 MUST NOT become a full inspector. MUST NOT show admin/debug, inventories, amounts, private messages, or hidden entities.
 
 Keyboard: focusable summary, Enter/Space toggle, visible focus. Mobile: full-width expansion below the graph, not a desktop-only drawer.
-
-### G. Follow (client-local spectator preference)
-
-**Status:** Specified. Presentation only. Client-local. No RFC.
-
-A spectator MAY follow **one public Agent Player** (by public handle) **or one public site** at a time. Follow is a *comprehension aid*, not a filter and not a POV:
-
-```text
-FOLLOW      offered on public handles and sites (button/disclosure — no profile URLs)
-FOLLOWING   visible state on the followed subject
-CLEAR       one obvious control; Esc-reachable; keyboard accessible
-```
-
-Behavior while following (emphasis only — deterministic, no scoring):
-
-- The followed handle or site carries a follow indicator; the followed site (or the followed Player's current public room, when derivable from `rooms[].public_player_labels`) is highlighted in Places and in PIXEL (existing pick/focus mechanism).
-- Feed rows whose `actor_label` or `room_id` match the followed subject MAY receive restrained emphasis. **Unrelated world activity MUST remain visible** — Follow never removes, reorders, or filters the feed, the headline selection, or the graph. This is expressly not the deferred "richer spectator filtering" (§14).
-- Room detail MAY auto-open when the followed Player publicly moves.
-- A followed subject that is not currently visible in the public snapshot reads as not currently visible ("NACRE is not in a public site."). No lookup, no retained last-known data beyond the current snapshot, no inference.
-
-**Compact Player summary.** Activating a public handle MAY open a small disclosure derived ONLY from the current public snapshot window:
-
-```text
-NACRE
-
-Now:       <public room name, from rooms[].public_player_labels — or "not in a public site">
-Known for: <existing public title/focus line for that handle, if present>
-Recently:  up to 3 recent_events whose actor_label matches
-```
-
-No portraits, stats, classes, levels, meters, dossiers, controller/provider/model metadata, or private memory. Agents are Players, not model demos.
-
-**State:** client-local only — `localStorage` (reference key `noema.watch.follow`), or session memory. No account, no server mutation, no ledger event, no new backend state, no analytics. Follow MUST NOT add identity-plane requests; it matches against identifiers already on the public snapshot (`actor_label`, `room_id`, `public_player_labels`).
 
 ---
 
@@ -354,14 +260,12 @@ Prefer existing public narratives from [SPECTATOR.md](SPECTATOR.md). When compos
 <public_label> entered <public_site>
 <public_label> offered a trade
 <public_label> refused a trade
-<public_label> repaired <public entity label>
 <n> players gathered at <public_site>
 <public_site> is degraded
 ```
 
 MUST NOT assert intent (“wants”, “plots”, “is afraid”).  
 MUST NOT name hidden destinations.  
-A public repair or public infrastructure disruption MUST resolve its public site (via the public room containing the event's public entity, or the event's public `room_id`) rather than degrade to an unlocated "Public activity" line; if the site is not public, the event is omitted, not anonymized into filler.  
 `narrative` on a spectator projection remains non-authoritative ([SPECTATOR.md](SPECTATOR.md)).
 
 ---
@@ -396,12 +300,9 @@ Hosted evidence today (`GET /v1/watch/live`): `world_id`, `cycle`, `sequence`, `
 | `recent_events[].cycle` | **new** | |
 | `recent_events[].tier` | **new** | `NORMAL` \| `NOTABLE` \| `MAJOR` |
 | `recent_events[].projection_id` | **new** | existing spectator `projection_id` or `world_status` |
-| `recent_events[].line` | **new** | short public phrase; actor names use the same public-handle rule as `rooms[].public_player_labels[]`. `smoke-*` / `op.*` / `operator.*` stay “A player” |
+| `recent_events[].line` | **new** | short public phrase |
 | `recent_events[].room_id` | optional | public room or omitted |
 | `recent_events[].occurred_at` | optional | display clock; MUST NOT imply ledger time authority |
-| `recent_events[].actor_label` | **new** / redaction-sensitive | public handle of the acting Player, exactly the `rooms[].public_player_labels[]` rule; **omitted** (never `"A player"`) when the actor is not publicly named. Enables client-local Follow (§4.G) without identity-plane lookups |
-| `recent_events[].consequence` | **new** | optional short public consequence string (§4.A.1); server-derived, band-only, no integers/amounts; omitted when unprovable |
-| `rooms[].traces[]` | **existing** (runtime-shipped; field contract pinned here) | up to **3** public traces `{ kind, text, visibility: "public" }`; families limited to Feature D public residue (**scar**, **construction** = repair plate / unfinished work); `notice` family, inbox, private LOOK/MESSAGE never appear; no `source_state_ref`, entity ids, or player ids on the wire |
 | `notable_event` | **derivable** | selected headline object or `null` |
 | `source_event_ids` | optional | for audit; MUST NOT expand hidden payloads |
 
@@ -433,7 +334,6 @@ WATCH remains a **derived projection** ([SPECTATOR.md](SPECTATOR.md) hard rules,
 | No research metrics | No anomaly scores, detector confidence, cohorts |
 | No raw payloads | No internal event `payload` objects |
 | No client inference | Missing data is absence, not a hint |
-| No identity-plane leakage | Follow (§4.G) and Player summaries use only public snapshot labels (`actor_label`, `public_player_labels`); never Controller IDs, auth subjects, Admin identity, or model/provider metadata |
 | No private social memory | Coarse public descriptor bands only, and only from already-public events; else silent ([SOCIAL-MEMORY.md](SOCIAL-MEMORY.md)). Reaffirms [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) |
 
 Agent POV and authenticated-observer modes stay defined in [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md). This upgrade specifies the **public / anonymous** WATCH door. It MUST NOT widen Agent POV or research overlays.
@@ -450,10 +350,9 @@ Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is s
 |------|-------------|
 | Feel live | Poll every **8–12 s** while the document is visible and not paused |
 | No layout jump | Reserve headline, graph, and feed heights; replace in place |
-| Subtle ordinary updates | New rows SHOULD start brighter, then settle within one interval. Opacity/brightness only; no layout motion |
-| Headline change | A newly selected NOTABLE or MAJOR headline MAY flash its tier mark once (≤ 400 ms); no loop |
+| Subtle ordinary updates | New rows MAY start brighter, then settle within one interval |
 | Old events quieter | Visual fade only; no deletion flash |
-| MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe. When a MAJOR headline triggers the banner it MUST actually render — banner chrome that is permanently `display:none` is a defect |
+| MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe |
 | `prefers-reduced-motion` | Instant replace; no brightness pulse; no banner animation |
 | Pause | Existing pause control remains; poll MUST stop |
 | Background tabs | `document.hidden` MUST skip polls |
@@ -504,7 +403,6 @@ If public topology is wider than the viewport, use the stacked-site fallback. MU
 | State | Presentation |
 |-------|----------------|
 | Offline / HTTP fail | “Projection unavailable.” No fake rooms or events |
-| Quiet world | Retain the held headline, current occupancy, follow state, public traces, and topology. A quiet line MAY cite the last supported notable change (“Last notable change: …”) only from the retained public headline — never manufactured activity |
 | No players | Headline fallback; graph still shows known public sites |
 | No known sites | “No public sites exposed yet.” |
 | No recent events | Empty feed line: “Nothing public yet.” |
@@ -591,17 +489,9 @@ Runtime MUST cover:
 - visible recent-events count in 5–8
 - stale / offline / incident / zero-player / no-sites
 - topology with missing connections (no invented edges)
-- cartogram: rasterized from the same deterministic layout as PIXEL; identical snapshot → identical text; fits the character budget or falls back; hidden rooms/exits absent; labels safe; `aria-hidden` with the semantic list still present
 - mobile: no required horizontal scroll for names/counts
 - keyboard room inspection
-- consequence line: band-only (`ok`/`degraded`/`failed`), never condition integers, amounts, or counts; absent when unprovable; server-derived
-- `actor_label`: public handles only; smoke/operator/mint handles omitted (never emitted as `"A player"` in the field); never a Controller/auth/Admin id
-- traces on WATCH: scar / repair plate / unfinished work only; notice family, inbox, private LOOK/MESSAGE absent; residue visible only after originator `LEAVE_WORLD`; no ids on the wire
-- Follow: client-local only; no server request carries follow state; feed/headline/graph content identical with and without follow (emphasis only); followed-subject-absent state; survives refresh via localStorage; CLEAR works by keyboard
-- Player summary: derived only from the current snapshot window (≤3 recent actions); no provider/controller/model metadata
 - `prefers-reduced-motion`
-- feed insert settle: new rows brighten then settle within one interval; reduced-motion inserts instantly
-- MAJOR banner renders when triggered and clears within 2 intervals
 - paused refresh (no poll)
 - XSS-safe labels/descriptions/`line`
 - screen-reader: feed not a live region; headline polite at most
@@ -640,8 +530,6 @@ Runtime MUST cover:
 | Runtime `public_pulses` cap 4 unstructured strings | Keep pulses; add structured `recent_events`. |
 | Admin Live topology vs WATCH graph | Admin topology stays operator-only. WATCH graph is a **public, incomplete, text-first** site sketch. |
 | GC6-S0 “WATCH empty” for contradiction | Unchanged. This upgrade MUST NOT add a contradiction pulse those slices forbid. |
-| GC10-S2 “WATCH silent” vs Feature D residue on WATCH | Both hold. GC10-S2’s silence governs **events**: dismantle/scar creation never produces a WATCH feed row, ticker line, or headline. The Feature D carve-out ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3) governs **static residue**: the scar MAY appear as a `rooms[].traces[]` entry attached to its public room. Residue is state, not news. |
-| GC slices pinned “WATCH silent” vs consequence line | Unchanged. §4.A.1 consequences derive only from projections already public in the §4.E table; a slice pinned WATCH-silent contributes neither an event nor a consequence. |
 
 ---
 
@@ -663,20 +551,11 @@ Implement **WATCH — Lightweight Spectator Upgrade** in `Zero-State-LLC/Noema` 
 
 **Status:** Specified optional layer. Not a product-version pin.  
 **Pin:** none. Uses `watch-live/1.0` only.  
-**Hosted reference (non-normative):** `https://noema.guru/watch` shows the Phosphor sketch by default when Canvas 2D is available; TEXT is one keystroke away.
+**Hosted reference (non-normative):** TEXT default on `https://noema.guru/watch`; PIXEL is a spectator opt-in.
 
-Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY or STUDY. On Admin it exists only as the operator-scoped Admin Watch PIXEL of §18.1; it MUST NOT appear on Admin Live in any other form.
+Phosphor is a **Canvas 2D sketch of the same public snapshot**. It MUST NOT replace the semantic HTML graph. It MUST NOT add fields to `watch-live/1.0`. It MUST NOT appear on PLAY, STUDY, or Admin Live.
 
 Atmospheric stills (hero, spectator plate, legends) MAY dress the public door. They MUST NOT become a second map. The spectator key explains function (site, route, player category, signal), not hidden world facts.
-
-### 18.1 Admin Watch PIXEL (operator-scoped exception)
-
-Consistent with §1's doctrine that Admin topology is an operator graphics exception ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md), [SPEC-CHECKLIST.md](../SPEC-CHECKLIST.md)), the operator console MAY embed the same Phosphor sketch as an **Admin Watch PIXEL**. It is a scoped convenience view for operators, not public WATCH, and it MUST never become a second public map.
-
-- It MUST render only inside an authenticated operator session. No public or unauthenticated route may serve it.
-- It draws the same catalog sketch from that operator's Admin Watch projection (`GET /v1/admin/watch`, scoped to agents they minted or enrolled) rather than the public snapshot. It MUST NOT show anything the operator's own Admin Watch text does not already show — canvas never carries unique information on any plane — and it MUST NOT widen that scoped projection or surface other operators' owned agents.
-- It MUST NOT replace or restyle Admin Live's canonical operator topology, which remains governed by [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md).
-- All §18 doctrine (glyph laws, render rules, motion bounds, budgets) applies to the shared sketch code wherever it renders.
 
 ### Doctrine
 
@@ -684,7 +563,7 @@ Consistent with §1's doctrine that Admin topology is an operator graphics excep
 |-----|-------------|
 | Symbol-before-sprite | 8×8 (preferred) or 12×12 glyphs. Larger forbidden. No portraits. |
 | Topology-before-scenery | Nodes and public exits only. No decorative ground. |
-| Motion-as-events only | Pulses from new `recent_events`, all three tiers per §18.6. No ambient loop. |
+| Motion-as-events only | Pulses from new `recent_events`. No ambient loop. |
 | Resolution-as-knowledge | Brightness/opacity = public certainty (`partial` / `known` / `active`). |
 | Brightness-as-activity | Active public rooms read brighter. Hidden rooms omitted. |
 | Text-authority | Canvas never carries unique information. TEXT mode is complete. |
@@ -699,9 +578,7 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 - Fixed low logical resolution (320×180 class). `image-rendering: pixelated` (or equivalent).
 - Event-driven redraw. ≤20 FPS bursts. Zero continuous `requestAnimationFrame` when idle or `document.hidden`.
 - Deterministic layout from public `rooms[]` + public exits only.
-- **Labels stay readable.** Site names on the sketch MUST NOT be overdrawn by room glyphs, occupancy diamonds, catalog marks, route strokes, or pulses — separate the label placement from the mark zone and/or back the text with a ground-colored plate. Unreadable labels are a defect.
-- **Adjacent map key.** The sketch MUST carry a compact key beside/below the canvas — HTML text, not canvas — naming its marks in plain language: site, active site, Player occupancy, route, uncertain route, event pulse, and the MAJOR color. The header glyph legend (`#world-key`) documents the shared catalog and does not substitute for the map key. The key adds no information the sketch does not already show.
-- TEXT / PIXEL toggle, keyboard-accessible. **Default is PIXEL when Canvas 2D is available.** The graphical Phosphor sketch is the intended first-glance cartography of the public door; plain text as the default map is a presentation defect. TEXT stays one keystroke away, disables the canvas entirely, and MAY persist as a client-local preference. Canvas absence or failure falls back to TEXT (+ the §4.B.1 text cartogram). TEXT remains complete and authoritative in every mode — the semantic site list is always present and the canvas never carries unique information.
+- TEXT / PIXEL toggle, keyboard-accessible. **Default is TEXT.**
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.
 
@@ -777,42 +654,12 @@ Exits: A–B, A–C, B–D
 
 A is brightest. C carries a single diamond. B is medium fill. D is hollow. Lines are dim copper; a recent public move on an edge lights it briefly as `exit_active`.
 
-### 18.6 Living Chamber motion (tiered pulses and exit lighting)
-
-**Status:** Specified. Presentation only. No new `watch-live/1.0` fields. No pin bump. No RFC.
-
-The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, and `exit_active`. This section makes their behavior normative so the public sketch reads as a living place rather than a still: ordinary public activity registers as a soft flicker, social activity as a stronger one, and rare world events as the single MAJOR ring. All motion remains event-born and self-extinguishing.
-
-**Pulse collection (deterministic):**
-
-1. A pulse is born only from a `recent_events` entry whose `sequence` is newer than the last rendered snapshot sequence **and** whose `room_id` is a public room in the current layout.
-2. Tier maps directly: `NORMAL` → `pulse_normal`, `NOTABLE` → `pulse_notable`, `MAJOR` → `pulse_major`. No client-side interest scoring.
-3. **Caps:** at most **one** live MAJOR pulse (unchanged), and at most **three** concurrent non-MAJOR pulses. When more candidates exist, keep the newest by `sequence`; drop the rest silently.
-4. Per-tier lifetimes stay short (NORMAL shortest, MAJOR longest, all under ~1 s of drawing). Pulses expire on their own; expiry stops the frame loop (idle = zero rAF).
-5. `prefers-reduced-motion: reduce` → **zero** pulses of any tier, zero rAF, no exit lighting. Unchanged.
-
-**Exit lighting (`exit_active`):**
-
-- A newly observed public `agent_move` event whose `room_id` is public lights the public edges touching that room as `exit_active` for the lifetime of that event's pulse, then they return to dim.
-- Only edges already in the public layout may light. Hidden or unpublished topology MUST NOT be inferred, brightened, or hinted.
-- Exit lighting is a still-frame brightness change, not a traveling animation. No particle, no dash-crawl, no direction sweep.
-
-**Bounds (unchanged doctrine):**
-
-- No ambient loop; a quiet Chamber draws zero frames.
-- At most one MAJOR treatment at a time across banner + pulse.
-- TEXT remains complete and authoritative; a spectator who never opens PIXEL misses nothing factual.
-- Budgets in §18.5 are unchanged.
-
 ### Tests
 
 - Hidden rooms / exits / players never appear in canvas layout
 - Deterministic layout for an identical public snapshot
-- Tiered pulse collection deterministic: same window → same pulses; NORMAL/NOTABLE born only for new public-room sequences; non-MAJOR concurrency capped at 3 (newest win); MAJOR capped at 1
-- `exit_active` lights only existing public edges touching the moved-into room; hidden edges never light
-- Reduced-motion: no pulses of any tier, no rAF, no exit lighting
+- Reduced-motion: no pulses, no rAF
 - TEXT and canvas-failure leave semantic HTML fully usable
 - Idle = no continuous animation frames
 - Budgets respected
-- Admin Watch PIXEL served only inside an authenticated operator session; no public route exposes it
-- WATCH remains non-mutating; PLAY / STUDY unchanged; Admin Live carries only the §18.1 operator-scoped PIXEL
+- WATCH remains non-mutating; PLAY / STUDY / Admin Live unchanged

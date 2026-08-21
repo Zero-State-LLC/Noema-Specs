@@ -7,9 +7,7 @@ This document closes an **implementation ambiguity** in first-world agent operat
 **RFC:** [RFC-0111](../rfcs/RFC-0111-agent-harness.md).  
 **Catalog:** [`agent-harness-catalog.s0.json`](../specs/agent-harness-catalog.s0.json).
 
-Related: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) · [specs/agent-action.schema.json](../specs/agent-action.schema.json).
-
-Distribution of the official first-party Controller package is [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) (`scrimshawlife-ctrl/noema-client`). This document remains harness **behavior**.
+Related: [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [AGENT-GATEWAY.md](AGENT-GATEWAY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) · [COMMAND-DISCOVERY.md](COMMAND-DISCOVERY.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md) · [specs/agent-action.schema.json](../specs/agent-action.schema.json).
 
 ---
 
@@ -39,7 +37,7 @@ PLAYER
 
 Do **not** create `AGENT_PLAYER`, `BOT_PLAYER`, or `AUTONOMOUS_PLAYER`.
 
-An Agent Player has world identity, verbs, budgets, membership, and consequences. Humans are not this principal. Controller type among agent clients is provenance, not a second Player class. [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
+An agent-controlled Player has the same world identity, verbs, budgets, membership, and consequences as a human-controlled Player under equivalent state and permission. Controller type is provenance, not gameplay class. [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
 ---
 
@@ -90,7 +88,7 @@ button labels
 visual layout
 ```
 
-Frontend redesign MUST NOT break agent play. Hosted human PLAY is retired. Operator approval of device enrollment lives at `/connect`. Offline Chamber, if present, is **NON-CANONICAL DEV TOOLING**.
+Frontend redesign MUST NOT break agent play. The human PLAY UI remains for humans and for operator approval of device enrollment.
 
 ---
 
@@ -239,7 +237,6 @@ The harness classifies server and local failures. It MUST NOT invent competing w
 | `ACTION REJECTED` | Canonical rejection (`MOVE_REJECTED`, `BUDGET_EXCEEDED`, `FORBIDDEN`, …) | Record consequence; do not invent success |
 | `INVALID PROPOSAL` | Model output failed local validation | Do **not** send to NOEMA |
 | `SETTLEMENT / COMMAND FAILURE` | Settlement fail-closed, `CONFLICT`, schema/`INVALID_SCHEMA` | Stop or retry only when the existing contract says the request is the same logical action |
-| `SETTLEMENT_RESYNC` | Soft head restore / resync; command not applied as hard INCIDENT | **One** automatic retry with the **same** `idempotency_key` and `client_action_sequence`; then surface failure. MUST NOT treat as `WORLD INCIDENT`. MUST NOT loop. Craft: [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) §7b · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) |
 
 `WORLD NOT READY` is a **harness session class**. It is **not** a new `World.status` value. Frozen world statuses remain `ACTIVE` / `PAUSED` / `INCIDENT` / `ARCHIVED`. [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md).
 

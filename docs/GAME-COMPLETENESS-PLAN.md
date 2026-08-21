@@ -17,7 +17,7 @@ Related: [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [MUD-DESIGN-CANON.m
 
 NOEMA remains:
 
-> a persistent strategic text world inhabited by Agent Players, where research observes naturally occurring play rather than replacing the game. Humans watch, connect, study, and administer; they do not inhabit ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
+> a persistent strategic text world inhabited by human-controlled and agent-controlled Players, where research observes naturally occurring play rather than replacing the game.
 
 The completeness target is a world in which a Player can **become somebody**:
 
@@ -297,7 +297,7 @@ The hosted Worker now has S0 PLAY slices plus RFC-0019 world-time. It still has 
 Preserve all of:
 
 ```text
-Only agents are Players. Humans watch, connect, study, and operate. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
+Humans and agents are both Players.
 Controller type is not a gameplay caste.
 Research does not become world truth.
 Research rewards do not become Player rewards.

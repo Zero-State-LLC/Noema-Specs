@@ -61,7 +61,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive; produced via infrastructure/node loop. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets energy to 2. RFC-0119: WAIT may burn 1 cargo for +2 energy (clamp 80) when occupied hold ≥ 1 and lockout rest did not apply |
+| regeneration | 0 passive; produced via infrastructure/node loop |
 | decay | none in v0.1 |
 | transferable | yes |
 | tradeable | yes |
@@ -85,13 +85,13 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1. RFC-0119 cargo fuel credits +1 free storage when WAIT burns cargo |
+| regeneration | 0 passive |
 | decay | none |
 | transferable | yes |
 | tradeable | yes |
 | observable | self full |
-| action_costs | HARVEST **debits** free storage (fills hold) when free capacity ≥ amount. REPAIR / CONSTRUCT / UPGRADE / REPURPOSE / RESTORE **credit** free storage (consume cargo). RFC-0118. WAIT cargo fuel (RFC-0119) also **credits** free storage when burning cargo for energy. |
-| capacity semantics | `storage` is **free capacity** (grant 16 empty, 0 full). Occupied hold = 16 − storage. Harvest fills hold; work empties it. Do not invert live Perihelion numbers. |
+| action_costs | HARVEST requires free capacity ≥ harvested amount (capacity check, not debit); REPAIR materials may debit storage |
+| capacity semantics | agent may hold at most `storage` units of harvested **material lots** tracked as the `storage` resource itself in v0.1 (storage is both capacity metric and material stock) |
 | failed_action_costs | 0 |
 
 ## Production / consumption loop
