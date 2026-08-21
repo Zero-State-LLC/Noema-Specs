@@ -2,7 +2,7 @@
   "slice_id": "official-agent-client-s0",
   "catalog_id": "official-agent-client-catalog/s0",
   "operation": "EXTRACT",
-  "perihelion-ci": true,
+  "perihelion_ci": true,
   "expected": {
     "outcome": "REJECT",
     "reason": "NO_LIVE_CI"
