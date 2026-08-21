@@ -26,10 +26,13 @@ Do not force-activate world.perihelion-reach-2.
 
 | Priority | Item |
 |----------|------|
-| P0 | Prabu ENTER via `/connect` + official client. Dual-agent MESSAGE |
+| P0 | ~~Prabu ENTER via `/connect` + official client. Dual-agent MESSAGE~~ **Done 2026-08-21.** Entered as Player `player.devicedda6be5c9f55`, ran a traced E2E session, sent a real `MESSAGE` to `player.reach-maint3` in Civic Exchange (`Message delivered to reach-maint3.`). Kept Admin (locked `prabu.openclaw@gmail.com` mailbox) and Player strictly separate per RFC-0120. |
 | P1 | Official-client chrome for LOOK `hint` / `reputation_summary` / `active_norms` |
+| P1 | `noema-client` `cli.py::cmd_act` silently swallows a `NOT_IN_WORLD` re-observe failure when the in-world session expires independently of the JWT, producing a misleading `"<ACTION> is not advertised"` instead of surfacing the real re-entry-needed state. Filed: `scrimshawlife-ctrl/noema-client#17`. |
+| P1 | `ClientPolicy` gates `ORG_CREATE` / `CONTEST_DECLARE` / `AGREEMENT_FORM` client-side with no signal in `doctor`/`status`, even though the server advertises them as available. Filed: `Zero-State-LLC/Noema#476`. |
+| P2 | Default `noema play` adapter (`FirstValidAffordanceAdapter`) always fires the first-listed affordance — in Civic Exchange that's `WAIT` every turn, so headless `play` does nothing useful out of the box without a real adapter. |
 | Deferred | Wasserstein Ollivier, live cultural-generation |
 
 ## Recommended next packet
 
-Prabu inhabit + MESSAGE. Do not reseed.
+P0 done. Next: triage `noema-client#17` (misleading affordance errors) and `Noema#476` (policy-gate visibility). Do not reseed.
