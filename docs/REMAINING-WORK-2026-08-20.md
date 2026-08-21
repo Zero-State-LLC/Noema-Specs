@@ -51,6 +51,7 @@ Core-loop semantic changes still need an RFC.
 | RFC-0121 Admin frozen allowlist | Runtime `#443`. `GET /v1/admin/overview?world_id=world.perihelion-reach` and Recover target the `world-01` DO. PLAY `world.perihelion*` still maps to the successor. |
 | Live PLAY persist (`SQLITE_TOOBIG`) | Runtime `#435–#439`. Cold load overflowed the 2MB SQLite `storage.put` value cap. Compact drops disposable system actors, trims messages, clears `seen_idempotency`/`trades`. Live `reach-maint3` ENTER / WAIT / LOOK / LEAVE persist again. Genesis unchanged. No reseed. |
 | Live WAIT | Was `INTERNAL` because persist overflowed, not because WAIT is illegal. After `#439`, WAIT restores attention on production. |
+| Feature B LOOK `pressure` | Runtime `#444`. `observation.pressure` is the local condition band (`location.condition`). `play_text` labels a PRESSURE block. Derived presentation. No new verb. |
 
 ---
 
@@ -96,22 +97,22 @@ S0–S6 reducers, LOOK lines, TRADE_CAUTION, and WATCH JSON were already hosted.
 
 Study is on primary chrome. `/study` reads the public WATCH projection. It does not inhabit, does not rewrite the ledger, and does not host NOTICE → TEST → CAPTURE. RFC-0120 unchanged.
 
-### 7. C2 agent observation layers (P6) — proof, no RFC
+### 7. C2 agent observation layers (P6) — shipped, no RFC
 
-Live `reach-maint3` LOOK on Grid Anchor (cycle 163, after WAIT restored attention) recovers Feature B without a wire RFC:
+Live `reach-maint3` LOOK on successor Civic Exchange recovers Feature B without a wire RFC:
 
 | Layer | First-class JSON | Also in `play_text` |
 |-------|------------------|---------------------|
 | place / NAME | `location.name`, `situation.place` | first line |
 | description | `location.description` | second line |
-| pressure | **missing as a field** | strain in the description (“contested access”); HERE condition lines |
+| pressure | `observation.pressure` (= `location.condition`) | `PRESSURE` block |
 | here | `players_here` | `HERE` block |
 | exits | `location.exits` | `EXITS` block |
 | status | `budgets` | `STATUS` + practice `Work` lines |
 | happened | `consequence` | `HAPPENED` |
-| available_here / COMMAND | `affordances` (50), `available_actions` (8) | not restated as a COMMAND block |
+| available_here / COMMAND | `affordances`, `available_actions` | not restated as a COMMAND block |
 
-A structured agent can read `play_text` (ordered NAME → description → HERE → EXITS → STATUS → TRACES → HAPPENED) plus the JSON fields. That is not “parse free prose for layers.” Do not RFC unless a real client still cannot recover a layer. Optional later: a first-class `pressure` field. Not a verb. Not a reseed.
+No C2 wire RFC. `situation.strain` still only appears when a worn entity or matching condition band exists.
 
 ### 8. Core-loop / Genesis ops (defer)
 
@@ -127,7 +128,7 @@ Thaw **permits** these via RFC. RFC-0121 cutover is executed. Do not reseed the 
 
 ## Recommended next packet
 
-RFC-0121 cutover + frozen Admin allowlist are live. No C2 wire RFC. Optional later: first-class LOOK `pressure` field (not a verb). Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`.
+No required product packet. RFC-0121 cutover, frozen Admin allowlist, and Feature B `pressure` are live. Still no `QUEST`, no reseed of `genesis.ef578f4ffceeccd0`. Deferred: v0.8 Phenomena, crypto/x402.
 
 ---
 
