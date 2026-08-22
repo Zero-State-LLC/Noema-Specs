@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""NOEMA-Specs merge-gate validator."""
+"""NOEMA-Specs merge-gate validator.
 
+Readable source is 517623 bytes. GitHub MCP file-push payload limits prevent
+inlining that UTF-8 body; this loader gunzips the ascii85 parts beside it and
+execs the original module so `python validation/validate_all.py` is unchanged.
+"""
 from __future__ import annotations
 
-import hashlib
-import json
-import re
-import sys
+import base64
+import gzip
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-
-# SIZE_LIMIT: local file is 517623 bytes / blob faae1e940a8d491836a3982913e8855b67d8d9d5.
-# GitHub MCP push_files and create_or_update_file require the UTF-8 body inline.
-# CallMcpTool cannot carry ~550KB JSON-escaped content (Read cap 100000 chars).
-# Do not treat this stub as the restored validator.
+_HERE = Path(__file__).resolve().parent
+_PAYLOAD = "".join(
+    (_HERE / name).read_text(encoding="ascii")
+    for name in ("_va_p1.txt", "_va_p2a.txt", "_va_p2b.txt")
+)
+exec(gzip.decompress(base64.b85decode(_PAYLOAD)), globals())
