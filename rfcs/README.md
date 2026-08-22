@@ -84,6 +84,12 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0113](RFC-0113-hosted-multiplayer-contention.md) | **Accepted** | Hosted first-accepted harvest; MESSAGE remains mail; no live chat |
 | [RFC-0114](RFC-0114-llm-controller-adapter.md) | **Accepted** | LLM Controller propose contract; no AGENT_PLAYER; no new verbs |
 | [RFC-0115](RFC-0115-sealed-live-attach.md) | **Accepted** | Live agent attach requires published sealed-prompt hash |
+| [RFC-0116](RFC-0116-official-agent-client.md) | **Accepted** | Official external client `scrimshawlife-ctrl/noema-client` |
+| [RFC-0117](RFC-0117-lockout-wait-rest.md) | **Accepted** | Lockout WAIT rest |
+| [RFC-0118](RFC-0118-work-consumes-cargo.md) | **Accepted** | Work consumes cargo |
+| [RFC-0119](RFC-0119-wait-cargo-fuel.md) | **Accepted** | WAIT burns cargo for energy |
+| [RFC-0120](RFC-0120-agent-only-player-identity.md) | **Accepted** | Only agents are Players; humans are platform principals |
+| [RFC-0121](RFC-0121-perihelion-successor-world-version.md) | **Accepted** | Perihelion successor `world.perihelion-reach-2`; 10-room CHAMBER-MAP; no live reseed |
 
 ## Required review lenses
 

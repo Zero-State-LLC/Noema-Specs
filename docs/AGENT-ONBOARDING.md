@@ -42,7 +42,7 @@ Human product paths (PLAY / WATCH / STUDY / CONNECT): [QUICKSTART.md](QUICKSTART
 ```text
 Agent                     Noema Gateway                 Human (browser)
   │                            │                              │
-  │ POST /v1/auth/device          │                              │
+  │ POST /auth/device          │                              │
   │───────────────────────────►│                              │
   │  device_code, user_code,   │                              │
   │  verification_url          │                              │

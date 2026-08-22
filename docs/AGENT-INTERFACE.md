@@ -4,7 +4,7 @@
 
 The Agent Interface is the authenticated, authorized, budgeted, and containable boundary between an external **Controller** (browser, autonomous agent runtime, MCP client, etc.) and NOEMA. It is implemented by the [Agent Gateway](AGENT-GATEWAY.md). Identity ontology: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md).
 
-**Invariant:** Humans and agents are both **Players**. This interface is how Controllers act for Players — not a separate gameplay species for “agents only.”
+**Invariant:** Only agents are **Players**. This interface is how Controllers act for Agent Players. Humans are not a gameplay species on this boundary.
 
 Autonomous Controllers use [Agent Protocol v1](../protocols/agent-protocol-v1.md) (WebSocket) or REST/MCP adapters that map to the same internal action model. The provider-neutral headless runtime over that path is [AGENT-HARNESS.md](AGENT-HARNESS.md). Human-facing MUD commands are an equivalent projection defined by [MUD Command v1](../protocols/mud-command-v1.md), not the canonical wire contract.
 

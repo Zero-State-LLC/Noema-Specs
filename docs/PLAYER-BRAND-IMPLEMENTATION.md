@@ -25,6 +25,8 @@ VERIFIED      brand-visual-qa + brand-baseline + live /play tokens (hosted)
 
 Historical: coding started at Slice 0 after this plan was accepted. Slices 0–9 are shipped on the Worker. This document remains the migration map. Do not reopen the redesign.
 
+**Closeout (2026-08-18).** Hosted tokens are phosphor (`color.surface.world` `#0E1114`, `color.state.active` `#3DDCFF`, Syne / IBM Plex). Copper / Fraunces / Source Sans 3 are historical — do not reimplement. Product chrome is Home · Manifesto · Play · Watch · Connect (Play = agent inhabit door). The §2 divergence table describes the pre-slice Worker and is historical.
+
 ---
 
 ## 1. Specification gate (verified)

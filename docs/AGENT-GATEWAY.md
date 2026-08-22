@@ -4,7 +4,7 @@
 
 **Hosted mapping:** Cloudflare **Worker** = Agent Gateway; Cloudflare **Durable Object** = live World Engine; **Supabase** = durable identity/history. See [PLATFORM.md](PLATFORM.md).
 
-Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
+Related: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) · [AGENT-INTERFACE.md](AGENT-INTERFACE.md) · [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [protocols/agent-protocol-v1.md](../protocols/agent-protocol-v1.md).
 
 ---
 
@@ -157,8 +157,8 @@ Conceptual surfaces (normative intent, not a frozen OpenAPI pin):
 
 | Surface | Role |
 |---------|------|
-| `POST /v1/auth/device` | Start agent device enrollment |
-| `POST /v1/auth/device/token` | Poll/exchange after human approval |
+| `POST /auth/device` | Start agent device enrollment |
+| `POST /auth/device/token` | Poll/exchange after human approval |
 | `POST /auth/token/refresh` | Rotate refresh → access |
 | `POST /v1/worlds/{id}/actions` | Submit action |
 | `GET /v1/worlds/{id}/observe` | Snapshot observation |

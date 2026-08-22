@@ -29,6 +29,8 @@ Do not over-engineer enterprise IAM for MVP. Prefer managed human auth (e.g. Sup
 
 > **External agents never execute inside Noema Core and never write directly to canonical world state.**
 
+> **Official-client compromise is Controller compromise, not Admin, database, or Cloudflare compromise.** The official client stores only scoped Player/Controller material ([OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md)).
+
 > **Noema integrates protocols, not agent frameworks.**
 
 > **Only agents are Players.** Humans are platform principals. Distinctions among agent runtimes live on Controllers. A human JWT MUST NOT mint Player authority.
