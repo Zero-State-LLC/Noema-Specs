@@ -1,0 +1,57 @@
+{
+  "attempt_id": "gov-quorum-short",
+  "note": "one concurrence against a quorum of two",
+  "rule": {
+    "rule_id": "rule.relay-council",
+    "org_id": "org.signal-compact",
+    "published": true,
+    "decision": {
+      "offices": [
+        "office.warden",
+        "office.steward"
+      ],
+      "quorum": 2
+    },
+    "appointment": {
+      "mechanism": "MEMBER_ORDER"
+    },
+    "jurisdiction": {
+      "objects": [
+        "entity.relay-trunk"
+      ],
+      "rooms": [
+        "room.relay-quarter"
+      ]
+    },
+    "enforcement": {
+      "operation": "REPAIR"
+    },
+    "failure": {
+      "on_vacancy": "SUCCEED_THEN_DECIDE",
+      "on_deadlock": "REFUSE"
+    },
+    "evidence": {
+      "record": "ORG_RECORD"
+    }
+  },
+  "acting_offices": [
+    "office.warden",
+    "office.steward"
+  ],
+  "concurring": 1,
+  "target": {
+    "object_id": "entity.relay-trunk",
+    "room_id": "room.relay-quarter"
+  },
+  "known_operations": [
+    "REPAIR",
+    "TRADE",
+    "ACCESS_POLICY",
+    "ORG_OFFICE_ACT"
+  ],
+  "office_conflict": false,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "quorum_short"
+  }
+}

@@ -6500,6 +6500,114 @@ def evaluate_gc4_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, bool
     return "ACCEPT", None, remaining > 0
 
 
+def evaluate_gc4_s8(attempt: dict) -> tuple[str, str | None]:
+    """GC4-S8 governance rule. Every rejection maps to one unmet dimension;
+    undefined authority fails closed (RFC-0124)."""
+    rule = attempt.get("rule") or {}
+    if not rule.get("published"):
+        return "REJECT", "unpublished"
+    decision = rule.get("decision") or {}
+    deciding = set(decision.get("offices") or [])
+    acting = set(attempt.get("acting_offices") or [])
+    if not deciding & acting:
+        return "REJECT", "not_deciding_office"
+    # Office precedence and emergency scopes still govern; a rule never overrides them.
+    if attempt.get("office_conflict"):
+        return "REJECT", "authority_conflict"
+    jur = rule.get("jurisdiction") or {}
+    bounded = (
+        list(jur.get("objects") or [])
+        + list(jur.get("rooms") or [])
+        + list(jur.get("members") or [])
+    )
+    target = attempt.get("target") or {}
+    hits = [v for v in (target.get("object_id"), target.get("room_id"), target.get("member_id")) if v]
+    # Empty jurisdiction is empty, never universal.
+    if not bounded or not any(h in bounded for h in hits):
+        return "REJECT", "out_of_jurisdiction"
+    enforcement = (rule.get("enforcement") or {}).get("operation")
+    known = attempt.get("known_operations") or []
+    if not enforcement or enforcement not in known:
+        return "REJECT", "unknown_enforcement"
+    failure = rule.get("failure") or {}
+    vacant = set(attempt.get("vacant_offices") or [])
+    if vacant & deciding and failure.get("on_vacancy") != "SUCCEED_THEN_DECIDE":
+        return "REJECT", "undefined_failure"
+    quorum = int(decision.get("quorum") or 1)
+    if int(attempt.get("concurring") or 0) < quorum:
+        return "REJECT", "quorum_short"
+    if not (rule.get("evidence") or {}).get("record"):
+        return "REJECT", "undefined_failure"
+    return "ACCEPT", None
+
+
+def check_gc4_s8(Draft202012Validator) -> None:
+    catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s8.json")
+    catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s8.schema.json")
+    rule_schema = load_json(ROOT / "specs" / "governance-rule.gc4-s8.schema.json")
+    attempt_schema = load_json(ROOT / "specs" / "governance-decision-attempt.gc4-s8.schema.json")
+    errs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if errs:
+        fail(f"GC4-S8 catalog invalid: {errs[0].message}")
+    if (
+        catalog.get("government_entity")
+        or catalog.get("elections")
+        or catalog.get("free_form_text_authority")
+        or catalog.get("empty_jurisdiction_is_universal")
+        or catalog.get("grants_new_authority")
+        or catalog.get("watch_public")
+        or catalog.get("new_verbs")
+        or catalog.get("new_events")
+    ):
+        fail("GC4-S8 must not add a government entity, elections, text authority, universal jurisdiction, new authority, WATCH exposure, verbs, or events")
+    if not catalog.get("undefined_failure_fails_closed"):
+        fail("GC4-S8 must fail closed on undefined authority")
+    rfc_path = ROOT / "rfcs" / "RFC-0124-governance-rule-contract.md"
+    rfc = rfc_path.read_text(encoding="utf-8")
+    status = rfc.split("## Status", 1)[-1][:240]
+    if "**Draft**" not in status and "**Accepted**" not in status:
+        fail("RFC-0124 must carry an explicit Draft or Accepted status")
+    slice_doc = (ROOT / "docs" / "GC4-S8-GOVERNANCE-RULE.md").read_text(encoding="utf-8")
+    for dim in ("Decision rule", "Appointment", "Jurisdiction", "Enforcement", "Failure", "Evidence"):
+        if dim not in slice_doc:
+            fail(f"GC4-S8 slice doc must state the {dim} dimension")
+    rule_v = Draft202012Validator(rule_schema)
+    attempt_v = Draft202012Validator(attempt_schema)
+    seen_reasons = set()
+    fixtures = sorted((ROOT / "examples" / "gc4-governance").glob("attempt-*.json"))
+    if len(fixtures) < 7:
+        fail("GC4-S8 needs positive and negative fixtures for every rejection reason")
+    for path in fixtures:
+        fixture = load_json(path)
+        ferrs = list(attempt_v.iter_errors(fixture))
+        if ferrs:
+            fail(f"{path.name} invalid: {ferrs[0].message}")
+        rerrs = list(rule_v.iter_errors(fixture["rule"]))
+        if rerrs:
+            fail(f"{path.name} rule invalid: {rerrs[0].message}")
+        outcome, reason = evaluate_gc4_s8(fixture)
+        exp = fixture["expected"]
+        if outcome != exp["outcome"]:
+            fail(f"{path.name}: got {outcome} expected {exp['outcome']}")
+        if exp.get("reason") and reason != exp["reason"]:
+            fail(f"{path.name}: reason {reason} expected {exp['reason']}")
+        if outcome == "REJECT":
+            seen_reasons.add(reason)
+    required_reasons = {
+        "unpublished",
+        "not_deciding_office",
+        "quorum_short",
+        "out_of_jurisdiction",
+        "unknown_enforcement",
+        "undefined_failure",
+        "authority_conflict",
+    }
+    missing = required_reasons - seen_reasons
+    if missing:
+        fail(f"GC4-S8 missing negative fixtures for: {sorted(missing)}")
+    ok("GC4-S8 governance rule: catalog, rule/attempt schemas, positive + negative fixtures, RFC-0124")
+
+
 def check_gc4_s6(Draft202012Validator) -> None:
     catalog = load_json(ROOT / "specs" / "authority-catalog.gc4-s6.json")
     catalog_schema = load_json(ROOT / "specs" / "authority-catalog.gc4-s6.schema.json")
@@ -10260,6 +10368,7 @@ def main() -> None:
     check_gc4_s4(Draft202012Validator)
     check_gc4_s5(Draft202012Validator)
     check_gc4_s6(Draft202012Validator)
+    check_gc4_s8(Draft202012Validator)
     check_gc4_s7(Draft202012Validator)
     check_gc5_s0(Draft202012Validator)
     check_gc5_s1(Draft202012Validator)
