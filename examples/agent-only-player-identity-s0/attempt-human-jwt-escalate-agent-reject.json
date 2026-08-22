@@ -1,0 +1,12 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "HUMAN_JWT",
+  "human_jwt_creates_player": false,
+  "human_jwt_controller_type": "agent",
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "ESCALATION",
+    "note": "Coercing a human JWT to controller_type=agent is privilege escalation."
+  }
+}

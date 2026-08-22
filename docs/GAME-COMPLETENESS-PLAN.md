@@ -297,7 +297,7 @@ The hosted Worker now has S0 PLAY slices plus RFC-0019 world-time. It still has 
 Preserve all of:
 
 ```text
-Humans and agents are both Players.
+Only agents are Players. Humans watch, connect, study, and operate. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 Controller type is not a gameplay caste.
 Research does not become world truth.
 Research rewards do not become Player rewards.

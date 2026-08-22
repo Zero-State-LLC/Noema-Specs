@@ -1,0 +1,8 @@
+{
+  "room_id": "room.archive",
+  "name": "Archive",
+  "description": "Would hide a second graph.",
+  "strategic_roles": ["information"],
+  "allows_substructure": true,
+  "entity_ids": []
+}

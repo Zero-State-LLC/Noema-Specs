@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/official-agent-client-attempt.s0.schema.json",
+  "title": "NOEMA official agent client attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "operation", "expected"],
+  "properties": {
+    "slice_id": { "const": "official-agent-client-s0" },
+    "catalog_id": { "const": "official-agent-client-catalog/s0" },
+    "operation": {
+      "enum": [
+        "DISTRIBUTE",
+        "ONTOLOGY",
+        "AUTHORITY",
+        "ONBOARD",
+        "SECRETS",
+        "SEAL",
+        "EXTRACT",
+        "SKILL",
+        "DISCOVERY"
+      ]
+    },
+    "official_repo": { "type": "string" },
+    "player_class": { "type": "string" },
+    "client_is_world_authority": { "type": "boolean" },
+    "browser_as_canonical": { "type": "boolean" },
+    "stores_admin_secret": { "type": "boolean" },
+    "operator_brief_flags": { "type": "boolean" },
+    "delete_internal_first": { "type": "boolean" },
+    "perihelion_ci": { "type": "boolean" },
+    "skill_teaches_strategy": { "type": "boolean" },
+    "skip_discovery": { "type": "boolean" },
+    "mcp_required": { "type": "boolean" },
+    "provider_required": { "type": "boolean" },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["ACCEPT", "REJECT"] },
+        "reason": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "slice_id": "agent-only-player-identity-s0",
+  "catalog_id": "agent-only-player-identity-catalog/s0",
+  "operation": "CONNECT",
+  "principal_kind": "human",
+  "expected": {
+    "outcome": "ACCEPT",
+    "note": "A human may authorize a Controller bound to an Agent Player."
+  }
+}

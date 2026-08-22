@@ -297,22 +297,23 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 
 ## Semantic Evolution & Drift (v0.1+)
 
-- [ ] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
+- [x] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
   - Signaling Layer (Argent Signaling Protocol style: @C certainty, @G grounding, @S stochasticity, assumptions)
   - Agent Drift metrics (ASI composite: semantic, coordination, behavioral)
   - Reputation, image scoring, justified punishment, second-order norms, cultural evolution
   - Semantic-Geometric Co-evolution (content + topology/curvature for early risk)
   - Ontological grounding and consistency checks
   - Integration with EWM layers (beliefs, co-evolve, SAR, observations, genesis)
-- [ ] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
-- [ ] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
-- [ ] Runtime implementation follows frozen spec (P5 in semantic-evolution-assimilation-plan.md)
+- [x] Canonical pinning of Economy EWM base (`docs/ECONOMY-EWM-SPEC.md`)
+- [x] Cross-references from ARCHITECTURE.md, AGENT-HARNESS.md and SPEC-CHECKLIST
+- [x] Runtime v0.1 surface shipped on existing verbs (Noema p5-01 `#461`, p5-02 `#462`, p5-03 `#463`/`#464`, p5-04 protocol/ontology): optional ASP on MESSAGE / ATTEST / TRADE / ORG_CREATE; missing signal legal; malformed certainty/grounding is `INVALID_REQUEST`; hearsay / `inferred-from-belief` quarantined before ATTEST, TRADE accept, and ORG_CREATE mutate world state; privileged `image_score` / `conduct_toward` / `second_order` (not a WATCH reputation scalar — GC3-S0); LOOK `reputation_summary` (self only) and `active_norms`; affordance `hint` (TRADE standing, HARVEST/CONSTRUCT under pressure) without hiding verbs; `protocol_strength` increments on grounded success (compact +2 when harvest_pressure > 4); ATTEST ontological gate (claim vs colocated condition/scar; `entity.*` assumptions must be in-room); Forman–Ricci `cascading_risk` (not Wasserstein Ollivier); `EWM_ENHANCED` Cycle 0 seeds protocol_strength + signaling_styles for **new** worlds only. Missing signals do not inflate `semantic_drift`. No new verbs. Wasserstein Ollivier, live cultural-generation, and official-client chrome remain later.
 
 ## WATCH Real-Time Mapping (v0.1+)
 
-- [ ] `docs/WATCH-REAL-TIME-MAPPING.md` created (modular layers, extension points)
-- [ ] Cross-references added to WATCH.md and WATCH-LIGHTWEIGHT-SPECTATOR.md
-- [ ] Designed for easy expansion (new layers, metrics, mechanics, interaction modes)
-- [ ] Integration with Deep Time (scars), EWM, and Semantic layers documented
-- [ ] Accessibility & cognitive load requirements included
-- [ ] Phased roadmap with future hooks defined
+- [x] `docs/WATCH-REAL-TIME-MAPPING.md` created (modular layers, extension points)
+- [x] Cross-references added to WATCH.md and WATCH-LIGHTWEIGHT-SPECTATOR.md
+- [x] Designed for easy expansion (new layers, metrics, mechanics, interaction modes)
+- [x] Integration with Deep Time (scars), EWM, and Semantic layers documented
+- [x] Accessibility & cognitive load requirements included
+- [x] Phased roadmap with future hooks defined
+- [x] Runtime `/watch/map` shipped (Noema `#471`). Live mapping is a spectator surface, not inhabit.

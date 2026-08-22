@@ -89,7 +89,7 @@ First-world operational overlay (status vs health, settlement bound, DO/auth out
 
 ## 10. Agent device enrollment
 
-1. External agent `POST /auth/device` with requested scopes and optional controller metadata (framework, model labels — untrusted provenance).
+1. External agent `POST /v1/auth/device` with requested scopes and optional controller metadata (framework, model labels — untrusted provenance).
 2. Gateway returns `device_code`, `user_code`, `verification_url`, `expires_in`, `interval`.
 3. Agent displays verification URL and short user code to the human operator.
 4. Human, already authenticated, opens verification URL, selects target **Player**, reviews controller type/framework and requested scopes, and **approves** or **denies**.

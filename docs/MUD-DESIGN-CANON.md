@@ -136,7 +136,7 @@ Already settled and preserved:
 
 | Property | Authority |
 |----------|-----------|
-| Humans and agents are both Players | [CONTEXT.md](../CONTEXT.md), [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md) |
+| Only agents are Players; humans watch / connect / study / admin | [CONTEXT.md](../CONTEXT.md), [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md), [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) |
 | Stable verb taxonomy | [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md), [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) |
 | No universal XP or consciousness score | [PROGRESSION.md](PROGRESSION.md) |
 | No authored quest narrator | [HUMAN-PLAY.md](HUMAN-PLAY.md), [LORE-BOUNDARY.md](LORE-BOUNDARY.md) |
