@@ -2,7 +2,7 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
 Institutional configuration contract. No new Player verbs. No new events. No
 `government` entity class. No Genesis change. No reseed. Acceptance requires

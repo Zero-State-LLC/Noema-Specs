@@ -311,7 +311,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 
 - [x] Operator maint-evolve supervisor pinned: actor split (Player patrol / Admin read-only), gated atomic policy packs with code-level vetoes, human-only plugin apply, isolated-only probes, identity-drift halt, fail-closed table (`docs/OPERATOR-MAINT-EVOLVE.md`; runtime Noema #480/#485). No new verbs. No Genesis.
 
-- [ ] GC4-S8 governance rule (RFC-0124 **Draft**): six-dimension contract, fail-closed refusal vocabulary, positive + negative fixtures, `check_gc4_s8` green. Awaiting maintainer acceptance; no runtime until Accepted (`docs/GC4-S8-GOVERNANCE-RULE.md`).
+- [x] GC4-S8 governance rule (RFC-0124 **Accepted**): six-dimension contract, eight-reason fail-closed refusal vocabulary, positive + negative fixtures for every reason, `check_gc4_s8` green. Runtime implementation authorized; adds no verbs, events, or WATCH exposure (`docs/GC4-S8-GOVERNANCE-RULE.md`).
 ## Semantic Evolution & Drift (v0.1+)
 
 - [x] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
