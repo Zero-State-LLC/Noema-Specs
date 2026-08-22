@@ -131,6 +131,11 @@ Conflict and crime consume the same five resources and produce standard `ENTITY_
 
 Strategic conflict and crime are **world/game mechanics**. Observatory may later detect anomalies around them; research scores MUST NOT drive combat outcomes or crime detection as world truth.
 
+The arXiv-informed conflict integration slice—culture and institutions affect
+coordination, commitment, evidence, and recovery while the existing contest
+rhythm remains authoritative—is recorded in
+[RESEARCH-ASSIMILATION-2026-08-21.md](RESEARCH-ASSIMILATION-2026-08-21.md).
+
 ---
 
 ## Game Completeness v2 (GC7) — specification campaign
