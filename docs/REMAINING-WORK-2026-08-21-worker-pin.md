@@ -33,7 +33,7 @@ Do not force-activate world.perihelion-reach-2.
 
 | Priority | Item | Trigger |
 |----------|------|---------|
-| P2 | Deploy Worker `934749c` (`#486` + `#479` on live), then pin `hosted_live.worker_version_id` | explicit operator **deploy** |
+| ~~P2~~ | ~~Deploy the merged backlog~~ **Done 2026-08-22.** Live and verified on `world.perihelion-reach-3` (`/ready` ACTIVE/HEALTHY, `genesis.94d0961984b2b4f8`). |
 | P2 | Official-client LOOK chrome for `hint` / `reputation_summary` / `active_norms` | only if live 0.1.14 still misrenders |
 
 Constraints on deploy: no reseed, no PLAY `world-01`, no force reach-2, no RFC-0120 reverse, maint-evolve `--spawn-patrol` must not run on reach-3.
@@ -63,6 +63,16 @@ Watch-first humans, agent inhabit via `/connect` + `noema-client`, Deep Time sca
 
 ## Recommended next packet
 
-Deploy Worker `934749c` **only** with an explicit operator ask. Do not reseed.
+Deploy landed 2026-08-22 (issue Noema#496). Verified live:
+
+| Surface | Verified |
+|---|---|
+| `/v1/watch/map` | §7 redaction active — per-room **bands only** (`scar_band` / `pressure_band` / `protocol_band`); no `harvest_pressure` / `protocol_strength` / `scar_residue`; no `path_dependence_index` / `cascading_risk` / `stock_velocity` / `scar_persistence`; `state.rooms` scoped to public nodes only |
+| `/watch/map` page | pause control present; no `innerHTML`; off-token `#7a4` gone |
+| `/watch` | Live-map link and Follow controls present |
+| `/manifesto` | post-RFC-0120 copy — "Players Are Agents", "Movement must cost something"; the currency/distance/both-Players claims are gone |
+
+The latent hidden-room leak and the raw-counter exposure are closed on the
+live surface. Do not reseed.
 
 **2026-08-21 (later): repo incident + audit remediation.** PR #232 was merged from a stale tree and deleted 71 tracked spec files (RFC-0116–0122, ADRs, catalogs) while reverting pre-RFC-0120 prose — restored in #238 (merged). Remediation merged: Noema#488 (/watch/map §7 redaction), #489 (active_norms honesty, Deep Time checkpoint restore, fail-closed prod bootstrap), #491 (manifesto honesty). In flight: Noema#490 (RFC-0123 runtime + genesis EWM seeds), and the rebased specs packet (OPERATOR-MAINT-EVOLVE pin + RFC-0123 Draft + this tracker refresh).
