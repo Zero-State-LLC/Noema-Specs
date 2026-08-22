@@ -249,6 +249,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Remaining-work analysis snapshot: `docs/REMAINING-WORK-2026-08-13.md` (2026-08-13). Not authorization.
 - [x] Remaining-work live-state snapshot: `docs/REMAINING-WORK-2026-08-21.md` (2026-08-21). Successor inhabit + partner operator hats. Not a thaw. Not authorization.
 - [x] RFC-0122 Accepted: EWM product world `world.perihelion-reach-3`. No force on reach-2 or frozen first world. Isolated PASS is the gate.
+- [x] RFC-0123 **Accepted**: bounded upward norm ratchet (cap 5, decay 1 per slow pass after 10 quiet cycles, floor 0) and costly TRADE-reject (1 influence, image −2, conduct −1) with its unspecced `harvest_pressure` coupling struck. Accepted **retroactively** — the behavior was already live when the RFC was written, so this records what runs rather than authorizing anything new. Live in Worker `1f974f76` (Noema #490).
 - [x] Remaining-work reach-3 snapshot: `docs/REMAINING-WORK-2026-08-21-reach3.md`. HARVEST materials + CONSTRUCT relay proven live.
 - [x] MUD-native interaction campaign (spec only): `docs/MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md`, plan, tasks. No new verbs. No Genesis. Not a runtime thaw.
 - [x] MUD Play Craft companion specs-complete (C1–C9; C2 sketch): `docs/MUD-PLAY-CRAFT.md`, `docs/MUD-PLAY-CRAFT-CLOSEOUT.md` (runtime phases R0–R5), `examples/mud-play-craft/`. No new verbs. No Genesis. Runtime remains separate.

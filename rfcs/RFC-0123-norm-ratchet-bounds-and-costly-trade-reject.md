@@ -2,9 +2,13 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
 Gameplay economics pin. No new Player verbs. No new events. No Genesis change. No reseed. Supersedes one paragraph of `docs/ECONOMY-EWM-SPEC.md` §4; pins one shipped behavior that had no spec authority.
+
+Accepted retroactively: this RFC documents behavior that was already running in
+production when it was written, and is live today in Worker `1f974f76`. It is a
+retro-spec, not an authorization to build — nothing new ships under it.
 
 ## Problem
 
