@@ -9866,6 +9866,9 @@ def check_gc9_s2(Draft202012Validator) -> None:
     rfc_path = ROOT / "rfcs" / "RFC-0125-practice-inheritance-and-schism.md"
     if not rfc_path.exists():
         fail("RFC-0125 missing")
+    rfc = rfc_path.read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1][:240]:
+        fail("RFC-0125 must be Accepted")
     rebuild_v = Draft202012Validator(rebuild_schema)
     forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
     names = [

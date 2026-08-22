@@ -2,7 +2,7 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
 Derived culture contract. No new Player verbs. No new events. No new entity
 class. No ledger write. No Genesis change. No reseed. This RFC is the

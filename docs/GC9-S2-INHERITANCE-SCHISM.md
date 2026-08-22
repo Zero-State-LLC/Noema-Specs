@@ -1,6 +1,6 @@
 # GC9-S2 — Practice inheritance and schism
 
-**Authority:** [RFC-0125](../rfcs/RFC-0125-practice-inheritance-and-schism.md) (Draft).
+**Authority:** [RFC-0125](../rfcs/RFC-0125-practice-inheritance-and-schism.md) (Accepted).
 **Extends:** [GC9-S1-TRADITION.md](GC9-S1-TRADITION.md) / [RFC-0025](../rfcs/RFC-0025-tradition.md).
 **Catalog:** `specs/culture-catalog.gc9-s2.json`.
 
