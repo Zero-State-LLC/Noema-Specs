@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/governance-rule.gc4-s8.schema.json",
+  "title": "NOEMA Governance Rule (GC4-S8)",
+  "description": "Published configuration of an existing organization. All six dimensions are required; undefined authority fails closed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rule_id",
+    "org_id",
+    "published",
+    "decision",
+    "appointment",
+    "jurisdiction",
+    "enforcement",
+    "failure",
+    "evidence"
+  ],
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "pattern": "^rule\\.[a-z0-9._-]+$"
+    },
+    "org_id": {
+      "type": "string",
+      "pattern": "^org\\.[a-z0-9._-]+$"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "Unpublished rules authorize nothing."
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "offices",
+        "quorum"
+      ],
+      "properties": {
+        "offices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^office\\."
+          },
+          "minItems": 1
+        },
+        "quorum": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "appointment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mechanism"
+      ],
+      "properties": {
+        "mechanism": {
+          "enum": [
+            "DESIGNATED",
+            "RULE_BASED",
+            "CONSENSUS",
+            "INHERITED_BY_ORGANIZATION"
+          ],
+          "description": "SUCCESSION.md closed set. VACANT is excluded: it is the absence of appointment, so a rule naming it cannot fill an office (see RFC-0124 Appointment)."
+        }
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^room\\."
+          }
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^player\\."
+          }
+        }
+      },
+      "description": "Empty jurisdiction is empty, never universal."
+    },
+    "enforcement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "description": "An existing canonical operation. This slice adds none."
+        }
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "on_vacancy": {
+          "enum": [
+            "REFUSE",
+            "SUCCEED_THEN_DECIDE"
+          ]
+        },
+        "on_deadlock": {
+          "enum": [
+            "REFUSE"
+          ]
+        },
+        "on_expiry": {
+          "enum": [
+            "REFUSE",
+            "LAPSE"
+          ]
+        }
+      },
+      "description": "Absent on_vacancy or on_deadlock is undefined authority and fails closed. REFUSE is a defined outcome and refuses as written."
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record"
+      ],
+      "properties": {
+        "record": {
+          "enum": [
+            "PUBLIC_NOTICE",
+            "ORG_RECORD"
+          ]
+        }
+      }
+    }
+  }
+}

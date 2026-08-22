@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/governance-decision-attempt.gc4-s8.schema.json",
+  "title": "NOEMA Governance Decision Attempt (GC4-S8)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "attempt_id",
+    "rule",
+    "acting_offices",
+    "concurring",
+    "target",
+    "expected"
+  ],
+  "properties": {
+    "attempt_id": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "object",
+      "description": "Validated separately against governance-rule.gc4-s8.schema.json (kept unlinked so the attempt schema resolves offline)."
+    },
+    "acting_offices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vacant_offices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "concurring": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "type": "string"
+        },
+        "room_id": {
+          "type": "string"
+        },
+        "member_id": {
+          "type": "string"
+        }
+      }
+    },
+    "known_operations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "office_conflict": {
+      "type": "boolean"
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome"
+      ],
+      "properties": {
+        "outcome": {
+          "enum": [
+            "ACCEPT",
+            "REJECT"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "unpublished",
+            "not_deciding_office",
+            "quorum_short",
+            "out_of_jurisdiction",
+            "unknown_enforcement",
+            "undefined_failure",
+            "vacancy_refused",
+            "authority_conflict"
+          ]
+        }
+      }
+    }
+  }
+}
