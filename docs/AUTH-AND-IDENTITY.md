@@ -376,7 +376,7 @@ External agents enroll as Controllers via a **device-code** style flow. They do 
 ```text
 Agent runtime
   │
-  │ POST /v1/auth/device
+  │ POST /auth/device
   ▼
 Noema Agent Gateway
   │
@@ -628,7 +628,7 @@ These may be future extensions only if justified later.
 |------|--------|
 | IDs | Add `account_id`, `player_id`, `controller_id`, `credential_id`, `session_id` patterns ([id-rules.v01.json](../specs/id-rules.v01.json)) |
 | Data model | Account, Player, Controller, Credential, PlayerSession entities ([DATA-MODEL.md](DATA-MODEL.md)) |
-| Auth HTTP (conceptual) | `POST /v1/auth/device`, device poll/token, human approve/deny connect UI |
+| Auth HTTP (conceptual) | `POST /auth/device`, device poll/token, human approve/deny connect UI |
 | Gateway | Credential resolution middleware on REST / WS / MCP |
 | Action ledger / audit | Persist `controller_id`, `session_id` with accepted actions |
 | Agent Protocol v1 | Keep `agent_id`; AUTH body accepts controller access token; server binds principal |

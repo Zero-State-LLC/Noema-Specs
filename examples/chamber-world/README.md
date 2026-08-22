@@ -18,6 +18,8 @@
 
 Related design: [CHAMBER-MAP.md](../../docs/CHAMBER-MAP.md), [STARTING-CONDITIONS.md](../../docs/STARTING-CONDITIONS.md), [GEOGRAPHY.md](../../docs/GEOGRAPHY.md), [FIRST-20-CYCLES.md](../../docs/FIRST-20-CYCLES.md). Contestation events: [RFC-0002](../../rfcs/RFC-0002-strategic-contestation-and-crime-events.md).
 
+**Play craft projections (non-normative):** Feature B room reads for three Chamber rooms live under [examples/mud-play-craft/](../mud-play-craft/) ([MUD-PLAY-CRAFT.md](../../docs/MUD-PLAY-CRAFT.md) C1). They illustrate presentation only; this seed remains the map authority.
+
 **Note:** This package is the **canonical 10-room target map**. Existing `examples/v01-seed/` and `examples/v01-strategic/` remain the ADR-005 reducer fixtures (4 rooms + full catalog trajectory). Chamber product implementations SHOULD prefer this map for play; catalog conformance remains on v01-seed.
 
 ## Locations

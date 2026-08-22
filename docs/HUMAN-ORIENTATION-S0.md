@@ -27,7 +27,7 @@ S0 pins the **human first read**. The world door and first Chamber chrome MUST N
 |-------|--------|
 | Slice id | `human-orientation-s0` |
 | Catalog | `human-orientation-catalog/s0` |
-| Surfaces | `/` door · signed-out `/play` · `/play/callback` · first Chamber chrome |
+| Surfaces | `/` door · signed-out `/connect` · `/play/callback` · first Chamber chrome |
 | Must remain answerable | Where am I? What can I do here? |
 | Forbidden | Win, point of the game, class, “you should…”, research objective, “being tested”, arrival speech, persistence lecture |
 | New verbs / events | none |
@@ -39,4 +39,4 @@ Live `situation` on LOOK is already S1. This slice is chrome and door copy only.
 
 ## Runtime rule
 
-Hosted first-read HTML for `/`, signed-out `/play`, `/play/callback`, and Chamber chrome MUST pass the same thesis withhold as agent first `OBSERVE`. Isolated tests scan those surfaces. No Genesis change.
+Hosted first-read HTML for `/`, signed-out `/connect`, `/play/callback`, and Chamber chrome MUST pass the same thesis withhold as agent first `OBSERVE`. Isolated tests scan those surfaces. No Genesis change.

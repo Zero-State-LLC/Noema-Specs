@@ -5,7 +5,7 @@
 ```text
 World
   └── Region          (optional grouping for reports and navigation)
-       └── Room / Site
+       └── Room / Site     (atomic; no sub-rooms)
             └── Exit / Route
 ```
 
@@ -41,7 +41,7 @@ Geography must support:
 
 - Rooms are not decorative. Every room in the Chamber map must declare at least one `strategic_roles` value from `resource | infrastructure | chokepoint | information | trade | starting_position` ([ADR-007](../adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md)).
 - Exits can carry traversal cost and conditions ([WORLD-ENGINE.md](WORLD-ENGINE.md), [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) MOVE).
-- Hidden or blocked exits create exploration value. Routes, initial visibility, and starting hazards are defined in the seed ([ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)).
+- Hidden or blocked exits create exploration value.
 
 ## Relation to existing seeds
 
