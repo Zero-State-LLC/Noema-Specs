@@ -6530,9 +6530,13 @@ def evaluate_gc4_s8(attempt: dict) -> tuple[str, str | None]:
     if not enforcement or enforcement not in known:
         return "REJECT", "unknown_enforcement"
     failure = rule.get("failure") or {}
-    vacant = set(attempt.get("vacant_offices") or [])
-    if vacant & deciding and failure.get("on_vacancy") != "SUCCEED_THEN_DECIDE":
+    # Undefined authority is an *absent* outcome. A written REFUSE is defined:
+    # it refuses as the rule says, under its own reason.
+    if "on_vacancy" not in failure or "on_deadlock" not in failure:
         return "REJECT", "undefined_failure"
+    vacant = set(attempt.get("vacant_offices") or [])
+    if vacant & deciding and failure.get("on_vacancy") == "REFUSE":
+        return "REJECT", "vacancy_refused"
     quorum = int(decision.get("quorum") or 1)
     if int(attempt.get("concurring") or 0) < quorum:
         return "REJECT", "quorum_short"
@@ -6575,7 +6579,7 @@ def check_gc4_s8(Draft202012Validator) -> None:
     attempt_v = Draft202012Validator(attempt_schema)
     seen_reasons = set()
     fixtures = sorted((ROOT / "examples" / "gc4-governance").glob("attempt-*.json"))
-    if len(fixtures) < 7:
+    if len(fixtures) < 8:
         fail("GC4-S8 needs positive and negative fixtures for every rejection reason")
     for path in fixtures:
         fixture = load_json(path)
@@ -6600,6 +6604,7 @@ def check_gc4_s8(Draft202012Validator) -> None:
         "out_of_jurisdiction",
         "unknown_enforcement",
         "undefined_failure",
+        "vacancy_refused",
         "authority_conflict",
     }
     missing = required_reasons - seen_reasons

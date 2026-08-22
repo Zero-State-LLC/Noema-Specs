@@ -26,10 +26,10 @@ refuses the decision.
 | Dimension | Field | Required meaning |
 |---|---|---|
 | Decision rule | `decision.offices[]`, `decision.quorum` | Which occupied offices may decide, and how many must concur |
-| Appointment | `appointment.mechanism` | An existing succession mechanism (`DESIGNATE` / `MEMBER_ORDER` / `CONSENSUS`) |
+| Appointment | `appointment.mechanism` | An existing SUCCESSION mechanism: `DESIGNATED` / `RULE_BASED` / `CONSENSUS` / `INHERITED_BY_ORGANIZATION` |
 | Jurisdiction | `jurisdiction.objects[] / .rooms[] / .members[]` | The bounded set the rule may act on |
 | Enforcement | `enforcement.operation` | An existing canonical operation |
-| Failure | `failure.on_vacancy`, `.on_deadlock`, `.on_expiry` | Explicit outcomes for vacancy, disagreement, expiry |
+| Failure | `failure.on_vacancy`, `.on_deadlock`, `.on_expiry` | Explicit outcomes. Absent = undefined authority; written `REFUSE` = defined refusal |
 | Evidence | `evidence.record` | The public or permissioned record establishing the decision |
 
 ## Fail-closed rules
@@ -39,15 +39,19 @@ refuses the decision.
 - **Empty jurisdiction is empty, never universal.** Unlike a standing office, a
   governance rule is opt-in configuration; an unbounded rule authorizes nothing.
 - **Unknown enforcement refuses.** The operation must already exist.
-- **Undefined failure refuses.** A rule that does not say what happens on
-  vacancy or deadlock cannot act when either occurs.
+- **Undefined failure refuses** (`undefined_failure`): a rule that *omits*
+  `on_vacancy` or `on_deadlock` cannot act at all.
+- **A written refusal is not undefined** (`vacancy_refused`): a rule that writes
+  `REFUSE` is fully defined and stops as it chose to.
+- **`VACANT` is not an appointment mechanism** — it is the absence of one. To
+  keep an office empty, write `failure.on_vacancy: REFUSE`.
 - **Office precedence still governs.** On conflict with
   `INSTITUTIONAL-AUTHORITY` precedence or an emergency scope, the existing
   resolution wins and the decision is refused.
 
 Rejection vocabulary: `unpublished`, `not_deciding_office`, `quorum_short`,
 `out_of_jurisdiction`, `unknown_enforcement`, `undefined_failure`,
-`authority_conflict`.
+`vacancy_refused`, `authority_conflict`.
 
 ## Visibility
 

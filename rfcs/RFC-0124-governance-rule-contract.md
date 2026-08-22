@@ -34,10 +34,10 @@ undefined and **fails closed**.
 | Dimension | Field | Required meaning |
 |---|---|---|
 | Decision rule | `decision.offices[]`, `decision.quorum` | Which occupied offices may decide; how many must concur |
-| Appointment | `appointment.mechanism` | An existing succession mechanism (`DESIGNATE` / `MEMBER_ORDER` / `CONSENSUS`) — no new path |
+| Appointment | `appointment.mechanism` | An existing SUCCESSION mechanism: `DESIGNATED` / `RULE_BASED` / `CONSENSUS` / `INHERITED_BY_ORGANIZATION` — no new path |
 | Jurisdiction | `jurisdiction.objects[]`, `.rooms[]`, `.members[]` | The bounded set the rule may act on; empty = no jurisdiction, not universal |
 | Enforcement | `enforcement.operation` | An existing canonical operation the decision carries out |
-| Failure | `failure.on_vacancy`, `.on_deadlock`, `.on_expiry` | Explicit outcomes; absent = fail closed |
+| Failure | `failure.on_vacancy`, `.on_deadlock`, `.on_expiry` | Explicit outcomes. **Absent** outcome = undefined authority; a written `REFUSE` is defined and refuses under its own reason |
 | Evidence | `evidence.record` | The public or permissioned record establishing the decision |
 
 ### Hard rules
@@ -49,8 +49,11 @@ undefined and **fails closed**.
    governance rule is opt-in configuration rather than a standing office.
 3. **Enforcement must name an existing operation.** An unknown operation is
    rejected; this RFC adds none.
-4. **Undefined failure fails closed.** A rule that does not say what happens on
-   vacancy or deadlock cannot act when either occurs.
+4. **Undefined failure fails closed — and a written refusal is not undefined.**
+   A rule that *omits* `on_vacancy` or `on_deadlock` cannot act at all
+   (`undefined_failure`). A rule that *writes* `REFUSE` is fully defined and
+   refuses as written when a deciding office is vacant (`vacancy_refused`).
+   The two are distinct so a body can deliberately choose to stop.
 5. **Office precedence still governs.** A governance rule never overrides
    `INSTITUTIONAL-AUTHORITY` office conflict-precedence or emergency scopes; on
    conflict the existing resolution wins and the decision is refused.
@@ -61,7 +64,7 @@ undefined and **fails closed**.
 ### Rejection vocabulary
 
 `unpublished` · `not_deciding_office` · `quorum_short` · `out_of_jurisdiction` ·
-`unknown_enforcement` · `undefined_failure` · `authority_conflict`
+`unknown_enforcement` · `undefined_failure` · `vacancy_refused` · `authority_conflict`
 
 Each maps to exactly one unmet dimension, so a refusal explains itself without
 leaking the rule's contents to non-members.
@@ -74,6 +77,12 @@ leaking the rule's contents to non-members.
 
 Fixtures in `examples/gc4-governance/`: one positive (a quorate council decision
 inside jurisdiction with evidence) and one negative per rejection reason.
+
+`VACANT` and `INHERITED_BY_ORGANIZATION` are decided explicitly.
+`INHERITED_BY_ORGANIZATION` is **in scope** — a rule may name it, and the office
+follows GC4-S7 unchanged. `VACANT` is **out of scope as an appointment**: it is
+the absence of appointment, so a rule naming it would fill nothing; a body that
+wants an office to stay empty writes `failure.on_vacancy: REFUSE` instead.
 Validator: `check_gc4_s8`.
 
 ## Visibility

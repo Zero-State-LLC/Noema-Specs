@@ -1,6 +1,6 @@
 {
   "attempt_id": "gov-undefined-failure",
-  "note": "vacancy with no defined failure path fails closed",
+  "note": "failure outcomes omitted entirely \u2014 undefined authority fails closed",
   "rule": {
     "rule_id": "rule.relay-council",
     "org_id": "org.signal-compact",
@@ -13,7 +13,7 @@
       "quorum": 2
     },
     "appointment": {
-      "mechanism": "MEMBER_ORDER"
+      "mechanism": "RULE_BASED"
     },
     "jurisdiction": {
       "objects": [
@@ -26,18 +26,16 @@
     "enforcement": {
       "operation": "REPAIR"
     },
-    "failure": {
-      "on_vacancy": "REFUSE",
-      "on_deadlock": "REFUSE"
-    },
+    "failure": {},
     "evidence": {
       "record": "ORG_RECORD"
     }
   },
   "acting_offices": [
-    "office.warden"
+    "office.warden",
+    "office.steward"
   ],
-  "concurring": 1,
+  "concurring": 2,
   "target": {
     "object_id": "entity.relay-trunk",
     "room_id": "room.relay-quarter"
@@ -52,8 +50,5 @@
   "expected": {
     "outcome": "REJECT",
     "reason": "undefined_failure"
-  },
-  "vacant_offices": [
-    "office.steward"
-  ]
+  }
 }

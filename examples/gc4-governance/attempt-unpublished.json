@@ -13,7 +13,7 @@
       "quorum": 2
     },
     "appointment": {
-      "mechanism": "MEMBER_ORDER"
+      "mechanism": "RULE_BASED"
     },
     "jurisdiction": {
       "objects": [
