@@ -8,6 +8,10 @@
 
 ### Added
 
+- **RFC-0123 (Draft): bounded upward norm ratchet; costly TRADE-reject pinned.** Supersedes ECONOMY-EWM §4's downward org ratchet with the shipped upward surcharge, bounded (cap 5, decay 1 per slow pass after 10 quiet cycles, floor 0); pins observed-grounded TRADE-reject as costly punishment (1 influence, image −2, conduct −1) and strikes its unspecced `harvest_pressure` coupling. No new verbs. No events. No Genesis.
+
+- **Operator maint-evolve supervisor pinned:** `docs/OPERATOR-MAINT-EVOLVE.md` retro-pins the shipped runtime supervisor (Noema #480/#485): Player/Admin actor split (Admin read-only on production, never a Player — RFC-0120), atomic gated policy packs with code-level hard vetoes (no TRADE-by-default/reseed/force/Admin-JWT-on-commands), human-only plugin apply (proposed area never importable, hint-only hooks), isolated-world-only probes with Player tokens, identity-drift halt without reseed, fail-closed error table, required tests. No new verbs. No Genesis. No RFC.
+
 - **WATCH Real-Time Mapping System v0.1**: `docs/WATCH-REAL-TIME-MAPPING.md`
   Rich, glanceable, expandable spectator mapping & dashboard layer.
   PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/235

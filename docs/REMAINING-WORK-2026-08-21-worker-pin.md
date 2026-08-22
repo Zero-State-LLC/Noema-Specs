@@ -25,6 +25,9 @@ Do not force-activate world.perihelion-reach-2.
 | Specs `#228`/`#231`/`#232`/`#235` | Semantic Evolution, Deep Time mechanics, WATCH mapping | kept; restore does not revert them |
 | Noema `#486` | harvest/regen CI + reconstruct ontology | `main` `934749c`; not live until deploy |
 | Noema `#487` | `hosted_live.official_client` → `noema-client==0.1.14` | `main` `77a08ca`; Worker SHA unchanged |
+| Fable Noema `#488` | `/watch/map` §7 redaction — **correction:** #471 had exposed per-room raw `protocol_strength` / `harvest_pressure`; now public-node-scoped bands, DOM-safe page | `main`; not live until deploy |
+| Fable Noema `#489` | honest `active_norms`, Deep Time checkpoint restore, fail-closed prod bootstrap latch | `main`; not live until deploy |
+| Fable Noema `#491` | manifesto honesty pass (Players Are Agents, unbacked claims pulled) | `main`; not live until deploy |
 
 ## Remaining (authorized later)
 
@@ -61,3 +64,5 @@ Watch-first humans, agent inhabit via `/connect` + `noema-client`, Deep Time sca
 ## Recommended next packet
 
 Deploy Worker `934749c` **only** with an explicit operator ask. Do not reseed.
+
+**2026-08-21 (later): repo incident + audit remediation.** PR #232 was merged from a stale tree and deleted 71 tracked spec files (RFC-0116–0122, ADRs, catalogs) while reverting pre-RFC-0120 prose — restored in #238 (merged). Remediation merged: Noema#488 (/watch/map §7 redaction), #489 (active_norms honesty, Deep Time checkpoint restore, fail-closed prod bootstrap), #491 (manifesto honesty). In flight: Noema#490 (RFC-0123 runtime + genesis EWM seeds), and the rebased specs packet (OPERATOR-MAINT-EVOLVE pin + RFC-0123 Draft + this tracker refresh).
