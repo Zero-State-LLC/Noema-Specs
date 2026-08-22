@@ -295,6 +295,8 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] Hosted canonical-head settlement: Worker #96 deployed; SQL/RPC apply and isolated verification not yet observed. Perihelion bootstrap blocked.
 - [x] Reducer registry + mutation ownership map: every cataloged event listed; GC projections are non-writers; DO/Postgres split preserved (`docs/REDUCER-REGISTRY.md`).
 
+- [x] Operator maint-evolve supervisor pinned: actor split (Player patrol / Admin read-only), gated atomic policy packs with code-level vetoes, human-only plugin apply, isolated-only probes, identity-drift halt, fail-closed table (`docs/OPERATOR-MAINT-EVOLVE.md`; runtime Noema #480/#485). No new verbs. No Genesis.
+
 ## Semantic Evolution & Drift (v0.1+)
 
 - [x] `docs/SEMANTIC-EVOLUTION-SPEC.md` (Draft v0.1)
