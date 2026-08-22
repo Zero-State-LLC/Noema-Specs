@@ -1,6 +1,6 @@
 # GC4-S8 — Governance rule as bounded institutional configuration
 
-**Status:** Draft slice contract pending [RFC-0124](../rfcs/RFC-0124-governance-rule-contract.md).
+**Status:** Accepted slice contract — [RFC-0124](../rfcs/RFC-0124-governance-rule-contract.md).
 **Catalog:** [`authority-catalog.gc4-s8.json`](../specs/authority-catalog.gc4-s8.json).
 **Kind:** institutional configuration. No new Player verbs. No new events. No
 `government` entity. No Genesis change.
