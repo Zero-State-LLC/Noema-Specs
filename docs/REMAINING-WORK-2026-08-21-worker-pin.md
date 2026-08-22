@@ -21,21 +21,21 @@ Do not force-activate world.perihelion-reach-2.
 |--------|-------------|-------|
 | Partner Prabu Specs `#236` | ENTER + dual-agent MESSAGE from inside reach-3 | P0 done |
 | Partner Prabu `noema-client#17`/`#18` | NOT_IN_WORLD recover | intent in `noema-client==0.1.14` (`#19`) |
-| Partner Prabu Noema `#479` | `HarnessPolicy.blocked()` | `main`; not on live Worker until deploy |
+| Partner Prabu Noema `#479` | `HarnessPolicy.blocked()` | live (first carried by `fb57910f`) |
 | Specs `#228`/`#231`/`#232`/`#235` | Semantic Evolution, Deep Time mechanics, WATCH mapping | kept; restore does not revert them |
-| Noema `#486` | harvest/regen CI + reconstruct ontology | live in Worker `fb57910f` |
+| Noema `#486` | harvest/regen CI + reconstruct ontology | live (first carried by `fb57910f`) |
 | Noema `#487` | `hosted_live.official_client` → `noema-client==0.1.14` | `main` `77a08ca`; Worker SHA unchanged |
-| Fable Noema `#488` | `/watch/map` §7 redaction — **correction:** #471 had exposed per-room raw `protocol_strength` / `harvest_pressure`; now public-node-scoped bands, DOM-safe page | live in Worker `fb57910f` |
-| Fable Noema `#489` | honest `active_norms`, Deep Time checkpoint restore, fail-closed prod bootstrap latch | live in Worker `fb57910f` |
-| Fable Noema `#491` | manifesto honesty pass (Players Are Agents, unbacked claims pulled) | live in Worker `fb57910f` |
-| Fable Noema `#493` | PR #245 acceptance scenarios observable — inheritance, office precedence folded into `office_lines` | live in Worker `fb57910f` |
-| Fable Noema `#494` | EWM honesty — live grounding term, TS/Python parity, unobservable metrics declared not inferred | live in Worker `fb57910f` |
-| Fable Noema `#495` | EWM honesty debt tranche — delayed-message grounding, `drift_alerts` subset, attest ratchet. **This is the commit the 2026-08-22 publish was built from** | live in Worker `fb57910f` |
-| Fable Noema `#497` | ADR-008 — no implicit random streams in persisted world state. A replay-conformance **correctness** fix, not a feature | `main`; **not** in `fb57910f` — next deploy |
-| Partner Noema `#501` | public `sitemap.xml` + `robots.txt` | `main`; **not** in `fb57910f` — next deploy |
-| Fable Noema `#498` | RFC-0124 GC4-S8 evaluator (`src/governance.ts`) — six dimensions, eight refusal reasons, appointment on the SUCCESSION closed set | `main`; **not** in `fb57910f` — next deploy |
-| Fable Noema `#499` | GC4-S8 wired onto existing `ORG_OFFICE_ACT` — officer-gated publish + decide; decision **records** authorization and does not execute (RFC-0124 §6); `governance_lines` member-scoped only | `main`; **not** in `fb57910f` — next deploy |
-| Fable Noema `#503` | RFC-0125 GC9-S2 inheritance + schism — two derived marks on an unchanged GC9-S1 tradition; per-repair attribution in `CultureSite`; legacy sites get no mark | `main`; **not** in `fb57910f` — next deploy |
+| Fable Noema `#488` | `/watch/map` §7 redaction — **correction:** #471 had exposed per-room raw `protocol_strength` / `harvest_pressure`; now public-node-scoped bands, DOM-safe page | live (first carried by `fb57910f`) |
+| Fable Noema `#489` | honest `active_norms`, Deep Time checkpoint restore, fail-closed prod bootstrap latch | live (first carried by `fb57910f`) |
+| Fable Noema `#491` | manifesto honesty pass (Players Are Agents, unbacked claims pulled) | live (first carried by `fb57910f`) |
+| Fable Noema `#493` | PR #245 acceptance scenarios observable — inheritance, office precedence folded into `office_lines` | live (first carried by `fb57910f`) |
+| Fable Noema `#494` | EWM honesty — live grounding term, TS/Python parity, unobservable metrics declared not inferred | live (first carried by `fb57910f`) |
+| Fable Noema `#495` | EWM honesty debt tranche — delayed-message grounding, `drift_alerts` subset, attest ratchet | live (first carried by `fb57910f`) |
+| Fable Noema `#497` | ADR-008 — no implicit random streams in persisted world state. A replay-conformance **correctness** fix, not a feature | live in Worker `1f974f76` |
+| Partner Noema `#501` | public `sitemap.xml` + `robots.txt` | live in Worker `1f974f76` |
+| Fable Noema `#498` | RFC-0124 GC4-S8 evaluator (`src/governance.ts`) — six dimensions, eight refusal reasons, appointment on the SUCCESSION closed set | live in Worker `1f974f76` |
+| Fable Noema `#499` | GC4-S8 wired onto existing `ORG_OFFICE_ACT` — officer-gated publish + decide; decision **records** authorization and does not execute (RFC-0124 §6); `governance_lines` member-scoped only | live in Worker `1f974f76` |
+| Fable Noema `#503` | RFC-0125 GC9-S2 inheritance + schism — two derived marks on an unchanged GC9-S1 tradition; per-repair attribution in `CultureSite`; legacy sites get no mark | live in Worker `1f974f76` |
 | Fable Noema `#502` | project automation degrades to a warning instead of failing every PR; the partner-agents CC now actually fires (it never had) | `main`; CI-only, no Worker change — deploy irrelevant |
 
 ## Remaining (authorized later)
@@ -86,32 +86,41 @@ live surface. Do not reseed.
 
 **2026-08-21 (later): repo incident + audit remediation.** PR #232 was merged from a stale tree and deleted 71 tracked spec files (RFC-0116–0122, ADRs, catalogs) while reverting pre-RFC-0120 prose — restored in #238 (merged). Remediation merged: Noema#488 (/watch/map §7 redaction), #489 (active_norms honesty, Deep Time checkpoint restore, fail-closed prod bootstrap), #491 (manifesto honesty). In flight: Noema#490 (RFC-0123 runtime + genesis EWM seeds), and the rebased specs packet (OPERATOR-MAINT-EVOLVE pin + RFC-0123 Draft + this tracker refresh).
 
-**2026-08-22: Slice B runtime complete (RFC-0124 / GC4-S8).** Both halves are on `main` and unreleased: Noema#498 (evaluator) and Noema#499 (wiring). The shipped shape holds every constraint the RFC set — published configuration on an existing organization, no `government` entity, no new verbs or events, no WATCH exposure, no Genesis change. The load-bearing one is RFC-0124 §6: an authorized decision records *who decided and what it authorizes* and does not carry the operation out — a runtime test pins that a target entity's condition is unchanged after an authorized `REPAIR` decision. `parseGovernanceRule` refuses a half-formed rule at publish time rather than storing one that could only ever refuse (empty jurisdiction, unknown office, quorum above the deciding offices, omitted vacancy/deadlock outcomes). Enforcement is checked against the runtime's own `PROTOCOL_VERBS`, so a rule naming an operation the world cannot perform is `unknown_enforcement` rather than a stored promise. Not live until the next deploy.
+**2026-08-22: Slice B runtime complete (RFC-0124 / GC4-S8).** Both halves — Noema#498 (evaluator) and Noema#499 (wiring) — are **live** in Worker `1f974f76`. The shipped shape holds every constraint the RFC set — published configuration on an existing organization, no `government` entity, no new verbs or events, no WATCH exposure, no Genesis change. The load-bearing one is RFC-0124 §6: an authorized decision records *who decided and what it authorizes* and does not carry the operation out — a runtime test pins that a target entity's condition is unchanged after an authorized `REPAIR` decision. `parseGovernanceRule` refuses a half-formed rule at publish time rather than storing one that could only ever refuse (empty jurisdiction, unknown office, quorum above the deciding offices, omitted vacancy/deadlock outcomes). Enforcement is checked against the runtime's own `PROTOCOL_VERBS`, so a rule naming an operation the world cannot perform is `unknown_enforcement` rather than a stored promise.
 
-**2026-08-22: Slice A runtime complete (RFC-0125 / GC9-S2).** Accepted in Specs#252, implemented in Noema#503, on `main` and unreleased. Two derived marks on an unchanged GC9-S1 tradition — *inherited* when a non-originator repairs strictly later than the last originator repair, *schismed* when two PUBLIC accounts carry distinct claims authored by two distinct agents who both repaired the site. Neither mark adds a verb, an event, an entity class, or a ledger write, and both attach only to `TRADITION`/`REVIVED`.
+**2026-08-22: Slice A runtime complete (RFC-0125 / GC9-S2).** Accepted in Specs#252, implemented in Noema#503, **live** in Worker `1f974f76`. Two derived marks on an unchanged GC9-S1 tradition — *inherited* when a non-originator repairs strictly later than the last originator repair, *schismed* when two PUBLIC accounts carry distinct claims authored by two distinct agents who both repaired the site. Neither mark adds a verb, an event, an entity class, or a ledger write, and both attach only to `TRADITION`/`REVIVED`.
 
 Three things a later reader should not have to rediscover. First, the attribution both marks need already existed and was never consumed: `ReconstructionRecord.author_player_id` was defined but never reached the culture layer. Second, `ensureCulture` must copy the new per-repair list on rebuild — dropping it would silently un-inherit every tradition on a DO reload, the same failure shape as when losing `deep_time` wiped scars. Third, sites persisted before GC9-S2 carry no attribution and therefore get **no mark** rather than a guessed one, so existing worlds do not retroactively sprout inherited traditions.
 
-Slice status after this: **A and B implemented and unreleased**; **C and D already implemented** — C has the RFC-0041 institution-party plumbing (`acting_for`), EXIT targets, withdraw and recovery; D keeps lineage through the stable `entity_id` that RFC-0057 mandates, with WATCH silent by design. No ungated runtime work remains on the four-slice package. Not live until the next deploy.
+Slice status after this: **all four slices implemented and live**; **C and D already implemented** — C has the RFC-0041 institution-party plumbing (`acting_for`), EXIT targets, withdraw and recovery; D keeps lineage through the stable `entity_id` that RFC-0057 mandates, with WATCH silent by design. No ungated runtime work remains on the four-slice package.
 
 ## Deploy boundary (2026-08-22)
 
-A deploy landed on 2026-08-22, so the phrase "not live until deploy" now means opposite things on either
-side of it — four rows above it were carried, three below it were not. The boundary is therefore stated
-once here rather than left to be inferred per row.
+**Everything on `main` is live.** The `hosted_live` pin is Worker
+`1f974f76-6720-444b-bfee-2eb35a02856c`, set in `spec-compat.json` by Daniel Meyer at 2026-08-22 17:14Z
+(`bfca132`, docs-only). `main` at that point included Noema #503, so the five Worker-affecting commits
+since the previous pin — #497, #498, #499, #501, #503 — are all out. Slice A and Slice B are both live.
+#502 is CI-only and carries no Worker change.
 
-The publish moved the `hosted_live` pin once, producing Worker `fb57910f-a32b-4dc3-95ff-526188b0984d` (was `5c796d6e`), built
-from `main` `333a0e5` — Noema #495, 2026-08-21 22:49 -0700. Pinned in `spec-compat.json` by Noema #500.
+Verified after the publish: `/ready` ACTIVE / HEALTHY on `world.perihelion-reach-3` /
+`genesis.94d0961984b2b4f8`; `/v1/watch/live` and `/v1/watch/map` scanned clean for governance and
+attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_decision`,
+`author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
+live and leaks nothing publicly, as RFC-0124 requires.
 
-**Everything merged after `333a0e5` is not live.** In order: #497, #498, #499, #501, #502, #503, #500.
+### Caution for whoever writes here next
 
-Two things about that set are worth calling out rather than leaving in a table:
+The pin in `spec-compat.json` is a hand-updated docs record, **not** a reading of what Cloudflare is
+serving, and it has lagged a real deploy at least once. Between 08:28Z and 17:14Z it said `fb57910f`
+(built from `333a0e5`) while the running Worker already served `workers/noema/src/seo.ts`, a file that
+does not exist at `333a0e5`. A tracker revision written from that pin recorded the wrong live/not-live
+split for five PRs.
 
-- **Slices A and B are both entirely undeployed.** No agent in Perihelion Reach can publish a governance
-  rule or inherit a practice yet, however green the runtime tests are.
-- **ADR-008 (#497) is undeployed, and it is a correctness fix rather than a feature.** The live Worker
-  still persists world state through the implicit random streams ADR-008 forbids, so replay conformance
-  is not yet true of production. This should be weighted above the two feature slices when the next
-  deploy is scheduled.
+Before trusting the pin, cross-check it against a public surface that a known commit changed — comparing
+`https://noema.guru/robots.txt` against `seo.ts` is the cheap one. Note that Cloudflare prepends its own
+managed content-signals block to `robots.txt`, so a bare 200 proves nothing and the served body has to be
+diffed against source. Both a false positive and a false negative are available here.
 
-Noema #502 is CI-only and carries no Worker change, so it is unaffected either way.
+Slice A has no such probe: its WATCH pulses only surface once a site actually has an inherited or
+schismed tradition, and `public_pulses` is currently `[]` because the world holds no tradition at all
+(cycle 689, `players_present: 0`). Absence of those pulses says nothing about whether GC9-S2 is deployed.
