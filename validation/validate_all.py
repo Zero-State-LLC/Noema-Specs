@@ -9739,6 +9739,184 @@ def check_gc9_s1(Draft202012Validator) -> None:
     ok("GC9-S1 tradition: catalog, rebuild fixtures, RFC-0025 Accepted, no culture score")
 
 
+def _gc9_s2_repairs(fixture: dict) -> list[dict]:
+    """Repairs at the subject entity in ledger order. ADR-008: no implicit stream."""
+    entity_id = fixture["subject_entity_id"]
+    ordered = sorted(
+        fixture.get("events") or [],
+        key=lambda ev: (int(ev.get("cycle") or 0), int(ev.get("sequence") or 0), ev.get("event_id") or ""),
+    )
+    out: list[dict] = []
+    seen: set[str] = set()
+    for ev in ordered:
+        if not _gc9_s1_is_repair(ev, entity_id):
+            continue
+        eid = str(ev.get("event_id") or "")
+        if not eid or eid in seen:
+            continue
+        seen.add(eid)
+        out.append(ev)
+    return out
+
+
+def rebuild_gc9_s2(fixture: dict, s1_catalog: dict, s2_catalog: dict) -> dict:
+    """RFC-0125 GC9-S2. Two derived marks on top of an unchanged GC9-S1 derivation."""
+    base = rebuild_gc9_s1(fixture, s1_catalog)
+    entity_id = fixture["subject_entity_id"]
+    subject = fixture["subject_id"]
+    state = base["state"]
+
+    repairs = _gc9_s2_repairs(fixture)
+    practitioners = {str(r.get("actor_id")) for r in repairs if r.get("actor_id")}
+    accessors = {
+        str(ev.get("actor_id"))
+        for ev in (fixture.get("events") or [])
+        if ev.get("actor_id")
+        and ev.get("event_type") in ("INSPECT", "ENTITY_UPDATE")
+        and (ev.get("payload") or {}).get("entity_id") == entity_id
+    }
+
+    n_orig = int(s2_catalog["originator_repairs"])
+    originators = {str(r.get("actor_id")) for r in repairs[:n_orig] if r.get("actor_id")}
+    orig_cycles = [int(r.get("cycle") or 0) for r in repairs if str(r.get("actor_id")) in originators]
+    last_orig = max(orig_cycles) if orig_cycles else -1
+    # A co-practitioner is not an heir: the successor repair must come strictly
+    # after the founders stopped.
+    inherited = any(
+        str(r.get("actor_id")) not in originators and int(r.get("cycle") or 0) > last_orig
+        for r in repairs
+    )
+
+    recons = [r for r in (fixture.get("reconstructions") or []) if r.get("subject_ref") == entity_id]
+    public = [r for r in recons if r.get("visibility") == "PUBLIC"]
+    claims = {r.get("claim") for r in public if r.get("claim")}
+    held = [
+        (str(r.get("author_id")), r.get("claim"))
+        for r in public
+        if r.get("author_id") and r.get("claim") and str(r.get("author_id")) in practitioners
+    ]
+    schism = any(
+        a != b and ca != cb
+        for i, (a, ca) in enumerate(held)
+        for (b, cb) in held[i + 1:]
+    )
+    if len(claims) < int(s2_catalog["schism_min_public_claims"]):
+        schism = False
+    if len({a for a, _ in held}) < int(s2_catalog["schism_min_practitioner_authors"]):
+        schism = False
+
+    live = state in ("TRADITION", "REVIVED")
+    reasons: list[str] = []
+    if not live:
+        inherited = False
+        schism = False
+        reasons.append("not_a_tradition")
+    else:
+        if not inherited:
+            reasons.append("founders_only")
+        if recons and not public:
+            reasons.append("no_public_account")
+        elif len(claims) < int(s2_catalog["schism_min_public_claims"]):
+            reasons.append("single_account")
+        elif not schism:
+            reasons.append("unattributed_accounts")
+
+    play = list(base["play_lines"])
+    if subject in accessors:
+        if inherited:
+            play.append(s2_catalog["inherited_line"])
+        if schism:
+            play.append(s2_catalog["schism_line"])
+    watch = list(base["watch_lines"])
+    if inherited:
+        watch.append(s2_catalog["watch_inherited_pulse"])
+    if schism:
+        watch.append(s2_catalog["watch_schism_pulse"])
+
+    return {
+        "play_lines": play,
+        "watch_lines": watch,
+        "state": state,
+        "inherited": inherited,
+        "schism": schism,
+        "non_derivation": reasons,
+        "ledger_mutated": False,
+        "bonus": False,
+    }
+
+
+def check_gc9_s2(Draft202012Validator) -> None:
+    s1_catalog = load_json(ROOT / "specs" / "culture-catalog.gc9-s1.json")
+    catalog = load_json(ROOT / "specs" / "culture-catalog.gc9-s2.json")
+    catalog_schema = load_json(ROOT / "specs" / "culture-catalog.gc9-s2.schema.json")
+    rebuild_schema = load_json(ROOT / "specs" / "culture-rebuild.gc9-s2.schema.json")
+    cerrs = list(Draft202012Validator(catalog_schema).iter_errors(catalog))
+    if cerrs:
+        fail(f"GC9-S2 catalog invalid: {cerrs[0].message}")
+    for flag in (
+        "ledger_write", "lore_overrides_ledger", "gameplay_bonus", "culture_score",
+        "belief_meter", "deity_entity", "procedural_generator", "new_entity_class",
+        "concurrent_practice_is_inheritance", "names_account_holders",
+        "watch_names_site", "watch_oracle",
+    ):
+        if catalog.get(flag):
+            fail(f"GC9-S2 must not set {flag}")
+    if catalog.get("new_verbs") or catalog.get("new_events"):
+        fail("GC9-S2 must not add verbs or events")
+    rfc_path = ROOT / "rfcs" / "RFC-0125-practice-inheritance-and-schism.md"
+    if not rfc_path.exists():
+        fail("RFC-0125 missing")
+    rebuild_v = Draft202012Validator(rebuild_schema)
+    forbidden = [t.lower() for t in catalog.get("forbidden_in_projection") or []]
+    names = [
+        "inherited-beyond-founders.json",
+        "founders-only-no-inheritance.json",
+        "concurrent-practice-not-inheritance.json",
+        "schism-rival-accounts.json",
+        "single-account-no-schism.json",
+        "unattributed-accounts-no-schism.json",
+        "same-author-revision-no-schism.json",
+        "private-accounts-no-schism.json",
+        "not-a-tradition-no-marks.json",
+        "dormant-no-marks.json",
+    ]
+    seen_reasons: set[str] = set()
+    for name in names:
+        fixture = load_json(ROOT / "examples" / "gc9-schism" / name)
+        aerrs = list(rebuild_v.iter_errors(fixture))
+        if aerrs:
+            fail(f"{name} invalid: {aerrs[0].message}")
+        got = rebuild_gc9_s2(fixture, s1_catalog, catalog)
+        exp = fixture["expected"]
+        for key in ("play_lines", "watch_lines", "state", "inherited", "schism", "non_derivation"):
+            if key in exp and got[key] != exp[key]:
+                fail(f"{name} {key}: got {got[key]} expected {exp[key]}")
+        if got.get("bonus") or got.get("ledger_mutated"):
+            fail(f"{name} must not grant a bonus or write the ledger")
+        seen_reasons.update(got["non_derivation"])
+        blob = " ".join(got["play_lines"] + got["watch_lines"]).lower()
+        for token in forbidden:
+            if token in blob:
+                fail(f"{name} leaked {token}")
+        # RFC-0125 hard rule 6: attribution derives the mark, it is never surfaced.
+        if "player." in blob or "entity." in blob:
+            fail(f"{name} named an agent or entity in a projected line")
+        for actor in {str(ev.get("actor_id")) for ev in fixture.get("events") or []}:
+            handle = actor.split(".")[-1].lower()
+            if handle and handle in blob:
+                fail(f"{name} named practitioner {actor} in a projected line")
+    missing = set(catalog["non_derivation_reasons"]) - seen_reasons
+    if missing:
+        fail(f"GC9-S2 fixtures never exercise: {sorted(missing)}")
+    # Non-regression: GC9-S2 must not alter any GC9-S1 expected output.
+    for name in ("custom-to-tradition.json", "competing-accounts.json", "dormant-tradition.json"):
+        s1fix = load_json(ROOT / "examples" / "gc9-tradition" / name)
+        s1got = rebuild_gc9_s1(s1fix, s1_catalog)
+        if s1got["play_lines"] != s1fix["expected"]["play_lines"]:
+            fail(f"GC9-S2 regressed GC9-S1 {name}")
+    ok("GC9-S2 inheritance/schism: catalog, fixtures, all five non-derivation reasons, no GC9-S1 regression")
+
+
 def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]:
     authorizer = attempt.get("authorizer")
     if authorizer in (catalog.get("forbidden_authorizers") or []):
@@ -10424,6 +10602,7 @@ def main() -> None:
     check_rfc_0121()
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
+    check_gc9_s2(Draft202012Validator)
     check_gc10_s0(Draft202012Validator)
     check_gc10_s1(Draft202012Validator)
     check_gc10_s2(Draft202012Validator)
