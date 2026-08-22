@@ -1,7 +1,7 @@
 # WATCH — Real-Time Mapping & Spectator System
 
-**Version:** v0.1 (Draft)  
-**Date:** 2026-08-21  
+**Version:** v0.1.1 (Draft)  
+**Date:** 2026-08-21 (reconciled 2026-08-21 evening)  
 **Status:** Specs-first. Implementation follows review.  
 **Kind:** Rich visual spectator projection layer (complements the lightweight theater surface).  
 **Related:**
@@ -14,7 +14,7 @@
 - [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)
 - [DEEP-TIME-MECHANICS-UPDATE.md](DEEP-TIME-MECHANICS-UPDATE.md)
 
-This document defines the **real-time mapping and dashboard-style spectator experience**. It is designed to be **easily expandable** over time while preserving immediate comprehension, visual pleasure, and fun for watchers.
+This document defines the **real-time mapping spectator surface** — a richer, layered live view. It is designed to be **easily expandable** over time while preserving immediate comprehension, visual pleasure, and fun for watchers. It is not a dashboard: the doctrinal exclusions of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §1 ("WATCH is not") bind every WATCH surface, this one included — the difference here is density and layering, never telemetry, scoring, or narration.
 
 ## 1. Purpose & Boundaries
 
@@ -28,11 +28,24 @@ WATCH Real-Time Mapping provides a visually rich, glanceable, and engaging live 
 
 **It is not:**
 - A replacement for the lightweight spectator experience (see [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)).
+- A dense telemetry dashboard or graph-heavy monitoring product (§1 doctrine of the lightweight contract applies).
 - An admin or research analytics surface.
 - A player HUD.
 - A raw event firehose.
+- The public door's map: `/watch` keeps its own §4.B/§18 cartography; this surface lives on its own opt-in route and MUST NOT render alongside them.
 
 The two surfaces can coexist: the lightweight version remains the public default; the real-time mapping system is an opt-in richer mode (or separate route).
+
+## 1.1 Privacy & Redaction (normative)
+
+Every rule of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) **§7** binds this surface verbatim — it is public WATCH. In particular:
+
+- **No secret rooms/exits/entities/Players.** Derived overlays MUST be scoped to the rooms the public snapshot exposes, never to raw source maps (a pressure or scar map keyed by every room ever touched leaks hidden topology the moment a hidden room is touched).
+- **Bands, never raw counters or amounts.** Per-room scar/pressure/protocol values serialize as coarse bands (`faint/marked/deep`, `low/moderate/high`). Raw floats and cumulative counters MUST NOT reach the wire. This is the shipped `watch-map/1.0` contract (Noema #488).
+- **No research metrics.** Path-dependence, cascading-risk, velocity, and similar EWM/research scalars stay off the public payload.
+- **No reputation.** `image_score` / `reputation_summary` / `second_order` never appear (GC3).
+- **Untrusted world text.** All rendering via `textContent`/safe nodes; interpolated-markup assignment is a defect.
+- **Server-side filtering only.** Redaction happens before JSON leaves the Worker; clients never re-derive hidden facts.
 
 ## 2. Core Principles (for Expandability)
 
@@ -55,10 +68,10 @@ The system is composed of independent, stackable layers. New layers can be inser
 | Activity Overlay | Movement & flow | Animated traces, recent paths | New flow types (influence, materials, belief) |
 | State Overlays | Resource/pressure/scar heat | Subtle gradients for pressure, scars, attention | New metrics from EWM, Semantic, future systems |
 | Entity Layer | Agents, objects, institutions | Role glyphs, size/glow by influence, scar residue | New entity classes, status effects, group formations |
-| Event Layer | Recent significant changes | Icon + short consequence river | New event categories, importance scoring, grouping |
-| Narrative Layer | Story beats & highlights | AI-assisted “what just happened” callouts | Custom narrative generators, spectator-voted moments |
+| Event Layer | Recent significant changes | Icon + short consequence river | New event categories via the server-side §4.E tier table only (client interest scoring is banned — [SPECTATOR.md](SPECTATOR.md)); deterministic grouping |
+| Narrative Layer | Story beats & highlights | The server-derived deterministic headline (same selection as the lightweight §4.A — no AI narration) | Additional deterministic, evidence-grounded highlight rules; anything generative or voted requires a future RFC |
 | Health / Context | World-level glanceables | Velocity, concentration, reconstruction fidelity, scar activity | New composite health scores, phase indicators |
-| Delight & Gamification | Fun feedback | Micro-animations, spectator badges, event “pops” | New rewards, streaks, community highlights |
+| Delight & Gamification | Fun feedback | Micro-animations, event “pops” (event-born, finite) | Badges/streaks/community highlights are spectator analytics — deferred pending a future RFC and a lightweight-§15 reconciliation row |
 
 ### 3.2 Data Contract (Stable Core)
 
@@ -74,7 +87,7 @@ All layers consume a common derived projection (extends existing `watch-live/1.0
 
 ### 3.3 Rendering & Animation
 
-- Primary: Canvas/WebGL for performance on the map + smooth interpolated movement.
+- Primary: **Canvas 2D** (WebGL remains banned on public WATCH — lightweight §18). HTML/CSS layout (the shipped v0.1 renderer) is equally compliant; smooth interpolated movement is optional enhancement, never information.
 - UI chrome: HTML/CSS for panels, river, and HUD (easy accessibility).
 - Animation contract: All movement and state changes use a shared easing/timing system. New visual primitives must declare their animation behavior.
 
@@ -126,21 +139,25 @@ When a new system is added (e.g., new semantic signals, new Deep Time features, 
 - Layer toggles
 
 **Phase 1**
-- Narrative highlight system
+- Narrative highlight system (deterministic, per §3.1)
 - Improved flow visualization
-- Spectator badges / moments
 
-**Phase 2**
+**Phase 2** *(each item below overlaps the lightweight contract's §14 deferred list or §3 exclusions — none may proceed without a future RFC **and** a §15 reconciliation row there)*
 - Advanced filters and search
 - Event replay / scrubber
 - Custom spectator layouts (saved configurations)
+- Spectator badges / moments
 
-**Phase 3+ (Future Hooks)**
+**Phase 3+ (Future Hooks)** *(same gate: future RFC + reconciliation required)*
 - Multi-map / realm comparison views
 - AI-generated spectator summaries (research-grade toggle)
 - Community highlight voting and “best moments” reels
 - New visual primitives for future mechanics (e.g., belief diffusion, institution growth rings)
 - Performance-adaptive rendering (auto-reduce detail on lower-end clients)
+
+## 6.1 Motion & Refresh (normative)
+
+The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **pause control that stops the poll**, `document.hidden` skips polls, reserved heights (no layout jump on refresh), reduced-motion = instant replace. A mapping page without a pause control is a defect.
 
 ## 7. Accessibility & Cognitive Load
 
@@ -157,6 +174,17 @@ When a new system is added (e.g., new semantic signals, new Deep Time features, 
 - **Semantic Layer**: Reputation, drift, and grounded signals can influence glyph appearance or event salience.
 - **Visual Design**: Must follow the player brand tokens and overall aesthetic direction.
 
+## 8.1 Reconciliation with WATCH-LIGHTWEIGHT-SPECTATOR
+
+| Tension | Resolution |
+|---|---|
+| “dashboard” doctrine (§1 there forbids it) | This surface is layered density, not telemetry: no KPI grids beyond the small health panel, no charts/sparklines, no world-pressure meters, no spectator analytics. The self-description “dashboard-style” is retired. |
+| One map at a time (§4.B.1 there) | Governs the public door `/watch` (semantic list / cartogram / phosphor). This surface is a **separate opt-in route**; it never embeds beside those maps, and `/watch` MAY link to it as plain text. |
+| Cognitive-load contract (§3 there) | Binds `/watch`. This surface carries its own restraint list (§1 “It is not” + §1.1 + §6.1) rather than §3's exact widget caps. |
+| Phosphor default (§18 there) | Unchanged — the phosphor sketch remains the public door's default cartography. This surface is not the default anything. |
+| Client interest scoring (SPECTATOR.md) | Banned here too; tiers/importance are server-side only. |
+| AI narration / voting / badges (§3/§14 there) | Not in v0.1; gated on future RFC + reconciliation (see §6 gates). |
+
 ## 9. Versioning & Stability
 
 - This spec follows the same versioning as the broader WATCH surfaces but is explicitly versioned independently for the rich mapping experience.
@@ -165,7 +193,7 @@ When a new system is added (e.g., new semantic signals, new Deep Time features, 
 
 ## 10. Open Extension Contracts
 
-- New event types must declare an icon, color, and short consequence template.
+- New event types must declare an icon, a brand-token color role, and a short deterministic consequence template.
 - New entity statuses must declare at least one visual encoding (color, size, particle, border).
 - Performance budget: map rendering target 30–60 fps on target hardware even with moderate entity counts.
 

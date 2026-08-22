@@ -319,3 +319,4 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Accessibility & cognitive load requirements included
 - [x] Phased roadmap with future hooks defined
 - [x] Runtime `/watch/map` shipped (Noema `#471`). Live mapping is a spectator surface, not inhabit.
+- [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1: §1.1 privacy binds §7 verbatim + `watch-map/1.0` bands pin per Noema #488; §6.1 pause/motion; §8.1 reconciliation table; "dashboard-style" retired; WebGL/importance-scoring/AI-narration/voting struck or RFC-gated).
