@@ -76,7 +76,9 @@
         "required": [
           "room_id",
           "name",
-          "description"
+          "description",
+          "strategic_roles",
+          "allows_substructure"
         ],
         "properties": {
           "room_id": {
@@ -89,6 +91,27 @@
           },
           "description": {
             "type": "string"
+          },
+          "description_template": {
+            "type": "string"
+          },
+          "strategic_roles": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "resource",
+                "infrastructure",
+                "chokepoint",
+                "information",
+                "trade",
+                "starting_position"
+              ]
+            }
+          },
+          "allows_substructure": {
+            "const": false
           },
           "entity_ids": {
             "type": "array",

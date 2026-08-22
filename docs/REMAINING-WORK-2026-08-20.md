@@ -1,5 +1,7 @@
 # Remaining work — 2026-08-20 thaw analysis
 
+**Historical.** Current remaining-work: [REMAINING-WORK-2026-08-21-worker-pin.md](REMAINING-WORK-2026-08-21-worker-pin.md). Live PLAY is `world.perihelion-reach-3`, not reach-2.
+
 **Supersede (2026-08-21):** live successor inhabit + partner operator hats: [REMAINING-WORK-2026-08-21.md](REMAINING-WORK-2026-08-21.md).
 
 **Status:** Ranked work after hosted-alpha + first-world operational thaw.  

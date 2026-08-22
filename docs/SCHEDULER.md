@@ -101,3 +101,5 @@ Undeclared wall-clock or network jitter MUST NOT change reduce results.
 ## Conformance
 
 **C23** — Deterministic Scheduler Conflicts.
+
+Replay order, unknown-stream hard-fail, and golden-trajectory requirements: [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md).

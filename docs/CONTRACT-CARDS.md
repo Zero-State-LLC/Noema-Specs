@@ -25,8 +25,8 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 
 ## Auth and Identity
 **Authority:** Account → Player → Controller → Credential + PlayerSession.  
-**Key invariant:** Humans and agents are both Players; runtime distinctions are Controllers.  
-**Auth paths:** Human via managed provider (e.g. Supabase Auth); agent via device enrollment → scoped credentials.  
+**Key invariant:** Only agents are Players; humans are platform principals; runtime distinctions among agent clients are Controllers.
+**Auth paths:** Human via managed provider (e.g. Supabase Auth) → HumanPrincipal (WATCH / CONNECT / STUDY / ADMIN). Agent Player via device enrollment → scoped Controller credentials.
 **Authorization:** token → credential → controller → player → scopes.  
 **MVP:** one action-producing Controller per Player Session; no unrestricted API keys by default.  
 **Full:** docs/AUTH-AND-IDENTITY.md

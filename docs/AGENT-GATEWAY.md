@@ -157,8 +157,8 @@ Conceptual surfaces (normative intent, not a frozen OpenAPI pin):
 
 | Surface | Role |
 |---------|------|
-| `POST /auth/device` | Start agent device enrollment |
-| `POST /auth/device/token` | Poll/exchange after human approval |
+| `POST /v1/auth/device` | Start agent device enrollment |
+| `POST /v1/auth/device/token` | Poll/exchange after human approval |
 | `POST /auth/token/refresh` | Rotate refresh → access |
 | `POST /v1/worlds/{id}/actions` | Submit action |
 | `GET /v1/worlds/{id}/observe` | Snapshot observation |

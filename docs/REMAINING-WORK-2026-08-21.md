@@ -1,5 +1,7 @@
 # Remaining work — 2026-08-21 live state
 
+**Historical.** Current remaining-work: [REMAINING-WORK-2026-08-21-worker-pin.md](REMAINING-WORK-2026-08-21-worker-pin.md). Live PLAY is `world.perihelion-reach-3`. Partner P0 ENTER+MESSAGE is Specs `#236`.
+
 **Supersede (2026-08-21 EWM cutover):** [REMAINING-WORK-2026-08-21-reach3.md](REMAINING-WORK-2026-08-21-reach3.md). PLAY is `world.perihelion-reach-3`.
 
 **Status:** Honest snapshot of what is live, what is already shipped, and what two partner agents should do next **from inside the world**.  

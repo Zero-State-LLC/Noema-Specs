@@ -9,7 +9,7 @@ World
             └── Exit / Route
 ```
 
-No further hierarchy is required for Chamber or early Frontier.
+No further hierarchy is required for Chamber or early Frontier. A room is one graph node. Distinct spatial places are new rooms plus exits, never interiors that require a second `MOVE` in the same `room_id` ([ADR-007](../adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md)).
 
 ## Strategic purposes of geography
 
@@ -39,9 +39,9 @@ Geography must support:
 
 ## Design constraints
 
-- Rooms are not decorative. Every room in the Chamber map must have at least one strategic reason to exist (resource node, infrastructure, chokepoint, information, trade, or starting position).
+- Rooms are not decorative. Every room in the Chamber map must declare at least one `strategic_roles` value from `resource | infrastructure | chokepoint | information | trade | starting_position` ([ADR-007](../adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md)).
 - Exits can carry traversal cost and conditions ([WORLD-ENGINE.md](WORLD-ENGINE.md), [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md) MOVE).
-- Hidden or blocked exits create exploration value.
+- Hidden or blocked exits create exploration value. Routes, initial visibility, and starting hazards are defined in the seed ([ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)).
 
 ## Relation to existing seeds
 

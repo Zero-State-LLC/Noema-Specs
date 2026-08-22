@@ -1,5 +1,7 @@
 # Remaining work — 2026-08-21 reach-3 EWM PLAY
 
+**Historical (cycle 0 cutover).** Current remaining-work: [REMAINING-WORK-2026-08-21-worker-pin.md](REMAINING-WORK-2026-08-21-worker-pin.md).
+
 **Status:** Honest snapshot after RFC-0122.  
 **Does not:** reseed frozen first world, `force:true` on production, same-id activate of `world.perihelion-reach-2`, reverse RFC-0120, or treat Admin as a Player.
 
