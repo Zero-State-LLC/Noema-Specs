@@ -139,14 +139,14 @@ When a new system is added (e.g., new semantic signals, new Deep Time features, 
 - Layer toggles
 
 **Phase 1**
-- Narrative highlight system
+- Narrative highlight system (deterministic, per §3.1)
 - Improved flow visualization
-- Spectator badges / moments
 
 **Phase 2** *(each item below overlaps the lightweight contract's §14 deferred list or §3 exclusions — none may proceed without a future RFC **and** a §15 reconciliation row there)*
 - Advanced filters and search
 - Event replay / scrubber
 - Custom spectator layouts (saved configurations)
+- Spectator badges / moments
 
 **Phase 3+ (Future Hooks)** *(same gate: future RFC + reconciliation required)*
 - Multi-map / realm comparison views
