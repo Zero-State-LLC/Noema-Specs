@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/culture-catalog.gc9-s2.schema.json",
+  "title": "NOEMA GC9-S2 inheritance and schism catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "catalog_id", "slice_id", "authority", "rfc", "extends",
+    "originator_repairs", "schism_min_public_claims", "schism_min_practitioner_authors",
+    "inherited_line", "schism_line", "watch_inherited_pulse", "watch_schism_pulse",
+    "non_derivation_reasons", "new_verbs", "new_events", "new_entity_class",
+    "ledger_write", "lore_overrides_ledger", "gameplay_bonus", "culture_score",
+    "belief_meter", "deity_entity", "procedural_generator",
+    "concurrent_practice_is_inheritance", "names_account_holders",
+    "watch_projection", "watch_names_site", "watch_oracle", "forbidden_in_projection"
+  ],
+  "properties": {
+    "schema_version": { "const": "culture-catalog/gc9-s2" },
+    "catalog_id": { "const": "culture-catalog/gc9-s2" },
+    "slice_id": { "const": "gc9-s2" },
+    "authority": { "type": "string", "minLength": 1 },
+    "rfc": { "type": "string", "minLength": 1 },
+    "lineage_schema": { "type": "string" },
+    "extends": { "const": "culture-catalog/gc9-s1" },
+    "originator_repairs": { "type": "integer", "minimum": 1 },
+    "schism_min_public_claims": { "type": "integer", "minimum": 2 },
+    "schism_min_practitioner_authors": { "type": "integer", "minimum": 2 },
+    "inherited_line": { "type": "string", "minLength": 1 },
+    "schism_line": { "type": "string", "minLength": 1 },
+    "watch_inherited_pulse": { "type": "string", "minLength": 1 },
+    "watch_schism_pulse": { "type": "string", "minLength": 1 },
+    "non_derivation_reasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["not_a_tradition", "founders_only", "single_account", "unattributed_accounts", "no_public_account"]
+      },
+      "minItems": 5
+    },
+    "new_verbs": { "type": "array", "maxItems": 0 },
+    "new_events": { "type": "array", "maxItems": 0 },
+    "new_entity_class": { "const": false },
+    "ledger_write": { "const": false },
+    "lore_overrides_ledger": { "const": false },
+    "gameplay_bonus": { "const": false },
+    "culture_score": { "const": false },
+    "belief_meter": { "const": false },
+    "deity_entity": { "const": false },
+    "procedural_generator": { "const": false },
+    "concurrent_practice_is_inheritance": { "const": false },
+    "names_account_holders": { "const": false },
+    "watch_projection": { "type": "boolean" },
+    "watch_names_site": { "const": false },
+    "watch_oracle": { "const": false },
+    "forbidden_in_projection": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  }
+}

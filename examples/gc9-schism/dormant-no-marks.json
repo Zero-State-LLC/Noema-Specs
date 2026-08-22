@@ -1,0 +1,86 @@
+{
+  "slice_id": "gc9-s2",
+  "catalog_id": "culture-catalog/gc9-s2",
+  "subject_id": "player.nacre",
+  "subject_entity_id": "entity.relay-7",
+  "world_cycle": 20,
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e2",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 3,
+      "sequence": 2,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e3",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 5,
+      "sequence": 3,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e4",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 7,
+      "sequence": 4,
+      "actor_id": "player.oriole",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    }
+  ],
+  "reconstructions": [
+    {
+      "reconstruction_id": "recon.held",
+      "visibility": "PUBLIC",
+      "subject_ref": "entity.relay-7",
+      "claim": "The relay was held.",
+      "epistemic": "OPEN",
+      "author_id": "player.nacre"
+    },
+    {
+      "reconstruction_id": "recon.abandoned",
+      "visibility": "PUBLIC",
+      "subject_ref": "entity.relay-7",
+      "claim": "The relay was abandoned.",
+      "epistemic": "OPEN",
+      "author_id": "player.oriole"
+    }
+  ],
+  "expected": {
+    "play_lines": [
+      "This site's maintenance tradition is dormant."
+    ],
+    "watch_lines": [],
+    "state": "DORMANT",
+    "inherited": false,
+    "schism": false,
+    "non_derivation": [
+      "not_a_tradition"
+    ],
+    "ledger_mutated": false,
+    "bonus": false,
+    "note": "Thirteen quiet cycles. A dormant tradition carries no live marks, even though it was inherited while alive."
+  }
+}

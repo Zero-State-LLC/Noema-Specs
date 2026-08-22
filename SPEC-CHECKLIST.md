@@ -299,6 +299,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] RFC-0023 Accepted: GC4-S1 named offices. Membership roles unchanged. No `ROLE_*`. Later S1s remain SPEC GAP.
 - [x] RFC-0024 Accepted: GC6-S1 historical reconstruction from accessible evidence. No quest/oracle. Later S1s remain SPEC GAP.
 - [x] RFC-0025 Accepted: GC9-S1 tradition from persistent transmitted custom. No culture score. WATCH pulse is not an oracle.
+- [ ] RFC-0125 **Draft**: GC9-S2 practice inheritance and schism. Derived marks only — a co-practitioner is not an heir; a difference between accounts is not a division among practitioners. No deity, belief meter, or procedural lore. Runtime gated on acceptance.
 - [x] RFC-0026 Accepted: GC7-S1 contest withdraw. Reuses `CONTEST_RESOLVED`. No HP. No catalog 0.3.
 - [x] RFC-0027 Accepted: GC10-S1 additional pressure classes via existing events. S0 remains. No Admin spawn. No rubber-band.
 - [x] RFC-0028 Accepted: GC5-S2 rumor provenance as claim + MESSAGE lineage. No rumor score. No `RUMOR` verb.

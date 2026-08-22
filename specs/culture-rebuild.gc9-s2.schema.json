@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.noema.dev/culture-rebuild.gc9-s2.schema.json",
+  "title": "NOEMA GC9-S2 inheritance and schism rebuild fixture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_id", "catalog_id", "subject_id", "subject_entity_id", "world_cycle", "events", "expected"],
+  "properties": {
+    "slice_id": { "const": "gc9-s2" },
+    "catalog_id": { "const": "culture-catalog/gc9-s2" },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "subject_entity_id": { "type": "string", "minLength": 1 },
+    "third_party_id": { "type": "string" },
+    "world_cycle": { "type": "integer", "minimum": 0 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event_id", "event_type", "cycle", "sequence", "actor_id"],
+        "properties": {
+          "event_id": { "type": "string" },
+          "event_type": { "type": "string" },
+          "cycle": { "type": "integer" },
+          "sequence": { "type": "integer" },
+          "actor_id": { "type": "string", "minLength": 1 },
+          "payload": { "type": "object" }
+        }
+      }
+    },
+    "reconstructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["reconstruction_id", "visibility", "subject_ref"],
+        "properties": {
+          "reconstruction_id": { "type": "string" },
+          "visibility": { "enum": ["PRIVATE", "INSTITUTIONAL", "PUBLIC"] },
+          "subject_ref": { "type": "string" },
+          "claim": { "type": "string" },
+          "epistemic": { "enum": ["OPEN", "CONTESTED"] },
+          "author_id": { "type": "string" }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["play_lines", "state", "inherited", "schism", "ledger_mutated", "bonus"],
+      "properties": {
+        "play_lines": { "type": "array", "items": { "type": "string" } },
+        "watch_lines": { "type": "array", "items": { "type": "string" } },
+        "third_party_lines": { "type": "array", "items": { "type": "string" } },
+        "state": { "enum": ["UNKNOWN", "PRACTICING", "CUSTOM", "TRADITION", "DORMANT", "REVIVED"] },
+        "inherited": { "type": "boolean" },
+        "schism": { "type": "boolean" },
+        "non_derivation": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["not_a_tradition", "founders_only", "single_account", "unattributed_accounts", "no_public_account"]
+          }
+        },
+        "ledger_mutated": { "const": false },
+        "bonus": { "const": false },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
