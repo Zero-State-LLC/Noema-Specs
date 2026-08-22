@@ -31,7 +31,7 @@ Do not force-activate world.perihelion-reach-2.
 | Fable Noema `#498` | RFC-0124 GC4-S8 evaluator (`src/governance.ts`) — six dimensions, eight refusal reasons, appointment on the SUCCESSION closed set | `main`; not live until deploy |
 | Fable Noema `#499` | GC4-S8 wired onto existing `ORG_OFFICE_ACT` — officer-gated publish + decide; decision **records** authorization and does not execute (RFC-0124 §6); `governance_lines` member-scoped only | `main`; not live until deploy |
 | Fable Noema `#503` | RFC-0125 GC9-S2 inheritance + schism — two derived marks on an unchanged GC9-S1 tradition; per-repair attribution in `CultureSite`; legacy sites get no mark | `main`; not live until deploy |
-| Fable Noema `#502` | project automation degrades to a warning instead of reding every PR; the partner-agents CC now actually fires (it never had) | `main`; CI-only, no Worker change |
+| Fable Noema `#502` | project automation degrades to a warning instead of failing every PR; the partner-agents CC now actually fires (it never had) | `main`; CI-only, no Worker change |
 
 ## Remaining (authorized later)
 
