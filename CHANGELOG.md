@@ -8,6 +8,8 @@
 
 ### Added
 
+- **Operator maint-evolve supervisor pinned:** `docs/OPERATOR-MAINT-EVOLVE.md` retro-pins the shipped runtime supervisor (Noema #480/#485): Player/Admin actor split (Admin read-only on production, never a Player — RFC-0120), atomic gated policy packs with code-level hard vetoes (no TRADE-by-default/reseed/force/Admin-JWT-on-commands), human-only plugin apply (proposed area never importable, hint-only hooks), isolated-world-only probes with Player tokens, identity-drift halt without reseed, fail-closed error table, required tests. No new verbs. No Genesis. No RFC.
+
 - **WATCH Real-Time Mapping System v0.1**: `docs/WATCH-REAL-TIME-MAPPING.md`
   Rich, glanceable, expandable spectator mapping & dashboard layer.
   PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/235
