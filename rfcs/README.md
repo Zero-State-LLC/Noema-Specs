@@ -13,6 +13,14 @@ anything was built, and it never said where. For what is actually running, read
 `GET https://noema.guru/version` and the `hosted_live` block of the runtime's
 `spec-compat.json` — not this directory.
 
+For **where each contract is implemented**, the runtime repository now carries a
+per-RFC map: [`docs/RFC-RUNTIME-AUDIT-2026-08-23.md`](https://github.com/Zero-State-LLC/Noema/blob/main/docs/RFC-RUNTIME-AUDIT-2026-08-23.md)
+in `Zero-State-LLC/Noema`. Every RFC below has a row there naming the hosted Worker
+test that evidences it, or saying plainly that it is offline-only, agent-side, or
+absent. It lives in that repository because that is where the evidence is and where
+CI can keep it honest; it is a **dated snapshot**, not authority — `/version` remains
+that, and the audit states the boundary under which its rows hold.
+
 Seventy-two RFCs used to open their scope line with *"Specification-only until
 hosted."* That was a gate, and the gate fired: the world has been hosted since
 Stage 0, and several of those RFCs are live today. Left in place the sentence read
