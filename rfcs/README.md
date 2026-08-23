@@ -6,11 +6,15 @@ RFCs are required for changes to protocols, schemas, ontology semantics, reprodu
 
 Draft → Review → Accepted or Rejected → Implemented or Superseded.
 
-## Active drafts
+## Index
+
+Every RFC in this directory, in number order. The heading previously read "Active
+drafts", which was never accurate — one entry is a draft and the rest are Accepted.
+`RFC-0000` is the template and is deliberately absent.
 
 | RFC | Status | Topic |
 |-----|--------|-------|
-| [RFC-0001](RFC-0001-phenomena-self-reference-integration.md) | (see file) | Phenomena self-reference integration |
+| [RFC-0001](RFC-0001-phenomena-self-reference-integration.md) | **Draft — v0.8-blocked** | Phenomena self-reference integration. The file carries no Status section; [SPEC-FREEZE-CORE-LOOP.md](../docs/SPEC-FREEZE-CORE-LOOP.md) records v0.8 Phenomena as not required for the core loop, and §7 puts it out of scope for first implementation |
 | [RFC-0002](RFC-0002-strategic-contestation-and-crime-events.md) | **Accepted** | Contestation, crime, agreement events → `event-catalog/0.2` |
 | [RFC-0003](RFC-0003-deterministic-contract-hardening.md) | **Accepted / Implemented** | Ordering, canonicalization, catalog admission, persistence, recovery, evidence integrity |
 | [RFC-0004](RFC-0004-derived-mastery-projection.md) | **Accepted** | GC1-S0 derived practice projection; no catalog expansion |
@@ -81,6 +85,47 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0069](RFC-0069-rule-based-succession.md) | **Accepted** | GC4-S6: RULE_BASED MEMBER_ORDER; no rule language |
 | [RFC-0070](RFC-0070-inherited-org.md) | **Accepted** | GC4-S7: INHERITED_BY_ORGANIZATION; vacate stays vacant |
 | [RFC-0071](RFC-0071-connect-dest.md) | **Accepted** | GC2-S12: BUILD.CONNECT dest pin; no new exit |
+| [RFC-0072](RFC-0072-workshop-cycle.md) | **Accepted** | GC2-S13 multi-cycle workshop CONSTRUCT |
+| [RFC-0073](RFC-0073-generator-cycle.md) | **Accepted** | GC2-S14 multi-cycle generator CONSTRUCT |
+| [RFC-0074](RFC-0074-storage-bay-cycle.md) | **Accepted** | GC2-S15 multi-cycle storage_bay CONSTRUCT |
+| [RFC-0075](RFC-0075-production-node-cycle.md) | **Accepted** | GC2-S16 multi-cycle production_node CONSTRUCT |
+| [RFC-0076](RFC-0076-defensive-work-cycle.md) | **Accepted** | GC2-S17 multi-cycle defensive_work CONSTRUCT |
+| [RFC-0077](RFC-0077-archive-annex-cycle.md) | **Accepted** | GC2-S18 multi-cycle archive_annex CONSTRUCT |
+| [RFC-0078](RFC-0078-route-link-cycle.md) | **Accepted** | GC2-S19 multi-cycle route_link CONSTRUCT |
+| [RFC-0079](RFC-0079-second-co-owner.md) | **Accepted** | GC2-S20 second co-owner |
+| [RFC-0080](RFC-0080-shout-expiry.md) | **Accepted** | GC5-S9 shout cycle expiry |
+| [RFC-0081](RFC-0081-board-expiry.md) | **Accepted** | GC5-S10 board cycle expiry |
+| [RFC-0082](RFC-0082-notice-expiry.md) | **Accepted** | GC5-S11 notice cycle expiry |
+| [RFC-0083](RFC-0083-channel-expiry.md) | **Accepted** | GC5-S12 channel cycle expiry |
+| [RFC-0084](RFC-0084-trade-notice-expiry.md) | **Accepted** | GC5-S13 trade-notice cycle expiry |
+| [RFC-0085](RFC-0085-third-co-owner.md) | **Accepted** | GC2-S21 third co-owner |
+| [RFC-0086](RFC-0086-fourth-co-owner.md) | **Accepted** | GC2-S22 fourth co-owner |
+| [RFC-0087](RFC-0087-fifth-co-owner.md) | **Accepted** | GC2-S23 fifth co-owner |
+| [RFC-0088](RFC-0088-world-report.md) | **Accepted** | WR-S0 public world report |
+| [RFC-0089](RFC-0089-share-closeout.md) | **Accepted** | GC2-S24 SHARE family closeout |
+| [RFC-0090](RFC-0090-build-play-thaw.md) | **Accepted** | GC2 first-world BUILD help |
+| [RFC-0091](RFC-0091-org-report.md) | **Accepted** | WR-S1 organization report lines |
+| [RFC-0092](RFC-0092-contest-report.md) | **Accepted** | WR-S2 public contest report lines |
+| [RFC-0093](RFC-0093-access-report.md) | **Accepted** | WR-S3 public access report lines |
+| [RFC-0094](RFC-0094-crime-report.md) | **Accepted** | WR-S4 public crime report lines |
+| [RFC-0095](RFC-0095-contest-play-thaw.md) | **Accepted** | GC7 first-world CONTEST help |
+| [RFC-0096](RFC-0096-discovery-report.md) | **Accepted** | WR-S5 public discovery report lines |
+| [RFC-0097](RFC-0097-diplomacy-trade.md) | **Accepted** | Diplomacy S0 TRADE agreement form |
+| [RFC-0098](RFC-0098-diplomacy-terminate.md) | **Accepted** | Diplomacy S1 AGREEMENT_TERMINATE |
+| [RFC-0099](RFC-0099-diplomacy-report.md) | **Accepted** | WR-S6 public diplomacy report lines |
+| [RFC-0100](RFC-0100-diplomacy-closeout.md) | **Accepted** | Diplomacy S2 remaining types, effects, and help |
+| [RFC-0101](RFC-0101-access-policy.md) | **Accepted** | ACCESS_POLICY S0 GRANT_ACCESS exit deny / clear |
+| [RFC-0102](RFC-0102-access-policy-room.md) | **Accepted** | ACCESS_POLICY S1 ROOM deny / clear |
+| [RFC-0103](RFC-0103-access-policy-allow-only.md) | **Accepted** | ACCESS_POLICY S2 ALLOW_ONLY |
+| [RFC-0104](RFC-0104-access-policy-help.md) | **Accepted** | ACCESS_POLICY S3 Chamber ACCESS help |
+| [RFC-0105](RFC-0105-public-titles.md) | **Accepted** | GC1-S6 public titles |
+| [RFC-0106](RFC-0106-agent-orientation.md) | **Accepted** | Agent orientation S0 first-OBSERVE withhold |
+| [RFC-0107](RFC-0107-agent-orientation-situation.md) | **Accepted** | Agent orientation S1 situation fields |
+| [RFC-0108](RFC-0108-agent-orientation-connect.md) | **Accepted** | Agent orientation S2 CONNECT / skill withhold |
+| [RFC-0109](RFC-0109-human-orientation.md) | **Accepted** | Human first-screen withhold |
+| [RFC-0110](RFC-0110-focus-declaration.md) | **Accepted** | GC1-S7 focus declaration |
+| [RFC-0111](RFC-0111-agent-harness.md) | **Accepted** | Headless Agent Gameplay Harness |
+| [RFC-0112](RFC-0112-parameter-access.md) | **Accepted** | GC1-S8 Engineer overhaul parameter |
 | [RFC-0113](RFC-0113-hosted-multiplayer-contention.md) | **Accepted** | Hosted first-accepted harvest; MESSAGE remains mail; no live chat |
 | [RFC-0114](RFC-0114-llm-controller-adapter.md) | **Accepted** | LLM Controller propose contract; no AGENT_PLAYER; no new verbs |
 | [RFC-0115](RFC-0115-sealed-live-attach.md) | **Accepted** | Live agent attach requires published sealed-prompt hash |
@@ -90,6 +135,10 @@ Draft → Review → Accepted or Rejected → Implemented or Superseded.
 | [RFC-0119](RFC-0119-wait-cargo-fuel.md) | **Accepted** | WAIT burns cargo for energy |
 | [RFC-0120](RFC-0120-agent-only-player-identity.md) | **Accepted** | Only agents are Players; humans are platform principals |
 | [RFC-0121](RFC-0121-perihelion-successor-world-version.md) | **Accepted** | Perihelion successor `world.perihelion-reach-2`; 10-room CHAMBER-MAP; no live reseed |
+| [RFC-0122](RFC-0122-perihelion-ewm-product-world.md) | **Accepted** | Perihelion EWM product world_version |
+| [RFC-0123](RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) | **Accepted** | Bounded upward norm ratchet; costly TRADE-reject punishment pinned |
+| [RFC-0124](RFC-0124-governance-rule-contract.md) | **Accepted** | Governance rule contract (GC4-S8) |
+| [RFC-0125](RFC-0125-practice-inheritance-and-schism.md) | **Accepted** | Practice inheritance and schism (GC9-S2) |
 
 ## Required review lenses
 
