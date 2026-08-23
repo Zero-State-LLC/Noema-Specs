@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No institution-as-Player. Help still omits BUILD. Fifth-and-later co-owners remain deferred. N-of-M roster stays closed.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No institution-as-Player. Help still omits BUILD. Fifth-and-later co-owners remain deferred. N-of-M roster stays closed.
 
 ## Problem
 

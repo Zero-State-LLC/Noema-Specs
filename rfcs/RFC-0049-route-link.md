@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `event-catalog/0.3`. No hidden-room leak. No freight company.
+No new verbs. No `event-catalog/0.3`. No hidden-room leak. No freight company.
 
 ## Problem
 

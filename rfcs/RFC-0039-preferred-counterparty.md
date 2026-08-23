@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No auto-accept. No hidden prices. No change to v0.1 offer/want lots. Opens the discount RFC-0037 left out of S5.
+No auto-accept. No hidden prices. No change to v0.1 offer/want lots. Opens the discount RFC-0037 left out of S5.
 
 ## Problem
 

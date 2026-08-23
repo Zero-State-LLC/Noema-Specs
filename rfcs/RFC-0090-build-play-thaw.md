@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new BUILD operations. No `STRUCTURE_*`. No `event-catalog/0.3`. CONTEST / WED / ATTEST stay omitted from Chamber help.
+No new BUILD operations. No `STRUCTURE_*`. No `event-catalog/0.3`. CONTEST / WED / ATTEST stay omitted from Chamber help.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No world thesis on the setup path.
+No new verbs. No world thesis on the setup path.
 
 ## Problem
 

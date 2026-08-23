@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new modes. WED / ATTEST stay omitted. Schema name ACCESS_POLICY stays off the player help line.
+No new modes. WED / ATTEST stay omitted. Schema name ACCESS_POLICY stays off the player help line.
 
 ## Problem
 

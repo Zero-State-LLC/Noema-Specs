@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No arrival speech. No invented strain.
+No new verbs. No arrival speech. No invented strain.
 
 ## Problem
 

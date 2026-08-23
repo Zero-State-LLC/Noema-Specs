@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `SHOUT` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits shout. Other surfaces keep last-N with no cycle drop.
+No `SHOUT` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits shout. Other surfaces keep last-N with no cycle drop.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `SHOUT` / `BOARD` / `RUMOR` verbs. No cycle expiry. No `event-catalog/0.3`.
+No new verbs. No `SHOUT` / `BOARD` / `RUMOR` verbs. No cycle expiry. No `event-catalog/0.3`.
 
 ## Problem
 

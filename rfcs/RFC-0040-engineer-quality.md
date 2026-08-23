@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `event-catalog/0.3`. Not a level percent. Changes the frozen `REPAIR` condition write only when a world procedure applies.
+No new verbs. No `event-catalog/0.3`. Not a level percent. Changes the frozen `REPAIR` condition write only when a world procedure applies.
 
 ## Problem
 

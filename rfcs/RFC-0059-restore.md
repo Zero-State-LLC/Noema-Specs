@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `STRUCTURE_RESTORED`. No `event-catalog/0.3`. No scar restore.
+No new verbs. No `STRUCTURE_RESTORED`. No `event-catalog/0.3`. No scar restore.
 
 ## Problem
 

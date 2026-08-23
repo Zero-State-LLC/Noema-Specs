@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No sixth stamp. No N-of-M roster. No `STRUCTURE_*`. No `event-catalog/0.3`. Help still omits BUILD. WR-S0 stays [RFC-0088](RFC-0088-world-report.md).
+No sixth stamp. No N-of-M roster. No `STRUCTURE_*`. No `event-catalog/0.3`. Help still omits BUILD. WR-S0 stays [RFC-0088](RFC-0088-world-report.md).
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. No new exits. [RFC-0049](RFC-0049-route-link.md) cargo waiver amount stays closed. [RFC-0071](RFC-0071-connect-dest.md) dest pin stays dest-only. Other constructible classes already follow S9–S18.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. No new exits. [RFC-0049](RFC-0049-route-link.md) cargo waiver amount stays closed. [RFC-0071](RFC-0071-connect-dest.md) dest pin stays dest-only. Other constructible classes already follow S9–S18.
 
 ## Problem
 

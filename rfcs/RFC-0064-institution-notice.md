@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `NOTICE` / `SHOUT` / `BOARD` verbs. No org channel. No `event-catalog/0.3`.
+No new verbs. No `NOTICE` / `SHOUT` / `BOARD` verbs. No org channel. No `event-catalog/0.3`.
 
 ## Problem
 

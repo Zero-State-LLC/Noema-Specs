@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `BOARD` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits board. NOTICE / CHANNEL / TRADE_NOTICE keep last-N with no cycle drop. Shout expiry stays [RFC-0080](RFC-0080-shout-expiry.md).
+No `BOARD` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits board. NOTICE / CHANNEL / TRADE_NOTICE keep last-N with no cycle drop. Shout expiry stays [RFC-0080](RFC-0080-shout-expiry.md).
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No NEWS verb. No `REPORT_*`. WATCH silent. No ACCESS_POLICY help. YOUR POSITION / diplomacy / crime stay out.
+No NEWS verb. No `REPORT_*`. WATCH silent. No ACCESS_POLICY help. YOUR POSITION / diplomacy / crime stay out.
 
 ## Problem
 

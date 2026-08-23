@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `CHANNEL` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits CHANNEL. TRADE_NOTICE keeps last-1 with no cycle drop. Notice expiry stays [RFC-0082](RFC-0082-notice-expiry.md).
+No `CHANNEL` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits CHANNEL. TRADE_NOTICE keeps last-1 with no cycle drop. Notice expiry stays [RFC-0082](RFC-0082-notice-expiry.md).
 
 ## Problem
 
