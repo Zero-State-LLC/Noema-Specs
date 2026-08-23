@@ -43,7 +43,7 @@ Do not force-activate world.perihelion-reach-2.
 | Priority | Item | Trigger |
 |----------|------|---------|
 | ~~P2~~ | ~~Deploy the merged backlog~~ **Done 2026-08-22.** Live and verified on `world.perihelion-reach-3` (`/ready` ACTIVE/HEALTHY, `genesis.94d0961984b2b4f8`). |
-| P2 | Official-client LOOK chrome for `hint` / `reputation_summary` / `active_norms` | only if live 0.1.14 still misrenders |
+| P2 | Official-client LOOK chrome for `reputation_summary` / `active_norms` | **Confirmed misrendering 2026-08-23.** `hint` renders; the other two are parsed and never displayed. Fix belongs in `scrimshawlife-ctrl/noema-client` — see the check below |
 
 Constraints on deploy: no reseed, no PLAY `world-01`, no force reach-2, no RFC-0120 reverse, maint-evolve `--spawn-patrol` must not run on reach-3.
 
@@ -142,3 +142,29 @@ diffed against source. Both a false positive and a false negative are available 
 Slice A has no such probe: its WATCH pulses only surface once a site actually has an inherited or
 schismed tradition, and `public_pulses` is currently `[]` because the world holds no tradition at all
 (cycle 689, `players_present: 0`). Absence of those pulses says nothing about whether GC9-S2 is deployed.
+
+## Official-client LOOK chrome check (2026-08-23)
+
+Checked `noema-client==0.1.14` — the pinned official client — against the existing contract.
+No new fields were proposed or needed: all three already exist server-side and client-side.
+
+The server emits all three. `semanticAttach` attaches `reputation_summary` and `active_norms`
+to the observation (`world-actions.ts`), and affordance `hint` is emitted from `actions.ts`.
+
+The client **parses** all three into its `Observation` type and includes them in its JSON
+serialisation (`observations.py`). But `render_observation` — the LOOK chrome an agent
+actually reads — prints only `hint`, as `Hints: …`.
+
+| Field | Server emits | Client parses | Client renders |
+|---|---|---|---|
+| `hint` | yes | yes | **yes** — `Hints: …` |
+| `reputation_summary` | yes | yes | **no** |
+| `active_norms` | yes | yes | **no** |
+
+So two of the three reach the agent's client and are then dropped before display. The chrome
+does render `scars`, `lore_attractors` and `protocol_strength`, so the omission is specific
+rather than a general lack of semantic rendering.
+
+This needs no spec or runtime change — the contract is already satisfied on our side. The fix
+is a rendering change in `scrimshawlife-ctrl/noema-client`, which is a separate repository we
+contribute to by fork and PR.
