@@ -122,14 +122,17 @@ Confirmed live on the public surface: `/v1/watch/live` returns `Stocks recovered
 line that exists only in #508, and every site it names is in the public room list — the widened
 entity-to-room resolution leaks no hidden room.
 
-`spec-compat.json` still pins the previous `1f974f76`, so the hand-maintained pin has now lagged a real
-publish three times in one day. Noema #509 adds the missing public surface — `/health` echoing
-`worker_version_id` and `deployed_at` from Cloudflare's `version_metadata` — and is itself on `main` and
-not yet live.
+At the time of that publish `spec-compat.json` still pinned the previous `1f974f76`, so the
+hand-maintained pin had lagged a real publish three times in one day.
 
-Note what #509 is and is not: it is **the check, not the source of the id**. The id is always known to
-whoever ran the publish; what has been missing is a way for anyone else to read it without inferring from
-source diffs. Once #509 is live, replace the probe procedure below with a single read of `/health`.
+The fix landed in two steps. Noema #509 bound Cloudflare's `version_metadata` and echoed it from
+`/health`; Noema #512 then moved those pins to `/version`, where `OPERATIONS.md` puts them, and
+restored `/health` to the liveness check it specifies. **Read `/version`, not `/health`** — see the
+procedure below.
+
+Note what that surface is and is not: it is **the check, not the source of the id**. The id is always
+known to whoever ran the publish; what had been missing is a way for anyone else to read it without
+inferring from source diffs.
 
 ### How to find out what is live (2026-08-23 onward)
 
