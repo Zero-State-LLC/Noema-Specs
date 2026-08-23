@@ -108,17 +108,23 @@ attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_de
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
 
-**Later on 2026-08-22 / 23: another publish, pin not updated.** Noema #508 (WATCH entity-scoped site
-resolution) is **live** — `/v1/watch/live` returns `Stocks recovered at Civic Exchange`, a line that
-exists only in that commit — while `spec-compat.json` still pins `1f974f76`, which was set before #508
-merged. Noema #507 (`1034ca3`, Civic Exchange occupant labels) merged in the same window and could not be
-confirmed either way, because every public room currently reports zero occupants.
+**Later on 2026-08-22 / 23: a further publish.** Worker
+`419471b3-7fbf-42d1-ae05-4f7c63745595`, built from `main` `21ba14e2` (Noema #508). That build carries
+both #508 (WATCH entity-scoped site resolution) and #507 (`1034ca3`, Civic Exchange occupant labels),
+which is an ancestor of it. `/ready` remains ACTIVE / HEALTHY on `world.perihelion-reach-3`.
 
-So the pin has now lagged a real deploy three times in one day, and **the live Worker id is presently
-unknown**: the pin is stale and no public surface reports it. Noema #509 fixes this at the source by
-binding Cloudflare's `version_metadata` and echoing `worker_version_id` / `deployed_at` from `/health`.
-Once that is out, replace the probe described below with a single read of `/health` — it is the
-authoritative answer, where every probe below is an inference.
+Confirmed live on the public surface: `/v1/watch/live` returns `Stocks recovered at Civic Exchange`, a
+line that exists only in #508, and every site it names is in the public room list — the widened
+entity-to-room resolution leaks no hidden room.
+
+`spec-compat.json` still pins the previous `1f974f76`, so the hand-maintained pin has now lagged a real
+publish three times in one day. Noema #509 adds the missing public surface — `/health` echoing
+`worker_version_id` and `deployed_at` from Cloudflare's `version_metadata` — and is itself on `main` and
+not yet live.
+
+Note what #509 is and is not: it is **the check, not the source of the id**. The id is always known to
+whoever ran the publish; what has been missing is a way for anyone else to read it without inferring from
+source diffs. Once #509 is live, replace the probe procedure below with a single read of `/health`.
 
 ### Caution for whoever writes here next
 
