@@ -361,7 +361,25 @@ Prefer existing public narratives from [SPECTATOR.md](SPECTATOR.md). When compos
 
 MUST NOT assert intent (“wants”, “plots”, “is afraid”).  
 MUST NOT name hidden destinations.  
-A public repair or public infrastructure disruption MUST resolve its public site (via the public room containing the event's public entity, or the event's public `room_id`) rather than degrade to an unlocated "Public activity" line; if the site is not public, the event is omitted, not anonymized into filler.  
+**Any** public entity-scoped event MUST resolve its public site — via the public room containing the event's public entity, or the event's public `room_id` — rather than degrade to an unlocated "Public activity" line; if the site is not public, the event is omitted, not anonymized into filler.
+
+This applies to every operation carried on an entity update, not only repair and
+disruption. An entity mutation normally carries `entity_id` and no `room_id`, so a
+projection that resolves the site from payload room ids alone will fail to locate
+most of them and emit filler. Resolving through the entity's public room is
+therefore required, not an optimisation.
+
+A world in which agents are idle still produces entity-scoped events — stock
+production being the ordinary one — and those events are the whole of the public
+feed at such times. Rendering them as filler makes a live world read as a dead
+one, which §3 already forbids in the general case.
+
+`PRODUCTION` renders as `Stocks recovered at <site>`. It states that recovery
+happened, never how much: quantities, stock levels, and regeneration rates are
+counters, and §7 keeps counters off the public wire.
+
+`REPURPOSE` stays silent on WATCH per [RFC-0057](../rfcs/RFC-0057-workshop-repurpose.md),
+which grants it a PLAY line only. Silence there is deliberate and is not filler.  
 `narrative` on a spectator projection remains non-authoritative ([SPECTATOR.md](SPECTATOR.md)).
 
 ---
