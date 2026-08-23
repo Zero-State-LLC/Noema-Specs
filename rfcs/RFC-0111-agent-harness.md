@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new Player verbs. No second Agent Protocol. No `/play` DOM automation as the canonical path.
+No new Player verbs. No second Agent Protocol. No `/play` DOM automation as the canonical path.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD.
 
 ## Problem
 

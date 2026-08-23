@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No NEWS verb. No `REPORT_*`. WATCH silent. No AGREEMENT help. Other agreement types stay out. YOUR POSITION stays out.
+No NEWS verb. No `REPORT_*`. WATCH silent. No AGREEMENT help. Other agreement types stay out. YOUR POSITION stays out.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `SUCCESSION_*` events. No elections. No rule language. No implicit jump. No `event-catalog/0.3`.
+No `SUCCESSION_*` events. No elections. No rule language. No implicit jump. No `event-catalog/0.3`.
 
 ## Problem
 

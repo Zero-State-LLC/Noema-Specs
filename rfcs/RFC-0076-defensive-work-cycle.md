@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. Other classes stay as they are: `relay` follows [RFC-0061](RFC-0061-multicycle-construct.md); `workshop` follows [RFC-0072](RFC-0072-workshop-cycle.md); `generator` follows [RFC-0073](RFC-0073-generator-cycle.md); `storage_bay` follows [RFC-0074](RFC-0074-storage-bay-cycle.md); `production_node` follows [RFC-0075](RFC-0075-production-node-cycle.md); route_link and archive_annex stay instant. [RFC-0052](RFC-0052-defensive-work.md) millipoint amount and contest arithmetic stay closed.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. Other classes stay as they are: `relay` follows [RFC-0061](RFC-0061-multicycle-construct.md); `workshop` follows [RFC-0072](RFC-0072-workshop-cycle.md); `generator` follows [RFC-0073](RFC-0073-generator-cycle.md); `storage_bay` follows [RFC-0074](RFC-0074-storage-bay-cycle.md); `production_node` follows [RFC-0075](RFC-0075-production-node-cycle.md); route_link and archive_annex stay instant. [RFC-0052](RFC-0052-defensive-work.md) millipoint amount and contest arithmetic stay closed.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new events. No `event-catalog/0.3`. ACCESS_POLICY help stays omitted. WED / ATTEST stay omitted. ALLOW_ONLY and ROOM stay later.
+No new events. No `event-catalog/0.3`. ACCESS_POLICY help stays omitted. WED / ATTEST stay omitted. ALLOW_ONLY and ROOM stay later.
 
 ## Problem
 

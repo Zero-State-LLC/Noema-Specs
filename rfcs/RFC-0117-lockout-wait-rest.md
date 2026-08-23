@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new Player verbs. AUTH-INFRA-CLASS harvest/move costs unchanged. RFC-0019 WAIT quorum unchanged.
+No new Player verbs. AUTH-INFRA-CLASS harvest/move costs unchanged. RFC-0019 WAIT quorum unchanged.
 
 ## Problem
 

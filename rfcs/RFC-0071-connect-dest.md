@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new exits. No `CONNECT` verb. No `STRUCTURE_*`. No `event-catalog/0.3`. Help still omits BUILD.
+No new exits. No `CONNECT` verb. No `STRUCTURE_*`. No `event-catalog/0.3`. Help still omits BUILD.
 
 ## Problem
 

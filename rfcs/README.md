@@ -6,6 +6,21 @@ RFCs are required for changes to protocols, schemas, ontology semantics, reprodu
 
 Draft → Review → Accepted or Rejected → Implemented or Superseded.
 
+## Status is not implementation status
+
+An RFC's **Status** says whether the contract is accepted. It does not say whether
+anything was built, and it never said where. For what is actually running, read
+`GET https://noema.guru/version` and the `hosted_live` block of the runtime's
+`spec-compat.json` — not this directory.
+
+Seventy-two RFCs used to open their scope line with *"Specification-only until
+hosted."* That was a gate, and the gate fired: the world has been hosted since
+Stage 0, and several of those RFCs are live today. Left in place the sentence read
+as "not built", which was false for some and unverified for the rest. It is struck.
+Striking it asserts nothing about implementation in either direction, and RFCs
+accepted after RFC-0121 never carried it — their scope lines are non-goals only.
+RFC-0113 keeps its own wording, which gates on hosted *tests* rather than hosting.
+
 ## Index
 
 Every RFC in this directory, in number order. The heading previously read "Active

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD and ATTEST. Other classes stay as they are: `relay` follows [RFC-0061](RFC-0061-multicycle-construct.md); `workshop` follows [RFC-0072](RFC-0072-workshop-cycle.md); `generator` follows [RFC-0073](RFC-0073-generator-cycle.md); `storage_bay` follows [RFC-0074](RFC-0074-storage-bay-cycle.md); `production_node` follows [RFC-0075](RFC-0075-production-node-cycle.md); `defensive_work` follows [RFC-0076](RFC-0076-defensive-work-cycle.md); route_link stays instant. [RFC-0053](RFC-0053-archive-annex.md) attention discount amount stays closed.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD and ATTEST. Other classes stay as they are: `relay` follows [RFC-0061](RFC-0061-multicycle-construct.md); `workshop` follows [RFC-0072](RFC-0072-workshop-cycle.md); `generator` follows [RFC-0073](RFC-0073-generator-cycle.md); `storage_bay` follows [RFC-0074](RFC-0074-storage-bay-cycle.md); `production_node` follows [RFC-0075](RFC-0075-production-node-cycle.md); `defensive_work` follows [RFC-0076](RFC-0076-defensive-work-cycle.md); route_link stays instant. [RFC-0053](RFC-0053-archive-annex.md) attention discount amount stays closed.
 
 ## Problem
 

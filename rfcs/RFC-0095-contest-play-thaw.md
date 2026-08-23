@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new contest forms. No HP. No `SCAN` / `ATTACK`. WED / ATTEST stay omitted from Chamber help.
+No new contest forms. No HP. No `SCAN` / `ATTACK`. WED / ATTEST stay omitted from Chamber help.
 
 ## Problem
 

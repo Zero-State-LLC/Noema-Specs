@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `STRUCTURE_UPGRADED`. No `event-catalog/0.3`. No CONNECT.
+No new verbs. No `STRUCTURE_UPGRADED`. No `event-catalog/0.3`. No CONNECT.
 
 ## Problem
 

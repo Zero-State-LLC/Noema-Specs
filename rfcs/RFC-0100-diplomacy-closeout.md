@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new events. No `event-catalog/0.3`. WED / ATTEST stay omitted. ACCESS_POLICY stays a separate verb.
+No new events. No `event-catalog/0.3`. WED / ATTEST stay omitted. ACCESS_POLICY stays a separate verb.
 
 ## Problem
 
