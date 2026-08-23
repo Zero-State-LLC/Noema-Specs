@@ -1,6 +1,6 @@
 # Semantic Evolution & Drift Specification — Perihelion Reach
 
-**Version:** v0.1 (Draft)  
+**Version:** v0.1 — **pinned to shipped scope 2026-08-23**  
 **Date:** 2026-08-21  
 **Status:** Draft v0.1. Runtime includes optional ASP, hearsay quarantine, privileged image/second_order, protocol_strength under harvest pressure, LOOK `reputation_summary` / `active_norms`, affordance `hint`s, ATTEST ontological consistency, Forman–Ricci cascading_risk (not Wasserstein Ollivier), and genesis signaling seeds on new `EWM_ENHANCED` worlds only. Image scores are not WATCH-public (GC3-S0). Open contracts (ASI weights) stay operator/SAR-heavy.  
 **Source:** semantic-evolution-assimilation-plan.md (extends Economy EWM Spec v0.1)  
@@ -8,6 +8,41 @@
 - [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)  
 - [AGENT-HARNESS.md](AGENT-HARNESS.md), [ARCHITECTURE.md](ARCHITECTURE.md), [SPEC-CHECKLIST.md](../SPEC-CHECKLIST.md)  
 - arXiv references: 2601.04170 (Agent Drift), 2606.19356 (Argent Signaling), 2505.12872 (Emergent Foraging Language), 2412.10270 (Cultural Cooperation), 2603.13325 (Semantic-Geometric Co-evolution)
+
+
+## Pinned scope — shipped v0.1 (2026-08-23)
+
+This document is **pinned to what ships**. Everything below the line is live on
+`world.perihelion-reach-3`; everything in the deferred table is declared somewhere but
+inert, and none of it may be treated as behaviour a reader can rely on.
+
+### Shipped and live
+
+| Mechanism | Where |
+|---|---|
+| ASP signals (`@C` / `@G` / `@S`), grounding gates, hearsay quarantine | `src/signal.ts` |
+| `protocol_strength` under harvest pressure; compositionality | `src/reputation.ts` |
+| `harvest_pressure` / `regen_mod` | `src/reputation.ts`, `src/deep-time.ts` |
+| Privileged `image_score` / `second_order` — never a WATCH public scalar (GC3-S0) | `src/reputation.ts` |
+| Bounded upward norm ratchet — cap 5, decay 1 per slow pass after 10 quiet cycles, floor 0 | [RFC-0123](../rfcs/RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) |
+| Costly TRADE-reject — 1 influence, image −2, conduct −1; no `harvest_pressure` coupling | [RFC-0123](../rfcs/RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) |
+| Forman–Ricci `cascading_risk` weighted by degrading grounding | `src/curvature.ts` |
+
+### Deferred — declared but inert, not behaviour
+
+None of these is implemented. Each is named here because the prose above once read as
+though they were, and a reader could reasonably have believed it.
+
+| Deferred | Actual state in the runtime |
+|---|---|
+| `conversion_rate` | A Genesis seed value only (`initial_beliefs`). Nothing reads or updates it |
+| `unlocked_affordances` | A field on a type (`types.ts`). Never populated, never emitted |
+| `BeliefState` / per-agent beliefs | An interface only. Never instantiated; `reputation.ts` records that beliefs and styles await G3 |
+| Wasserstein / Ollivier curvature | Forman–Ricci is the shipped metric. Specs forbid Wasserstein Ollivier as product default |
+| Live cultural generation | No generator exists. Culture is derived from ledgered practice (GC9-S0/S1/S2) |
+
+**Locking any of those numbers requires a new RFC.** Pinning them here would make a
+promise the runtime does not keep — which is the failure this pin exists to end.
 
 ## 1. Overview
 
