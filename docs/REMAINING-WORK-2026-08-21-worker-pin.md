@@ -108,7 +108,12 @@ attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_de
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
 
-**Later on 2026-08-22 / 23: a further publish.** Worker
+**2026-08-23T07:16:28Z: `/version` publish.** Worker `591a5fe4-7858-4721-9024-58da9f761e41`,
+carrying Noema #509 and #512. `GET /version` now reports the running build directly, and
+`/health` is back to the liveness check `OPERATIONS.md` specifies. This is the first pin in this
+document that was **read from the live surface rather than inferred**.
+
+**Earlier on 2026-08-22 / 23: a further publish.** Worker
 `419471b3-7fbf-42d1-ae05-4f7c63745595`, built from `main` `21ba14e2` (Noema #508). That build carries
 both #508 (WATCH entity-scoped site resolution) and #507 (`1034ca3`, Civic Exchange occupant labels),
 which is an ancestor of it. `/ready` remains ACTIVE / HEALTHY on `world.perihelion-reach-3`.
@@ -126,22 +131,33 @@ Note what #509 is and is not: it is **the check, not the source of the id**. The
 whoever ran the publish; what has been missing is a way for anyone else to read it without inferring from
 source diffs. Once #509 is live, replace the probe procedure below with a single read of `/health`.
 
-### Caution for whoever writes here next
+### How to find out what is live (2026-08-23 onward)
 
-The pin in `spec-compat.json` is a hand-updated docs record, **not** a reading of what Cloudflare is
-serving, and it has lagged a real deploy at least once. Between 08:28Z and 17:14Z it said `fb57910f`
-(built from `333a0e5`) while the running Worker already served `workers/noema/src/seo.ts`, a file that
-does not exist at `333a0e5`. A tracker revision written from that pin recorded the wrong live/not-live
-split for five PRs.
+```
+curl -s https://noema.guru/version
+```
 
-Before trusting the pin, cross-check it against a public surface that a known commit changed — comparing
-`https://noema.guru/robots.txt` against `seo.ts` is the cheap one. Note that Cloudflare prepends its own
-managed content-signals block to `robots.txt`, so a bare 200 proves nothing and the served body has to be
-diffed against source. Both a false positive and a false negative are available here.
+That is the whole procedure. It reports `worker_version_id` and `deployed_at` straight from
+Cloudflare's `version_metadata` binding, alongside `protocol_version` and `world_id`. Live
+since the 2026-08-23T07:16:28Z publish (Noema #509 + #512).
 
-Slice A has no such probe: its WATCH pulses only surface once a site actually has an inherited or
-schismed tradition, and `public_pulses` is currently `[]` because the world holds no tradition at all
-(cycle 689, `players_present: 0`). Absence of those pulses says nothing about whether GC9-S2 is deployed.
+**Do not reason from `spec-compat.json` alone.** Its pin is hand-updated and lagged a real
+publish three times on 2026-08-22 — once by about nine hours. A tracker revision written from
+it recorded the wrong live/not-live split for five PRs, and a deploy request was nearly filed
+for work already shipped. The pin is a record of what someone wrote down; `/version` is a
+reading of what is running. When they disagree, `/version` wins and the pin needs fixing.
+
+If `/version` 404s, the running build predates #512 and you are back to inference — in which
+case compare `https://noema.guru/robots.txt` against `workers/noema/src/seo.ts`, and note that
+Cloudflare prepends its own managed content-signals block, so a bare 200 proves nothing and the
+served body must be diffed against source. Both a false positive and a false negative are
+available on that endpoint.
+
+Some changes have no external probe at all. Slice A's GC9-S2 marks surface only once a site
+actually has an inherited or schismed tradition, and `public_pulses` is currently `[]` because
+the world holds no tradition. Absence of a pulse says nothing about whether the code is
+deployed. Where no probe exists, ask the publisher rather than inferring — and record what was
+not determined instead of writing "unknown" over a fact someone else holds.
 
 ## Official-client LOOK chrome check (2026-08-23)
 
