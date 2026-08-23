@@ -90,8 +90,8 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 |---|---|
 | Specs | Mature (C01–C26, action/economy/scheduler/module contracts) |
 | Runtime (`Zero-State-LLC/Noema`) | **Shipped and live** on `world.perihelion-reach-3`: gateway, auth, action router, world engine, ledger, observation, message delivery, scheduler, snapshots, spectator |
-| Fixture pin drift | **Resolved** — the runtime no longer claims `v0.1.0-rc1`; it claims no fixture pin at all. See Phase 0 below: `hosted_live` still declares no specs pin |
-| Remaining | `/version` of the compose golden path is unimplemented (`/health` and `/ready` are live) |
+| Fixture pin drift | **Resolved** — the runtime no longer claims `v0.1.0-rc1`; it claims no fixture pin at all. `hosted_live` now declares `specs_git` (Noema #511), so the Phase 0 gap this row used to point at is closed |
+| Remaining | Nothing in this row. `/version` is implemented on both runtimes — offline at `gateway/http_server.py`, hosted since the 2026-08-23T07:16:28Z publish (Noema #509 + #512) |
 
 ### Slice B — Agent protocol + PLAY connectivity
 
@@ -114,32 +114,32 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 | Item | Status |
 |---|---|
 | Specs | Executable F01–F15 |
-| Runtime | Not started (beyond Chamber) |
-| Depends on | Slice A + B stability |
+| Runtime | **Offline only.** Implemented in the Python runtime (`src/noema/research/frontier`); `tests/test_phase2a_frontier.py` passes. Not hosted — the Worker exposes no Frontier route |
+| Depends on | Hosting is the remaining step, not building. Slice A + B stability is met |
 
 ### Slice E — Observatory NOTICE (v0.3)
 
 | Item | Status |
 |---|---|
 | Specs | Executable O01–O16 |
-| Runtime | Not started |
-| Depends on | Trajectories / research capture path |
+| Runtime | **Offline only.** `src/noema/research/observatory`; `tests/test_phase2b_observatory.py` passes. Not hosted |
+| Depends on | Trajectories / research capture path — present offline |
 
 ### Slice F — Lab TEST (v0.4)
 
 | Item | Status |
 |---|---|
 | Specs | Executable L01–L34; isolation `mutates_production: false` |
-| Runtime | Not started |
-| Depends on | Replay harness + experimental forks |
+| Runtime | **Offline only.** `src/noema/research/lab`; `tests/test_phase3_lab.py` passes, including production isolation. Not hosted |
+| Depends on | Replay harness + experimental forks — present offline |
 
 ### Slice G — Compiler CAPTURE (v0.5)
 
 | Item | Status |
 |---|---|
 | Specs | Executable P01–P30; implementation order documented in PHENOMENON-COMPILER |
-| Runtime | Not started |
-| Depends on | Lab READY results + replay oracle |
+| Runtime | **Offline only.** `src/noema/research/compiler`; `tests/test_phase4_compiler.py` passes. Not hosted |
+| Depends on | Lab READY results + replay oracle — present offline |
 
 ### Slice H — Deep Time + Genesis (v0.6)
 
@@ -154,8 +154,8 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 | Item | Status |
 |---|---|
 | Specs | K01–K12; rebuildable derived graph |
-| Runtime | Not started |
-| Depends on | Captured tests + Lab/regression artifacts |
+| Runtime | **Offline only.** `src/noema/research/learn`; `tests/test_phase5_learn.py` passes. Not hosted |
+| Depends on | Captured tests + Lab/regression artifacts — present offline |
 
 ---
 
@@ -178,8 +178,8 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 |---|---|---|
 | ~~SPEC-CHECKLIST v0.4 line still says L01–L22~~ | ~~Low~~ | **Resolved** — the checklist reads L01–L34 |
 | ~~Runtime fixture pin `rc1` vs specs pin `rc2`~~ | ~~Medium~~ | **Resolved** — the runtime claims no `rc1`. Superseded by the open Phase 0 item: `hosted_live` declares no specs pin |
-| `hosted_live` in `spec-compat.json` declares no specs pin | Medium inter-repo | Phase 0 item 1 is still open for the live world: nothing records which specs commit the running build implements |
-| `/version` named in the Phase 1 golden path is unimplemented | Low | `/health` and `/ready` are live; `/version` 404s. Noema #509 put `worker_version_id` on `/health` — decide which endpoint owns it |
+| ~~`hosted_live` in `spec-compat.json` declares no specs pin~~ | ~~Medium inter-repo~~ | **Resolved** — Noema #511 added `specs_git` to `hosted_live`, and #514 moved it to `d7406a0` by the same derivation |
+| ~~`/version` named in the Phase 1 golden path is unimplemented~~ | ~~Low~~ | **Resolved 2026-08-23.** The endpoint question is decided: Noema #512 put the build pins on `/version` and restored `/health` to liveness. `GET https://noema.guru/version` returns 200 with `worker_version_id` and `deployed_at` |
 | `INTEGRATION-SURFACE.md` still describes richer Capability Graph (architecture attribution) | Low | Informative only; v0.7 freezes minimal LEARN — do not implement attribution yet |
 | Product pins for v0.3–v0.7 labeled `*-draft` | Expected | Freeze = “implementable contracts,” not necessarily product GA numbering |
 | README “Current pin” still emphasizes Chamber rc2 | OK | Reflects shipping runtime maturity, not full loop |
@@ -197,14 +197,19 @@ Slice H is partially shipped, which the table above previously did not say: Gene
 admin-only and live, and Deep Time ships scars, ratchets, inheritance and checkpoint restore.
 Its tails are gated behind their own RFCs.
 
-Nothing of Slices **D, E, F, G, I** exists in the runtime — no Frontier, Observatory, Lab,
-Compiler, or Capability Graph module. By this document's own dependency order, **Slice D —
-Frontier NOTICE (v0.2)** is the next unbuilt slice, and its stated gate ("Slice A + B
-stability") is now met.
+Slices **D, E, F, G, I** are built, but **only offline**. This document said until 2026-08-23
+that nothing of them existed in the runtime; that was wrong. The Python runtime carries
+`research/{frontier,observatory,lab,compiler,learn}`, and its five phase suites pass — 178 cases,
+run 2026-08-23. What is missing is not the code but the **hosting**: the Worker at `noema.guru`
+exposes no research route at all, and `/study` is an observational page
+([STUDY.md](STUDY.md), Hosted boundary). By this document's own dependency order, **Slice D —
+Frontier NOTICE (v0.2)** is the next slice to *host*, and its stated gate ("Slice A + B
+stability") is met.
 
-Two caveats before anyone starts D. It opens Phase 2, the research spine, whose exit is
+Two caveats before anyone hosts D. It opens Phase 2, the research spine, whose exit is
 *"researcher can NOTICE and TEST without touching production world truth"* — so isolation is
-the hard part, not injection. And the live world currently has zero players, so a Frontier
+the hard part, not injection, and hosting it against a live world is a different isolation
+problem from the offline one the Lab suite already checks. And the live world currently has zero players, so a Frontier
 situation would be injected into a world nobody is inhabiting; enrollment is worth more than
 new research surface until that changes.
 
