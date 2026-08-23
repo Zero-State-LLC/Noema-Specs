@@ -1,7 +1,7 @@
 # Spec Freeze & Implementation Readiness — Core Loop (v0.1–v0.7)
 
 **Status:** Freeze recommended for the **core product/research loop**  
-**Audit date:** 2026-08-11  
+**Audit date:** 2026-08-11 · **readiness refreshed 2026-08-23**  
 **Canonical tip:** `main` @ `33e0488` (LEARN v0.7)  
 **Validator:** `python3 validation/validate_all.py` → **PASS**
 
@@ -89,25 +89,25 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 | Item | Status |
 |---|---|
 | Specs | Mature (C01–C26, action/economy/scheduler/module contracts) |
-| Runtime (`Zero-State-LLC/Noema`) | **Partial:** pure reducers + `noema-replay` seed equivalence; **not** full gateway/UI/agent protocol server |
-| Fixture pin drift | Runtime README cites `v0.1.0-rc1`; Specs README pin is `v0.1.0-rc2` — **reconcile before claiming runtime compliance** |
-| Next build | Modular monolith: gateway, auth, action router, world engine, ledger, observation, message delivery, scheduler, snapshots, spectator, compose golden path |
+| Runtime (`Zero-State-LLC/Noema`) | **Shipped and live** on `world.perihelion-reach-3`: gateway, auth, action router, world engine, ledger, observation, message delivery, scheduler, snapshots, spectator |
+| Fixture pin drift | **Resolved** — the runtime no longer claims `v0.1.0-rc1`; it claims no fixture pin at all. See Phase 0 below: `hosted_live` still declares no specs pin |
+| Remaining | `/version` of the compose golden path is unimplemented (`/health` and `/ready` are live) |
 
 ### Slice B — Agent protocol + PLAY connectivity
 
 | Item | Status |
 |---|---|
 | Specs | `protocols/agent-protocol-v1.md`, agent-action schemas, onboarding fixtures |
-| Runtime | Not evidenced as complete server |
-| Next build | HELLO/negotiate, act, ack/resume, observation stream, containment budgets |
+| Runtime | **Shipped and live.** Verified 2026-08-23 against production: `noema-client==0.1.14` reports `reachability: ok`, `discovery: agent-protocol/v1`, `seal: required` |
+| Remaining | Nothing in the contract. The world is empty because no operator has completed device enrollment, which is a people step, not a build step |
 
 ### Slice C — WATCH spectator
 
 | Item | Status |
 |---|---|
 | Specs | SPECTATOR + projections; no world mutation |
-| Runtime | Not required for seed replay; needed for product surface |
-| Next build | LIVE/realms/history projections from ledger only |
+| Runtime | **Shipped and live**: LIVE projection, Phosphor map, ASCII cartogram, bands, tiered feed, pulses, client-local Follow, §7 redaction |
+| Remaining | Thirteen of fourteen `ENTITY_UPDATE` operations still render as located generic activity; only `REPAIR` and `PRODUCTION` have specific lines (Noema #508) |
 
 ### Slice D — Frontier NOTICE (v0.2)
 
@@ -146,8 +146,8 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 | Item | Status |
 |---|---|
 | Specs | D01–D30 + G01–G09; admin-only Genesis; no event-catalog/0.3 |
-| Runtime | Not started |
-| Depends on | Chamber orgs/infra + durable history indexes |
+| Runtime | **Partial, live.** Genesis ships admin-only (`src/genesis.ts`); Deep Time ships scars, evidence fragments, norm ratchets, succession inheritance and checkpoint restore (`src/deep-time.ts`) |
+| Remaining | The Deep Time tails: `path_dependence_strength` is computed but unconsumed, myth scars and lore attractors are inert. Each needs its own RFC before runtime |
 
 ### Slice I — LEARN (v0.7)
 
@@ -176,13 +176,37 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 
 | Finding | Severity | Action |
 |---|---|---|
-| SPEC-CHECKLIST v0.4 line still says L01–L22 | Low docs drift | Fix checklist to L01–L34 (safe) |
-| Runtime fixture pin `rc1` vs specs pin `rc2` | Medium inter-repo | Align `Noema` fixtures/README to current specs pin before release claims |
+| ~~SPEC-CHECKLIST v0.4 line still says L01–L22~~ | ~~Low~~ | **Resolved** — the checklist reads L01–L34 |
+| ~~Runtime fixture pin `rc1` vs specs pin `rc2`~~ | ~~Medium~~ | **Resolved** — the runtime claims no `rc1`. Superseded by the open Phase 0 item: `hosted_live` declares no specs pin |
+| `hosted_live` in `spec-compat.json` declares no specs pin | Medium inter-repo | Phase 0 item 1 is still open for the live world: nothing records which specs commit the running build implements |
+| `/version` named in the Phase 1 golden path is unimplemented | Low | `/health` and `/ready` are live; `/version` 404s. Noema #509 put `worker_version_id` on `/health` — decide which endpoint owns it |
 | `INTEGRATION-SURFACE.md` still describes richer Capability Graph (architecture attribution) | Low | Informative only; v0.7 freezes minimal LEARN — do not implement attribution yet |
 | Product pins for v0.3–v0.7 labeled `*-draft` | Expected | Freeze = “implementable contracts,” not necessarily product GA numbering |
 | README “Current pin” still emphasizes Chamber rc2 | OK | Reflects shipping runtime maturity, not full loop |
 
-No open PRs. No blocking authority conflicts found that stop Chamber implementation.
+No blocking authority conflicts found that stop Chamber implementation.
+
+### Where the loop actually stands (2026-08-23)
+
+Phase 1's exit is *"third party can enter a world, act, observe; seed replay remains
+EQUIVALENT."* Slices A, B and C are shipped and live on `world.perihelion-reach-3`, and the
+agent path is verified reachable from outside. The one thing between here and that exit is
+that **no operator has completed device enrollment** — a people step, not a build step.
+
+Slice H is partially shipped, which the table above previously did not say: Genesis is
+admin-only and live, and Deep Time ships scars, ratchets, inheritance and checkpoint restore.
+Its tails are gated behind their own RFCs.
+
+Nothing of Slices **D, E, F, G, I** exists in the runtime — no Frontier, Observatory, Lab,
+Compiler, or Capability Graph module. By this document's own dependency order, **Slice D —
+Frontier NOTICE (v0.2)** is the next unbuilt slice, and its stated gate ("Slice A + B
+stability") is now met.
+
+Two caveats before anyone starts D. It opens Phase 2, the research spine, whose exit is
+*"researcher can NOTICE and TEST without touching production world truth"* — so isolation is
+the hard part, not injection. And the live world currently has zero players, so a Frontier
+situation would be injected into a world nobody is inhabiting; enrollment is worth more than
+new research surface until that changes.
 
 ---
 
