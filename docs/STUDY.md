@@ -2,6 +2,21 @@
 
 STUDY is the authorized research interface. Researchers are not Players and MUST NOT use Player mutation paths as shortcuts ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Research vocabulary is correct here. It MUST NOT be the first-read product identity or a first-time fork on the world door ([PLAYER-BRAND.md](PLAYER-BRAND.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md)).
 
+## Hosted boundary (2026-08-23)
+
+STUDY as specified below is **not hosted**. `https://noema.guru/study` is an observational page — a live excerpt of `/v1/watch/live` and links to WATCH, Manifesto and CONNECT. The hosted Worker exposes no research route: no NOTICE, no TEST, no COMPARE, no CAPTURE. `spec-compat.json` records `hosted_runtime.study: "observational"`, and the runtime's own source says it in one line — *"STUDY — observational. Lab capture is not hosted."*
+
+The machinery this document specifies does run, in the **offline Python runtime**, which is the conformance target and not the live door.
+
+| Surface | NOTICE → TEST → COMPARE → CAPTURE |
+|---|---|
+| Hosted Worker (`noema.guru`) | Not present. `/study` is an observational page |
+| Offline Python runtime (`noema-serve`) | Implemented — `src/noema/research/{frontier,observatory,lab,compiler,learn}` |
+
+Observed 2026-08-23: the runtime repository's five research phase suites pass — 178 cases across Frontier (F01–F15), Observatory (O01–O16), Lab (L01–L34), Compiler (P01–P30) and LEARN (K01–K12). Those are the ranges the suites declare; a few IDs inside them are not named as individual cases.
+
+Nothing in this document authorizes hosting STUDY. That is a runtime slice with its own gate — [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) §4 Slices D–G and I — and its Phase 2 exit makes isolation, not injection, the hard part.
+
 Its ordinary workflow is:
 
 ```text
