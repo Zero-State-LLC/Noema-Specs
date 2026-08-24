@@ -185,8 +185,8 @@ Queryable record families beyond Player-known maps, archives, and ledgers alread
 | Field | Contract |
 |-------|----------|
 | resource_cost | **0**. Rejecting or cancelling MUST NOT trap a Player behind resource scarcity. |
-| events_on_success | `TRADE_REJECTED`; release reservation |
-| reasons | `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`, `CANCELLED` |
+| events_on_success | `TRADE_REJECTED` on reject. `TRADE_CANCELLED` on proposer cancel when the world pins `event-catalog/0.2` (RFC-0127). Worlds on `event-catalog/0.1` MAY still record cancel as `TRADE_REJECTED` reason `CANCELLED`. Release reservation. |
+| reasons | Reject: `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`. Cancel: `CANCELLED`. |
 
 ### Trade reservation release
 

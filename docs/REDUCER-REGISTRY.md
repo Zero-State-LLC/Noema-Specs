@@ -64,7 +64,7 @@ Authoritative payload and reject rules remain [EVENT-CATALOG.md](EVENT-CATALOG.m
 | `NOISE_APPLIED` | Observation noise metadata | Canonical room/entity state |
 | `OBSERVATION_GENERATED` | Observation record / digest index | Canonical room/entity state |
 
-### `event-catalog/0.2` (seven additional)
+### `event-catalog/0.2` (eight additional)
 
 | Event | May mutate | Must not mutate |
 |-------|------------|-----------------|
@@ -75,6 +75,7 @@ Authoritative payload and reject rules remain [EVENT-CATALOG.md](EVENT-CATALOG.m
 | `INFRASTRUCTURE_DISRUPTED` | Named entity `condition` | Destroy; identity |
 | `AGREEMENT_FORMED` | New ACTIVE agreement; formation cost | Third-party bindings |
 | `AGREEMENT_BROKEN` | Mark BROKEN; influence; optional commitment release | Delete history |
+| `TRADE_CANCELLED` | Trade closed (`CANCELLED`); release reservation | Other trades; inventories |
 
 Worlds pinned to `0.1` MUST NOT apply 0.2 reducers.
 

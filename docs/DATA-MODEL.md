@@ -292,7 +292,7 @@ The **Agent** registry record is the world/wire principal for a Player under fro
 | ID | `event_id` |
 | required | envelope fields + digest chain + catalog-specific payload binding |
 | immutable | append-only |
-| catalog | closed 24 types for `event-catalog/0.1`, 31 types for `event-catalog/0.2` |
+| catalog | closed 24 types for `event-catalog/0.1`, 32 types for `event-catalog/0.2` |
 | schema | generic envelope `world-event.schema.json` plus composed admission schema `event-catalog-0.1.schema.json` or `event-catalog-0.2.schema.json` |
 
 ### Observation

@@ -5,7 +5,7 @@
 | Catalog pin | Composed ledger schema | Payload binding source | Types | Product |
 |-------------|------------------------|------------------------|-------|---------|
 | `event-catalog/0.1` | [`event-catalog-0.1.schema.json`](../specs/event-catalog-0.1.schema.json) | [`event-types.json`](../specs/event-types.json) | **24** closed | Chamber v0.1 acceptance |
-| `event-catalog/0.2` | [`event-catalog-0.2.schema.json`](../specs/event-catalog-0.2.schema.json) | [`event-types.0.2.json`](../specs/event-types.0.2.json) | **31** = 24 + 7 | Strategic conflict (RFC-0002 **Accepted**) |
+| `event-catalog/0.2` | [`event-catalog-0.2.schema.json`](../specs/event-catalog-0.2.schema.json) | [`event-types.0.2.json`](../specs/event-types.0.2.json) | **32** = 24 + 7 + `TRADE_CANCELLED` | Strategic conflict (RFC-0002 **Accepted**) plus RFC-0127 |
 
 A conforming world ledger MUST use only event types from its pinned catalog. Worlds on `0.1` MUST reject the seven 0.2 types. An existing type MUST NOT change meaning across catalog versions.
 
@@ -175,3 +175,9 @@ Payload: `agreement_id`, `agreement_type`, `party_ids` (≥2), `terms.machine` (
 ### `AGREEMENT_BROKEN`
 
 Payload: `breach_id`, `agreement_id`, `broken_by`, `reason`, optional `breach_type`, `influence_delta_by_party` (values ≤0), `release_commitments`, optional sources/visibility. Reducer: mark BROKEN; apply influence; release commitments when flagged.
+
+## Catalog 0.2 amendment (RFC-0127)
+
+### `TRADE_CANCELLED`
+
+Payload: `trade_id`, `by`, and `reason` (`CANCELLED`). Reducer: require an open proposal; `by` must be its proposer. Mark it `CANCELLED` and release proposer reservations. Reject missing/closed trade or unauthorized cancellation. No notification side effect. Distinct from `TRADE_REJECTED` reason `CANCELLED`, which remains the 0.1 Chamber recording of withdrawal. Worlds on `event-catalog/0.1` MUST reject this type.

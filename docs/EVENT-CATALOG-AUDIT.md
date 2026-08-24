@@ -31,23 +31,23 @@ The closure rule — *expand event types only via RFC*
 runtime. Checked now, by scanning every `pushEvent` call site in `workers/noema/src` against
 `x-noema-event-types` in both catalogs. Noema #527 keeps it checked.
 
-### One type is emitted and catalogued nowhere
+### `TRADE_CANCELLED` is catalogued on 0.2 (RFC-0127)
 
-`TRADE_CANCELLED`. It is in neither `event-types.json` (24 types) nor
-`event-types.0.2.json` (31), carries no payload `$def` in either, and is **publicly
-projected** — the WATCH feed renders `<who> withdrew a trade`. It has been in the Worker
-since 2026-08-12 and has never existed in the offline Python runtime.
+The 2026-08-24 Worker scan found `TRADE_CANCELLED` emitted, publicly projected
+(WATCH: `<who> withdrew a trade`), and missing from both catalogs. That omission
+is closed.
 
-This reads as a catalog omission rather than an unauthorized addition:
-[GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) §Events already lists
-`TRADE_CANCELLED` among *"existing"* types beside the three that are catalogued, so the
-specification has been treating it as present for some time. Nothing else in this repository
-mentions it — one line, in one slice document.
+**RFC:** [RFC-0127](../rfcs/RFC-0127-trade-cancelled-catalog.md) — **Accepted**.
+Amends `event-catalog/0.2` (32 types = 24 + 7 + 1). Does not open
+`event-catalog/0.3`. Chamber `event-types.json` stays 24. Payload `$def`:
+`trade_id`, `by`, `reason` (`CANCELLED`).
 
-**Not fixed here.** Adding a type to a closed catalog is what the closure rule exists to make
-deliberate: it is `event-catalog/0.3`, or an amendment to 0.2, and either way an RFC decides
-it. Dozens of accepted RFCs carry `No event-catalog/0.3` in their scope lines, so this is
-not a line to add quietly. Recorded for a maintainer with the evidence attached.
+[GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) §Events already
+listed the type as existing. The RFC makes that true in the machine catalog.
+
+Runtime follow-up lives in Noema, not this repository: drop `TRADE_CANCELLED`
+from `KNOWN_UNCATALOGUED` in `workers/noema/test/closed-catalog.test.ts` after
+this RFC is on Specs `main`.
 
 ### Five catalogued types the hosted Worker never emits
 
