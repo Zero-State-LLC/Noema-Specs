@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. One new form string. No `event-catalog/0.3`. No new verbs. No HP. Chamber help still omits CONTEST.
+One new form string. No `event-catalog/0.3`. No new verbs. No HP. Chamber help still omits CONTEST.
 
 ## Problem
 

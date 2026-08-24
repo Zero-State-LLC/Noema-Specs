@@ -5,7 +5,7 @@
 **Status:** Honest snapshot after RFC-0122.  
 **Does not:** reseed frozen first world, `force:true` on production, same-id activate of `world.perihelion-reach-2`, reverse RFC-0120, or treat Admin as a Player.
 
-**Live.** `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` cycle 0 (RFC-0122, profile `EWM_ENHANCED`). Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` not reseeding.
+**Live as of 2026-08-21** (verified still current 2026-08-24; the authority is `/ready` and `hosted_live`, not this line). `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` cycle 0 (RFC-0122, profile `EWM_ENHANCED`). Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` not reseeding.
 
 Related: [RFC-0122](../rfcs/RFC-0122-perihelion-ewm-product-world.md) · [RFC-0121](../rfcs/RFC-0121-perihelion-successor-world-version.md) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)
 

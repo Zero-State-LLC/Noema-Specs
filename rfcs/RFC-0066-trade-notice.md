@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `TRADE_NOTICE` / `MARKET` verbs. Does not replace `TRADE`. No price oracle. No `event-catalog/0.3`.
+No new verbs. No `TRADE_NOTICE` / `MARKET` verbs. Does not replace `TRADE`. No price oracle. No `event-catalog/0.3`.
 
 ## Problem
 

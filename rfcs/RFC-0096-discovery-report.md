@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No NEWS verb. No `REPORT_*`. WATCH silent. No QUEST help. YOUR POSITION / diplomacy stay out. AGREEMENT_FORM stays unthawed.
+No NEWS verb. No `REPORT_*`. WATCH silent. No QUEST help. YOUR POSITION / diplomacy stay out. AGREEMENT_FORM stays unthawed.
 
 ## Problem
 

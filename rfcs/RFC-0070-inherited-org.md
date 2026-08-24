@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `SUCCESSION_*` events. No institution-as-Player. No elections. No `event-catalog/0.3`.
+No `SUCCESSION_*` events. No institution-as-Player. No elections. No `event-catalog/0.3`.
 
 ## Problem
 

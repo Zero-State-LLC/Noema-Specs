@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new events. No `event-catalog/0.3`. AGREEMENT_TERMINATE stays out. Other agreement types stay `FORM_FORBIDDEN`. Chamber help still omits AGREEMENT. WED / ATTEST stay omitted.
+No new events. No `event-catalog/0.3`. AGREEMENT_TERMINATE stays out. Other agreement types stay `FORM_FORBIDDEN`. Chamber help still omits AGREEMENT. WED / ATTEST stay omitted.
 
 ## Problem
 

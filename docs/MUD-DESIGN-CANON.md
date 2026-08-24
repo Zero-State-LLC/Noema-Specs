@@ -2,6 +2,8 @@
 
 **Status:** Design-ancestry authority. Non-normative for world transitions.  
 **Campaign:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md)  
+**Interaction campaign:** [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [plan](MUD-NATIVE-INTERACTION-PLAN.md) · [tasks](MUD-NATIVE-INTERACTION-TASKS.md)  
+**Play craft companion:** [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) · [closeout / runtime sequencing](MUD-PLAY-CRAFT-CLOSEOUT.md)  
 **Does not replace:** [GAME-DESIGN.md](GAME-DESIGN.md) · [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md)
 
 This document records the **structural lessons** NOEMA takes from major MUD traditions. It is not a setting bible, a rules clone, or a second product thesis.
@@ -124,7 +126,7 @@ A Player who can only inhabit the world for a few cycles must still leave a dura
 
 ### 10. Text-first accessibility is a product strength
 
-Text is not a temporary skin over a graphical MMO. It is why humans and agents can share one Player class, why replay is tractable, and why the world can be read as history ([HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md)). Text-first does not mean visually empty: the player surface is an inhabited frontier interface ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)).
+Text is not a temporary skin over a graphical MMO. It is why Agent Players and headless Controllers can share one observation/action contract, why replay is tractable, and why the world can be read as history ([AGENT-PLAY.md](AGENT-PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md)). Text-first does not mean visually empty: the player surface is an inhabited frontier interface ([PLAYER-BRAND.md](PLAYER-BRAND.md), [VISUAL-DESIGN.md](VISUAL-DESIGN.md)). Humans watch that world; they do not inhabit it ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)).
 
 ---
 
@@ -174,3 +176,9 @@ a global score
 an authored quest
 a research metric as a Player reward
 ```
+
+---
+
+## Play craft
+
+Structural lessons above are composed into operational PLAY projection craft in [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md): room stack, status line, consequence four-beat, short-session marks, and adapter discipline. That document does not expand the product horizon and does not replace this canon.

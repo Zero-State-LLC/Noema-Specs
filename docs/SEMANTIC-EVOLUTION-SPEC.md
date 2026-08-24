@@ -1,13 +1,48 @@
 # Semantic Evolution & Drift Specification — Perihelion Reach
 
-**Version:** v0.1 (Draft)  
+**Version:** v0.1 — **pinned to shipped scope 2026-08-23**  
 **Date:** 2026-08-21  
-**Status:** Specs-first. Implementation follows review.  
+**Status:** Draft v0.1. Runtime includes optional ASP, hearsay quarantine, privileged image/second_order, protocol_strength under harvest pressure, LOOK `reputation_summary` / `active_norms`, affordance `hint`s, ATTEST ontological consistency, Forman–Ricci cascading_risk (not Wasserstein Ollivier), and genesis signaling seeds on new `EWM_ENHANCED` worlds only. Image scores are not WATCH-public (GC3-S0). Open contracts (ASI weights) stay operator/SAR-heavy.  
 **Source:** semantic-evolution-assimilation-plan.md (extends Economy EWM Spec v0.1)  
 **Related:**  
-- Economy EWM Spec (local draft)  
-- AGENT-HARNESS.md, ARCHITECTURE.md, SPEC-CHECKLIST.md  
+- [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)  
+- [AGENT-HARNESS.md](AGENT-HARNESS.md), [ARCHITECTURE.md](ARCHITECTURE.md), [SPEC-CHECKLIST.md](../SPEC-CHECKLIST.md)  
 - arXiv references: 2601.04170 (Agent Drift), 2606.19356 (Argent Signaling), 2505.12872 (Emergent Foraging Language), 2412.10270 (Cultural Cooperation), 2603.13325 (Semantic-Geometric Co-evolution)
+
+
+## Pinned scope — shipped v0.1 (2026-08-23)
+
+This document is **pinned to what ships**. Everything below the line is live on
+`world.perihelion-reach-3`; everything in the deferred table is declared somewhere but
+inert, and none of it may be treated as behaviour a reader can rely on.
+
+### Shipped and live
+
+| Mechanism | Where |
+|---|---|
+| ASP signals (`@C` / `@G` / `@S`), grounding gates, hearsay quarantine | `src/signal.ts` |
+| `protocol_strength` under harvest pressure; compositionality | `src/reputation.ts` |
+| `harvest_pressure` / `regen_mod` | `src/reputation.ts`, `src/deep-time.ts` |
+| Privileged `image_score` / `second_order` — never a WATCH public scalar (GC3-S0) | `src/reputation.ts` |
+| Bounded upward norm ratchet — cap 5, decay 1 per slow pass after 10 quiet cycles, floor 0 | [RFC-0123](../rfcs/RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) |
+| Costly TRADE-reject — 1 influence, image −2, conduct −1; no `harvest_pressure` coupling | [RFC-0123](../rfcs/RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) |
+| Forman–Ricci `cascading_risk` weighted by degrading grounding | `src/curvature.ts` |
+
+### Deferred — declared but inert, not behaviour
+
+None of these is implemented. Each is named here because the prose above once read as
+though they were, and a reader could reasonably have believed it.
+
+| Deferred | Actual state in the runtime |
+|---|---|
+| `conversion_rate` | A Genesis seed value only (`initial_beliefs`). Nothing reads or updates it |
+| `unlocked_affordances` | A field on a type (`types.ts`). Never populated, never emitted |
+| `BeliefState` / per-agent beliefs | An interface only. Never instantiated; `reputation.ts` records that beliefs and styles await G3 |
+| Wasserstein / Ollivier curvature | Forman–Ricci is the shipped metric. Specs forbid Wasserstein Ollivier as product default |
+| Live cultural generation | No generator exists. Culture is derived from ledgered practice (GC9-S0/S1/S2) |
+
+**Locking any of those numbers requires a new RFC.** Pinning them here would make a
+promise the runtime does not keep — which is the failure this pin exists to end.
 
 ## 1. Overview
 
@@ -181,22 +216,3 @@ New or extended profiles (e.g., `EWM_ENHANCED` + semantic variant) should seed:
 - Emergent Language from Cooperative Foraging (arXiv:2505.12872)  
 - Cultural Evolution of Cooperation among LLM Agents (arXiv:2412.10270)  
 - Auditing Cascading Risks via Semantic–Geometric Co-evolution (arXiv:2603.13325)
-## Deep Time Integration (2026-08)
-This semantic layer is further extended by `DEEP-TIME-MECHANICS-UPDATE.md` for long-horizon persistence, scars as trajectory effects, historical reconstruction as inference, and multi-timescale norm evolution.
-
-## 11. Deep Time Integration Table (2026-08)
-
-This layer integrates with the Deep Time foundation via the following extensions (see `DEEP-TIME-MECHANICS-UPDATE.md` for full spec):
-
-| EWM / Semantic Component | Deep Time Extension | Effect / Fields |
-|--------------------------|---------------------|-----------------|
-| BeliefState + co_evolve | HistoricalTrajectorySummary + ScarVector | Non-Markovian rate/affordance modifiers from past trajectories |
-| ATTEST / Evidence | EvidenceFragment (trajectory + grounding) | Reconstruction as inference over noisy historical paths; fidelity scores |
-| ORG / Norms | Path-dependence + reversal_cost | Slow cultural ratchets; lock-in on established institutions |
-| Succession | scar_vector + trajectory_digest + lore_seeds inheritance | Leaders carry forward scars and compressed history |
-| Genesis / living micro-events | Foundational scars + lore crystallisation | Deep-time events at genesis or SAR-proposed |
-| Observation | scars[], historical_context, lore_attractors, path_dependence_index | History-sensitive affordances and visibility |
-| SAR / economic_health | Multi-timescale metrics (scar_persistence, reconstruction_fidelity, historical_alignment) | Separate fast (EWM) and slow (Deep Time) health loops |
-| Lore / Names / Boundaries | Slow attractors with historical weight | Path-dependent name/boundary changes; canonical evidence wins |
-
-All extensions preserve existing invariants: scars/effects derivable from ledger; canonical history not rewritten; human/agent players equivalent.

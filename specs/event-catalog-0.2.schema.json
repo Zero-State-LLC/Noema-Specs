@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://specs.noema.dev/event-catalog-0.2.schema.json",
   "title": "NOEMA Closed Event Catalog v0.2 Composed Schema",
-  "description": "Ledger admission schema for worlds pinned to event-catalog/0.2. It composes the reusable world-event/1.0 envelope with the closed v0.2 event_type and exact payload bindings, including the RFC-0002 strategic event additions.",
+  "description": "Ledger admission schema for worlds pinned to event-catalog/0.2. It composes the reusable world-event/1.0 envelope with the closed v0.2 event_type and exact payload bindings, including the RFC-0002 strategic event additions and TRADE_CANCELLED (RFC-0127).",
   "allOf": [
     {
       "$ref": "world-event.schema.json"

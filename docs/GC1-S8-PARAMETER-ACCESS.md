@@ -1,6 +1,6 @@
 # GC1-S8 — Engineer overhaul parameter
 
-**Status:** Executable specification. Specs-only until hosted.  
+**Status:** Hosted. Agent Players discover `extent=overhaul` on structured REPAIR affordances when a recognized, maintained Engineer. No new verb.  
 **Depends on:** [GC1-S2-ENGINEER-QUALITY.md](GC1-S2-ENGINEER-QUALITY.md) · [GC1-S3-DECAY.md](GC1-S3-DECAY.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md)  
 **RFC:** [RFC-0112](../rfcs/RFC-0112-parameter-access.md)  
 **Does not open:** new verbs · `event-catalog/0.3` · multi-focus · decay-window credit · WED / ATTEST help · class discounts
@@ -57,4 +57,4 @@ On locked overhaul, explain the observable blocker. Do not leak hidden practice 
 
 ## Runtime rule
 
-Hosted Chamber MUST accept `extent=overhaul` only for a recognized, maintained Engineer who can pay the extra energy. Isolated `test.hosted-canonical.gc1-s8`. No Genesis change.
+Hosted inhabit MUST accept structured `COMMIT.REPAIR` with `extent=overhaul` only for a recognized, maintained Engineer who can pay the extra energy. Observation affordances expose that parameter when eligible. Isolated `test.hosted-canonical.gc1-s8`. No Genesis change. Human `repair <target> overhaul` remains Chamber/test tooling (RFC-0120).

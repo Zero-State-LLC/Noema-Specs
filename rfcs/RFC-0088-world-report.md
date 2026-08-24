@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `NEWS` / `REPORT` verb. No `event-catalog/0.3`. No `REPORT_*` events. WATCH silent. Help unchanged. Operator Digests stay Admin wall-clock. YOUR POSITION, diplomacy, conflict, and crime sections stay out.
+No `NEWS` / `REPORT` verb. No `event-catalog/0.3`. No `REPORT_*` events. WATCH silent. Help unchanged. Operator Digests stay Admin wall-clock. YOUR POSITION, diplomacy, conflict, and crime sections stay out.
 
 ## Problem
 

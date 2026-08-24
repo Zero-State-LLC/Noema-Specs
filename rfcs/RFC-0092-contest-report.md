@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No NEWS verb. No `REPORT_*`. WATCH silent. Chamber help still omits CONTEST. YOUR POSITION / diplomacy / crime / access stay out.
+No NEWS verb. No `REPORT_*`. WATCH silent. Chamber help still omits CONTEST. YOUR POSITION / diplomacy / crime / access stay out.
 
 ## Problem
 

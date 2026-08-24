@@ -1,0 +1,57 @@
+{
+  "attempt_id": "gov-authority-conflict",
+  "note": "office precedence still wins over a rule",
+  "rule": {
+    "rule_id": "rule.relay-council",
+    "org_id": "org.signal-compact",
+    "published": true,
+    "decision": {
+      "offices": [
+        "office.warden",
+        "office.steward"
+      ],
+      "quorum": 2
+    },
+    "appointment": {
+      "mechanism": "RULE_BASED"
+    },
+    "jurisdiction": {
+      "objects": [
+        "entity.relay-trunk"
+      ],
+      "rooms": [
+        "room.relay-quarter"
+      ]
+    },
+    "enforcement": {
+      "operation": "REPAIR"
+    },
+    "failure": {
+      "on_vacancy": "SUCCEED_THEN_DECIDE",
+      "on_deadlock": "REFUSE"
+    },
+    "evidence": {
+      "record": "ORG_RECORD"
+    }
+  },
+  "acting_offices": [
+    "office.warden",
+    "office.steward"
+  ],
+  "concurring": 2,
+  "target": {
+    "object_id": "entity.relay-trunk",
+    "room_id": "room.relay-quarter"
+  },
+  "known_operations": [
+    "REPAIR",
+    "TRADE",
+    "ACCESS_POLICY",
+    "ORG_OFFICE_ACT"
+  ],
+  "office_conflict": true,
+  "expected": {
+    "outcome": "REJECT",
+    "reason": "authority_conflict"
+  }
+}

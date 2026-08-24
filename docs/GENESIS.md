@@ -46,6 +46,10 @@ Reuse the simplest existing admin/operator authorization. Do not create a separa
 | SPECTATOR | watch resulting world only |
 | RESEARCHER | study behavior; no Genesis mutation via STUDY alone |
 
+## Hosted successor (RFC-0121)
+
+Live Perihelion Reach `genesis.ef578f4ffceeccd0` / `world.perihelion-reach` stays the activated 5-room world. A new hosted product world is `world.perihelion-reach-2` with the 10-room CHAMBER-MAP Cycle 0. Production cutover is a later human-gated ops step. Do not reseed the live genesis.
+
 ## Administrative lifecycle
 
 ```text

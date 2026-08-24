@@ -1,0 +1,82 @@
+{
+  "slice_id": "gc9-s2",
+  "catalog_id": "culture-catalog/gc9-s2",
+  "subject_id": "player.nacre",
+  "subject_entity_id": "entity.relay-7",
+  "world_cycle": 7,
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 1,
+      "sequence": 1,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e2",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 2,
+      "sequence": 2,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e3",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 3,
+      "sequence": 3,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e4",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 4,
+      "sequence": 4,
+      "actor_id": "player.vesper",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    },
+    {
+      "event_id": "e5",
+      "event_type": "ENTITY_UPDATE",
+      "cycle": 6,
+      "sequence": 5,
+      "actor_id": "player.nacre",
+      "payload": {
+        "entity_id": "entity.relay-7",
+        "operation": "REPAIR"
+      }
+    }
+  ],
+  "expected": {
+    "play_lines": [
+      "This site has a maintenance tradition."
+    ],
+    "watch_lines": [
+      "A maintenance custom has become widely observed."
+    ],
+    "state": "TRADITION",
+    "inherited": false,
+    "schism": false,
+    "non_derivation": [
+      "founders_only",
+      "single_account"
+    ],
+    "ledger_mutated": false,
+    "bonus": false,
+    "note": "Vesper practised alongside the founder at cycle 4, but nacre continued to cycle 6. A co-practitioner is not an heir."
+  }
+}

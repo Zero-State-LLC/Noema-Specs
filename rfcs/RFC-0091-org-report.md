@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No NEWS verb. No `REPORT_*`. WATCH silent. YOUR POSITION / diplomacy / conflict / crime / access stay out. BUILD help stays [RFC-0090](RFC-0090-build-play-thaw.md).
+No NEWS verb. No `REPORT_*`. WATCH silent. YOUR POSITION / diplomacy / conflict / crime / access stay out. BUILD help stays [RFC-0090](RFC-0090-build-play-thaw.md).
 
 ## Problem
 

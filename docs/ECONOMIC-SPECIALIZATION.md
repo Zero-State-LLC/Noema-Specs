@@ -7,6 +7,11 @@
 
 **Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Ground in scarcity, distance, dependency, and uncertainty. Do not add transport companies, warehouses, banks, or markets as independent engines. Those nouns emerge from primitives and practices.
 
+The material-practice research assimilation is recorded in
+[RESEARCH-ASSIMILATION-2026-08-21.md](RESEARCH-ASSIMILATION-2026-08-21.md).
+It binds item language to the existing lot, provenance, workshop, and
+construction authorities without opening a separate crafting system.
+
 GC8-S0 machine pins: [GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md) · [RFC-0012](../rfcs/RFC-0012-distance-interdependence.md). v0.6B remains **SPEC GAP**.
 
 This package deepens:

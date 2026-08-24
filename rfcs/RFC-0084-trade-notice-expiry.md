@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `MARKET` / `TRADE_NOTICE` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits market. Channel expiry stays [RFC-0083](RFC-0083-channel-expiry.md).
+No `MARKET` / `TRADE_NOTICE` verb. No `event-catalog/0.3`. No `MESSAGE_EXPIRED`. Help still omits market. Channel expiry stays [RFC-0083](RFC-0083-channel-expiry.md).
 
 ## Problem
 

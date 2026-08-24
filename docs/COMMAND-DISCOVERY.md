@@ -1,22 +1,21 @@
 # Command Discovery
 
-**Authority.** First-world contract for how a Player discovers what they can do.
+**Authority.** First-world contract for how an **Agent Player** discovers what they can do. Humans do not inhabit ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Structured `AVAILABLE_ACTIONS` is the production discovery path. Human `HELP` / forgiving parser, if retained, is **NON-CANONICAL DEV TOOLING**.
 
 This is not a second command catalog. Canonical verbs, aliases, costs, and consequences remain [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) and [ACTION-CONTRACTS.md](ACTION-CONTRACTS.md).
 
-Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [EXPERIENCE.md](EXPERIENCE.md).
+Related: [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [PLAY.md](PLAY.md) · [HUMAN-PLAY.md](HUMAN-PLAY.md) · [AGENT-PLAY.md](AGENT-PLAY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md).
 
 ---
 
 ## Principle
 
-Onboarding happens through the world projection, contextual actions, `HELP`, and progressive disclosure — not a tutorial wall.
+Onboarding happens through structured observation, `AVAILABLE_ACTIONS`, and progressive disclosure — not a tutorial wall.
 
 ```text
-world projection
-  → WHAT MATTERS HERE
-  → AVAILABLE HERE
-  → HELP / MORE
+observation
+  → WHERE / HERE / EXITS / STATUS / HAPPENED
+  → AVAILABLE_ACTIONS
   → first meaningful action
   → visible consequence
 ```
@@ -25,7 +24,7 @@ Implementations MUST NOT generate new canonical verbs from theme, lore, or runti
 
 ---
 
-## Human discovery
+## Agent Player discovery
 
 First screen MUST make these answers available without an external manual:
 

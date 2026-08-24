@@ -1,0 +1,26 @@
+{
+  "schema_version": "watch-entity-update-exposure/rfc-0126",
+  "catalog_id": "watch-entity-update-exposure/rfc-0126",
+  "authority": "rfcs/RFC-0126-watch-entity-update-exposure.md",
+  "watch_live_pin": "watch-live/1.0",
+  "event_type": "ENTITY_UPDATE",
+  "default_watch_projection": null,
+  "explicit_operation_projections": {
+    "REPAIR": "production",
+    "PRODUCTION": "production"
+  },
+  "silent_operations": [
+    "HARVEST",
+    "ATTEST",
+    "INFORMATION_CONTEST",
+    "PRESENCE_PRESSURE"
+  ],
+  "preserve_explicit_infrastructure_payload_projections": true,
+  "harvest_public_source_event": "RESOURCE_TRANSFER",
+  "harvest_public_projection": "harvest",
+  "unknown_operation_watch_projection": null,
+  "new_events": [],
+  "new_projection_ids": [],
+  "new_watch_surfaces": [],
+  "world_report_slice": null
+}

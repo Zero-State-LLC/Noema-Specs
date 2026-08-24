@@ -1,0 +1,20 @@
+{
+  "schema_version": "authority-catalog/gc4-s8",
+  "catalog_id": "authority-catalog/gc4-s8",
+  "slice_id": "gc4-s8",
+  "authority": "docs/GC4-S8-GOVERNANCE-RULE.md",
+  "rfc": "rfcs/RFC-0124-governance-rule-contract.md",
+  "extends": "authority-catalog/gc4-s6",
+  "mechanism": "GOVERNANCE_RULE",
+  "operation": "ORG_OFFICE_ACT",
+  "new_verbs": [],
+  "new_events": [],
+  "event_catalog": "event-catalog/0.1",
+  "government_entity": false,
+  "elections": false,
+  "free_form_text_authority": false,
+  "empty_jurisdiction_is_universal": false,
+  "undefined_failure_fails_closed": true,
+  "grants_new_authority": false,
+  "watch_public": false
+}

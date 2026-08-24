@@ -10,7 +10,7 @@
 - Agent bootstrap: `noema-agent-bootstrap/1.0` (RFC-0033)
 - MUD command protocol: `mud-command/v1`
 - Event schema: `event-schema/v1`
-- Event catalog: `event-catalog/0.1` (24 types), `event-catalog/0.2` (31 types; RFC-0002)
+- Event catalog: `event-catalog/0.1` (24 types), `event-catalog/0.2` (32 types; RFC-0002 + RFC-0127)
 - Contest rules: `contest-rules/0.2.0`
 - Agreement rules: `agreement-rules/0.2.0`
 - Replay protocol: `replay-protocol/v1`

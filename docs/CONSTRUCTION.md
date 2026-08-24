@@ -6,6 +6,11 @@
 **Does not add `BUILD` to frozen v0.1 required help or the Chamber acceptance verb set.**  
 **Doctrine:** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) — one `BUILD` + operations, not a crafting industry.
 
+The item/crafting research assimilation boundary is recorded in
+[RESEARCH-ASSIMILATION-2026-08-21.md](RESEARCH-ASSIMILATION-2026-08-21.md):
+player-facing “items” resolve to existing lots, artifacts, or constructible
+infrastructure; no recipe tree or isolated crafting engine is implied.
+
 This document is the construction contract the existing LATER notes pointed at. It is **not** an executable action-catalog increment. Runtime MUST NOT accept generalized `BUILD` until an RFC pins operations, events, fixtures, and conformance.
 
 ---

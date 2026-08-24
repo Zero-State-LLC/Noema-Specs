@@ -18,6 +18,8 @@ NOEMA is now specified as a full persistent strategic text game.
 |----------|------|
 | [CORE-GAME-LOOP.md](CORE-GAME-LOOP.md) | Primary and strategic loops; nested completeness loops |
 | [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) | Structural MUD ancestry (inspiration, not cloning) |
+| [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) | Horizon-locked PLAY projection craft companion (feeds Native Interaction) |
+| [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) | MUD-native interaction campaign (parser, room grammar, traces, …) |
 | [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) | Post-core PLAY-depth campaign (not v0.8) |
 | [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Model causes, not industries; A–J rejection tests |
 | [REALMS.md](REALMS.md) | Derived strategic footprint |

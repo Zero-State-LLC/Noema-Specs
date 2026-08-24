@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `event-catalog/0.3`. No fifth contest form. Stake and fees come from the institution treasury when `acting_for` is set.
+No new verbs. No `event-catalog/0.3`. No fifth contest form. Stake and fees come from the institution treasury when `acting_for` is set.
 
 ## Problem
 

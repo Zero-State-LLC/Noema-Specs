@@ -4,7 +4,9 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No tutorial room.
+No new verbs. No tutorial room.
+
+**RFC-0120:** first-read withhold remains. The rationale that humans and agents share one Player class is superseded; withhold is now human-platform chrome discipline (WATCH / CONNECT / Home). Humans are not Players.
 
 ## Problem
 

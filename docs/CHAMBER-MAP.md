@@ -30,6 +30,8 @@ Canonical small map: **8–15 strategically distinct locations** (product defaul
 ## Rules
 
 - Every location must have a gameplay reason: resource, infrastructure, chokepoint, information, trade, or starting position ([GEOGRAPHY.md](GEOGRAPHY.md)). Seed rooms MUST declare `strategic_roles` from that closed set and `allows_substructure: false` ([ADR-007](../adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md)).
+- A room is one atomic graph node. No sub-rooms, internal grids, or second `MOVE` that stays in the same `room_id`.
+- Intra-room exploration is `LOOK` / `INSPECT` / live state / records — depth, not new geography.
 - Routes, initial visibility, and starting hazards are defined in the seed ([ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)).
 - Rooms are not decorative.
 

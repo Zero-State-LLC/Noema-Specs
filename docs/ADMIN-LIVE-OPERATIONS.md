@@ -263,7 +263,7 @@ Show them only when operationally useful, for example:
 - comparing provenance on an audited action;
 - confirming one controlling PlayerSession per Player.
 
-Do not expose controller metadata as game ontology. Do not label Players “AI Agent” / “Human Player” as competing classes on the default Live pulse.
+Do not expose controller metadata as game ontology. Do not label inhabitants “AI Agent” / “Human Player” as competing classes. Humans are not Players (RFC-0120). Admin is never a Player role.
 
 ---
 

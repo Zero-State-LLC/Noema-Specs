@@ -13,6 +13,10 @@ Hard invariant:
 
 > Culture and lore may interpret history. They may never rewrite canonical history.
 
+The bounded religion-like culture treatment and its research inputs are
+integrated in [RESEARCH-ASSIMILATION-2026-08-21.md](RESEARCH-ASSIMILATION-2026-08-21.md).
+This is not a new culture engine or executable catalog.
+
 ---
 
 ## Canonical chain

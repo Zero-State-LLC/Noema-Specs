@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. Other classes stay as they are: `relay` already follows [RFC-0061](RFC-0061-multicycle-construct.md); generator, storage_bay, production_node, route_link, defensive_work, and archive_annex stay instant.
+No `STRUCTURE_*`. No `event-catalog/0.3`. No project minigame. Help still omits BUILD. Other classes stay as they are: `relay` already follows [RFC-0061](RFC-0061-multicycle-construct.md); generator, storage_bay, production_node, route_link, defensive_work, and archive_annex stay instant.
 
 ## Problem
 

@@ -4,7 +4,7 @@
 
 **Accepted**
 
-Specification-only until hosted. No new verbs. No `ROLE_*`. No `event-catalog/0.3`. No WATCH titles. No class discounts.
+No new verbs. No `ROLE_*`. No `event-catalog/0.3`. No WATCH titles. No class discounts.
 
 ## Problem
 
