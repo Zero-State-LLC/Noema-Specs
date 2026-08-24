@@ -42,9 +42,13 @@ evidence supports this claim*.
 
 Usefully, that framing exposes a defect class this project has already hit twice
 outside the world model. `CRIME_DETECTED` has five consumers in the hosted
-runtime and no producer; `TRADE_CANCELLED` is emitted and catalogued nowhere.
-Both are support-relation failures — a node consumed without a producer, a node
-produced without a declaration — and both went unseen because nothing projected
+runtime and no producer (PARTIAL; this note does not wire Detection).
+`TRADE_CANCELLED` was, on the 2026-08-24 scan, emitted and catalogued nowhere;
+that sentence is no longer true after Specs #282
+([RFC-0127](../rfcs/RFC-0127-trade-cancelled-catalog.md)) and Noema #534, which
+catalogued the type on `event-catalog/0.2` and dropped it from
+`KNOWN_UNCATALOGUED`. The crime case remains a support-relation failure — a
+node consumed without a producer — and went unseen because nothing projected
 the graph and asked.
 
 What this suggests, all within existing contracts:

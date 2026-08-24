@@ -45,9 +45,10 @@ Amends `event-catalog/0.2` (32 types = 24 + 7 + 1). Does not open
 [GC4-S2-INSTITUTION-ACTIONS.md](GC4-S2-INSTITUTION-ACTIONS.md) §Events already
 listed the type as existing. The RFC makes that true in the machine catalog.
 
-Runtime follow-up lives in Noema, not this repository: drop `TRADE_CANCELLED`
-from `KNOWN_UNCATALOGUED` in `workers/noema/test/closed-catalog.test.ts` after
-this RFC is on Specs `main`.
+**2026-08-24.** The runtime follow-up landed in Noema #534: `TRADE_CANCELLED`
+is no longer in `KNOWN_UNCATALOGUED`. `CRIME_DETECTED` stays unproduced /
+PARTIAL. This audit does not wire Detection and does not add `visibility` or
+`victim_id`.
 
 ### Five catalogued types the hosted Worker never emits
 
