@@ -25,6 +25,7 @@
 - [x] Player brand / visual design specified: game-first hierarchy, dual semantics, semantic color tokens, three type voices, component taxonomy, twelve representative screens, player/admin split, motion, a11y, responsive, acceptance (`docs/PLAYER-BRAND.md`, `docs/VISUAL-DESIGN.md`, `docs/EXPERIENCE-TERMINOLOGY.md`). Gate `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`. No runtime visual implementation in this specs change.
 - [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`.
 - [x] Player brand implemented on hosted Worker HTML (Slices 0–9). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. No further brand slices unless a visual defect is filed.
+- [x] Research assimilation 2026-08-24: provenance graphs, statistical model checking for the `EQUIVALENT` boundary, norm origin as a claim-label question, authored-vs-unauthored signals (`docs/RESEARCH-ASSIMILATION-2026-08-24.md`). Design note only; no contract, catalog, verb, or exposure change.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
