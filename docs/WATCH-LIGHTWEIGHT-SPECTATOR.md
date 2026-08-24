@@ -369,6 +369,16 @@ projection that resolves the site from payload room ids alone will fail to locat
 most of them and emit filler. Resolving through the entity's public room is
 therefore required, not an optimisation.
 
+**"Entity-scoped" is not the same as "carries `entity_id`."** A harvest is scoped to
+the node it drew from and names it as `RESOURCE_TRANSFER.from_id`, carrying no
+`entity_id` at all. A projection that gates on `entity_id` alone neither locates such
+an event nor omits it — it passes both tests and reaches the wire as filler. Noema
+#520 found a harvest inside a **hidden** room published to the public feed that way,
+as `A harvest was recorded`, indistinguishable from a public one. A projection MUST
+therefore resolve the scoping entity from `entity_id` **or** from a `from_id` that
+names an entity, and MUST apply the same omit-when-not-public rule to both. A
+`from_id` naming a Player is not an entity scope; a trade leg is not a harvest.
+
 A world in which agents are idle still produces entity-scoped events — stock
 production being the ordinary one — and those events are the whole of the public
 feed at such times. Rendering them as filler makes a live world read as a dead
@@ -379,7 +389,22 @@ happened, never how much: quantities, stock levels, and regeneration rates are
 counters, and §7 keeps counters off the public wire.
 
 `REPURPOSE` stays silent on WATCH per [RFC-0057](../rfcs/RFC-0057-workshop-repurpose.md),
-which grants it a PLAY line only. Silence there is deliberate and is not filler.  
+which grants it a PLAY line only. Silence there is deliberate and is not filler.
+
+### Open: one harvest, two lines
+
+A single HARVEST emits both `RESOURCE_TRANSFER` and `ENTITY_UPDATE` on the same node,
+so the public feed carries two lines for one act — `Harvest at <site>` and, above it,
+`Public activity at <site>` from the entity update. The second is located, so it does
+not violate the rule above; it is redundant rather than non-conformant.
+
+Silencing the `ENTITY_UPDATE`/`HARVEST` arm would make it an eleventh deliberate
+silence alongside the ten in
+[RFC-RUNTIME-AUDIT](https://github.com/Zero-State-LLC/Noema/blob/main/docs/RFC-RUNTIME-AUDIT-2026-08-23.md).
+Each of those ten has an RFC granting it. This one has none yet, and what the public
+feed says about an act is an exposure decision, so it needs an RFC rather than a
+renderer change. Recorded here so the duplication is not mistaken for the located-site
+defect Noema #520 fixed, which was a different problem with the same symptom.  
 `narrative` on a spectator projection remains non-authoritative ([SPECTATOR.md](SPECTATOR.md)).
 
 ---
