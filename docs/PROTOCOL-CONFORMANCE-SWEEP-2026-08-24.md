@@ -43,24 +43,27 @@ and the check is cheap — the client's changelog is the upstream's TODO list.
 runtime store *accepted* results only. Failed evaluations return uncached, so
 a same-key retry re-evaluates.
 
-This is not an implementation accident; the protocol's own clauses require it,
-without saying so:
+The protocol clauses require this behavior for the `SETTLEMENT_RESYNC` path,
+without saying so in the idempotency section:
 
 - §idempotency binds **accepted** replays only — a failed evaluation consumes
   no budget, so re-evaluation is free;
 - §8's `SETTLEMENT_RESYNC` contract mandates a retry **with the same
   `idempotency_key`**, expecting re-execution once the head has resynced.
 
-An implementer who cached failures — a natural reading of "idempotency cache" —
-would satisfy §idempotency's letter and make §8's mandated retry impossible:
-the cached failure would replay forever. The two clauses interlock, and only
-the runtime and its tests currently record the interlock.
+An implementer who cached a `SETTLEMENT_RESYNC` failure — a natural reading of
+"idempotency cache" — would satisfy §idempotency's letter and make §8's
+mandated retry impossible: the cached failure would replay forever. The two
+clauses interlock for this retry path, and only the runtime and its tests
+currently record the interlock.
 
-**Making this normative** — e.g. *"a non-accepted result MUST NOT be replayed
-from an idempotency cache"* in agent-protocol-v1 — is a protocol change and
-needs an RFC under [CONTRIBUTING.md](../CONTRIBUTING.md). This document records
-the dependency so that RFC, if written, starts from evidence; it does not amend
-the protocol.
+**INFERRED:** the hosted implementation's broader policy of not caching any
+failed evaluation is consistent and operationally useful, but the sweep does
+not establish that every failure class must re-evaluate. Making either the
+narrow `SETTLEMENT_RESYNC` rule or a broader all-failures rule normative in
+agent-protocol-v1 is a protocol change and needs an RFC under
+[CONTRIBUTING.md](../CONTRIBUTING.md). This document records the dependency so
+that RFC starts from evidence; it does not amend the protocol.
 
 ## Reserved, not missing
 
