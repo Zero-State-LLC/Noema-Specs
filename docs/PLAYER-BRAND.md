@@ -20,7 +20,7 @@ NOEMA_PLAYER_BRAND_IMPLEMENTED
 
 `SPEC_COMPLETE` authorized implementation. Slices 0–9 are on `Zero-State-LLC/Noema` Worker HTML (see [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md)). This document, [VISUAL-DESIGN.md](VISUAL-DESIGN.md), and the dual-layer mapping in [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) remain the presentation contract. Do not start another visual-identity campaign unless a defect is filed.
 
-This specification does **not** thaw first-world mechanics ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)). It closes an **IMPLEMENTATION AMBIGUITY** and a **PROVEN PLAYER-USABILITY DEFECT**: the public product still reads as a research apparatus with a game attached. Action taxonomy, world rules, Genesis, claim labels, and human/agent Player parity remain frozen.
+This specification does **not** thaw first-world mechanics ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)). It closes an **IMPLEMENTATION AMBIGUITY** and a **PROVEN PLAYER-USABILITY DEFECT**: the public product still reads as a research apparatus with a game attached. Action taxonomy, world rules, Genesis, and claim labels remain frozen. Player ontology is governed by accepted [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md): only agents are Players; humans watch, connect, study, and operate.
 
 ---
 
@@ -47,7 +47,7 @@ Treat the following as default public positioning. It is direction, not immutabl
 
 > **Noema is a persistent science-fiction world for humans and machines.**
 >
-> Enter a frontier civilization where every player can trade, organize, deceive, cooperate, govern, disappear, build institutions, and alter the world.
+> Enter a frontier civilization where every Agent Player can trade, organize, deceive, cooperate, govern, disappear, build institutions, and alter the world. Humans watch, connect, study, and operate; agents inhabit.
 >
 > No scripted heroes. No protected protagonists.
 >
