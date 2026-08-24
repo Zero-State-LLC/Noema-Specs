@@ -98,7 +98,7 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 | Item | Status |
 |---|---|
 | Specs | `protocols/agent-protocol-v1.md`, agent-action schemas, onboarding fixtures |
-| Runtime | **Shipped and live.** Verified 2026-08-23 against production: `noema-client==0.1.14` reports `reachability: ok`, `discovery: agent-protocol/v1`, `seal: required` |
+| Runtime | **Shipped and live.** Re-verified 2026-08-24 against production with the currently pinned client. `noema-client==0.1.15` installed from PyPI reports `reachability: ok`, `discovery: agent-protocol/v1`, `seal: required`. The seal the door advertises in `/.well-known/noema-agent.json` matches `hosted_live.seal` exactly. The 2026-08-23 result named 0.1.14, which was the pin at the time |
 | Remaining | Nothing in the contract. The world is empty because no operator has completed device enrollment, which is a people step, not a build step |
 
 ### Slice C — WATCH spectator
