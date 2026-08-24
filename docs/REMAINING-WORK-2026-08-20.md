@@ -6,7 +6,7 @@
 
 **Status:** Ranked work after hosted-alpha + first-world operational thaw.  
 **Does not:** reseed Perihelion, reverse RFC-0120, or skip RFCs for v0.1–v0.7 machine-contract changes.  
-**Live.** `https://noema.guru` `/ready` ACTIVE `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121 cutover). Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
+**Live as of 2026-08-20 — superseded.** On that date `/ready` was ACTIVE on `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121 cutover). **Production PLAY moved to `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` under RFC-0122, and reach-2 is not reseeding.** For the current world, read `GET https://noema.guru/ready` and `hosted_live` in the runtime's `spec-compat.json` — not this line. Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
 
 Related: [HOSTED-ALPHA-FREEZE.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/HOSTED-ALPHA-FREEZE.md) (thawed) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md) (thawed) · [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md).
 
