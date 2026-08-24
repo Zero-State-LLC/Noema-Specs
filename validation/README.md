@@ -10,6 +10,8 @@ From the repository root:
 pip install -r validation/requirements-validation.txt
 python validation/validate_all.py
 python validation/validate_direction.py
+python validation/validate_freshness.py --offline
+python validation/validate_freshness.py  # live noema.guru comparison
 ```
 
 Both commands MUST exit 0. The main validator reports `PASS`; the direction validator confirms that planning remains implementation-aware and status-disciplined.
