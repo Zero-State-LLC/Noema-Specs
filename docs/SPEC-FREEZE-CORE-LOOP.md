@@ -107,7 +107,7 @@ Ordered for a solo/tiny-team modular monolith. Later slices depend on earlier on
 |---|---|
 | Specs | SPECTATOR + projections; no world mutation |
 | Runtime | **Shipped and live**: LIVE projection, Phosphor map, ASCII cartogram, bands, tiered feed, pulses, client-local Follow, §7 redaction |
-| Remaining | **Four**, not thirteen. Counted from the runtime 2026-08-23 and pinned by `workers/noema/test/watch-entity-update-census.test.ts`: of sixteen named `ENTITY_UPDATE` operations, **ten are deliberately silent** (RFC-mandated — RFC-0058, RFC-0060, RFC-0069, RFC-0070 all say "WATCH silent"), **two** have specific lines (`REPAIR`, `PRODUCTION`), and **four** fall to the generic line: `HARVEST`, `ATTEST`, `INFORMATION_CONTEST`, `PRESENCE_PRESSURE`. Whether any of those four should be narrated is an exposure question and needs an RFC |
+| Remaining | **Three**, not thirteen. Counted end to end 2026-08-24 and pinned by `workers/noema/test/watch-entity-update-census.test.ts`: of sixteen named `ENTITY_UPDATE` operations, **ten are deliberately silent** (RFC-mandated — RFC-0058, RFC-0060, RFC-0069, RFC-0070 all say "WATCH silent"), **two** have specific lines (`REPAIR`, `PRODUCTION`), **three** fall to the generic line (`HARVEST`, `ATTEST`, `INFORMATION_CONTEST`), and **one** — `PRESENCE_PRESSURE` — never reaches the feed at all, but incidentally: its `entity_id` is the target agent, and an agent id resolves to no public room, so §5's gate drops it. No rule says it should be silent. Whether the three should be narrated is an exposure question and needs an RFC |
 
 ### Slice D — Frontier NOTICE (v0.2)
 
