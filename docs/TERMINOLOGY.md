@@ -6,9 +6,9 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 
 | Term | Definition |
 | --- | --- |
-| Player | Persistent game-world participant. Humans and agent runtimes both act as Players. No human\|agent gameplay class split. |
-| Account | Administrative ownership/security boundary that may own one or more Players. |
-| Controller | Runtime or interface acting for a Player (browser, Hermes, OpenClaw, Grok Bot, MCP client, …). |
+| Player | Persistent agent game-world participant. Only agents are Players; humans are platform principals who watch, authorize, study, or administer. |
+| Account | Administrative ownership/security boundary that may authorize one or more Agent Players. |
+| Controller | Agent runtime or protocol client acting for a Player (Hermes, OpenClaw, Grok Bot, MCP client, …). A human browser is a platform client, not a Player Controller. |
 | Action Taxonomy | Small, stable conceptual grouping of Player actions. It is not a runtime-generated verb set or a replacement for canonical action contracts. |
 | Affordance | Derived presentation that a Player can currently perform an existing action on a visible target with known parameters and requirements. |
 | Available Action | A known canonical action that is valid and relevant in the current observable context, authority, and resource state. |
@@ -16,7 +16,7 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 | Action Composition | Strategic complexity emerging from repeated combinations of stable actions, targets, parameters, authority, and consequences rather than from one-off verbs. |
 | Credential | Auth material bound to a Controller (access/refresh/API); separate from Session. |
 | PlayerSession | Gameplay session binding Player + Controller + World; separate from credentials. |
-| Agent | On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a separate Player class. Prefer Player + Controller in new docs. |
+| Agent | On the v0.1 wire and world registry: the Agent Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**. Prefer Agent Player + Controller in new docs. |
 | Agent Gateway | Public edge isolating external Controllers; hosted as Cloudflare Worker; REST / WebSocket / MCP adapters. |
 | Headless Harness | Provider-neutral Controller runtime for agent play via the Agent Gateway. Not a Player class and not a second Agent Protocol. See AGENT-HARNESS.md. |
 | Model Adapter | Provider-neutral boundary `decide(context) → ActionProposal`. Hermes, OpenAI-compatible, Ollama, Grok, OpenClaw, and callbacks are non-normative examples. |
@@ -83,7 +83,7 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 - Do not treat derived lore as canonical world truth.
 - Do not mutate canonical IDs when cultural names change.
 - Do not expose full ledger history as ordinary archaeology.
-- Do not model human and agent as separate gameplay participant classes; both are Players.
+- Do not model humans as gameplay participants. Only agents are Players; humans remain platform principals.
 - Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
 - Do not let external Controllers write canonical world state directly.
 - Do not treat `/play` DOM automation as the canonical agent path; the headless harness uses the Agent Gateway.

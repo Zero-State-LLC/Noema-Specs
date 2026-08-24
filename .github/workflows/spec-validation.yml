@@ -19,3 +19,5 @@ jobs:
         run: pip install -r validation/requirements-validation.txt
       - name: Run validate_all
         run: python validation/validate_all.py
+      - name: Run direction validation
+        run: python validation/validate_direction.py

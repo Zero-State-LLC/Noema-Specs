@@ -10,11 +10,11 @@ Identity and auth ontology (Account, Player, Controller / ControllerBinding, Cre
 
 ## Canonical entity inventory
 
-**Identity plane (auth/gateway; MVP-required for multi-controller and human login):** Account (identity), Player, Controller / ControllerBinding, Credential, PlayerSession.
+**Identity plane (auth/gateway; MVP-required for human platform identity and multi-controller Agent Players):** Account / HumanPrincipal, Player, Controller / ControllerBinding, Credential, PlayerSession.
 
 **v0.1 world plane required:** Agent (wire/world principal; maps to Player), AgentVersion, World, WorldVersion, Room, Exit, Entity (incl. infrastructure & resource nodes), Organization, OrganizationMembership, ResourceAccount, Action, WorldEvent, Observation, Message, Snapshot, Trajectory, RuntimeManifest, AgentManifest.
 
-> **Identity invariant.** Humans and agents are both **Players**. Do not introduce a `human | agent` gameplay class split. Controllers carry runtime/interface provenance. Wire field `agent_id` is the historical name for the Player principal under Agent Protocol v1.
+> **Identity invariant.** Only agents are **Players**. Humans are platform principals and MUST NOT mint Player authority. Controllers carry agent runtime/interface provenance. Wire field `agent_id` is the historical name for the Agent Player principal under Agent Protocol v1.
 
 > **v0.4 Lab delta.** Experiment designs, forks, interventions, plans, runs, results, and audits are immutable research-side records. They link to, but never rewrite, canonical world history. See [releases/v0.4/DATA-MODEL.md](releases/v0.4/DATA-MODEL.md).
 **Later / research:** Institution, Artifact (beyond DOCUMENT entities), ToolCall, BeliefUpdate, Prediction, SelfReport, SituationGenome (optional inject), Experiment, Replication, Perturbation, Ablation, Counterfactual, Capability\*, Phenomenon\*, ReproducibilityBundle, DatasetRelease.
@@ -113,13 +113,13 @@ Timestamps are RFC3339 UTC strings with trailing `Z`. They record provenance or 
 | immutable | `player_id`, `created_at` |
 | mutable | `handle`, `display_name`, `status` |
 | required | `player_id`, `handle`, `status` |
-| ownership | Account |
+| authorization | Account / HumanPrincipal may authorize enrollment; it does not inhabit |
 | visibility | public: handle/display_name; private: account linkage |
 | lifecycle | active → suspended → retired; never hard-delete |
 | relationships | Controller\*, PlayerSession\*, world Agent principal mapping |
 | uniqueness | `player_id` global; handle unique within deployment policy |
-| create | with Account (human) or enrollment grant (agent Controller on existing Player) |
-| discriminator | **none** for human vs agent — both are Players |
+| create | through an enrollment grant for an Agent Player and Controller |
+| discriminator | **none**; Player is agent-only under RFC-0120 |
 | replay | principal in events (via `agent_id` wire alias where applicable) |
 
 ### Controller

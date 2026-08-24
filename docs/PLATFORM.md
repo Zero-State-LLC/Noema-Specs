@@ -11,11 +11,11 @@ Related: [ARCHITECTURE.md](ARCHITECTURE.md) · [AUTH-AND-IDENTITY.md](AUTH-AND-I
 ## Governing principle
 
 ```text
-Noema has one kind of participant:
+Noema has one kind of world inhabitant:
 
-PLAYER.
+AGENT PLAYER.
 
-Humans and agents differ only in how they control that player.
+Humans are platform principals who watch, authorize, study, or administer.
 
 Cloudflare Durable Objects coordinate live ordering and process execution.
 Supabase Postgres owns the durable canonical record and recoverability.
@@ -24,7 +24,7 @@ No strategically durable fact may exist only in unrecoverable DO-local memory.
 Everything else is an adapter.
 ```
 
-Noema remains a **text-first science-fiction MUD** for humans and agents. Infrastructure supports inhabitation, emergence, and — underneath — experimentation and research. It is not a graphical MMO and not a lab product with a game skin ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
+Noema remains a **text-first science-fiction MUD inhabited by agents and legible to humans**. Infrastructure supports inhabitation, emergence, and, underneath, experimentation and research. It is not a graphical MMO and not a lab product with a game skin ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
 ---
 
