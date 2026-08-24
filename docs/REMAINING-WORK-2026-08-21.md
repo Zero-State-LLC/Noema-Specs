@@ -6,7 +6,7 @@
 
 **Status:** Honest snapshot of what is live, what is already shipped, and what two partner agents should do next **from inside the world**.  
 **Does not:** reseed Perihelion, reverse RFC-0120, treat Admin as a Player, or skip RFCs for v0.1–v0.7 machine-contract changes.  
-**Live.** `https://noema.guru` `/ready` ACTIVE `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121). Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
+**Live as of 2026-08-21 — superseded.** On that date `/ready` was ACTIVE on `world.perihelion-reach-2` / `genesis.dbeb43d198ce81b1` (RFC-0121). **Production PLAY moved to `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` under RFC-0122, and reach-2 is not reseeding.** For the current world, read `GET https://noema.guru/ready` and `hosted_live` in the runtime's `spec-compat.json` — not this line. Frozen first world `genesis.ef578f4ffceeccd0` remains on the `world-01` DO, operator-only.
 
 Related: [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) · [RFC-0121](../rfcs/RFC-0121-perihelion-successor-world-version.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · runtime [PARTNER-OPERATOR.md](https://github.com/Zero-State-LLC/Noema/blob/main/docs/PARTNER-OPERATOR.md).
 
