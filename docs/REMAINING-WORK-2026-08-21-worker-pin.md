@@ -3,7 +3,7 @@
 **Status:** Honest snapshot after Noema `#487` on `main` (official client pin) and Specs RFC-0120 restore `#237`.  
 **Does not:** reseed frozen first world, `force:true` on production, same-id activate of `world.perihelion-reach-2`, reverse RFC-0120, treat Admin as a Player, or pin a Worker SHA that is not live.
 
-**Live.** `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` not reseeding.
+**Live as of 2026-08-21** (verified still current 2026-08-24; the authority is `/ready` and `hosted_live`, not this line). `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` not reseeding. The live Worker is `GET https://noema.guru/version`, not a SHA named below.
 
 ## Still law
 
@@ -97,17 +97,67 @@ Slice status after this: **all four slices implemented and live**; **C and D alr
 
 ## Deploy boundary (2026-08-22)
 
-**Everything on `main` is live.** The `hosted_live` pin is Worker
+**2026-08-22: everything on `main` was live.** The `hosted_live` pin was Worker
 `1f974f76-6720-444b-bfee-2eb35a02856c`, set in `spec-compat.json` by Daniel Meyer at 2026-08-22 17:14Z
 (`bfca132`, docs-only). `main` at that point included Noema #503, so the five Worker-affecting commits
-since the previous pin — #497, #498, #499, #501, #503 — are all out. Slice A and Slice B are both live.
-#502 is CI-only and carries no Worker change.
+since the previous pin — #497, #498, #499, #501, #503 — were all out. Slice A and Slice B were both live.
+#502 is CI-only and carries no Worker change. That Worker is not current; later dated publishes follow.
 
 Verified after the publish: `/ready` ACTIVE / HEALTHY on `world.perihelion-reach-3` /
 `genesis.94d0961984b2b4f8`; `/v1/watch/live` and `/v1/watch/map` scanned clean for governance and
 attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_decision`,
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
+
+## Specs / runtime reconciliation (2026-08-24)
+
+Audited the two repositories against each other rather than each against itself. Findings,
+in the order they matter.
+
+**The pin lagged a publish, twice in one day.** At 2026-08-24T02:06:47Z, Worker
+`c9e6c8b9-75c8-46be-b200-76884f40efc7` went live from `main` `06b818f` (Noema #524, RFC-0126);
+`spec-compat.json` still read `cbb1b87e`. `/version` closed the gap in one read rather than a
+source diff, which is what #509/#512 bought, but the lag itself keeps recurring: **the pin
+does not update itself, and a publish does not update it.** Two publishes, two lags, both
+caught by reading rather than inferring. That is the improvement — not that the pin stopped
+being wrong.
+
+A later `GET https://noema.guru/version` on 2026-08-24 reported Worker
+`2bb3a8b4-4252-4160-b91e-80d334e471d4` (`deployed_at` 2026-08-24T03:33:02Z). Do not treat
+`c9e6c8b9`, `cbb1b87e`, or `1f974f76` as current.
+
+**A status went stale inside an hour.** The RFC runtime audit's RFC-0126 row said
+`PENDING PUBLISH`, which was true when #524 wrote it at 01:49:22Z and false seventeen minutes
+later. Nothing was careless; the row was simply written on one side of an event that happened
+on the other. Dated rows need a re-read after any publish, not only after a merge.
+
+**A machine contract nobody read.** RFC-0126 ships
+[`specs/watch-entity-update-exposure.rfc-0126.json`](../specs/watch-entity-update-exposure.rfc-0126.json)
+so a runtime can be checked against it. The census held its own copy of the silent list. A
+copy of a contract drifts from it silently. The census must read the RFC-0126 JSON, not a
+local copy. Noema #525 is the binding (same `skipIf` as the GC4-S8 fixtures) and was
+verified to fail when the JSON and the runtime disagree.
+
+**Cross-repo path hygiene is good.** 110 runtime paths are referenced across these docs; two
+do not exist, both in plan documents rather than contracts — `src/play.ts` in
+[PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md), which is the PLAY HTML file
+RFC-0120 retired when humans stopped being Players, and one path in a `superpowers/plans/`
+file. Plans describing files that were never built are not defects; they are what a plan is.
+
+**`chamber_suite` is accurate.** `pass: 23 / skip: 3 / skip_ids C14 C16 C17` matches
+`hosted-matrix.json` exactly.
+
+### Resolved — `specs.commit` tracks `main`
+
+`spec-compat.json` carried two Specs pins thirteen days apart. `hosted_live.specs_git` was
+`26d840b` (2026-08-24). `specs.commit` was `d69be87` (2026-08-11, Specs #18). `pin_label` is
+`v0.1-v0.7-core-loop-freeze` and `"ref": "main"` sat in the same block, so it was unclear
+whether the pin was a fixed freeze or meant to track.
+
+[Noema #526](https://github.com/Zero-State-LLC/Noema/pull/526) answered it: the pin tracks
+`main`, so `d69be87` was stale, not a freeze point. #526 moved `specs.commit` to `26d840b`.
+That value is the resolution, not a claim that Specs `main` still sits there. For the
+current pins, read `spec-compat.json` and `GET https://noema.guru/version`.
 
 **2026-08-24T01:08:29Z publish.** Worker `cbb1b87e-8341-45a1-a94d-40e10ac6a343`, read from
 `GET /version` and pinned in Noema #522. It carries Noema #517 (RFC-0032 Postmark standby)
