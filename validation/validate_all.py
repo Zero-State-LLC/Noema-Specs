@@ -1312,7 +1312,7 @@ def check_strategic_conflict(Draft202012Validator) -> None:
         fail(f"event-catalog/0.2 must have 32 types, found {len(cat02)}")
     if not cat01.issubset(cat02):
         fail("event-catalog/0.2 must be a superset of 0.1 types")
-    new_types = {
+    rfc0002_types = {
         "CONTEST_DECLARED",
         "CONTEST_RESOLVED",
         "CRIME_DETECTED",
@@ -1320,8 +1320,8 @@ def check_strategic_conflict(Draft202012Validator) -> None:
         "INFRASTRUCTURE_DISRUPTED",
         "AGREEMENT_FORMED",
         "AGREEMENT_BROKEN",
-        "TRADE_CANCELLED",
     }
+    new_types = rfc0002_types | {"TRADE_CANCELLED"}
     if cat02 - cat01 != new_types:
         fail(f"0.2 new types mismatch: {sorted(cat02 - cat01)}")
     if et02.get("x-noema-catalog-version") != "event-catalog/0.2":
@@ -1361,8 +1361,8 @@ def check_strategic_conflict(Draft202012Validator) -> None:
         if prev is not None and event.get("previous_digest") != prev:
             fail(f"strategic digest chain break at {event.get('event_id')}")
         prev = event.get("digest")
-    if seen != new_types:
-        fail(f"strategic trajectory must exercise all 7 new types, saw {sorted(seen)}")
+    if seen != rfc0002_types:
+        fail(f"strategic trajectory must exercise all 7 RFC-0002 types, saw {sorted(seen)}")
 
     # 0.1 must reject a 0.2 event type membership
     if "CONTEST_DECLARED" in cat01:
