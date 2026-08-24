@@ -146,3 +146,5 @@ It proposes no runtime work. Each slice names existing authorities and the
 questions the research sharpens; anything that changes a contract needs its own
 RFC, and anything that changes public exposure needs an exposure decision under
 the rule [RFC-0126](../rfcs/RFC-0126-watch-entity-update-exposure.md) established.
+
+Sibling, later the same day: [RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md](RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md).

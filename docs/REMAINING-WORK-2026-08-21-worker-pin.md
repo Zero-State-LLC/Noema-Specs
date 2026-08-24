@@ -3,7 +3,7 @@
 **Status:** Honest snapshot after Noema `#487` on `main` (official client pin) and Specs RFC-0120 restore `#237`.  
 **Does not:** reseed frozen first world, `force:true` on production, same-id activate of `world.perihelion-reach-2`, reverse RFC-0120, treat Admin as a Player, or pin a Worker SHA that is not live.
 
-**Live as of 2026-08-21** (verified still current 2026-08-24; the authority is `/ready` and `hosted_live`, not this line). `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` not reseeding. The live Worker is `GET https://noema.guru/version`, not a SHA named below.
+**Live as of 2026-08-21** (verified still current 2026-08-24; the authority is `/ready` and `hosted_live`, not this line). `GET https://noema.guru/ready` ACTIVE HEALTHY `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`. Frozen `genesis.ef578f4ffceeccd0` on `world-01` operator-only. Prior PLAY `world.perihelion-reach-2` not reseeding. The live Worker is `GET https://noema.guru/version`, not a SHA named below. Third research pull (engineering): [RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md](RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md) — design note only.
 
 ## Still law
 

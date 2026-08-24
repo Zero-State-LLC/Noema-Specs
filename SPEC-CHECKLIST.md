@@ -26,6 +26,7 @@
 - [x] Player brand implementation plan: runtime audit, data-dependency matrix, presentation architecture, component/file maps, slices 0–9 (`docs/PLAYER-BRAND-IMPLEMENTATION.md`). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY`.
 - [x] Player brand implemented on hosted Worker HTML (Slices 0–9). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. No further brand slices unless a visual defect is filed.
 - [x] Research assimilation 2026-08-24: provenance graphs, statistical model checking for the `EQUIVALENT` boundary, norm origin as a claim-label question, authored-vs-unauthored signals (`docs/RESEARCH-ASSIMILATION-2026-08-24.md`). Design note only; no contract, catalog, verb, or exposure change.
+- [x] Research assimilation 2026-08-24 (engineering): Deep Time tails versus RFC-0001, deferred Wasserstein/Ollivier and live cultural-generation, per-view `forbidden_in_projection`, harness and official-client chrome (`docs/RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md`). Design note only; no contract, catalog, verb, or exposure change.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
