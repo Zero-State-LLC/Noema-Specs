@@ -69,15 +69,21 @@ def main() -> None:
         fail("current state must parse as a mapping")
     if parsed.get("schema_version") != "noema-current-state/1.0":
         fail("unexpected current-state schema version")
-    if parsed.get("evidence_commits", {}).get("advanced_worker_runtime") != "63869fb":
-        fail("advanced Worker evidence commit is not pinned")
+    evidence_commit = parsed.get("evidence_commits", {}).get("advanced_worker_runtime")
+    if not isinstance(evidence_commit, str) or not re.fullmatch(r"[0-9a-f]{7,40}", evidence_commit):
+        fail("advanced Worker evidence commit must be a Git commit")
+    runtime_commit = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("evidence_commit")
+    if runtime_commit != evidence_commit:
+        fail("advanced Worker evidence commits disagree")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
     if not isinstance(implemented, list) or len(implemented) < 10:
         fail("advanced Worker implementation inventory is incomplete")
     for marker in (
         "schema_version: noema-current-state/1.0",
         "advanced_worker_runtime:",
-        "evidence_commit: 63869fb",
+        f"evidence_commit: {evidence_commit}",
+        "world: world.perihelion-reach-3",
+        "required_endpoints: [/ready, /version]",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
     ):

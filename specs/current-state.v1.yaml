@@ -1,9 +1,9 @@
 schema_version: noema-current-state/1.0
 as_of: 2026-08-24
 evidence_commits:
-  production_alpha_specs: b7a07a6
-  production_alpha_site: dcbd0e3
-  advanced_worker_runtime: 63869fb
+  production_specs_baseline: 81ca8c1
+  production_successor_runtime: 06b818f
+  advanced_worker_runtime: b7a360c
 status_vocabulary:
   LIVE_HOSTED: deployed and acceptance-observed at noema.guru
   IMPLEMENTED_RUNTIME: implemented with runtime tests but not proven on the frozen production alpha
@@ -25,7 +25,9 @@ authority:
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
-    world: world.perihelion-reach
+    world: world.perihelion-reach-3
+    genesis_id: genesis.94d0961984b2b4f8
+    required_endpoints: [/ready, /version]
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
@@ -36,14 +38,13 @@ runtimes:
       - deterministic world ordering and durable world head
       - restart and recovery foundations
     limits:
-      - frozen before later GC runtime slices
-      - partial Chamber implementation
       - human browser PLAY is retired
-      - STUDY is a stub
+      - hosted STUDY remains observational rather than the offline research spine
       - no hosted/offline digest-equivalence claim
+      - integrated multi-agent civilization and endurance acceptance remain unproven
   advanced_worker_runtime:
     status: IMPLEMENTED_RUNTIME
-    evidence_commit: 63869fb
+    evidence_commit: b7a360c
     evidence:
       - workers/noema/src/actions.ts
       - workers/noema/src/world-actions.ts
@@ -60,7 +61,9 @@ runtimes:
       - diplomacy, agreements, and access policy
       - economic lot quality, provenance, spoilage, and transport pressure
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
-    proof_state: module and slice tests exist; integrated production-alpha acceptance is not yet established
+      - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
+      - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
+    proof_state: the deployed successor contains the accepted game-contract runtime; current main adds later conformance and projection tests, while integrated civilization acceptance remains unproven
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -82,25 +85,27 @@ capabilities:
   persistence_and_recovery_foundation:
     state: LIVE_HOSTED
   gc1_mastery_specialization:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc2_construction:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc3_social_memory:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc4_institutional_authority:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc5_communication_ecology:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc6_systemic_discovery:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc7_strategic_conflict:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   diplomacy_and_access_policy:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   gc8_economic_specialization:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
+  gc9_cultural_inheritance_and_schism:
+    state: LIVE_HOSTED
   gc10_world_pressure:
-    state: IMPLEMENTED_RUNTIME
+    state: LIVE_HOSTED
   integrated_small_civilization_run:
     state: ACTIVE_INTEGRATION
     gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run
@@ -115,5 +120,5 @@ capabilities:
 active_campaign:
   id: living-civilization-alpha
   thesis: integrate and prove what is already built before authorizing more breadth
-  current_milestone: LCA-0
-  next_milestone: LCA-1
+  current_milestone: LCA-1
+  next_milestone: LCA-2

@@ -21,3 +21,5 @@ jobs:
         run: python validation/validate_all.py
       - name: Run direction validation
         run: python validation/validate_direction.py
+      - name: Validate freshness contract offline
+        run: python validation/validate_freshness.py --offline
