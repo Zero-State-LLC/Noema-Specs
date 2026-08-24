@@ -10466,6 +10466,44 @@ def check_rfc_0121() -> None:
     ok("RFC-0121 Perihelion successor world_version")
 
 
+def check_rfc_0126_watch_entity_update_exposure() -> None:
+    catalog = load_json(ROOT / "specs" / "watch-entity-update-exposure.rfc-0126.json")
+    authority = ROOT / str(catalog.get("authority", ""))
+    if not authority.exists():
+        fail("RFC-0126 exposure catalog authority is missing")
+    rfc = authority.read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1].split("##", 1)[0]:
+        fail("RFC-0126 must be Accepted")
+
+    expected_silent = {
+        "HARVEST", "ATTEST", "INFORMATION_CONTEST", "PRESENCE_PRESSURE",
+    }
+    silent = set(catalog.get("silent_operations") or [])
+    explicit = set((catalog.get("explicit_operation_projections") or {}).keys())
+    if silent != expected_silent:
+        fail(f"RFC-0126 silent operation set drifted: {sorted(silent)}")
+    if explicit != {"REPAIR", "PRODUCTION"}:
+        fail(f"RFC-0126 explicit operation set drifted: {sorted(explicit)}")
+    if silent & explicit:
+        fail("RFC-0126 silent and explicit operation sets overlap")
+    if catalog.get("default_watch_projection") is not None:
+        fail("RFC-0126 default ENTITY_UPDATE projection must be silent")
+    if catalog.get("unknown_operation_watch_projection") is not None:
+        fail("RFC-0126 unknown ENTITY_UPDATE operations must be silent")
+    if catalog.get("harvest_public_source_event") != "RESOURCE_TRANSFER":
+        fail("RFC-0126 HARVEST must retain RESOURCE_TRANSFER as its public source")
+    if catalog.get("harvest_public_projection") != "harvest":
+        fail("RFC-0126 HARVEST must retain the canonical harvest projection")
+    if not catalog.get("preserve_explicit_infrastructure_payload_projections"):
+        fail("RFC-0126 must preserve explicit infrastructure payload projections")
+    for key in ("new_events", "new_projection_ids", "new_watch_surfaces"):
+        if catalog.get(key):
+            fail(f"RFC-0126 must not add {key}")
+    if catalog.get("world_report_slice") is not None:
+        fail("RFC-0126 must not create a WR-S slice")
+    ok("RFC-0126 WATCH ENTITY_UPDATE exposure: explicit allowlist, unknown silent, HARVEST single source")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -10603,6 +10641,7 @@ def main() -> None:
     check_gc8_s7(Draft202012Validator)
     check_rfc_0120(Draft202012Validator)
     check_rfc_0121()
+    check_rfc_0126_watch_entity_update_exposure()
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc9_s2(Draft202012Validator)
