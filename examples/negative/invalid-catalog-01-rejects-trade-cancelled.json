@@ -1,0 +1,22 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.bad.tc",
+  "event_type": "TRADE_CANCELLED",
+  "world_id": "world-01",
+  "cycle": 4,
+  "sequence": 11,
+  "occurred_at": "2026-08-12T18:00:11Z",
+  "actor_id": "agent.nacre",
+  "payload": {
+    "trade_id": "trade.7",
+    "by": "agent.nacre",
+    "reason": "CANCELLED"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "catalog_version": "event-catalog/0.1"
+  },
+  "previous_digest": null,
+  "digest": "sha256:b541988a39fd0e4e34687762be00855c875f67d21e337378078b3ad68fe1471a",
+  "x-noema-expect": "reject_on_catalog_0.1"
+}

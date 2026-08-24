@@ -1308,8 +1308,8 @@ def check_strategic_conflict(Draft202012Validator) -> None:
     cat02 = {t["eventType"] for t in et02["x-noema-event-types"]}
     if len(cat01) != 24:
         fail(f"event-catalog/0.1 must have 24 types, found {len(cat01)}")
-    if len(cat02) != 31:
-        fail(f"event-catalog/0.2 must have 31 types, found {len(cat02)}")
+    if len(cat02) != 32:
+        fail(f"event-catalog/0.2 must have 32 types, found {len(cat02)}")
     if not cat01.issubset(cat02):
         fail("event-catalog/0.2 must be a superset of 0.1 types")
     new_types = {
@@ -1320,6 +1320,7 @@ def check_strategic_conflict(Draft202012Validator) -> None:
         "INFRASTRUCTURE_DISRUPTED",
         "AGREEMENT_FORMED",
         "AGREEMENT_BROKEN",
+        "TRADE_CANCELLED",
     }
     if cat02 - cat01 != new_types:
         fail(f"0.2 new types mismatch: {sorted(cat02 - cat01)}")
@@ -1617,6 +1618,7 @@ def check_reducer_registry() -> None:
         "INFRASTRUCTURE_DISRUPTED",
         "AGREEMENT_FORMED",
         "AGREEMENT_BROKEN",
+        "TRADE_CANCELLED",
     ]
     missing = [t for t in types_01 + types_02 if f"`{t}`" not in text]
     if missing:
@@ -10504,6 +10506,79 @@ def check_rfc_0126_watch_entity_update_exposure() -> None:
     ok("RFC-0126 WATCH ENTITY_UPDATE exposure: explicit allowlist, unknown silent, HARVEST single source")
 
 
+def check_rfc_0127(Draft202012Validator) -> None:
+    """RFC-0127: TRADE_CANCELLED on event-catalog/0.2 only."""
+    rfc = (ROOT / "rfcs" / "RFC-0127-trade-cancelled-catalog.md").read_text(
+        encoding="utf-8"
+    )
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1].split("##", 1)[0]:
+        fail("RFC-0127 must be Accepted")
+    if "event-catalog/0.3" in rfc and "Do not open `event-catalog/0.3`" not in rfc:
+        fail("RFC-0127 must refuse opening event-catalog/0.3")
+    if "KNOWN_UNCATALOGUED" not in rfc:
+        fail("RFC-0127 must name the runtime KNOWN_UNCATALOGUED follow-up")
+    for needle in (
+        "TRADE_CANCELLED",
+        "trade_id",
+        "`by`",
+        "CANCELLED",
+        "event-catalog/0.2",
+        "event-catalog/0.1",
+    ):
+        if needle not in rfc:
+            fail(f"RFC-0127 missing {needle}")
+
+    et01 = load_json(ROOT / "specs" / "event-types.json")
+    et02 = load_json(ROOT / "specs" / "event-types.0.2.json")
+    cat01 = {t["eventType"] for t in et01["x-noema-event-types"]}
+    cat02 = {t["eventType"] for t in et02["x-noema-event-types"]}
+    if len(cat01) != 24:
+        fail(f"RFC-0127: event-catalog/0.1 must stay 24 types, found {len(cat01)}")
+    if "TRADE_CANCELLED" in cat01 or "TRADE_CANCELLED_payload" in et01.get("$defs", {}):
+        fail("RFC-0127 must not add TRADE_CANCELLED to event-catalog/0.1")
+    if "TRADE_CANCELLED" not in cat02:
+        fail("RFC-0127 must add TRADE_CANCELLED to event-catalog/0.2")
+    if len(cat02) != 32:
+        fail(f"RFC-0127: event-catalog/0.2 must have 32 types, found {len(cat02)}")
+
+    payload = et02["$defs"]["TRADE_CANCELLED_payload"]
+    if payload.get("additionalProperties") is not False:
+        fail("TRADE_CANCELLED_payload must set additionalProperties false")
+    if set(payload.get("required") or []) != {"trade_id", "by", "reason"}:
+        fail("TRADE_CANCELLED_payload required fields must be trade_id, by, reason")
+    if set(payload.get("properties") or {}) != {"trade_id", "by", "reason"}:
+        fail("TRADE_CANCELLED_payload must not invent extra fields")
+    if (payload.get("properties") or {}).get("reason", {}).get("enum") != ["CANCELLED"]:
+        fail("TRADE_CANCELLED reason must be the CANCELLED enum only")
+
+    catalog_02 = load_json(ROOT / "specs" / "event-catalog-0.2.schema.json")
+    catalog_01 = load_json(ROOT / "specs" / "event-catalog-0.1.schema.json")
+    positive = load_json(
+        ROOT / "examples" / "catalog" / "valid-event-catalog-0.2-trade-cancelled.json"
+    )
+    perrs = list(Draft202012Validator(catalog_02).iter_errors(positive))
+    if perrs:
+        fail(f"RFC-0127 positive fixture fails event-catalog/0.2: {perrs[0].message}")
+    if not list(Draft202012Validator(catalog_01).iter_errors(positive)):
+        fail("RFC-0127 positive fixture must be rejected by event-catalog/0.1")
+
+    missing_by = load_json(
+        ROOT / "examples" / "negative" / "invalid-trade-cancelled-payload-missing-fields.json"
+    )
+    if not list(Draft202012Validator(payload_schema(et02, "TRADE_CANCELLED")).iter_errors(
+        missing_by.get("payload") or {}
+    )):
+        fail("RFC-0127 missing-by payload must reject")
+
+    audit = (ROOT / "docs" / "EVENT-CATALOG-AUDIT.md").read_text(encoding="utf-8")
+    if "RFC-0127" not in audit:
+        fail("EVENT-CATALOG-AUDIT.md must record RFC-0127")
+    if "Not fixed here" in audit:
+        fail("EVENT-CATALOG-AUDIT.md must not leave TRADE_CANCELLED as an open maintainer question")
+
+    ok("RFC-0127 TRADE_CANCELLED: 0.2 has 32 types, 0.1 stays 24, payload matches Worker")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -10642,6 +10717,7 @@ def main() -> None:
     check_rfc_0120(Draft202012Validator)
     check_rfc_0121()
     check_rfc_0126_watch_entity_update_exposure()
+    check_rfc_0127(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc9_s2(Draft202012Validator)

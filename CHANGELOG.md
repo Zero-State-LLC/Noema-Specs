@@ -8,6 +8,8 @@
 
 ### Added
 
+- **RFC-0127 Accepted — catalog `TRADE_CANCELLED` on `event-catalog/0.2`.** Amends the 0.2 pin (32 types = 24 + 7 + 1) rather than opening `event-catalog/0.3`. Chamber `event-types.json` stays 24. Payload matches the hosted Worker: `trade_id`, `by`, `reason` (`CANCELLED`). No new verbs, Genesis, crime producer, or WATCH RFC. Runtime follow-up (Noema, not this repository) drops `KNOWN_UNCATALOGUED` after this lands.
+
 - **RFC-0126 Accepted — WATCH `ENTITY_UPDATE` exposure closure.** The four remaining generic operations (`HARVEST`, `ATTEST`, `INFORMATION_CONTEST`, `PRESENCE_PRESSURE`) become WATCH-silent, and unnamed or future operations default to silence until explicitly authorized. HARVEST remains public once through `RESOURCE_TRANSFER`; `REPAIR`, `PRODUCTION`, and existing explicit infrastructure projections are unchanged. Adds the machine-readable exposure catalog. No new events, projection ids, WATCH surfaces, or `WR-S*` slice. Renderer work follows acceptance.
 
 - **EWM / Semantic Evolution pinned to shipped v0.1 (docs).** `ECONOMY-EWM-SPEC.md` and `SEMANTIC-EVOLUTION-SPEC.md` now state what ships — ASP signals and grounding gates, `protocol_strength` under harvest pressure, privileged `image_score`/`second_order`, RFC-0123 ratchet bounds and costly TRADE-reject, Forman–Ricci `cascading_risk` — and separately name what is **declared but inert**: `conversion_rate` (a Genesis seed with no consumer), `unlocked_affordances` (a type field never populated), `BeliefState` (an interface never instantiated; beliefs await G3), Wasserstein/Ollivier curvature, and live cultural generation. The prose previously read as though those were behaviour. Locking any of them requires a new RFC. No contract change, no new verbs or events.

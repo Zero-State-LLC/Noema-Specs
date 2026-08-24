@@ -493,11 +493,11 @@ Hosted status is informational and non-normative. It never changes a Specs contr
 | Player intent | Decline an offer, or cancel an offer that this Player proposed. |
 | Human command and aliases | `reject <trade>`; `cancel <trade>`. `trade reject <trade>` and `trade cancel <trade>` are adapter spellings. |
 | Contextual GUI | `[ REJECT ]` for a received offer; `[ CANCEL ]` for the proposer’s open offer. |
-| Agent / structured form | `verb: TRADE`, `parameters.phase: "reject"`, `trade_id`, and the contract-defined reason. Cancellation uses reason `CANCELLED`. |
+| Agent / structured form | `verb: TRADE`, `parameters.phase: "reject"` or `"cancel"`, `trade_id`, and the contract-defined reason. Cancellation uses reason `CANCELLED`. |
 | Canonical action and target/parameters | `TRADE` reject/cancel phase. |
 | Availability and preconditions | Offer is open; actor is the permitted counterparty or proposer for the selected operation. |
 | Resource cost | **0**. Reject/cancel MUST NOT charge compute, energy, or influence. |
-| Success and failure semantics | `TRADE_REJECTED`; reservation released. Reasons: `DECLINED`, `EXPIRED`, `INSUFFICIENT_RESOURCE`, `INVALID_TERMS`, `CANCELLED`. Same release on expiry/invalidation. |
+| Success and failure semantics | Reject emits `TRADE_REJECTED`. Proposer cancel on `event-catalog/0.2` emits `TRADE_CANCELLED` (RFC-0127). Worlds on `event-catalog/0.1` MAY still record cancel as `TRADE_REJECTED` reason `CANCELLED`. Reservation released. |
 | Player-visible consequence | The offer closes and reserved resources are released. |
 | WATCH visibility | Public trade closure may be projected without private terms. |
 | Milestone and hosted status | v0.1 required; hosted router has a noncanonical reject adapter. |

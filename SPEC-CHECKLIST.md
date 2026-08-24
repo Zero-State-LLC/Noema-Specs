@@ -63,7 +63,8 @@
 ## RFC-0002 / event-catalog/0.2 (strategic conflict)
 
 - [x] RFC-0002 **Accepted**
-- [x] `specs/event-types.0.2.json` (31 types = 24 + 7)
+- [x] `specs/event-types.0.2.json` (32 types = 24 + 7 + `TRADE_CANCELLED`; RFC-0127)
+- [x] RFC-0127 **Accepted** — `TRADE_CANCELLED` on `event-catalog/0.2` only; Chamber 0.1 stays 24
 - [x] Seven event payload schemas (`$defs`, additionalProperties false)
 - [x] `specs/contest-config.v02.json` + schema (integer millipoints)
 - [x] `docs/CONTEST-RESOLUTION.md` deterministic algorithm
