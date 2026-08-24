@@ -10551,16 +10551,25 @@ def check_rfc_0127(Draft202012Validator) -> None:
     if (payload.get("properties") or {}).get("reason", {}).get("enum") != ["CANCELLED"]:
         fail("TRADE_CANCELLED reason must be the CANCELLED enum only")
 
-    catalog_02 = load_json(ROOT / "specs" / "event-catalog-0.2.schema.json")
-    catalog_01 = load_json(ROOT / "specs" / "event-catalog-0.1.schema.json")
+    envelope_v = Draft202012Validator(
+        load_json(ROOT / "specs" / "world-event.schema.json")
+    )
     positive = load_json(
         ROOT / "examples" / "catalog" / "valid-event-catalog-0.2-trade-cancelled.json"
     )
-    perrs = list(Draft202012Validator(catalog_02).iter_errors(positive))
+    if list(envelope_v.iter_errors(positive)):
+        fail("RFC-0127 positive fixture envelope is invalid")
+    if positive.get("event_type") != "TRADE_CANCELLED":
+        fail("RFC-0127 positive fixture must be TRADE_CANCELLED")
+    perrs = list(
+        Draft202012Validator(payload_schema(et02, "TRADE_CANCELLED")).iter_errors(
+            positive.get("payload") or {}
+        )
+    )
     if perrs:
-        fail(f"RFC-0127 positive fixture fails event-catalog/0.2: {perrs[0].message}")
-    if not list(Draft202012Validator(catalog_01).iter_errors(positive)):
-        fail("RFC-0127 positive fixture must be rejected by event-catalog/0.1")
+        fail(f"RFC-0127 positive fixture fails 0.2 payload: {perrs[0].message}")
+    if "TRADE_CANCELLED_payload" in et01.get("$defs", {}):
+        fail("RFC-0127 positive fixture must stay outside event-catalog/0.1")
 
     missing_by = load_json(
         ROOT / "examples" / "negative" / "invalid-trade-cancelled-payload-missing-fields.json"
