@@ -9,9 +9,10 @@ From the repository root:
 ```bash
 pip install -r validation/requirements-validation.txt
 python validation/validate_all.py
+python validation/validate_direction.py
 ```
 
-The command MUST exit 0 and report `PASS` for a change to be mergeable.
+Both commands MUST exit 0. The main validator reports `PASS`; the direction validator confirms that planning remains implementation-aware and status-disciplined.
 
 ## What is checked
 
@@ -31,6 +32,7 @@ The command MUST exit 0 and report `PASS` for a change to be mergeable.
 - Schema validation of seed, state, snapshot, boundary, protocol, and observation fixtures
 - `conformance/v0.1/` suite: 26 cases, fixture linkage, acceptance item coverage 1–26
 - Deployment/runtime-manifest and strategic/module/spectator fixtures and related negatives
+- Direction package presence, current-state evidence pins, implementation-plane status vocabulary, active integration campaign markers, and stale live-guidance rejection
 
 ## Adding checks
 

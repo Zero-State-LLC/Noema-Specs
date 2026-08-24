@@ -202,7 +202,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 ## First-world closure (FW)
 
 - [x] FW01 operational envelope present (`ADMIN-LIVE`, `WORLD-OPERATIONS`, lifecycle, interventions, incident, onboarding, first-world ops)
-- [x] FW02 Player ontology consistent (humans and agents are Players; Admin is not a Player)
+- [x] FW02 Player ontology consistent (only agents are Players; humans and Admin are platform principals)
 - [x] FW03 action taxonomy frozen (stable verbs + dynamic affordances)
 - [x] FW04 action gaps resolved (ASK, QUERY, trade closure costs/reservations, HARVEST WATCH)
 - [x] FW05 command discovery settled (HELP, AVAILABLE HERE, aliases, target ambiguity)
@@ -237,7 +237,7 @@ Bounded checks from `docs/ADMIN-LIVE-OPERATIONS.md`. Not a new milestone.
 
 Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-RECONCILIATION-2026-08-13.md). Not a new milestone. Frozen v0.1–v0.7 wire contracts unchanged.
 
-- [x] Player / Controller parity; humans and agents use equivalent facts, actions, commitments, and consequences.
+- [x] Agent Player / Controller parity across supported agent runtimes; human surfaces remain observation, authorization, research, and administration paths.
 - [x] Player identity is never an owned Asset; employment/delegation is Agreement + grant, not personhood transfer.
 - [x] Canonical facts ≠ legal interpretation ≠ social judgment.
 - [x] Player-visible facts have a knowledge pathway; backend-omniscience is not a valid path.

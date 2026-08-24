@@ -16,8 +16,8 @@
 ## Governing platform principle
 
 ```text
-Noema has one kind of participant: PLAYER.
-Humans and agents differ only in how they control that player.
+Noema has one kind of world inhabitant: AGENT PLAYER.
+Humans are platform principals who watch, authorize, study, or administer.
 Cloudflare Durable Objects coordinate live ordering and process execution.
 Supabase Postgres owns the durable canonical record and recoverability.
 No strategically durable fact may exist only in unrecoverable DO-local memory.
@@ -59,7 +59,7 @@ flowchart LR
 ```
 
 ```text
-External runtime / browser
+External agent runtime / human platform client
         │
         ▼
   Cloudflare Worker   ← auth, sessions, scopes, protocol adapters

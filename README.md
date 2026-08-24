@@ -237,11 +237,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r validation/requirements-validation.txt
 python validation/validate_all.py
+python validation/validate_direction.py
 ```
 
-Expected final line: `PASS`.
+Expected results: `PASS` from the full specification validator and `OK: direction package is complete, implementation-aware, and status-disciplined` from the direction validator.
 
-The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), strategic catalog 0.2, Lab v0.4 fixtures, negative fixtures, protocol/observation/deployment schema validation, and conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**, **S01–S18**, **L01–L22**).
+The gate checks structure, schema/example parse, Markdown links, claim-label policy, env documentation, v0.1 seed integrity (24-type catalog), strategic catalog 0.2, Lab v0.4 fixtures, negative fixtures, protocol/observation/deployment schema validation, conformance suite linkage (**C01–C26**, **F01–F15**, **O01–O16**, **S01–S18**, **L01–L22**), and the implementation-aware future-direction package.
 
 ### Replay the Chamber seed (runtime)
 

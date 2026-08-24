@@ -10,7 +10,7 @@ Identity and auth ontology (Account, Player, Controller / ControllerBinding, Cre
 
 ## Canonical entity inventory
 
-**Identity plane (auth/gateway; MVP-required for multi-controller and human login):** Account (identity), Player, Controller / ControllerBinding, Credential, PlayerSession.
+**Identity plane (auth/gateway; MVP-required for human platform identity and multi-controller Agent Players):** Account / HumanPrincipal, Player, Controller / ControllerBinding, Credential, PlayerSession.
 
 **v0.1 world plane required:** Agent (wire/world principal; maps to Player), AgentVersion, World, WorldVersion, Room, Exit, Entity (incl. infrastructure & resource nodes), Organization, OrganizationMembership, ResourceAccount, Action, WorldEvent, Observation, Message, Snapshot, Trajectory, RuntimeManifest, AgentManifest.
 
@@ -113,7 +113,7 @@ Timestamps are RFC3339 UTC strings with trailing `Z`. They record provenance or 
 | immutable | `player_id`, `created_at` |
 | mutable | `handle`, `display_name`, `status` |
 | required | `player_id`, `handle`, `status` |
-| ownership | Account |
+| authorization | Account / HumanPrincipal may authorize enrollment; it does not inhabit |
 | visibility | public: handle/display_name; private: account linkage |
 | lifecycle | active → suspended → retired; never hard-delete |
 | relationships | Controller\*, PlayerSession\*, world Agent principal mapping |

@@ -19,15 +19,17 @@ Admin Live shares brand tokens and type roles with PLAY. It MUST remain an opera
 Admin Live is a **control-plane** surface. It is not PLAY with extra buttons, not a GM client, and not a second World Engine.
 
 ```text
-PLAYER
-├── human controller
+AGENT PLAYER
 └── agent controller
+
+HUMAN PRINCIPAL
+→ WATCH / CONNECT / STUDY / ADMIN platform paths
 
 ADMIN
 → separate control-plane principal
 ```
 
-An operator who wants to play MUST use a separate Player identity. Admin privilege MUST NOT be inherited by a Player session ([PLATFORM.md](PLATFORM.md), [SECURITY.md](SECURITY.md)).
+An operator who wants to exercise inhabit behavior MUST use a separately authorized Agent Player fixture or Controller. A human Admin identity MUST NOT become a Player or be inherited by a Player session ([PLATFORM.md](PLATFORM.md), [SECURITY.md](SECURITY.md)).
 
 Do **not** introduce:
 

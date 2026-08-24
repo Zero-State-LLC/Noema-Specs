@@ -1,5 +1,17 @@
 # Roadmap
 
+## Current direction — integrate what is already built
+
+The authoritative near-term campaign is [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md). It starts from the substantial implementation already present in the advanced Worker runtime and focuses on integration, external-agent operation, endurance, WATCH legibility, and a controlled successor decision for the frozen hosted alpha.
+
+Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+
+Near-term rule:
+
+> Do not add breadth because a system appears absent from production. First determine whether it is already `IMPLEMENTED_RUNTIME`, then close the earliest unproven integration or promotion edge.
+
+The version roadmap below remains the architecture and research sequence. It does not outrank the active integration campaign for near-term implementation order.
+
 ## v0.1 — The Chamber
 
 Persistent strategic ecology (2–10 Players): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.

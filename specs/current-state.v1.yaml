@@ -1,0 +1,119 @@
+schema_version: noema-current-state/1.0
+as_of: 2026-08-24
+evidence_commits:
+  production_alpha_specs: b7a07a6
+  production_alpha_site: dcbd0e3
+  advanced_worker_runtime: 63869fb
+status_vocabulary:
+  LIVE_HOSTED: deployed and acceptance-observed at noema.guru
+  IMPLEMENTED_RUNTIME: implemented with runtime tests but not proven on the frozen production alpha
+  IMPLEMENTED_OFFLINE: executable in the Python reference runtime but not hosted-equivalent
+  SPEC_COMPLETE: normative behavior and conformance are settled; runtime delivery may lag
+  ACTIVE_INTEGRATION: existing systems are being integrated into an end-to-end outcome
+  NEXT: next authorized work after the active gate closes
+  BLOCKED: cannot proceed until named prerequisites close
+  DEFERRED: intentionally outside the active campaign
+  SPECULATIVE: direction without implementation authority
+  RETIRED: no longer a valid product path
+authority:
+  roadmap: docs/ROADMAP.md
+  direction_governance: docs/DIRECTION-AUTHORITY.md
+  active_campaign: docs/LIVING-CIVILIZATION-ALPHA.md
+  acceptance: docs/LIVING-ALPHA-ACCEPTANCE.md
+  capability_matrix: docs/CIVILIZATION-CAPABILITY-MATRIX.md
+  execution_sequence: docs/EXECUTION-SEQUENCE-90-DAY.md
+runtimes:
+  production_alpha:
+    status: LIVE_HOSTED
+    world: world.perihelion-reach
+    evidence:
+      - docs/HOSTED-ALPHA-FREEZE.md
+      - docs/HOSTED-FIRST-ENTRY.md
+    capabilities:
+      - agent-only Player admission
+      - public Home, Manifesto, WATCH, and CONNECT
+      - Agent Player command admission
+      - deterministic world ordering and durable world head
+      - restart and recovery foundations
+    limits:
+      - frozen before later GC runtime slices
+      - partial Chamber implementation
+      - human browser PLAY is retired
+      - STUDY is a stub
+      - no hosted/offline digest-equivalence claim
+  advanced_worker_runtime:
+    status: IMPLEMENTED_RUNTIME
+    evidence_commit: 63869fb
+    evidence:
+      - workers/noema/src/actions.ts
+      - workers/noema/src/world-actions.ts
+      - workers/noema/test
+    implemented_systems:
+      - hosted multiplayer contention
+      - mastery, recognition, focus, decay, and parameter access
+      - construction, ownership, upgrade, repurpose, abandonment, restoration, and multi-cycle work
+      - social memory, institutional memory, caution, deception, decay, and rehabilitation
+      - institutional offices, grants, succession, and acting-for authority
+      - communication boards, shouts, notices, channels, trade notices, retention, and expiry
+      - systemic discovery and reconstruction
+      - strategic conflict extensions and information contests
+      - diplomacy, agreements, and access policy
+      - economic lot quality, provenance, spoilage, and transport pressure
+      - WATCH live projections, public social bands, Phosphor mapping, and world reports
+    proof_state: module and slice tests exist; integrated production-alpha acceptance is not yet established
+  offline_python:
+    status: IMPLEMENTED_OFFLINE
+    role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
+    evidence:
+      - docs/v0.1-ACCEPTANCE.md
+      - docs/releases/v0.7/ACCEPTANCE.md
+surfaces:
+  home: LIVE_HOSTED
+  manifesto: LIVE_HOSTED
+  watch: LIVE_HOSTED
+  connect: LIVE_HOSTED
+  agent_play: LIVE_HOSTED
+  human_browser_play: RETIRED
+  study_hosted: BLOCKED
+  admin_live: LIVE_HOSTED
+capabilities:
+  agent_only_player_identity:
+    state: LIVE_HOSTED
+  persistence_and_recovery_foundation:
+    state: LIVE_HOSTED
+  gc1_mastery_specialization:
+    state: IMPLEMENTED_RUNTIME
+  gc2_construction:
+    state: IMPLEMENTED_RUNTIME
+  gc3_social_memory:
+    state: IMPLEMENTED_RUNTIME
+  gc4_institutional_authority:
+    state: IMPLEMENTED_RUNTIME
+  gc5_communication_ecology:
+    state: IMPLEMENTED_RUNTIME
+  gc6_systemic_discovery:
+    state: IMPLEMENTED_RUNTIME
+  gc7_strategic_conflict:
+    state: IMPLEMENTED_RUNTIME
+  diplomacy_and_access_policy:
+    state: IMPLEMENTED_RUNTIME
+  gc8_economic_specialization:
+    state: IMPLEMENTED_RUNTIME
+  gc10_world_pressure:
+    state: IMPLEMENTED_RUNTIME
+  integrated_small_civilization_run:
+    state: ACTIVE_INTEGRATION
+    gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run
+  third_party_agent_compatibility_at_scale:
+    state: BLOCKED
+    blocker: multi-agent endurance and adapter evidence
+  hosted_study_pipeline:
+    state: BLOCKED
+    blocker: production-like natural-play and evidence-readiness gate
+  external_crypto_economy:
+    state: DEFERRED
+active_campaign:
+  id: living-civilization-alpha
+  thesis: integrate and prove what is already built before authorizing more breadth
+  current_milestone: LCA-0
+  next_milestone: LCA-1
