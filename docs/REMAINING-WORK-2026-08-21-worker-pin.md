@@ -109,6 +109,53 @@ attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_de
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
 
+## Specs / runtime reconciliation (2026-08-24)
+
+Audited the two repositories against each other rather than each against itself. Findings,
+in the order they matter.
+
+**The pin lagged a publish, twice in one day.** Worker `c9e6c8b9-75c8-46be-b200-76884f40efc7`
+went live at 2026-08-24T02:06:47Z from `main` `06b818f` (#524, RFC-0126); `spec-compat.json`
+still read `cbb1b87e`. Fixed in Noema #525. `/version` closed it in one read rather than a
+source diff, which is what #509/#512 bought, but the lag itself keeps recurring: **the pin
+does not update itself, and a publish does not update it.** Two publishes, two lags, both
+caught by reading rather than inferring. That is the improvement — not that the pin stopped
+being wrong.
+
+**A status went stale inside an hour.** The RFC runtime audit's RFC-0126 row said
+`PENDING PUBLISH`, which was true when #524 wrote it at 01:49:22Z and false seventeen minutes
+later. Nothing was careless; the row was simply written on one side of an event that happened
+on the other. Dated rows need a re-read after any publish, not only after a merge.
+
+**A machine contract nobody read.** RFC-0126 ships
+[`specs/watch-entity-update-exposure.rfc-0126.json`](../specs/watch-entity-update-exposure.rfc-0126.json)
+so a runtime can be checked against it. No runtime test read it — the census held its own copy
+of the silent list. A copy of a contract drifts from it silently. Noema #525 binds the test to
+the file, under the same `skipIf` used for the GC4-S8 fixtures, and it was verified to fail
+when the JSON and the runtime disagree rather than assumed to.
+
+**Cross-repo path hygiene is good.** 110 runtime paths are referenced across these docs; two
+do not exist, both in plan documents rather than contracts — `src/play.ts` in
+[PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md), which is the PLAY HTML file
+RFC-0120 retired when humans stopped being Players, and one path in a `superpowers/plans/`
+file. Plans describing files that were never built are not defects; they are what a plan is.
+
+**`chamber_suite` is accurate.** `pass: 23 / skip: 3 / skip_ids C14 C16 C17` matches
+`hosted-matrix.json` exactly.
+
+### Not determined — needs a maintainer, not a guess
+
+`spec-compat.json` carries two Specs pins that are thirteen days apart. `hosted_live.specs_git`
+is `26d840b` (2026-08-24), which is correct and moves per build. `specs.commit` is `d69be87`
+(2026-08-11, Specs #18). Its `pin_label` is `v0.1-v0.7-core-loop-freeze`, so a deliberately
+fixed freeze pin is the natural reading — but `"ref": "main"` sits in the same block, which
+reads as tracking, and the commit it names is an ordinary digest regeneration rather than
+anything marked as a freeze point.
+
+Either the pin is fixed by design and `ref` should stop saying `main`, or it is meant to track
+and has been stale for thirteen days. Both are one-line fixes and they are opposites, so this
+is recorded rather than picked.
+
 **2026-08-24T01:08:29Z publish.** Worker `cbb1b87e-8341-45a1-a94d-40e10ac6a343`, read from
 `GET /version` and pinned in Noema #522. It carries Noema #517 (RFC-0032 Postmark standby)
 and #520 (a hidden-room harvest was reaching the public feed); #521 merged six minutes after
