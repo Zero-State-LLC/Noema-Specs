@@ -44,7 +44,7 @@ Do not force-activate world.perihelion-reach-2.
 |----------|------|---------|
 | ~~P2~~ | ~~Deploy the merged backlog~~ **Done 2026-08-22.** Live and verified on `world.perihelion-reach-3` (`/ready` ACTIVE/HEALTHY, `genesis.94d0961984b2b4f8`). |
 | ~~P2~~ | ~~Official-client LOOK chrome for `reputation_summary` / `active_norms`~~ **Fixed 2026-08-23** in `noema-client` [#20](https://github.com/scrimshawlife-ctrl/noema-client/pull/20) (0.1.15), open for review. `render_observation` now prints both. Nothing to do here — see the pin trigger below |
-| P3 | Move `hosted_live.official_client` to `noema-client==0.1.15` | **Only after a PyPI release.** PyPI is at 0.1.14; that repo publishes on a GitHub Release, not on merge, so merging #20 does not ship it. Pinning on merge would be a pin ahead of a publish |
+| ~~P3~~ | ~~Move `hosted_live.official_client` to `noema-client==0.1.15`~~ **Done 2026-08-24.** PyPI has 0.1.15; pinned in Noema #522. The trigger fired as written — the pin waited for the release rather than the merge |
 
 Constraints on deploy: no reseed, no PLAY `world-01`, no force reach-2, no RFC-0120 reverse, maint-evolve `--spawn-patrol` must not run on reach-3.
 
@@ -108,6 +108,19 @@ Verified after the publish: `/ready` ACTIVE / HEALTHY on `world.perihelion-reach
 attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_decision`,
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
+
+**2026-08-24T01:08:29Z publish.** Worker `cbb1b87e-8341-45a1-a94d-40e10ac6a343`, read from
+`GET /version` and pinned in Noema #522. It carries Noema #517 (RFC-0032 Postmark standby)
+and #520 (a hidden-room harvest was reaching the public feed); #521 merged six minutes after
+the publish and is not in it.
+
+Two things this publish is worth remembering for. It is the first where the pin did not lag —
+`/version` existed, so the pin was a reading rather than a reconstruction. And what the build
+*contains* still had to be derived from merge order, because `/version` reports the version id
+and the deploy time and not a source commit, and neither shipped fix has a public probe:
+the Postmark standby is inert until configured and admin-only, and the harvest fix needs a
+harvest, with `players_present` `0`. Derived is not observed, and the runtime audit says so
+in the row rather than rounding it up.
 
 **2026-08-23T07:16:28Z: `/version` publish.** Worker `591a5fe4-7858-4721-9024-58da9f761e41`,
 carrying Noema #509 and #512. `GET /version` now reports the running build directly, and
