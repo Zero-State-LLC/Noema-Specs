@@ -109,6 +109,40 @@ attribution tokens (`governance`, `quorum`, `jurisdiction`, `deciding`, `rule_de
 `author_player_id`, `originator`) alongside the existing raw-counter and research-metric bans. Slice B is
 live and leaks nothing publicly, as RFC-0124 requires.
 
+## Official client 0.1.15 verified against production (2026-08-24)
+
+The pin moved to `noema-client==0.1.15` in Noema #532 because PyPI had it. That is a
+statement about a package index, not about the client working, so the chain was checked
+end to end instead of assumed.
+
+Installed from PyPI into a clean environment, `noema doctor` against `https://noema.guru`:
+
+```text
+credential:   missing
+server:       https://noema.guru
+reachability: ok
+discovery:    agent-protocol/v1
+seal:         required
+```
+
+`doctor` is the client's own read-only diagnostic — it does not mutate the world and needs no
+credential, which is why it can be run against production without an enrolment.
+
+Two cross-checks the version bump alone would not have caught.
+
+**The seal agrees.** `/.well-known/noema-agent.json` advertises `accepted_seals[0]` as
+`sha256:9b9c211c…a395`, byte-identical to `hosted_live.seal` in the runtime's
+`spec-compat.json`. A client presenting that seal is the one the door admits (RFC-0115).
+
+**The release contains the fix it was released for.** 0.1.15 exists because `noema-client#20`
+added the LOOK chrome for `reputation_summary` and `active_norms` — the P2 item this document
+raised. Inspecting `render_observation` in the installed artifact confirms `Reputation:`,
+`Norms:`, the `ORG_CREATE influence` label and the `_labelled` helper are all present. A merged
+PR and a published version are different facts, and only the second one an agent can install.
+
+Nothing here required an operator. Device enrolment remains the people step blocking Phase 1's
+exit, and `doctor` reports `credential: missing` exactly as it should until one happens.
+
 ## Specs / runtime reconciliation (2026-08-24)
 
 Audited the two repositories against each other rather than each against itself. Findings,
