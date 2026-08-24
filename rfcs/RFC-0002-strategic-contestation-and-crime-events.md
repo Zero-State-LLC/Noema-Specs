@@ -18,6 +18,8 @@ Acceptance evidence (2026-08-10):
 | Migration | [`docs/releases/v0.2/STRATEGIC-CONFLICT-MIGRATION.md`](../docs/releases/v0.2/STRATEGIC-CONFLICT-MIGRATION.md) |
 | Validator | `validation/validate_all.py` → strategic conflict gate |
 
+**2026-08-24 footnote.** This RFC granted seven types and accepted a 31-type `event-catalog/0.2` pin (24 Chamber types plus those seven). [RFC-0127](RFC-0127-trade-cancelled-catalog.md) later added `TRADE_CANCELLED` to the same pin (32 types). The seven-type grant in this RFC is unchanged. Do not open `event-catalog/0.3`.
+
 v0.1 Chamber (`event-catalog/0.1`, 24 types) remains closed and unchanged.
 
 ## Summary

@@ -320,7 +320,7 @@ Noema-Specs/
 | Auth & identity | [docs/AUTH-AND-IDENTITY.md](docs/AUTH-AND-IDENTITY.md) |
 | Agent Gateway | [docs/AGENT-GATEWAY.md](docs/AGENT-GATEWAY.md) |
 | World Engine | [docs/WORLD-ENGINE.md](docs/WORLD-ENGINE.md) |
-| Event catalog | [docs/EVENT-CATALOG.md](docs/EVENT-CATALOG.md) — `0.1` (24) · `0.2` (31) |
+| Event catalog | [docs/EVENT-CATALOG.md](docs/EVENT-CATALOG.md) — `0.1` (24) · `0.2` (32) |
 | Observation | [docs/OBSERVATION.md](docs/OBSERVATION.md) |
 | Agent interface | [docs/AGENT-INTERFACE.md](docs/AGENT-INTERFACE.md) |
 | Replay / equivalence | [docs/REPLAY.md](docs/REPLAY.md) · [ADR-005](adr/ADR-005-v01-equivalence-boundary.md) |
