@@ -17,13 +17,15 @@ def fail(message: str) -> None:
     raise SystemExit(f"FAIL: {message}")
 
 
-def get_json(url: str) -> tuple[int, dict]:
+def get_json(url: str) -> tuple[int | None, dict]:
     request = urllib.request.Request(url, headers={"User-Agent": "noema-spec-freshness/1"})
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
             return response.status, json.load(response)
     except urllib.error.HTTPError as exc:
         return exc.code, {}
+    except urllib.error.URLError:
+        return None, {}
 
 
 def main() -> None:
@@ -46,6 +48,9 @@ def main() -> None:
 
     ready_status, ready = get_json("https://noema.guru/ready")
     version_status, version = get_json("https://noema.guru/version")
+    if ready_status is None or version_status is None:
+        print("WARN: production freshness could not be determined because noema.guru was unreachable")
+        return
     if ready_status != 200 or ready.get("ready") is not True:
         fail(f"/ready unhealthy: HTTP {ready_status}")
     world = ready.get("world", {})

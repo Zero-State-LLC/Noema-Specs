@@ -102,6 +102,8 @@ capabilities:
     state: LIVE_HOSTED
   gc8_economic_specialization:
     state: LIVE_HOSTED
+  gc9_cultural_inheritance_and_schism:
+    state: LIVE_HOSTED
   gc10_world_pressure:
     state: LIVE_HOSTED
   integrated_small_civilization_run:
