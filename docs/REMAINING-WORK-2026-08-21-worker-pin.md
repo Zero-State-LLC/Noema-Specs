@@ -21,7 +21,7 @@ Do not force-activate world.perihelion-reach-2.
 |--------|-------------|-------|
 | Partner Prabu Specs `#236` | ENTER + dual-agent MESSAGE from inside reach-3 | P0 done |
 | Partner Prabu `noema-client#17`/`#18` | NOT_IN_WORLD recover | intent in `noema-client==0.1.14` (`#19`) |
-| Partner Prabu Noema `#479` | `HarnessPolicy.blocked()` | live (first carried by `fb57910f`) |
+| Partner Prabu Noema `#479` | `HarnessPolicy.blocked()` | **offline harness only.** `#479` touches four files under `src/noema/harness/` and one Python test — **no `workers/` file at all**, so no Worker build carries it and `fb57910f` never did. It runs in the Python Controller harness beside an agent, not in the hosted Worker |
 | Specs `#228`/`#231`/`#232`/`#235` | Semantic Evolution, Deep Time mechanics, WATCH mapping | kept; restore does not revert them |
 | Noema `#486` | harvest/regen CI + reconstruct ontology | live (first carried by `fb57910f`) |
 | Noema `#487` | `hosted_live.official_client` → `noema-client==0.1.14` | `main` `77a08ca`; Worker SHA unchanged |
@@ -43,7 +43,8 @@ Do not force-activate world.perihelion-reach-2.
 | Priority | Item | Trigger |
 |----------|------|---------|
 | ~~P2~~ | ~~Deploy the merged backlog~~ **Done 2026-08-22.** Live and verified on `world.perihelion-reach-3` (`/ready` ACTIVE/HEALTHY, `genesis.94d0961984b2b4f8`). |
-| P2 | Official-client LOOK chrome for `reputation_summary` / `active_norms` | **Confirmed misrendering 2026-08-23.** `hint` renders; the other two are parsed and never displayed. Fix belongs in `scrimshawlife-ctrl/noema-client` — see the check below |
+| ~~P2~~ | ~~Official-client LOOK chrome for `reputation_summary` / `active_norms`~~ **Fixed 2026-08-23** in `noema-client` [#20](https://github.com/scrimshawlife-ctrl/noema-client/pull/20) (0.1.15), open for review. `render_observation` now prints both. Nothing to do here — see the pin trigger below |
+| P3 | Move `hosted_live.official_client` to `noema-client==0.1.15` | **Only after a PyPI release.** PyPI is at 0.1.14; that repo publishes on a GitHub Release, not on merge, so merging #20 does not ship it. Pinning on merge would be a pin ahead of a publish |
 
 Constraints on deploy: no reseed, no PLAY `world-01`, no force reach-2, no RFC-0120 reverse, maint-evolve `--spawn-patrol` must not run on reach-3.
 
@@ -187,3 +188,38 @@ rather than a general lack of semantic rendering.
 This needs no spec or runtime change — the contract is already satisfied on our side. The fix
 is a rendering change in `scrimshawlife-ctrl/noema-client`, which is a separate repository we
 contribute to by fork and PR.
+
+**Resolved 2026-08-23** in [noema-client #20](https://github.com/scrimshawlife-ctrl/noema-client/pull/20),
+version 0.1.15, open for review. `render_observation` gained two lines in the existing
+one-line style, omitted entirely when the field is absent or empty:
+
+```text
+Reputation: image 4, second-order 2
+Norms: ORG_CREATE influence 7, harvest pressure 0.25, last ratchet norm_ratchet
+```
+
+The load-bearing one is `Norms:`. `active_norms.org_create_influence` is the live ORG_CREATE
+cost with the ratchet included — server-side `5 + orgCreateExtraInfluence(w)`, not the flat 5
+— so an agent deciding whether to found an organization was paying a price it could not read.
+Display path only; `to_observation`, `prepare_context` and the JSON serialization are unchanged.
+
+Do **not** move `hosted_live.official_client` when that PR merges. PyPI is at 0.1.14 and that
+repository publishes on a GitHub Release, not on merge. The pin moves when 0.1.15 is on PyPI.
+
+## Which assimilated rows a Worker build actually carried (2026-08-23)
+
+The Assimilated table above attributes work to Worker versions. Checked every row against the
+files each PR touched:
+
+| Rows | Attribution |
+|---|---|
+| `#486` `#488` `#489` `#491` `#493` `#494` `#495` `#497` `#498` `#499` `#501` `#503` | Correct. Each touches `workers/`, so a Worker build carries it |
+| `#487` | Already correct — the row itself says "Worker SHA unchanged" |
+| `#502` | Already correct — the row itself says CI-only |
+| `#479` | **Was wrong.** Python harness only; corrected above |
+
+One row in fifteen. The failure shape is worth naming because it is not the same as the pin
+lagging a publish: here a real Worker version id was attached to a change that contains no
+Worker code, so the row read as hosted when nothing about it was. `Zero-State-LLC/Noema`
+`docs/RFC-RUNTIME-AUDIT-2026-08-23.md` now carries the per-RFC version of this distinction
+for all 125 contracts.
