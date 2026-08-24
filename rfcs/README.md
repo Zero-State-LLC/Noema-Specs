@@ -162,6 +162,7 @@ drafts", which was never accurate — one entry is a draft and the rest are Acce
 | [RFC-0123](RFC-0123-norm-ratchet-bounds-and-costly-trade-reject.md) | **Accepted** | Bounded upward norm ratchet; costly TRADE-reject punishment pinned |
 | [RFC-0124](RFC-0124-governance-rule-contract.md) | **Accepted** | Governance rule contract (GC4-S8) |
 | [RFC-0125](RFC-0125-practice-inheritance-and-schism.md) | **Accepted** | Practice inheritance and schism (GC9-S2) |
+| [RFC-0126](RFC-0126-watch-entity-update-exposure.md) | **Accepted** | WATCH `ENTITY_UPDATE` exposure closes generic fallback; explicit projections only |
 
 ## Required review lenses
 
