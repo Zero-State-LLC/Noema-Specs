@@ -64,3 +64,12 @@ Not defects, and worth writing down so the next audit does not re-derive them:
 danger evidence, a public projection, a world-report filter — and no path that emits it. That
 is either a slice not yet wired or an event only the offline runtime raises; this audit did
 not determine which, and the answer is not in this repository.
+
+**2026-08-25 — answered: a slice not yet wired.** The second branch is eliminated.
+`CRIME_DETECTED` appears nowhere in the offline Python runtime (`src/noema/`) and is not among
+the 24 types of `event-catalog/0.1` ([event-types.json](../specs/event-types.json)). It exists
+only in `event-catalog/0.2`, consumed by the hosted Worker and produced by nothing, in either
+plane. The deferred `visibility` / `victim_id` question above is now registered as `B7a` in
+[SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md), which also records that two
+Accepted GC3 slice contracts require exactly those two fields. Detection remains unwired; see
+[Research Assimilation — Crime](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md).
