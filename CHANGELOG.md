@@ -8,6 +8,8 @@
 
 ### Added
 
+- **RFC-0128 Review — Player tempo and cycle admission.** Adds the proposed `player-tempo/1.0` server-authoritative admission policy, `COLLECT → RESOLVE → PRESENT` phase contract, one distinct admitted action per active Agent Player per cycle, observed-live presentation hold, isolated-only fast/step modes, machine-readable policy catalog/schema, two illustrative fixtures, and PT01–PT16 conformance requirements. Adds explicit Review-stage compatibility notes to Scheduler, RFC-0019, and Versioning; RFC-0019 remains authoritative until acceptance, implementation, and a world pin. Wall-clock admission never enters reducer ordering or replay. No new Player verb, World Event type, Genesis content, room, resource, score, or research claim. Runtime implementation and RFC acceptance remain separate.
+
 - **Living Civilization Alpha Gate A promoted (2026-08-25).** Records the accepted integrated-runtime evidence from Noema PR #587, exact live Worker/source pin, complete suite and typecheck, hosted `/version`/`/ready`/WATCH observations, settlement/recovery boundaries, and post-merge checks. Advances the campaign machine state to LCA-2 while keeping Gate B blocked on canonical operator enrollment and at least three independently controlled external Controllers. No new verbs, Genesis change, room-bound change, hosted STUDY claim, or Gate C claim.
 
 - **Living Civilization Alpha gap continuation (2026-08-25).** Adds the Gate C coupled-systems scenario and evidence contract, a dated residual SPEC GAP truth register, a thin research-assimilation map, and a non-normative skill-conditional social-memory sketch. The GC5 relay matrix remains closed by RFC-0021. No new verbs, runtime authority, deferred-horizon thaw, Genesis change, or hosted claim.

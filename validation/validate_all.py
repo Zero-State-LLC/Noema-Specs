@@ -10781,6 +10781,123 @@ def check_rfc_0127(Draft202012Validator) -> None:
     ok("RFC-0127 TRADE_CANCELLED: 0.2 has 32 types, 0.1 stays 24, payload matches Worker")
 
 
+def check_rfc_0128(Draft202012Validator) -> None:
+    """RFC-0128 review package: Player tempo and cycle admission."""
+    rfc = (ROOT / "rfcs" / "RFC-0128-player-tempo-and-cycle-admission.md").read_text(
+        encoding="utf-8"
+    )
+    status = rfc.split("## Status", 1)[-1].split("##", 1)[0]
+    if "**Review**" not in status:
+        fail("RFC-0128 must remain Review until runtime and conformance evidence land")
+    for needle in (
+        "player-tempo/1.0",
+        "COLLECT -> RESOLVE -> PRESENT -> COLLECT",
+        "ACTION_SLOT_FILLED",
+        "PACE_LIMITED",
+        "OBSERVED_LIVE",
+        "FAST_TEST",
+        "STEP_TEST",
+        "Runtime implementation is separate",
+    ):
+        if needle not in rfc:
+            fail(f"RFC-0128 missing {needle!r}")
+    for required_refusal in ("adds no Player verb", "World Event type"):
+        if required_refusal not in rfc:
+            fail(f"RFC-0128 must explicitly state {required_refusal!r}")
+
+    schema = load_json(ROOT / "specs" / "player-tempo-policy.1.0.schema.json")
+    Draft202012Validator.check_schema(schema)
+    catalog = load_json(ROOT / "specs" / "player-tempo-catalog.1.0.json")
+    errors = list(Draft202012Validator(schema).iter_errors(catalog))
+    if errors:
+        fail(f"RFC-0128 player tempo catalog invalid: {errors[0].message}")
+
+    modes = {entry["mode"]: entry for entry in catalog.get("modes") or []}
+    if set(modes) != {"OBSERVED_LIVE", "FAST_TEST", "STEP_TEST"}:
+        fail("RFC-0128 must define exactly OBSERVED_LIVE, FAST_TEST, and STEP_TEST")
+    live = modes["OBSERVED_LIVE"]
+    if (
+        live.get("collect_window_ms") != 20_000
+        or live.get("presentation_hold_ms") != 10_000
+        or live.get("max_mutating_actions_per_player_per_cycle") != 1
+        or live.get("empty_window_advances") is not False
+    ):
+        fail("RFC-0128 OBSERVED_LIVE defaults must remain 20000/10000/1/no-empty-advance")
+    for mode in ("FAST_TEST", "STEP_TEST"):
+        if modes[mode].get("allowed_world_kinds") != ["ISOLATED_TEST"]:
+            fail(f"RFC-0128 {mode} must remain isolated-test only")
+    if set(catalog.get("errors") or []) != {"ACTION_SLOT_FILLED", "PACE_LIMITED"}:
+        fail("RFC-0128 pacing error set drifted")
+    invariants = catalog.get("invariants") or {}
+    if invariants.get("canonical_clock") != "World.cycle":
+        fail("RFC-0128 canonical clock must remain World.cycle")
+    if invariants.get("canonical_order") != "action_priority,agent_id,client_action_sequence,action_id":
+        fail("RFC-0128 canonical order must remain the Scheduler order")
+    for key in (
+        "wall_clock_is_reducer_input",
+        "client_selects_mode",
+        "missing_action_is_wait",
+        "test_mode_bypasses_settlement",
+    ):
+        if invariants.get(key) is not False:
+            fail(f"RFC-0128 invariant {key} must remain false")
+
+    observed = load_json(ROOT / "examples" / "player-tempo" / "observed-live-cycle.json")
+    fast = load_json(ROOT / "examples" / "player-tempo" / "fast-test-cycle.json")
+    for fixture in (observed, fast):
+        if fixture.get("policy_version") != catalog.get("policy_version"):
+            fail("RFC-0128 fixture policy_version must match the catalog")
+        if fixture.get("mode") not in modes:
+            fail("RFC-0128 fixture mode must exist in the catalog")
+        actions = fixture.get("accepted_actions") or []
+        if len({action.get("agent_id") for action in actions}) != len(actions):
+            fail("RFC-0128 fixture must not admit two actions for one Player")
+        if any(not str(action.get("action_id") or "").startswith("act.") for action in actions):
+            fail("RFC-0128 fixture action IDs must use the canonical act. prefix")
+    ordered = sorted(
+        observed.get("accepted_actions") or [],
+        key=lambda action: (
+            int(action["action_priority"]),
+            action["agent_id"],
+            int(action["client_action_sequence"]),
+            action["action_id"],
+        ),
+    )
+    if [action["action_id"] for action in ordered] != observed.get("expected_order"):
+        fail("RFC-0128 observed-live fixture expected order is not canonical")
+    if observed.get("distinct_second_action", {}).get("expected_error") != "ACTION_SLOT_FILLED":
+        fail("RFC-0128 observed-live fixture must reject a second distinct action")
+    if observed.get("public_projection_before_resolve_contains_action_body") is not False:
+        fail("RFC-0128 observed-live fixture must forbid pre-resolve action leakage")
+    if fast.get("production_mode_attempt", {}).get("expected_outcome") != "DENY":
+        fail("RFC-0128 fast-test fixture must deny production mode use without inventing an error code")
+    if fast.get("canonical_settlement_required") is not True:
+        fail("RFC-0128 test modes must preserve canonical settlement")
+
+    conformance = (ROOT / "docs" / "PLAYER-TEMPO-CONFORMANCE.md").read_text(
+        encoding="utf-8"
+    )
+    for case_id in (f"PT{i:02d}" for i in range(1, 17)):
+        if f"| {case_id} |" not in conformance:
+            fail(f"RFC-0128 conformance contract missing {case_id}")
+    player_tempo = (ROOT / "docs" / "PLAYER-TEMPO.md").read_text(encoding="utf-8")
+    if "Review-stage authority" not in player_tempo or "acceptance remain separate" not in player_tempo:
+        fail("PLAYER-TEMPO.md must not overclaim Review-stage authority")
+    scheduler = (ROOT / "docs" / "SCHEDULER.md").read_text(encoding="utf-8")
+    rfc_0019 = (ROOT / "rfcs" / "RFC-0019-hosted-world-time.md").read_text(
+        encoding="utf-8"
+    )
+    versioning = (ROOT / "docs" / "VERSIONING.md").read_text(encoding="utf-8")
+    if "Review-stage compatibility note" not in scheduler or "RFC-0019 WAIT quorum remains" not in scheduler:
+        fail("SCHEDULER.md must preserve RFC-0019 authority while RFC-0128 is Review")
+    if "Review-stage successor note" not in rfc_0019 or "RFC-0019 remains authoritative" not in rfc_0019:
+        fail("RFC-0019 must describe RFC-0128 as a non-authoritative Review-stage successor")
+    if "Player tempo candidate" not in versioning or "not a live runtime pin" not in versioning:
+        fail("VERSIONING.md must register player-tempo/1.0 as a Review-stage candidate only")
+
+    ok("RFC-0128 Review: tempo catalog, isolated test modes, fixtures, and PT01-PT16 contract")
+
+
 def main() -> None:
     print("NOEMA-Specs validation")
     check_required_structure()
@@ -10922,6 +11039,7 @@ def main() -> None:
     check_conformance_case_substance()
     check_rfc_0126_watch_entity_update_exposure()
     check_rfc_0127(Draft202012Validator)
+    check_rfc_0128(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
     check_gc9_s2(Draft202012Validator)

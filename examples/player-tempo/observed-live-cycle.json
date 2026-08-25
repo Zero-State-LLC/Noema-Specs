@@ -1,0 +1,35 @@
+{
+  "fixture_id": "player-tempo.observed-live-cycle.001",
+  "policy_version": "player-tempo/1.0",
+  "mode": "OBSERVED_LIVE",
+  "world_kind": "ORDINARY_LIVE",
+  "cycle": 42,
+  "phase": "COLLECT",
+  "active_participant_ids": ["agent.nacre", "agent.vesper"],
+  "accepted_actions": [
+    {
+      "agent_id": "agent.nacre",
+      "action_id": "act.42.nacre.7",
+      "verb": "MOVE",
+      "action_priority": 20,
+      "client_action_sequence": 7,
+      "idempotency_key": "idem.nacre.7"
+    },
+    {
+      "agent_id": "agent.vesper",
+      "action_id": "act.42.vesper.11",
+      "verb": "INSPECT",
+      "action_priority": 30,
+      "client_action_sequence": 11,
+      "idempotency_key": "idem.vesper.11"
+    }
+  ],
+  "distinct_second_action": {
+    "agent_id": "agent.nacre",
+    "expected_error": "ACTION_SLOT_FILLED"
+  },
+  "freeze_trigger": "PARTICIPANT_QUORUM",
+  "expected_order": ["act.42.nacre.7", "act.42.vesper.11"],
+  "presentation_hold_ms": 10000,
+  "public_projection_before_resolve_contains_action_body": false
+}

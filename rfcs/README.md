@@ -164,6 +164,7 @@ drafts", which was never accurate — one entry is a draft and the rest are Acce
 | [RFC-0125](RFC-0125-practice-inheritance-and-schism.md) | **Accepted** | Practice inheritance and schism (GC9-S2) |
 | [RFC-0126](RFC-0126-watch-entity-update-exposure.md) | **Accepted** | WATCH `ENTITY_UPDATE` exposure closes generic fallback; explicit projections only |
 | [RFC-0127](RFC-0127-trade-cancelled-catalog.md) | **Accepted** | Catalog `TRADE_CANCELLED` on `event-catalog/0.2` (32 types); Chamber 0.1 stays 24 |
+| [RFC-0128](RFC-0128-player-tempo-and-cycle-admission.md) | **Review** | Server-authoritative Player tempo and cycle admission; runtime implementation remains separate |
 
 ## Required review lenses
 
