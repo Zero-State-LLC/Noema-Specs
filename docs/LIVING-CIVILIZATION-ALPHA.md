@@ -10,7 +10,7 @@ Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
-Current state: LCA-0 and LCA-1 are complete. Gate A promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) from Noema PR #587 and merged main `a6b7e4b`. LCA-2 remains blocked on canonical operator enrollment and retained evidence from at least three independently controlled external Controllers. Gate C remains unproven. Do not merge Specs #291 until those prerequisites have acceptance evidence.
+Current state: LCA-0 and LCA-1 are complete. **Gate A is complete.** Promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) from Noema PR #587 and merged main `a6b7e4b`. LCA-2 remains blocked on canonical operator enrollment and retained evidence from at least three independently controlled external Controllers. Gate C remains unproven. Do not merge Specs #291 until those prerequisites have acceptance evidence.
 
 This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. The next risk is not insufficient breadth. It is that individually tested slices have not yet been proven together in a production-like civilization run.
 
