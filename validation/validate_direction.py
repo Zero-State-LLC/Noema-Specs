@@ -12,6 +12,7 @@ REQUIRED = [
     "docs/LIVING-CIVILIZATION-ALPHA.md",
     "docs/CIVILIZATION-CAPABILITY-MATRIX.md",
     "docs/LIVING-ALPHA-ACCEPTANCE.md",
+    "docs/LCA-GATE-A-PROMOTION-2026-08-25.md",
     "docs/EXECUTION-SEQUENCE-90-DAY.md",
     "docs/DIRECTION-AUTHORITY.md",
     "specs/current-state.v1.yaml",
@@ -82,6 +83,12 @@ def main() -> None:
         value = parsed.get("evidence_commits", {}).get(key)
         if not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{7,40}", value):
             fail(f"{key} must be a Git commit")
+    if parsed.get("evidence_commits", {}).get("production_specs_baseline") != "492ccc9":
+        fail("production Specs baseline must pin canonical main 492ccc9 used for Gate A promotion")
+    if parsed.get("capabilities", {}).get("integrated_small_civilization_run", {}).get("state") != "BLOCKED":
+        fail("Gate C run must remain BLOCKED until Gate B passes")
+    if parsed.get("active_campaign", {}).get("state") != "ACTIVE_INTEGRATION":
+        fail("Living Civilization Alpha campaign must remain ACTIVE_INTEGRATION")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
     if not isinstance(implemented, list) or len(implemented) < 10:
         fail("advanced Worker implementation inventory is incomplete")
@@ -90,26 +97,28 @@ def main() -> None:
         "advanced_worker_runtime:",
         f"evidence_commit: {evidence_commit}",
         "production_implements_specs:",
+        "production_specs_baseline: 492ccc9",
         "world: world.perihelion-reach-3",
         "required_endpoints: [/ready, /version]",
         "Noema PR #551",
         "Noema PR #552",
-        "current_milestone: LCA-1",
-        "Gate A is not complete",
+        "Noema PR #587",
+        "current_milestone: LCA-2",
+        "Gate A is complete",
         "remaining_lca2_prerequisites:",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
         "Gate C remains unproven",
-        "d9aab067-e3ca-447c-bb8b-fccc59729bbf",
+        "01ebc196-b762-4689-a166-272e26bd73ad",
         "hosted_live.worker_version_id matches live",
-        "Noema #561 merged, unpublished",
         "Noema PR #570",
-        "a0044a13",
-        "noema-client #24 landed, unpublished",
-        "on main, unpublished",
+        "61234cc",
+        "canonical operator device enrollment",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
+    if "0bddbeb" in state:
+        fail("production Specs baseline 0bddbeb is stale after canonical main 492ccc9")
     if "2bb3a8b4" in state:
         fail("current state must not claim stale Worker 2bb3a8b4")
     if "66f2417d" in state:
@@ -127,11 +136,11 @@ def main() -> None:
     campaign = (ROOT / "docs/LIVING-CIVILIZATION-ALPHA.md").read_text(encoding="utf-8")
     for marker in (
         "not a greenfield feature campaign",
+        "Gate A is complete",
         "LCA-1",
         "LCA-5",
         "IMPLEMENTED_RUNTIME",
-        "Gate A is not complete",
-        "remaining LCA-2 prerequisites",
+        "canonical operator enrollment",
         "Gate C remains unproven",
     ):
         if marker not in campaign:
@@ -139,17 +148,20 @@ def main() -> None:
 
     acceptance = (ROOT / "docs/LIVING-ALPHA-ACCEPTANCE.md").read_text(encoding="utf-8")
     for marker in (
-        "Gate A is not complete",
+        "Gate A is complete",
+        "LCA-GATE-A-PROMOTION-2026-08-25.md",
         "lca2-gate-b-three-external-agent-population",
         "Gate C remains unproven",
         "compatibility-at-scale claim",
-        "remaining LCA-2 prerequisites",
+        "canonical operator device enrollment",
     ):
         if marker not in acceptance:
             fail(f"acceptance missing marker: {marker}")
 
-    if "Gate A is complete" in state or "Gate A is complete" in campaign or "Gate A is complete" in acceptance:
-        fail("Gate A must not be promoted without remaining LCA-2 prerequisite evidence")
+    if "Gate A is not complete" in state or "Gate A is not complete" in campaign or "Gate A is not complete" in acceptance:
+        fail("Gate A promotion is accepted; stale non-complete guidance remains")
+    if "Gate A is complete" not in state or "Gate A is complete" not in campaign or "Gate A is complete" not in acceptance:
+        fail("Gate A promotion must agree across machine state and campaign authorities")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
     if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:

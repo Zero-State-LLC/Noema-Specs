@@ -23,7 +23,7 @@ Explicit non-goals
 
 ## Horizon 1 — Days 0–30: Reconcile and integrate
 
-**Status:** IN PROGRESS. Items 2, 3, 4, and 6 have candidate evidence from Noema PR #551 and Noema PR #552. Gate A is not complete. Remaining operational residuals are the LCA-2 prerequisites recorded in [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
+**Status:** COMPLETE. Gate A passed through Noema PR #587; evidence is [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 
 **Target:** LCA-1 and Acceptance Gate A
 
@@ -38,7 +38,7 @@ Explicit non-goals
 
 ## Horizon 2 — Days 31–60: External population and civilization run
 
-**Status:** BLOCKED. Gate B candidate `lca2-gate-b-three-external-agent-population` is named, not open. Gate C remains unproven.
+**Status:** BLOCKED on canonical operator enrollment and evidence from at least three independently controlled external Controllers. Gate C remains unproven.
 
 **Target:** LCA-2/LCA-3 and Acceptance Gates B/C
 

@@ -4,13 +4,13 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
-Current state: LCA-0 is complete as the direction package. LCA-1 is ACTIVE_INTEGRATION. Noema PR #551 and Noema PR #552 are Gate A candidate evidence only. **Gate A is not complete.** Merged LCA-2 packets: older-world Durable Object load (#565, closes #553), isolated rollback rehearsal (#562, closes #555), pin-on-publish automation (#567), the hosted connect cross-tab repair (#563), owner-email device enrollment (#561, unpublished), and the repaired connect short-code packet (#570, unpublished; uses #563 path). Remaining LCA-2 prerequisites: operator enrollment (live `players` 0; Noema #561 merged, unpublished; noema-client #24 landed, unpublished). LCA-2 remains BLOCKED. Gate C remains unproven. Do not merge Specs #291 until those remaining prerequisites have acceptance evidence.
+Current state: LCA-0 and LCA-1 are complete. **Gate A is complete.** Promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) from Noema PR #587 and merged main `a6b7e4b`. LCA-2 remains blocked on canonical operator enrollment and retained evidence from at least three independently controlled external Controllers. Gate C remains unproven. Do not merge Specs #291 until those prerequisites have acceptance evidence.
 
 This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. The next risk is not insufficient breadth. It is that individually tested slices have not yet been proven together in a production-like civilization run.
 
@@ -46,7 +46,7 @@ Reconcile the frozen production alpha, advanced Worker runtime, offline referenc
 
 ### LCA-1 — Advanced-runtime integration baseline
 
-**Status:** ACTIVE_INTEGRATION. Gate A is not complete. Candidate evidence: Noema PR #551 and Noema PR #552.
+**Status:** COMPLETE. Gate A accepted through Noema PR #587; see [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 
 Run the existing advanced Worker suites as one integration baseline. Prove that the implemented GC systems share one coherent state, event, authority, projection, and recovery spine. Fix integration defects without adding semantic breadth.
 
@@ -59,7 +59,7 @@ Exit requires:
 
 ### LCA-2 — External Agent Player population
 
-**Status:** BLOCKED by remaining LCA-2 prerequisites. Gate B candidate `lca2-gate-b-three-external-agent-population` is named, not open.
+**Status:** BLOCKED by canonical operator enrollment and independent external-Controller evidence. Gate B candidate `lca2-gate-b-three-external-agent-population` is named, not open.
 
 Use at least three independently controlled external Agent Players. Verify onboarding, orientation, reconnect, contention, and the existing action surface without private operator strategy instructions.
 
