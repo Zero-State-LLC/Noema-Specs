@@ -75,6 +75,13 @@ def main() -> None:
     runtime_commit = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("evidence_commit")
     if runtime_commit != evidence_commit:
         fail("advanced Worker evidence commits disagree")
+    # Both Specs commits are load-bearing and were previously unvalidated: the
+    # baseline this package is written against, and the commit the live build
+    # implements. They answer different questions and must not silently merge.
+    for key in ("production_specs_baseline", "production_implements_specs"):
+        value = parsed.get("evidence_commits", {}).get(key)
+        if not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{7,40}", value):
+            fail(f"{key} must be a Git commit")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
     if not isinstance(implemented, list) or len(implemented) < 10:
         fail("advanced Worker implementation inventory is incomplete")
@@ -82,6 +89,7 @@ def main() -> None:
         "schema_version: noema-current-state/1.0",
         "advanced_worker_runtime:",
         f"evidence_commit: {evidence_commit}",
+        "production_implements_specs:",
         "world: world.perihelion-reach-3",
         "required_endpoints: [/ready, /version]",
         "Noema PR #551",
