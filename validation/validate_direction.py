@@ -93,9 +93,12 @@ def main() -> None:
         "state: ACTIVE_INTEGRATION",
         "Gate C remains unproven",
         "d9aab067-e3ca-447c-bb8b-fccc59729bbf",
+        "hosted_live.worker_version_id matches live",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
+    if "2bb3a8b4" in state:
+        fail("current state must not claim stale Worker 2bb3a8b4")
 
     used = set(re.findall(r"\b[A-Z][A-Z_]+\b", state)) & STATUSES
     missing = STATUSES - used
