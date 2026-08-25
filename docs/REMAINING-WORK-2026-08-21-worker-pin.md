@@ -194,7 +194,7 @@ That value is the resolution, not a claim that Specs `main` still sits there. Fo
 current pins, read `spec-compat.json` and `GET https://noema.guru/version`.
 
 **2026-08-24T01:08:29Z publish.** Worker `cbb1b87e-8341-45a1-a94d-40e10ac6a343`, read from
-`GET /version` and pinned in Noema #522. It carries Noema #517 (RFC-0032 Postmark standby)
+`GET /version` and pinned in Noema #522. It carries Noema #517 (RFC-0032 hosted email delivery)
 and #520 (a hidden-room harvest was reaching the public feed); #521 merged six minutes after
 the publish and is not in it.
 
@@ -202,7 +202,7 @@ Two things this publish is worth remembering for. It is the first where the pin 
 `/version` existed, so the pin was a reading rather than a reconstruction. And what the build
 *contains* still had to be derived from merge order, because `/version` reports the version id
 and the deploy time and not a source commit, and neither shipped fix has a public probe:
-the Postmark standby is inert until configured and admin-only, and the harvest fix needs a
+the hosted email adapter is inert until configured and admin-only, and the harvest fix needs a
 harvest, with `players_present` `0`. Derived is not observed, and the runtime audit says so
 in the row rather than rounding it up.
 
