@@ -10475,8 +10475,50 @@ def check_conformance_case_substance() -> None:
     template = _re.compile(r"^[A-Z]+\d+ machine rule \d+ is enforced$")
     baseline = {"v0.4": 110, "v0.5": 90, "v0.6": 108, "v0.7": 24}
 
+    # Counts alone allow a templated case to be removed and a new one added in
+    # its place. Keep the ratchet's existing count and removal semantics, but
+    # also pin the stable manifest path of every currently templated case.
+    baseline_ids = {
+        "v0.4": {
+            f"cases/v04-L{family:02d}-{case:02d}.json"
+            for family in range(1, 23)
+            for case in range(1, 6)
+        },
+        "v0.5": {
+            f"cases/v05-P{family:02d}-{case:02d}.json"
+            for family in range(1, 31)
+            for case in range(1, 4)
+        },
+        "v0.6": {
+            f"cases/v06-D{family:02d}-{case:02d}.json"
+            for family in range(1, 31)
+            for case in range(1, 4)
+        }
+        | {
+            f"cases/v06-G{family:02d}-{case:02d}.json"
+            for family in range(1, 10)
+            for case in range(1, 3)
+        },
+        "v0.7": {
+            f"cases/v07-K{family:02d}-{case:02d}.json"
+            for family in range(1, 13)
+            for case in range(1, 3)
+        },
+    }
+
+    def ratchet_error(suite: str, ids: set[str]) -> str | None:
+        allowed_ids = baseline_ids.get(suite, set())
+        added = sorted(ids - allowed_ids)
+        if added:
+            return (
+                f"{suite} added templated conformance cases {added}; "
+                "a new case must assert what it tests"
+            )
+        return None
+
     manifests = sorted((ROOT / "conformance").glob("*/manifest.json"))
     observed: dict = {}
+    observed_ids: dict[str, set[str]] = {}
     total_cases = 0
     templated = 0
     for manifest_path in manifests:
@@ -10488,6 +10530,7 @@ def check_conformance_case_substance() -> None:
             assertions = (case.get("expected") or {}).get("assertions") or []
             if any(template.fullmatch(str(a)) for a in assertions):
                 count += 1
+                observed_ids.setdefault(suite, set()).add(rel)
         templated += count
         if count:
             observed[suite] = count
@@ -10495,10 +10538,10 @@ def check_conformance_case_substance() -> None:
     for suite, count in sorted(observed.items()):
         allowed = baseline.get(suite, 0)
         if count > allowed:
-            fail(
-                f"{suite} added templated conformance cases ({count} > {allowed}); "
-                "a new case must assert what it tests"
-            )
+            fail(f"{suite} added templated conformance cases ({count} > {allowed})")
+        error = ratchet_error(suite, observed_ids.get(suite, set()))
+        if error:
+            fail(error)
     for suite, allowed in sorted(baseline.items()):
         seen = observed.get(suite, 0)
         if seen < allowed:
@@ -10506,6 +10549,15 @@ def check_conformance_case_substance() -> None:
                 f"{suite} templated cases fell to {seen} (baseline {allowed}); "
                 "lower the baseline in check_conformance_case_substance"
             )
+
+    # Focused mutation guard: replacing one allowed case with a new path must
+    # fail even when the aggregate count is unchanged.
+    mutation_suite = "v0.7"
+    mutation_ids = set(observed_ids[mutation_suite])
+    mutation_ids.remove(next(iter(mutation_ids)))
+    mutation_ids.add("cases/v07-K99-01.json")
+    if ratchet_error(mutation_suite, mutation_ids) is None:
+        fail("templated case identity ratchet mutation was not rejected")
     ok(
         f"Conformance case substance held ({templated} templated of {total_cases} cases; "
         "executable verification is check_compiler_v05 / check_deep_time_v06)"
