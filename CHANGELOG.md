@@ -8,6 +8,8 @@
 
 ### Added
 
+- **Living Civilization Alpha Gate A promoted (2026-08-25).** Records the accepted integrated-runtime evidence from Noema PR #587, exact live Worker/source pin, complete suite and typecheck, hosted `/version`/`/ready`/WATCH observations, settlement/recovery boundaries, and post-merge checks. Advances the campaign machine state to LCA-2 while keeping Gate B blocked on canonical operator enrollment and at least three independently controlled external Controllers. No new verbs, Genesis change, room-bound change, hosted STUDY claim, or Gate C claim.
+
 - **Living Civilization Alpha gap continuation (2026-08-25).** Adds the Gate C coupled-systems scenario and evidence contract, a dated residual SPEC GAP truth register, a thin research-assimilation map, and a non-normative skill-conditional social-memory sketch. The GC5 relay matrix remains closed by RFC-0021. No new verbs, runtime authority, deferred-horizon thaw, Genesis change, or hosted claim.
 
 - **RFC-0127 Accepted — catalog `TRADE_CANCELLED` on `event-catalog/0.2`.** Amends the 0.2 pin (32 types = 24 + 7 + 1) rather than opening `event-catalog/0.3`. Chamber `event-types.json` stays 24. Payload matches the hosted Worker: `trade_id`, `by`, `reason` (`CANCELLED`). No new verbs, Genesis, crime producer, or WATCH RFC. Runtime follow-up (Noema, not this repository) drops `KNOWN_UNCATALOGUED` after this lands.

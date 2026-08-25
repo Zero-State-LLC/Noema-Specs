@@ -47,7 +47,6 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 
 | ID | Domain | One-line description | Status | Blocking? | Authoritative doc | Allowed continuation | Forbidden fills |
 |---|---|---|---|---|---|---|---|
-| A1 | LCA Gate A | Integrated runtime evidence is not complete merely because slice PRs exist. | `RUNTIME_ONLY` | Blocks LCA-1 / Gate A | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Full suite, typecheck, shared settlement/recovery evidence, honest pins | new Specs breadth, disabled slices, paper promotion |
 | A2 | LCA Gate B | At least three independent external Controllers must enroll and operate Agent Players. | `RUNTIME_ONLY` | Blocks Gate B and therefore C | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Publish/deploy only by explicit runtime command; complete operator enrollment | reseed, synthetic population claim, private strategy script |
 | A3 | LCA Gate C | Existing-system civilization scenario has not passed. | `RUNTIME_ONLY` | Blocks Gate C | [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) | Execute the pinned scenario through existing surfaces | add mechanics to force a pass |
 | A4 | LCA Gate D | WATCH legibility under real multi-agent pressure is unproven. | `RUNTIME_ONLY` | Blocks Gate D | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Blind-review WATCH capture from Gate C evidence | private state leak, invented motives, research UI substitution |
@@ -56,12 +55,13 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 | A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
 | A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
 | A9 | Population | A clocking world without enrolled external Agent Players is not a civilization acceptance run. | `RUNTIME_ONLY` | Blocks Gates B–E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Treat population as an operations prerequisite | new rooms/content/reseed as substitute |
-| A10 | Publish lag | Merged enrollment/connect packets require explicit runtime publish/deploy acceptance. | `RUNTIME_ONLY` | Blocks LCA-2 while unpublished | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Runtime release and production preflight after explicit command | Specs deploy authorization, machine-pin promotion before evidence |
 
 ## Closed-slice honesty
 
 The following must not be reopened as generic gaps:
 
+- LCA Gate A integrated-runtime evidence closed through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md); do not reopen it as a generic SPEC GAP;
+- the enrollment/connect publish-lag row closed when runtime source `61234cc` produced live Worker `01ebc196-b762-4689-a166-272e26bd73ad`; operator enrollment and external population remain separate Gate B work;
 - GC5 relay same-cycle, one-cycle delay, and unreachable bands are closed by RFC-0009 and RFC-0021;
 - GC3 S0–S7 executable social-memory gaps are closed by RFC-0007, RFC-0022, and RFC-0034–RFC-0039;
 - shipped GC2, GC4, GC5 board/channel/notice, GC8, GC9, and GC10 S-slices remain closed for their stated scope;
