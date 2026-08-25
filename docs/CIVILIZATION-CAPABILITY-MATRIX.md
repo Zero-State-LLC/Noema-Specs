@@ -21,7 +21,7 @@ The project already has substantial implementation. Noema PR #551 and Noema PR #
 | Economic specialization | lot quality/provenance/spoilage/transport and GC8 tests | IMPLEMENTED_RUNTIME | Scarcity and exchange create at least two viable strategies and real interdependence | LCA-3 |
 | World pressure | pressure runtime, GC10 tests | IMPLEMENTED_RUNTIME | Authorized pressure changes conditions without forcing target outcomes | LCA-3 |
 | WATCH and world reports | WATCH live, Phosphor, public bands, reports tests | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME depth | Uninvolved humans accurately explain major visible changes and unknowns | LCA-4 |
-| Persistence, settlement, recovery | hosted head, Postgres settlement, incident/recovery contracts, Noema PR #552 restart path | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME candidate | Older-world Durable Object load, isolated rollback rehearsal, and endurance recovery remain unproven. Gate A is not complete. | LCA-1/LCA-4 |
+| Persistence, settlement, recovery | hosted head, Postgres settlement, incident/recovery contracts, Noema PR #552 restart path, #565 older-format DO load, #562 isolated rollback | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME candidate | Endurance recovery remains unproven. Gate A is not complete. | LCA-1/LCA-4 |
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
 
 ## Integration graph
