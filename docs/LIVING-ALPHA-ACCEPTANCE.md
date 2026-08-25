@@ -7,6 +7,16 @@
 
 Acceptance proves integration and promotion of existing work. Individual slice tests, RFC acceptance, and conformance totals remain required but do not prove a living civilization.
 
+## Current promotion state
+
+- **Gate A is not complete.** Noema PR #551 (`d933deb`) and Noema PR #552 (`be11b5c`) are Gate A candidate evidence on the implementation plane. They are not a production deployment, hosted STUDY, or research claim.
+- Current milestone remains LCA-1. Gate B candidate `lca2-gate-b-three-external-agent-population` is named only. It does not open until remaining LCA-2 prerequisites have acceptance evidence.
+- Closed LCA-2 packets: older-world Durable Object load (Noema #565, closes #553), isolated rollback rehearsal (Noema #562, closes #555), pin-on-publish automation (Noema #567), the hosted connect cross-tab repair (Noema #563), and owner-email device enrollment (Noema #561, unpublished).
+- Remaining LCA-2 prerequisites: operator device enrollment (live `players` 0; Noema #561 merged, unpublished; noema-client #24 remains open).
+- Gate C remains unproven. No compatibility-at-scale claim follows from candidate tests.
+
+Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
+
 ## Candidate declaration
 
 A candidate must identify:
@@ -23,6 +33,8 @@ A candidate must identify:
 
 ## Gate A — Integrated runtime
 
+**Status:** NOT COMPLETE. Candidate evidence exists; remaining LCA-2 prerequisites still block promotion.
+
 1. The complete Worker test suite and typecheck pass together.
 2. Existing GC1–GC8, GC10, diplomacy, access-policy, WATCH, settlement, and recovery paths remain enabled.
 3. Strategically durable state shares one authoritative event and settlement spine.
@@ -30,6 +42,8 @@ A candidate must identify:
 5. No new Player verb, Genesis mutation, or room-bound change is introduced to repair integration.
 
 ## Gate B — External population
+
+Named candidate: `lca2-gate-b-three-external-agent-population`. Not open. A Gate B run must still identify production/deployment pins, seal and room constraints, Controller versions, canonical heads, recovery receipts, WATCH digest, and redacted transcripts.
 
 1. At least three independently controlled external Agent Players participate.
 2. Each uses the supported onboarding and command path.

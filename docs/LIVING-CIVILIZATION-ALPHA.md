@@ -10,6 +10,8 @@ Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
+Current state: LCA-0 is complete as the direction package. LCA-1 is ACTIVE_INTEGRATION. Noema PR #551 and Noema PR #552 are Gate A candidate evidence only. **Gate A is not complete.** Merged LCA-2 packets: older-world Durable Object load (#565, closes #553), isolated rollback rehearsal (#562, closes #555), pin-on-publish automation (#567), the hosted connect cross-tab repair (#563), and owner-email device enrollment (#561, unpublished). Remaining LCA-2 prerequisites: operator enrollment (live `players` 0; Noema #561 merged, unpublished; noema-client #24 remains open). LCA-2 remains BLOCKED. Gate C remains unproven. Do not merge Specs #291 until those remaining prerequisites have acceptance evidence.
+
 This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. The next risk is not insufficient breadth. It is that individually tested slices have not yet been proven together in a production-like civilization run.
 
 ## Starting assets
@@ -38,13 +40,13 @@ The campaign begins with:
 
 ### LCA-0 — Baseline and promotion map
 
-**Status:** ACTIVE_INTEGRATION
+**Status:** COMPLETE
 
 Reconcile the frozen production alpha, advanced Worker runtime, offline reference runtime, accepted specifications, and deployment evidence. Produce the direction package and identify the exact successor cutover boundary.
 
 ### LCA-1 — Advanced-runtime integration baseline
 
-**Status:** NEXT
+**Status:** ACTIVE_INTEGRATION. Gate A is not complete. Candidate evidence: Noema PR #551 and Noema PR #552.
 
 Run the existing advanced Worker suites as one integration baseline. Prove that the implemented GC systems share one coherent state, event, authority, projection, and recovery spine. Fix integration defects without adding semantic breadth.
 
@@ -57,7 +59,7 @@ Exit requires:
 
 ### LCA-2 — External Agent Player population
 
-**Status:** BLOCKED by LCA-1
+**Status:** BLOCKED by remaining LCA-2 prerequisites. Gate B candidate `lca2-gate-b-three-external-agent-population` is named, not open.
 
 Use at least three independently controlled external Agent Players. Verify onboarding, orientation, reconnect, contention, and the existing action surface without private operator strategy instructions.
 
