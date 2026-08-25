@@ -88,17 +88,17 @@ SUPABASE_ANON_KEY=
 SUPABASE_JWT_SECRET=
 ```
 
-### Hosted auth email delivery — Postmark
+### Hosted auth email delivery — Resend
 
-Supabase Auth remains the magic-link token authority and fallback mailer. The Worker composes PLAY and privileged ADMIN messages and sends them through Postmark when configured per [RFC-0032](../rfcs/RFC-0032-postmark-admin-email-delivery.md).
+Supabase Auth remains the magic-link token authority and fallback mailer. The Worker composes PLAY and privileged ADMIN messages and sends them through Resend when configured per [RFC-0032](../rfcs/RFC-0032-resend-auth-email-delivery.md).
 
 | Variable | Type | Required (local) | Default | Secret | Applies to | Security implications |
 | --- | --- | --- | --- | --- | --- | --- |
-| POSTMARK_SERVER_TOKEN | string | no | empty | yes | hosted auth email | Worker-only Postmark server credential; never log or expose. |
-| POSTMARK_FROM_EMAIL | email | no | per-message sender | no | hosted auth email | Optional override; must be a Postmark-verified sender or domain. |
-| POSTMARK_MESSAGE_STREAM | string | no | outbound | no | hosted auth email | Transactional stream only. |
+| RESEND_API_KEY | string | no | empty | yes | hosted auth email | Worker-only Resend API credential; never log or expose. |
+| RESEND_FROM_EMAIL | email | no | per-message sender | no | hosted auth email | Optional override; must be a Resend-verified sender or domain. |
+| Resend tags | string | no | play/admin metadata | no | hosted auth email | Distinguishes PLAY and ADMIN transactional messages. |
 
-Missing or failed Postmark delivery uses the existing Supabase fallback; ADMIN may first use its temporary Cloudflare mail binding. Public login-request responses remain generic.
+Missing or failed Resend delivery uses the existing Supabase fallback; ADMIN may first use its temporary Cloudflare mail binding. Public login-request responses remain generic.
 
 ---
 

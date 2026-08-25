@@ -55,8 +55,8 @@ SUPABASE
 ├── Storage
 └── Realtime — selective use only
 
-POSTMARK (optional hosted auth email adapter)
-└── Preferred Worker-composed PLAY and ADMIN magic-link delivery
+RESEND (hosted auth email adapter)
+└── Sole hosted Worker-composed PLAY and ADMIN magic-link delivery
 ```
 
 | Authority | Owner |
@@ -67,7 +67,7 @@ POSTMARK (optional hosted auth email adapter)
 | Large artifacts | **Supabase Storage** |
 | Public API / authz / protocol edge | **Cloudflare Workers** |
 | Static product / marketing web | **Cloudflare Worker `[assets]`** on `noema.guru` (product). GitHub Pages (`site/`) is marketing/reference only. Cloudflare Pages is **not** the live host |
-| Worker-composed auth email delivery | **Postmark** preferred for PLAY and ADMIN; Supabase remains token authority and fallback ([RFC-0032](../rfcs/RFC-0032-postmark-admin-email-delivery.md)) |
+| Worker-composed auth email delivery | **Resend** sole hosted provider for PLAY and ADMIN; Supabase remains token authority and fallback ([RFC-0032](../rfcs/RFC-0032-resend-auth-email-delivery.md)) |
 
 No component may silently become authoritative for another layer.
 

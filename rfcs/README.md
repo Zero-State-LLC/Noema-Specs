@@ -68,7 +68,7 @@ drafts", which was never accurate — one entry is a draft and the rest are Acce
 | [RFC-0029](RFC-0029-institution-trade-repair.md) | **Accepted** | Institution TRADE/REPAIR via occupied office profiles; no new verbs |
 | [RFC-0030](RFC-0030-emergency-scopes.md) | **Accepted** | Time-bounded emergency AuthorityGrant overlay; no superuser |
 | [RFC-0031](RFC-0031-designated-succession.md) | **Accepted** | Designated institutional succession; no implicit jump |
-| [RFC-0032](RFC-0032-postmark-admin-email-delivery.md) | **Accepted** | Postmark replaces Resend for Worker-composed PLAY and ADMIN magic links |
+| [RFC-0032](RFC-0032-resend-auth-email-delivery.md) | **Accepted** | Resend is the sole hosted provider for Worker-composed PLAY and ADMIN magic links |
 | [RFC-0033](RFC-0033-agent-bootstrap-and-game-profile.md) | **Accepted** | Email-assisted bootstrap and optional game-only Controller skill/profile |
 | [RFC-0034](RFC-0034-watch-public-descriptors.md) | **Accepted** | GC3-S2: WATCH public descriptor bands from public events; else silent |
 | [RFC-0035](RFC-0035-institution-edges.md) | **Accepted** | GC3-S3: institution→player edges from authorized org records; no ROLE_* |
