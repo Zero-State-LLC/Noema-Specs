@@ -8,11 +8,11 @@ evidence_commits:
   #   derived as the Specs head at the instant the build was cut. Moves per publish.
   #   Mirrors Noema hosted_live.specs_git and must equal it.
   # They differ whenever Specs moves without a publish, which is the normal case.
-  production_specs_baseline: d73bdec
+  production_specs_baseline: 0bddbeb
   production_implements_specs: 81ca8c1
   production_successor_runtime: e1d44d5
   live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
-  advanced_worker_runtime: 66f2417d
+  advanced_worker_runtime: a0044a13
   lca1_delta_report: d933deb
   lca1_integrated_acceptance: be11b5c
 status_vocabulary:
@@ -61,7 +61,7 @@ runtimes:
       - integrated multi-agent civilization and endurance acceptance remain unproven
   advanced_worker_runtime:
     status: IMPLEMENTED_RUNTIME
-    evidence_commit: 66f2417d
+    evidence_commit: a0044a13
     evidence:
       - "Noema PR #551: https://github.com/Zero-State-LLC/Noema/pull/551"
       - "Noema PR #552: https://github.com/Zero-State-LLC/Noema/pull/552"
@@ -74,6 +74,7 @@ runtimes:
       - "Noema PR #568: https://github.com/Zero-State-LLC/Noema/pull/568"
       - "Noema PR #569: https://github.com/Zero-State-LLC/Noema/pull/569"
       - "Noema PR #561: https://github.com/Zero-State-LLC/Noema/pull/561"
+      - "Noema PR #570: https://github.com/Zero-State-LLC/Noema/pull/570"
       - workers/noema/src/actions.ts
       - workers/noema/src/world-actions.ts
       - workers/noema/test
@@ -91,7 +92,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema hosted_live.worker_version_id matches that live id after #568. Noema main 66f2417d adds Gate A candidate tests (#552), the production-alpha delta / cutover risk register (#551), older-format DO load (#565), isolated rollback rehearsal (#562), the successor-cutover boundary record (#564), residual closeout copy (#566), pin-on-publish automation (#567), the hosted connect cross-tab repair (#563), the hosted_live pin catch-up (#568), docs/devex only (#569), and owner-email device enrollment (#561, merged, unpublished). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
+    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema hosted_live.worker_version_id matches that live id after #568. Noema main a0044a13 adds Gate A candidate tests (#552), the production-alpha delta / cutover risk register (#551), older-format DO load (#565), isolated rollback rehearsal (#562), the successor-cutover boundary record (#564), residual closeout copy (#566), pin-on-publish automation (#567), the hosted connect cross-tab repair (#563), the hosted_live pin catch-up (#568), docs/devex only (#569), owner-email device enrollment (#561, merged, unpublished), and foreground CONNECT short-code approval across magic-link tabs (#570, on main, unpublished; uses #563 path; does not recreate it; no new verbs; no Genesis). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -138,7 +139,7 @@ capabilities:
     state: ACTIVE_INTEGRATION
     claim: Gate A is not complete. Noema PR #551 and Noema PR #552 are candidate evidence only.
     remaining_lca2_prerequisites:
-      - operator device enrollment (people step; live players 0; Noema #561 merged, unpublished; noema-client #24 remains open)
+      - operator device enrollment (people step; live players 0; Noema #561 merged, unpublished; noema-client #24 landed, unpublished)
     closed_lca2_prerequisites:
       - cross-version Durable Object load fixture (Noema #565 merged; closes #553; #557 superseded)
       - isolated Worker rollback rehearsal (Noema #562 merged; closes #555)
@@ -147,6 +148,7 @@ capabilities:
       - post-deploy pin-on-publish automation (Noema #567 merged; closes #554; #556 is the older stacked packet)
       - repaired hosted connect cross-tab flow (Noema #563 merged)
       - owner-email device enrollment Worker packet (Noema #561 merged, unpublished)
+      - repaired connect short-code packet (Noema #570 merged, unpublished; uses #563 path; does not recreate it)
   external_agent_population_gate_b:
     state: BLOCKED
     blocker: Gate A promotion and remaining LCA-2 prerequisites

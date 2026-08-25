@@ -103,13 +103,21 @@ def main() -> None:
         "d9aab067-e3ca-447c-bb8b-fccc59729bbf",
         "hosted_live.worker_version_id matches live",
         "Noema #561 merged, unpublished",
+        "Noema PR #570",
+        "a0044a13",
+        "noema-client #24 landed, unpublished",
+        "on main, unpublished",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
     if "2bb3a8b4" in state:
         fail("current state must not claim stale Worker 2bb3a8b4")
+    if "66f2417d" in state:
+        fail("advanced Worker pin 66f2417d is stale after Noema #570")
     if "in-flight Noema #561" in state:
         fail("Noema #561 is merged; do not call it in-flight")
+    if "noema-client #24 remains open" in state:
+        fail("noema-client #24 is landed; do not call it open")
 
     used = set(re.findall(r"\b[A-Z][A-Z_]+\b", state)) & STATUSES
     missing = STATUSES - used
@@ -140,10 +148,12 @@ def main() -> None:
         if marker not in acceptance:
             fail(f"acceptance missing marker: {marker}")
 
-    if "Gate A is complete" in campaign or "Gate A is complete" in acceptance:
+    if "Gate A is complete" in state or "Gate A is complete" in campaign or "Gate A is complete" in acceptance:
         fail("Gate A must not be promoted without remaining LCA-2 prerequisite evidence")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
+    if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:
+        fail("noema-client #24 is landed; do not call it open")
 
     corpus = "\n".join((ROOT / rel).read_text(encoding="utf-8") for rel in ONTOLOGY_AUTHORITY_FILES)
     for stale in FORBIDDEN_LIVE_GUIDANCE:
