@@ -121,7 +121,7 @@ capabilities:
     claim: Gate A is not complete. Noema PR #551 and Noema PR #552 are candidate evidence only.
     remaining_lca2_prerequisites:
       - operator device enrollment (people step; players 0; in-flight Noema #561, noema-client #24)
-      - cross-version Durable Object load fixture (Noema #557)
+      - cross-version Durable Object load fixture (Noema #565 onto main; #557 remains current-shaped on issue-553-public-recovery)
       - isolated Worker rollback rehearsal (Noema #562)
       - post-deploy pin-on-publish automation (Noema #556)
       - repaired hosted connect cross-tab flow (Noema #563 onto main; #559 remains stacked on #557)
