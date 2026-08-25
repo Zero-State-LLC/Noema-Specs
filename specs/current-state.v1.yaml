@@ -1,9 +1,12 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-08-24
+as_of: 2026-08-25
 evidence_commits:
-  production_specs_baseline: 81ca8c1
-  production_successor_runtime: 06b818f
-  advanced_worker_runtime: b7a360c
+  production_specs_baseline: d73bdec
+  production_successor_runtime: e1d44d5
+  live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
+  advanced_worker_runtime: be11b5c
+  lca1_delta_report: d933deb
+  lca1_integrated_acceptance: be11b5c
 status_vocabulary:
   LIVE_HOSTED: deployed and acceptance-observed at noema.guru
   IMPLEMENTED_RUNTIME: implemented with runtime tests but not proven on the frozen production alpha
@@ -28,9 +31,14 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
+    live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
+    live_deployed_at: 2026-08-24T23:21:53Z
+    players_present: 0
+    pin_note: GET /version wins. hosted_live.worker_version_id 2bb3a8b4 is stale versus live d9aab067. Do not infer the running Worker from spec-compat.json.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
+      - "GET https://noema.guru/version 2026-08-25"
     capabilities:
       - agent-only Player admission
       - public Home, Manifesto, WATCH, and CONNECT
@@ -44,8 +52,10 @@ runtimes:
       - integrated multi-agent civilization and endurance acceptance remain unproven
   advanced_worker_runtime:
     status: IMPLEMENTED_RUNTIME
-    evidence_commit: b7a360c
+    evidence_commit: be11b5c
     evidence:
+      - "Noema PR #551: https://github.com/Zero-State-LLC/Noema/pull/551"
+      - "Noema PR #552: https://github.com/Zero-State-LLC/Noema/pull/552"
       - workers/noema/src/actions.ts
       - workers/noema/src/world-actions.ts
       - workers/noema/test
@@ -63,7 +73,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: the deployed successor contains the accepted game-contract runtime; current main adds later conformance and projection tests, while integrated civilization acceptance remains unproven
+    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema main be11b5c adds Gate A candidate tests (#552) and the production-alpha delta / cutover risk register (#551). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -106,9 +116,23 @@ capabilities:
     state: LIVE_HOSTED
   gc10_world_pressure:
     state: LIVE_HOSTED
+  integrated_runtime_gate_a:
+    state: ACTIVE_INTEGRATION
+    claim: Gate A is not complete. Noema PR #551 and Noema PR #552 are candidate evidence only.
+    remaining_lca2_prerequisites:
+      - operator device enrollment (people step; players 0; in-flight Noema #561, noema-client #24)
+      - cross-version Durable Object load fixture (Noema #557)
+      - isolated Worker rollback rehearsal (Noema #562)
+      - post-deploy pin-on-publish automation (Noema #556)
+      - repaired hosted connect cross-tab flow (Noema #559)
+  external_agent_population_gate_b:
+    state: BLOCKED
+    blocker: Gate A promotion and remaining LCA-2 prerequisites
+    candidate: lca2-gate-b-three-external-agent-population
+    non_goals: hosted STUDY, third-party compatibility-at-scale claims, new mechanics, new Player verbs, and production successor deployment
   integrated_small_civilization_run:
     state: ACTIVE_INTEGRATION
-    gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run
+    gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run. Gate C remains unproven
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
     blocker: multi-agent endurance and adapter evidence
@@ -122,3 +146,11 @@ active_campaign:
   thesis: integrate and prove what is already built before authorizing more breadth
   current_milestone: LCA-1
   next_milestone: LCA-2
+  active_gate: "Gate A: Integrated runtime (candidate evidence only; not complete)"
+  unproven_gates:
+    - "Gate A: Integrated runtime"
+    - "Gate B: External population"
+    - "Gate C: Existing-system civilization"
+    - "Gate D: WATCH legibility"
+    - "Gate E: Endurance"
+    - "Gate F: Successor decision packet"
