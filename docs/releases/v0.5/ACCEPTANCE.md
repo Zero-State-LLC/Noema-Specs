@@ -24,3 +24,9 @@
 22. Failed capture remains queryable with status + reason + next action.
 23. RFC-0003 provenance/canonicalization is reused.
 24. No runtime Compiler implementation is added to this repository.
+25. Simple and advanced STUDY capture views derive from the same captured test; simple labels map exactly to `OBSERVED` / `INFERRED` / `SPECULATIVE` / `NOT_COMPUTABLE`.
+26. A regression result is scoped to a captured test and carries `not_a_global_ranking: true`.
+27. A captured test declares its generalization boundary; a scenario-exact result never implies behavior-family coverage.
+28. Counterexamples remain queryable after a later passing run; a pass never deletes recorded failure evidence.
+29. Research partition access never exposes private cognition, prompts, or provider completions; unauthorized research detail is refused.
+30. Compiler receipts and captured-test identities reuse RFC-0003 canonicalization and content hashing; no second provenance scheme is introduced.

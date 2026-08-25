@@ -20,6 +20,16 @@
 18. Simple PLAY/WATCH projections do not require Deep Time jargon.
 19. Simple and advanced views share the same subject IDs.
 20. No runtime Deep Time engine is added to this repository.
+21. Semantic lineage is explicit and machine-readable; derived meaning never becomes canonical ledger truth.
+22. Canonical machine IDs never mutate when cultural or display names change.
+23. Historical geography records prior states without rewriting the canonical ledger.
+24. World scars derive from ledgered events and carry an explicit domain and visibility.
+25. Inherited institutional identity is explicit (`SAME_ENTITY_EVOLVED` / `SUCCESSOR_ENTITY` / `NEW_ENTITY`).
+26. Historical snapshots remain separate from canonical state; a snapshot never substitutes for the ledger.
+27. PLAY projections expose Deep Time subjects without requiring Deep Time jargon.
+28. WATCH timeline projections carry no hidden state and no research-only scalars.
+29. STUDY longitudinal questions are answered from ledgered evidence and keep explicit claim labels.
+30. Lore never overrides canonical evidence, and Deep Time provenance reuses RFC-0003 canonicalization.
 
 ### Genesis (admin-only)
 
