@@ -4,7 +4,7 @@ evidence_commits:
   production_specs_baseline: d73bdec
   production_successor_runtime: e1d44d5
   live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
-  advanced_worker_runtime: be11b5c
+  advanced_worker_runtime: ca8e291
   lca1_delta_report: d933deb
   lca1_integrated_acceptance: be11b5c
 status_vocabulary:
@@ -52,10 +52,13 @@ runtimes:
       - integrated multi-agent civilization and endurance acceptance remain unproven
   advanced_worker_runtime:
     status: IMPLEMENTED_RUNTIME
-    evidence_commit: be11b5c
+    evidence_commit: ca8e291
     evidence:
       - "Noema PR #551: https://github.com/Zero-State-LLC/Noema/pull/551"
       - "Noema PR #552: https://github.com/Zero-State-LLC/Noema/pull/552"
+      - "Noema PR #565: https://github.com/Zero-State-LLC/Noema/pull/565"
+      - "Noema PR #562: https://github.com/Zero-State-LLC/Noema/pull/562"
+      - "Noema PR #564: https://github.com/Zero-State-LLC/Noema/pull/564"
       - workers/noema/src/actions.ts
       - workers/noema/src/world-actions.ts
       - workers/noema/test
@@ -73,7 +76,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema main be11b5c adds Gate A candidate tests (#552) and the production-alpha delta / cutover risk register (#551). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
+    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema main ca8e291 adds Gate A candidate tests (#552), the production-alpha delta / cutover risk register (#551), older-format DO load (#565), isolated rollback rehearsal (#562), and the successor-cutover boundary record (#564). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -121,10 +124,12 @@ capabilities:
     claim: Gate A is not complete. Noema PR #551 and Noema PR #552 are candidate evidence only.
     remaining_lca2_prerequisites:
       - operator device enrollment (people step; players 0; in-flight Noema #561, noema-client #24)
-      - cross-version Durable Object load fixture (Noema #565 onto main; #557 remains current-shaped on issue-553-public-recovery)
-      - isolated Worker rollback rehearsal (Noema #562)
-      - post-deploy pin-on-publish automation (Noema #556)
-      - repaired hosted connect cross-tab flow (Noema #563 onto main; #559 remains stacked on #557)
+      - post-deploy pin-on-publish automation (Noema #556; deploys production; human-only)
+      - repaired hosted connect cross-tab flow (Noema #563 onto main; auth-flagged for human)
+    closed_lca2_prerequisites:
+      - cross-version Durable Object load fixture (Noema #565 merged; closes #553; #557 superseded)
+      - isolated Worker rollback rehearsal (Noema #562 merged; closes #555)
+      - successor-cutover frozen-world boundary record (Noema #564 merged)
   external_agent_population_gate_b:
     state: BLOCKED
     blocker: Gate A promotion and remaining LCA-2 prerequisites
