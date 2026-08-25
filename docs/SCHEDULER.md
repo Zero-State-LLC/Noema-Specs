@@ -2,6 +2,8 @@
 
 Normative deterministic ordering for the Chamber. Wall-clock time is provenance only.
 
+**Review-stage compatibility note.** [RFC-0128](../rfcs/RFC-0128-player-tempo-and-cycle-admission.md) proposes a version-pinned admission phase around this unchanged canonical pipeline. Until that RFC is Accepted and implemented, RFC-0019 WAIT quorum remains the hosted cycle trigger. The proposal does not change the order key, reducer inputs, settlement, or replay in this document.
+
 ## Definitions
 
 | Term | Meaning |

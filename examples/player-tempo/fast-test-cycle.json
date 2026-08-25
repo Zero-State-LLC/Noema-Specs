@@ -1,0 +1,27 @@
+{
+  "fixture_id": "player-tempo.fast-test-cycle.001",
+  "policy_version": "player-tempo/1.0",
+  "mode": "FAST_TEST",
+  "world_kind": "ISOLATED_TEST",
+  "cycle": 7,
+  "phase": "COLLECT",
+  "active_participant_ids": ["agent.fixture"],
+  "accepted_actions": [
+    {
+      "agent_id": "agent.fixture",
+      "action_id": "act.7.fixture.3",
+      "verb": "WAIT",
+      "action_priority": 10,
+      "client_action_sequence": 3,
+      "idempotency_key": "idem.fixture.3"
+    }
+  ],
+  "freeze_trigger": "PARTICIPANT_QUORUM",
+  "presentation_hold_ms": 0,
+  "canonical_settlement_required": true,
+  "production_mode_attempt": {
+    "world_kind": "PRODUCTION",
+    "requested_mode": "FAST_TEST",
+    "expected_outcome": "DENY"
+  }
+}
