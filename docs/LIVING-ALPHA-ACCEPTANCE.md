@@ -12,7 +12,7 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 - **Gate A is not complete.** Noema PR #551 (`d933deb`) and Noema PR #552 (`be11b5c`) are Gate A candidate evidence on the implementation plane. They are not a production deployment, hosted STUDY, or research claim.
 - Current milestone remains LCA-1. Gate B candidate `lca2-gate-b-three-external-agent-population` is named only. It does not open until remaining LCA-2 prerequisites have acceptance evidence.
 - Closed LCA-2 packets: older-world Durable Object load (Noema #565, closes #553) and isolated rollback rehearsal (Noema #562, closes #555).
-- Remaining LCA-2 prerequisites: operator device enrollment (live `players` 0), post-deploy pin automation (Noema #556), repaired hosted connect flow (Noema #563).
+- Remaining LCA-2 prerequisites: operator device enrollment (live `players` 0), post-deploy pin automation (Noema #567 onto current main; #556 is the older stacked packet), repaired hosted connect flow (Noema #563).
 - Gate C remains unproven. No compatibility-at-scale claim follows from candidate tests.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
