@@ -84,8 +84,15 @@ def main() -> None:
         f"evidence_commit: {evidence_commit}",
         "world: world.perihelion-reach-3",
         "required_endpoints: [/ready, /version]",
+        "Noema PR #551",
+        "Noema PR #552",
+        "current_milestone: LCA-1",
+        "Gate A is not complete",
+        "remaining_lca2_prerequisites:",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
+        "Gate C remains unproven",
+        "d9aab067-e3ca-447c-bb8b-fccc59729bbf",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
@@ -96,9 +103,31 @@ def main() -> None:
         fail(f"status vocabulary not exercised: {sorted(missing)}")
 
     campaign = (ROOT / "docs/LIVING-CIVILIZATION-ALPHA.md").read_text(encoding="utf-8")
-    for marker in ("not a greenfield feature campaign", "LCA-1", "LCA-5", "IMPLEMENTED_RUNTIME"):
+    for marker in (
+        "not a greenfield feature campaign",
+        "LCA-1",
+        "LCA-5",
+        "IMPLEMENTED_RUNTIME",
+        "Gate A is not complete",
+        "remaining LCA-2 prerequisites",
+        "Gate C remains unproven",
+    ):
         if marker not in campaign:
             fail(f"campaign missing marker: {marker}")
+
+    acceptance = (ROOT / "docs/LIVING-ALPHA-ACCEPTANCE.md").read_text(encoding="utf-8")
+    for marker in (
+        "Gate A is not complete",
+        "lca2-gate-b-three-external-agent-population",
+        "Gate C remains unproven",
+        "compatibility-at-scale claim",
+        "remaining LCA-2 prerequisites",
+    ):
+        if marker not in acceptance:
+            fail(f"acceptance missing marker: {marker}")
+
+    if "Gate A is complete" in campaign or "Gate A is complete" in acceptance:
+        fail("Gate A must not be promoted without remaining LCA-2 prerequisite evidence")
 
     corpus = "\n".join((ROOT / rel).read_text(encoding="utf-8") for rel in ONTOLOGY_AUTHORITY_FILES)
     for stale in FORBIDDEN_LIVE_GUIDANCE:
