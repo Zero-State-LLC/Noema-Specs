@@ -3,7 +3,7 @@
 **Authority:** integration map for [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md).  
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
-The project already has substantial implementation. Noema PR #551 and Noema PR #552 are Gate A candidate evidence only. **Gate A is not complete.** This matrix identifies the remaining proof required to promote that work into a coherent hosted civilization. Gate C remains unproven.
+The project already has substantial implementation. Noema PR #551 and Noema PR #552 are Gate A candidate evidence only. **Gate A is not complete.** This matrix identifies the remaining proof required to promote that work into a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
 | Capability | Existing implementation evidence | Current plane | Remaining integration proof | Campaign gate |
 |---|---|---|---|---|

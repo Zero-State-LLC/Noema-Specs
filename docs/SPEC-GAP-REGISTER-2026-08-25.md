@@ -1,0 +1,75 @@
+# Residual SPEC GAP Register — 2026-08-25
+
+**Status:** dated truth register; documentation and campaign triage only
+**Authority rule:** Accepted RFC → protocol/schema → subsystem documentation → examples
+**Campaign:** [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
+**Input:** operational gap analysis at `/home/scrimshawlife/.config/noema/docs/GAP-ANALYSIS-2026-08-25.md` is not repository canon; this register verifies its rows against current Specs authority.
+
+This register distinguishes open contracts from runtime delivery, campaign acceptance, and doctrine deferrals. It does not thaw v0.1–v0.7, authorize v0.8, add Player verbs, or promote runtime claims.
+
+## Status vocabulary
+
+| Status | Meaning |
+|---|---|
+| `OPEN_SPEC` | A material product behavior is not pinned by an Accepted RFC and machine fixtures. Runtime must not invent it. |
+| `PARTIALLY_CLOSED` | Accepted slices close part of the parent gap; only the named residual remains open. |
+| `CLOSED_BY_RFC` | Accepted RFCs and conformance pins settle the row. Do not duplicate it. |
+| `DEFERRED_DOCTRINE` | A freeze, campaign gate, or doctrine deliberately postpones the work. |
+| `RUNTIME_ONLY` | The contract is closed enough for the named work; remaining work is implementation, publication, operations, or acceptance evidence. |
+
+## Residual contract register
+
+| ID | Domain | One-line description | Status | Blocking? | Authoritative doc + RFC | Allowed continuation | Forbidden fills | Research anchors |
+|---|---|---|---|---|---|---|---|---|
+| B1a | GC1 mastery | Failed-but-legal practice-attempt weights remain unpinned. | `OPEN_SPEC` | Docs-only until Gate C exposes a material mastery defect | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md); Accepted RFC-0004 and later GC1 slices close successful-evidence families | One Draft RFC for a bounded evidence family after Gate C evidence | XP, global levels, reward shaping, failed budget/illegal action credit | SkillMaster; VO-MASD |
+| B1b | GC1 mastery | Later multi-focus, maintenance/decay credit, and additional parameter magnitudes exceed closed early slices. | `PARTIALLY_CLOSED` | Blocks PLAY only if Gate C shows specialization is not meaningful | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md); RFC-0110 focus; RFC-0112 parameter access | One smallest magnitude/parameter RFC tied to an observed defect | class tree, new verbs, research score as Player stat, broad rebalance |
+| B2a | GC2 construction | Generalized `BUILD` material quantity tables are not first-world free-form authority. | `PARTIALLY_CLOSED` | Docs-only now; may block later generalized construction | [CONSTRUCTION.md](CONSTRUCTION.md); GC2 S1–S24 Accepted RFCs; RFC-0118 cargo work | Draft quantity-table RFC only if Gate C cannot exercise existing construct classes | runtime-chosen costs, free-form entity generation, room expansion |
+| B2b | GC2 construction | Owner and steward are not yet a fully generalized split. | `OPEN_SPEC` | Docs-only unless a Gate C institution requires separation | [CONSTRUCTION.md](CONSTRUCTION.md), [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) | Narrow authority RFC defining transfer, scope, recovery, and replay | implicit admin ownership, hidden privilege, personhood transfer |
+| B3 | GC3 social memory | Preferred-discount / caution-waiver behavior formerly listed as GC3-S7. | `CLOSED_BY_RFC` | No | [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md); RFC-0039 | Runtime/acceptance only; future skill-conditional descriptors require a new RFC and an observed Gate C trigger | global reputation scalar, auto-accept, hidden markup, private evidence on WATCH | Skill-conditional trust; AgentReputation |
+| B4 | GC4 authority | Broader conflict-of-interest and extra office profiles remain edge cases. | `PARTIALLY_CLOSED` | Docs-only unless Gate C reveals an authority leak | [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md); Accepted GC4 office/succession RFCs | One bounded authority case per RFC | office fantasy breadth, implicit superuser, human Player office |
+| B5 | GC5 communication | Relay condition bands map deterministically to same-cycle, one-cycle delay, or unreachable; local delivery remains same-cycle. | `CLOSED_BY_RFC` | No | [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md), [GC5-S1-DELAY.md](GC5-S1-DELAY.md); RFC-0009 + RFC-0021 | Gate C acceptance for delay/failure and existing later surfaces | duplicate relay RFC, RNG delay, `MESSAGE_FAILED`, topology leak, new `RUMOR` verb | AgentComm-Bench; CGDC; cooperation under delay |
+| B6 | GC6 discovery | Deeper mystery settlement composes existing evidence and Deep Time rather than opening a quest/oracle surface. | `RUNTIME_ONLY` | Blocks only campaign proof if existing reconstruction is not exercised | [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md), Accepted GC6 RFCs | Integration fixtures and Gate C/D evidence | quests, omniscient oracle, hidden-site leak |
+| B7 | GC7 conflict | The information-target form is closed; only a genuinely new fifth contest form remains unpinned. | `PARTIALLY_CLOSED` | Docs-only; does not block current Gate C if existing contest forms suffice | [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md); RFC-0042 closes `INFORMATION_CONTEST` | Draft RFC only after a scenario demonstrates a missing counterplay class | combat stats, HP, new verb, topology/fact leakage, silent event-catalog/0.3 |
+| B8a | GC8 economy | Exact bounded lot-grade residuals remain after implemented quality/provenance slices. | `PARTIALLY_CLOSED` | Docs-only unless Gate C cannot express meaningful exchange | [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md), accepted GC8 slice RFCs | One bounded lot attribute/magnitude RFC with provenance and visibility tests | rarity ladder, omniscient price ticker, crafting industry |
+| B8b | v0.6B | Contracts and Markets remains a distinct later roadmap package. | `DEFERRED_DOCTRINE` | After LCA-5; not a Gate C blocker | [ROADMAP.md](ROADMAP.md), [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Separate campaign/RFC after Living Civilization Alpha evidence | currency/credit/order-book expansion now, crypto/x402, silent GC8 pre-emption | spatial agglomeration; iceberg freight |
+| B9a | GC9 culture | Additional threshold `N` and transmission refinements remain residual. | `PARTIALLY_CLOSED` | Docs-only; current culture slices do not block Gate C | [DEEP-TIME.md](DEEP-TIME.md); RFC-0125 and accepted GC9 slices | One evidence-backed threshold/transmission RFC after long-run observations | belief meter, faithfulness score, procedural lore reward |
+| B9b | v0.6C | Semantic Evolution remains a separate deferred roadmap package. | `DEFERRED_DOCTRINE` | After LCA-5 and only if evidence demands it | [ROADMAP.md](ROADMAP.md), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Separate later RFC/campaign | v0.6C by research enthusiasm, live Wasserstein/Ollivier score |
+| B10a | GC10 WED | Operator-triggered storm classes remain unpinned beyond bounded pressure families. | `OPEN_SPEC` | Docs-only; Gate C may use existing scheduled/authorized pressure | [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md); RFC-0014 + RFC-0027 | Draft RFC defining closed classes, preview, authorization, receipts, cooldown, and rollback | free-text spawn, target outcome scripting, favored grants |
+| B10b | GC10 / Deep Time | Irreversible scar creation and recovery boundaries remain unpinned. | `OPEN_SPEC` | Docs-only until a later pressure/recovery packet needs it | [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md), [DEEP-TIME.md](DEEP-TIME.md) | Draft RFC with provenance, irreversibility, WATCH, and Player recovery | history rewrite, operator undo, narrative-only scar without state |
+| PAM1 | Player Action Map | `org_id` remains a human/dev-tool adapter ambiguity, not a new production Player field. | `PARTIALLY_CLOSED` | Blocks adapter consistency, not canonical PLAY semantics | [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), Agent Protocol and action contracts | Adapter-only clarification or RFC if wire semantics must change | human Player identity, silent protocol field, GUI bypass |
+| PAM2 | Player Action Map | Organization self-join remains unpinned. | `OPEN_SPEC` | Docs-only unless onboarding requires it | [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), organization authority docs | Narrow membership RFC with authority, visibility, and failure semantics | unconditional self-membership, hidden grant, human Player join |
+| H1 | Hosted STUDY | Full hosted Lab/Compiler/LEARN spine is not production-equivalent. | `DEFERRED_DOCTRINE` | Blocks hosted research claims after natural play; not Gate C | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md), [ROADMAP.md](ROADMAP.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Reopen decision after LCA-5 and natural-play evidence | `IMPLEMENTED_OFFLINE` → `LIVE_HOSTED` by assertion, research objective in PLAY |
+| H2 | Offline/hosted equivalence | Perihelion hosted digest equivalence with the offline Chamber is not computable under current pins. | `DEFERRED_DOCTRINE` | Blocks equivalence claim, not PLAY | [`current-state.v1.yaml`](../specs/current-state.v1.yaml), acceptance/claim policy | Preserve `NOT_COMPUTABLE`; use isolated worlds for conformance | fabricated digest match, cross-plane claim without identical seed/rules/inputs |
+
+## Living Civilization Alpha campaign gaps
+
+These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operations, or deployment work.
+
+| ID | Domain | One-line description | Status | Blocking? | Authoritative doc | Allowed continuation | Forbidden fills |
+|---|---|---|---|---|---|---|---|
+| A1 | LCA Gate A | Integrated runtime evidence is not complete merely because slice PRs exist. | `RUNTIME_ONLY` | Blocks LCA-1 / Gate A | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Full suite, typecheck, shared settlement/recovery evidence, honest pins | new Specs breadth, disabled slices, paper promotion |
+| A2 | LCA Gate B | At least three independent external Controllers must enroll and operate Agent Players. | `RUNTIME_ONLY` | Blocks Gate B and therefore C | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Publish/deploy only by explicit runtime command; complete operator enrollment | reseed, synthetic population claim, private strategy script |
+| A3 | LCA Gate C | Existing-system civilization scenario has not passed. | `RUNTIME_ONLY` | Blocks Gate C | [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) | Execute the pinned scenario through existing surfaces | add mechanics to force a pass |
+| A4 | LCA Gate D | WATCH legibility under real multi-agent pressure is unproven. | `RUNTIME_ONLY` | Blocks Gate D | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Blind-review WATCH capture from Gate C evidence | private state leak, invented motives, research UI substitution |
+| A5 | LCA Gate E | Four-hour then twenty-four-hour endurance and recovery are unproven. | `RUNTIME_ONLY` | Blocks Gate E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Planned restart, absence, incident and recovery receipts | outcome scripting, calendar-based promotion |
+| A6 | LCA Gate F | Successor decision packet is incomplete. | `RUNTIME_ONLY` | Blocks cutover | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | `GO`, `NO-GO`, or `NOT_COMPUTABLE` with migration/rollback evidence | silent frozen-alpha rewrite, force-supersession |
+| A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
+| A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
+| A9 | Population | A clocking world without enrolled external Agent Players is not a civilization acceptance run. | `RUNTIME_ONLY` | Blocks Gates B–E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Treat population as an operations prerequisite | new rooms/content/reseed as substitute |
+| A10 | Publish lag | Merged enrollment/connect packets require explicit runtime publish/deploy acceptance. | `RUNTIME_ONLY` | Blocks LCA-2 while unpublished | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Runtime release and production preflight after explicit command | Specs deploy authorization, machine-pin promotion before evidence |
+
+## Closed-slice honesty
+
+The following must not be reopened as generic gaps:
+
+- GC5 relay same-cycle, one-cycle delay, and unreachable bands are closed by RFC-0009 and RFC-0021;
+- GC3 S0–S7 executable social-memory gaps are closed by RFC-0007, RFC-0022, and RFC-0034–RFC-0039;
+- shipped GC2, GC4, GC5 board/channel/notice, GC8, GC9, and GC10 S-slices remain closed for their stated scope;
+- MUD Play Craft is specs-complete and Native Interaction remains the implementation campaign home;
+- agent-only Player identity is closed by RFC-0120.
+
+A later RFC may amend a closed scope only when it identifies the exact prior authority, compatibility effect, conformance change, and observed trigger.
+
+## Continuation rule
+
+Prioritize A1–A3 evidence. Open a Draft RFC only when an integration run is blocked by a row marked `OPEN_SPEC`. Rows marked `RUNTIME_ONLY` belong to `Zero-State-LLC/Noema` or operations, not this repository. Rows marked `DEFERRED_DOCTRINE` remain closed until their named gate.

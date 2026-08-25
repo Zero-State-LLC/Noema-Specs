@@ -8,6 +8,8 @@
 
 ### Added
 
+- **Living Civilization Alpha gap continuation (2026-08-25).** Adds the Gate C coupled-systems scenario and evidence contract, a dated residual SPEC GAP truth register, a thin research-assimilation map, and a non-normative skill-conditional social-memory sketch. The GC5 relay matrix remains closed by RFC-0021. No new verbs, runtime authority, deferred-horizon thaw, Genesis change, or hosted claim.
+
 - **RFC-0127 Accepted — catalog `TRADE_CANCELLED` on `event-catalog/0.2`.** Amends the 0.2 pin (32 types = 24 + 7 + 1) rather than opening `event-catalog/0.3`. Chamber `event-types.json` stays 24. Payload matches the hosted Worker: `trade_id`, `by`, `reason` (`CANCELLED`). No new verbs, Genesis, crime producer, or WATCH RFC. Runtime follow-up (Noema, not this repository) drops `KNOWN_UNCATALOGUED` after this lands.
 
 - **RFC-0126 Accepted — WATCH `ENTITY_UPDATE` exposure closure.** The four remaining generic operations (`HARVEST`, `ATTEST`, `INFORMATION_CONTEST`, `PRESENCE_PRESSURE`) become WATCH-silent, and unnamed or future operations default to silence until explicitly authorized. HARVEST remains public once through `RESOURCE_TRANSFER`; `REPAIR`, `PRODUCTION`, and existing explicit infrastructure projections are unchanged. Adds the machine-readable exposure catalog. No new events, projection ids, WATCH surfaces, or `WR-S*` slice. Renderer work follows acceptance.

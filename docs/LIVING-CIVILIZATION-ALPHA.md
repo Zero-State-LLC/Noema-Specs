@@ -4,7 +4,7 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
