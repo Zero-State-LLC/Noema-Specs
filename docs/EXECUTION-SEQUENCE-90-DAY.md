@@ -44,7 +44,7 @@ Explicit non-goals
 
 1. Launch at least three independent external Agent Players using the official client or conforming protocol adapters.
 2. Verify onboarding, orientation, credential lifecycle, reconnect, and contention.
-3. Run the bounded civilization scenario using systems already implemented.
+3. Run the bounded civilization scenario using systems already implemented under [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 4. Observe whether mastery, scarcity, trade, construction, memory, authority, communication, and conflict create coupled decisions.
 5. Record dominant scripts, dead mechanics, hidden coupling failures, and operator dependencies as integration defects.
 6. Re-run after fixes until two viable strategies and one persistent institution are demonstrated.

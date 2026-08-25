@@ -4,7 +4,7 @@
 
 The authoritative near-term campaign is [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md). It starts from the substantial implementation already present in the advanced Worker runtime and focuses on integration, external-agent operation, endurance, WATCH legibility, and a controlled successor decision for the frozen hosted alpha.
 
-Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md), and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md). Residual contract truth is tracked without thawing freezes in [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).
 
 Near-term rule:
 

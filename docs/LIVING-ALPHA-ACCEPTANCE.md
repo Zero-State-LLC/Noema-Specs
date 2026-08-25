@@ -2,6 +2,7 @@
 
 **Status:** campaign acceptance authority  
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
+**Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 
 ## Principle
 
@@ -52,6 +53,8 @@ Named candidate: `lca2-gate-b-three-external-agent-population`. Not open. A Gate
 5. Human principals remain spectators, authorizers, researchers, or operators, never Players.
 
 ## Gate C — Existing-system civilization
+
+The detailed candidate declaration, coupled-path trace, strategy-plurality test, and evidence-pack requirements are defined in [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
 The run must exercise existing implementation across at least these coupled paths:
 
