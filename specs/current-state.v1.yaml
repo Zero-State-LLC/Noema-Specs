@@ -1,7 +1,15 @@
 schema_version: noema-current-state/1.0
 as_of: 2026-08-25
 evidence_commits:
+  # Two different questions, previously collapsed into one field.
+  # production_specs_baseline: the Specs commit this direction package is written
+  #   against, i.e. this repository's own head. Tracks main.
+  # production_implements_specs: the Specs commit the LIVE WORKER BUILD implements,
+  #   derived as the Specs head at the instant the build was cut. Moves per publish.
+  #   Mirrors Noema hosted_live.specs_git and must equal it.
+  # They differ whenever Specs moves without a publish, which is the normal case.
   production_specs_baseline: d73bdec
+  production_implements_specs: 81ca8c1
   production_successor_runtime: e1d44d5
   live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
   advanced_worker_runtime: 66f2417d
@@ -35,6 +43,7 @@ runtimes:
     live_deployed_at: 2026-08-24T23:21:53.680808Z
     players_present: 0
     pin_note: GET /version is the running Worker. Noema hosted_live.worker_version_id matches live d9aab067 after #568.
+    specs_pin_note: The successor source e1d44d5 was cut at 2026-08-24T23:21:26Z; Specs head at that instant was 81ca8c1 (#288), so that is the commit this build implements and it equals Noema hosted_live.specs_git. d73bdec (#289) landed 23:36:58Z, after the cut, and changes no contract the Worker implements.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
