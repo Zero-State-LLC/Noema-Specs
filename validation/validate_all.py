@@ -10447,6 +10447,111 @@ def check_rfc_0120(Draft202012Validator) -> None:
     ok("RFC-0120 agent-only Player identity: catalog, constitution, fixtures")
 
 
+def check_conformance_requirement_refs() -> None:
+    """Every conformance case must cite requirements that still exist.
+
+    626 cases carry 873 `requirement_refs` and nothing checked them, so a case
+    could cite a section deleted years ago and still read as authoritative at
+    acceptance time.
+
+    Anchors follow two conventions that are real and easy to mistake for rot:
+
+    * `#N` is acceptance ITEM N, a numbered list entry, not a heading. The
+      case's own `acceptance_items` corroborates it.
+    * `#gN` is Genesis item `GN.` under "Genesis (admin-only)" in the v0.6
+      package.
+
+    A heading-anchor checker unaware of both flags 368 of 369 anchored refs as
+    broken. They are not; encoding the conventions here is what keeps the next
+    audit from re-deriving them.
+    """
+    import re as _re
+
+    def heading_anchors(text: str) -> set:
+        found = set()
+        for line in text.splitlines():
+            if not line.startswith("#"):
+                continue
+            slug = _re.sub(r"[^a-z0-9 \-]", "", line.lstrip("#").strip().lower())
+            found.add(slug.replace(" ", "-"))
+        return found
+
+    def numbered_items(text: str) -> set:
+        return {m.group(1) for m in _re.finditer(r"^\s*(\d+)\.\s", text, _re.M)}
+
+    def genesis_items(text: str) -> set:
+        return {m.group(1).lower() for m in _re.finditer(r"^\s*(G\d+)\.\s", text, _re.M)}
+
+    # SPEC DEFECT, recorded not repaired. Two release packages declare a
+    # conformance suite wider than their own acceptance list:
+    #
+    #   v0.5  CONFORMANCE declares P01-P30 and names families P25-P30;
+    #         ACCEPTANCE stops at item 24. Cases cite items 25-30.
+    #   v0.6  CONFORMANCE declares D01-D30; ACCEPTANCE stops at item 20.
+    #         Cases cite items 21-30.
+    #
+    # 48 cases cite an acceptance criterion that does not exist, so those
+    # families cannot be accepted against a written requirement. Authoring 16
+    # acceptance items is a normative change (SKILL.SPEC_CHANGE), not a repair
+    # a validator may make, so the gap is named here instead of invented.
+    #
+    # Listed so a NEW dangling reference still fails, and so these entries
+    # cannot outlive the fix: when the items are written the exception stops
+    # matching and the assertion below demands its own removal.
+    known_dangling = {f"docs/releases/v0.5/ACCEPTANCE.md#{n}" for n in range(25, 31)} | {
+        f"docs/releases/v0.6/ACCEPTANCE.md#{n}" for n in range(21, 31)
+    }
+    seen_dangling = set()
+
+    manifests = sorted((ROOT / "conformance").glob("*/manifest.json"))
+    if len(manifests) < 10:
+        fail(f"expected at least 10 conformance suites, found {len(manifests)}")
+    cache: dict = {}
+    cases = 0
+    refs = 0
+    for manifest_path in manifests:
+        manifest = load_json(manifest_path)
+        base = manifest_path.parent
+        for rel in manifest.get("cases", []):
+            case_path = base / rel
+            if not case_path.is_file():
+                fail(f"conformance case missing: {case_path}")
+            case = load_json(case_path)
+            cases += 1
+            for fixture in case.get("fixtures", []):
+                if not (ROOT / fixture).exists():
+                    fail(f"{case['case_id']} cites missing fixture {fixture}")
+            for ref in case.get("requirement_refs", []):
+                refs += 1
+                doc, _, anchor = ref.partition("#")
+                target = ROOT / doc
+                if not target.is_file():
+                    fail(f"{case['case_id']} cites missing requirement doc {doc}")
+                if not anchor:
+                    continue
+                if doc not in cache:
+                    text = target.read_text(encoding="utf-8")
+                    cache[doc] = (heading_anchors(text), numbered_items(text), genesis_items(text))
+                headings, items, gitems = cache[doc]
+                low = anchor.lower()
+                if low in headings or anchor in items or low in gitems:
+                    continue
+                if ref in known_dangling:
+                    seen_dangling.add(ref)
+                    continue
+                fail(f"{case['case_id']} cites unresolvable requirement anchor {ref}")
+    if seen_dangling != known_dangling:
+        fixed = sorted(known_dangling - seen_dangling)
+        fail(
+            "known-dangling v0.5/v0.6 acceptance refs no longer match; "
+            f"drop them from known_dangling: {fixed}"
+        )
+    ok(
+        f"Conformance cases cite live requirements ({cases} cases, {refs} refs; "
+        f"{len(known_dangling)} known-dangling v0.5/v0.6 acceptance items)"
+    )
+
+
 def check_rfc_0121() -> None:
     rfc = (ROOT / "rfcs" / "RFC-0121-perihelion-successor-world-version.md").read_text(encoding="utf-8")
     if "**Accepted**" not in rfc.split("## Status", 1)[-1].split("##", 1)[0]:
@@ -10725,6 +10830,7 @@ def main() -> None:
     check_gc8_s7(Draft202012Validator)
     check_rfc_0120(Draft202012Validator)
     check_rfc_0121()
+    check_conformance_requirement_refs()
     check_rfc_0126_watch_entity_update_exposure()
     check_rfc_0127(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
