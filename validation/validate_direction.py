@@ -83,6 +83,12 @@ def main() -> None:
         value = parsed.get("evidence_commits", {}).get(key)
         if not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{7,40}", value):
             fail(f"{key} must be a Git commit")
+    if parsed.get("evidence_commits", {}).get("production_specs_baseline") != "492ccc9":
+        fail("production Specs baseline must pin canonical main 492ccc9 used for Gate A promotion")
+    if parsed.get("capabilities", {}).get("integrated_small_civilization_run", {}).get("state") != "BLOCKED":
+        fail("Gate C run must remain BLOCKED until Gate B passes")
+    if parsed.get("active_campaign", {}).get("state") != "ACTIVE_INTEGRATION":
+        fail("Living Civilization Alpha campaign must remain ACTIVE_INTEGRATION")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
     if not isinstance(implemented, list) or len(implemented) < 10:
         fail("advanced Worker implementation inventory is incomplete")
@@ -91,6 +97,7 @@ def main() -> None:
         "advanced_worker_runtime:",
         f"evidence_commit: {evidence_commit}",
         "production_implements_specs:",
+        "production_specs_baseline: 492ccc9",
         "world: world.perihelion-reach-3",
         "required_endpoints: [/ready, /version]",
         "Noema PR #551",
@@ -110,6 +117,8 @@ def main() -> None:
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
+    if "0bddbeb" in state:
+        fail("production Specs baseline 0bddbeb is stale after canonical main 492ccc9")
     if "2bb3a8b4" in state:
         fail("current state must not claim stale Worker 2bb3a8b4")
     if "66f2417d" in state:

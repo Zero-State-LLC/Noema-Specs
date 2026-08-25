@@ -2,13 +2,13 @@ schema_version: noema-current-state/1.0
 as_of: 2026-08-25
 evidence_commits:
   # Two different questions, previously collapsed into one field.
-  # production_specs_baseline: the Specs commit this direction package is written
-  #   against, i.e. this repository's own head. Tracks main.
+  # production_specs_baseline: the canonical Specs main commit this promotion
+  #   was authored against. It is an evidence anchor, not a self-referential head.
   # production_implements_specs: the Specs commit the LIVE WORKER BUILD implements,
   #   derived as the Specs head at the instant the build was cut. Moves per publish.
   #   Mirrors Noema hosted_live.specs_git and must equal it.
   # They differ whenever Specs moves without a publish, which is the normal case.
-  production_specs_baseline: 0bddbeb
+  production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
   live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
@@ -160,7 +160,8 @@ capabilities:
     candidate: lca2-gate-b-three-external-agent-population
     non_goals: hosted STUDY, third-party compatibility-at-scale claims, new mechanics, new Player verbs, and production successor deployment
   integrated_small_civilization_run:
-    state: ACTIVE_INTEGRATION
+    state: BLOCKED
+    blocker: Gate B external population and canonical operator enrollment have not passed
     gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run. Gate C remains unproven
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
@@ -172,6 +173,7 @@ capabilities:
     state: DEFERRED
 active_campaign:
   id: living-civilization-alpha
+  state: ACTIVE_INTEGRATION
   thesis: integrate and prove what is already built before authorizing more breadth
   current_milestone: LCA-2
   next_milestone: LCA-3

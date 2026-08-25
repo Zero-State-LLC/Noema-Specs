@@ -19,7 +19,7 @@ Acceptance Gate A is complete. The production-hosted runtime and its retained ev
 | World identity | `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` |
 | Complete validation | Authoritative CI: 216 test files and 1,483 tests passed with no skips; Worker typecheck passed |
 | Local whole-result rerun | 215 files passed, 1 environment-gated file skipped; 1,470 tests passed, 13 environment-gated tests skipped; typecheck passed |
-| Hosted boundaries | Public `/version`, `/ready`, and WATCH observations agreed with the live Worker, world, Genesis, and advancing canonical sequence |
+| Hosted boundaries | Public `/version`, `/ready`, and WATCH observations agreed on the live Worker, world, Genesis, and captured canonical head |
 | Integration boundaries | Integrated scenario, settlement, replay, compatibility, older-state load, restart/recovery, rollback, cutover, route-drift, and pin-currency checks passed |
 | Post-merge verification | Noema main CI and CodeQL passed on `a6b7e4b969a05ffb71323a2cf4812cffc8df66ef` |
 
