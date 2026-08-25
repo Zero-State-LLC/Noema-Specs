@@ -124,7 +124,7 @@ capabilities:
       - cross-version Durable Object load fixture (Noema #557)
       - isolated Worker rollback rehearsal (Noema #562)
       - post-deploy pin-on-publish automation (Noema #556)
-      - repaired hosted connect cross-tab flow (Noema #559)
+      - repaired hosted connect cross-tab flow (Noema #563 onto main; #559 remains stacked on #557)
   external_agent_population_gate_b:
     state: BLOCKED
     blocker: Gate A promotion and remaining LCA-2 prerequisites
