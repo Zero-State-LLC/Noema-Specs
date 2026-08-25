@@ -10482,27 +10482,10 @@ def check_conformance_requirement_refs() -> None:
     def genesis_items(text: str) -> set:
         return {m.group(1).lower() for m in _re.finditer(r"^\s*(G\d+)\.\s", text, _re.M)}
 
-    # SPEC DEFECT, recorded not repaired. Two release packages declare a
-    # conformance suite wider than their own acceptance list:
-    #
-    #   v0.5  CONFORMANCE declares P01-P30 and names families P25-P30;
-    #         ACCEPTANCE stops at item 24. Cases cite items 25-30.
-    #   v0.6  CONFORMANCE declares D01-D30; ACCEPTANCE stops at item 20.
-    #         Cases cite items 21-30.
-    #
-    # 48 cases cite an acceptance criterion that does not exist, so those
-    # families cannot be accepted against a written requirement. Authoring 16
-    # acceptance items is a normative change (SKILL.SPEC_CHANGE), not a repair
-    # a validator may make, so the gap is named here instead of invented.
-    #
-    # Listed so a NEW dangling reference still fails, and so these entries
-    # cannot outlive the fix: when the items are written the exception stops
-    # matching and the assertion below demands its own removal.
-    known_dangling = {f"docs/releases/v0.5/ACCEPTANCE.md#{n}" for n in range(25, 31)} | {
-        f"docs/releases/v0.6/ACCEPTANCE.md#{n}" for n in range(21, 31)
-    }
-    seen_dangling = set()
-
+    # The v0.5/v0.6 acceptance lists were six and ten items short of their own
+    # conformance families; the missing items were written in the same change
+    # that retired this exception, so there is no longer a known-dangling set.
+    # A dangling reference is now simply a failure.
     manifests = sorted((ROOT / "conformance").glob("*/manifest.json"))
     if len(manifests) < 10:
         fail(f"expected at least 10 conformance suites, found {len(manifests)}")
@@ -10536,20 +10519,8 @@ def check_conformance_requirement_refs() -> None:
                 low = anchor.lower()
                 if low in headings or anchor in items or low in gitems:
                     continue
-                if ref in known_dangling:
-                    seen_dangling.add(ref)
-                    continue
                 fail(f"{case['case_id']} cites unresolvable requirement anchor {ref}")
-    if seen_dangling != known_dangling:
-        fixed = sorted(known_dangling - seen_dangling)
-        fail(
-            "known-dangling v0.5/v0.6 acceptance refs no longer match; "
-            f"drop them from known_dangling: {fixed}"
-        )
-    ok(
-        f"Conformance cases cite live requirements ({cases} cases, {refs} refs; "
-        f"{len(known_dangling)} known-dangling v0.5/v0.6 acceptance items)"
-    )
+    ok(f"Conformance cases cite live requirements ({cases} cases, {refs} refs)")
 
 
 def check_rfc_0121() -> None:
