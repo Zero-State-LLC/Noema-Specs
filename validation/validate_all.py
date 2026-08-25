@@ -10447,6 +10447,71 @@ def check_rfc_0120(Draft202012Validator) -> None:
     ok("RFC-0120 agent-only Player identity: catalog, constitution, fixtures")
 
 
+def check_conformance_case_substance() -> None:
+    """Count conformance cases whose assertion is a template, and hold the line.
+
+    332 of 626 cases assert `"<FAMILY> machine rule N is enforced"` -- a rule
+    defined nowhere in this repository. Their steps are equally generic
+    (`validate_deep_time_contract`, `{family, atomic_case}`), so the case records
+    that a contract exists without stating what it is.
+
+    This is a real state with a clean boundary, not a defect to hide: everything
+    through v0.3 carries specific assertions; v0.4 is 75% templated and
+    v0.5-v0.7 are entirely so.
+
+    It does NOT mean those packages are unverified. The executable verification
+    lives in this validator -- `check_compiler_v05` (44 checks) and
+    `check_deep_time_v06` (63 checks) exercise schemas, fixtures, capture flow
+    and gates on every run. The hazard is citing the CASE COUNT as the evidence
+    when the validator is the artifact doing the work, which is what
+    LIVING-CIVILIZATION-ALPHA doctrine 7 warns against: "conformance totals do
+    not substitute for integration evidence."
+
+    So this is a ratchet, not a gate. The count may fall as real assertions are
+    written; it may not rise. A new case must say what it tests.
+    """
+    import re as _re
+
+    template = _re.compile(r"^[A-Z]+\d+ machine rule \d+ is enforced$")
+    baseline = {"v0.4": 110, "v0.5": 90, "v0.6": 108, "v0.7": 24}
+
+    manifests = sorted((ROOT / "conformance").glob("*/manifest.json"))
+    observed: dict = {}
+    total_cases = 0
+    templated = 0
+    for manifest_path in manifests:
+        suite = manifest_path.parent.name
+        count = 0
+        for rel in load_json(manifest_path).get("cases", []):
+            case = load_json(manifest_path.parent / rel)
+            total_cases += 1
+            assertions = (case.get("expected") or {}).get("assertions") or []
+            if any(template.fullmatch(str(a)) for a in assertions):
+                count += 1
+        templated += count
+        if count:
+            observed[suite] = count
+
+    for suite, count in sorted(observed.items()):
+        allowed = baseline.get(suite, 0)
+        if count > allowed:
+            fail(
+                f"{suite} added templated conformance cases ({count} > {allowed}); "
+                "a new case must assert what it tests"
+            )
+    for suite, allowed in sorted(baseline.items()):
+        seen = observed.get(suite, 0)
+        if seen < allowed:
+            fail(
+                f"{suite} templated cases fell to {seen} (baseline {allowed}); "
+                "lower the baseline in check_conformance_case_substance"
+            )
+    ok(
+        f"Conformance case substance held ({templated} templated of {total_cases} cases; "
+        "executable verification is check_compiler_v05 / check_deep_time_v06)"
+    )
+
+
 def check_conformance_requirement_refs() -> None:
     """Every conformance case must cite requirements that still exist.
 
@@ -10802,6 +10867,7 @@ def main() -> None:
     check_rfc_0120(Draft202012Validator)
     check_rfc_0121()
     check_conformance_requirement_refs()
+    check_conformance_case_substance()
     check_rfc_0126_watch_entity_update_exposure()
     check_rfc_0127(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
