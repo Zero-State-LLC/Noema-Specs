@@ -6,7 +6,7 @@ This document does not add Players, verbs, Genesis profiles, economy systems, or
 
 > World Services keep civilization operable. Players determine what civilization becomes.
 
-Related: [PLAY.md](PLAY.md) · [DEEP-TIME.md](DEEP-TIME.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md).
+Related: [PLAY.md](PLAY.md) · [DEEP-TIME.md](DEEP-TIME.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) · [FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md) · [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md)
 
 ---
 
@@ -24,13 +24,20 @@ WORLD SERVICE
 → optional natural-language presentation
 ```
 
-World Services are **not** Players. Do not add `NPC_PLAYER`, `SERVICE_PLAYER`, `BANKER_PLAYER`, or `SHOPKEEPER_PLAYER`.
+**World Services are not Players.** Do not add `NPC_PLAYER`, `SERVICE_PLAYER`, `BANKER_PLAYER`, or `SHOPKEEPER_PLAYER`.
 
-A Player **office** (Steward, Archivist, …) is a different thing: bounded institutional authority held by a Player ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)). Services remain desks.
+A Player **office** (Steward, Quartermaster, Archivist, etc.) is a different thing: bounded institutional authority held by a Player ([INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md)). Services remain desks.
 
 They are not autonomous NPC citizens, free-running LLM agents, or a second population metric.
 
 A service is an interface to existing world systems: exchange, registry, storage, infrastructure operations, archives, contracts. It has no independent gameplay authority outside this contract.
+
+**Critical Distinction (Offices vs Services)**
+
+- **World Service** (this document): Fixed, deterministic institutional desk. Closed capabilities. Always present as infrastructure (when seeded). Writes only via Player-confirmed canonical actions.
+- **Player Office / Role** (GC4): Title and scoped authority a Player can hold inside an organization. Dynamic, granted by charter or succession. Can operate or oversee a service desk but does not become the service.
+
+Quartermaster as a service desk is not the same as a Player holding the title "Quartermaster" in an org.
 
 ---
 
@@ -114,6 +121,7 @@ DENIED OPERATIONS
 FAILURE BEHAVIOR
 REQUIRED vs CONVENIENCE
 LOCATION SCOPE
+AGENT VIEW (structured)
 ```
 
 ---
@@ -155,6 +163,7 @@ Canonical IDs are stable. Cultural / display names MAY change through Deep Time 
 | Failure | Explicit unavailable / degraded. Canonical TRADE remains usable without the Broker UI. |
 | Class | **Convenience adapter** |
 | Location | Institution / site bound where an exchange or market-post is observable |
+| Agent View | See [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) for `service_id` + `TRADE` operations in observations |
 
 ---
 
@@ -174,7 +183,8 @@ Canonical IDs are stable. Cultural / display names MAY change through Deep Time 
 | Failure | Explicit unavailable / degraded. HARVEST remains usable at the node. |
 | Class | **Convenience adapter** |
 | Location | Location-bound at observable storage / salvage / resource sites |
-| Deferred | Persistent institutional storage / banking — **DEFER** |
+| Deferred | Persistent institutional storage / banking — **DEFER** (see Supersession section) |
+| Agent View | Structured `service_id` + HARVEST preparation. No banking operations. |
 
 ---
 
@@ -194,6 +204,7 @@ Canonical IDs are stable. Cultural / display names MAY change through Deep Time 
 | Failure | Explicit unavailable / degraded. Canonical org actions remain usable. |
 | Class | **Convenience adapter** |
 | Location | Institution-bound at a registry / civic desk |
+| Agent View | `service_id` + org actions in institution context. |
 
 ---
 
@@ -213,6 +224,7 @@ Canonical IDs are stable. Cultural / display names MAY change through Deep Time 
 | Failure | Explicit unavailable / degraded. REPAIR remains usable at the infrastructure. |
 | Class | **Convenience adapter** |
 | Location | Location-bound at relay / grid infrastructure |
+| Agent View | Condition-aware `service_id` + REPAIR affordance. |
 
 ---
 
@@ -275,6 +287,85 @@ Service failure MUST return an explicit unavailable/degraded result and MUST NOT
 
 ---
 
+## Discovery Rules
+
+### Location-bound services
+- Relay Keeper, Quartermaster, Archivist appear when the Player is co-located with the relevant entity (infrastructure with repairable flag, harvestable/resource node, artifact).
+- Derived from room/entity state in the current observation.
+
+### Institution-bound services
+- Exchange Broker, Registrar, Contract Clerk appear when the Player has visibility to the relevant institution (via membership, proximity to institution site, or public record).
+- Carried via `institution_id` in the service descriptor.
+
+### General rules
+- Services are discovered via `OBSERVE` (see [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) for agent shape).
+- A service is only advertised when at least one of its operations is potentially relevant.
+- Global or always-on services are forbidden in first-world.
+
+---
+
+## Agent Structured Interface
+
+See the dedicated normative document: [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md).
+
+Key requirements:
+- `service_id` + operations + preconditions appear in structured observations.
+- All operations use existing canonical actions.
+- Agents receive machine-readable capability data; they do not parse persona text.
+- Parity of authority between human and agent Players.
+
+---
+
+## Supersession by Player Institutions (Deferred)
+
+World Services provide minimum first-world infrastructure. Player-created institutions MAY later provide equivalent or superior persistent capability.
+
+When supersession occurs:
+- The World Service status **MAY** become `SUPERSEDED`.
+- A canonical world event records the transition with provenance.
+- Players (including agents) continue to be able to perform the underlying canonical actions directly or through the new institutional path.
+- The service desk may remain as a convenience fallback or be removed from presentation.
+
+**Exact rules, events, authority transfer, and Player-visible consequences are DEFERRED** until org/economy contracts support replacement mechanics.
+
+Until then:
+- Do not implement automatic supersession.
+- Do not invent replacement subsystems.
+- First-world services remain the baseline.
+
+See also [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) and future GC8/GC4 work.
+
+---
+
+## Observability
+
+### Admin Live
+Admin MAY inspect service status, allowed operations, failures, canonical actions emitted, and request volume. No private cognition. Message text remains hidden by default.
+
+### WATCH
+Public service events only, for example:
+- "Exchange processed a trade."
+- "Relay service degraded at Grid Anchor."
+- "Registry recorded a new organization."
+
+No private trade terms, message text, or identity-plane secrets.
+
+### World Events
+Service activity that affects world state is recorded through the canonical action events it prepares (e.g. `HARVEST_COMMITTED`, `REPAIR_PERFORMED`). The service itself does not emit independent writer events.
+
+---
+
+## Genesis Seeding
+
+- Services are declared at Cycle 0 as part of the world seed + Genesis profile.
+- Initial presence, location binding, and starting `status` are derived from seeded entities and infrastructure.
+- A service may start `DEGRADED` if the underlying world state (e.g. damaged relay) supports it.
+- No service is created or activated after Genesis except through documented world evolution rules.
+
+See [GENESIS.md](GENESIS.md) and [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md).
+
+---
+
 ## Convenience vs required
 
 All six first-world services are **convenience adapters**.
@@ -285,93 +376,15 @@ No first-world World Service is required infrastructure for those verbs.
 
 ---
 
-## Discovery, location, interaction
-
-Players discover services **in the world**, not as permanent app chrome.
-
-```text
-Exchange desk
-Registry
-Relay office
-Archive terminal
-Contract desk
-Quartermaster post
-```
-
-| Scope | Use |
-|---|---|
-| Location-bound | Relay Keeper, Quartermaster, Archivist |
-| Institution-bound | Registrar, Contract Clerk, Exchange Broker |
-
-Do not make services globally summoned shopkeepers.
-
-### Human
-
-Contextual GUI, text command, or short dialogue. All normalize to the same service request / canonical action.
-
-### Agent
-
-Structured capabilities: `service_id`, available operations, required parameters, known preconditions. Agents MUST NOT need to parse persona text.
-
-### Parity
-
-A service MUST NOT grant different world authority by controller type. Presentation MAY differ. Semantics MUST NOT.
-
-### Affordances
-
-Use the existing dynamic affordance model ([PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md)). No second affordance engine.
-
-```text
-Player at damaged relay
-+ Relay Keeper available
-+ resources permit
-→ REPAIR affordance
-```
-
-### No quest giver
-
-World Services MUST NOT turn conditions into authored quests or rewards unless a canonical contract already supports that.
-
-Good: “East relay condition is 22%. Freight requires 25%.” then `[ INSPECT ] [ REPAIR ]`.  
-Bad: “QUEST: Repair the Relay. Reward: 100 credits.”
-
-Persona MAY be concise frontier-bureaucracy / pragmatic institutional voice. It MUST NOT imply independent goals, hidden plans, or decisions the service cannot canonically make. No long monologues, comedic shopkeepers, or neon parody.
-
----
-
 ## Deep Time and supersession
 
 Services MAY accumulate **canonical** history: age, scars, maintenance interruptions, renaming, replacement, public reputation derived from events.
 
 They MUST NOT keep ungoverned private narrative memory as authority. Persistent service state is canonical world state or a rebuildable projection.
 
-> World Services provide minimum infrastructure, not permanent monopolies.
-
-Player institutions MAY later reduce dependence on a service where mechanics permit. Exact replacement rules are **DEFERRED** until org/economy contracts support them. Do not invent a replacement subsystem now.
+Player institutions MAY later reduce dependence on a service where mechanics permit. Exact replacement rules are **DEFERRED**.
 
 First-world services have **no** independent long-term goals, self-directed economic strategy, or unbounded planning loops.
-
-Scheduling is request-driven, event-driven, or a bounded deterministic update. No continuous background LLM.
-
----
-
-## Observability
-
-### Admin Live
-
-Admin MAY inspect service status, allowed operations, failures, canonical actions emitted, and request volume. No private cognition (there is none that is authoritative). Message text remains hidden by default ([ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md)).
-
-### WATCH
-
-Public service events only, for example:
-
-```text
-Exchange processed a trade.
-Relay service degraded.
-Registry recorded a new organization.
-```
-
-No private trade terms, message text, or identity-plane secrets ([SPECTATOR.md](SPECTATOR.md)).
 
 ---
 
@@ -380,8 +393,7 @@ No private trade terms, message text, or identity-plane secrets ([SPECTATOR.md](
 Service inputs are untrusted.
 
 Required path:
-
-```text
+```
 schema validation
 Player authentication
 authorization
@@ -389,38 +401,20 @@ target resolution
 Action Router validation
 ```
 
-Natural-language parsing does not bypass security. Private cognition stays out of scope ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
+Natural-language parsing does not bypass security. Private cognition stays out of scope.
 
 ### Cost / deterministic fallback
 
 First-world implementation MUST work without continuous paid model inference.
 
 Fallback:
-
-```text
+```
 template dialogue
 structured menu
 rule-based response
 ```
 
 LLM enhancement is optional presentation only.
-
----
-
-## Perihelion mapping (non-normative)
-
-Does **not** change the Genesis candidate. Use only if the observable site exists.
-
-| Site (when present) | Services |
-|---|---|
-| Grid Anchor | Relay Keeper |
-| Contract Town | Registrar, Contract Clerk |
-| Observable exchange / market-post | Exchange Broker |
-| Archive / record site | Archivist |
-| Storage / salvage / resource node | Quartermaster |
-| Coldline, Black Channel, Dead Spur | Same services only if those sites expose the matching institution or infrastructure |
-
-Cycle 0 MAY start a service `AVAILABLE`, `DEGRADED`, or partially accessible **if Genesis state supports it**. Do not hard-code degradation solely for drama.
 
 ---
 
@@ -442,14 +436,25 @@ Cycle 0 MAY start a service `AVAILABLE`, `DEGRADED`, or partially accessible **i
 14. Admin may inspect service health.
 15. WATCH sees only permitted public events.
 16. Deterministic fallback exists without LLM.
-17. A solo implementer can answer read / request / actions / never for each service from this document.
+17. Agent Players receive structured `service_id` + operations (see AGENT-CONTRACT).
+18. A solo implementer can answer read / request / actions / never for each service from this document and the agent contract.
 
 ---
 
 ## Non-goals
 
-- v0.8
-- Autonomous NPC design
-- Continuous model inference
+- v0.8 autonomous NPC design
+- Continuous model inference inside services
 - A general-purpose agent/tool framework
 - New verbs or order books
+- Persistent service banking in first-world
+- Global always-on services
+
+---
+
+**See also**
+
+- [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) — normative agent interface
+- [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) — Player offices (distinct)
+- [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md) — action mapping
+- [TERMINOLOGY.md](TERMINOLOGY.md) — "World Service" definition

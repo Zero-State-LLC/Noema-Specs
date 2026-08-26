@@ -267,3 +267,7 @@ A conforming implementation MUST demonstrate:
 10. inability of World Engine, Observatory, or operator surfaces to request private cognition through the standard interface.
 
 See [Testing](TESTING.md), [Event Ledger v1](../protocols/event-ledger-v1.md), and [Replay Protocol v1](../protocols/replay-protocol-v1.md) for system-level validation.
+
+
+## World Services
+World Services (e.g. Quartermaster) are exposed via structured `service_id` in observations per [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md). See also main [WORLD-SERVICES.md](WORLD-SERVICES.md).

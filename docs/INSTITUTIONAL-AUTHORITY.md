@@ -27,7 +27,7 @@ GC4-S0 machine pins: [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../r
 
 v0.6 institutions already persist beyond founders. Completeness makes them **positions a Player can hold**, with bounded, auditable powers.
 
-World Services remain **not Players**. A Relay Keeper desk is not an office. A Player **Custodian** of a maintenance order is an office.
+World Services remain **not Players** (see [WORLD-SERVICES.md](WORLD-SERVICES.md) and [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md)). A Relay Keeper desk is not an office. A Player **Custodian** of a maintenance order is an office.
 
 ---
 

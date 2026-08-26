@@ -1,0 +1,76 @@
+{
+  "description": "Example observation containing available_services for agent integration, per WORLD-SERVICES-AGENT-CONTRACT.md and world-service-capability.schema.json",
+  "observation": {
+    "cycle": 42,
+    "sequence": 1234,
+    "world_name": "Perihelion Reach",
+    "location": {
+      "room_id": "room.grid-anchor",
+      "name": "Grid Anchor",
+      "description": "Central hub with visible infrastructure and resource nodes.",
+      "condition": 85,
+      "exits": [],
+      "entities": [
+        {
+          "entity_id": "entity.relay-main",
+          "label": "Main Relay",
+          "entity_type": "INFRASTRUCTURE",
+          "condition": 22
+        },
+        {
+          "entity_id": "entity.node-07",
+          "label": "Energy Node",
+          "entity_type": "RESOURCE_NODE",
+          "harvestable": true,
+          "stock_amount": 120
+        }
+      ]
+    },
+    "available_services": [
+      {
+        "service_id": "service.relay.01",
+        "display_name": "Relay Keeper",
+        "role": "infrastructure operations",
+        "status": "DEGRADED",
+        "operations": [
+          {
+            "action": "INSPECT",
+            "target": "entity.relay-main",
+            "description": "Report condition and prepare REPAIR"
+          },
+          {
+            "action": "REPAIR",
+            "target": "entity.relay-main",
+            "preconditions": ["visible infrastructure", "condition < 100"],
+            "description": "Prepare COMMIT.REPAIR after confirmation"
+          }
+        ],
+        "cannot": ["auto-repair", "change costs"],
+        "suggested_cmds": ["inspect Main Relay", "repair Main Relay"]
+      },
+      {
+        "service_id": "service.quartermaster.01",
+        "display_name": "Quartermaster",
+        "role": "resource / storage interface",
+        "status": "AVAILABLE",
+        "operations": [
+          {
+            "action": "INSPECT",
+            "target": "entity.node-07",
+            "description": "Show observable stock"
+          },
+          {
+            "action": "HARVEST",
+            "target": "entity.node-07",
+            "preconditions": ["co-located", "harvestable", "budget sufficient"],
+            "description": "Prepare COMMIT.HARVEST"
+          }
+        ],
+        "cannot": ["bank", "invent supply"],
+        "suggested_cmds": ["inspect Energy Node", "harvest Energy Node"]
+      }
+    ],
+    "available_actions": ["INSPECT", "REPAIR", "HARVEST", "LOOK"],
+    "affordances": []
+  }
+}

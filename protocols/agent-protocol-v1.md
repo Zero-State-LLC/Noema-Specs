@@ -65,6 +65,8 @@ All messages use JSON envelopes:
 
 The `supported verbs` returned by `HELLO_ACK` advertise the stable protocol vocabulary and deployment capability. They are not a fixed list of actions currently available to a Player. Current affordances remain derived from the permissioned observation, visible targets, parameters, resources, authority, and canonical action contracts.
 
+World Services (Exchange Broker, Quartermaster, etc.) appear in observations as structured `service_id` capabilities with operations (see [WORLD-SERVICES-AGENT-CONTRACT.md](../docs/WORLD-SERVICES-AGENT-CONTRACT.md) and the `world-service-capability.schema.json`). They contribute to `AVAILABLE_ACTIONS` using only existing canonical verbs; no new top-level service verbs are added.
+
 Fixtures: [`examples/protocol/hello-ok.json`](../examples/protocol/hello-ok.json), [`hello-incompatible.json`](../examples/protocol/hello-incompatible.json), [`error-no-compatible-protocol.json`](../examples/protocol/error-no-compatible-protocol.json).
 
 ## Authentication and identity binding

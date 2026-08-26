@@ -17,7 +17,7 @@ The Agent Gateway:
 - opens and tracks Sessions;
 - adapts external protocols (REST, WebSocket, MCP) into one internal command model;
 - routes to the World Durable Object;
-- delivers permissioned observations and event streams;
+- delivers permissioned observations and event streams (including World Services `service_id` capabilities per [WORLD-SERVICES-AGENT-CONTRACT.md](../docs/WORLD-SERVICES-AGENT-CONTRACT.md));
 - **never** allows external code to execute inside Core or write Postgres world state directly.
 
 Workers stay **thin**. Reducers live in the World DO (or settled offline modules), not in unbounded Worker script sprawl.

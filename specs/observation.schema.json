@@ -1032,6 +1032,13 @@
         }
       },
       "additionalProperties": true
+    },
+    "available_services": {
+      "type": "array",
+      "items": {
+        "$ref": "world-service-capability.schema.json"
+      },
+      "description": "World Services visible in current context. See WORLD-SERVICES-AGENT-CONTRACT.md"
     }
   },
   "required": [
@@ -1044,5 +1051,6 @@
     "claim_label",
     "content",
     "provenance"
-  ]
+  ],
+  "description": " World Services appear via optional \"available_services\" array using world-service-capability.schema.json (see WORLD-SERVICES-AGENT-CONTRACT.md). This is an extension point for agent observations."
 }

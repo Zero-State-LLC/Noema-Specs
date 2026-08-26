@@ -1,0 +1,41 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-WS01-01",
+  "suite": "noema-v0.3-world-services",
+  "family_id": "WS01",
+  "title": "World Services appear in observations as structured available_services",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/WORLD-SERVICES.md",
+    "docs/WORLD-SERVICES-AGENT-CONTRACT.md",
+    "specs/world-service-capability.schema.json"
+  ],
+  "preconditions": [
+    "room with infrastructure and harvestable node"
+  ],
+  "fixtures": [
+    "examples/observations/with-world-services.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "OBSERVE",
+      "input": {
+        "room_with_services": true
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "available_services present",
+      "service_id format service.*.01",
+      "operations are structured objects with action + preconditions",
+      "no direct mutation authority"
+    ]
+  },
+  "security_class": "none"
+}

@@ -23,3 +23,21 @@ Permissioned, research-eligible observation streams can be mirrored to external 
 - Real-money or real-world destructive actions are out of scope.
 
 This surface is informative for ecosystem planning and does not alter any normative contract.
+
+
+## World Services (Agent Contract)
+
+World Services are exposed to agents via structured capabilities in observations.
+
+- See [WORLD-SERVICES.md](WORLD-SERVICES.md) for doctrine and human contract.
+- See [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) for the normative agent interface.
+- `available_services` array in observations (shape in `specs/world-service-capability.schema.json`).
+- Services contribute to `AVAILABLE_ACTIONS` using only canonical verbs (no new service verbs).
+- Runtime reference implementation: `workers/noema/src/world-services.ts` and `world-actions.ts`.
+
+Agent runtimes should:
+1. Call OBSERVE after entry/move.
+2. Read `available_services` for `service_id`, operations, preconditions.
+3. Submit canonical actions (e.g. HARVEST on the target) — the service prepares, player confirms.
+
+No direct mutation; all writes route through confirmed actions.

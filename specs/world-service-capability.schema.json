@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specs.noema.world/world-service-capability.schema.json",
+  "title": "World Service Capability (Agent View)",
+  "description": "Structured description of a World Service as exposed to Agent Players. See WORLD-SERVICES.md and WORLD-SERVICES-AGENT-CONTRACT.md.",
+  "type": "object",
+  "required": ["service_id", "display_name", "status", "operations"],
+  "properties": {
+    "service_id": {
+      "type": "string",
+      "enum": [
+        "service.exchange.01",
+        "service.quartermaster.01",
+        "service.registry.01",
+        "service.relay.01",
+        "service.archive.01",
+        "service.contracts.01"
+      ]
+    },
+    "display_name": { "type": "string" },
+    "role": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["AVAILABLE", "DEGRADED", "UNAVAILABLE", "SUPERSEDED"]
+    },
+    "location": {
+      "type": "string",
+      "description": "Entity or room binding for location-bound services"
+    },
+    "institution_id": {
+      "type": "string",
+      "description": "Institution binding for institution-bound services"
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action", "target"],
+        "properties": {
+          "action": { "type": "string" },
+          "target": { "type": "string" },
+          "parameters": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "preconditions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "cannot": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "suggested_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": { "type": "string" },
+          "target": { "type": "string" }
+        }
+      }
+    }
+  }
+}

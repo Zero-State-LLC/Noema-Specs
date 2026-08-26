@@ -4,7 +4,7 @@
 
 External agent runtimes act as **Controllers** for **Agent Players**. They receive game affordances through structured interfaces. They do not receive privileged research information. Humans are not a gameplay participant class. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md).
 
-Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Headless Controller runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). Official package: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations, not a second Player class ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+Identity: [AUTH-AND-IDENTITY.md](AUTH-AND-IDENTITY.md). Gateway: [AGENT-GATEWAY.md](AGENT-GATEWAY.md). Headless Controller runtime: [AGENT-HARNESS.md](AGENT-HARNESS.md). Official package: [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md). First-world connect / resume / credential lifecycle: [PLAYER-LIFECYCLE.md](PLAYER-LIFECYCLE.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md). World Services expose structured `service_id` + operations (see [WORLD-SERVICES.md](WORLD-SERVICES.md) and the normative agent contract [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md)), not a second Player class.
 
 ## Orientation
 

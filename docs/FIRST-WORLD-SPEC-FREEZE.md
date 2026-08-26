@@ -39,7 +39,7 @@ The [Game Completeness](GAME-COMPLETENESS-PLAN.md) campaign MAY now land on Peri
 | Privileged mutation | [OPERATOR-INTERVENTIONS.md](OPERATOR-INTERVENTIONS.md) |
 | Degraded / recovery | [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) |
 | Perihelion pin | [FIRST-WORLD-OPERATIONS.md](FIRST-WORLD-OPERATIONS.md) |
-| World Services | [WORLD-SERVICES.md](WORLD-SERVICES.md) |
+| World Services | [WORLD-SERVICES.md](WORLD-SERVICES.md) + [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) |
 | Operator Digests | [OPERATOR-DIGESTS.md](OPERATOR-DIGESTS.md) |
 | This freeze | this document |
 
@@ -71,7 +71,7 @@ Incident Recovery
 Player Onboarding
 First-World Operations
 Perihelion Reach production pin
-World Services
+World Services (incl. agent contract)
 Operator Digests
 Player brand / visual presentation (presentation only; does not thaw verbs)
 ```

@@ -848,7 +848,7 @@ The command language did not change in this example. The observable world, targe
 
 These are projections of observable state, not authored quests. A world that lacks the precondition must not show the affordance.
 
-World Service desks (Exchange Broker, Quartermaster, Registrar, Relay Keeper, Archivist, Contract Clerk) are adapters onto these same actions. They MUST NOT invent verbs or affordances ([WORLD-SERVICES.md](WORLD-SERVICES.md)).
+World Service desks (Exchange Broker, Quartermaster, Registrar, Relay Keeper, Archivist, Contract Clerk) are adapters onto these same actions. They MUST NOT invent verbs or affordances (see [WORLD-SERVICES.md](WORLD-SERVICES.md) and [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md)).
 
 ---
 

@@ -65,3 +65,7 @@ WATCH sees world-visible behavior only. Observatory capture is post-gateway and 
 PYTHONPATH=src python3 scripts/noema_llm_agent.py --tenant test.hosted-canonical.ack-s3 --provider none --turns 4
 # or: noema-agent --tenant test.hosted-canonical.ack-s3 --adapter llm --turns 4 run
 ```
+
+
+## World Services
+World Services (e.g. Quartermaster) are exposed via structured `service_id` in observations per [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md). See also main [WORLD-SERVICES.md](WORLD-SERVICES.md).

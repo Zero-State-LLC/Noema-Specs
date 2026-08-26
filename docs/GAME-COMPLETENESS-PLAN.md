@@ -88,7 +88,7 @@ Produced before writing new authorities. Status values:
 | [INSTITUTIONS.md](INSTITUTIONS.md) | EXISTS (lifecycle, persistence) | Keep as institution identity |
 | [SUCCESSION.md](SUCCESSION.md) | EXISTS (transfer mechanisms) | Keep as transfer authority |
 | Org roles founder/officer/member/advisor | PARTIAL (v0.1 coarse) | Insufficient as playable offices |
-| [WORLD-SERVICES.md](WORLD-SERVICES.md) | EXISTS (not Players) | Services ≠ Player offices |
+| [WORLD-SERVICES.md](WORLD-SERVICES.md) + [WORLD-SERVICES-AGENT-CONTRACT.md](WORLD-SERVICES-AGENT-CONTRACT.md) | EXISTS (not Players) | Services ≠ Player offices; agent structured interface pinned |
 | Playable offices with bounded authority | ABSENT | New: [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
 | v0.1 role grants (founder/officer/member/advisor) | PINNED S0 | [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md) |
 
