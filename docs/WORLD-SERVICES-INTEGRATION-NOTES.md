@@ -177,3 +177,13 @@ To apply these runtime integration changes:
 All changes preserve backward compatibility where possible and follow the "services are not players" doctrine.
 
 Full git diff stats available in the working clones.
+
+## Post-Push Continuation (after CLI auth)
+
+- Successfully pushed both branches to origin.
+- Added second conformance case: v03-WS01-02 (empty available_services for rooms without services).
+- Added supporting fixture: examples/observations/no-services.json.
+- Updated RUNTIME-INTEGRATION-WS-STATUS.md and PR-DESCRIPTION.md with live GitHub links.
+- Runtime header added in world-actions.ts.
+
+Branches are now live on GitHub. User can open PRs directly from the links.

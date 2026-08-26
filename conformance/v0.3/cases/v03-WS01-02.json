@@ -1,0 +1,38 @@
+{
+  "schema_version": "conformance-case/1.0",
+  "case_id": "v03-WS01-02",
+  "suite": "noema-v0.3-world-services",
+  "family_id": "WS01",
+  "title": "Rooms without services expose empty available_services array",
+  "acceptance_items": [
+    1
+  ],
+  "requirement_refs": [
+    "docs/WORLD-SERVICES.md",
+    "docs/WORLD-SERVICES-AGENT-CONTRACT.md"
+  ],
+  "preconditions": [
+    "room with no qualifying entities"
+  ],
+  "fixtures": [
+    "examples/observations/no-services.json"
+  ],
+  "steps": [
+    {
+      "step_id": "1",
+      "actor": "server",
+      "action": "OBSERVE",
+      "input": {
+        "room_with_services": false
+      }
+    }
+  ],
+  "expected": {
+    "outcome": "ACCEPT",
+    "assertions": [
+      "available_services is present and empty array",
+      "no error or fallback text required"
+    ]
+  },
+  "security_class": "none"
+}

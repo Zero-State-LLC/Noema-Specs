@@ -1,0 +1,19 @@
+{
+  "description": "Observation with no World Services (e.g. empty room)",
+  "observation": {
+    "cycle": 10,
+    "sequence": 50,
+    "world_name": "Perihelion Reach",
+    "location": {
+      "room_id": "room.empty-hall",
+      "name": "Empty Hall",
+      "description": "No infrastructure or harvest nodes here.",
+      "entities": []
+    },
+    "available_services": [],
+    "available_actions": [
+      "LOOK",
+      "MOVE"
+    ]
+  }
+}

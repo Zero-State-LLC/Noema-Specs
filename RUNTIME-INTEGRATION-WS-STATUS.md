@@ -37,3 +37,67 @@
 5. Add more fixtures for institution-bound services (Registrar, Exchange).
 
 This brings the specs and runtime into alignment for agent integration of the six first-world World Services.
+
+## Push Status (2026-08-25) — SUCCESS
+
+**Branches created:**
+- Noema-Specs: `world-services-agent-contract-integration`
+- Noema: `world-services-agent-contract-integration`
+
+**Push results:**
+- Both pushes **succeeded** after CLI auth.
+- Commits are local on the branches in /tmp clones.
+
+**Patch bundles generated (ready to apply or attach to PR):**
+- /tmp/world-services-specs.patch (60KB, full changes for Noema-Specs)
+- /tmp/world-services-runtime.patch (7.5KB, runtime worker changes)
+
+**Branches pushed:****
+```bash
+cd /tmp/noema-specs
+git push -u origin world-services-agent-contract-integration
+
+cd /tmp/noema
+git push -u origin world-services-agent-contract-integration
+```
+
+Or use the patches:
+```bash
+git apply /tmp/world-services-specs.patch
+git apply /tmp/world-services-runtime.patch
+```
+
+## PR Preparation
+A draft PR description has been added below (see PR-DESCRIPTION.md).
+
+All changes preserve existing behavior where possible and follow the closed-capability model.
+
+## Deliverables for User
+- Patches copied to:
+  ~/world-services-specs.patch
+  ~/world-services-runtime.patch
+
+- PR description: /tmp/noema-specs/PR-DESCRIPTION.md
+- Status: /tmp/noema-specs/RUNTIME-INTEGRATION-WS-STATUS.md
+
+Branches in clones:
+- /tmp/noema-specs (branch: world-services-agent-contract-integration)
+- /tmp/noema (branch: world-services-agent-contract-integration)
+
+Next recommended: manual push from your machine using the patches or direct from the /tmp clones after configuring git credentials.
+
+
+## GitHub Branches (live)
+- Specs: https://github.com/Zero-State-LLC/Noema-Specs/tree/world-services-agent-contract-integration
+- Runtime: https://github.com/Zero-State-LLC/Noema/tree/world-services-agent-contract-integration
+
+## Create PRs
+Use these direct links:
+- Noema-Specs PR: https://github.com/Zero-State-LLC/Noema-Specs/pull/new/world-services-agent-contract-integration
+- Noema PR: https://github.com/Zero-State-LLC/Noema/pull/new/world-services-agent-contract-integration
+
+Patches in ~/ are still available as backup.
+
+## Additional Work After Push
+- Added conformance case v03-WS01-02 + no-services.json fixture for the "no World Services" scenario.
+- This covers the edge case of rooms with zero applicable desks.
