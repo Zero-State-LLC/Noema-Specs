@@ -53,24 +53,29 @@ Re-verified 2026-08-25 against Specs `492ccc9` and Worker `6db6782`.
 
 ### The payload contradiction
 
-The reviewed input reports this as schema-versus-runtime. It is not. Two **Accepted** GC3 slice contracts specify the exact fields the closed payload forbids:
+The reviewed input reports this as schema-versus-runtime. It is not. **Three Accepted authorities** reference fields on `CRIME_DETECTED` that no machine schema provides:
 
-| Authority | Requires | `CRIME_DETECTED_payload` |
+| Authority | References | Machine schema |
 |---|---|---|
-| [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) §Evidence | `victim_id` → `subject_id` dyadic credit | no `victim_id` property; `additionalProperties: false` |
-| [GC3-S2-WATCH-PUBLIC.md](GC3-S2-WATCH-PUBLIC.md) §Bands | `visibility=PUBLIC` gates the public `dangerous` band | no `visibility` property; `additionalProperties: false` |
+| [GC3-S1-BETRAYAL.md](GC3-S1-BETRAYAL.md) §Evidence | `victim_id` → `subject_id` dyadic credit | payload has no `victim_id`; `additionalProperties: false` |
+| [GC3-S2-WATCH-PUBLIC.md](GC3-S2-WATCH-PUBLIC.md) §Bands | public "only `visibility=PUBLIC`" | payload has no `visibility`; `additionalProperties: false` |
+| [RFC-0094](../rfcs/RFC-0094-crime-report.md) §Proposed change | public means `flags` includes `PUBLIC_HISTORY` **or** host `visibility` is `PUBLIC` | neither the payload nor [`world-event.schema.json`](../specs/world-event.schema.json) declares `visibility`; the envelope is also `additionalProperties: false` |
 
-The hosted Worker implements the **slice documents** faithfully — `social-memory.ts` requires `victim_id` for the dyadic edge and `visibility === "PUBLIC"` for public danger. The outlier is the catalog payload, which carries `flags: ["PUBLIC_HISTORY"]` instead.
+Two consequences follow, and the second is the sharper one.
 
-Consequently a schema-valid crime record cannot produce the memory effects its own Accepted slices specify. Consumers are split three ways:
+**The field is absent from both the payload and the envelope.** RFC-0094 speaks of *host* `visibility`, but the event envelope declares no such property and forbids extras, so there is nowhere for it to live.
 
-| Consumer | `visibility` | `PUBLIC_HISTORY` | Works with a schema-valid payload |
+**Two Accepted authorities define "public" for the same event differently.** GC3-S2 gates the public danger band on `visibility=PUBLIC` alone. RFC-0094 gates world-report lines on `PUBLIC_HISTORY` **or** `visibility=PUBLIC`. A record carrying only `PUBLIC_HISTORY` — the one shape the closed payload actually permits — is therefore public for the world report and not public for social memory, by specification.
+
+The Worker implements each authority where it applies, so no consumer is wrong on its own terms:
+
+| Consumer | Gate | Implements | Fires from a schema-valid payload |
 |---|---|---|---|
-| `social-memory.ts` dyadic (`victim_id`) | — | — | **No** |
-| `social-memory.ts` public danger | yes | no | **No** |
-| `world-actions.ts` public social events | yes | no | **No** |
-| `world-reports.ts` | yes | yes | Yes |
-| `watch-live.ts` projection | yes | yes | Yes |
+| `social-memory.ts` dyadic (`victim_id`) | `victim_id` | GC3-S1 | **No** |
+| `social-memory.ts` public danger | `visibility === "PUBLIC"` | GC3-S2 | **No** |
+| `world-actions.ts` public social events | `visibility === "PUBLIC"` | GC3-S2 pattern | **No** |
+| `world-reports.ts` | `visibility` **or** `PUBLIC_HISTORY` | RFC-0094 | Yes |
+| `watch-live.ts` projection | `visibility` **or** `PUBLIC_HISTORY` | RFC-0094 pattern | Yes |
 
 The third row is not in the reviewed input. [EVENT-CATALOG-AUDIT.md](EVENT-CATALOG-AUDIT.md) already recorded that adding `visibility` or `victim_id` was outside its scope, so the omission is deferred rather than overlooked.
 
