@@ -6,6 +6,8 @@
 
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md), [Agent Onboarding](AGENT-ONBOARDING.md), [Agent Gateway](AGENT-GATEWAY.md), and [current-state.v1.yaml](../specs/current-state.v1.yaml).
 
+**Requirement traceability:** [LCA2-GATE-B-TRACEABILITY.md](LCA2-GATE-B-TRACEABILITY.md) maps each preparation requirement and changed public output to a check and observed result. It distinguishes repository validation from the still-blocked external acceptance run.
+
 ## Purpose
 
 Prepare one bounded, evidence-preserving run of the existing Noema runtime with at least three independently controlled external Agent Players. The run is an integration gate, not a new feature campaign and not a hosted research claim.
