@@ -127,6 +127,8 @@ Produced before writing new authorities. Status values:
 
 **Continuation (main, post-PR #305):** Additional GC7 crime seeds for B7b (evidence algorithm) and B7c (detection vs sanction separation). See GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md and GC7-CRIME-DETECTION-SANCTION-SEED.md. Aligns with 2026-08-25 research and SPEC-GAP-REGISTER.
 
+**Continuation (main, post-PR #305):** GC7 B7a payload/victim_id reconciliation seed added. See GC7-CRIME-PAYLOAD-VICTIM-SEED.md.
+
 
 ### GC8 Economic specialization — P2
 
