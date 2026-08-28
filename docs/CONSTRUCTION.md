@@ -281,3 +281,37 @@ runtime implementation hosted; Chamber help names BUILD (RFC-0090)
 ## Acceptance (scenario C)
 
 A Player or institution constructs a `route_link` or upgrades a `relay` / `production_node` so that movement, trade, production, or communication changes; the original actors leave; later Players still observe the structure and can attribute it from history.
+
+## Research assimilation 2026-08-27 — Generalized construction and world modification surface
+
+**Status:** Design/research integration. Inputs only. No contract, catalog, verb, or exposure change. Cites [CONSTRUCTION-RESEARCH-SEED.md](CONSTRUCTION-RESEARCH-SEED.md) and [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md).
+
+**Signals (primary):** WorldGen: From Text to Traversable and Interactive 3D Worlds (arXiv:2511.16825v1).
+- Text prompts → LLM-driven scene layout reasoning + procedural generation + diffusion-based 3D generation + object-aware scene decomposition.
+- Produces geometrically consistent, visually rich, real-time renderable, traversable and interactive worlds for game engines. Modular, fine-grained control, persistent structure.
+- **Direct mapping to GC2:** High-level intent + procedural + verifiable output for generalized BUILD. Informs lineage writing into Deep Time, observable construction events, and compiler-like generation that persists and is spectator-visible (adapted to Noema's text/strategic nature).
+
+Supporting signals (assimilation): neural composition from existing elements for coherent world building; LLM + procedural hybrids for controllable high-level reasoning.
+
+**Generalized construction surface (this authority):**
+- Closes the BUILD deferral at specification level: one BUILD verb + closed operation set (CONSTRUCT, UPGRADE, REPURPOSE, CONNECT, FORTIFY, DISMANTLE, RESTORE) distinct from REPAIR (which remains COMMIT.REPAIR).
+- Produces persistent, attributable structure in geography, infrastructure, routes, and history.
+- **Evidence / lineage model:** construction actions write into Deep Time (scars, artifacts, names, historical reconstruction); ownership and stewardship records persist; observable public consequences.
+- Procedural/verifiable generation rules (research framing): high-level intent translated to verifiable persistent changes; dependency tracking; coupling to pressures (scarcity, distance, dependency, uncertainty).
+- Must couple to: GEOGRAPHY, RESOURCE-ECONOMY, PRODUCTION, INFRASTRUCTURE, TRADE, ORGANIZATIONS, TERRITORY, CONFLICT, DEEP TIME.
+
+**Explicit boundaries:**
+- Distinct from [INFRASTRUCTURE.md](INFRASTRUCTURE.md): construction extends the set (broader modification); does not replace repair, condition, or closed v0.1 types.
+- One BUILD + parameters.operation; no verb-per-noun; no crafting industry or recipe trees (per COMPLEXITY-DOCTRINE.md and 2026-08-21 assimilation).
+- Existing S0 pins unchanged (reuse ENTITY_* events for first cuts; no new verbs in core).
+- Partial observability: public construction/attribution visible; private intent and stockpiles not leaked.
+- Research projections may capture trajectories but MUST NOT inject build quests or convert research into Player objectives.
+
+**S1–S2+ outline (builds on closed S0 per GC2-FIRST-SLICE.md / RFC-0006; see SPEC GAP for pins):**
+- S0: CONSTRUCT + DISMANTLE on existing v0.1 infrastructure classes only.
+- Later slices (already referenced in authority): route_link, workshop, defensive_work, archive_annex, shared ownership, multi-cycle, UPGRADE/REPURPOSE/CONNECT/RESTORE, etc.
+- Future slices may incorporate procedural/verifiable models for new constructible classes (catalog RFC required).
+
+This extends the authority with 2026-08-27 research signals without mutating shipped S0 pins, frozen contracts, or event catalog. BUILD remains deferred for runtime until RFC.
+
+**Citations / provenance:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC2 table + research input row), CONSTRUCTION-RESEARCH-SEED.md, RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (WorldGen section), arXiv:2511.16825v1, [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), RFC-0006, [INFRASTRUCTURE.md](INFRASTRUCTURE.md), [DEEP-TIME.md](DEEP-TIME.md), [GEOGRAPHY.md](GEOGRAPHY.md), [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).

@@ -219,6 +219,36 @@ Implement v0.2 first. Do not block Chamber play on GC7.
 
 Two groups reconnoiter, position, apply economic or infrastructural pressure, counter, escalate, commit via declared contest, resolve under the existing algorithm, and recover. No hit-point combat. No unwinnable spiral.
 
+## Research assimilation 2026-08-27 — Crime producer completion (RFC-0002 PARTIAL)
+
+**Status:** Design/research integration / bounded extension note. Inputs only. No contract, catalog, verb, or exposure change. Cites [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md) and [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md).
+
+**Gap (per seed and RFC-0002):** RFC-0002 (Accepted) defines `CRIME_DETECTED` as a *detection* event (not automatic guilt). Detection requires witness, sensor (condition ≥ 50), investigation, or self-report. The **producer** side — how play generates these detections (witness flows, sensor mechanics, delayed revelation, self-report, investigation) — remains PARTIAL. No silent producer implementation.
+
+**Signals (assimilation):**
+- Crime hotspot dynamics (arXiv:2605.17709v1): coupled PDE/ODE with *delayed* crime signal + police/guardian deployment. Delays destabilize via Hopf bifurcations → oscillations, moving/splitting/merging hotspots. Timely crime data access > raw density for stabilization. Maps to delayed detection, attractiveness/condition dynamics (ties to REPAIR/infra), guardian response as third actor.
+- Cops and Robbers path planning (arXiv:2503.11475): LTL + reactive synthesis for pursuit/evasion realizability. Formal angles for contest/crime resolution.
+
+**Bounded producer extension (this authority):**
+- Producer flows (design framing only):
+  - Witness: nearby Players or sensors observe qualifying breach → public or authorized `CRIME_DETECTED`.
+  - Sensor: infrastructure/condition-based (≥50) or dedicated guardian/sensor assets trigger on patterns.
+  - Investigation: authorized office or Player action produces evidence leading to detection.
+  - Self-report: offender or witness voluntary report.
+- Delayed revelation: per arXiv, information lags create dynamic hotspots/oscillations; revelation not instantaneous.
+- Interaction with existing: feeds SOCIAL-MEMORY (public breach descriptors), WATCH/public reports (coarse bands), CONTEST (crime as pressure/escalation layer), Deep Time (persistent attribution/scars). `CRIME_DETECTED` remains detection only; guilt/resolution via existing contest or institutional processes.
+- No new events or catalog entries. Reuses `CRIME_DETECTED` + existing ENTITY_UPDATE / contest / agreement events where applicable.
+- Graduated: high-cost/risk, partial observability, fail-closed.
+
+**Explicit boundaries:**
+- Extends [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md) + RFC-0002 authority. Do not create second canon.
+- Ties to GC3 social memory (public crime feeds relational edges/gossip) without duplication.
+- Complexity doctrine: consequence layer, not industry or permanent death. Evidence trajectories.
+- Research/game membrane: producer mechanics for world truth; projections redacted as needed.
+
+This bounded note completes the producer framing for RFC-0002 without runtime or catalog changes. Future RFC may pin fixtures/conformance.
+
+**Citations / provenance:** RFC-0002 (Accepted), [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md), RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (crime hotspot section), arXiv:2605.17709v1 / 2503.11475, [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC7), [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md), [DEEP-TIME.md](DEEP-TIME.md).
 
 ### Research assimilation 2026-08-25 — Crime detection evidence and enforcement (update)
 **Signals:** Detailed review (RESEARCH-ASSIMILATION-2026-08-25-CRIME.md + supporting NOTES-CRIME-DETECTION-EVIDENCE.md).

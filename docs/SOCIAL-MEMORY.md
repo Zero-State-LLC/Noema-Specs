@@ -263,3 +263,37 @@ GC1-S2 mechanical benefit (not GC3)
 ## Acceptance (scenario B)
 
 Two Players complete repeated successful trades or joint repairs; their derived descriptors become `reliable` / `trusted` to each other. One later breaks a formal agreement or commits a detected crime against the other. Dyadic and relevant institutional expectations change. Public projection names the public breach, not any hidden method or inventory.
+
+## Research assimilation 2026-08-27 — Relational reputation and shared social memory layer
+
+**Status:** Design/research integration. Inputs only. No contract, catalog, verb, or exposure change. Cites [SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md](SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md) and [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md).
+
+**Signals (primary from assimilation):**
+- RepuNet (arXiv:2505.05029v2): dual-level reputation (agent + system/network). Reputation quintuple <a,s,o,c,μ>. Updated via direct encounters (ShapeRepuPeer/Self) + indirect gossip (ShapeRepuGossip). Topology coupling: high-rep strengthen ties; low-rep/exploiters isolated. Emergent: cooperative clusters, selective isolation, positive gossip bias. Mitigates tragedy of the commons.
+- Moltbook (arXiv:2602.14299v2): persistent AI society fails stable structure/consensus **due to absence of shared social memory** (hallucinated refs vs. grounded). Scale + density insufficient; needs persistent, verifiable shared memory for socialization.
+- Reputation-modulated RL (arXiv:2608.20016): reputation as *information* reshaping experience interpretation and other-assessment; promotes cooperation via cluster nucleation.
+
+**Relational reputation + shared social memory surface (extends this authority):**
+- First-class observable relational edges (Player↔Player, Institution↔Player) beyond raw dyadic trade_memory or institutional archives.
+- Gossip/propagation as first-class mechanism (observable, bounded by partial observability and redaction rules).
+- Network effects: clusters of cooperation; isolation of exploiters; effects on participation (TRADE, CONTEST, access).
+- Shared memory prerequisite for stable socialization and consensus (prevents Moltbook-style fragmentation).
+- Evidence model: direct interactions + witnessed/public events → reputation edges (inferred/observable) → gossip propagation → topology/participation effects. Writes lineage into Deep Time where public.
+- Couples to existing S0–S7 (dyadic, danger, public bands, institution edges, decay, friction, deceptive, preferred) without duplication.
+
+**Explicit boundaries:**
+- Distinct from INSTITUTIONAL-MEMORY (archives ≠ living relationships).
+- Distinct from PROGRESSION “Relationships” row (names surface only).
+- Distinct from STRATEGIC-CONFLICT / DIPLOMACY “influence” (resource vs. unnamed edge state).
+- Complexity doctrine: evidence-backed edges and network dynamics; no scalar reputation as Player stat leaked to PLAY; no consciousness or industry.
+- Partial observability and research/game membrane: public/WATCH descriptors from public events only; private edges Player/institution-authorized only. STUDY may capture trajectories for research.
+- No new verbs; builds on existing events (TRADE_*, CONTEST_*, AGREEMENT_*, CRIME_DETECTED where public).
+
+**S0–S7 (already closed) + relational layer outline:**
+- S0 (RFC-0007): dyadic trade edges, no scalar.
+- S1–S7 (RFC-0022, 0034–0039): danger, public bands, institution edges, decay/rehab, friction, deceptive, preferred.
+- Relational layer (this extension): gossip, network rewiring/clusters/isolation, shared memory for consensus/stabilization. Maps to GC3 ABSENT in GAME-COMPLETENESS-PLAN.
+
+This integrates the 2026-08-27 signals into the authority. Existing S0–S7 pins unchanged. No mutation to frozen contracts or event catalog.
+
+**Citations / provenance:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC3 table + research input row), SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md, RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (RepuNet/Moltbook/RL sections), arXiv:2505.05029v2 / 2602.14299v2 / 2608.20016, [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md), RFC-0007/0022/0034–0039, [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).

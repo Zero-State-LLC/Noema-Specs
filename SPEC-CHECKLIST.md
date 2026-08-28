@@ -27,6 +27,13 @@
 - [x] Player brand implemented on hosted Worker HTML (Slices 0–9). Gate `NOEMA_PLAYER_BRAND_IMPLEMENTED`. No further brand slices unless a visual defect is filed.
 - [x] Research assimilation 2026-08-24: provenance graphs, statistical model checking for the `EQUIVALENT` boundary, norm origin as a claim-label question, authored-vs-unauthored signals (`docs/RESEARCH-ASSIMILATION-2026-08-24.md`). Design note only; no contract, catalog, verb, or exposure change.
 - [x] Research assimilation 2026-08-24 (engineering): Deep Time tails versus RFC-0001, deferred Wasserstein/Ollivier and live cultural-generation, per-view `forbidden_in_projection`, harness and official-client chrome (`docs/RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md`). Design note only; no contract, catalog, verb, or exposure change.
+ - [x] Research assimilation 2026-08-27: arXiv distillations for post-RFC-0120 Game Completeness gaps (GC1–GC3, RFC-0002 crime completion, RFC-0001 Phenomena, hosted parity, specialization, cross-cutting). Consolidated gaps list + paper distillations mapped to planned authorities. Design note only. (`docs/RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md`).
+- [x] GC1-S9 multi-focus (cap 1–3 active set, maintenance credit on active, non-active decay, trajectory/skill-graph signals from 2026-08-27 research). See [GC1-S9-MULTI-FOCUS.md](docs/GC1-S9-MULTI-FOCUS.md) and updated MASTERY-SPECIALIZATION.md. Design note only; no new events or verbs.
+
+- [x] GC1-S10 decay-window credit for focus (active focus tracks get extra idle tolerance; research-informed trajectory management). See [GC1-S10-DECAY-CREDIT.md](docs/GC1-S10-DECAY-CREDIT.md).
+- [x] GC1-S11 further parameters (BUILD/TRADE/INSPECT richer options for focused MAINTAINED specialists). See [GC1-S11-FURTHER-PARAMETERS.md](docs/GC1-S11-FURTHER-PARAMETERS.md).
+
+- [x] Research seeds + 10-step plan 2026-08-27: GC1/GC2/GC3/crime producer extensions executed as design notes (MASTERY-SPECIALIZATION.md, CONSTRUCTION.md, SOCIAL-MEMORY.md, STRATEGIC-CONFLICT.md). See docs/*-RESEARCH-SEED.md (4 seeds) and docs/POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md. Design notes only. GC1 S9–S11 complete; GC2/GC3 authority + research integrated.
 - [x] Protocol conformance sweep 2026-08-24: AGENT-HARNESS and agent-protocol-v1 normative clauses checked against harness, Worker, and client — two harness violations fixed (Noema #543/#544), two Worker conformances pinned (#545/#546), the failures-not-cached interlock recorded, RESUME_POSITION_* determined reserved-not-missing (`docs/PROTOCOL-CONFORMANCE-SWEEP-2026-08-24.md`). No contract text changed.
 - [ ] RFC-0128 **Review** — proposed server-authoritative Player tempo and cycle admission (`player-tempo/1.0`), machine catalog/schema, illustrative fixtures, and PT01–PT16 acceptance contract (`docs/PLAYER-TEMPO.md`, `docs/PLAYER-TEMPO-CONFORMANCE.md`). Runtime implementation and acceptance remain separate; no new verbs or events.
 ## Core game design (player-facing)
@@ -343,6 +350,18 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Phased roadmap with future hooks defined
 - [x] Runtime `/watch/map` shipped (Noema `#471`). Live mapping is a spectator surface, not inhabit.
 - [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1: §1.1 privacy binds §7 verbatim + `watch-map/1.0` bands pin per Noema #488; §6.1 pause/motion; §8.1 reconciliation table; "dashboard-style" retired; WebGL/importance-scoring/AI-narration/voting struck or RFC-gated).
+
+## 10-Step Plan Completion (2026-08-27)
+- [x] Step 1: GC1 authority + S9–S11 slices (multi-focus, decay credit, parameters) as design notes.
+- [x] Step 2: GC2 authority extension.
+- [x] Step 3: GC3 relational reputation extension.
+- [x] Step 4: RFC-0002 crime producer bounded note + CRIME-PRODUCER.md design note.
+- [x] Step 5: Research seeds sections and cross-refs in GAME-COMPLETENESS-PLAN, ROADMAP, SPEC-CHECKLIST.
+- [x] Step 6: RESEARCH-SPINE-HOSTED-PARITY-2026-08.md.
+- [x] Step 7: PHENOMENA-BOUNDARY-CLARIFICATION-2026-08.md.
+- [x] Step 8: REPORTS-UPGRADES-SEED.md + AGENT-COGNITION-BOUNDARIES-SEED.md.
+- [x] Step 9: Two RFC proposal skeletons.
+- [x] Step 10: Handoff + checklist/ROADMAP updates + verification.
 - [ ] GC4 crime/expulsion design note (institutional removal via CRIME_DETECTED/contest, temporary exclusion, enforcement cost). See docs/GC4-CRIME-EXPULSION-SEED.md + PR #305. Design note only.
 - [ ] GC7 crime enforcement cost/jurisdiction seed (B7d: payer, steward, auditable trail). See docs/GC7-CRIME-ENFORCEMENT-SEED.md. Design note only.
 - [ ] GC7 crime detection algorithm seed (B7b). See docs/GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md. Design note only.
