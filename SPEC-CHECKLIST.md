@@ -360,3 +360,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] GC5/GC6 post-2026-08 review (no new B-gap seeds required). B5 CLOSED_BY_RFC (RFC-0009+0021), B6 RUNTIME_ONLY per SPEC-GAP-REGISTER-2026-08-25. S0 pinned + higher S-slices specified. See GC-CONTINUATION-MAIN-2026-08.md and GAME-COMPLETENESS-PLAN.md.
 
 - [ ] RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md started (minimal, from B1a seed). See rfcs/ and GC1-FAILED-ATTEMPTS-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md started (minimal, from B7a seed). See rfcs/ and GC7-CRIME-PAYLOAD-VICTIM-SEED.md.

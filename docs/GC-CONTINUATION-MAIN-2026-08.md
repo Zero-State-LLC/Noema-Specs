@@ -61,3 +61,7 @@ Cites: SPEC-GAP-REGISTER-2026-08-25.md, updated GAME-COMPLETENESS-PLAN.md + SPEC
 **RFC draft started (as next after GC5/GC6 review):** Minimal RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md created from GC1-FAILED-ATTEMPTS-SEED.md (B1a). Bounded proposal only; no contracts changed.
 
 Cites: the seed + register B1a.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md created from GC7-CRIME-PAYLOAD-VICTIM-SEED.md (B7a). Reconciles victim_id / visibility and "public" definitions for CRIME_DETECTED. Bounded catalog 0.2 amendment style.
+
+Cites: the seed + register B7a + GC3 authorities.
