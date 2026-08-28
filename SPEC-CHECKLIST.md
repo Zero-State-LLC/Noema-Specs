@@ -345,3 +345,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1: §1.1 privacy binds §7 verbatim + `watch-map/1.0` bands pin per Noema #488; §6.1 pause/motion; §8.1 reconciliation table; "dashboard-style" retired; WebGL/importance-scoring/AI-narration/voting struck or RFC-gated).
 - [ ] GC4 crime/expulsion design note (institutional removal via CRIME_DETECTED/contest, temporary exclusion, enforcement cost). See docs/GC4-CRIME-EXPULSION-SEED.md + PR #305. Design note only.
 - [ ] GC7 crime enforcement cost/jurisdiction seed (B7d: payer, steward, auditable trail). See docs/GC7-CRIME-ENFORCEMENT-SEED.md. Design note only.
+- [ ] GC7 crime detection algorithm seed (B7b). See docs/GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md. Design note only.
+- [ ] GC7 crime detection vs sanction separation (B7c). See docs/GC7-CRIME-DETECTION-SANCTION-SEED.md. Design note only.
