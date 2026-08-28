@@ -40,3 +40,4 @@ Cites: SPEC-GAP-REGISTER-2026-08-25.md, RESEARCH-ASSIMILATION-2026-08-25-CRIME.m
 This continuation seeds the primary remaining open SPEC gaps for the GC campaign (B1–B10 series). All core open/partial B-gaps now covered by design notes. Deferred items (B8b, B9b, etc.) remain as-is per doctrine.
 
 Ready for review on #305 + follow-up for main increments. Let me know next (e.g., GC5/GC6 residuals if any, or RFC drafting).
+**Non-GC residuals (PAM1/PAM2):** Quick design notes added for completeness (adapter ambiguity and self-join). See PAM1-ORG-ID-SEED.md and PAM2-ORG-SELF-JOIN-SEED.md. Deferred per register unless onboarding evidence requires action.
