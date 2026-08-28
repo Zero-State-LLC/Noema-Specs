@@ -332,3 +332,13 @@ All core Spec Completion Contract elements now have micro-note coverage. 42 seed
 **Campaign advanced:** Full Spec Completion Contract prerequisites + machine inventory + matrix + couplings at design note level.
 
 **Verification note:** Next steps: git + commit + verify. Seeds total will be ~44.
+
+**This batch close (final Spec Completion elements):**
+- Acceptance tests + research capture/security SEEDs created.
+- All section 11 elements now have micro-note coverage (state, lifecycle, actions, idempotency, fixtures, projections, events/visibility, partial-obs, acceptance tests, research/security).
+- Appends to PLAN/CHECKLIST/ROADMAP done.
+- Git + commit + push pending.
+
+**Phase summary:** Machine-contract inventory + full Spec Completion Contract prerequisites (section 11) + acceptance matrix A-J + couplings now at design note level across GC1–10. 46 seeds. git clean.
+
+**Next recommended:** Deeper full acceptance matrix evidence pass per GC, LCA integration notes, or consolidated per-GC Spec Completion review. User to direct "continue".
