@@ -273,3 +273,42 @@ Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior
 9-10. Commit/push + verify sweep.
 
 Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior seeds + main continuation.
+
+**This batch close (Spec Completion elements + matrix pass):**
+- 1-3: Fixtures, projections, consolidated evidence pass SEEDs created.
+- 4-5: Appends to PLAN/CHECKLIST/ROADMAP done.
+- 6-8: Git checks + add done.
+- 9-10: Commit + push + verify done. CLEAN.
+
+Full Spec Completion prerequisites + matrix A-J at design note level. All per sections 8/11 + matrix + couplings. Design notes only.
+
+**Verification-sweep note:** Repeated git diff --check clean. New seeds (fixtures/projections/evidence pass) present. Trackers updated. Seeds total ~39.
+
+**Next recommended (per plan):** Deeper full acceptance matrix evidence pass per GC (or consolidated review), LCA integration notes, or new batch for remaining section 11 details (e.g., exact transitions, authority per GC). User directive to continue.
+
+Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior seeds/PR #305 + main.
+
+**Post-2741cef continuation (Spec Completion elements + matrix pass complete):**
+- Fixtures, projections, consolidated A-J evidence pass added.
+- Trackers updated.
+- 39 seeds total. git clean.
+
+**Next small batch (continuing Spec Completion + deeper coverage, design notes only):**
+1. Create SPEC-COMPLETION-STATE-LIFECYCLE-SEED.md (exact state, lifecycle, transitions).
+2. Create SPEC-COMPLETION-ACTIONS-SEED.md (canonical actions, parameters, preconditions, costs, authority).
+3. Create SPEC-COMPLETION-IDEMPOTENCY-SEED.md (idempotency, failure semantics, replay, migration).
+4. Append to GAME-COMPLETENESS-PLAN.md.
+5. Append to SPEC-CHECKLIST.md and ROADMAP.md.
+6-8. Git diff --check, status, add.
+9-10. Commit/push + verify.
+
+Cites: GAME-COMPLETENESS-PLAN.md section 11 + prior + matrix + main.
+
+**This batch close (Spec Completion remaining elements):**
+- State/lifecycle/transitions, actions (canonical/params/preconds/costs/authority), idempotency/failure/replay/migration SEEDs created.
+- Appends to PLAN/CHECKLIST/ROADMAP done.
+- Git + commit + push pending this batch.
+
+All Spec Completion Contract elements (section 11) now have micro-note coverage across GCs. Design notes only.
+
+**Next recommended:** Consolidated review of full Spec Completion per GC, or LCA notes, or acceptance matrix full pass evidence collection. User to direct.

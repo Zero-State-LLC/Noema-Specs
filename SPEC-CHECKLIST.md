@@ -395,3 +395,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC).
 - [ ] SPEC-COMPLETION-PROJECTIONS-SEED.md (PLAY/WATCH/research boundaries).
 - [ ] ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md (consolidated A–J evidence/gaps).
+
+- [ ] SPEC-COMPLETION-STATE-LIFECYCLE-SEED.md (state, lifecycle, transitions).
+- [ ] SPEC-COMPLETION-ACTIONS-SEED.md (canonical actions, params, preconds, costs, authority).
+- [ ] SPEC-COMPLETION-IDEMPOTENCY-SEED.md (idempotency, failure, replay, migration).

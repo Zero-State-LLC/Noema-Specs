@@ -546,3 +546,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Next batch continuation (main):** Machine-contract inventory now micro-noted for all GC1–10. Spec Completion Contract prerequisites covered for all phases with small notes (GC1-3/4-7/8-10). No invention. See new MACHINE-CONTRACT-*-SEED.md and SPEC-COMPLETION-*-SEED.md. Cites section 8/11 + prior.
 
 **Post-machine/Spec Completion continuation:** Fixtures + projections + consolidated A–J evidence pass micro-notes added (SPEC-COMPLETION-FIXTURES-SEED.md, SPEC-COMPLETION-PROJECTIONS-SEED.md, ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md). Full prerequisites + inventory + matrix at design note level. Cites sections 8/11 + matrix + prior.
+
+**Post-Spec Completion elements continuation:** State/lifecycle, actions, idempotency micro-notes added. All section 11 prerequisites now micro-covered. Cites section 11 + matrix + prior.
