@@ -374,3 +374,12 @@ Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior
 8-10. Commit/push + verify.
 
 Cites: GAME-COMPLETENESS-PLAN.md + prior + main.
+
+**This batch close (deeper matrix + LCA start + per-GC summary):**
+- Deeper acceptance matrix evidence start, LCA integration placeholder, per-GC summary created.
+- Appends to PLAN done.
+- Git + commit + push pending.
+
+**Phase advanced:** All major Spec Completion prerequisites + matrix + couplings at design note level. Seeds ~50. Clean.
+
+**Next:** User directive or deeper per-GC or matrix evidence collection.
