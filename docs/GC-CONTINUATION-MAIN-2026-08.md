@@ -65,3 +65,7 @@ Cites: the seed + register B1a.
 **Additional RFC draft:** Minimal RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md created from GC7-CRIME-PAYLOAD-VICTIM-SEED.md (B7a). Reconciles victim_id / visibility and "public" definitions for CRIME_DETECTED. Bounded catalog 0.2 amendment style.
 
 Cites: the seed + register B7a + GC3 authorities.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md created from GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md (B7b). Defines seeded/replayable evidence function for detection (constants as inputs, deterministic). 
+
+Cites: the seed + register B7b.
