@@ -358,3 +358,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC1 B1b multi-focus/parameter magnitudes (covered by S9–S11). See docs/GC1-MULTI-FOCUS-MAGNITUDES-SEED.md. Design note only.
 
 - [x] GC5/GC6 post-2026-08 review (no new B-gap seeds required). B5 CLOSED_BY_RFC (RFC-0009+0021), B6 RUNTIME_ONLY per SPEC-GAP-REGISTER-2026-08-25. S0 pinned + higher S-slices specified. See GC-CONTINUATION-MAIN-2026-08.md and GAME-COMPLETENESS-PLAN.md.
+
+- [ ] RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md started (minimal, from B1a seed). See rfcs/ and GC1-FAILED-ATTEMPTS-SEED.md.
