@@ -2,19 +2,19 @@ schema_version: noema-current-state/1.0
 as_of: 2026-08-25
 evidence_commits:
   # Two different questions, previously collapsed into one field.
-  # production_specs_baseline: the Specs commit this direction package is written
-  #   against, i.e. this repository's own head. Tracks main.
+  # production_specs_baseline: the canonical Specs main commit this promotion
+  #   was authored against. It is an evidence anchor, not a self-referential head.
   # production_implements_specs: the Specs commit the LIVE WORKER BUILD implements,
   #   derived as the Specs head at the instant the build was cut. Moves per publish.
   #   Mirrors Noema hosted_live.specs_git and must equal it.
   # They differ whenever Specs moves without a publish, which is the normal case.
-  production_specs_baseline: 0bddbeb
+  production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
-  production_successor_runtime: e1d44d5
-  live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
-  advanced_worker_runtime: a0044a13
-  lca1_delta_report: d933deb
-  lca1_integrated_acceptance: be11b5c
+  production_successor_runtime: 61234cc
+  live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
+  advanced_worker_runtime: 61234cc
+  lca1_delta_report: f6ce6d2
+  lca1_integrated_acceptance: a6b7e4b
 status_vocabulary:
   LIVE_HOSTED: deployed and acceptance-observed at noema.guru
   IMPLEMENTED_RUNTIME: implemented with runtime tests but not proven on the frozen production alpha
@@ -39,11 +39,11 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: d9aab067-e3ca-447c-bb8b-fccc59729bbf
-    live_deployed_at: 2026-08-24T23:21:53.680808Z
+    live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
+    live_deployed_at: 2026-08-25T19:27:58.964668Z
     players_present: 0
-    pin_note: GET /version is the running Worker. Noema hosted_live.worker_version_id matches live d9aab067 after #568.
-    specs_pin_note: The successor source e1d44d5 was cut at 2026-08-24T23:21:26Z; Specs head at that instant was 81ca8c1 (#288), so that is the commit this build implements and it equals Noema hosted_live.specs_git. d73bdec (#289) landed 23:36:58Z, after the cut, and changes no contract the Worker implements.
+    pin_note: GET /version is the running Worker. Noema hosted_live.worker_version_id matches live 01ebc196 after the deployment of source 61234cc and the Gate A pin evidence in #587.
+    specs_pin_note: Runtime source 61234cc was built against Specs 81ca8c1, matching Noema hosted_live.specs_git. Later Specs documentation changes do not silently alter the contract implemented by that live build.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
@@ -60,8 +60,8 @@ runtimes:
       - no hosted/offline digest-equivalence claim
       - integrated multi-agent civilization and endurance acceptance remain unproven
   advanced_worker_runtime:
-    status: IMPLEMENTED_RUNTIME
-    evidence_commit: a0044a13
+    status: LIVE_HOSTED
+    evidence_commit: 61234cc
     evidence:
       - "Noema PR #551: https://github.com/Zero-State-LLC/Noema/pull/551"
       - "Noema PR #552: https://github.com/Zero-State-LLC/Noema/pull/552"
@@ -75,6 +75,7 @@ runtimes:
       - "Noema PR #569: https://github.com/Zero-State-LLC/Noema/pull/569"
       - "Noema PR #561: https://github.com/Zero-State-LLC/Noema/pull/561"
       - "Noema PR #570: https://github.com/Zero-State-LLC/Noema/pull/570"
+      - "Noema PR #587: https://github.com/Zero-State-LLC/Noema/pull/587"
       - workers/noema/src/actions.ts
       - workers/noema/src/world-actions.ts
       - workers/noema/test
@@ -92,7 +93,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Live Worker d9aab067 is OBSERVED from GET /version and INFERRED as a republish of e1d44d5 (Noema #548). Noema hosted_live.worker_version_id matches that live id after #568. Noema main a0044a13 adds Gate A candidate tests (#552), the production-alpha delta / cutover risk register (#551), older-format DO load (#565), isolated rollback rehearsal (#562), the successor-cutover boundary record (#564), residual closeout copy (#566), pin-on-publish automation (#567), the hosted connect cross-tab repair (#563), the hosted_live pin catch-up (#568), docs/devex only (#569), owner-email device enrollment (#561, merged, unpublished), and foreground CONNECT short-code approval across magic-link tabs (#570, on main, unpublished; uses #563 path; does not recreate it; no new verbs; no Genesis). That is implementation-plane evidence, not Gate A completion. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
+    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. External population, Gate C civilization behavior, endurance, hosted STUDY, and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -136,10 +137,14 @@ capabilities:
   gc10_world_pressure:
     state: LIVE_HOSTED
   integrated_runtime_gate_a:
-    state: ACTIVE_INTEGRATION
-    claim: Gate A is not complete. Noema PR #551 and Noema PR #552 are candidate evidence only.
+    state: LIVE_HOSTED
+    claim: Gate A is complete through Noema PR #587 and the accepted promotion evidence packet.
+    evidence:
+      - docs/LCA-GATE-A-PROMOTION-2026-08-25.md
+      - "Noema PR #587: https://github.com/Zero-State-LLC/Noema/pull/587"
     remaining_lca2_prerequisites:
-      - operator device enrollment (people step; live players 0; Noema #561 merged, unpublished; noema-client #24 landed, unpublished)
+      - canonical operator device enrollment (people step; live population acceptance not yet retained)
+      - at least three independently controlled external Controllers with redacted acceptance evidence
     closed_lca2_prerequisites:
       - cross-version Durable Object load fixture (Noema #565 merged; closes #553; #557 superseded)
       - isolated Worker rollback rehearsal (Noema #562 merged; closes #555)
@@ -147,15 +152,16 @@ capabilities:
       - residual-closeout copy (Noema #566 merged)
       - post-deploy pin-on-publish automation (Noema #567 merged; closes #554; #556 is the older stacked packet)
       - repaired hosted connect cross-tab flow (Noema #563 merged)
-      - owner-email device enrollment Worker packet (Noema #561 merged, unpublished)
-      - repaired connect short-code packet (Noema #570 merged, unpublished; uses #563 path; does not recreate it)
+      - owner-email device enrollment Worker packet (Noema #561 merged and deployed in source 61234cc)
+      - repaired connect short-code packet (Noema #570 merged and deployed in source 61234cc; uses #563 path; does not recreate it)
   external_agent_population_gate_b:
     state: BLOCKED
-    blocker: Gate A promotion and remaining LCA-2 prerequisites
+    blocker: canonical operator enrollment and evidence from at least three independently controlled external Controllers
     candidate: lca2-gate-b-three-external-agent-population
     non_goals: hosted STUDY, third-party compatibility-at-scale claims, new mechanics, new Player verbs, and production successor deployment
   integrated_small_civilization_run:
-    state: ACTIVE_INTEGRATION
+    state: BLOCKED
+    blocker: Gate B external population and canonical operator enrollment have not passed
     gap: existing systems have not yet passed one production-like multi-agent civilization acceptance run. Gate C remains unproven
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
@@ -167,12 +173,14 @@ capabilities:
     state: DEFERRED
 active_campaign:
   id: living-civilization-alpha
+  state: ACTIVE_INTEGRATION
   thesis: integrate and prove what is already built before authorizing more breadth
-  current_milestone: LCA-1
-  next_milestone: LCA-2
-  active_gate: "Gate A: Integrated runtime (candidate evidence only; not complete)"
-  unproven_gates:
+  current_milestone: LCA-2
+  next_milestone: LCA-3
+  active_gate: "Gate B: External population (blocked on operator enrollment and independent Controllers)"
+  completed_gates:
     - "Gate A: Integrated runtime"
+  unproven_gates:
     - "Gate B: External population"
     - "Gate C: Existing-system civilization"
     - "Gate D: WATCH legibility"

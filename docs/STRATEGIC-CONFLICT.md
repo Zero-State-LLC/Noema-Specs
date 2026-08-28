@@ -249,3 +249,19 @@ Two groups reconnoiter, position, apply economic or infrastructural pressure, co
 This bounded note completes the producer framing for RFC-0002 without runtime or catalog changes. Future RFC may pin fixtures/conformance.
 
 **Citations / provenance:** RFC-0002 (Accepted), [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md), RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (crime hotspot section), arXiv:2605.17709v1 / 2503.11475, [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC7), [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md), [DEEP-TIME.md](DEEP-TIME.md).
+
+### Research assimilation 2026-08-25 — Crime detection evidence and enforcement (update)
+**Signals:** Detailed review (RESEARCH-ASSIMILATION-2026-08-25-CRIME.md + supporting NOTES-CRIME-DETECTION-EVIDENCE.md).
+- Per-incident source_event_ids and distinct detection records (no aggregation into one severe sanction).
+- OCEAN/first-hand observation beats propagated rumor for detection.
+- Enforcement cost, jurisdiction, second-order free riders, and monitoring cost for exclusion.
+- Payload contradictions noted (influence_delta required in schema vs detection-only intent); fail-closed on insufficient evidence.
+- Temporary scoped exclusion; rehabilitation; no stigma contagion; no retune of sanction ladder.
+
+**Mapping to producer framing (this note):** Strengthens witness/sensor provenance requirements, per-event evidence paths, and the need for enforcement cost/jurisdiction in future producer mechanics. Aligns with existing bounded producer (witness/sensor/investigation/self-report + delays). No new events or verbs here.
+
+**Boundaries:** Design input only. Extends prior 2026-08-27 bounded producer. See also SPEC-GAP-REGISTER-2026-08-25 and the new crime notes for open gaps (B7c etc.). Ties to GC3 social memory (public descriptors from detections).
+
+Cites: RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, NOTES-CRIME-DETECTION-EVIDENCE.md, SPEC-GAP-REGISTER-2026-08-25.md, prior arXiv hotspot models, CRIME-PRODUCER-RESEARCH-SEED.md, RFC-0002.
+
+This incremental assimilation updates the crime producer context on main (PR #305 captured the 08-27 batch).

@@ -52,16 +52,23 @@ Produced before writing new authorities. Status values:
 | **CONFLICT-RISK** | Nearby authority could be duplicated if a new doc is careless |
 | **ABSENT** | No dedicated authority; this campaign creates one |
 
+**GC1–GC3 pass captured in PR #305** (research integration 2026-08-27 batch + closeout). See also main updates from the 2026-08-25 crime assimilation.
+
 ### GC1 Mastery and specialization — P0 (slices complete as design notes)
 
-|| Nearby authority | Status | Rule |
-||------------------|--------|------|
-|| [PROGRESSION.md](PROGRESSION.md) | EXISTS (plural surfaces; forbids XP) | Keep. Mastery is a new surface, not a replacement |
-|| [AMBITIONS.md](AMBITIONS.md) | EXISTS (no victory function) | Keep |
-|| [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
-|| [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
-||| Player proficiency / specialization | Design notes complete | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) + S9–S11 |
-|| Research input (2026-08-27) + slices | Complete | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (SkillMaster) + GC1-S9/S10/S11 design notes. All listed remaining items addressed.
+| Nearby authority | Status | Rule |
+|------------------|--------|------|
+| [PROGRESSION.md](PROGRESSION.md) | EXISTS (plural surfaces; forbids XP) | Keep. Mastery is a new surface, not a replacement |
+| [AMBITIONS.md](AMBITIONS.md) | EXISTS (no victory function) | Keep |
+| [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
+| [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
+| Player proficiency / specialization | Design notes complete | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) + S9–S11 |
+| Research input (2026-08-27) + slices | Complete | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (SkillMaster) + GC1-S9/S10/S11 design notes. All listed remaining items addressed. |
+
+**Continuation (main):** GC1 failed-but-legal practice attempt weights seed (B1a). See [GC1-FAILED-ATTEMPTS-SEED.md](GC1-FAILED-ATTEMPTS-SEED.md).
+
+**Continuation (main):** GC1 B1b multi-focus/parameter magnitudes are covered by S9–S11. See [GC1-MULTI-FOCUS-MAGNITUDES-SEED.md](GC1-MULTI-FOCUS-MAGNITUDES-SEED.md).
+
 
 ### GC2 Construction and world modification — P0
 
@@ -71,8 +78,13 @@ Produced before writing new authorities. Status values:
 | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) | EXISTS (repair, condition, closed types) | Construction extends this set; does not replace REPAIR |
 | [GEOGRAPHY.md](GEOGRAPHY.md) / [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) | EXISTS | Construction MUST couple here |
 | [DEEP-TIME.md](DEEP-TIME.md) | EXISTS (scars, names, artifacts) | Construction writes lineage into history |
-|| Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
+| Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
 | Research input (2026-08-27) | — | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (WorldGen, procedural + verifiable generation) |
+
+**Continuation (main, post-PR #305):** GC2 construction quantities seed (B2a). See [GC2-CONSTRUCTION-QUANTITIES-SEED.md](GC2-CONSTRUCTION-QUANTITIES-SEED.md).
+
+**Continuation (main):** GC2 owner/steward split seed (B2b). See [GC2-OWNER-STEWARD-SEED.md](GC2-OWNER-STEWARD-SEED.md).
+
 
 ### GC3 Social memory and relational reputation — P0
 
@@ -103,6 +115,8 @@ Full plan: [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](POST-RESEARCH-ASSI
 | [WORLD-SERVICES.md](WORLD-SERVICES.md) | EXISTS (not Players) | Services ≠ Player offices |
 | Playable offices with bounded authority | ABSENT | New: [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
 | v0.1 role grants (founder/officer/member/advisor) | PINNED S0 | [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md) |
+**Continuation (main):** GC4 broader COI and extra profiles seed (B4). See GC4-BROADER-COI-SEED.md.
+
 
 ### GC5 Communication ecology — P1
 
@@ -132,6 +146,13 @@ Full plan: [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](POST-RESEARCH-ASSI
 | [CONTEST-RESOLUTION.md](CONTEST-RESOLUTION.md), [LOSS-RECOVERY.md](LOSS-RECOVERY.md), [TERRITORY-CONTROL.md](TERRITORY-CONTROL.md) | EXISTS | v2 composes these |
 | Recon→commit→recover rhythm | PARTIAL | Specified in the v2 section of Strategic Conflict |
 | Stage table over existing v0.2 forms | PINNED S0 | [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md) |
+
+**Continuation (main post-PR #305):** GC7-CRIME-ENFORCEMENT-SEED.md added for enforcement cost/jurisdiction/steward (B7d gap). Ties to GC4 and 2026-08-25 research.
+
+**Continuation (main, post-PR #305):** Additional GC7 crime seeds for B7b (evidence algorithm) and B7c (detection vs sanction separation). See GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md and GC7-CRIME-DETECTION-SANCTION-SEED.md. Aligns with 2026-08-25 research and SPEC-GAP-REGISTER.
+
+**Continuation (main, post-PR #305):** GC7 B7a payload/victim_id reconciliation seed added. See GC7-CRIME-PAYLOAD-VICTIM-SEED.md.
+
 
 ### GC8 Economic specialization — P2
 
@@ -524,3 +545,38 @@ This patch settles **product behavior** for GC1–GC10. It does **not** claim th
 NOEMA should not merely test whether an agent can solve tasks or win.
 
 It should create enough persistent social, economic, informational, institutional, and historical structure that an intelligent actor can **become somebody inside the world**.
+
+**Continuation (main, post B-gap seeds + RFC batch):** 
+- GC2 B2a (quantities) + B2b (owner/steward) seeds covered; minimal RFC proposals drafted.
+- GC7 remaining B7c (detection vs sanction), B7d (enforcement), B7e (rehab alignment) advanced with RFC proposals from seeds + register.
+- RFC-0128 review note added for the open checklist item (bounded operational note).
+- All updates design notes / proposals only. Cross-refs to SPEC-GAP-REGISTER-2026-08-25, seeds, prior slices/RFCs, PR #305.
+- Verification-sweep closed (clean checks, authorities aligned).
+
+**Continuation (main):** Smallest coupling design notes added for GC2–GC4, GC7–GC3, and acceptance matrix I/J extensions (per coupling table and Next-20-items). RFC batch for remaining B-gaps + RFC-0128 verification complete. See new *-COUPLING-SEED.md files + GC-CONTINUATION-MAIN-2026-08.md.
+
+**Next 20 Steps progress (main):** Steps 1–13 executed (Spec Completion Contract read via prior; 4 new GC5/6/8/1/9 couplings + 4 matrix A/B/C/D/E/F + G/H; machine inventory micro for GC5-7). See new *-COUPLING-SEED.md and ACCEPTANCE-MATRIX-*-SEED.md files. All design notes. Cites this plan sections 8, 10, 11 + prior.
+
+**Next batch continuation (main):** Machine-contract inventory now micro-noted for all GC1–10. Spec Completion Contract prerequisites covered for all phases with small notes (GC1-3/4-7/8-10). No invention. See new MACHINE-CONTRACT-*-SEED.md and SPEC-COMPLETION-*-SEED.md. Cites section 8/11 + prior.
+
+**Post-machine/Spec Completion continuation:** Fixtures + projections + consolidated A–J evidence pass micro-notes added (SPEC-COMPLETION-FIXTURES-SEED.md, SPEC-COMPLETION-PROJECTIONS-SEED.md, ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md). Full prerequisites + inventory + matrix at design note level. Cites sections 8/11 + matrix + prior.
+
+**Post-Spec Completion elements continuation:** State/lifecycle, actions, idempotency micro-notes added. All section 11 prerequisites now micro-covered. Cites section 11 + matrix + prior.
+
+**Post-Spec Completion elements:** Events/visibility + partial-obs/security micro-notes added. All section 11 prerequisites now micro-covered. Cites section 11 + prior.
+
+**Phase complete:** All Spec Completion Contract elements (section 11) micro-noted. Machine inventory complete. Cites section 8/11 + matrix + prior.
+
+**Phase summary:** Spec Completion Contract (section 11) + machine inventory + acceptance matrix A-J + couplings now micro-covered as design notes. 46 seeds. Cites sections 8/11 + matrix + prior.
+
+**Post-per-GC/matrix continuation:** Deeper matrix evidence start + LCA notes placeholder added. Cites matrix + prior.
+
+**Post-deeper/LCA continuation:** Transitions + replay micro-notes added. Cites section 11 + prior.
+
+**Post-deterministic continuation:** Deterministic ordering micro-note added. Cites section 11 + prior.
+
+**Verification-sweep close (current):** All section 11 elements micro-noted (state/lifecycle/transitions/actions/params/preconds/costs/authority/events/visibility/partial-obs/deterministic/idempotency/failure/replay/migration/fixtures/acceptance tests/projections/research/security). Migration/version seed added. Repeated git diff --check clean. Key files read/aligned. Preserved sweep label superseded by actual verifications + closeouts. 54 seeds. Cites section 11 + prior.
+
+**Post-verification + deeper/LCA continuation:** Concrete examples added to deeper matrix (GC1/2/7/10) + LCA link (A3/A4/A5 support). Cites matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior.
+
+**Post-deeper matrix batch:** GC4 and GC9 examples added to deeper acceptance matrix evidence collection (6 gaps noted total). Additional LCA A-series cross-ref. Cites matrix + LIVING-CIVILIZATION-ALPHA.md + register + prior.

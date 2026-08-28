@@ -42,6 +42,7 @@
 - Phenomena ontology: `phenomena-ontology/0.1`
 - Dataset: `atlas-2026.1`
 - Public WATCH live snapshot (presentation): `watch-live/1.0` ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)). Not a product version. Does not bump `spectator-projection/1.0`. Optional Phosphor Cartography uses this pin only; it is not a separate version.
+- Player tempo candidate: `player-tempo/1.0` ([RFC-0128](../rfcs/RFC-0128-player-tempo-and-cycle-admission.md), **Review**). This is not a live runtime pin until the RFC is Accepted, the runtime-manifest contract is updated, and an implementation passes PT01–PT16.
 
 ## Runtime pinning
 

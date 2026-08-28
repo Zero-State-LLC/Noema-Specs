@@ -35,6 +35,7 @@
 
 - [x] Research seeds + 10-step plan 2026-08-27: GC1/GC2/GC3/crime producer extensions executed as design notes (MASTERY-SPECIALIZATION.md, CONSTRUCTION.md, SOCIAL-MEMORY.md, STRATEGIC-CONFLICT.md). See docs/*-RESEARCH-SEED.md (4 seeds) and docs/POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md. Design notes only. GC1 S9–S11 complete; GC2/GC3 authority + research integrated.
 - [x] Protocol conformance sweep 2026-08-24: AGENT-HARNESS and agent-protocol-v1 normative clauses checked against harness, Worker, and client — two harness violations fixed (Noema #543/#544), two Worker conformances pinned (#545/#546), the failures-not-cached interlock recorded, RESUME_POSITION_* determined reserved-not-missing (`docs/PROTOCOL-CONFORMANCE-SWEEP-2026-08-24.md`). No contract text changed.
+- [ ] RFC-0128 **Review** — proposed server-authoritative Player tempo and cycle admission (`player-tempo/1.0`), machine catalog/schema, illustrative fixtures, and PT01–PT16 acceptance contract (`docs/PLAYER-TEMPO.md`, `docs/PLAYER-TEMPO-CONFORMANCE.md`). Runtime implementation and acceptance remain separate; no new verbs or events.
 ## Core game design (player-facing)
 
 - [x] Core game loop (primary + strategic overlay + timescales)
@@ -361,3 +362,61 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Step 8: REPORTS-UPGRADES-SEED.md + AGENT-COGNITION-BOUNDARIES-SEED.md.
 - [x] Step 9: Two RFC proposal skeletons.
 - [x] Step 10: Handoff + checklist/ROADMAP updates + verification.
+- [ ] GC4 crime/expulsion design note (institutional removal via CRIME_DETECTED/contest, temporary exclusion, enforcement cost). See docs/GC4-CRIME-EXPULSION-SEED.md + PR #305. Design note only.
+- [ ] GC7 crime enforcement cost/jurisdiction seed (B7d: payer, steward, auditable trail). See docs/GC7-CRIME-ENFORCEMENT-SEED.md. Design note only.
+- [ ] GC7 crime detection algorithm seed (B7b). See docs/GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md. Design note only.
+- [ ] GC7 crime detection vs sanction separation (B7c). See docs/GC7-CRIME-DETECTION-SANCTION-SEED.md. Design note only.
+- [ ] GC7 crime payload / victim_id reconciliation (B7a). See docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md. Design note only.
+- [ ] GC2 construction quantities seed (B2a). See docs/GC2-CONSTRUCTION-QUANTITIES-SEED.md. Design note only.
+- [ ] GC2 owner vs steward split seed (B2b). See docs/GC2-OWNER-STEWARD-SEED.md. Design note only.
+- [ ] GC8 lot-grade residuals seed (B8a). See docs/GC8-LOT-GRADE-SEED.md. Design note only.
+- [ ] GC9 culture threshold/transmission seed (B9a). See docs/GC9-THRESHOLD-SEED.md. Design note only.
+- [ ] GC10 WED storm classes + scars seeds (B10a/B10b). See docs/GC10-WED-CLASS-SEED.md. Design note only.
+- [ ] GC4 broader COI and extra office profiles seed (B4). See docs/GC4-BROADER-COI-SEED.md. Design note only.
+- [ ] GC1 failed-but-legal practice attempt weights seed (B1a). See docs/GC1-FAILED-ATTEMPTS-SEED.md. Design note only.
+- [ ] GC1 B1b multi-focus/parameter magnitudes (covered by S9–S11). See docs/GC1-MULTI-FOCUS-MAGNITUDES-SEED.md. Design note only.
+
+- [x] GC5/GC6 post-2026-08 review (no new B-gap seeds required). B5 CLOSED_BY_RFC (RFC-0009+0021), B6 RUNTIME_ONLY per SPEC-GAP-REGISTER-2026-08-25. S0 pinned + higher S-slices specified. See GC-CONTINUATION-MAIN-2026-08.md and GAME-COMPLETENESS-PLAN.md.
+
+- [ ] RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md started (minimal, from B1a seed). See rfcs/ and GC1-FAILED-ATTEMPTS-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md started (minimal, from B7a seed). See rfcs/ and GC7-CRIME-PAYLOAD-VICTIM-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md started (minimal, from B7b seed). See rfcs/ and GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md started (minimal, from B8a seed). See rfcs/ and GC8-LOT-GRADE-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC9-THRESHOLD-TRANSMISSION.md started (minimal, from B9a seed). See rfcs/ and GC9-THRESHOLD-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md started (minimal, from B10a/b seed). See rfcs/ and GC10-WED-CLASS-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC4-BROADER-COI.md started (minimal, from B4 seed). See rfcs/ and GC4-BROADER-COI-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC2-CONSTRUCTION-QUANTITIES.md started (minimal, from B2a seed). See rfcs/ and GC2-CONSTRUCTION-QUANTITIES-SEED.md.
+- [ ] RFC-PROPOSAL-GC2-OWNER-STEWARD.md started (minimal, from B2b seed). See rfcs/ and GC2-OWNER-STEWARD-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-DETECTION-SANCTION.md started (minimal, from B7c seed). See rfcs/ and GC7-CRIME-DETECTION-SANCTION-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md started (minimal, from B7d seed). See rfcs/ and GC7-CRIME-ENFORCEMENT-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md started (minimal, from B7e register + seeds). See rfcs/.
+- [ ] RFC-0128 review note added (player tempo / cycle admission; bounded; per open checklist item). See rfcs/RFC-0128-REVIEW-NOTE.md. No implementation.
+
+- [ ] GC2–GC4 coupling design note added (GC2-GC4-COUPLING-SEED.md). See GAME-COMPLETENESS-PLAN coupling table.
+- [ ] GC7–GC3 coupling design note added (GC7-GC3-COUPLING-SEED.md).
+- [ ] Acceptance matrix I/J coupling extension note added (GC-COUPLING-IJ-ACCEPTANCE-SEED.md).
+- [ ] RFC-0128 verification complete against PLAYER-TEMPO.md (player-tempo/1.0 policy) + FIRST-WORLD-OPERATIONS.md (Perihelion envelope) + existing RFC-0128 file (Review stage). No new gameplay.
+- Remaining PARTIALLY_CLOSED B-gaps enumerated (most now have RFC proposals; see continuation doc + SPEC-GAP-REGISTER).
+
+- [ ] Next 20 Steps batch: GC5-GC2/GC8-GC1/GC6-GC9/GC5-GC6 couplings + ACCEPTANCE-MATRIX A-H seeds + machine-contract GC5-7 note created. See docs/ *-SEED.md. Design notes only.
+
+- [ ] Machine-contract inventory micro-notes for GC1–10 (GC1-4/8-10 this batch; GC5-7 prior).
+- [ ] Spec Completion Contract prerequisites micro-notes for all phases (GC1-3/4-7/8-10).
+- Next batch: full cross-refs + verification.
+
+- [ ] SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC).
+- [ ] SPEC-COMPLETION-PROJECTIONS-SEED.md (PLAY/WATCH/research boundaries).
+- [ ] ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md (consolidated A–J evidence/gaps).
+
+- [ ] SPEC-COMPLETION-STATE-LIFECYCLE-SEED.md (state, lifecycle, transitions).
+- [ ] SPEC-COMPLETION-ACTIONS-SEED.md (canonical actions, params, preconds, costs, authority).
+- [ ] SPEC-COMPLETION-IDEMPOTENCY-SEED.md (idempotency, failure, replay, migration).
+
+- [x] Verification-sweep complete for current phase (Spec Completion section 11 full micro-coverage + migration/version + clean checks). Preserved task superseded.

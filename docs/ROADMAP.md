@@ -4,7 +4,7 @@
 
 The authoritative near-term campaign is [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md). It starts from the substantial implementation already present in the advanced Worker runtime and focuses on integration, external-agent operation, endurance, WATCH legibility, and a controlled successor decision for the frozen hosted alpha.
 
-Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [LCA2 Gate B preparation](LCA2-GATE-B-PREPARATION.md), [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md), and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md). Residual contract truth is tracked without thawing freezes in [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).
 
 Near-term rule:
 
@@ -184,3 +184,19 @@ Acceptance: a third party can connect an arbitrary compatible agent, allow it to
 ## Cross-cutting experience requirement
 
 Every future milestone MUST provide a simple user-facing workflow, an advanced technical workflow, and a versioned machine contract. Product navigation uses PLAY / WATCH / STUDY and the explanatory sequence PLAY → NOTICE → TEST → CAPTURE → LEARN. This presentation layer cannot weaken determinism, research isolation, claims discipline, partial observability, agent parity, or conformance.
+
+**GC campaign continuation (2026-08 main, post-PR #305):**
+- All core B-gaps from SPEC-GAP-REGISTER-2026-08-25 seeded as design notes.
+- RFC proposals advanced for B1a, B2a/b, B4, B7a–e, B8a, B9a, B10a/b (12+ total).
+- Smallest coupling design notes added (GC2–GC4, GC7–GC3, acceptance matrix I/J extensions).
+- Verification-sweep closed (repeated git diff --check clean; authorities aligned).
+- Updates to GAME-COMPLETENESS-PLAN, SPEC-CHECKLIST, GC-CONTINUATION-MAIN-2026-08.md.
+- RFC-0128 (player tempo) in Review; PLAYER-TEMPO.md pins policy; aligns with FIRST-WORLD-OPERATIONS.md (Perihelion).
+
+Cites: prior commits + GC-CONTINUATION-MAIN-2026-08.md + GAME-COMPLETENESS-PLAN.md. Game Completeness remains parallel spec campaign (no v0.1–v0.7 mutation).
+
+**GC Next 20 Steps (2026-08):** 4 new cross-GC couplings (GC5-GC2 etc.) + full A–H acceptance matrix micro-notes + GC5-7 machine inventory note added. Steps 1-15 executed. See new SEED files. Design notes. Aligns with Game Completeness parallel track.
+
+**Next batch (machine/Spec Completion):** Inventory notes for GC1-10 + Spec Completion prerequisites for phases A-D. Design notes. Aligns with completeness plan section 8/11. See new SEED files.
+
+**Next batch (Spec Completion elements):** Fixtures, projections, consolidated matrix evidence pass added as design notes. Advances section 11 prerequisites + acceptance matrix. See new SEED files.
