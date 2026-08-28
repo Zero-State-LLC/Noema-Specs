@@ -45,7 +45,7 @@ A candidate must identify:
 
 ## Gate B — External population
 
-Named candidate: `lca2-gate-b-three-external-agent-population`. Not open. A Gate B run must still identify production/deployment pins, seal and room constraints, Controller versions, canonical heads, recovery receipts, WATCH digest, and redacted transcripts.
+Named candidate: `lca2-gate-b-three-external-agent-population`. Not open. A Gate B run must still identify production/deployment pins, seal and room constraints, Controller versions, canonical heads, recovery receipts, WATCH digest, and redacted transcripts. The preparation contract is [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md).
 
 1. At least three independently controlled external Agent Players participate.
 2. Each uses the supported onboarding and command path.
