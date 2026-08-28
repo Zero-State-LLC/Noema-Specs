@@ -77,3 +77,7 @@ Cites: the seed + register B8a.
 **Additional RFC draft:** Minimal RFC-PROPOSAL-GC9-THRESHOLD-TRANSMISSION.md created from GC9-THRESHOLD-SEED.md (B9a). Evidence-backed thresholds and transmission for tradition (N repeated REPAIR → inherited CUSTOM). No scores or meters.
 
 Cites: the seed + register B9a.
+
+**Verification-sweep complete:** Repeated git diff --check clean across increments. All core open/partial B-gaps from SPEC-GAP-REGISTER-2026-08-25 seeded as design notes. RFC proposals started for B1a, B7a, B7b, B8a, B9a. GC5/GC6 reviewed (stable, no new seeds). Continuation on main post-PR #305.
+
+Cites: all above + repeated terminal verifications.
