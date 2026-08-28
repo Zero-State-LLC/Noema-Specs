@@ -49,3 +49,15 @@ GC6 Systemic Discovery: Authority + S0/S1 pinned (RFC-0010 archive-vs-live INSPE
 Reviewed against 2026-08-25 register, COMMUNICATION-ECOLOGY.md, SYSTEMIC-DISCOVERY.md, first slices, and higher S-slices. Stable at pinned S0 + specified later slices. No action in this continuation.
 
 Cites: SPEC-GAP-REGISTER-2026-08-25.md (B5 CLOSED_BY_RFC, B6 RUNTIME_ONLY), GAME-COMPLETENESS-PLAN.md GC5/GC6 sections.
+
+
+**GC5/GC6 review complete (2026-08 follow-up):**  
+No residuals requiring new design notes. GC5 stable (S0–S8 pinned to RFCs; B5 CLOSED_BY_RFC). GC6 stable (S0/S1 pinned; B6 RUNTIME_ONLY). Composes existing surfaces/evidence. Reviewed per recommendation after B-gap seeding.
+
+Next: RFC drafting from any of the B-gap seeds (e.g., GC1-FAILED-ATTEMPTS-SEED.md or GC7 crime seeds) if desired.
+
+Cites: SPEC-GAP-REGISTER-2026-08-25.md, updated GAME-COMPLETENESS-PLAN.md + SPEC-CHECKLIST.md.
+
+**RFC draft started (as next after GC5/GC6 review):** Minimal RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md created from GC1-FAILED-ATTEMPTS-SEED.md (B1a). Bounded proposal only; no contracts changed.
+
+Cites: the seed + register B1a.
