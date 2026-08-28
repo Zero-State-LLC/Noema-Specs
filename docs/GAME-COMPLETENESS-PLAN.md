@@ -558,3 +558,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-per-GC/matrix continuation:** Deeper matrix evidence start + LCA notes placeholder added. Cites matrix + prior.
 
 **Post-deeper/LCA continuation:** Transitions + replay micro-notes added. Cites section 11 + prior.
+
+**Post-deterministic continuation:** Deterministic ordering micro-note added. Cites section 11 + prior.

@@ -383,3 +383,21 @@ Cites: GAME-COMPLETENESS-PLAN.md + prior + main.
 **Phase advanced:** All major Spec Completion prerequisites + matrix + couplings at design note level. Seeds ~50. Clean.
 
 **Next:** User directive or deeper per-GC or matrix evidence collection.
+
+**This batch close (transitions + replay + per-GC + matrix deeper + LCA start):**
+- Transitions, replay behavior, per-GC summary, deeper matrix evidence start, LCA placeholder created.
+- Appends done.
+- Git + commit + push done (cb0ffe9, fe3281a, 030b3ae, 4466fd4, 9fdd812, 43d938d, 2741cef, 123297c, a97084d, 65ed7c2, 63ebfe6, 030b3ae, fe3281a, cb0ffe9). CLEAN.
+
+**Phase summary:** All Spec Completion Contract (section 11) elements micro-covered + machine inventory + matrix A-J + couplings. 52 seeds. Design notes only. Trackers updated.
+
+**Next recommended:** User "continue" for deeper per-GC or full matrix evidence collection, or LCA notes, or new batch.
+
+**Next small batch (remaining ordering + deeper per-GC):**
+1. Create SPEC-COMPLETION-DETERMINISTIC-ORDERING-SEED.md (done).
+2. Append to PLAN.
+3. Append to CHECKLIST/ROADMAP.
+4-6. Git checks + add.
+7-8. Commit/push + verify.
+
+Cites: GAME-COMPLETENESS-PLAN.md section 11 + prior + main.
