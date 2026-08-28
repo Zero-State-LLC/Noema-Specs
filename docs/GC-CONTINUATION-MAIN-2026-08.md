@@ -14,9 +14,11 @@
 - GC10 B10a/b WED classes + scars
 - GC4 B4 broader COI
 - GC1 B1a failed-but-legal practice attempts
+- GC1 B1b multi-focus/parameter magnitudes (covered by S9–S11)
 
 **Seeds added on main (covering open SPEC gaps from REGISTER-2026-08-25):**
 - GC1-FAILED-ATTEMPTS-SEED.md (B1a)
+- GC1-MULTI-FOCUS-MAGNITUDES-SEED.md (B1b)
 - GC2-CONSTRUCTION-QUANTITIES-SEED.md (B2a)
 - GC2-OWNER-STEWARD-SEED.md (B2b)
 - GC4-BROADER-COI-SEED.md (B4)
@@ -35,6 +37,6 @@ Cites: SPEC-GAP-REGISTER-2026-08-25.md, RESEARCH-ASSIMILATION-2026-08-25-CRIME.m
 
 `git diff --check` clean on increments.
 
-This continuation seeds the primary remaining open SPEC gaps for the GC campaign (B1–B10 series). Deferred items (B8b, B9b, etc.) remain as-is per doctrine.
+This continuation seeds the primary remaining open SPEC gaps for the GC campaign (B1–B10 series). All core open/partial B-gaps now covered by design notes. Deferred items (B8b, B9b, etc.) remain as-is per doctrine.
 
 Ready for review on #305 + follow-up for main increments. Let me know next (e.g., GC5/GC6 residuals if any, or RFC drafting).
