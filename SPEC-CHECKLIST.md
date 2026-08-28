@@ -364,3 +364,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md started (minimal, from B7a seed). See rfcs/ and GC7-CRIME-PAYLOAD-VICTIM-SEED.md.
 
 - [ ] RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md started (minimal, from B7b seed). See rfcs/ and GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md started (minimal, from B8a seed). See rfcs/ and GC8-LOT-GRADE-SEED.md.

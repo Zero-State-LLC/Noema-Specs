@@ -66,6 +66,10 @@ Cites: the seed + register B1a.
 
 Cites: the seed + register B7a + GC3 authorities.
 
-**Additional RFC draft:** Minimal RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md created from GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md (B7b). Defines seeded/replayable evidence function for detection (constants as inputs, deterministic). 
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md created from GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md (B7b). Defines seeded/replayable evidence function for detection (constants as inputs, deterministic).
 
 Cites: the seed + register B7b.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md created from GC8-LOT-GRADE-SEED.md (B8a). Bounded lot-grade attributes with provenance/visibility after quality slices.
+
+Cites: the seed + register B8a.
