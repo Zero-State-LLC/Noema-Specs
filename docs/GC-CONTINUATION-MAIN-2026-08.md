@@ -245,3 +245,15 @@ All per MSW. Cites preserved. Handoff ready.
 Full machine-contract + Spec Completion prerequisites covered for all GCs. All design notes. Cites GAME-COMPLETENESS-PLAN sections 8/11 + matrix + register + prior.
 
 **Verification-sweep note:** Repeated git diff --check clean. New seeds present. Trackers updated.
+
+**Campaign continuation note (post 63ebfe6):**
+- Machine-contract inventory complete for GC1–10.
+- Spec Completion Contract prerequisites micro-covered for all phases (A–D).
+- Acceptance matrix A–J advanced with evidence/gap notes.
+- Couplings expanded (multiple cross-GC).
+- All via smallest design notes. No contracts/verbs/catalogs mutated.
+- Trackers updated. git clean on main.
+
+**Next recommended:** Deeper acceptance matrix full evidence pass, or LCA integration notes, or new batch for remaining in section 11 (full prerequisite details per GC). User directive to continue.
+
+Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior seeds/PR #305 + main continuation.
