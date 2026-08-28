@@ -73,3 +73,7 @@ Cites: the seed + register B7b.
 **Additional RFC draft:** Minimal RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md created from GC8-LOT-GRADE-SEED.md (B8a). Bounded lot-grade attributes with provenance/visibility after quality slices.
 
 Cites: the seed + register B8a.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC9-THRESHOLD-TRANSMISSION.md created from GC9-THRESHOLD-SEED.md (B9a). Evidence-backed thresholds and transmission for tradition (N repeated REPAIR → inherited CUSTOM). No scores or meters.
+
+Cites: the seed + register B9a.
