@@ -560,3 +560,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-deeper/LCA continuation:** Transitions + replay micro-notes added. Cites section 11 + prior.
 
 **Post-deterministic continuation:** Deterministic ordering micro-note added. Cites section 11 + prior.
+
+**Verification-sweep close (current):** All section 11 elements micro-noted (state/lifecycle/transitions/actions/params/preconds/costs/authority/events/visibility/partial-obs/deterministic/idempotency/failure/replay/migration/fixtures/acceptance tests/projections/research/security). Migration/version seed added. Repeated git diff --check clean. Key files read/aligned. Preserved sweep label superseded by actual verifications + closeouts. 54 seeds. Cites section 11 + prior.

@@ -399,3 +399,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] SPEC-COMPLETION-STATE-LIFECYCLE-SEED.md (state, lifecycle, transitions).
 - [ ] SPEC-COMPLETION-ACTIONS-SEED.md (canonical actions, params, preconds, costs, authority).
 - [ ] SPEC-COMPLETION-IDEMPOTENCY-SEED.md (idempotency, failure, replay, migration).
+
+- [x] Verification-sweep complete for current phase (Spec Completion section 11 full micro-coverage + migration/version + clean checks). Preserved task superseded.

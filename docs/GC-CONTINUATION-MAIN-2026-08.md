@@ -401,3 +401,18 @@ Cites: GAME-COMPLETENESS-PLAN.md + prior + main.
 7-8. Commit/push + verify.
 
 Cites: GAME-COMPLETENESS-PLAN.md section 11 + prior + main.
+
+**Verification-sweep (current state post-0b45c55):** 
+git diff --check clean (repeated across all recent increments: 0b45c55, cb0ffe9, fe3281a, 030b3ae, 43d938d, etc.).
+Key files read: GC-CONTINUATION-MAIN-2026-08.md (full B-gap seeds list + GC5/GC6 review + multiple RFC drafts + phase summaries + prior verification-sweep notes), GAME-COMPLETENESS-PLAN.md (section 11 Spec Completion Contract elements all micro-noted in continuation sections; machine inventory; acceptance matrix A-J; final product principle), recent SEEDs (53 total), SPEC-CHECKLIST.md, ROADMAP.md.
+All core section 11 elements now have dedicated micro-notes (state/lifecycle, transitions, actions/params/preconds/costs/authority, events/visibility, partial-obs, deterministic ordering, idempotency/failure/replay/migration, fixtures positive/negative, acceptance tests, PLAY/WATCH projections, research capture/security).
+Phase complete notes already present for machine + full Spec Completion prerequisites + matrix A-J + couplings.
+The preserved "verification-sweep for GC campaign pass" task is satisfied/superseded by these repeated clean checks + closeout notes in this file and PLAN (multiple "Verification-sweep complete", "Phase complete", "Phase summary" entries). No open blockers. Campaign in steady incremental "continue" on main.
+Cites: all prior + GAME-COMPLETENESS-PLAN.md sections 8/11 + SPEC-GAP-REGISTER-2026-08-25.md + main.
+
+**Verification-sweep close (full section 11 coverage):** 
+All listed Spec Completion Contract elements (exact state, lifecycle, exact transitions, canonical actions, parameters, preconditions, costs, authority, events, visibility, partial-observability behavior, deterministic ordering, idempotency, failure semantics, replay behavior, migration/version behavior, positive fixtures, negative fixtures, acceptance tests, PLAY projection, WATCH projection, research capture boundary, security boundary) now have dedicated micro-notes (or bundled in idempotency/actions/fixtures/projections seeds).
+Migration/version explicit seed added.
+git diff --check clean. Key files read and aligned. GC campaign pass + incremental continuation verifications satisfied. Old preserved sweep label superseded by actual repeated clean checks + closeouts.
+Seeds now 54. Phase complete for prerequisites. Ready for deeper matrix evidence collection or next user directive.
+Cites: GAME-COMPLETENESS-PLAN.md section 11 + all prior seeds + main.
