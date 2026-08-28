@@ -538,3 +538,5 @@ It should create enough persistent social, economic, informational, institutiona
 - RFC-0128 review note added for the open checklist item (bounded operational note).
 - All updates design notes / proposals only. Cross-refs to SPEC-GAP-REGISTER-2026-08-25, seeds, prior slices/RFCs, PR #305.
 - Verification-sweep closed (clean checks, authorities aligned).
+
+**Continuation (main):** Smallest coupling design notes added for GC2–GC4, GC7–GC3, and acceptance matrix I/J extensions (per coupling table and Next-20-items). RFC batch for remaining B-gaps + RFC-0128 verification complete. See new *-COUPLING-SEED.md files + GC-CONTINUATION-MAIN-2026-08.md.

@@ -379,3 +379,9 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md started (minimal, from B7d seed). See rfcs/ and GC7-CRIME-ENFORCEMENT-SEED.md.
 - [ ] RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md started (minimal, from B7e register + seeds). See rfcs/.
 - [ ] RFC-0128 review note added (player tempo / cycle admission; bounded; per open checklist item). See rfcs/RFC-0128-REVIEW-NOTE.md. No implementation.
+
+- [ ] GC2–GC4 coupling design note added (GC2-GC4-COUPLING-SEED.md). See GAME-COMPLETENESS-PLAN coupling table.
+- [ ] GC7–GC3 coupling design note added (GC7-GC3-COUPLING-SEED.md).
+- [ ] Acceptance matrix I/J coupling extension note added (GC-COUPLING-IJ-ACCEPTANCE-SEED.md).
+- [ ] RFC-0128 verification complete against PLAYER-TEMPO.md (player-tempo/1.0 policy) + FIRST-WORLD-OPERATIONS.md (Perihelion envelope) + existing RFC-0128 file (Review stage). No new gameplay.
+- Remaining PARTIALLY_CLOSED B-gaps enumerated (most now have RFC proposals; see continuation doc + SPEC-GAP-REGISTER).

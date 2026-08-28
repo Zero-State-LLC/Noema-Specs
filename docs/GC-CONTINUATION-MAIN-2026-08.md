@@ -130,3 +130,13 @@ Cites: terminal verifications + prior sweep notes.
 20. Prepare handoff or next recommended (e.g., full acceptance matrix pass or LCA integration notes) if user directs "continue".
 
 All items design notes / proposals only. Cites preserved throughout.
+
+**Next 20 items progress (continue):**
+11. Read full acceptance matrix (I. Culture GC9, J. World pressure GC10) + coupling table — done (GAME-COMPLETENESS-PLAN.md sections read; I/J owners confirmed).
+12. Add smallest coupling design notes (GC2–GC4, GC7–GC3, I/J acceptance matrix extensions) — done. See new docs/GC*-COUPLING-SEED.md files. Ties to GAME-COMPLETENESS-PLAN coupling table + GAME-SYSTEM-MAP.md.
+13. Update ROADMAP.md with latest GC RFC proposals + sweep close + couplings — pending this batch.
+14. Verify RFC-0128 note against PLAYER-TEMPO.md + FIRST-WORLD-OPERATIONS.md — done (files read; RFC-0128 is Review-stage server-authoritative admission policy; PLAYER-TEMPO.md pins player-tempo/1.0 policy; FIRST-WORLD-OPERATIONS.md is Perihelion operational envelope; note aligns, no new gameplay).
+15. Enumerate remaining PARTIALLY_CLOSED B-gaps — B1b (multi-focus/params, covered by S9–S11 + GC1-MULTI-FOCUS-MAGNITUDES-SEED), B2a/b (now RFC proposals), B4 (RFC), B7 subs (RFCs for a–e), B8a (RFC), B9a (RFC), B10a/b (RFC). B7 overall still PARTIALLY_CLOSED (new 5th form only); no new OPEN_SPEC GC B-gaps unseeded. PAM residuals non-core.
+16–20. Appends + re-verification + commit + handoff prep — in progress.
+
+Cites: GAME-COMPLETENESS-PLAN.md (acceptance matrix + coupling table + I/J/dependency sections), PLAYER-TEMPO.md, RFC-0128-player-tempo-and-cycle-admission.md, FIRST-WORLD-OPERATIONS.md, SPEC-GAP-REGISTER-2026-08-25.md (B-gap statuses), new coupling seeds, prior RFCs/seeds/PR #305.

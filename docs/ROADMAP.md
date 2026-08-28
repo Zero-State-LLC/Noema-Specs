@@ -169,3 +169,13 @@ Acceptance: a third party can connect an arbitrary compatible agent, allow it to
 ## Cross-cutting experience requirement
 
 Every future milestone MUST provide a simple user-facing workflow, an advanced technical workflow, and a versioned machine contract. Product navigation uses PLAY / WATCH / STUDY and the explanatory sequence PLAY → NOTICE → TEST → CAPTURE → LEARN. This presentation layer cannot weaken determinism, research isolation, claims discipline, partial observability, agent parity, or conformance.
+
+**GC campaign continuation (2026-08 main, post-PR #305):**
+- All core B-gaps from SPEC-GAP-REGISTER-2026-08-25 seeded as design notes.
+- RFC proposals advanced for B1a, B2a/b, B4, B7a–e, B8a, B9a, B10a/b (12+ total).
+- Smallest coupling design notes added (GC2–GC4, GC7–GC3, acceptance matrix I/J extensions).
+- Verification-sweep closed (repeated git diff --check clean; authorities aligned).
+- Updates to GAME-COMPLETENESS-PLAN, SPEC-CHECKLIST, GC-CONTINUATION-MAIN-2026-08.md.
+- RFC-0128 (player tempo) in Review; PLAYER-TEMPO.md pins policy; aligns with FIRST-WORLD-OPERATIONS.md (Perihelion).
+
+Cites: prior commits + GC-CONTINUATION-MAIN-2026-08.md + GAME-COMPLETENESS-PLAN.md. Game Completeness remains parallel spec campaign (no v0.1–v0.7 mutation).
