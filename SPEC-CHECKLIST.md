@@ -350,3 +350,6 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC7 crime payload / victim_id reconciliation (B7a). See docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md. Design note only.
 - [ ] GC2 construction quantities seed (B2a). See docs/GC2-CONSTRUCTION-QUANTITIES-SEED.md. Design note only.
 - [ ] GC2 owner vs steward split seed (B2b). See docs/GC2-OWNER-STEWARD-SEED.md. Design note only.
+- [ ] GC8 lot-grade residuals seed (B8a). See docs/GC8-LOT-GRADE-SEED.md. Design note only.
+- [ ] GC9 culture threshold/transmission seed (B9a). See docs/GC9-THRESHOLD-SEED.md. Design note only.
+- [ ] GC10 WED storm classes + scars seeds (B10a/B10b). See docs/GC10-WED-CLASS-SEED.md. Design note only.
