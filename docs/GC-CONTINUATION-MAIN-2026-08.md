@@ -257,3 +257,19 @@ Full machine-contract + Spec Completion prerequisites covered for all GCs. All d
 **Next recommended:** Deeper acceptance matrix full evidence pass, or LCA integration notes, or new batch for remaining in section 11 (full prerequisite details per GC). User directive to continue.
 
 Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior seeds/PR #305 + main continuation.
+
+**Post-123297c continuation (machine/Spec Completion phase complete):**
+- Inventory + prerequisites + matrix A-J + couplings now at design note level across all GCs.
+- 36+ seeds total.
+- git clean on main.
+
+**Next small batch (5-10 micro-steps, design notes only):**
+1. Create SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC).
+2. Create SPEC-COMPLETION-PROJECTIONS-SEED.md (PLAY/WATCH/research capture boundaries).
+3. Create ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md (consolidated A-J evidence/gaps).
+4. Append completion note to GAME-COMPLETENESS-PLAN.md.
+5. Append to SPEC-CHECKLIST.md and ROADMAP.md.
+6-8. Git diff --check, status, add.
+9-10. Commit/push + verify sweep.
+
+Cites: GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + coupling table + prior seeds + main continuation.

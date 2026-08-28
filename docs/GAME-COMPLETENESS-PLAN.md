@@ -544,3 +544,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Next 20 Steps progress (main):** Steps 1–13 executed (Spec Completion Contract read via prior; 4 new GC5/6/8/1/9 couplings + 4 matrix A/B/C/D/E/F + G/H; machine inventory micro for GC5-7). See new *-COUPLING-SEED.md and ACCEPTANCE-MATRIX-*-SEED.md files. All design notes. Cites this plan sections 8, 10, 11 + prior.
 
 **Next batch continuation (main):** Machine-contract inventory now micro-noted for all GC1–10. Spec Completion Contract prerequisites covered for all phases with small notes (GC1-3/4-7/8-10). No invention. See new MACHINE-CONTRACT-*-SEED.md and SPEC-COMPLETION-*-SEED.md. Cites section 8/11 + prior.
+
+**Post-machine/Spec Completion continuation:** Fixtures + projections + consolidated A–J evidence pass micro-notes added (SPEC-COMPLETION-FIXTURES-SEED.md, SPEC-COMPLETION-PROJECTIONS-SEED.md, ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md). Full prerequisites + inventory + matrix at design note level. Cites sections 8/11 + matrix + prior.

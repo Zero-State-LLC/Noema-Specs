@@ -391,3 +391,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] Machine-contract inventory micro-notes for GC1–10 (GC1-4/8-10 this batch; GC5-7 prior).
 - [ ] Spec Completion Contract prerequisites micro-notes for all phases (GC1-3/4-7/8-10).
 - Next batch: full cross-refs + verification.
+
+- [ ] SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC).
+- [ ] SPEC-COMPLETION-PROJECTIONS-SEED.md (PLAY/WATCH/research boundaries).
+- [ ] ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md (consolidated A–J evidence/gaps).
