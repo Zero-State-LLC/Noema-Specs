@@ -548,3 +548,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-machine/Spec Completion continuation:** Fixtures + projections + consolidated A–J evidence pass micro-notes added (SPEC-COMPLETION-FIXTURES-SEED.md, SPEC-COMPLETION-PROJECTIONS-SEED.md, ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md). Full prerequisites + inventory + matrix at design note level. Cites sections 8/11 + matrix + prior.
 
 **Post-Spec Completion elements continuation:** State/lifecycle, actions, idempotency micro-notes added. All section 11 prerequisites now micro-covered. Cites section 11 + matrix + prior.
+
+**Post-Spec Completion elements:** Events/visibility + partial-obs/security micro-notes added. All section 11 prerequisites now micro-covered. Cites section 11 + prior.

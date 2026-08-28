@@ -312,3 +312,23 @@ Cites: GAME-COMPLETENESS-PLAN.md section 11 + prior + matrix + main.
 All Spec Completion Contract elements (section 11) now have micro-note coverage across GCs. Design notes only.
 
 **Next recommended:** Consolidated review of full Spec Completion per GC, or LCA notes, or acceptance matrix full pass evidence collection. User to direct.
+
+**This batch close (Spec Completion remaining elements):**
+- State/lifecycle, actions, idempotency SEEDs created (continuing from fixtures/projections).
+- Appends done.
+- Git + commit + push done (9fdd812). CLEAN.
+
+All core Spec Completion Contract elements now have micro-note coverage. 42 seeds.
+
+**Campaign state:** Machine inventory + Spec Completion prerequisites + acceptance matrix A-J + couplings advanced as design notes. git clean on main.
+
+**Next recommended:** Consolidated full Spec Completion per GC or deeper on events/visibility/partial-obs, or LCA notes. User to direct.
+
+**This batch continuation (more Spec Completion elements):**
+- Events/visibility + partial-obs/security SEEDs created.
+- Appends pending.
+- All section 11 elements now have at least micro-note coverage.
+
+**Campaign advanced:** Full Spec Completion Contract prerequisites + machine inventory + matrix + couplings at design note level.
+
+**Verification note:** Next steps: git + commit + verify. Seeds total will be ~44.
