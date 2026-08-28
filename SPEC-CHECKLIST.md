@@ -368,3 +368,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md started (minimal, from B8a seed). See rfcs/ and GC8-LOT-GRADE-SEED.md.
 
 - [ ] RFC-PROPOSAL-GC9-THRESHOLD-TRANSMISSION.md started (minimal, from B9a seed). See rfcs/ and GC9-THRESHOLD-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md started (minimal, from B10a/b seed). See rfcs/ and GC10-WED-CLASS-SEED.md.

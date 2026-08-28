@@ -81,3 +81,7 @@ Cites: the seed + register B9a.
 **Verification-sweep complete:** Repeated git diff --check clean across increments. All core open/partial B-gaps from SPEC-GAP-REGISTER-2026-08-25 seeded as design notes. RFC proposals started for B1a, B7a, B7b, B8a, B9a. GC5/GC6 reviewed (stable, no new seeds). Continuation on main post-PR #305.
 
 Cites: all above + repeated terminal verifications.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md created from GC10-WED-CLASS-SEED.md (B10a/b). Closed WED storm classes and irreversible scar boundaries with provenance/WATCH.
+
+Cites: the seed + register B10a/b.
