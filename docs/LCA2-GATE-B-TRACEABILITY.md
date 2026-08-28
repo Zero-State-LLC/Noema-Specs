@@ -27,7 +27,7 @@
 | `E-03` | Genesis, seal, room bound, and canonical world ID are recorded | Run-record preflight and final evidence review | **BLOCKED / NOT EXECUTED.** Local smoke used the published local seal and default demo world only, not the Gate B canonical world. |
 | `E-04` | Canonical world head is readable before the run | Preflight `head_before` capture | **BLOCKED / NOT EXECUTED.** No production-like Gate B world was opened. |
 | `E-05` | Each device enrollment is explicitly approved through `/connect` | Human approval receipt review | **BLOCKED / NOT EXECUTED.** Repository tests cover approval behavior; no human approval was performed. |
-| `E-06` | Three external Controllers are independently controlled | Redacted independence receipt review | **BLOCKED / NOT EXECUTED.** Local agents are not evidence of independent external control. |
+| `E-06` | Three external Controllers have separate decision contexts and no shared gameplay action planner; three separate human operators are not required | Redacted independence receipt and control-boundary review | **BLOCKED / NOT EXECUTED.** Scripted subprocesses and one shared decision loop are not Gate B evidence. Isolated autonomous loops are only potentially valid after all external, enrollment, independence, and evidence requirements pass. |
 | `E-07` | Each Controller uses the official client or conforming adapter | Participant matrix and version receipt review | **BLOCKED / NOT EXECUTED.** Local HTTP/WebSocket clients validate the boundary but do not satisfy this external participant requirement. |
 | `E-08` | Existing world and action surface are used without new mechanics | Run diff and action-surface review | PASS for preparation and local smoke. No new verbs, rooms, Genesis changes, or compatibility claims were added. |
 | `E-09` | Redaction plan is agreed before capture | Operator sign-off and evidence review | **BLOCKED / NOT EXECUTED.** The runbook states the requirement; no capture was authorized. |
@@ -63,7 +63,7 @@ Every required field is explicitly represented in the runbook. The observed resu
 | `P-02` | Onboarding path is recorded for each Controller | Matrix and run-record review | PRESENT IN TEMPLATE; external onboarding NOT EXECUTED. |
 | `P-03` | Client/adapter version is recorded for each Controller | Matrix and run-record review | PRESENT IN TEMPLATE; external version receipts NOT EXECUTED. |
 | `P-04` | Player and Controller references are recorded | Matrix and run-record review | PRESENT IN TEMPLATE; external references NOT EXECUTED. |
-| `P-05` | Independent-control receipt is recorded | Matrix and receipt review | PRESENT IN TEMPLATE; NOT EXECUTED. |
+| `P-05` | Each independent-control receipt establishes distinct Controller/Player/session bindings, credential and state stores, model context, action history, idempotency namespace, and independent action selection with no shared memory, queue, strategy prompt, planner, or private observations | Matrix, receipt, and control-boundary review | PRESENT IN CONTRACT; NOT EXECUTED. Personal identity and separate human operators are not required, but all three decision contexts and their isolation receipts must be distinguishable. |
 | `P-06` | Reconnect is tested for each Controller | Matrix plus reconnect acceptance | Local single-Controller `CHK-WS` passed; three external reconnect receipts NOT EXECUTED. |
 | `A-01` | Preflight confirms pins, world bounds, readable head, clean state, distinct approved enrollments, and redaction filter | Gate B preflight checklist | **BLOCKED.** Checklist is explicit; human approvals, external participants, and live evidence are absent. |
 | `A-02` | Each Controller orients from authenticated observation | Local HTTP/WebSocket public flow and external run capture | Local boundary PASS via `CHK-HTTP` and `CHK-WS`; external participant acceptance NOT EXECUTED. |
@@ -95,7 +95,7 @@ Every required field is explicitly represented in the runbook. The observed resu
 
 | ID | Changed output | Concrete check | Observed result |
 |---|---|---|---|
-| `C-01` | New Gate B preparation runbook | `git show ba3256a -- docs/LCA2-GATE-B-PREPARATION.md` plus `CHK-DOC` | PASS. Runbook exists, is linked, and preserves `BLOCKED`. |
+| `C-01` | Gate B preparation runbook, including evidence tiers and the explicit Controller decision-context independence contract | Runbook review plus `CHK-DOC` and `CHK-TRACE` | PASS. Runbook is linked, distinguishes scripted subprocesses from isolated autonomous loops and independently operated Controllers, permits lifecycle-only cohort orchestration, changes no protocol or world semantics, and preserves `BLOCKED`. |
 | `C-02` | Roadmap and acceptance-document links | `CHK-SPECS` internal-link validation | PASS. Both links resolve. |
 | `C-03` | Local smoke no longer attempts human dev-token minting as a success path | `CHK-HTTP` against isolated Worker | PASS. Human mint returns `403 NOT_AUTHORIZED`; agent mint proceeds. |
 | `C-04` | Local smoke now exercises the actual agent public path | `CHK-HTTP` | PASS. `SMOKE_OK` observed through world entry, observation, action, idempotency, and auth rejection. |

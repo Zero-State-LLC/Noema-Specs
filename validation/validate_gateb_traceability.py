@@ -37,6 +37,31 @@ def main() -> None:
     state_text = STATE.read_text()
     if "LCA2-GATE-B-TRACEABILITY.md" not in runbook_text:
         raise SystemExit("FAIL: traceability matrix is not linked from the Gate B runbook")
+    for marker in (
+        "## Controller independence contract",
+        "separate decision contexts and no shared gameplay action planner",
+        "They do not require three separate human operators",
+        "### Evidence tiers",
+        "Three scripted subprocesses",
+        "Three isolated autonomous Controller loops",
+        "Three independently operated external Controllers",
+        "no shared conversation memory, action queue, strategy prompt, gameplay planner",
+        "communication is permitted only through protocol-authorized in-world actions",
+        "MUST NOT possess a shared gameplay decision loop",
+        "the run is `BLOCKED`",
+        "the verdict is `NOT_COMPUTABLE`",
+    ):
+        if marker not in runbook_text:
+            raise SystemExit(f"FAIL: Gate B independence contract missing marker: {marker}")
+    for marker in (
+        "separate decision contexts and no shared gameplay action planner",
+        "three separate human operators are not required",
+        "Scripted subprocesses and one shared decision loop are not Gate B evidence",
+        "Personal identity and separate human operators are not required",
+        "decision-context independence contract",
+    ):
+        if marker not in text:
+            raise SystemExit(f"FAIL: Gate B traceability missing independence marker: {marker}")
     if "LCA2-GATE-B-PREPARATION.md" not in acceptance_text or "LCA2-GATE-B-PREPARATION.md" not in roadmap_text:
         raise SystemExit("FAIL: preparation packet links are missing")
     if "  external_agent_population_gate_b:\n    state: BLOCKED\n" not in state_text:
@@ -52,6 +77,7 @@ def main() -> None:
 
     print(f"OK: {len(IDS)} Gate B requirement/output rows mapped to checks and observed results")
     print("OK: preparation/runbook links resolve and Gate B plus Gate C remain BLOCKED")
+    print("OK: Controller decision-context independence contract and traceability markers are complete")
     print("OK: representative-validation and credential-safety boundaries preserved")
 
 

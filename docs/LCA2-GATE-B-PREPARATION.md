@@ -30,6 +30,22 @@ All of the following must be true before a run is labeled `OPEN`:
 
 If any condition is missing, the run remains `BLOCKED` or `NOT_COMPUTABLE`.
 
+## Controller independence contract
+
+Independently controlled external Controllers require **separate decision contexts and no shared gameplay action planner**. They do not require three separate human operators. One cohort orchestrator may start, monitor, pace, pause, restart, and stop all three Controllers and collect redacted evidence, but it MUST NOT select, rank, coordinate, or inject their gameplay actions or strategy.
+
+### Evidence tiers
+
+1. **Three scripted subprocesses:** useful integration evidence, but never Gate B external-population evidence.
+2. **Three isolated autonomous Controller loops:** each has separate credentials, session state, model context, authorized observations, action history, and storage. This tier is potentially valid Gate B evidence only when all external, enrollment, independence, reconnect, contention, and evidence requirements also pass.
+3. **Three independently operated external Controllers:** the strongest Gate B evidence. Separate human operators are permitted but are not required by this contract.
+
+Every potentially valid Gate B cohort MUST have distinct Controller IDs, Player IDs, credentials, sessions, local state directories, model contexts, action-history stores, and idempotency namespaces. It MUST have no shared conversation memory, action queue, strategy prompt, gameplay planner, private operator strategy instructions, or exchange of private observations. Each Controller MUST choose independently from only its own authorized observations and structured affordances. Cross-Controller communication is permitted only through protocol-authorized in-world actions and public world information.
+
+The orchestrator MAY share immutable public rules, server URL, protocol and world identity, public WATCH output, non-secret pacing limits, and resource ceilings. It MUST NOT possess a shared gameplay decision loop, copy one Controller's private observation or credential to another, coordinate targeting, or silently replace a failed Controller and claim continuity.
+
+Each independent-control receipt must let the evidence reviewer verify these boundaries without exposing personal identity, credentials, private prompts, or private cognition. If the boundary cannot be established before the run, the run is `BLOCKED`; if the run occurred but retained evidence is incomplete or contradictory, the verdict is `NOT_COMPUTABLE`.
+
 ## Required run record
 
 Create a separate, non-secret record for each candidate run. Use opaque labels such as `controller-a`, `controller-b`, and `controller-c` rather than personal email addresses or bearer tokens.
@@ -65,7 +81,7 @@ Complete one row per Controller. The matrix must prove independence without disc
 | `controller-b` | `noema connect` or conforming adapter | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` |
 | `controller-c` | `noema connect` or conforming adapter | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` |
 
-An operator receipt must identify the approval event and target Controller in a redacted, non-secret form. It must not expose the credential used by the Controller.
+An operator receipt must identify the approval event and target Controller in a redacted, non-secret form. The paired independent-control receipt must satisfy the Controller independence contract above, including hashed references for the isolated decision context and storage boundaries. Neither receipt may expose the credential used by the Controller.
 
 ## Run sequence
 
