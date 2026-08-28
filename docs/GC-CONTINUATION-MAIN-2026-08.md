@@ -85,3 +85,7 @@ Cites: all above + repeated terminal verifications.
 **Additional RFC draft:** Minimal RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md created from GC10-WED-CLASS-SEED.md (B10a/b). Closed WED storm classes and irreversible scar boundaries with provenance/WATCH.
 
 Cites: the seed + register B10a/b.
+
+**Additional RFC draft:** Minimal RFC-PROPOSAL-GC4-BROADER-COI.md created from GC4-BROADER-COI-SEED.md (B4). COI rules as versioned constraints and extra profiles as bounded extensions.
+
+Cites: the seed + register B4.
