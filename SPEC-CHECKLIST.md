@@ -387,3 +387,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - Remaining PARTIALLY_CLOSED B-gaps enumerated (most now have RFC proposals; see continuation doc + SPEC-GAP-REGISTER).
 
 - [ ] Next 20 Steps batch: GC5-GC2/GC8-GC1/GC6-GC9/GC5-GC6 couplings + ACCEPTANCE-MATRIX A-H seeds + machine-contract GC5-7 note created. See docs/ *-SEED.md. Design notes only.
+
+- [ ] Machine-contract inventory micro-notes for GC1–10 (GC1-4/8-10 this batch; GC5-7 prior).
+- [ ] Spec Completion Contract prerequisites micro-notes for all phases (GC1-3/4-7/8-10).
+- Next batch: full cross-refs + verification.

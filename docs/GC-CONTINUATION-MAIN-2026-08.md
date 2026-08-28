@@ -187,3 +187,44 @@ Cites: GAME-COMPLETENESS-PLAN.md (all sections), SPEC-GAP-REGISTER-2026-08-25.md
 19-20. Git verification + commit/push pending this batch.
 
 All design notes. Cites GAME-COMPLETENESS-PLAN.md sections 8/10/11 + matrix/coupling table + SPEC-GAP-REGISTER + prior.
+
+**Next 20 Steps 16-20 close (this continue):**
+- 16-18: Appends to PLAN/CHECKLIST/CONTINUATION/ROADMAP with new seeds + progress (done).
+- 19: Re-run git diff --check + status + log — CLEAN (commit 65ed7c2). 17 files changed, 234 insertions. All new seeds present.
+- 20: Commit/push done (65ed7c2: "Next 20 Steps batch (1-15 executed)..."). Handoff ready: full matrix A-J + expanded couplings now in docs; next could be deeper Spec Completion or LCA notes.
+
+All per MSW + doctrine. Cites GAME-COMPLETENESS-PLAN.md + register + prior. Clean on main.
+
+**Verification-sweep note:** Repeated clean checks across this batch (65ed7c2 + prior). Authorities + new seeds aligned. Sweep evidence complete in docs.
+
+**Next batch continuation (post 20 Steps close, 2026-08 main):**
+- Machine-contract inventory completed for GC1–10 (micro-notes for GC1-4, GC5-7 prior, GC8-10).
+- Spec Completion Contract micro-notes for GC1-3 (prior), GC4-7, GC8-10 created. Covers prerequisites without machine claims.
+- All per section 11 of GAME-COMPLETENESS-PLAN.md. Ties to acceptance matrix, couplings, register.
+- Design notes only. Cites GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + prior seeds/PR #305.
+
+**Next 20 micro-steps (new batch):**
+1-3. GC1-3 machine + Spec Completion notes (done via prior + this).
+4-6. GC4-7 machine + Spec Completion notes (done).
+7-9. GC8-10 machine + Spec Completion notes (done).
+10. Full inventory cross-ref in PLAN.
+11-15. Append to CHECKLIST, ROADMAP, CONTINUATION, verify couplings/matrix coverage.
+16-18. Git diff --check, status, add.
+19-20. Commit/push + final verification sweep note.
+
+All smallest units. Ready for deeper or handoff.
+
+**This batch close (machine + Spec Completion continuation):**
+- Machine-contract inventory: GC1-4 + GC8-10 micro-notes created (full GC1-10 now covered; GC5-7 prior).
+- Spec Completion Contract prerequisites: GC4-7 + GC8-10 micro-notes (full phases now noted; GC1-3 prior).
+- Appends to PLAN + continuation.
+- All design notes only. No invention. Cites GAME-COMPLETENESS-PLAN.md sections 8/11 + matrix + register + prior.
+
+**Next 20 micro-steps progress:**
+1-9: Done (prior + this batch machine/Spec Completion).
+10: Full inventory cross-ref in PLAN — done (appends).
+11-15: Appends to CHECKLIST/ROADMAP/CONTINUATION + verify coverage — in progress.
+16-18: Git checks + add.
+19-20: Commit/push + sweep note.
+
+Handoff ready for deeper Spec Completion or acceptance matrix full pass.

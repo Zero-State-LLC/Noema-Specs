@@ -181,3 +181,5 @@ Every future milestone MUST provide a simple user-facing workflow, an advanced t
 Cites: prior commits + GC-CONTINUATION-MAIN-2026-08.md + GAME-COMPLETENESS-PLAN.md. Game Completeness remains parallel spec campaign (no v0.1–v0.7 mutation).
 
 **GC Next 20 Steps (2026-08):** 4 new cross-GC couplings (GC5-GC2 etc.) + full A–H acceptance matrix micro-notes + GC5-7 machine inventory note added. Steps 1-15 executed. See new SEED files. Design notes. Aligns with Game Completeness parallel track.
+
+**Next batch (machine/Spec Completion):** Inventory notes for GC1-10 + Spec Completion prerequisites for phases A-D. Design notes. Aligns with completeness plan section 8/11. See new SEED files.
