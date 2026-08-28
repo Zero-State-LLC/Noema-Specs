@@ -343,3 +343,4 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Phased roadmap with future hooks defined
 - [x] Runtime `/watch/map` shipped (Noema `#471`). Live mapping is a spectator surface, not inhabit.
 - [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1: §1.1 privacy binds §7 verbatim + `watch-map/1.0` bands pin per Noema #488; §6.1 pause/motion; §8.1 reconciliation table; "dashboard-style" retired; WebGL/importance-scoring/AI-narration/voting struck or RFC-gated).
+- [ ] GC4 crime/expulsion design note (institutional removal via CRIME_DETECTED/contest, temporary exclusion, enforcement cost). See docs/GC4-CRIME-EXPULSION-SEED.md + PR #305. Design note only.
