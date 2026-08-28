@@ -560,7 +560,10 @@ def check_markdown_links() -> None:
             except ValueError:
                 continue
             if not resolved.exists():
-                broken.append(f"{md.relative_to(ROOT)} -> {target}")
+                broken.append(
+                    f"{md.relative_to(ROOT)} -> {target} "
+                    f"(resolved: {resolved.relative_to(ROOT)})"
+                )
     if broken:
         fail("Broken relative links:\n  " + "\n  ".join(broken[:20]))
     ok("Internal Markdown links resolve")
