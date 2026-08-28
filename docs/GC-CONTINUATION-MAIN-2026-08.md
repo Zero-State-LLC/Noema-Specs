@@ -89,3 +89,44 @@ Cites: the seed + register B10a/b.
 **Additional RFC draft:** Minimal RFC-PROPOSAL-GC4-BROADER-COI.md created from GC4-BROADER-COI-SEED.md (B4). COI rules as versioned constraints and extra profiles as bounded extensions.
 
 Cites: the seed + register B4.
+
+**Additional RFC drafts (next batch post B4 / verification):** 
+- Minimal RFC-PROPOSAL-GC2-CONSTRUCTION-QUANTITIES.md (B2a: closed versioned quantity tables for generalized BUILD).
+- Minimal RFC-PROPOSAL-GC2-OWNER-STEWARD.md (B2b: owner=attributor lineage vs. steward=responsible/transferable).
+- Minimal RFC-PROPOSAL-GC7-CRIME-DETECTION-SANCTION.md (B7c: detection facts only; sanction as separate governed step).
+- Minimal RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md (B7d: auditable cost + jurisdiction + steward for institutional enforcement).
+- Minimal RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md (B7e: severity-aware, victim-specific restitution alignment).
+- RFC-0128-REVIEW-NOTE.md (player tempo / cycle admission review per SPEC-CHECKLIST open item; bounded operational contract note).
+
+All cite respective seeds + SPEC-GAP-REGISTER-2026-08-25 + GAME-COMPLETENESS-PLAN + PR #305. Design notes / minimal proposals only.
+
+Cites: the seeds + register B2a/B2b/B7c/B7d/B7e.
+
+**Verification-sweep closeout (explicit):** Repeated git diff --check clean. Key authorities (MASTERY-SPECIALIZATION, CONSTRUCTION, SOCIAL-MEMORY, INSTITUTIONAL-AUTHORITY, etc.) present and status-aligned. All core B-gaps from register seeded + RFC proposals advanced (now 12+ including this batch). GC5/GC6 stable. Continuation complete for recommended post-seeding RFC step. Ready for review or further smallest units (e.g., acceptance matrix extensions, more couplings).
+
+Cites: terminal verifications + prior sweep notes.
+
+**Next 20 items (smallest viable units, as recommended post B-gap seeding + RFC advancement + verification-sweep):**
+
+1. Draft B2a RFC-PROPOSAL-GC2-CONSTRUCTION-QUANTITIES.md (done).
+2. Draft B2b RFC-PROPOSAL-GC2-OWNER-STEWARD.md (done).
+3. Draft B7c RFC-PROPOSAL-GC7-CRIME-DETECTION-SANCTION.md (done).
+4. Draft B7d RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md (done).
+5. Draft B7e RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md (done).
+6. Add RFC-0128 review note (done).
+7. Append batch to GC-CONTINUATION-MAIN-2026-08.md (done).
+8. Append entries to SPEC-CHECKLIST.md (done).
+9. Append continuation notes to GAME-COMPLETENESS-PLAN.md (done).
+10. Run git diff --check + authority status verification (done; clean).
+11. Read full acceptance matrix sections in GAME-COMPLETENESS-PLAN.md for I/J extensions (next).
+12. Add smallest coupling design notes to relevant authority docs (e.g., GC2-GC4, GC7-GC3) if gaps surface.
+13. Update ROADMAP.md with latest GC RFC proposals + sweep close.
+14. Verify RFC-0128 note against PLAYER-TEMPO.md / FIRST-WORLD-OPERATIONS.md (if files exist).
+15. Enumerate any remaining PARTIALLY_CLOSED B-gaps in SPEC-GAP-REGISTER for micro-notes.
+16. Append "20 items" closeout + evidence to SPEC-CHECKLIST and continuation.
+17. Re-run full git diff --check + status + log after all appends (clean gate).
+18. Update todo board (verification-sweep complete; new RFC batch items).
+19. Commit/push batch with "docs: advance next RFC proposals (B2a/b, B7c/d/e) + RFC-0128 note + verification close + 20-items list".
+20. Prepare handoff or next recommended (e.g., full acceptance matrix pass or LCA integration notes) if user directs "continue".
+
+All items design notes / proposals only. Cites preserved throughout.

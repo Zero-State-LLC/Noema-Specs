@@ -372,3 +372,10 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md started (minimal, from B10a/b seed). See rfcs/ and GC10-WED-CLASS-SEED.md.
 
 - [ ] RFC-PROPOSAL-GC4-BROADER-COI.md started (minimal, from B4 seed). See rfcs/ and GC4-BROADER-COI-SEED.md.
+
+- [ ] RFC-PROPOSAL-GC2-CONSTRUCTION-QUANTITIES.md started (minimal, from B2a seed). See rfcs/ and GC2-CONSTRUCTION-QUANTITIES-SEED.md.
+- [ ] RFC-PROPOSAL-GC2-OWNER-STEWARD.md started (minimal, from B2b seed). See rfcs/ and GC2-OWNER-STEWARD-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-DETECTION-SANCTION.md started (minimal, from B7c seed). See rfcs/ and GC7-CRIME-DETECTION-SANCTION-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md started (minimal, from B7d seed). See rfcs/ and GC7-CRIME-ENFORCEMENT-SEED.md.
+- [ ] RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md started (minimal, from B7e register + seeds). See rfcs/.
+- [ ] RFC-0128 review note added (player tempo / cycle admission; bounded; per open checklist item). See rfcs/RFC-0128-REVIEW-NOTE.md. No implementation.

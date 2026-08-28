@@ -531,3 +531,10 @@ This patch settles **product behavior** for GC1–GC10. It does **not** claim th
 NOEMA should not merely test whether an agent can solve tasks or win.
 
 It should create enough persistent social, economic, informational, institutional, and historical structure that an intelligent actor can **become somebody inside the world**.
+
+**Continuation (main, post B-gap seeds + RFC batch):** 
+- GC2 B2a (quantities) + B2b (owner/steward) seeds covered; minimal RFC proposals drafted.
+- GC7 remaining B7c (detection vs sanction), B7d (enforcement), B7e (rehab alignment) advanced with RFC proposals from seeds + register.
+- RFC-0128 review note added for the open checklist item (bounded operational note).
+- All updates design notes / proposals only. Cross-refs to SPEC-GAP-REGISTER-2026-08-25, seeds, prior slices/RFCs, PR #305.
+- Verification-sweep closed (clean checks, authorities aligned).
