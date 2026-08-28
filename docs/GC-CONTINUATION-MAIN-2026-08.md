@@ -140,3 +140,50 @@ All items design notes / proposals only. Cites preserved throughout.
 16–20. Appends + re-verification + commit + handoff prep — in progress.
 
 Cites: GAME-COMPLETENESS-PLAN.md (acceptance matrix + coupling table + I/J/dependency sections), PLAYER-TEMPO.md, RFC-0128-player-tempo-and-cycle-admission.md, FIRST-WORLD-OPERATIONS.md, SPEC-GAP-REGISTER-2026-08-25.md (B-gap statuses), new coupling seeds, prior RFCs/seeds/PR #305.
+
+**16–20 close (this continue):**
+- Re-verification: git diff --check clean (post-coupling commits e1d050a / 6cfe2b0). All three coupling seeds present. 20-items 11-15 marked done. Remaining B-gaps enumerated (no unseeded OPEN_SPEC GC core).
+- ROADMAP / SPEC-CHECKLIST / GAME-COMPLETENESS-PLAN updated with couplings + RFC-0128 verification.
+- Commit/push done (e1d050a).
+- Todo board evidence via docs (sweep + cross-refs complete).
+- Handoff prep: ready for full acceptance matrix pass, more couplings, or LCA notes on next "continue".
+
+All per MSW + doctrine. Cites preserved.
+
+**Next 20 Steps (post prior 20-items closeout, 2026-08 main continuation):**
+
+Focus: Complete acceptance matrix A–J coverage with smallest evidence/gap notes; expand coupling table; micro-notes for Spec Completion Contract prerequisites; deeper GC5/GC6/GC8–10 authority alignments; machine-contract inventory without invention; dependency validation; update all trackers. All design notes only.
+
+1. Read full Spec Completion Contract + Final principle sections (GAME-COMPLETENESS-PLAN.md).
+2. Create GC5-GC2 Infrastructure-Relay Coupling micro-note.
+3. Create GC8-GC1 Specialization-Production Coupling micro-note.
+4. Create GC6-GC9 Discovery-Culture Coupling micro-note.
+5. Create GC5-GC6 Communication-Discovery Coupling micro-note.
+6. Create small Acceptance Matrix A (Identity/GC1) evidence/gap note.
+7. Create small Acceptance Matrix B (Social Memory/GC3) evidence/gap note.
+8. Create small Acceptance Matrix C (Construction/GC2) evidence/gap note.
+9. Create small Acceptance Matrix D (Institutional/GC4) evidence/gap note.
+10. Create small Acceptance Matrix E (Communication/GC5) evidence/gap note.
+11. Create small Acceptance Matrix F (Mystery/GC6) evidence/gap note.
+12. Create small Acceptance Matrix G (Conflict/GC7) evidence/gap note.
+13. Create small Acceptance Matrix H (Economy/GC8) evidence/gap note.
+14. Create machine-contract inventory micro-notes for GC5–GC7 (no invention).
+15. Validate dependency order (PHASE A–D) against current seeds/RFCs.
+16. Append all new notes + progress to GAME-COMPLETENESS-PLAN.md.
+17. Append progress + list to SPEC-CHECKLIST.md and ROADMAP.md.
+18. Append closeout + evidence to GC-CONTINUATION-MAIN-2026-08.md.
+19. Re-run git diff --check + status + log (clean gate).
+20. Commit/push with message citing new steps; update todo.
+
+Cites: GAME-COMPLETENESS-PLAN.md (all sections), SPEC-GAP-REGISTER-2026-08-25.md, prior seeds/RFCs, PR #305 + main. Design notes only.
+
+**Next 20 Steps progress (this continue):**
+1. Spec Completion Contract + Final principle sections read (via prior full read + GAME-COMPLETENESS-PLAN end).
+2-5. New couplings: GC5-GC2, GC8-GC1, GC6-GC9, GC5-GC6 created.
+6-13. Acceptance Matrix A–H seeds created (full A–J coverage advanced; I/J prior).
+14. Machine-contract inventory micro for GC5–GC7 created.
+15. Dependency order validation: PHASES A–D align with current GC1–10 seeds/RFCs/couplings (no conflicts observed).
+16-18. Appends to PLAN, CHECKLIST, CONTINUATION, ROADMAP (in progress).
+19-20. Git verification + commit/push pending this batch.
+
+All design notes. Cites GAME-COMPLETENESS-PLAN.md sections 8/10/11 + matrix/coupling table + SPEC-GAP-REGISTER + prior.

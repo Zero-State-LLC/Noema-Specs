@@ -540,3 +540,5 @@ It should create enough persistent social, economic, informational, institutiona
 - Verification-sweep closed (clean checks, authorities aligned).
 
 **Continuation (main):** Smallest coupling design notes added for GC2–GC4, GC7–GC3, and acceptance matrix I/J extensions (per coupling table and Next-20-items). RFC batch for remaining B-gaps + RFC-0128 verification complete. See new *-COUPLING-SEED.md files + GC-CONTINUATION-MAIN-2026-08.md.
+
+**Next 20 Steps progress (main):** Steps 1–13 executed (Spec Completion Contract read via prior; 4 new GC5/6/8/1/9 couplings + 4 matrix A/B/C/D/E/F + G/H; machine inventory micro for GC5-7). See new *-COUPLING-SEED.md and ACCEPTANCE-MATRIX-*-SEED.md files. All design notes. Cites this plan sections 8, 10, 11 + prior.
