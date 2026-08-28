@@ -354,3 +354,4 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC9 culture threshold/transmission seed (B9a). See docs/GC9-THRESHOLD-SEED.md. Design note only.
 - [ ] GC10 WED storm classes + scars seeds (B10a/B10b). See docs/GC10-WED-CLASS-SEED.md. Design note only.
 - [ ] GC4 broader COI and extra office profiles seed (B4). See docs/GC4-BROADER-COI-SEED.md. Design note only.
+- [ ] GC1 failed-but-legal practice attempt weights seed (B1a). See docs/GC1-FAILED-ATTEMPTS-SEED.md. Design note only.

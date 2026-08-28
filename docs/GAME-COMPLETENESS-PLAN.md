@@ -63,6 +63,8 @@ Produced before writing new authorities. Status values:
 | [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
 | [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
 | Player proficiency / specialization | ABSENT | New: [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) |
+**Continuation (main):** GC1 failed-but-legal practice attempt weights seed (B1a). See GC1-FAILED-ATTEMPTS-SEED.md.
+
 
 ### GC2 Construction and world modification — P0
 
