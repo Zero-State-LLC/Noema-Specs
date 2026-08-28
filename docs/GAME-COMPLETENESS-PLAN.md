@@ -65,6 +65,8 @@ Produced before writing new authorities. Status values:
 | Player proficiency / specialization | ABSENT | New: [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) |
 **Continuation (main):** GC1 failed-but-legal practice attempt weights seed (B1a). See GC1-FAILED-ATTEMPTS-SEED.md.
 
+**Continuation (main):** GC1 B1b multi-focus/parameter magnitudes covered by S9–S11 design notes. See GC1-MULTI-FOCUS-MAGNITUDES-SEED.md.
+
 
 ### GC2 Construction and world modification — P0
 
