@@ -52,15 +52,16 @@ Produced before writing new authorities. Status values:
 | **CONFLICT-RISK** | Nearby authority could be duplicated if a new doc is careless |
 | **ABSENT** | No dedicated authority; this campaign creates one |
 
-### GC1 Mastery and specialization — P0
+### GC1 Mastery and specialization — P0 (slices complete as design notes)
 
-| Nearby authority | Status | Rule |
-|------------------|--------|------|
-| [PROGRESSION.md](PROGRESSION.md) | EXISTS (plural surfaces; forbids XP) | Keep. Mastery is a new surface, not a replacement |
-| [AMBITIONS.md](AMBITIONS.md) | EXISTS (no victory function) | Keep |
-| [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
-| [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
-| Player proficiency / specialization | ABSENT | New: [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) |
+|| Nearby authority | Status | Rule |
+||------------------|--------|------|
+|| [PROGRESSION.md](PROGRESSION.md) | EXISTS (plural surfaces; forbids XP) | Keep. Mastery is a new surface, not a replacement |
+|| [AMBITIONS.md](AMBITIONS.md) | EXISTS (no victory function) | Keep |
+|| [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
+|| [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
+||| Player proficiency / specialization | Design notes complete | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) + S9–S11 |
+|| Research input (2026-08-27) + slices | Complete | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (SkillMaster) + GC1-S9/S10/S11 design notes. All listed remaining items addressed.
 
 ### GC2 Construction and world modification — P0
 
@@ -70,7 +71,8 @@ Produced before writing new authorities. Status values:
 | [INFRASTRUCTURE.md](INFRASTRUCTURE.md) | EXISTS (repair, condition, closed types) | Construction extends this set; does not replace REPAIR |
 | [GEOGRAPHY.md](GEOGRAPHY.md) / [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) | EXISTS | Construction MUST couple here |
 | [DEEP-TIME.md](DEEP-TIME.md) | EXISTS (scars, names, artifacts) | Construction writes lineage into history |
-| Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
+|| Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
+| Research input (2026-08-27) | — | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (WorldGen, procedural + verifiable generation) |
 
 ### GC3 Social memory and relational reputation — P0
 
@@ -80,6 +82,16 @@ Produced before writing new authorities. Status values:
 | [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md) | EXISTS (archives ≠ relationship) | Keep distinct |
 | [PROGRESSION.md](PROGRESSION.md) “Relationships” row | PARTIAL | Names the surface only |
 | Player↔Player / Institution↔Player memory | ABSENT | New: [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) |
+ | Research input (2026-08-27) | — | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (RepuNet, Moltbook, shared social memory prerequisite) |
+
+### Research seeds 2026-08-27 (post-arXiv assimilation)
+- GC1: [MASTERY-SPECIALIZATION-RESEARCH-SEED.md](MASTERY-SPECIALIZATION-RESEARCH-SEED.md) + extension in MASTERY-SPECIALIZATION.md (SkillMaster autonomous mastery signals).
+
+- New slices (design notes): GC1-S9 multi-focus, S10 decay-window credit, S11 further parameters (BUILD/TRADE/INSPECT). All integrate 2026-08-27 research signals. See docs/GC1-S9-MULTI-FOCUS.md, GC1-S10-DECAY-CREDIT.md, GC1-S11-FURTHER-PARAMETERS.md and updated MASTERY-SPECIALIZATION.md.
+- GC2: [CONSTRUCTION-RESEARCH-SEED.md](CONSTRUCTION-RESEARCH-SEED.md) + extension in CONSTRUCTION.md (WorldGen procedural/verifiable).
+- GC3: [SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md](SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md) + extension in SOCIAL-MEMORY.md (RepuNet/Moltbook relational + shared memory).
+- RFC-0002 crime producer: [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md) + bounded note in STRATEGIC-CONFLICT.md (hotspot/delay models, witness/sensor flows).
+Full plan: [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md). Design notes only.
 
 ### GC4 Institutional roles and bounded authority — P1
 

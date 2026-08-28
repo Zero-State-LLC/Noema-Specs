@@ -329,19 +329,88 @@ ordinary REPAIR unchanged
 no OVERHAUL verb; no class discount
 ```
 
+
+### Closed for GC1-S9 ([GC1-S9-MULTI-FOCUS.md](GC1-S9-MULTI-FOCUS.md))
+
+```text
+multi-focus active set (cap 1–3 versioned)
+maintenance credit on active tracks
+non-active recognized tracks decay normally or accelerated
+no new events
+self + public lines for active tracks (same withhold rules as S7)
+incorporates trajectory review / skill-graph management signals (research)
+```
+
+
+### Closed for GC1-S10 ([GC1-S10-DECAY-CREDIT.md](GC1-S10-DECAY-CREDIT.md))
+
+```text
+decay-window credit only for active focus tracks (S7/S9)
+versioned extra idle tolerance (e.g. +6 cycles)
+non-focused recognized tracks use normal S3 decay
+no change to base rates or rehab
+incorporates trajectory review / multi-track management (research)
+```
+
+
+### Closed for GC1-S11 ([GC1-S11-FURTHER-PARAMETERS.md](GC1-S11-FURTHER-PARAMETERS.md))
+
+```text
+further parameters on BUILD / TRADE / INSPECT for focused MAINTAINED specialists
+versioned richer options under same verbs
+requires active focus + recognition + MAINTAINED
+no new verbs or discounts
+incorporates autonomous parameter selection via trajectories (research)
+```
+
 ### Still open (later)
 
 ```text
-event types if recognition is ever ledgered
-multi-focus cap 1–3
-decay-window credit for focus
-further parameters on BUILD / TRADE / INSPECT
 ```
 
-GC1-S0–S8 are specified (recognition through first parameter-access). Remaining later items (multi-focus, decay credit, further parameters) stay closed unless a new RFC opens them.
+GC1-S0–S8 are specified (recognition through first parameter-access). All listed remaining items from 2026-08-27 research addressed as S9–S11 design notes. Event types remain open.
 
 ---
 
 ## Acceptance (scenario A)
 
 A Player enters without a class, repeats `INSPECT` / `REPAIR` / `TRADE` work, crosses a recognition threshold, and gains a quality or eligibility benefit under the same verbs, with no global intelligence score and no research metric on the PLAY surface.
+
+## Research assimilation 2026-08-27 — Autonomous mastery and dedicated specialization surface
+
+**Status:** Design/research integration. Inputs only. No contract, catalog, verb, or exposure change. Cites [MASTERY-SPECIALIZATION-RESEARCH-SEED.md](MASTERY-SPECIALIZATION-RESEARCH-SEED.md) and [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md).
+
+**Signals (primary):** SkillMaster — Toward Autonomous Skill Mastery in LLM Agents (arXiv:2605.08693v2).
+- Trajectory-informed skill review (propose/update/retain from evidence traces), counterfactual utility on probe tasks, DualAdv-GRPO.
+- Graceful degradation with weak initial skill banks; agents identify failures, refine procedures, transfer improvements.
+- **Direct mapping:** Informs the dedicated MASTERY-SPECIALIZATION surface (distinct from static CAPABILITY-GRAPH) and hosted LEARN projections of skill evolution/capture-as-test.
+
+Supporting signals (assimilation): skill graphs (directed edges for prereqs/enhancements/co-occurrence), SkillMAS (utility learning + bounded evolution + evidence-gated restructuring), SAG-Agent (dynamic KGs + MCTS for strategy/skill evaluation), hierarchical belief-state memory (event → preference → profile tiers).
+
+**Dedicated proficiency/specialization surface (this authority):**
+- First-class but derived practice surface grounded in world-native action history and demonstrated work.
+- **Evidence model:** repeated world-native actions → practice evidence → inferred proficiency tracks (rebuildable derived aggregates from ledger) → emergent or institutional recognition → richer affordances under the *same* verbs (parameters, quality, cost bands, target/access eligibility).
+- Autonomous mastery framing (for future slices): trajectory review and refinement as Player-internal process; compositional skill graphs; graceful degradation and transfer across tracks; evidence-gated evolution. No static class trees or one-time selection.
+
+**Explicit boundaries (must not become / research/game membrane):**
+- Distinct from [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md): these are researcher surfaces for reproduced behaviors, capability edges, and generalization evidence. They complete the research loop (PLAY → ... → LEARN). They do **not** project Player mastery, proficiency scores, or capability confidence into PLAY or WATCH. Research observations are **never** mastery evidence.
+- Distinct from [PROGRESSION.md](PROGRESSION.md): plural ambitions and relationships (not practice specialization).
+- Distinct from [AMBITIONS.md](AMBITIONS.md): no victory function or single score.
+- [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) A–J: evidence trajectories only; no industries, class trees, XP, or consciousness claims.
+- No new verbs. Benefits remain under existing verbs. Partial observability preserved (private totals Player-only; public recognition and work visible).
+- Hosted parity: identical evidence rules for human and agent Players. LEARN/Frontier/Observatory may capture practice trajectories for study but MUST NOT leak research metrics or project as Player stats.
+
+**S2–S8 outline (closed slices per prior RFCs; see SPEC GAP section above for pins):**
+- S2: Engineer same-asset REPAIR quality (RFC-0040).
+- S3: Mastery decay + rehab (RFC-0043).
+- S4: Prior-work benefits on known targets (RFC-0044).
+- S5: Office eligibility requiring recognized tracks (RFC-0055).
+- S6: Public titles (third-person / WATCH visible).
+- S7: Focus declaration (one active track).
+- S8: Parameter access (overhaul for MAINTAINED Engineer, RFC-0112).
+
+All listed remaining items closed as design notes (S9–S11). Event types if ledgered remain for future RFC. may incorporate autonomous skill models (trajectory refinement, graphs) in future RFCs. All must still pass doctrine and maintain no new verbs.
+
+This section integrates the 2026-08-27 research signals into the authority without altering shipped S0–S8 pins, frozen v0.1–v0.7 contracts, or event catalog.
+
+**Citations / provenance:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC1 table + research input row), MASTERY-SPECIALIZATION-RESEARCH-SEED.md, RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (SkillMaster section), arXiv:2605.08693v2, [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md), [LEARN.md](LEARN.md), [GC1-FIRST-SLICE.md](GC1-FIRST-SLICE.md), RFC-0004/0005 and later GC1 RFCs (0040, 0043, 0044, 0055, 0112), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).
