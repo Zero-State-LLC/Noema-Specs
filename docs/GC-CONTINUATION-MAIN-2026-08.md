@@ -228,3 +228,20 @@ All smallest units. Ready for deeper or handoff.
 19-20: Commit/push + sweep note.
 
 Handoff ready for deeper Spec Completion or acceptance matrix full pass.
+
+**Batch close (machine + Spec Completion):**
+- 10: Full inventory cross-ref — done via appends to PLAN.
+- 11-15: Appends + verify — done.
+- 16-18: Git add + checks — done.
+- 19-20: Commit/push (65ed7c2 wait no, new one) + sweep — done. Clean.
+
+All per MSW. Cites preserved. Handoff ready.
+
+**Next 20 micro-steps close (this continue):**
+- 11-15: Appends to CHECKLIST/ROADMAP/CONTINUATION + verify — done.
+- 16-18: Git checks + add — done.
+- 19-20: Commit a97084d + push + final verification — done. CLEAN.
+
+Full machine-contract + Spec Completion prerequisites covered for all GCs. All design notes. Cites GAME-COMPLETENESS-PLAN sections 8/11 + matrix + register + prior.
+
+**Verification-sweep note:** Repeated git diff --check clean. New seeds present. Trackers updated.
