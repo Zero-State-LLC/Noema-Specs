@@ -198,3 +198,13 @@ Until a later slice, extra office profiles stay unhosted.
 ## Acceptance (scenario D)
 
 A Player is assigned a bounded office, performs a permitted institution `TRADE` or `REPAIR` under that scope, is `FORBIDDEN` from an unscoped action, leaves office, and the successor (or vacancy) is the only remaining holder of that scope.
+
+
+### Research assimilation 2026-08-25/27 cross-ref — Crime and institutional removal
+Institutions MAY tie role removal/expulsion to ledgered crime detections or contest outcomes (see STRATEGIC-CONFLICT.md producer framing and 2026-08-25 crime assimilation).
+- Audit logs remain attributable even on removal.
+- Temporary exclusion (not permanent stigma) aligns with rehabilitation and fail-closed principles.
+- Enforcement financing and jurisdiction gaps noted in new crime review apply to institutional sanctions.
+
+No changes to this authority. Design input. Ties to GC3 social memory and RFC-0002.
+Cites: RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, STRATEGIC-CONFLICT.md (PR #305), CRIME-PRODUCER.md.

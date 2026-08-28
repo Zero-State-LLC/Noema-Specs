@@ -52,6 +52,8 @@ Produced before writing new authorities. Status values:
 | **CONFLICT-RISK** | Nearby authority could be duplicated if a new doc is careless |
 | **ABSENT** | No dedicated authority; this campaign creates one |
 
+
+**GC1–GC3 pass captured in PR #305** (research integration 2026-08-27 batch + closeout). See also main updates 2026-08-25 crime assimilation.
 ### GC1 Mastery and specialization — P0
 
 | Nearby authority | Status | Rule |

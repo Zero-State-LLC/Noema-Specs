@@ -218,3 +218,20 @@ Implement v0.2 first. Do not block Chamber play on GC7.
 ### Acceptance (scenario G)
 
 Two groups reconnoiter, position, apply economic or infrastructural pressure, counter, escalate, commit via declared contest, resolve under the existing algorithm, and recover. No hit-point combat. No unwinnable spiral.
+
+
+### Research assimilation 2026-08-25 — Crime detection evidence and enforcement (update)
+**Signals:** Detailed review (RESEARCH-ASSIMILATION-2026-08-25-CRIME.md + supporting NOTES-CRIME-DETECTION-EVIDENCE.md).
+- Per-incident source_event_ids and distinct detection records (no aggregation into one severe sanction).
+- OCEAN/first-hand observation beats propagated rumor for detection.
+- Enforcement cost, jurisdiction, second-order free riders, and monitoring cost for exclusion.
+- Payload contradictions noted (influence_delta required in schema vs detection-only intent); fail-closed on insufficient evidence.
+- Temporary scoped exclusion; rehabilitation; no stigma contagion; no retune of sanction ladder.
+
+**Mapping to producer framing (this note):** Strengthens witness/sensor provenance requirements, per-event evidence paths, and the need for enforcement cost/jurisdiction in future producer mechanics. Aligns with existing bounded producer (witness/sensor/investigation/self-report + delays). No new events or verbs here.
+
+**Boundaries:** Design input only. Extends prior 2026-08-27 bounded producer. See also SPEC-GAP-REGISTER-2026-08-25 and the new crime notes for open gaps (B7c etc.). Ties to GC3 social memory (public descriptors from detections).
+
+Cites: RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, NOTES-CRIME-DETECTION-EVIDENCE.md, SPEC-GAP-REGISTER-2026-08-25.md, prior arXiv hotspot models, CRIME-PRODUCER-RESEARCH-SEED.md, RFC-0002.
+
+This incremental assimilation updates the crime producer context on main (PR #305 captured the 08-27 batch).
