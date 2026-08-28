@@ -97,6 +97,8 @@ Produced before writing new authorities. Status values:
 | [WORLD-SERVICES.md](WORLD-SERVICES.md) | EXISTS (not Players) | Services ≠ Player offices |
 | Playable offices with bounded authority | ABSENT | New: [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) |
 | v0.1 role grants (founder/officer/member/advisor) | PINNED S0 | [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md) · [RFC-0008](../rfcs/RFC-0008-office-authority-pins.md) |
+**Continuation (main):** GC4 broader COI and extra profiles seed (B4). See GC4-BROADER-COI-SEED.md.
+
 
 ### GC5 Communication ecology — P1
 
