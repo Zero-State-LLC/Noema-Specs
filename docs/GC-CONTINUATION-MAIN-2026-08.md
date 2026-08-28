@@ -416,3 +416,9 @@ Migration/version explicit seed added.
 git diff --check clean. Key files read and aligned. GC campaign pass + incremental continuation verifications satisfied. Old preserved sweep label superseded by actual repeated clean checks + closeouts.
 Seeds now 54. Phase complete for prerequisites. Ready for deeper matrix evidence collection or next user directive.
 Cites: GAME-COMPLETENESS-PLAN.md section 11 + all prior seeds + main.
+
+**Next batch after verification-sweep (deeper matrix + LCA):**
+- Appended concrete examples (GC1, GC7, GC2, GC10) to DEEPER-ACCEPTANCE-MATRIX-EVIDENCE-SEED.md.
+- Added concrete LCA link (GC1-3/5-6/7-10 to A3/A4/A5) to LCA-INTEGRATION-START-SEED.md.
+- All design notes. Cites GAME-COMPLETENESS-PLAN.md matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior + main.
+- git diff --check + push pending.
