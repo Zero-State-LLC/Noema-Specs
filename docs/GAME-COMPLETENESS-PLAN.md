@@ -123,6 +123,9 @@ Produced before writing new authorities. Status values:
 | Recon→commit→recover rhythm | PARTIAL | Specified in the v2 section of Strategic Conflict |
 | Stage table over existing v0.2 forms | PINNED S0 | [GC7-FIRST-SLICE.md](GC7-FIRST-SLICE.md) · [RFC-0011](../rfcs/RFC-0011-contest-rhythm.md) |
 
+**Continuation (main post-PR #305):** GC7-CRIME-ENFORCEMENT-SEED.md added for enforcement cost/jurisdiction/steward (B7d gap). Ties to GC4 and 2026-08-25 research.
+
+
 ### GC8 Economic specialization — P2
 
 | Nearby authority | Status | Rule |
