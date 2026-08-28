@@ -42,3 +42,13 @@ Smallest unit starting deeper matrix evidence.
 - Gap noted: Replayable divergence under operator-introduced condition needs one concrete fixture for "scar persistence across generation".
 
 **Gaps summary:** 4 gaps noted across examples. Collection start only. Ready for next evidence batch if directed.
+
+**GC4 D (Institutional) example:**
+- Evidence: INSTITUTIONAL-AUTHORITY.md + GC4-BROADER-COI-SEED.md + GC4-CRIME-EXPULSION-SEED.md + GC2-GC4-COUPLING-SEED.md.
+- Gap noted: No explicit fixture for "office grant revocation under broader COI when steward also holds construction quantity rights".
+
+**GC9 I (Culture) example:**
+- Evidence: EMERGENT-CULTURE.md + GC9-THRESHOLD-SEED.md + GC9-THRESHOLD-TRANSMISSION.md RFC proposal + GC-COUPLING-IJ-ACCEPTANCE-SEED.md + DEEP-TIME.md.
+- Gap noted: No concrete negative fixture for "threshold transmission failure when repeated repair lineage is interrupted by WED pressure".
+
+**Gaps summary update:** Now 6 gaps noted. Smallest collection step complete for this batch.

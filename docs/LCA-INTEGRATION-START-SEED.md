@@ -17,3 +17,9 @@ Smallest unit starting LCA notes.
 - No new surfaces. Cites LIVING-CIVILIZATION-ALPHA.md + GAME-COMPLETENESS-PLAN + main.
 
 Next: user-directed expansion only.
+
+**Additional LCA link (smallest):**
+- Cross-ref to SPEC-GAP-REGISTER-2026-08-25.md A-series (A3 civilization, A4 legibility, A5 endurance) now explicitly supported by the GC matrix evidence examples above.
+- No intervention or new authority. Cites LIVING-CIVILIZATION-ALPHA.md + GAME-COMPLETENESS-PLAN + prior.
+
+Smallest unit.

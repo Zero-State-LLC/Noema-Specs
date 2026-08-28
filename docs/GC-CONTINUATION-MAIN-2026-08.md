@@ -422,3 +422,8 @@ Cites: GAME-COMPLETENESS-PLAN.md section 11 + all prior seeds + main.
 - Added concrete LCA link (GC1-3/5-6/7-10 to A3/A4/A5) to LCA-INTEGRATION-START-SEED.md.
 - All design notes. Cites GAME-COMPLETENESS-PLAN.md matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior + main.
 - git diff --check + push pending.
+
+**Next batch progress (deeper matrix + LCA):**
+- Appended GC4 D and GC9 I concrete examples + gaps to DEEPER-ACCEPTANCE-MATRIX-EVIDENCE-SEED.md (now 6 gaps noted).
+- Appended cross-ref to A-series gaps in LCA-INTEGRATION-START-SEED.md.
+- All smallest design notes. Cites GAME-COMPLETENESS-PLAN.md matrix + LIVING-CIVILIZATION-ALPHA.md + SPEC-GAP-REGISTER-2026-08-25.md + prior + main.

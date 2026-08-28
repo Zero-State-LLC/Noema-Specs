@@ -564,3 +564,5 @@ It should create enough persistent social, economic, informational, institutiona
 **Verification-sweep close (current):** All section 11 elements micro-noted (state/lifecycle/transitions/actions/params/preconds/costs/authority/events/visibility/partial-obs/deterministic/idempotency/failure/replay/migration/fixtures/acceptance tests/projections/research/security). Migration/version seed added. Repeated git diff --check clean. Key files read/aligned. Preserved sweep label superseded by actual verifications + closeouts. 54 seeds. Cites section 11 + prior.
 
 **Post-verification + deeper/LCA continuation:** Concrete examples added to deeper matrix (GC1/2/7/10) + LCA link (A3/A4/A5 support). Cites matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior.
+
+**Post-deeper matrix batch:** GC4 and GC9 examples added to deeper acceptance matrix evidence collection (6 gaps noted total). Additional LCA A-series cross-ref. Cites matrix + LIVING-CIVILIZATION-ALPHA.md + register + prior.
