@@ -73,6 +73,8 @@ Produced before writing new authorities. Status values:
 | [GEOGRAPHY.md](GEOGRAPHY.md) / [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) | EXISTS | Construction MUST couple here |
 | [DEEP-TIME.md](DEEP-TIME.md) | EXISTS (scars, names, artifacts) | Construction writes lineage into history |
 | Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
+**Continuation (main, post-PR #305):** GC2 construction quantities seed (B2a). See GC2-CONSTRUCTION-QUANTITIES-SEED.md.
+
 
 ### GC3 Social memory and relational reputation — P0
 
