@@ -356,3 +356,5 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC4 broader COI and extra office profiles seed (B4). See docs/GC4-BROADER-COI-SEED.md. Design note only.
 - [ ] GC1 failed-but-legal practice attempt weights seed (B1a). See docs/GC1-FAILED-ATTEMPTS-SEED.md. Design note only.
 - [ ] GC1 B1b multi-focus/parameter magnitudes (covered by S9–S11). See docs/GC1-MULTI-FOCUS-MAGNITUDES-SEED.md. Design note only.
+
+- [x] GC5/GC6 post-2026-08 review (no new B-gap seeds required). B5 CLOSED_BY_RFC (RFC-0009+0021), B6 RUNTIME_ONLY per SPEC-GAP-REGISTER-2026-08-25. S0 pinned + higher S-slices specified. See GC-CONTINUATION-MAIN-2026-08.md and GAME-COMPLETENESS-PLAN.md.

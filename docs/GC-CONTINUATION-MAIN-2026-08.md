@@ -41,3 +41,11 @@ This continuation seeds the primary remaining open SPEC gaps for the GC campaign
 
 Ready for review on #305 + follow-up for main increments. Let me know next (e.g., GC5/GC6 residuals if any, or RFC drafting).
 **Non-GC residuals (PAM1/PAM2):** Quick design notes added for completeness (adapter ambiguity and self-join). See PAM1-ORG-ID-SEED.md and PAM2-ORG-SELF-JOIN-SEED.md. Deferred per register unless onboarding evidence requires action.
+
+**GC5/GC6 post-2026-08 review (as recommended follow-up):**
+GC5 Communication Ecology: Authority + S0–S8 pinned (RFC-0009 relay bands + RFC-0021/0028/0054/0062–0066). B5 CLOSED_BY_RFC per SPEC-GAP-REGISTER-2026-08-25. No new residuals or B-gaps requiring design notes in this pass. Composes existing MESSAGE surfaces + infrastructure.
+GC6 Systemic Discovery: Authority + S0/S1 pinned (RFC-0010 archive-vs-live INSPECT + RFC-0024 reconstruction). B6 RUNTIME_ONLY per register (composes Deep Time / evidence / EXPLORATION; no quest/oracle). No new seeds needed. Mysteries originate from existing pressures (decay, WED, communication failure, player action).
+
+Reviewed against 2026-08-25 register, COMMUNICATION-ECOLOGY.md, SYSTEMIC-DISCOVERY.md, first slices, and higher S-slices. Stable at pinned S0 + specified later slices. No action in this continuation.
+
+Cites: SPEC-GAP-REGISTER-2026-08-25.md (B5 CLOSED_BY_RFC, B6 RUNTIME_ONLY), GAME-COMPLETENESS-PLAN.md GC5/GC6 sections.
