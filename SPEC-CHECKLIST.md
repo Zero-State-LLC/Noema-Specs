@@ -349,3 +349,4 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC7 crime detection vs sanction separation (B7c). See docs/GC7-CRIME-DETECTION-SANCTION-SEED.md. Design note only.
 - [ ] GC7 crime payload / victim_id reconciliation (B7a). See docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md. Design note only.
 - [ ] GC2 construction quantities seed (B2a). See docs/GC2-CONSTRUCTION-QUANTITIES-SEED.md. Design note only.
+- [ ] GC2 owner vs steward split seed (B2b). See docs/GC2-OWNER-STEWARD-SEED.md. Design note only.

@@ -75,6 +75,8 @@ Produced before writing new authorities. Status values:
 | Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
 **Continuation (main, post-PR #305):** GC2 construction quantities seed (B2a). See GC2-CONSTRUCTION-QUANTITIES-SEED.md.
 
+**Continuation (main):** GC2 owner/steward split seed (B2b). See GC2-OWNER-STEWARD-SEED.md.
+
 
 ### GC3 Social memory and relational reputation — P0
 
