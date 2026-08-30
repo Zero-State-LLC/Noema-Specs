@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-08-25
+as_of: 2026-08-30
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -11,7 +11,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
+  live_worker_version_id: 87938f7a-ed2c-4984-a4f2-d432ef7b0013
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -39,11 +39,23 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
-    live_deployed_at: 2026-08-25T19:27:58.964668Z
+    live_worker_version_id: 87938f7a-ed2c-4984-a4f2-d432ef7b0013
+    live_deployed_at: 2026-08-28T18:44:47.406635Z
+    live_source_commit: 0b902c28337bc5ead7404c38b528d09b1a3a4541
     players_present: 0
-    pin_note: GET /version is the running Worker. Noema hosted_live.worker_version_id matches live 01ebc196 after the deployment of source 61234cc and the Gate A pin evidence in #587.
-    specs_pin_note: Runtime source 61234cc was built against Specs 81ca8c1, matching Noema hosted_live.specs_git. Later Specs documentation changes do not silently alter the contract implemented by that live build.
+    pin_note: >-
+      GET /version is the running Worker and is the only authority for this field.
+      Live is 87938f7a-ed2c-4984-a4f2-d432ef7b0013, deployed 2026-08-28 from Noema source
+      0b902c28 and pinned by Noema #599; hosted_live.worker_version_id in Noema
+      spec-compat.json agrees.
+      This field previously read 01ebc196-b762-4689-a166-272e26bd73ad and went stale across
+      two deployments (Noema #593, then #599) because validate_freshness fetched
+      /version without ever comparing it to the recorded pin.
+      OPEN RECONCILIATION, owner-sequenced: evidence_commits.production_successor_runtime
+      and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the live
+      build runs 0b902c28, 22 commits later. Those pins are promotion evidence, so they are
+      deliberately not moved here; re-deriving them requires a new evidence packet.
+    specs_pin_note: Live source 0b902c28 remains aligned to Specs 81ca8c1, matching Noema hosted_live.specs_git. The 2026-08-28 deployment did not change Specs alignment. Later Specs documentation changes do not silently alter the contract implemented by that live build.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
