@@ -544,7 +544,11 @@ def check_json_files() -> None:
 def check_markdown_links() -> None:
     link_re = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
     broken: list[str] = []
-    for md in ROOT.rglob("*.md"):
+    # Resolve the root before comparing. Link targets are resolved below, so an
+    # unresolved ROOT containing a symlink (macOS /var -> /private/var) made every
+    # target look outside the tree and silently skipped the whole scan.
+    root = ROOT.resolve()
+    for md in root.rglob("*.md"):
         if ".git" in md.parts:
             continue
         text = md.read_text(encoding="utf-8")
@@ -556,13 +560,13 @@ def check_markdown_links() -> None:
                 continue
             resolved = (md.parent / clean).resolve()
             try:
-                resolved.relative_to(ROOT)
+                resolved.relative_to(root)
             except ValueError:
                 continue
             if not resolved.exists():
                 broken.append(
-                    f"{md.relative_to(ROOT)} -> {target} "
-                    f"(resolved: {resolved.relative_to(ROOT)})"
+                    f"{md.relative_to(root)} -> {target} "
+                    f"(resolved: {resolved.relative_to(root)})"
                 )
     if broken:
         fail("Broken relative links:\n  " + "\n  ".join(broken[:20]))
