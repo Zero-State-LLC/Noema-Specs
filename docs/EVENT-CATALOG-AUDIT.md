@@ -47,8 +47,16 @@ listed the type as existing. The RFC makes that true in the machine catalog.
 
 **2026-08-24.** The runtime follow-up landed in Noema #534: `TRADE_CANCELLED`
 is no longer in `KNOWN_UNCATALOGUED`. `CRIME_DETECTED` stays unproduced /
-PARTIAL. This audit does not wire Detection and does not add `visibility` or
-`victim_id`.
+PARTIAL. This audit does not wire Detection.
+
+### `CRIME_DETECTED` payload fields (RFC-0129)
+
+**RFC:** [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) — **Accepted**.
+Amends `CRIME_DETECTED_payload` on `event-catalog/0.2` with optional `victim_id`
+and `visibility` (`PARTIES` \| `PUBLIC`). `visibility` has no default. A producer
+that sets `PUBLIC_HISTORY` or `visibility` `PUBLIC` MUST set both. Catalog stays
+32 types. Chamber 0.1 stays 24. No producer, verb, Genesis, or sanction retune.
+Closes `B7a`. Detection remains unwired; `B7b`–`B7e` stay open.
 
 ### Five catalogued types the hosted Worker never emits
 
@@ -69,7 +77,7 @@ not determine which, and the answer is not in this repository.
 `CRIME_DETECTED` appears nowhere in the offline Python runtime (`src/noema/`) and is not among
 the 24 types of `event-catalog/0.1` ([event-types.json](../specs/event-types.json)). It exists
 only in `event-catalog/0.2`, consumed by the hosted Worker and produced by nothing, in either
-plane. The deferred `visibility` / `victim_id` question above is now registered as `B7a` in
-[SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md), which also records that two
-Accepted GC3 slice contracts require exactly those two fields. Detection remains unwired; see
-[Research Assimilation — Crime](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md).
+plane. The `visibility` / `victim_id` payload gap is closed by RFC-0129 on
+`event-catalog/0.2`. Detection remains unwired; see
+[Research Assimilation — Crime](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md)
+and `B7b`–`B7e` in [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).

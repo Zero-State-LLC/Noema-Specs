@@ -158,7 +158,7 @@ Payload: `contest_id`, `outcome` (`SUCCESS` \| `PARTIAL_SUCCESS` \| `FAILURE` \|
 
 ### `CRIME_DETECTED`
 
-Payload: `detection_id`, `subject_id`, `severity`, `category`, `room_id`, `source_event_ids`, `detection_method`, optional sensor/witness fields, `influence_delta` (≤0), `influence_applied` (≤0, clamped), optional `flags`. Reducer: immutable crime record; influence debit with floor 0. Never removes agent.
+Payload: `detection_id`, `subject_id`, optional `victim_id`, `severity`, `category`, `room_id`, `source_event_ids`, `detection_method`, optional sensor/witness fields, `influence_delta` (≤0), `influence_applied` (≤0, clamped), optional `flags`, optional `visibility` (`PARTIES` \| `PUBLIC`). `visibility` has no default; absent means not public. A producer that sets `PUBLIC_HISTORY` or `visibility` `PUBLIC` MUST set both (RFC-0129). Reducer: immutable crime record; influence debit with floor 0. Never removes agent.
 
 ### `ACCESS_RESTRICTED`
 
@@ -175,6 +175,10 @@ Payload: `agreement_id`, `agreement_type`, `party_ids` (≥2), `terms.machine` (
 ### `AGREEMENT_BROKEN`
 
 Payload: `breach_id`, `agreement_id`, `broken_by`, `reason`, optional `breach_type`, `influence_delta_by_party` (values ≤0), `release_commitments`, optional sources/visibility. Reducer: mark BROKEN; apply influence; release commitments when flagged.
+
+## Catalog 0.2 amendment (RFC-0129)
+
+Optional `victim_id` and `visibility` on `CRIME_DETECTED_payload` only. Catalog stays 32 types. Chamber `event-catalog/0.1` stays 24. `visibility` follows `AGREEMENT_BROKEN_payload`: enum `PARTIES` \| `PUBLIC`, no default. Co-extensiveness: `PUBLIC_HISTORY` without `visibility` `PUBLIC` is invalid, and `visibility` `PUBLIC` without `PUBLIC_HISTORY` is invalid.
 
 ## Catalog 0.2 amendment (RFC-0127)
 

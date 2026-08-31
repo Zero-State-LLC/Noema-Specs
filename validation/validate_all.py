@@ -635,6 +635,25 @@ def payload_schema(event_types: dict, event_type: str) -> dict:
     }
 
 
+def crime_detected_public_coextensive(payload: dict) -> bool:
+    """RFC-0129: PUBLIC_HISTORY and visibility PUBLIC must travel together."""
+    flags = payload.get("flags") or []
+    has_history = "PUBLIC_HISTORY" in flags
+    has_public = payload.get("visibility") == "PUBLIC"
+    return has_history == has_public
+
+
+def gate_gc3_s2_crime_public(payload: dict) -> bool:
+    """GC3-S2 public danger band: visibility PUBLIC only."""
+    return payload.get("visibility") == "PUBLIC"
+
+
+def gate_rfc_0094_crime_public(payload: dict) -> bool:
+    """RFC-0094 world-report / WATCH crime gate: PUBLIC_HISTORY or visibility PUBLIC."""
+    flags = payload.get("flags") or []
+    return "PUBLIC_HISTORY" in flags or payload.get("visibility") == "PUBLIC"
+
+
 def check_v01_seed(Draft202012Validator) -> None:
     event_types = load_json(ROOT / "specs" / "event-types.json")
     world_event_schema = load_json(ROOT / "specs" / "world-event.schema.json")
@@ -799,6 +818,12 @@ def check_negatives(Draft202012Validator) -> None:
             if list(envelope_v.iter_errors(data)):
                 # Envelope failure is still a valid rejection.
                 rejected = True
+        elif name in {
+            "invalid-crime-detected-public-history-without-visibility.json",
+            "invalid-crime-detected-visibility-public-without-public-history.json",
+        }:
+            # RFC-0129 producer rule: schema admits the fields; co-extensiveness rejects the pair.
+            rejected = not crime_detected_public_coextensive(data.get("payload") or {})
         else:
             env_errs = list(envelope_v.iter_errors(data))
             if env_errs:
@@ -10784,6 +10809,258 @@ def check_rfc_0127(Draft202012Validator) -> None:
     ok("RFC-0127 TRADE_CANCELLED: 0.2 has 32 types, 0.1 stays 24, payload matches Worker")
 
 
+def check_rfc_0129(Draft202012Validator) -> None:
+    """RFC-0129: CRIME_DETECTED 0.2 payload reconciliation."""
+    rfc = (ROOT / "rfcs" / "RFC-0129-crime-detected-payload-reconciliation.md").read_text(
+        encoding="utf-8"
+    )
+    status = rfc.split("## Status", 1)[-1].split("##", 1)[0]
+    if "**Accepted**" not in status:
+        fail("RFC-0129 must be Accepted")
+    if "**Draft**" in status:
+        fail("RFC-0129 must not remain Draft after acceptance")
+    if "No default on `visibility`" not in rfc:
+        fail("RFC-0129 must record that visibility has no default")
+    if "Accept the amendment" not in rfc:
+        fail("RFC-0129 must record that the payload amendment was accepted")
+    for needle in (
+        "victim_id",
+        "visibility",
+        "PARTIES",
+        "PUBLIC",
+        "PUBLIC_HISTORY",
+        "Does not open `event-catalog/0.3`",
+        "event-catalog/0.1",
+        "B7a",
+    ):
+        if needle not in rfc:
+            fail(f"RFC-0129 missing {needle}")
+
+    index = (ROOT / "rfcs" / "README.md").read_text(encoding="utf-8")
+    rfc_row = next(
+        (line for line in index.splitlines() if "RFC-0129" in line and "| **Accepted** |" in line),
+        "",
+    )
+    if not rfc_row:
+        fail("RFC index must list RFC-0129 as Accepted")
+
+    register = (ROOT / "docs" / "SPEC-GAP-REGISTER-2026-08-25.md").read_text(
+        encoding="utf-8"
+    )
+    b7a = next((line for line in register.splitlines() if line.startswith("| B7a |")), "")
+    if "`CLOSED_BY_RFC`" not in b7a or "RFC-0129" not in b7a:
+        fail("B7a must be CLOSED_BY_RFC by RFC-0129")
+    for row_id, expected in (
+        ("B7b", "`OPEN_SPEC`"),
+        ("B7c", "`OPEN_SPEC`"),
+        ("B7d", "`OPEN_SPEC`"),
+        ("B7e", "`PARTIALLY_CLOSED`"),
+    ):
+        row = next((line for line in register.splitlines() if line.startswith(f"| {row_id} |")), "")
+        if expected not in row:
+            fail(f"{row_id} must stay {expected}")
+
+    proposal = (
+        ROOT / "rfcs" / "RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md"
+    ).read_text(encoding="utf-8")
+    if "Superseded by [RFC-0129]" not in proposal:
+        fail("GC7 crime-payload proposal note must stay superseded by RFC-0129")
+
+    et01 = load_json(ROOT / "specs" / "event-types.json")
+    et02 = load_json(ROOT / "specs" / "event-types.0.2.json")
+    cat01 = {t["eventType"] for t in et01["x-noema-event-types"]}
+    cat02 = {t["eventType"] for t in et02["x-noema-event-types"]}
+    if len(cat01) != 24:
+        fail(f"RFC-0129: event-catalog/0.1 must stay 24 types, found {len(cat01)}")
+    if "CRIME_DETECTED" in cat01 or "CRIME_DETECTED_payload" in et01.get("$defs", {}):
+        fail("RFC-0129 must not add CRIME_DETECTED to event-catalog/0.1")
+    if "CRIME_DETECTED" not in cat02:
+        fail("RFC-0129 must keep CRIME_DETECTED on event-catalog/0.2")
+    if len(cat02) != 32:
+        fail(f"RFC-0129: event-catalog/0.2 must stay 32 types, found {len(cat02)}")
+
+    payload = et02["$defs"]["CRIME_DETECTED_payload"]
+    if payload.get("additionalProperties") is not False:
+        fail("CRIME_DETECTED_payload must set additionalProperties false")
+    required = set(payload.get("required") or [])
+    if required != {
+        "detection_id",
+        "subject_id",
+        "severity",
+        "category",
+        "room_id",
+        "source_event_ids",
+        "detection_method",
+        "influence_delta",
+        "influence_applied",
+    }:
+        fail("CRIME_DETECTED_payload required fields must stay unchanged")
+    props = payload.get("properties") or {}
+    expected_props = {
+        "detection_id",
+        "subject_id",
+        "victim_id",
+        "severity",
+        "category",
+        "room_id",
+        "source_event_ids",
+        "detection_method",
+        "sensor_entity_id",
+        "witness_ids",
+        "influence_delta",
+        "influence_applied",
+        "flags",
+        "visibility",
+    }
+    if set(props) != expected_props:
+        fail(f"CRIME_DETECTED_payload properties drifted: {sorted(props)}")
+    victim = props.get("victim_id") or {}
+    if victim.get("type") != "string" or victim.get("pattern") != "^[A-Za-z0-9_.:-]+$":
+        fail("victim_id must match the RFC-0129 string pattern")
+    visibility = props.get("visibility") or {}
+    if visibility.get("enum") != ["PARTIES", "PUBLIC"]:
+        fail("visibility must be the PARTIES | PUBLIC enum")
+    if "default" in visibility:
+        fail("visibility MUST NOT declare a default")
+
+    envelope_v = Draft202012Validator(
+        load_json(ROOT / "specs" / "world-event.schema.json")
+    )
+    payload_v = Draft202012Validator(payload_schema(et02, "CRIME_DETECTED"))
+    public = load_json(
+        ROOT / "examples" / "catalog" / "valid-event-catalog-0.2-crime-detected-public.json"
+    )
+    neither = load_json(
+        ROOT / "examples" / "catalog" / "valid-event-catalog-0.2-crime-detected-neither.json"
+    )
+    for fixture, label in ((public, "public"), (neither, "neither")):
+        if list(envelope_v.iter_errors(fixture)):
+            fail(f"RFC-0129 {label} fixture envelope is invalid")
+        if fixture.get("event_type") != "CRIME_DETECTED":
+            fail(f"RFC-0129 {label} fixture must be CRIME_DETECTED")
+        perrs = list(payload_v.iter_errors(fixture.get("payload") or {}))
+        if perrs:
+            fail(f"RFC-0129 {label} fixture fails 0.2 payload: {perrs[0].message}")
+        if not crime_detected_public_coextensive(fixture.get("payload") or {}):
+            fail(f"RFC-0129 {label} fixture must satisfy co-extensiveness")
+
+    pub_payload = public.get("payload") or {}
+    if pub_payload.get("victim_id") != "agent.vesper":
+        fail("RFC-0129 public fixture must carry victim_id")
+    if pub_payload.get("visibility") != "PUBLIC":
+        fail("RFC-0129 public fixture must carry visibility PUBLIC")
+    if "PUBLIC_HISTORY" not in (pub_payload.get("flags") or []):
+        fail("RFC-0129 public fixture must carry PUBLIC_HISTORY")
+    nei_payload = neither.get("payload") or {}
+    if "victim_id" in nei_payload or "visibility" in nei_payload:
+        fail("RFC-0129 neither fixture must omit victim_id and visibility")
+    if "PUBLIC_HISTORY" in (nei_payload.get("flags") or []):
+        fail("RFC-0129 neither fixture must omit PUBLIC_HISTORY")
+
+    missing_vis = load_json(
+        ROOT
+        / "examples"
+        / "negative"
+        / "invalid-crime-detected-public-history-without-visibility.json"
+    )
+    missing_flag = load_json(
+        ROOT
+        / "examples"
+        / "negative"
+        / "invalid-crime-detected-visibility-public-without-public-history.json"
+    )
+    if crime_detected_public_coextensive(missing_vis.get("payload") or {}):
+        fail("PUBLIC_HISTORY without visibility PUBLIC must be invalid")
+    if crime_detected_public_coextensive(missing_flag.get("payload") or {}):
+        fail("visibility PUBLIC without PUBLIC_HISTORY must be invalid")
+    if list(payload_v.iter_errors(missing_vis.get("payload") or {})):
+        fail("co-extensiveness negative (PUBLIC_HISTORY only) must remain schema-valid")
+    if list(payload_v.iter_errors(missing_flag.get("payload") or {})):
+        fail("co-extensiveness negative (visibility PUBLIC only) must remain schema-valid")
+
+    catalog_s1 = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s1.json")
+    catalog_s2 = load_json(ROOT / "specs" / "social-memory-catalog.gc3-s2.json")
+
+    def as_rebuild_event(event: dict) -> dict:
+        return {
+            "event_id": event.get("event_id"),
+            "event_type": event.get("event_type"),
+            "cycle": event.get("cycle"),
+            "sequence": event.get("sequence"),
+            "payload": event.get("payload") or {},
+        }
+
+    s1_public = rebuild_gc3_s1(
+        {
+            "subject_id": pub_payload["victim_id"],
+            "handles": {pub_payload["subject_id"]: "Nacre"},
+            "events": [as_rebuild_event(public)],
+        },
+        catalog_s1,
+    )
+    if not s1_public["play_lines"]:
+        fail("RFC-0129 public fixture must credit dyadic danger memory")
+    s2_public = rebuild_gc3_s2(
+        {
+            "handles": {pub_payload["subject_id"]: "Nacre"},
+            "events": [as_rebuild_event(public)],
+        },
+        catalog_s2,
+    )
+    if not s2_public["watch_lines"]:
+        fail("RFC-0129 public fixture must credit the public danger band")
+    if pub_payload.get("visibility") != "PUBLIC":
+        fail("RFC-0129 public fixture must enter public_social_events")
+    if not gate_rfc_0094_crime_public(pub_payload):
+        fail("RFC-0129 public fixture must appear on world reports and the WATCH projection")
+
+    s1_neither = rebuild_gc3_s1(
+        {
+            "subject_id": "agent.vesper",
+            "handles": {nei_payload["subject_id"]: "Nacre"},
+            "events": [as_rebuild_event(neither)],
+        },
+        catalog_s1,
+    )
+    if s1_neither["play_lines"] or s1_neither["danger"]:
+        fail("RFC-0129 neither fixture must not credit dyadic danger memory")
+    s2_neither = rebuild_gc3_s2(
+        {
+            "handles": {nei_payload["subject_id"]: "Nacre"},
+            "events": [as_rebuild_event(neither)],
+        },
+        catalog_s2,
+    )
+    if s2_neither["watch_lines"]:
+        fail("RFC-0129 neither fixture must not credit the public danger band")
+    if gate_gc3_s2_crime_public(nei_payload) or gate_rfc_0094_crime_public(nei_payload):
+        fail("RFC-0129 neither fixture must stay off public_social_events, world reports, and WATCH")
+
+    rfc0129_fixtures = [public, neither, missing_vis, missing_flag]
+    comparable = [
+        fx
+        for fx in rfc0129_fixtures
+        if crime_detected_public_coextensive(fx.get("payload") or {})
+    ]
+    for fx in comparable:
+        payload_fx = fx.get("payload") or {}
+        if gate_gc3_s2_crime_public(payload_fx) != gate_rfc_0094_crime_public(payload_fx):
+            fail(
+                f"GC3-S2 and RFC-0094 gates diverged on {fx.get('event_id')}"
+            )
+    if len(comparable) != 2:
+        fail("RFC-0129 must compare gates on the two schema-valid co-extensive fixtures")
+
+    audit = (ROOT / "docs" / "EVENT-CATALOG-AUDIT.md").read_text(encoding="utf-8")
+    if "RFC-0129" not in audit:
+        fail("EVENT-CATALOG-AUDIT.md must record RFC-0129")
+
+    ok(
+        "RFC-0129 CRIME_DETECTED: optional victim_id/visibility, no default, "
+        "co-extensiveness, GC3-S2 and RFC-0094 gates agree"
+    )
+
+
 def check_rfc_0128(Draft202012Validator) -> None:
     """RFC-0128 review package: Player tempo and cycle admission."""
     rfc = (ROOT / "rfcs" / "RFC-0128-player-tempo-and-cycle-admission.md").read_text(
@@ -11042,6 +11319,7 @@ def main() -> None:
     check_conformance_case_substance()
     check_rfc_0126_watch_entity_update_exposure()
     check_rfc_0127(Draft202012Validator)
+    check_rfc_0129(Draft202012Validator)
     check_rfc_0128(Draft202012Validator)
     check_gc9_s0(Draft202012Validator)
     check_gc9_s1(Draft202012Validator)
