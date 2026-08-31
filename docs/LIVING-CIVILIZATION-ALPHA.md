@@ -10,7 +10,7 @@ Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
-Current state: LCA-0 and LCA-1 are complete. **Gate A is complete.** Promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) from Noema PR #587 and merged main `a6b7e4b`. LCA-2 remains blocked on canonical operator enrollment and retained evidence from at least three independently controlled external Controllers. Gate C remains unproven. Do not merge Specs #291 until those prerequisites have acceptance evidence.
+Current state: LCA-0 is complete as the direction package. LCA-1 is ACTIVE_INTEGRATION. Noema PR #551, Noema PR #552, and Noema PR #587 are Gate A candidate evidence only. **Gate A is not complete.** Live Worker pin is OBSERVED `34f4b0dc` from GET `/version`. Remaining LCA-2 prerequisites: canonical operator enrollment (live `players` 0 OBSERVED from GET `/ready`) and retained evidence from at least three independently controlled external Controllers. LCA-2 remains BLOCKED. Gate C remains unproven. Do not merge Specs #291 until those remaining prerequisites have acceptance evidence.
 
 This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. The next risk is not insufficient breadth. It is that individually tested slices have not yet been proven together in a production-like civilization run.
 
@@ -46,7 +46,7 @@ Reconcile the frozen production alpha, advanced Worker runtime, offline referenc
 
 ### LCA-1 — Advanced-runtime integration baseline
 
-**Status:** COMPLETE. Gate A accepted through Noema PR #587; see [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
+**Status:** ACTIVE_INTEGRATION. Gate A is not complete. Noema PR #587 is candidate evidence only; see [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 
 Run the existing advanced Worker suites as one integration baseline. Prove that the implemented GC systems share one coherent state, event, authority, projection, and recovery spine. Fix integration defects without adding semantic breadth.
 

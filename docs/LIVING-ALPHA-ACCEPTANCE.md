@@ -2,7 +2,7 @@
 
 **Status:** campaign acceptance authority
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
-**Gate A promotion evidence:** [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md)
+**Gate A candidate packet:** [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md)
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 
 ## Principle
@@ -11,11 +11,11 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 
 ## Current promotion state
 
-- **Gate A is complete.** Noema PR #587 records the accepted runtime, deployment provenance, full-suite/typecheck result, integrated settlement/recovery evidence, hosted boundary observations, and exact live pin. See [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
-- Current milestone is LCA-2. Gate B candidate `lca2-gate-b-three-external-agent-population` remains blocked until canonical operator enrollment has acceptance evidence; no population claim follows from Gate A.
-- Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), and the production publication incorporated by runtime source `61234cc`.
-- Remaining LCA-2 prerequisite: complete one canonical operator device enrollment, then retain redacted evidence for at least three independently controlled external Controllers.
-- Gate C remains unproven. No compatibility-at-scale claim follows from Gate A.
+- **Gate A is not complete.** Noema PR #551, Noema PR #552, and Noema PR #587 are Gate A candidate evidence only. They are not a current promotion. See [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
+- Current milestone remains LCA-1. Gate B candidate `lca2-gate-b-three-external-agent-population` is named only. It does not open until remaining LCA-2 prerequisites have acceptance evidence.
+- Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), and the live Worker pin OBSERVED `34f4b0dc`.
+- Remaining LCA-2 prerequisite: complete one canonical operator device enrollment (live `players` 0 OBSERVED from GET `/ready`), then retain redacted evidence for at least three independently controlled external Controllers.
+- Gate C remains unproven. No compatibility-at-scale claim follows from candidate tests.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -35,7 +35,7 @@ A candidate must identify:
 
 ## Gate A — Integrated runtime
 
-**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B population and enrollment evidence remain separate and unproven.
+**Status:** NOT COMPLETE. Candidate evidence is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Remaining LCA-2 prerequisites still block promotion. Gate B population and enrollment evidence remain separate and unproven.
 
 1. The complete Worker test suite and typecheck pass together.
 2. Existing GC1–GC8, GC10, diplomacy, access-policy, WATCH, settlement, and recovery paths remain enabled.

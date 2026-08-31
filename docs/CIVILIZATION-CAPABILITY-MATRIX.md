@@ -3,7 +3,7 @@
 **Authority:** integration map for [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md).  
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
-Gate A is complete through Noema PR #587 and the accepted evidence packet [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). This matrix now identifies the remaining proof required for external population and a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
+Gate A is not complete. Noema PR #587 is candidate evidence only; see [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). This matrix identifies the remaining proof required for integrated-runtime promotion, external population, and a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
 | Capability | Existing implementation evidence | Current plane | Remaining integration proof | Campaign gate |
 |---|---|---|---|---|
@@ -21,7 +21,7 @@ Gate A is complete through Noema PR #587 and the accepted evidence packet [LCA-G
 | Economic specialization | lot quality/provenance/spoilage/transport and GC8 tests | IMPLEMENTED_RUNTIME | Scarcity and exchange create at least two viable strategies and real interdependence | LCA-3 |
 | World pressure | pressure runtime, GC10 tests | IMPLEMENTED_RUNTIME | Authorized pressure changes conditions without forcing target outcomes | LCA-3 |
 | WATCH and world reports | WATCH live, Phosphor, public bands, reports tests | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME depth | Uninvolved humans accurately explain major visible changes and unknowns | LCA-4 |
-| Persistence, settlement, recovery | hosted head, Postgres settlement, integrated restart path, older-format DO load, isolated rollback, and Gate A evidence in Noema #587 | LIVE_HOSTED | Gate A complete; endurance recovery remains unproven for LCA-4 | LCA-4 |
+| Persistence, settlement, recovery | hosted head, Postgres settlement, integrated restart path, older-format DO load, isolated rollback, and Gate A candidate evidence in Noema #587 | LIVE_HOSTED | Gate A is not complete; endurance recovery remains unproven for LCA-4 | LCA-4 |
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
 
 ## Integration graph

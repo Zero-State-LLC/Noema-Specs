@@ -23,7 +23,7 @@ Explicit non-goals
 
 ## Horizon 1 — Days 0–30: Reconcile and integrate
 
-**Status:** COMPLETE. Gate A passed through Noema PR #587; evidence is [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
+**Status:** ACTIVE. Gate A is not complete. Noema PR #587 is candidate evidence only; see [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 
 **Target:** LCA-1 and Acceptance Gate A
 

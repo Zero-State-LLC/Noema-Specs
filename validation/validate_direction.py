@@ -103,14 +103,15 @@ def main() -> None:
         "Noema PR #551",
         "Noema PR #552",
         "Noema PR #587",
-        "current_milestone: LCA-2",
-        "Gate A is complete",
+        "current_milestone: LCA-1",
+        "Gate A is not complete",
         "remaining_lca2_prerequisites:",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
         "Gate C remains unproven",
         "Noema PR #570",
         "61234cc",
+        "34f4b0dc-85c6-4adb-8fd8-9ccffae73b99",
         "canonical operator device enrollment",
     ):
         if marker not in state:
@@ -133,6 +134,10 @@ def main() -> None:
         fail("production Specs baseline 0bddbeb is stale after canonical main 492ccc9")
     if "2bb3a8b4" in state:
         fail("current state must not claim stale Worker 2bb3a8b4")
+    if "d86352b2" in state:
+        fail("live Worker pin d86352b2 is stale; live is 34f4b0dc")
+    if "87938f7a" in state:
+        fail("live Worker pin 87938f7a is stale; live is 34f4b0dc")
     if "66f2417d" in state:
         fail("advanced Worker pin 66f2417d is stale after Noema #570")
     if "in-flight Noema #561" in state:
@@ -148,7 +153,7 @@ def main() -> None:
     campaign = (ROOT / "docs/LIVING-CIVILIZATION-ALPHA.md").read_text(encoding="utf-8")
     for marker in (
         "not a greenfield feature campaign",
-        "Gate A is complete",
+        "Gate A is not complete",
         "LCA-1",
         "LCA-5",
         "IMPLEMENTED_RUNTIME",
@@ -160,7 +165,7 @@ def main() -> None:
 
     acceptance = (ROOT / "docs/LIVING-ALPHA-ACCEPTANCE.md").read_text(encoding="utf-8")
     for marker in (
-        "Gate A is complete",
+        "Gate A is not complete",
         "LCA-GATE-A-PROMOTION-2026-08-25.md",
         "lca2-gate-b-three-external-agent-population",
         "Gate C remains unproven",
@@ -170,10 +175,17 @@ def main() -> None:
         if marker not in acceptance:
             fail(f"acceptance missing marker: {marker}")
 
-    if "Gate A is not complete" in state or "Gate A is not complete" in campaign or "Gate A is not complete" in acceptance:
-        fail("Gate A promotion is accepted; stale non-complete guidance remains")
-    if "Gate A is complete" not in state or "Gate A is complete" not in campaign or "Gate A is complete" not in acceptance:
-        fail("Gate A promotion must agree across machine state and campaign authorities")
+    roadmap = (ROOT / "docs/ROADMAP.md").read_text(encoding="utf-8")
+    sequence = (ROOT / "docs/EXECUTION-SEQUENCE-90-DAY.md").read_text(encoding="utf-8")
+    for label, text in (
+        ("current-state", state),
+        ("campaign", campaign),
+        ("acceptance", acceptance),
+        ("roadmap", roadmap),
+        ("execution-sequence", sequence),
+    ):
+        if "Gate A is complete" in text or "COMPLETE for Gate A" in text:
+            fail(f"{label} must not promote Gate A without remaining LCA-2 prerequisite evidence")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
     if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:
