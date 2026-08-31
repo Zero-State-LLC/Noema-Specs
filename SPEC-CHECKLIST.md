@@ -75,6 +75,7 @@
 - [x] RFC-0002 **Accepted**
 - [x] `specs/event-types.0.2.json` (32 types = 24 + 7 + `TRADE_CANCELLED`; RFC-0127)
 - [x] RFC-0127 **Accepted** — `TRADE_CANCELLED` on `event-catalog/0.2` only; Chamber 0.1 stays 24
+- [x] RFC-0129 **Accepted** — optional `victim_id` + `visibility` on `CRIME_DETECTED` 0.2; no default; co-extensive with `PUBLIC_HISTORY`; closes `B7a`; Chamber 0.1 stays 24
 - [x] Seven event payload schemas (`$defs`, additionalProperties false)
 - [x] `specs/contest-config.v02.json` + schema (integer millipoints)
 - [x] `docs/CONTEST-RESOLUTION.md` deterministic algorithm
@@ -366,7 +367,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [ ] GC7 crime enforcement cost/jurisdiction seed (B7d: payer, steward, auditable trail). See docs/GC7-CRIME-ENFORCEMENT-SEED.md. Design note only.
 - [ ] GC7 crime detection algorithm seed (B7b). See docs/GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md. Design note only.
 - [ ] GC7 crime detection vs sanction separation (B7c). See docs/GC7-CRIME-DETECTION-SANCTION-SEED.md. Design note only.
-- [ ] GC7 crime payload / victim_id reconciliation (B7a). See docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md. Design note only.
+- [x] GC7 crime payload / victim_id reconciliation (B7a). Closed by RFC-0129. See rfcs/RFC-0129-crime-detected-payload-reconciliation.md.
 - [ ] GC2 construction quantities seed (B2a). See docs/GC2-CONSTRUCTION-QUANTITIES-SEED.md. Design note only.
 - [ ] GC2 owner vs steward split seed (B2b). See docs/GC2-OWNER-STEWARD-SEED.md. Design note only.
 - [ ] GC8 lot-grade residuals seed (B8a). See docs/GC8-LOT-GRADE-SEED.md. Design note only.
@@ -380,7 +381,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 
 - [ ] RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md started (minimal, from B1a seed). See rfcs/ and GC1-FAILED-ATTEMPTS-SEED.md.
 
-- [ ] RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md started (minimal, from B7a seed). See rfcs/ and GC7-CRIME-PAYLOAD-VICTIM-SEED.md.
+- [x] RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md superseded by Accepted RFC-0129. See rfcs/RFC-0129-crime-detected-payload-reconciliation.md.
 
 - [ ] RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md started (minimal, from B7b seed). See rfcs/ and GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md.
 

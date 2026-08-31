@@ -1,0 +1,36 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.rfc0129.public",
+  "event_type": "CRIME_DETECTED",
+  "world_id": "world-sc-01",
+  "cycle": 12,
+  "sequence": 20,
+  "occurred_at": "2026-08-30T18:00:20Z",
+  "actor_id": "system.world",
+  "payload": {
+    "detection_id": "crime.rfc0129.public",
+    "subject_id": "agent.nacre",
+    "victim_id": "agent.vesper",
+    "severity": "MODERATE",
+    "category": "SABOTAGE",
+    "room_id": "room.relay-quarter",
+    "source_event_ids": [
+      "evt.sc.002"
+    ],
+    "detection_method": "INFRASTRUCTURE_SENSOR",
+    "sensor_entity_id": "entity.relay-main",
+    "influence_delta": -8,
+    "influence_applied": -8,
+    "flags": [
+      "PUBLIC_HISTORY"
+    ],
+    "visibility": "PUBLIC"
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "rfc-0129-crime-detected-payload",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": "sha256:96c7ea4a94e7012adf11a060fa22585a086bd0e548b2b6c8bc7cc7bc37e5e667",
+  "digest": "sha256:c1a29e0f8b4d6a1753e0c8f2d91b4a6e7c3d5f08192a4b6c8d0e1f2a3b4c5d6e"
+}

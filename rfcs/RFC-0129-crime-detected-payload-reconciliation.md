@@ -2,10 +2,11 @@
 
 ## Status
 
-**Draft**
+**Accepted**
 
-Proposed, not accepted. It amends a closed catalog payload, which is a product
-decision. See [Decision required](#decision-required).
+Accepted 2026-08-30 PT. The repository owner accepted the `CRIME_DETECTED` 0.2
+payload amendment (optional `victim_id` and `visibility`) and recorded that
+`visibility` MUST NOT declare a default. See [Decision](#decision).
 
 Closes `B7a` in [SPEC-GAP-REGISTER-2026-08-25.md](../docs/SPEC-GAP-REGISTER-2026-08-25.md).
 Amends the `event-catalog/0.2` pin in the manner of [RFC-0127](RFC-0127-trade-cancelled-catalog.md).
@@ -149,19 +150,15 @@ Design input for those rows is recorded non-normatively in
 [Research Assimilation — Crime](../docs/RESEARCH-ASSIMILATION-2026-08-25-CRIME.md)
 and [NOTES-CRIME-DETECTION-EVIDENCE.md](../docs/research/NOTES-CRIME-DETECTION-EVIDENCE.md).
 
-## Decision required
+## Decision
 
-Two questions belong to a human, not to an implementer:
+Recorded 2026-08-30 PT.
 
-1. **Accept the amendment at all.** It edits a closed catalog payload. The
-   argument for is that three Accepted authorities are currently unsatisfiable,
-   two of them disagree about what "public" means, and no ledger data depends on
-   the present shape; the argument against is that a closed catalog should stay
-   closed until a producer actually needs it.
-2. **Whether `visibility` should carry `"default": "PARTIES"`.**
-   `AGREEMENT_FORMED_payload` declares that default; `AGREEMENT_BROKEN_payload`
-   does not. This RFC follows `AGREEMENT_BROKEN` as the nearer analogue, so absent
-   is fail-closed by consumer behavior rather than by declared default.
+1. **Accept the amendment.** Optional `victim_id` and `visibility`
+   (`PARTIES` | `PUBLIC`) land on `CRIME_DETECTED_payload` in
+   `event-catalog/0.2`. No producer, no `event-catalog/0.3`, no verb, no Genesis.
+2. **No default on `visibility`.** Follow `AGREEMENT_BROKEN_payload`. Absent
+   means not public (fail-closed).
 
-Until both are settled this RFC stays **Draft**, and `specs/event-types.0.2.json`
-is unchanged by the PR that introduces it.
+Co-extensiveness stands: a producer that sets `PUBLIC_HISTORY` or
+`visibility` `PUBLIC` MUST set both.

@@ -4,7 +4,7 @@
 
 **Original status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
 
-**Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B7a (OPEN_SPEC in GC7 crime).
+**Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B7a (`CLOSED_BY_RFC` by RFC-0129). This note stays superseded.
 
 **Source design note:** [GC7-CRIME-PAYLOAD-VICTIM-SEED.md](../docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md)
 
