@@ -843,7 +843,7 @@
 - `docs/SECURITY-SEQUENCES.md` — concrete containment, quarantine, revocation, incident, kill-switch, and undelivered-observation sequences.
 - `docs/v0.1-ACCEPTANCE.md` — operational acceptance criteria and minimum conformance tests for The Chamber.
 - `docs/CONTRACT-CARDS.md` — progressive-disclosure summaries of major contracts.
-- `docs/INTEGRATION-SURFACE.md` — explicit extension points for Zero State / Abraxas ecosystem consumers.
+- `docs/INTEGRATION-SURFACE.md` — explicit, framework-neutral extension points for external consumers.
 - `research/phenomena-operational-definitions.md` — operational definitions, required data, confounds, and limits for the five high-signal constructs.
 - `examples/negative/` — invalid fixtures for schema, catalog, and semantic rejection testing.
 - `examples/v01-seed/` — concrete Chamber seed: world genesis, full 24-type trajectory, equivalence boundary, and expected digests.
