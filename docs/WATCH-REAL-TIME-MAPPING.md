@@ -10,11 +10,14 @@
 - [SPECTATOR.md](SPECTATOR.md)
 - [CHAMBER-MAP.md](CHAMBER-MAP.md)
 - [VISUAL-DESIGN.md](VISUAL-DESIGN.md)
+- [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) (map-first composition and visual grammar)
 - [DEEP-TIME.md](DEEP-TIME.md) (scars, history as visual residue)
 - [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)
 - [DEEP-TIME-MECHANICS-UPDATE.md](DEEP-TIME-MECHANICS-UPDATE.md)
 
 This document defines the **real-time mapping spectator surface** — a richer, layered live view. It is designed to be **easily expandable** over time while preserving immediate comprehension, visual pleasure, and fun for watchers. It is not a dashboard: the doctrinal exclusions of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §1 ("WATCH is not") bind every WATCH surface, this one included — the difference here is density and layering, never telemetry, scoring, or narration.
+
+The map-first composition and visual grammar of [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) bind this surface unless this document explicitly defines a stricter rule. Additional layers MUST remain world-first, deterministic, public-projection-safe, and semantically restrained.
 
 ## 1. Purpose & Boundaries
 
@@ -51,7 +54,7 @@ Every rule of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) *
 
 1. **Immediate Comprehension** — A spectator must understand “what is happening, where, and at what intensity” within seconds.
 2. **Layered & Modular** — New data sources, visual primitives, or interaction modes can be added without rewriting existing layers.
-3. **Fun + Pleasing** — Micro-animations, narrative highlights, and light gamification elements are first-class but optional.
+3. **Event-born emphasis** — Finite micro-animations and narrative highlights MAY clarify public change; gamification and spectator analytics are not part of the current WATCH composition.
 4. **History-Aware** — Deep Time elements (scars, traces, institutions) are visually persistent and meaningful.
 5. **Composable** — Integrates with EWM metrics, semantic signals, and future mechanics via clear extension points.
 6. **Accessible by Default** — Reduced-motion, high-contrast, and structured alternatives are built in.
@@ -65,13 +68,13 @@ The system is composed of independent, stackable layers. New layers can be inser
 | Layer | Purpose | Current Content (v0.1) | Extension Hook |
 |-------|---------|------------------------|----------------|
 | Base Map | Spatial layout of rooms/regions | Room graph, clear labels, boundaries | Add new room types, procedural sub-structures |
-| Activity Overlay | Movement & flow | Animated traces, recent paths | New flow types (influence, materials, belief) |
-| State Overlays | Resource/pressure/scar heat | Subtle gradients for pressure, scars, attention | New metrics from EWM, Semantic, future systems |
-| Entity Layer | Agents, objects, institutions | Role glyphs, size/glow by influence, scar residue | New entity classes, status effects, group formations |
+| Activity Overlay | Movement & flow | Static or brief event-born traces, recent public paths | New flow types only when publicly authorized |
+| State Overlays | Resource/pressure/scar state | Restrained semantic marks for authorized coarse bands; no default heat map | New public-projection-safe state encodings |
+| Entity Layer | Agents, objects, institutions | Role glyphs, public activity, scar residue | New entity classes or statuses with public visual contracts |
 | Event Layer | Recent significant changes | Icon + short consequence river | New event categories via the server-side §4.E tier table only (client interest scoring is banned — [SPECTATOR.md](SPECTATOR.md)); deterministic grouping |
 | Narrative Layer | Story beats & highlights | The server-derived deterministic headline (same selection as the lightweight §4.A — no AI narration) | Additional deterministic, evidence-grounded highlight rules; anything generative or voted requires a future RFC |
-| Health / Context | World-level glanceables | Velocity, concentration, reconstruction fidelity, scar activity | New composite health scores, phase indicators |
-| Delight & Gamification | Fun feedback | Micro-animations, event “pops” (event-born, finite) | Badges/streaks/community highlights are spectator analytics — deferred pending a future RFC and a lightweight-§15 reconciliation row |
+| Health / Context | World-level glanceables | World, cycle, freshness, public condition bands, authorized scar activity | New public context only; no research metrics |
+| Event Emphasis | Consequence feedback | Event-born, finite emphasis | Badges, streaks, ranking, and spectator analytics remain deferred |
 
 ### 3.2 Data Contract (Stable Core)
 
@@ -80,26 +83,28 @@ All layers consume a common derived projection (extends existing `watch-live/1.0
 - Rooms with position + metadata
 - Entities (with role, position, visible state, scars)
 - Recent events (typed, with grounding to canonical ledger)
-- Aggregates (pressure, velocity, scar density, etc.)
-- Timestamps for smooth interpolation
+- Authorized public coarse bands and state marks only; raw research aggregates stay off public WATCH
+- Event timestamps for bounded, event-born emphasis; no continuous interpolation requirement
 
 **Future-proofing:** New fields are added as optional extensions. Old clients ignore unknown fields.
+
+Optional extensions remain subject to existing schema, privacy, projection, and change-control rules. This document does not authorize new public fields or metrics by itself.
 
 ### 3.3 Rendering & Animation
 
 - Primary: **Canvas 2D** (WebGL remains banned on public WATCH — lightweight §18). HTML/CSS layout (the shipped v0.1 renderer) is equally compliant; smooth interpolated movement is optional enhancement, never information.
-- UI chrome: HTML/CSS for panels, river, and HUD (easy accessibility).
+- UI chrome: HTML/CSS for compact controls, legend, event log, and selected-site detail (easy accessibility).
 - Animation contract: All movement and state changes use a shared easing/timing system. New visual primitives must declare their animation behavior.
 
 ## 4. Current Scope (v0.1)
 
-- Live animated map with role glyphs and scar visualization.
+- Live map with role glyphs, scar visualization, and finite event-born emphasis.
 - Event river with iconography and consequence text.
-- Glanceable world health panel (EWM + Deep Time metrics).
-- Subtle heat/flow overlays.
+- Compact public context line using existing world, cycle, freshness, and authorized bands.
+- Restrained public state marks; no default heat map or research metric overlay.
 - Basic narrative highlights.
 - Toggleable layers and filters.
-- Spectator “moments” (light gamification).
+- Event-born emphasis only; spectator moments and gamification remain deferred.
 
 ## 5. Extension Points (for Future Growth)
 
@@ -112,9 +117,10 @@ This section is the primary mechanism for easy expansion.
 4. Document impact on cognitive load and performance budget.
 
 ### 5.2 Adding New Metrics or Overlays
-- Must provide both a raw value and a “glanceable” visual encoding.
+- Requires separate authorization for the public projection; this document does not authorize raw values or new wire fields.
+- Any public encoding must use an existing coarse, semantic role rather than a research scalar or dashboard metric.
 - Must support reduced-motion and high-contrast variants.
-- Recommended: Add to the Health/Context panel first, then promote to an overlay if needed.
+- Recommended: keep authorized public context adjacent to the map; do not promote it into a competing overlay without reconciliation.
 
 ### 5.3 Adding New Interaction Modes
 - Define as a “Mode” with clear entry/exit and data requirements.
@@ -135,7 +141,7 @@ When a new system is added (e.g., new semantic signals, new Deep Time features, 
 
 **Phase 0 (v0.1 — Current)**
 - Core map + glyphs + scars
-- Event river + basic health panel
+- Event river + compact public context
 - Layer toggles
 
 **Phase 1**
@@ -164,14 +170,14 @@ The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **paus
 - Reduced motion mode (static updates + clear change indicators).
 - High contrast + colorblind palettes.
 - Keyboard navigation and screen-reader friendly labels for all major elements.
-- “Summary mode” that collapses the map into a structured text + key metrics view.
+- “Summary mode” that collapses the map into a structured text + public context view.
 - Always-visible legend and “what am I looking at” help.
 
 ## 8. Integration with Other Systems
 
-- **Deep Time**: Scars appear as persistent visual residue. Reconstructions trigger visible “healing” animations.
-- **EWM**: Pressure, velocity, stock health drive overlays and health panel.
-- **Semantic Layer**: Reputation, drift, and grounded signals can influence glyph appearance or event salience.
+- **Deep Time**: Scars appear as persistent visual residue. Publicly authorized changes MAY receive one finite event-born emphasis.
+- **EWM**: Only already-authorized coarse public bands may drive WATCH marks; research scalars stay off the public surface.
+- **Semantic Layer**: Only publicly authorized, grounded signals may influence glyph appearance or event presentation; reputation and private research signals stay out.
 - **Visual Design**: Must follow the player brand tokens and overall aesthetic direction.
 
 ## 8.1 Reconciliation with WATCH-LIGHTWEIGHT-SPECTATOR
@@ -194,8 +200,8 @@ The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **paus
 ## 10. Open Extension Contracts
 
 - New event types must declare an icon, a brand-token color role, and a short deterministic consequence template.
-- New entity statuses must declare at least one visual encoding (color, size, particle, border).
-- Performance budget: map rendering target 30–60 fps on target hardware even with moderate entity counts.
+- New entity statuses must declare at least one visual encoding (glyph, color, border, or finite event-born emphasis).
+- Performance follows the existing WATCH and Phosphor budgets: deterministic event-driven redraw, no idle loop, and bounded bursts; no continuous 30–60 fps requirement.
 
 ---
 
