@@ -61,6 +61,30 @@ closed: public DISMANTLE leaves irreparable RUIN scar" further down. The row was
 written from the stale line. That line is corrected in the same change, so the
 next audit does not re-derive the gap.
 
+### Third pass — the LCA campaign rows, 2026-08-31
+
+The `A*` rows are not SPEC GAPs, so they were audited against live observation
+and campaign state rather than against RFCs.
+
+| Row | Verdict |
+|---|---|
+| `A2`, `A9` | Accurate. `GET /ready` reports `players: 0`, and `cycle` sat unchanged at 8331 across hours — the documented zero-player behaviour, not a stall. No external Controller population exists |
+| `A3`, `A4`, `A5` | Accurate as unproven. With zero enrolled Players there can be no multi-agent pressure, civilization scenario, or endurance run. Note WATCH `/watch` and `/watch/map` browser acceptance did pass for the current deployment, which is *deployment* evidence and not Gate D evidence |
+| `A6`, `A7`, `A8` | Consistent with `LIVING-CIVILIZATION-ALPHA.md` and `current-state.v1.yaml` |
+| `A1` | Correctly **removed** already: `current-state.v1.yaml` records Gate A accepted through Noema PR #587 |
+
+`current-state.v1.yaml` was checked against the live door and is accurate:
+`live_source_commit` `a68f5d8d`, live Worker `34f4b0dc` matching `GET /version`,
+and the successor-pin OPEN RECONCILIATION correctly marked owner-sequenced.
+
+One condition was **not registered anywhere**, added above as `A10`. The live
+pin names `noema-client==0.1.15`; five documents tell a Controller to
+`pipx install noema-client`, which has served `0.1.20` since 2026-08-31. A Gate
+B packet must record `controller_versions`, so it will faithfully record a
+version the live pin does not name. That is a reconciliation to make
+deliberately, in the manner of the successor pins, rather than a mismatch to
+discover mid-run.
+
 **Provenance caution.** Three documents now restate the 2026-08-25 crime review
 as though it were separate authority: the "Research assimilation 2026-08-25"
 subsection of [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), the enforcement
@@ -115,6 +139,7 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 | A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
 | A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
 | A9 | Population | A clocking world without enrolled external Agent Players is not a civilization acceptance run. | `RUNTIME_ONLY` | Blocks Gates B–E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Treat population as an operations prerequisite | new rooms/content/reseed as substitute |
+| A10 | LCA Gate B | `hosted_live.official_client` pins `noema-client==0.1.15` while the documented onboarding installs whatever PyPI serves — `0.1.20` since 2026-08-31. | `RUNTIME_ONLY` | Does not block a Gate B run; a Gate B packet will record a Controller version the live pin does not name | Noema `spec-compat.json` `hosted_live.official_client`; `pipx install noema-client` in [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md), [QUICKSTART.md](QUICKSTART.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md), [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md); `controller_versions` required by [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md) | Run the client-pin promotion evidence in the Noema continuation plan (C7) against the current Worker, then move the pin; or record the mismatch explicitly in the Gate B packet | promoting the pin because `0.1.20` merely exists, pinning a client version in Specs that contradicts Noema `spec-compat.json`, treating a recorded Controller version as equivalent to a promoted pin |
 
 ## Closed-slice honesty
 
