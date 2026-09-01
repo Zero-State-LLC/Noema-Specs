@@ -146,6 +146,15 @@ which stays registered and open:
 | `B7d` | formal enforcement has no cost, jurisdiction, or accountable steward |
 | `B7e` | rehabilitation is severity-blind and counts ordinary trades where SOCIAL-MEMORY.md says "restitution trades" |
 
+**Correction, 2026-08-31.** The `B7e` summary above is wrong in its second half
+and is retained only because this RFC is Accepted and its normative clauses are
+unchanged. No authority pins a "restitution" trade type: [RFC-0036](RFC-0036-decay-rehab.md)
+pins "3 distinct `TRADE_ACCEPTED`", and the "restitution trades" phrases in
+SOCIAL-MEMORY.md and GC3-S4 row F are illustrative prose. Severity is the whole
+of `B7e`. The [register](../docs/SPEC-GAP-REGISTER-2026-08-25.md) is the live
+record for that row and has been corrected at source. This note changes no
+normative clause of this RFC.
+
 Design input for those rows is recorded non-normatively in
 [Research Assimilation — Crime](../docs/RESEARCH-ASSIMILATION-2026-08-25-CRIME.md)
 and [NOTES-CRIME-DETECTION-EVIDENCE.md](../docs/research/NOTES-CRIME-DETECTION-EVIDENCE.md).

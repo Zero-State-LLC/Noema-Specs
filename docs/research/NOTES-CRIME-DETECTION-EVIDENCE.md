@@ -59,7 +59,7 @@ A future RFC would need to name who pays for investigation, adjudication, and re
 
 [Recipient norms](https://arxiv.org/abs/2405.05903) supports forgiveness and warns against stigma contagion. NOEMA has no contagion rule and must not gain one: a Player must never be penalized for trading with a publicly dangerous Player.
 
-Existing rehabilitation is already victim-specific — `rehab_trades: 3` counts trades with the harmed counterparty after the hostile cycle. The open question is narrower than "make it less mechanical": whether severity should change the evidence required, and whether ordinary trades should count where [SOCIAL-MEMORY.md](../SOCIAL-MEMORY.md) says "restitution trades."
+Existing rehabilitation is already victim-specific — `rehab_trades: 3` counts trades with the harmed counterparty after the hostile cycle. The open question is narrower than "make it less mechanical": whether severity should change the evidence required. **Corrected 2026-08-31:** this note previously also asked whether ordinary trades should count "where SOCIAL-MEMORY.md says restitution trades". That framing was wrong — [RFC-0036](../../rfcs/RFC-0036-decay-rehab.md) pins "3 distinct `TRADE_ACCEPTED`" and no authority pins a restitution trade type.
 
 ## Explicitly out of scope
 
