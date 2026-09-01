@@ -9,7 +9,7 @@
 
 Does not replace [WATCH.md](WATCH.md), [SPECTATOR.md](SPECTATOR.md), [SPECTATOR-ONBOARDING.md](SPECTATOR-ONBOARDING.md), or [spectator-projection.schema.json](../specs/spectator-projection.schema.json).
 
-Related: [EXPERIENCE.md](EXPERIENCE.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) · [OBSERVATION.md](OBSERVATION.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
+Related: [EXPERIENCE.md](EXPERIENCE.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) · [OBSERVATION.md](OBSERVATION.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
 Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/live`.
 
@@ -55,6 +55,8 @@ Text-first Chamber theater.
 ```
 
 Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope. The only permitted canvas on public `/watch` is optional **NOEMA Phosphor Cartography** (§18): progressive enhancement of the same `watch-live/1.0` snapshot. TEXT remains complete and authoritative.
+
+The composition, hierarchy, geometry, and aesthetic restraint of this surface are governed by [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md). This pointer is normative and additive; it does not duplicate or loosen this document's cognitive-load, privacy, event-window, TEXT, or Phosphor rules.
 
 ---
 

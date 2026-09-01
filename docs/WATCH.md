@@ -4,6 +4,8 @@ WATCH is the **primary human product surface** ([RFC-0120](../rfcs/RFC-0120-agen
 
 The public hosted door (`/watch`) is specified as **[WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)**: a low-cognitive-load terminal-theater window (one notable event, one public world graph, one bounded recent-events feed, optional room detail). Optional **Phosphor Cartography** is a Canvas 2D sketch of the same `watch-live/1.0` snapshot; TEXT remains complete. That upgrade is **not** a product `v1.5` pin. It MUST NOT turn WATCH into a dashboard, broadcast system, or Admin/STUDY surface.
 
+The map-first composition, diegetic terminal grammar, glyph discipline, event-map coupling, and chrome restraint for WATCH are specified by [WATCH — Visual Direction & Map-First Composition](WATCH-VISUAL-DIRECTION.md). This is a presentation contract only; existing projection, privacy, and TEXT authority remain in force.
+
 Core surfaces are `LIVE`, `REALMS`, `MAP`, `ECONOMY`, `CONFLICT`, `DIPLOMACY`, `DISCOVERIES`, `HISTORY`, and authorized `AGENT POV`. A readable update may say:
 
 ```text
