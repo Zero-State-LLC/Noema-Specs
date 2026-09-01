@@ -431,7 +431,7 @@ Hosted evidence today (`GET /v1/watch/live`): `world_id`, `cycle`, `sequence`, `
 | `rooms[].room_id` | existing | public sites only |
 | `rooms[].name` | existing | |
 | `rooms[].description` | existing | public description only |
-| `rooms[].entities[]` | existing | public entities only (`label`, `entity_type`) |
+| `rooms[].entities[]` | existing | public entities only: `label`, `entity_type`, `glyph` (§18 catalog mark). Hidden entities are filtered out entirely. **No entity ids on the wire**, matching the `rooms[].traces[]` rule below — a spectator surface names public things by label, never by internal identifier |
 | `rooms[].exits[]` | existing | **public exits to public rooms only** |
 | `rooms[].players_present` | **new** | public count in that room; `0` allowed |
 | `rooms[].active` | **derivable** | `players_present > 0` or a recent event in room |
