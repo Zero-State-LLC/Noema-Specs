@@ -10,7 +10,7 @@ v0.1 already requires a small deterministic pressure schedule. This document is 
 **Doctrine:** pressure changes existing conditions. A relay failure must propagate through movement, communication, trade, territory, conflict, institutions, and history — not open a relay-crisis minigame ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)).
 
 GC10-S0 machine pins: [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) · [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md).  
-GC10-S1 machine pins: [GC10-S1-PRESSURE.md](GC10-S1-PRESSURE.md) · [RFC-0027](../rfcs/RFC-0027-additional-world-pressure.md). Operator storms and irreversible scars remain **SPEC GAP**.
+GC10-S1 machine pins: [GC10-S1-PRESSURE.md](GC10-S1-PRESSURE.md) · [RFC-0027](../rfcs/RFC-0027-additional-world-pressure.md). GC10-S2 machine pins: [GC10-S2-SCAR.md](GC10-S2-SCAR.md) · [RFC-0051](../rfcs/RFC-0051-irreversible-scar.md). Operator storms remain **SPEC GAP**. **Corrected 2026-08-31:** this line also said irreversible scars remain SPEC GAP, contradicting the "GC10-S2 closed" record below; RFC-0051 closed scar creation, irreversibility, and the pressure boundary.
 
 ---
 
