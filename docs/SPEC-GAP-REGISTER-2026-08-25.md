@@ -33,6 +33,34 @@ SOCIAL-MEMORY.md as a requirement (corrected in #313).
 | `B7d` | Accurate as an absence; nearest existing pin now named |
 | `B7e` | Corrected 2026-08-31 (#313) |
 
+### Second pass — the remaining families, 2026-08-31
+
+Same method applied to `B1`–`B6`, `B8`–`B10`, `PAM` and `H`. Every RFC cited by
+a row was confirmed to exist and be **Accepted** (RFC-0004, 0009, 0021, 0039,
+0110, 0112, 0118, 0125, 0014, 0027) — no dead references.
+
+| Row | Verdict |
+|---|---|
+| `B1a` | Accurate — MASTERY-SPECIALIZATION §practice attempts says "Exact weights are **SPEC GAP**" |
+| `B1b` | **Stale.** [RFC-0043](../rfcs/RFC-0043-mastery-decay.md) pins decay and maintenance credit; corrected above. Multi-focus is genuinely unpinned — RFC-0110 grants **one** focus |
+| `B2a` | Accurate — CONSTRUCTION §materials says "Exact quantities are **SPEC GAP**" |
+| `B3` | Accurate — RFC-0039 closes the preferred discount by waiving the S5 `TRADE_CAUTION` compute |
+| `B5` | Accurate — RFC-0021 pins `≥ 50` same-cycle, `25`–`49` one-cycle delay, `< 25` unreachable, local unchanged |
+| `B8b`, `B9b` | Accurate — ROADMAP lists v0.6B and v0.6C as not-started follow-ups |
+| `B9a` | Accurate as written: RFC-0125 pins current thresholds, and the row claims only *additional* ones |
+| `B10a` | Accurate — RFC-0027 pins three bounded pressure classes and **rejects** broader engines rather than pinning them |
+| `B10b` | **Stale.** [RFC-0051](../rfcs/RFC-0051-irreversible-scar.md) pins scar creation, irreversibility and the recovery boundary; corrected above |
+| `PAM1` | Accurate — PLAYER-ACTION-MAP §ORG_CREATE says "**SPEC GAP:** the human adapter's fresh `org_id` allocation/naming rule is not specified" |
+| `PAM2` | Accurate — PLAYER-ACTION-MAP says `join <org>` is not in the vocabulary and a self-join mechanic "would be a **SPEC GAP**" |
+| `B2b`, `B4`, `B6`, `B8a`, `H1`, `H2` | Consistent with their cited docs; verified against those docs rather than a governing RFC, because each cites a subsystem doc or doctrine rather than one |
+
+`B10b`'s error had a traceable source:
+[WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) contradicted itself, saying
+"irreversible scars remain **SPEC GAP**" near the top while recording "GC10-S2
+closed: public DISMANTLE leaves irreparable RUIN scar" further down. The row was
+written from the stale line. That line is corrected in the same change, so the
+next audit does not re-derive the gap.
+
 **Provenance caution.** Three documents now restate the 2026-08-25 crime review
 as though it were separate authority: the "Research assimilation 2026-08-25"
 subsection of [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), the enforcement
@@ -49,7 +77,7 @@ that cites the assimilation.
 | ID | Domain | One-line description | Status | Blocking? | Authoritative doc + RFC | Allowed continuation | Forbidden fills | Research anchors |
 |---|---|---|---|---|---|---|---|---|
 | B1a | GC1 mastery | Failed-but-legal practice-attempt weights remain unpinned. | `OPEN_SPEC` | Docs-only until Gate C exposes a material mastery defect | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md); Accepted RFC-0004 and later GC1 slices close successful-evidence families | One Draft RFC for a bounded evidence family after Gate C evidence | XP, global levels, reward shaping, failed budget/illegal action credit | SkillMaster; VO-MASD |
-| B1b | GC1 mastery | Later multi-focus, maintenance/decay credit, and additional parameter magnitudes exceed closed early slices. | `PARTIALLY_CLOSED` | Blocks PLAY only if Gate C shows specialization is not meaningful | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md); RFC-0110 focus; RFC-0112 parameter access | One smallest magnitude/parameter RFC tied to an observed defect | class tree, new verbs, research score as Player stat, broad rebalance |
+| B1b | GC1 mastery | Later multi-focus and additional parameter magnitudes exceed closed early slices. **Corrected 2026-08-31:** this row also listed "maintenance/decay credit" as residual. [RFC-0043](../rfcs/RFC-0043-mastery-decay.md) (GC1-S3) pins both — LATENT after 12 idle cycles, and 3 qualifying successes restoring MAINTAINED. Only magnitudes beyond it remain. | `PARTIALLY_CLOSED` | Blocks PLAY only if Gate C shows specialization is not meaningful | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md); [RFC-0043](../rfcs/RFC-0043-mastery-decay.md) closes decay/maintenance; [RFC-0110](../rfcs/RFC-0110-focus-declaration.md) pins **one** focus, so multi-focus is genuinely unpinned; RFC-0112 parameter access | One smallest magnitude/parameter RFC tied to an observed defect | class tree, new verbs, research score as Player stat, broad rebalance |
 | B2a | GC2 construction | Generalized `BUILD` material quantity tables are not first-world free-form authority. | `PARTIALLY_CLOSED` | Docs-only now; may block later generalized construction | [CONSTRUCTION.md](CONSTRUCTION.md); GC2 S1–S24 Accepted RFCs; RFC-0118 cargo work | Draft quantity-table RFC only if Gate C cannot exercise existing construct classes | runtime-chosen costs, free-form entity generation, room expansion |
 | B2b | GC2 construction | Owner and steward are not yet a fully generalized split. | `OPEN_SPEC` | Docs-only unless a Gate C institution requires separation | [CONSTRUCTION.md](CONSTRUCTION.md), [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) | Narrow authority RFC defining transfer, scope, recovery, and replay | implicit admin ownership, hidden privilege, personhood transfer |
 | B3 | GC3 social memory | Preferred-discount / caution-waiver behavior formerly listed as GC3-S7. | `CLOSED_BY_RFC` | No | [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md); RFC-0039 | Runtime/acceptance only; future skill-conditional descriptors require a new RFC and an observed Gate C trigger | global reputation scalar, auto-accept, hidden markup, private evidence on WATCH | Skill-conditional trust; AgentReputation |
@@ -67,7 +95,7 @@ that cites the assimilation.
 | B9a | GC9 culture | Additional threshold `N` and transmission refinements remain residual. | `PARTIALLY_CLOSED` | Docs-only; current culture slices do not block Gate C | [DEEP-TIME.md](DEEP-TIME.md); RFC-0125 and accepted GC9 slices | One evidence-backed threshold/transmission RFC after long-run observations | belief meter, faithfulness score, procedural lore reward |
 | B9b | v0.6C | Semantic Evolution remains a separate deferred roadmap package. | `DEFERRED_DOCTRINE` | After LCA-5 and only if evidence demands it | [ROADMAP.md](ROADMAP.md), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) | Separate later RFC/campaign | v0.6C by research enthusiasm, live Wasserstein/Ollivier score |
 | B10a | GC10 WED | Operator-triggered storm classes remain unpinned beyond bounded pressure families. | `OPEN_SPEC` | Docs-only; Gate C may use existing scheduled/authorized pressure | [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md); RFC-0014 + RFC-0027 | Draft RFC defining closed classes, preview, authorization, receipts, cooldown, and rollback | free-text spawn, target outcome scripting, favored grants |
-| B10b | GC10 / Deep Time | Irreversible scar creation and recovery boundaries remain unpinned. | `OPEN_SPEC` | Docs-only until a later pressure/recovery packet needs it | [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md), [DEEP-TIME.md](DEEP-TIME.md) | Draft RFC with provenance, irreversibility, WATCH, and Player recovery | history rewrite, operator undo, narrative-only scar without state |
+| B10b | GC10 / Deep Time | **Corrected 2026-08-31:** this row said scar creation and recovery boundaries "remain unpinned". [RFC-0051](../rfcs/RFC-0051-irreversible-scar.md) (GC10-S2, Accepted) pins creation (public `DISMANTLE` → `ENTITY_DESTROY` then a `scar=true` `RUIN` labelled `scarred-{class}`), irreversibility ("a scar is **not** repairable"), the recovery boundary ("pressure does not scar"; scheduled pressure stays recoverable), hidden-room omission, and WATCH silence. The residual is scar provenance from causes other than public `DISMANTLE`. | `PARTIALLY_CLOSED` | Docs-only until a later pressure/recovery packet needs it | [RFC-0051](../rfcs/RFC-0051-irreversible-scar.md) + [`pressure-catalog.gc10-s2.json`](../specs/pressure-catalog.gc10-s2.json); [GC10-S2-SCAR.md](GC10-S2-SCAR.md); [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md) records the closure at "GC10-S2 closed" | Draft RFC only for a scar cause RFC-0051 does not reach | history rewrite, operator undo, narrative-only scar without state, re-deriving RFC-0051's pins as missing |
 | PAM1 | Player Action Map | `org_id` remains a human/dev-tool adapter ambiguity, not a new production Player field. | `PARTIALLY_CLOSED` | Blocks adapter consistency, not canonical PLAY semantics | [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), Agent Protocol and action contracts | Adapter-only clarification or RFC if wire semantics must change | human Player identity, silent protocol field, GUI bypass |
 | PAM2 | Player Action Map | Organization self-join remains unpinned. | `OPEN_SPEC` | Docs-only unless onboarding requires it | [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md), organization authority docs | Narrow membership RFC with authority, visibility, and failure semantics | unconditional self-membership, hidden grant, human Player join |
 | H1 | Hosted STUDY | Full hosted Lab/Compiler/LEARN spine is not production-equivalent. | `DEFERRED_DOCTRINE` | Blocks hosted research claims after natural play; not Gate C | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md), [ROADMAP.md](ROADMAP.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Reopen decision after LCA-5 and natural-play evidence | `IMPLEMENTED_OFFLINE` → `LIVE_HOSTED` by assertion, research objective in PLAY |
