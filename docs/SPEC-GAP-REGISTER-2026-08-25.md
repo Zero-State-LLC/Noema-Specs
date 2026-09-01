@@ -85,6 +85,30 @@ version the live pin does not name. That is a reconciliation to make
 deliberately, in the manner of the successor pins, rather than a mismatch to
 discover mid-run.
 
+### Fourth pass — the draft proposals, 2026-08-31
+
+Fourteen `RFC-PROPOSAL-*` notes exist, one per gap row. Because the audit showed
+rows over-report closed work, each was re-read against its parent row and that
+row's governing RFC. A proposal inherits its row's errors, and unlike a row it
+invites someone to spend RFC effort on them.
+
+| Proposal | Verdict |
+|---|---|
+| `GC10-WED-CLASS-SCAR` | **Scar half duplicated [RFC-0051](../rfcs/RFC-0051-irreversible-scar.md)** — irreversibility, provenance, WATCH projection and recovery are all pinned, and RFC-0051 was not among its citations. Corrected; the storm-class half stands |
+| `GC7-CRIME-REHABILITATION` | Corrected 2026-08-31 (#313) |
+| `GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION` | Correctly marked **Superseded** by RFC-0129 |
+| `GC1-FULL-MASTERY-EXTENSION` | Sound. Despite descending from the stale `B1b`, it lists decay among **shipped** slices and does not repeat the row's error |
+| `GC7-CRIME-EVIDENCE-ALGORITHM`, `GC7-CRIME-ENFORCEMENT`, `GC7-CRIME-DETECTION-SANCTION` | Sound; `B7b`, `B7d` and `B7c` were each verified accurate |
+| `GC1-FAILED-ATTEMPTS-WEIGHTS`, `GC2-CONSTRUCTION-QUANTITIES`, `GC2-OWNER-STEWARD`, `GC4-BROADER-COI`, `GC8-LOT-GRADE-RESIDUALS`, `GC9-THRESHOLD-TRANSMISSION`, `CRIME-PRODUCER-COMPLETION` | Sound against their rows |
+
+Two of fourteen had inherited a stale row. Both are annotated rather than
+deleted, because in each case the idea survives once the closed part is removed.
+
+**Rule this leaves behind.** A proposal must cite the RFC that closed any part
+of its parent row. Neither faulty note cited the RFC that pinned the work it
+proposed — that absence is the cheapest signal that a proposal is standing on a
+stale row.
+
 **Provenance caution.** Three documents now restate the 2026-08-25 crime review
 as though it were separate authority: the "Research assimilation 2026-08-25"
 subsection of [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), the enforcement
