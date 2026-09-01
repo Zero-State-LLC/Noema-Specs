@@ -52,7 +52,20 @@ runtimes:
       and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the live
       build runs 02fd112. Those pins are promotion evidence, so they are deliberately not
       moved here; re-deriving them requires a new evidence packet.
-    specs_pin_note: Live source 02fd112 remains aligned to Specs 81ca8c1, matching Noema hosted_live.specs_git — the 2026-09-01 deployment carried documentation and test changes only and did not change Specs alignment. Later Specs documentation changes do not silently alter the contract implemented by that live build.
+    specs_pin_note: >-
+      Live source 02fd112 remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git. Later Specs documentation changes do not silently
+      alter the contract implemented by that live build.
+      CORRECTED 2026-09-01: an earlier version of this note said the deployment
+      carried documentation and test changes only. It did not. The range
+      a68f5d8d..02fd112 includes 45e2070, the map-first WATCH integration, which
+      rewrote 74 lines of workers/noema/src/watch.ts, plus a one-line test-seam
+      export in world-actions.ts from #608. Specs alignment is unchanged because
+      those are presentation and test-seam changes that touch no catalog, verb,
+      or event contract — not because src was untouched. The map-first source was
+      HOSTED_NOT_COMPUTABLE before this deploy and is now live, so continuation
+      plan C5 (verify the newly deployed WATCH source) became actionable; the
+      read-only half is recorded in Noema docs/evidence.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
