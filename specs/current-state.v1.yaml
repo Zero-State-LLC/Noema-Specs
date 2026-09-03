@@ -11,7 +11,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: c681fd71-608f-4e4d-9207-96f4439700a3
+  live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -39,37 +39,33 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: c681fd71-608f-4e4d-9207-96f4439700a3
-    live_deployed_at: 2026-09-01T06:19:31.012Z
-    live_source_commit: 02fd112396e189bb98b0e5659bdd6fa41cad009f
+    live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
+    live_deployed_at: 2026-09-02T03:41:29.029508Z
+    live_source_commit: 418d26293422e2a6fe9a745b6005e92262e77e9b
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Live is c681fd71-608f-4e4d-9207-96f4439700a3, deployed 2026-09-01 from Noema source
-      02fd112 and pinned by the generated post-deploy pin PR Noema#613.
-      The recorded live pointer was refreshed from that evidence on 2026-09-01.
+      Live is 3f9b0e44-98c1-46f9-8232-bb44051a754f, deployed 2026-09-02 from Noema source
+      418d262 and pinned by the generated post-deploy pin PR Noema#623.
+      The recorded live pointer was refreshed from that evidence on 2026-09-03.
       OPEN RECONCILIATION, owner-sequenced: evidence_commits.production_successor_runtime
       and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the live
-      build runs 02fd112. Those pins are promotion evidence, so they are deliberately not
+      build runs 418d262. Those pins are promotion evidence, so they are deliberately not
       moved here; re-deriving them requires a new evidence packet.
     specs_pin_note: >-
-      Live source 02fd112 remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git. Later Specs documentation changes do not silently
-      alter the contract implemented by that live build.
-      CORRECTED 2026-09-01: an earlier version of this note said the deployment
-      carried documentation and test changes only. It did not. The range
-      a68f5d8d..02fd112 includes 45e2070, the map-first WATCH integration, which
-      rewrote 74 lines of workers/noema/src/watch.ts, plus a one-line test-seam
-      export in world-actions.ts from #608. Specs alignment is unchanged because
-      those are presentation and test-seam changes that touch no catalog, verb,
-      or event contract — not because src was untouched. The map-first source was
-      HOSTED_NOT_COMPUTABLE before this deploy and is now live, so continuation
-      plan C5 (verify the newly deployed WATCH source) became actionable; the
-      read-only half is recorded in Noema docs/evidence.
+      Live source 418d262 remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
+      change. Later Specs documentation changes do not silently alter the
+      contract implemented by that live build.
+      OBSERVED 2026-09-03: source 418d262 is Noema#621 (Deep Time reconstruction
+      fidelity and Controller evidence). hosted_live.official_client remains
+      noema-client==0.1.15. #621 does not close Gate B: canonical operator
+      enrollment and three independently controlled external Controllers remain
+      unmet.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-01"
+      - "GET https://noema.guru/version 2026-09-03"
     capabilities:
       - agent-only Player admission
       - public Home, Manifesto, WATCH, and CONNECT
