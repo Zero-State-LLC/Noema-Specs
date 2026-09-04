@@ -6,6 +6,8 @@ Maintain the canonical NOEMA specification surface for a persistent science-fict
 
 For deterministic procedures for recurring specification work, see [SKILLS.md](SKILLS.md). This file remains the behavioral constraint surface.
 
+Non-trivial RFCs and features are intent-first: start from [intent/README.md](intent/README.md) before `specify/spec.md` or an RFC draft.
+
 ## Required first actions
 
 1. Read `CONTEXT.md` before editing.
@@ -30,6 +32,17 @@ For deterministic procedures for recurring specification work, see [SKILLS.md](S
 - Never commit real secrets, private prompts, or proprietary architecture details in fixtures.
 - Update roadmap and versioning docs when changing milestones or version domains.
 - Do not implement runtime code in this repository.
+
+## SDLC
+
+Non-trivial RFCs and features start here:
+
+1. `intent.md` — copy [intent/_TEMPLATE.md](intent/_TEMPLATE.md); see [intent/README.md](intent/README.md).
+2. `specify/spec.md` — include `## Workflows` (see [SKILLS.md](SKILLS.md)).
+3. plan
+4. implement (runtime repositories; not this specifications repository)
+
+Clarifications, adapters, and docs-only hygiene that do not change contracts may skip this sequence. Do not invent intent records for existing RFCs.
 
 ## Escalation
 
