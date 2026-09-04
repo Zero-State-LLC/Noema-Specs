@@ -14,7 +14,7 @@ permissions:
 
 env:
   ORG_NAME: Zero-State-LLC
-  PROJECT_NUMBER: '17'
+  PROJECT_NUMBER: '16'
   STATUS_FIELD: Status
   STATUS_VALUE: Todo
 
