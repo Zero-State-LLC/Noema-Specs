@@ -12,6 +12,17 @@ Skills are repeatable workflows. They do not create new authority.
 
 Resolve authority in this order: **Accepted RFC → versioned protocol/schema → canonical subsystem documentation → release package → conformance → examples/fixtures**. This is the precedence in `CONTEXT.md`. A conflict is a **SPEC DEFECT**. Do not silently select a side.
 
+## Workflows section (new spec.md)
+
+This repository has no `spec.md` or constitution template. Repeatable procedures are the `SKILL.*` entries below.
+
+If a future specification campaign adds a `spec.md`, include a `## Workflows` section that:
+
+- Names **existing** skills only. Defaults when those skills exist: `anti-slop-code`, `production-systems`, `google-developer-style`. In this repository, name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
+- Names the owner specialist.
+- Names any existing GitHub Action to reuse or add under `.github/workflows/`.
+- Does not invent an RFC.
+
 ## SKILL.ORIENT
 **Use when** Starting any substantive task.
 **Inputs** Requested change and repository state.

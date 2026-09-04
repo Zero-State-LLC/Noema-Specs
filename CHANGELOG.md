@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Thin multi-agent adapters (docs-only).** `CLAUDE.md` points only at `AGENTS.md`. `AGENTS.md` has a short Escalation rule: if CI or validation looks wrong, open a labeled defect; do not patch tests to green. `SKILLS.md` records the `## Workflows` section lock for any future `spec.md` (existing skills only; no new skills, bots, or RFCs). No Worker publish.
+
 ### Fixed
 
 - **Draft proposals audited against their parent rows (2026-08-31).** Fourth pass, following the register audit. Fourteen `RFC-PROPOSAL-*` notes exist, one per gap row, and a proposal inherits its row's errors while inviting RFC effort on them. Two of fourteen had inherited a stale row. `RFC-PROPOSAL-GC10-WED-CLASS-SCAR` proposed scar irreversibility, provenance, WATCH projection and recovery paths — all pinned by Accepted **RFC-0051**, which was not among its citations; the scar bullet is struck, the residual narrowed to scar causes other than public `DISMANTLE`, and the storm-class half left standing since `B10a` audited clean. `RFC-PROPOSAL-GC7-CRIME-REHABILITATION` was corrected earlier the same day. The other twelve are sound, including `GC1-FULL-MASTERY-EXTENSION`, which descends from the stale `B1b` but correctly lists decay among shipped slices. Records the rule the two failures share: a proposal must cite the RFC that closed any part of its parent row, and neither faulty note cited the RFC that pinned the work it proposed. No contract, catalog, verb, or runtime change.

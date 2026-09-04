@@ -31,6 +31,10 @@ For deterministic procedures for recurring specification work, see [SKILLS.md](S
 - Update roadmap and versioning docs when changing milestones or version domains.
 - Do not implement runtime code in this repository.
 
+## Escalation
+
+If CI or validation looks wrong, open a labeled defect (`bug` or `type:bug`). Do not patch tests, fixtures, or validators to obtain a green result.
+
 ## Validation
 
 Before finishing, run available repository validation, validate JSON syntax, inspect Markdown links, run `git diff --check`, and ensure the final tree still contains every required path.
