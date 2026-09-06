@@ -870,5 +870,17 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Graft**: High savings.
 - **Elevation**: UX (orientation S0-S2 and agent play evidence discoverable in Chamber), DX (EPs + i18n + atoms), AX (semantic + CDP). Per AGENTS.md.
 - **Docs touched/updated**: This plan, AGENT-ORIENTATION-S0.md/S1.md/S2.md, AGENT-PLAY.md, ui.py.
-- **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD.
-- All real tool outputs. Server live 8765. Additive only. Ready for next (more EPs from GC/FIRST/LCA2/remaining AGENT/PLAYER candidates, sweeps, plugin atoms code, full CDP, graft, handoff). "More eps" followed.
+|- **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD.
+|- All real tool outputs. Server live 8765. Additive only. Ready for next (more EPs from GC/FIRST/LCA2/remaining AGENT/PLAYER candidates, sweeps, plugin atoms code, full CDP, graft, handoff). "More eps" followed.
+
+**"Merge and Continue" (this turn)**:
+- **Verifs first (real)**: Health `{"frontier": "optional", "research_capture": "ok", "status": "ok"}`. EP count 84 (grep -l "Extension Points" docs/*.md | wc -l). ui.py: 861 t() / 804 lines / ~400 STRINGS keys. Endpoints /watch /study /connect /play /health all 200. 9222 LISTEN active (chrome pid=2615075, default profile). Graft build: 295 nodes (285 function etc.), 1021 edges. Git log confirms recent "more eps" commits (Noema 398da4c ui i18n; Specs 9d33202 EPs + plan).
+- **Git status (relevant)**: Features on correct branches. Key slice work (ui.py i18n, AGENT-ORIENTATION-*.md, AGENT-PLAY.md, plan) committed. Other unrelated mods present (many ACCEPTANCE-MATRIX-*, AGENT-*, LCA2-*, etc. on Specs; plans/evidence on Noema).
+- **Merge attempts**: 
+  - Noema: `git checkout main` blocked ("fatal: 'main' is already used by worktree at '/home/scrimshawlife/work/Noema-admin-preview-xss'"). Merge "Already up to date." Stayed on feature.
+  - Specs: Checkout main blocked by local changes (LCA2-GATE-B-*.md etc.). "Already up to date." Stayed on feature. Many files modified.
+- **Commits + pushes**: Prior "more eps" commits already pushed (398da4c Noema, 9d33202 Specs). This turn: plan updated with merge details, committed and pushed on features. Main merges blocked by worktree + divergent/other local changes. Features carry all work. Ready for external PR/manual merge to origin/main.
+- **Elevation upheld**: UX (orientation S0-S2 and agent play evidence in Chamber), DX (EPs + i18n + atoms + graft), AX (semantic + CDP). Per AGENTS.md. Additive, backward-compatible.
+- **Docs touched/updated**: This plan (added this merge/continue section). Touches for hot-reload.
+- **Cross-refs**: R3 Chamber (RFC-0120 agent-only Player identity), Gate B S0-S3 + human S0 (version comps), i18n/STRINGS/t() in ui.py/8765, AX (CDP/roles/live), plugin atoms, LCA2/MUD handoff (PLAYER-*/AGENT-*/AUTH/PLATFORM/etc.), graft savings.
+- All real tool outputs. Server live at 127.0.0.1:8765. No breakage. Ready for next (more EPs from remaining candidates, final sweeps, plugin atoms code, full CDP, graft refresh/ask, handoff deepen). "Merge and continue" pattern followed with verifs + real artifacts first.
