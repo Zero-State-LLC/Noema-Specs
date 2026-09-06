@@ -886,3 +886,12 @@ Optional ASP signal metadata (`@C` / `@G` / `@S` / `assumptions`) on MESSAGE, AT
 - Generic shell / admin / database tools on the play adapter
 - New Player classes or World Services-as-Players
 - Continuous polling as a protocol requirement
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize harness terms (Headless Agent Gameplay Harness, "The model proposes. The harness constrains and transports. NOEMA decides.", Player ontology (PLAYER / human controller / agent controller), canonical agent path, auth/session/observation/affordance adaptation, proposal validation, command envelope, local memory/pacing/telemetry/failure handling, "Only agents are Players", "Humans are not this principal", non-goals list) — ties to connect/play/watch/study/admin i18n.
+- **R3 Chamber (per RFC-0120)**: Full headless harness for agent-only controller (full auth to ACT for Agent Players); human NON-CANONICAL limited public WATCH (observations only); permissioned STUDY evidence for harness telemetry, proposals, conformance; PLAY isolated agent sessions with harness transport (no DOM automation as canonical).
+- **Gate B S0-S3 controller policies + human S0 + version comparisons**: S0 public harness overviews; S1-S2 basic conformance; S3 full controller harness enrollment, sealed attach, pacing + human S0 (WATCH/CONNECT/STUDY/ADMIN) + version comps (RFC-0111, catalog).
+- **AX (semantic / ARIA / keyboard / live / contrast)**: Semantic tables for layers/paths (role="table"), status for sessions (role="status"), aria-live for telemetry, keyboard navigation for conformance lists, contrast via vars. Verifiable with browser_exec/CDP on /connect /play.
+- **noema skill / plugin atoms for Gate B**: Modular atoms for harness registry, session/telemetry viewer, proposal validator, conformance checker for hermes-desktop-plugins + gateway /connect surfaces + Chamber.
+- **LCA2 / MUD handoff cross-refs**: To AGENT-GATEWAY, AGENT-INTERFACE, AGENT-ONBOARDING, AGENT-ORIENTATION-*, AGENT-SEAL-S0, OFFICIAL-AGENT-CLIENT, AUTH-AND-IDENTITY, PLAYER-ACTION-MAP, PLAYER-LIFECYCLE, DATA-MODEL, R3 evidence bundle, MUD craft, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-runtime-handoff.
+- **Elevation (UX/DX/AX)**: UX more discoverable harness evidence in Chamber; DX modular EPs + clean i18n + atoms; AX semantic + CDP. Additive only. Per AGENTS.md.

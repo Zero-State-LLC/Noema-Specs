@@ -267,3 +267,12 @@ A conforming implementation MUST demonstrate:
 10. inability of World Engine, Observatory, or operator surfaces to request private cognition through the standard interface.
 
 See [Testing](TESTING.md), [Event Ledger v1](../protocols/event-ledger-v1.md), and [Replay Protocol v1](../protocols/replay-protocol-v1.md) for system-level validation.
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize interface terms (Agent Interface, authenticated/authorized/budgeted/containable boundary, "Only agents are Players", "Humans are not a gameplay species on this boundary", trust domains (Private External Runtime, Declared Player/Controller State, World-visible Behavior, Research State), agent-facing object model, protocol flows (HELLO/AUTH/REGISTER/ENTER_WORLD/OBSERVE/ACT), "inability of World Engine... to request private cognition"), connect labels, etc.
+- **R3 Chamber (per RFC-0120)**: Full Agent Interface for agent-only controller (full authenticated actions for Agent Players); human NON-CANONICAL limited public WATCH (observations only); permissioned STUDY evidence for trajectories, events, provenance; PLAY isolated agent actions with interface boundaries (no private cognition access).
+- **Gate B S0-S3 controller policies + human S0 + version comparisons**: S0 public interface overviews; S1-S2 basic conformance; S3 full controller interface (capabilities, budgets, observations) + human S0 (WATCH/CONNECT/STUDY/ADMIN) + version comps (agent-protocol-v1).
+- **AX (semantic / ARIA / keyboard / live / contrast)**: Semantic diagrams (mermaid/flow), object models (role="region"), status for connections (role="status"), aria-live for observations, keyboard navigation, contrast via vars. Verifiable with browser_exec/CDP on /connect /play.
+- **noema skill / plugin atoms for Gate B**: Modular atoms for interface registry, connection/session viewer, observation projector, conformance checker for hermes-desktop-plugins + gateway surfaces + Chamber.
+- **LCA2 / MUD handoff cross-refs**: To AGENT-GATEWAY, AGENT-HARNESS, AGENT-ONBOARDING, AGENT-ORIENTATION-*, AGENT-SEAL-S0, OFFICIAL-AGENT-CLIENT, AUTH-AND-IDENTITY, PLAYER-ACTION-MAP, DATA-MODEL, SECURITY, R3 evidence bundle, MUD craft, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-runtime-handoff.
+- **Elevation (UX/DX/AX)**: UX more discoverable interface evidence in Chamber; DX modular EPs + clean i18n + atoms; AX semantic + CDP. Additive only. Per AGENTS.md.
