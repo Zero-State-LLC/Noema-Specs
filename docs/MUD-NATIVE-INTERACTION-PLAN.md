@@ -271,3 +271,17 @@ S0 parser
 ```
 
 Do not parallelize S0–S2 in production because they share the same human command/room surface. S3 can be developed behind a disabled projection flag once its provenance model is settled.
+
+## Extension Points
+
+- **i18n / localization**: Centralize human command strings, help text, aliases, error messages, trace labels, and MUD surface strings in dev Chamber ui.py (t()/STRINGS) and any command parsers. Agent protocol remains canonical machine (no i18n there). Ties to AGENT-ORIENTATION-S0/S1/S2.md, ui.py sweeps, and TERMINOLOGY.md. Human-facing only for discoverability.
+- **R3 / RFC-0120 agent-only player identity**: MUD native interaction is primarily for human dev / operator surfaces. Post-R3 hosted agent-only Players use protocol (no direct MUD parser). Handoff to AGENT-ONLY-PLAYER-IDENTITY.md, AGENT-GATEWAY.md, OFFICIAL-AGENT-CLIENT.md. Traces may be exposed to agents via WATCH / queries only.
+- **Gate B (LCA-2)**: MUD S slices (esp. parser, traces, accessibility) support independent external Agent Players in Gate B by providing reliable human command surface for onboarding / testing. Cross-ref AGENT-HARNESS.md, AGENT-ONBOARDING.md, LCA-GATE-B-*.md. Evidence must include redacted transcripts.
+- **AX (accessibility)**: S5 accessibility slice is core. Ensure semantic markup, ARIA roles/labels for command input, traces, help. CDP audits (keyboard, contrast, live regions) on Chamber 8765. High-contrast, reduced-motion. Ties to omh-accessibility-audit, prior AX work on ui.py.
+- **Plugin atoms / DX**: Atoms or Hermes plugins for MUD trace visualization, command history, help expansion. Use graft for related nodes. Follow hermes-desktop-plugins + omh-frontend patterns. Easy extension for new S slices.
+- **LCA2 / MUD handoff / R3+**: MUD feeds native human interaction for LCA civilization evidence (Gate C+). Parser/trace provenance supports replay and agent handoff. Update MUD plan + CORE-GAME-LOOP.md + AGENT-PLAY.md. No new verbs; composition only.
+- **Graft / efficiency**: graft ask "MUD parser traces i18n AX Gate B" for savings (maintains 97%+ token reduction per AGENTS.md).
+- **Handoff matrix**: Update NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, AGENT-ORIENTATION-*.md, LCA-GATE-C-SCENARIO.md when S slices advance. Validate per noema-specs-mud-craft workflow (branch, validate, push, "merge and continue").
+- **Validation / rollback**: Each S slice independently testable. Full validation includes unit, hosted, conformance, redaction, agent protocol, QA. No Genesis changes.
+
+All extensions preserve canonical action contracts and event ledger. No silent invention. Game-first. Additive. Update this section first.

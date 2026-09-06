@@ -136,3 +136,16 @@ Later gates attach without rewriting this contract:
 - **Gate F — Successor decision:** consumes Gate C–E evidence plus migration, rollback, compatibility, seal, and operator packets to issue `GO`, `NO-GO`, or `NOT_COMPUTABLE`.
 
 A later gate may add stricter evidence requirements. It must not retroactively treat this scenario as authority for new mechanics.
+
+### Additional Extension Points (i18n / R3 / AX / Handoff)
+
+- **i18n / localization**: Centralize Gate C evidence pack items (candidate declarations, verdicts, checklists, strategy comparisons) and related UI labels in dev Chamber (ui.py t()/STRINGS for "Gate C", "evidence pack", "verdict", "PASS/FAIL/NOT_COMPUTABLE"). Agent protocol / transcripts remain canonical. Ties to prior ui.py centralization and AGENT-ORIENTATION-S*.md.
+- **R3 / RFC-0120 agent-only player identity**: Gate C runs use external Agent Players only (no human dev Chamber dependency for the run itself). Evidence must demonstrate agent-only identity, provenance, and protocol paths. Handoff to AGENT-ONLY-PLAYER-IDENTITY.md, AGENT-ONLY-PLAYER-IDENTITY-PACKETS.md, OFFICIAL-AGENT-CLIENT.md, AGENT-PLAY.md.
+- **Gate B (LCA-2)**: Gate C builds directly on Gate B external Agent Players (at least three independent Controllers). Evidence pack includes Gate B prerequisites + civilization composition. Cross-ref LCA-GATE-B-*.md, AGENT-HARNESS.md.
+- **AX (accessibility)**: Any dev surfaces or reports for Gate C evidence (WATCH captures, transcripts) must meet semantic/ARIA/keyboard/contrast standards. CDP audits apply. Ties to omh-accessibility-audit and Chamber ui.py elevation.
+- **Plugin atoms / DX**: Atoms or plugins for evidence pack visualization, replay, strategy comparison in Hermes desktop or noema tools. Graft savings on related nodes. Follow clean architecture + hermes-desktop-plugins.
+- **MUD / LCA2 / R3+ handoff**: Gate C evidence supports MUD native interaction for human oversight (MUD-NATIVE-INTERACTION-PLAN.md) and broader LCA civilization (LIVING-CIVILIZATION-ALPHA.md, CORE-GAME-LOOP.md). Update handoff matrix.
+- **Graft / efficiency**: graft ask "LCA-GATE-C i18n AX R3" for context (high savings per AGENTS.md).
+- **Handoff matrix / validation**: Update ELEVATION-PLAN.md, AGENT-ORIENTATION-*.md, BEHAVIOR-*.md when advancing gates. All per noema-specs-mud-craft and omh- workflows where applicable. Additive, evidence-first.
+
+All extensions preserve the Gate C contract and existing systems. No new mechanics. Game-first. Update this section first.

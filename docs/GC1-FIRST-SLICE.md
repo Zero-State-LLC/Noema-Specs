@@ -274,3 +274,17 @@ Full scenario A waits for a later GC1-S1 (recognition + one benefit family) with
 ## 6. Recommended next implementation work
 
 S0 is shipped. The next bounded *spec* slice is [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). Do not implement recognition until RFC-0005 is Accepted. Do not implement GC2–GC10. Do not grant Engineer cost discounts. Do not add `BUILD`.
+
+## Extension Points
+
+- **i18n / localization**: Centralize GC1 practice track labels, unit names, recognition states ("PRACTICING", "RECOGNIZED"), and projection strings in dev Chamber / human UIs (ui.py t()/STRINGS). Agent-facing remains machine canonical; human adapters (Chamber, command help) use t() for discoverability. Ties to prior ui.py i18n work (861+ references) and AGENT-ORIENTATION-S*.md.
+- **R3 / RFC-0120 agent-only player identity**: GC1 practice is Player-visible only via canonical projection (WATCH / agent queries). Human dev Chamber is non-canonical tooling. Agent-only surfaces (post-R3) must derive practice lines from same canonical state + event ledger without dev UI. Handoff to AGENT-ONLY-PLAYER-IDENTITY.md, AGENT-ONLY-PLAYER-IDENTITY-PACKETS.md, OFFICIAL-AGENT-CLIENT.md.
+- **Gate B (LCA-2)**: GC1-S0 recognition / practice lines serve as evidence for independent external Agent Players in Gate B runs. Must be reproducible from replay + redacted transcripts. Cross-ref LCA-GATE-B-*.md, AGENT-HARNESS.md, AGENT-GATEWAY.md.
+- **AX (accessibility)**: Practice lines and tracks must be screen-reader friendly in human surfaces (semantic HTML, ARIA, live regions in Chamber ui.py). CDP/keyboard audits apply (as performed on 8765). Reduced-motion, high-contrast via theme vars. Ties to omh-accessibility-audit and prior AX elevation.
+- **Plugin atoms / DX**: Extend noema atoms or Hermes plugins for GC1 practice visualization / replay (e.g. track progress cards). Follow hermes-desktop-plugins patterns. Graft for context savings on related nodes.
+- **MUD / native handoff**: Parser traces and practice projection feed MUD-NATIVE-INTERACTION-PLAN.md S slices (traces S3, accessibility S5). Command aliases/macros may surface practice status without new verbs. Handoff to MUD plan, CORE-GAME-LOOP.md.
+- **LCA2 / R3+ bundle**: GC1-S0 + later S1 feed Gate C civilization evidence (institutions, specialization via practice). Cross to LCA-GATE-C-SCENARIO.md, LIVING-CIVILIZATION-ALPHA.md, BEHAVIOR-FEATURES.md.
+- **Graft / efficiency**: Use graft ask on "GC1 practice projection i18n AX" to avoid re-reading full files during future work. Maintains AGENTS.md graft discipline.
+- **Handoff matrix**: Update NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md and AGENT-ORIENTATION-*.md when new S slices or recognition benefits added. All extensions must preserve canonical action contracts; no silent new verbs.
+
+All extensions resolve to existing action contracts / event catalog. Game-first. Update this section + related contracts first. Additive only.
