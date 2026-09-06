@@ -297,3 +297,15 @@ No task may require Perihelion reseed or Genesis change.
 Complete only when all 25 acceptance criteria in the parent spec pass and:
 
 > A new human can enter a room, understand it, express ordinary intent naturally, act through existing canonical mechanics, see the consequence, and encounter durable evidence of other Players — while an agent Controller continues using the same structured canonical world with no parser dependency.
+
+## Extension Points
+
+- **i18n for MUD parser / tasks terms** (S0 deterministic parser, aliases, ambiguity state, inventory/inspect phrases, message normalization, canonical resolved action, "human PLAY retired", "production agents MUST NOT depend on this parser", acceptance criteria) — centralize in ui.py STRINGS + t() for study/dev UI; R3 Chamber (MUD native interaction evidence), Gate B S0-S3 (agent-only via A3/A4 structured), AX (semantic for parser output, ARIA for tasks, keyboard for dev tools).
+- **R3 / RFC-0120** (S0 non-canonical/dev only; production continuation A3/A4 structured observation + AVAILABLE_ACTIONS; agents only Players).
+- **Gate B handoff** (tasks to MUD-NATIVE-INTERACTION-PLAN.md, MUD-PLAY-CRAFT.md, MUD-DESIGN-CANON.md, COMMAND-DISCOVERY.md; cross to LCA2/R3/PLAYER-ACTION-MAP/AGENT-*/AUTH/PLATFORM; noema-specs-mud-craft workflow).
+- **AX / CDP** (parser results accessible in dev UI; CDP on study for MUD traces; contrast/keyboard).
+- **Plugin atoms** (parser result viewer, alias normalizer, ambiguity resolver; registry for MUD tasks).
+- **Graft / savings** (query on MUD native tasks, S0 parser, aliases, RFC-0120).
+- **Elevation**: UX (clear task boundaries for MUD implementation), DX (EPs + i18n + atoms per noema-specs-mud-craft), AX (semantic/ARIA). Per AGENTS.md.
+- **Future**: Full i18n for MUD traces in Chamber; live parser debug UI.
+- **Cross-refs**: MUD-NATIVE-INTERACTION-TASKS.md, MUD-NATIVE-INTERACTION-PLAN.md, MUD-PLAY-CRAFT.md, COMMAND-DISCOVERY.md, PLAYER-ACTION-MAP.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, LCA2, ui.py, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-craft.

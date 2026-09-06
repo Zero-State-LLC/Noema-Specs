@@ -58,3 +58,15 @@ Runtime implementations MUST cover: valid pack load + defaults for missing keys;
 ## 8. Non-goals
 
 No new Player verbs. No WATCH surface work. No auto-imported plugins. No Admin-as-Player. No reseed/force/same-id activation. No live surgical pause of the production world from the supervisor.
+
+## Extension Points
+
+- **i18n for maint-evolve / operator terms** (maint-evolve supervisor, policy packs, propose prompts, isolated probes, production identity pulse, actor split, Admin read-only, Player credential on probes, fail-closed table, "no Admin-as-Player") — centralize in ui.py STRINGS + t() for admin/runtime/ops labels; R3 Chamber (operator tools evidence), Gate B S0-S3 (human oversight vs agent Player), AX (semantic tables, ARIA for packs/probes, keyboard for supervisor UI).
+- **R3 / RFC-0120** (Admin never Player; maintenance patrol uses Player credential; supervisor read-only on production; only agents inhabit).
+- **Gate B handoff** (maint-evolve to OPERATIONS.md, ADMIN-LIVE-OPERATIONS.md, AGENT-HARNESS.md, SECURITY.md; cross to LCA2/MUD for probes on isolated worlds; hosted freeze/thaw).
+- **AX / CDP** (policy table accessible; CDP on /admin or ops views; contrast/keyboard for operator flows).
+- **Plugin atoms** (policy pack viewer/editor, probe runner, pulse monitor; registry for maint-evolve affordances).
+- **Graft / savings** (query on maint-evolve, policy packs, probes, RFC-0120, operator split).
+- **Elevation**: UX (clear operator tooling boundaries), DX (EPs + i18n + atoms), AX (semantic/ARIA). Per AGENTS.md.
+- **Future**: Live policy pack UI in Chamber; i18n for incident/recovery flows.
+- **Cross-refs**: OPERATOR-MAINT-EVOLVE.md, OPERATIONS.md, ADMIN-LIVE-OPERATIONS.md, AGENT-HARNESS.md, SECURITY.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, HOSTED-*, LCA2, MUD, ui.py, 8765, graft, CHAMBER-AX-AUDIT, noema skills.
