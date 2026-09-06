@@ -38,3 +38,14 @@ S3 lets Chamber PLAY name ACCESS. The operations are the ones already hosted in 
 ## Runtime rule
 
 Hosted Chamber MUST list ACCESS on `help` and list existing deny / clear / allow aliases on `help access`. MUST still omit WED, ATTEST, and the schema name ACCESS_POLICY. Isolated tests only. No Genesis change.
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize ACCESS help text, aliases (deny/clear/allow), policy descriptions, "Chamber ACCESS help", help affordances in /play /watch /study, "help access", player labels, status, "Evidence operations". Ties to prior i18n (shell_*, trade, history, etc.).
+- **R3 Chamber**: Full help for ACCESS in agent-only controller (full R3+ help surfaces); human NON-CANONICAL public WATCH / permissioned STUDY / PLAY with help. Per RFC-0120.
+- **Gate B (S0-S3 controller policies)**: S3 enables help for access policies; full controller access to help content. Human S0. Version comps.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic lists for help (role="list"), ARIA for aliases, live regions for dynamic policy, keyboard for help commands, contrast. CDP on /play /watch.
+- **noema skill / plugin atoms**: Atoms for help registry, policy help viewer for plugins + gateway + Chamber.
+- **LCA2 / MUD handoff / cross-refs**: To S0-S2, PLAYER-ACTION-MAP, R3/R4 help, access as strategic, handoff map, AX audit, noema skill, 8765.
+- **Elevation (UX/DX/AX)**: UX discoverable help in Chamber; DX modular + i18n + graft + atoms; AX semantic/ARIA + CDP. Per AGENTS.md.
+
+(Expanded per "merge and continue".)

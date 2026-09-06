@@ -824,3 +824,15 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Docs touched/updated**: This plan, ACCESS-POLICY-S2.md, PLATFORM.md, CORE-GAME-LOOP.md, ui.py.
 - **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD.
 - All real tool outputs. Server live 8765. Additive only. Ready for next (more EPs, sweeps, plugin atoms, full CDP, graft, handoff). "Continue" / merge and continue followed.
+
+**"Merge and Continue" (this turn)**:
+- **i18n/hardcode sweeps**: Added keys (shell_play, shell_watch, shell_study, shell_admin, trade_label, accept_trade_label, decline_trade_label, form_org_label, leave_label, refresh_observation, history_label, player_label, agent_id_label, no_description_fallback, unnamed_site, route_topology_note, reconstruction_fidelity, gate_b_visibility, public_history_unavailable_detail). Targeted replaces for shell nav (Play/Watch/Study/Admin), TRADE actions, Refresh observation, History, player/agent id labels, descriptions, route notes, fidelity, Gate B visibility, history unavailable, etc. ui.py now 469 t() / 776 lines. Hardcode further reduced.
+- **More EPs**: Expanded full ## Extension Points in ACCESS-POLICY-S3.md (Chamber ACCESS help i18n, R3, Gate B, AX, atoms, LCA2/MUD), AGENT-ONLY-PLAYER-IDENTITY.md (full agent-only ontology i18n, R3 per RFC-0120, Gate B, AX, atoms, LCA2/MUD to AUTH/PLATFORM etc.), BEHAVIOR-SHIFT.md (shift types/parameters/forms i18n, R3, Gate B, AX, atoms, LCA2/MUD to BEHAVIOR/ANOMALY etc.). 
+- **Commits + pushes**: Noema (ui.py more i18n) on docs/spec-directed-continuation-plan; pushed. Specs (ACCESS-POLICY-S3, AGENT-ONLY-PLAYER-IDENTITY, BEHAVIOR-SHIFT + plan) on docs/gate-b-controller-independence; pushed.
+- **Main merge**: Blocked (worktree + divergent); features carry work. Ready for PR.
+- **Verifs (real)**: Health ok. EP 83 (files). ui 469 t(). Endpoints 200. 9222 active. Graft 295/1021. Hardcode reduced.
+- **Graft**: High savings.
+- **Elevation**: UX (identity/shift/help evidence in Chamber), DX (EPs + i18n + atoms), AX (semantic + CDP). Per AGENTS.md.
+- **Docs touched/updated**: This plan, ACCESS-POLICY-S3.md, AGENT-ONLY-PLAYER-IDENTITY.md, BEHAVIOR-SHIFT.md, ui.py.
+- **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD.
+- All real tool outputs. Server live 8765. Additive only. Ready for next (more EPs from remaining candidates e.g. more AGENT-*/PLAYER-*/BEHAVIOR-*/LCA2, final sweeps, plugin atoms, full CDP, graft, handoff). "Merge and continue" followed.

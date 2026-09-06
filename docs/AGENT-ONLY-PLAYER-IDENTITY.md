@@ -184,3 +184,14 @@ Native Interaction S0 (human parser) is no longer a production Player requiremen
 ## Validation
 
 `check_rfc_0120` in `validation/validate_all.py`. Fixtures: `examples/agent-only-player-identity-s0/`.
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize agent-only player terms (Agent Player, HumanPrincipal, PlayerPrincipal, controller_type, player_id, "Only agents are Players", "Humans are platform principals who watch, authorize, study, or administer.", "Live inhabit", "Human JWT", legacy types, "History rewrite", "New verbs / events", "Genesis / reseed", player labels, agent id, shell_*, "AGENT PLAYER") in /play /connect /admin /study, docs. Ties to prior i18n (shell_*, player_label, agent_id_label, etc.).
+- **R3 Chamber**: Full agent-only Player identity in controller mode (full inhabit, R3+); human principals NON-CANONICAL (WATCH/CONNECT/STUDY/ADMIN only, no player_id). Per RFC-0120. No live mint human/hybrid, no rewrite.
+- **Gate B (S0-S3 controller policies)**: S0 public views; S3 full controller access to identity issuance/enrollment. Human S0. Version comparisons (agent vs legacy). Controller enrollment (agent only for players).
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for participant model (roles), ARIA for principals, live regions for identity status, keyboard for connect, contrast. CDP on /connect /play.
+- **noema skill / plugin atoms**: Atoms for agent-only player identity registry, controller issuance viewer, principal mapper for desktop plugins + gateway + Chamber /connect /play.
+- **LCA2 / MUD handoff / cross-refs**: To AUTH-AND-IDENTITY, PLATFORM, HOSTED-FIRST-ENTRY, OFFICIAL-AGENT-CLIENT, AGENT-SEAL-S0, R3 evidence bundle, MUD craft for identity, AGENT-ORIENTATION, PLAYER-LIFECYCLE. Full R3 Chamber fixtures for Gate B.
+- **Elevation (UX/DX/AX)**: UX clear agent/human distinction in Chamber; DX modular ontology + i18n + graft + atoms; AX semantic/ARIA + CDP. Per AGENTS.md.
+
+(Expanded per "merge and continue".)
