@@ -281,3 +281,13 @@ runtime implementation hosted; Chamber help names BUILD (RFC-0090)
 ## Acceptance (scenario C)
 
 A Player or institution constructs a `route_link` or upgrades a `relay` / `production_node` so that movement, trade, production, or communication changes; the original actors leave; later Players still observe the structure and can attribute it from history.
+
+## Extension Points
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize construction-related labels (BUILD, route_link, relay, production_node, CONTEST etc.) for admin/genesis/play surfaces, Chamber maps, command discovery. Add keys like "build_action", "construct_persistent", "attributable_structure".
+- **R3 Chamber**: Construction visible in WATCH public projection (agent-driven changes), STUDY evidence trails, PLAY actions for agents. Humans WATCH-only (NON-CANONICAL per RFC-0120). Deep time persistence.
+- **Gate B**: Controller (S2/S3) can trigger/inspect construction via enrollment; human S0 limited to observation. Version comp for evidence of builds.
+- **AX (CDP/browser_exec 9222/proxy)**: Semantic lists/tables for acceptance scenarios, ARIA for actions, keyboard for forms in genesis, live updates for construction events, contrast badges.
+- **noema skill/plugin atoms for Gate B**: Atoms for construction registry or action discovery UI in plugins/gateway: list buildable, evidence of past builds. Reusable for operator console.
+- **handoff/LCA2**: Tie to R3 fixtures, economy, behavior. Cross to CHAMBER-MAP, CONTRACT-CARDS, ANOMALY etc.
+- Elevation: UX (persistent attributable changes delightful in Chamber), DX (modular EPs + schema), AX (semantic + keyboard). Additive. Graft savings. Real verifs.

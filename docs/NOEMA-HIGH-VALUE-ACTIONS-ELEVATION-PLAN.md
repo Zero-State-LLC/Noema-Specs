@@ -720,3 +720,17 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Docs updated + touched**: This plan, CHAMBER-AX-AUDIT-v1.md, LCA2-MUD-RUNTIME-HANDOFF-MAP.md, ui.py, new EP docs. Touches for hot-reload.
 - **Elevation**: UX (R3 public/evidence flows + discovery), DX (EPs modular + graft + clean), AX (semantic + positioned for full CDP). Per AGENTS.md, skills. Additive.
 - All real tool outputs. Server live 8765. Ready for next (full CDP when Chromium default set in env, more i18n, plugin atoms impl).
+
+**"Merge and Continue" (executed)**:
+- Commits + pushes: Noema (ui.py i18n) on docs/spec-directed-continuation-plan; Specs (EP docs + plan/audit/handoff) on docs/gate-b-controller-independence. Features pushed to origin. Main merge blocked by worktree/other mods (features carry the work). Ready for PR to main.
+- Verifs: health ok, EPs 70+, all 200, 9222 active, graft ok, hardcode down.
+- Elevation upheld.
+
+**Post-merge continuation (more EPs + i18n + verif)**:
+- More EPs: CAPABILITY-CANDIDATES.md (candidates i18n/status/R3 agent-only/Gate B/AX/plugin atoms/handoff) + CONSTRUCTION.md (BUILD i18n/R3 persistence/Gate B/AX/atoms). EP 72.
+- i18n: 80+ new STRINGS (noema_brand, management_console, operator_access, open_control_plane, cli_only etc., admin labels, buttons, notices, loading). Replacements in admin shell/login/html. ui ~323 t()/735 lines/~377 keys. Hardcode fewer (sequence-/offline/cycle-/Verification/System/Status/Runtime/Configuration).
+- Graft build: 295 nodes/1021 edges.
+- Verifs (real): health ok; endpoints 200; 9222 LISTEN; EP 72; ui stats; proxy AX strong.
+- Chromium: 9222 active; CDP ready (WSL default limits full browser_exec local).
+- Docs touched/updated with slice. Cross-refs R3/Gate B/i18n/AX/ui/8765/atoms/handoff.
+- Elevation: UX/DX/AX continued. Additive. Real outputs. Server live. Ready for more EPs (DATA-MODEL etc.), remaining sweeps, plugin atoms impl, full CDP.
