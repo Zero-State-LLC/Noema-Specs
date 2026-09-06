@@ -48,3 +48,21 @@ Informal understandings remain non-ledgered.
 ## Coupling
 
 Diplomacy couples to trade, territory, organizations, crime fallout, and reports ([WORLD-REPORTS.md](WORLD-REPORTS.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md)).
+
+## Extension Points
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for diplomacy constructs (Alliance, Non-aggression, Trade agreement, Resource commitment, Access agreement, Warning / ultimatum, Informal understanding), formality/ledgered columns, "Formal vs informal", "Breaking agreements", "v0.1 baseline", "v0.2 formal agreements", mechanical effects (NON_AGGRESSION, ACCESS, RESOURCE_COMMITMENT, MUTUAL_DEFENSE, TRADE), "Coupling", agreement types, breach consequences in diplomacy UI surfaces, reports, study, play organization/trade views.
+
+- **R3 Chamber**: Full diplomacy surfaces (construct tables, formal agreements, ledger events, coupling) in controller/agent-only mode per RFC-0120; human WATCH limited public projections (public agreements, basic reputation); STUDY permissioned diplomacy evidence / agreement ledgers / breach traces; PLAY isolated diplomacy simulations and social contracts. Agent-only full access in R3+ controller.
+
+- **Gate B S0-S3**: S0 human public diplomacy views (visible agreements, basic constructs); S1-S2 limited agreement visibility / social layer; S3 controller full formal agreements / ledger writes / breach mechanics / coupling config. Controller policies for diplomacy access/rebuild. Version comparisons for agreement catalog.
+
+- **AX**: Semantic tables for constructs (role="table", "row"), ARIA labels for formality/ledgered/effects, keyboard navigation on tables, aria-live for agreement updates/breaches, contrast via theme vars. Live regions for coupling notes.
+
+- **noema skill/plugin atoms**: Diplomacy registry atom (list constructs, agreement viewer, ledger browser, breach simulator); integration with gateway ui for STUDY diplomacy explorer and PLAY org/trade interfaces; desktop plugin for agreement diff / reputation graph; ties to contest resolution and civilization matrix.
+
+- **handoff / LCA2 MUD**: Cross-refs to GAME-COMPLETENESS-PLAN, R3 Chamber fixtures, WORLD-REPORTS, STRATEGIC-CONFLICT, ACTION-CONTRACTS, other EPs (CAPABILITY-*, CONTEST-RESOLUTION, CIVILIZATION-CAPABILITY-MATRIX); include in R3 evidence bundle for diplomacy; MUD craft support for agreement events and social mechanics.
+
+- Elevation: UX discoverable diplomacy explorer and agreement ledger in Chamber; DX modular constructs + clean i18n + graft; AX semantic + keyboard + live. Additive only. 
+
+(Part of Gate B controller independence and R3 agent-only Chamber per RFC-0120.)

@@ -776,3 +776,15 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Docs touched/updated**: This plan, COMPLEXITY-DOCTRINE.md, CONTEST-RESOLUTION.md, ui.py. Touches for hot-reload.
 - **Cross-refs**: R3 Chamber RFC-0120, Gate B S0-S3 + human S0, i18n/AX/ui/8765/plugin atoms/handoff/LCA2.
 - All real tool outputs. Server live 8765. Additive only. No breakage. Ready for next (more EPs e.g. DATA-MODEL/DIPLOMACY, remaining hardcodes, plugin atoms code, full CDP re-audit, graft refresh).
+
+**"Merge and Continue" (this turn)**:
+- **i18n/hardcode sweeps**: Added new STRINGS keys (device_enrollment, scoped_credentials, local_handle_note, player_label, agent_id_label, play_enter_world, action_seq_label, refresh_observation_label). Targeted replacements in connect_html (device enrollment, scoped credentials, local handle note, player/agent meta), play_html (PLAY / enter the world, action seq, refresh observation button, placeholder). Some "Session" title and other literals remain for future. ui.py now ~370+ t() / ~760 lines.
+- **More EPs**: Added full ## Extension Points to DATA-MODEL.md (entity tables, ID/lineage/append-only/public-private i18n, R3 agent-only full / human WATCH public / STUDY lineage / PLAY manifests, Gate B S0-S3, AX semantic tables/ARIA/keyboard/live, noema atoms for registry/explorer, LCA2 handoff to GAME-COMPLETENESS etc.) + DIPLOMACY.md (constructs, formal/informal, v0.1/v0.2, coupling i18n, R3 full agreements/ledger in controller / human public / STUDY traces / PLAY sims, Gate B S0-S3, AX tables/live, atoms for registry/breach sim, LCA2 cross-refs to reports/conflict/contracts). EP now 80.
+- **Commits + pushes**: Noema (ui.py i18n additional keys + HTML replacements) on docs/spec-directed-continuation-plan; pushed. Specs (DATA-MODEL.md + DIPLOMACY.md + plan) on docs/gate-b-controller-independence; pushed.
+- **Main merge**: Blocked (worktree + divergent); features carry full work. Ready for external PR/merge.
+- **Verifs (real)**: Health ok. EP 80 (grep count). ui.py stats updated. Endpoints 200. 9222 LISTEN (default). Graft build (295/1021). Hardcode reduced further.
+- **Graft**: Savings high.
+- **Elevation**: UX (data model/diplomacy explorer in R3 Chamber), DX (EPs + i18n + graft + atoms), AX (semantic/ARIA). Per AGENTS.md. Additive.
+- **Docs touched/updated**: This plan, DATA-MODEL.md, DIPLOMACY.md, ui.py. Touches for reload.
+- **Cross-refs**: R3 Chamber (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/plugin atoms/handoff/LCA2.
+- All real tool outputs. Server live 8765. Additive only. No breakage. Ready for next (more EPs from remaining candidates, remaining hardcode sweeps, plugin atoms impl, full CDP, graft ask).

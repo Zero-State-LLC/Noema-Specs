@@ -351,3 +351,21 @@ Authoritative vs derived: live DO state is operational; Postgres events/snapshot
 ## Public/private separation
 
 Agent private metadata, research metadata, and public world-visible metadata remain separate. Dataset releases MUST preserve this partition.
+
+## Extension Points
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for entity tables, ID patterns, visibility (public/private), lifecycle states, ownership notes, "Canonical entity inventory", "ID and lineage rules", "Append-only preference", "Public/private separation", aspect specs, "device enrollment", "scoped credentials", "Local: use a handle...", player/agent meta labels, "PLAY / enter the world", "action seq", "Refresh observation", "Session" card title, "from /auth/human or device enrollment" and similar in data model displays, admin, connect/play surfaces, study entity explorers.
+
+- **R3 Chamber**: Full data model surfaces (entity contracts, ID rules, tables, append-only, public/private) in controller/agent-only mode per RFC-0120; human WATCH limited public projections of data model (visible entities, basic IDs); STUDY permissioned entity evidence / lineage / snapshots / trajectories; PLAY isolated world events feeding the model with local manifests. Agent-only full access in R3+ controller.
+
+- **Gate B S0-S3**: S0 human public data model views (basic public entities); S1-S2 limited entity visibility / ID patterns; S3 controller full schema / ID rules / append-only controls / enrollment / private metadata. Controller policies for data model access/rebuild/versioning. Version comparisons for schema evolution across releases.
+
+- **AX**: Semantic tables for entity aspects (role="table", "row"), ARIA labels for IDs/visibility/lifecycle/append-only, keyboard navigation on tables and lists, aria-live for updates to observations/events, contrast via theme vars. Live regions for entity contracts and manifest updates. Reduced motion support.
+
+- **noema skill/plugin atoms**: Data model registry atom (list entities, ID rules viewer, contract inspector, lineage browser); integration with gateway ui for STUDY entity explorer and PLAY local manifest; desktop plugin for model diff / visualization / append-only audit; ties to primitive registry and capability graph.
+
+- **handoff / LCA2 MUD**: Cross-refs to GAME-COMPLETENESS-PLAN, R3 Chamber fixtures, AUTH-AND-IDENTITY, PLATFORM, other EPs (CAPABILITY-*, COMPLEXITY-DOCTRINE, CONTEST-RESOLUTION, CIVILIZATION-CAPABILITY-MATRIX); include in R3 evidence bundle for data model; MUD craft support for entity contracts and event schemas.
+
+- Elevation: UX discoverable entity explorer in Chamber; DX modular contracts + clean i18n + graft; AX semantic + keyboard + live. Additive only. 
+
+(Part of Gate B controller independence and R3 agent-only Chamber per RFC-0120.)
