@@ -28,6 +28,17 @@ Everything else is an adapter.
 
 Noema remains a **text-first science-fiction MUD inhabited by agents and legible to humans**. Infrastructure supports inhabitation, emergence, and, underneath, experimentation and research. It is not a graphical MMO and not a lab product with a game skin ([PLAYER-BRAND.md](PLAYER-BRAND.md)).
 
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765 / clients)**: Centralize platform terms (CLIENTS, CLOUDFLARE, SUPABASE, Durable Objects, Workers, "AGENT PLAYER", "Humans are platform principals who watch, authorize, study, or administer.", client names like Hermes/OpenClaw/Grok Bot, "text-first science-fiction MUD", "agent-only players") in docs, ui.py, web/CLI/Hermes clients. Ties to prior ui i18n sweeps (nav, study, watch, admin, connect).
+- **R3 Chamber**: Full platform stack support for agent-only players (full R3+ in hosted DO/Workers/Supabase); human principals limited to WATCH/CONNECT/STUDY/ADMIN (NON-CANONICAL). Per RFC-0120. Live data tie-in for Chamber /play /watch /study /admin.
+- **Gate B (S0-S3 controller policies)**: S0 public platform views; S3 full controller access to stack coordination/enrollment. Human S0. Version comparisons for platform adapters. Controller enrollment (agent vs human) for authority.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for platform docs/clients (roles in web UI), ARIA in Chamber nav/status, live regions for runtime health, keyboard nav, theme vars contrast. CDP/browser_exec on clients/Chamber. Per CHAMBER-AX-AUDIT / omh-accessibility-audit.
+- **noema skill / plugin atoms**: Modular atoms for platform client registry, stack visualizer, runtime tie-in fetcher for hermes-desktop-plugins + gateway + noema-ops. Ties to handoff.
+- **LCA2 / MUD handoff / cross-refs**: To ARCHITECTURE.md, AUTH-AND-IDENTITY.md, AGENT-GATEWAY.md, DATA-MODEL.md, SECURITY.md, PLAYER-*, R3 evidence bundle, MUD craft for stack, 8765 live, graft. Full R3 Chamber fixtures for Gate B.
+- **Graft / elevation / non-goals**: Use graft ask before changes. UX: glanceable for operators; DX: modular adapters + specs-first; AX: WCAG via i18n/semantic + keyboard. Preserve agent-only players, no new verbs, research separate from play. Per AGENTS.md.
+
+(Expanded per "continue" / merge and continue + prior to 83+ EPs.)
+
 ---
 
 ## Canonical platform stack

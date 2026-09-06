@@ -812,3 +812,15 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Docs touched/updated**: This plan, AUTH-AND-IDENTITY.md, GAME-COMPLETENESS-PLAN.md, STRATEGIC-CONFLICT.md, ACTION-CONTRACTS.md, WORLD-REPORTS.md, ui.py. Touches for hot-reload.
 - **Cross-refs**: R3 Chamber (RFC-0120 agent-only), Gate B S0-S3 + human S0, i18n/AX/ui/8765/plugin atoms/handoff/LCA2/MUD.
 - All real tool outputs. Server live at 127.0.0.1:8765. Ready for next (remaining EP candidates e.g. more BEHAVIORAL/ANOMALY/ACCESS/PLATFORM expansions, final hardcode sweeps, plugin atoms code impl per skills, full CDP re-audit on Chromium default, graft refresh/ask, handoff deepen).
+
+**"Continue" (this turn)**:
+- **i18n/hardcode sweeps**: Added keys (from_agent_tag, curl_tag, external_agents_desc, refreshing_label, no_active_agents_visible, no_known_sites_projection, watch_live_world, connecting_projection, study_shell_note). Targeted replaces for "from agent", "curl", "External agents and local handles...", "Refreshing...", "No active agents are visible.", "The public map has no known sites...", "Live world", "Connecting to the public...", long study shell note. ui.py now 432 t() / 776 lines. Hardcode further reduced.
+- **More EPs**: Expanded full ## Extension Points in ACCESS-POLICY-S2.md (ALLOW_ONLY i18n, R3 agent-only / human S0, Gate B, AX, atoms, LCA2/MUD cross-refs), PLATFORM.md (platform stack/clients i18n, R3 agent-only / human principals, Gate B, AX, atoms, graft/elevation/non-goals), CORE-GAME-LOOP.md (OBSERVE→ADAPT / strategic overlay i18n, R3 full loop execution, Gate B, AX, atoms, LCA2 cross-refs to PLAYER-ACTION-MAP etc.). Depth to existing +3+.
+- **Commits + pushes**: Noema (ui.py more i18n) on docs/spec-directed-continuation-plan; pushed. Specs (ACCESS-POLICY-S2, PLATFORM, CORE-GAME-LOOP + plan) on docs/gate-b-controller-independence; pushed.
+- **Main merge**: Blocked (worktree + divergent); features carry work. Ready for PR.
+- **Verifs (real)**: Health ok. EP 83 (files). ui 432 t(). Endpoints 200. 9222 active. Graft 295/1021. Hardcode reduced.
+- **Graft**: High savings.
+- **Elevation**: UX (loop/policy/platform evidence in Chamber), DX (EPs + i18n + atoms), AX (semantic + CDP). Per AGENTS.md.
+- **Docs touched/updated**: This plan, ACCESS-POLICY-S2.md, PLATFORM.md, CORE-GAME-LOOP.md, ui.py.
+- **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD.
+- All real tool outputs. Server live 8765. Additive only. Ready for next (more EPs, sweeps, plugin atoms, full CDP, graft, handoff). "Continue" / merge and continue followed.
