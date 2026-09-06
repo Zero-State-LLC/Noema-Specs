@@ -98,3 +98,15 @@ Same canonical actions as humans. See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md)
 - A second action taxonomy
 - Scripted quests
 - Runtime-generated verbs
+
+## Extension Points
+
+- i18n centralization (STRINGS + t()) for command discovery terms (AVAILABLE_ACTIONS, observation paths, progressive disclosure steps, "first meaningful action", agent player discovery) in Chamber /study /watch /play /connect UI (command lists, help, onboarding flows).
+- R3 Chamber: agent player discovery (RFC-0120 agent-only), structured AVAILABLE_ACTIONS in PLAY, observation in WATCH/STUDY, CONNECT for enrollment.
+- Gate B: controller enrollment via discovery, access S0-S3 (agent commands vs human NON-CANONICAL), human orientation S0, version comparisons for action fixtures.
+- AX: role="list" / "button" for actions/commands, aria-label for discovery steps, keyboard (tab through actions, enter to issue), live regions for consequence feedback, contrast on lists.
+- ui.py / 8765: centralize discovery labels, action names via STRINGS.get + t() in templates/JS; dynamic command rendering.
+- Handoff LCA2 / R3+: agent-only packets include discovery, plugin atoms for Gate B command UI / onboarding, map to LCA-2.
+- 9222 CDP: AX tree for command lists, focus/keyboard simulation for action selection, live for "consequence" updates, contrast on .action elements.
+- Cross-refs: PLAYER-ACTION-MAP, ACTION-CONTRACTS, AGENT-PLAY, CONTRACT-CARDS (Agent Interface), CHAMBER-MAP (routes as actions), RFC-0120.
+- Elevation: UX (progressive, delightful discovery without walls), DX (modular + no invented verbs), AX (semantic + keyboard-first). Additive only.

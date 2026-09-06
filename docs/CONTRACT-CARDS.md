@@ -60,3 +60,15 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 **Key invariant:** Ten acceptance items map 1:1 to machine-readable cases.  
 **Mandatory for World Engine claims:** C04 seed/replay equivalence.  
 **Full:** docs/v0.1-CONFORMANCE.md
+
+## Extension Points
+
+- i18n centralization (STRINGS + t()) for contract cards terms (World Engine, Observation, Agent Interface, Auth and Identity, key invariants, conformance, progressive disclosure summaries) in Chamber /study /watch /play /connect UI (cards, summaries, onboarding).
+- R3 Chamber: summaries for agent-only (RFC-0120), public in WATCH, evidence in STUDY, actions in PLAY, connect for auth.
+- Gate B: controller enrollment (auth paths, scopes), access S0-S3 (agent vs human), human orientation S0, version comparisons.
+- AX: role="article" / "section" for cards, aria-labelledby for summaries, keyboard (tab through cards), live regions for updates, contrast on cards.
+- ui.py / 8765: centralize card titles, invariants, conformance labels via STRINGS.get + t() in templates/JS.
+- Handoff LCA2 / R3+: agent-only packets reference contracts, plugin atoms for Gate B contract UI / disclosure, elevation.
+- 9222 CDP: AX tree for card structures, focus on interactive summaries, live for state, contrast samples.
+- Cross-refs: CHAMBER-MAP, COMMAND-DISCOVERY, CONFOUNDS, AUTH-AND-IDENTITY, AGENT-INTERFACE, OBSERVATION, WORLD-ENGINE.
+- Elevation: UX (progressive disclosure delightful), DX (modular cards + clean contracts), AX (semantic + accessible). Additive only.
