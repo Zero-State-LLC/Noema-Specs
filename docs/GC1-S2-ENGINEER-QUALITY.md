@@ -59,3 +59,14 @@ workshop class
 ## Runtime rule
 
 Hosted Chamber MUST apply +20 only when `repairConditionDelta` says bonus 5. Isolated tests only. Help still omits BUILD. No Genesis change.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + GC/PLAYER/REMAINING)
+
+- **i18n centralization (STRINGS + t())** for engineer quality / repair terms in Chamber: "engineer_quality", "practiced_hands", "You work this {label} with practiced hands.", "repairConditionDelta", "bonus 5", "engineer". Extensible to PLAY lines, mastery indicators, /play projections. Ties to ui.py.
+- **AX audits**: semantic for quality badges / bonus indicators (role=status or aria-label), keyboard for repair flows, contrast on +20 delta. CDP for live regions on success feedback. Full re-audit.
+- **R3 / RFC-0120**: quality bonus available to agent and human Players; agent protocol structured actions benefit; human S0 first entry. Gate B access policies, version comps.
+- **Plugin atoms / DX**: atoms for quality meter / engineer badge; graft/ops maint patterns, noema skills.
+- **LCA2 / MUD / PLAYER handoff**: engineer quality to LCA traces (GC1), PLAYER-ACTION-MAP for repair verbs, MUD natural language "repair with practiced hands". Cross AGENT-*, PLAYER-ONBOARDING, ACTION-CONTRACTS.
+- **Graft + evidence**: high savings on GC* queries; matrices for quality in study.
+- **Handoff**: to GC1-FIRST-SLICE, GC6-FIRST, PLAYER-ONBOARDING, ATTENTION-PROJECTION, INSTITUTIONAL-*, LLM-AGENT, REMAINING-WORK, more EPs, i18n polish, atoms code, CDP.
+- **Cross-refs**: GAME-COMPLETENESS-PLAN, STRATEGIC-CONFLICT, PLATFORM, BEHAVIOR-FEATURES, ACCESS-POLICY-*, CORE-GAME-LOOP, AGENT-ORIENTATION, AUTH-AND-IDENTITY, 8765, elevation plan.

@@ -99,3 +99,14 @@ None of these papers may be used to:
 - authorize runtime behavior without an Accepted RFC when the behavior changes wire, state, event, authority, replay, claim, or security semantics.
 
 The operational gap analysis remains input, not canon. The [residual register](SPEC-GAP-REGISTER-2026-08-25.md) records what is actually open, closed, runtime-only, or deferred on this Specs head.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + LCA/INSTITUTIONAL/REMAINING-WORK)
+
+- **i18n centralization (STRINGS + t())** for research assimilation / gaps / metrics: "research_assimilation", "defer", "DEFER", "acceptance_metric", "long-range condition", "AgentComm-Bench", "impairment and recovery metrics", "Gate C impairment". Extensible to /study evidence matrices, acceptance panels. ui.py.
+- **AX audits (browser_exec/CDP 8765)**: semantic for evidence matrices / gap tables (role=table or grid), live regions for defer status, keyboard for research flows, contrast on metrics. Full re-audit /study.
+- **R3 Chamber / RFC-0120 + human S0**: research assimilation available in study for human and agent; agent structured observation of gaps; human first entry no research wall. Gate B S0-S3 + version comps, access policies.
+- **Plugin atoms / DX**: atoms for assimilation matrix viewer, gap list; graft patterns, noema skills (mud-craft etc.).
+- **LCA2 / MUD / handoff**: assimilation to LCA traces (A-series), MUD for research commands, PLAYER-ACTION-MAP. Cross INSTITUTIONAL-SEED, ATTENTION-PROJECTION, AGENT-*, AUTH-AND-IDENTITY, GAME-COMPLETENESS.
+- **Graft + research capture**: high savings on LCA/INST queries; evidence for Gate C.
+- **Handoff / remaining**: to RESEARCH-ASSIMILATION, GC-*, PLAYER-ONBOARDING, LLM-AGENT-INTEGRATION, REMAINING-WORK, BEHAVIORAL-REGRESSION, HOSTED-*, full i18n polish, atoms code, CDP re-audit, handoff deepen.
+- **Cross-refs**: GAME-COMPLETENESS-PLAN, STRATEGIC-CONFLICT, ACTION-CONTRACTS, PLATFORM, WORLD-REPORTS, ANOMALY-DETECTION, BEHAVIOR-FEATURES, ACCESS-POLICY-S0-S3, CORE-GAME-LOOP, AGENT-ORIENTATION-S*, AGENT-PLAY, AUTH-AND-IDENTITY, 8765, elevation plan, SPEC-GAP-REGISTER.

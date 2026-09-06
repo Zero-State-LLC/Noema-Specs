@@ -58,3 +58,14 @@ Chamber help CHANNEL
 ## Runtime rule
 
 Hosted Chamber MUST accept `MESSAGE surface=CHANNEL org_id=…` from a current member, keep the last 1 note on that org for member PLAY, reject hidden-room send, and use one non-leaking fail for unknown org and non-member. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + GC/INSTITUTIONAL/ATTENTION/REMAINING)
+
+- **i18n centralization (STRINGS + t())** for channel / org comms: "channel_note", "A channel note in {org}", "NOT_ADDRESSABLE", "org_id", "MESSAGE surface=CHANNEL". Extensible to PLAY/WATCH projections, member notes. ui.py central.
+- **AX audits (CDP / browser_exec)**: live regions for channel notes (aria-live=status), semantic for org rosters, keyboard nav for comms, contrast on notes. Re-audit /play /watch.
+- **R3 Chamber / agent identity**: channel notes for human and agent (via structured or MUD); agent protocol support; human S0 withhold. Gate B S0-S3.
+- **Plugin atoms**: atoms for channel note viewer / roster; graft maint plugins, noema skills.
+- **LCA2 / MUD / handoff**: channel to LCA (institutional comms), MUD "MESSAGE CHANNEL org", PLAYER-ACTION-MAP verbs. Cross ATTENTION-PROJECTION, INSTITUTIONAL-*, AGENT-*, AUTH.
+- **Graft savings**: high on GC5/INST queries.
+- **Handoff / remaining**: to GC-CONTINUATION, GC6, PLAYER-ONBOARDING, ATTENTION-PROJECTION, INSTITUTIONAL-SEED, LLM-AGENT-INTEGRATION, REMAINING-WORK, BEHAVIORAL, full i18n/CDP/atoms.
+- **Cross-refs**: GAME-COMPLETENESS, STRATEGIC-CONFLICT, ACTION-CONTRACTS, PLATFORM, WORLD-REPORTS, ACCESS-POLICY-*, CORE-GAME-LOOP, AGENT-*, PLAYER-*, 8765 health, elevation plan.
