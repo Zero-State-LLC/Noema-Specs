@@ -566,3 +566,12 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-verification + deeper/LCA continuation:** Concrete examples added to deeper matrix (GC1/2/7/10) + LCA link (A3/A4/A5 support). Cites matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior.
 
 **Post-deeper matrix batch:** GC4 and GC9 examples added to deeper acceptance matrix evidence collection (6 gaps noted total). Additional LCA A-series cross-ref. Cites matrix + LIVING-CIVILIZATION-ALPHA.md + register + prior.
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize GC table headers, status values (EXISTS/PARTIAL/DEFERRED etc.), GC titles (Mastery, Communication ecology, Systemic mystery, Strategic conflict, Economic specialization, Emergent culture, World Steward), "Spec Completion Contract", "product behavior", "become somebody" phrases, player-facing GC summaries in Chamber UI (watch/study/play). Ties to recent ui.py i18n.
+- **R3 Chamber (agent-only per RFC-0120)**: Full GC1–GC10 simulation/execution in controller mode (agent Players); human NON-CANONICAL public summaries/WATCH-only for GC status; STUDY permissioned evidence/traces; PLAY full persistent world with GC mechanics; version comparisons for GC contracts.
+- **Gate B S0-S3**: S0 human public GC overviews; S1–S2 study; S3 full controller GC sims/enforcement. Human orientation withhold; controller policies for GC depth.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for GC status (role="table"), ARIA for progress, keyboard nav in GC viewers, aria-live for updates, contrast vars. Per audits.
+- **noema skill / plugin atoms**: GC progress viewer/registry atom, completeness matrix UI atom for desktop/gateway plugins; integration with Chamber study/play, LEARN, matrix.
+- **Handoff / LCA2 cross-refs**: To COMPLEXITY-DOCTRINE, CONTEST-RESOLUTION, DATA-MODEL, DIPLOMACY, STRATEGIC-CONFLICT, R3 fixtures, MUD handoff, GAME-DESIGN, SPEC-GAP-REGISTER.
+- **Elevation**: UX (glanceable GC completeness in Chamber), DX (modular EPs + specs-first), AX (tables/ARIA). Additive.

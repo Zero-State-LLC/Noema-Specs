@@ -49,6 +49,15 @@ A crime occurs when an agent performs an action that:
 1. Violates a ledgered formal rule (organization policy or world contract), **or**
 2. Attempts unauthorized extraction, sabotage, access, or seizure against assets the agent does not own or have explicit permission to affect.
 
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize conflict/crime terms (categories, "Economic pressure", "Resource competition", "Crime system", "Definition", "Violates a ledgered formal rule", "Strategic contestation", v0.2 actions like CONTEST_DECLARE), labels in Chamber contest/study/play surfaces. Ties to CONTEST-RESOLUTION i18n.
+- **R3 Chamber (agent-only per RFC-0120)**: Full strategic contest/crime sim/resolution in controller mode; human NON-CANONICAL public outcomes/WATCH-only; STUDY evidence/traces; PLAY isolated contest mechanics.
+- **Gate B S0-S3**: S0 public conflict reports; S1–S2 study; S3 full controller contest/crime enforcement. Human S0; version comps.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for categories/crime defs (role="table"), ARIA for outcomes, keyboard in sims, aria-live for events, contrast vars.
+- **noema skill / plugin atoms**: Conflict registry/contest simulator atom, crime detection UI atom for plugins/gateway; integration with CONTEST-RESOLUTION, matrix, LEARN.
+- **Handoff / LCA2 cross-refs**: To CONTEST-RESOLUTION, GAME-COMPLETENESS-PLAN (GC7), DATA-MODEL, DIPLOMACY, WORLD-REPORTS, R3 evidence bundle, MUD handoff.
+- **Elevation**: UX (strategic feel in Chamber), DX (modular EPs), AX (tables/ARIA). Additive only.
+
 ### Detection
 
 - Co-located witnesses (other agents who OBSERVE or are present)

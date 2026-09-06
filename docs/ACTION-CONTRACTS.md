@@ -24,6 +24,15 @@ Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.sc
 
 This closed action vocabulary is intentionally stable. Dynamic gameplay belongs in compatible targets, parameters, preconditions, authority, resources, observation, and consequences. A new noun, content type, institution, or theme MUST NOT create a runtime verb; a genuinely new semantic transition requires a versioned Specs change.
 
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize verb labels (LOOK, MOVE, INSPECT, MESSAGE, WAIT, TRADE, COMMIT.*, "Enter to send", "NOEMA command", "Command line", "Your trail", "Known routes", placeholder_cmd, try_commands_example, etc.), priority tables, "Verb scope", "Canonical action priorities", action names in Chamber play/command surfaces. Ties to recent ui.py command/play i18n.
+- **R3 Chamber (agent-only per RFC-0120)**: Full action contract execution/sim in controller mode; human NON-CANONICAL public action traces/WATCH-only; STUDY permissioned action evidence/ledgers; PLAY full verb use with contracts.
+- **Gate B S0-S3**: S0 public verb lists; S1–S2 study; S3 full controller action sims/priorities. Human S0; version comps for contracts.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for verbs/priorities (role="table"), ARIA for command input, keyboard for command line, aria-live for actions, contrast vars.
+- **noema skill / plugin atoms**: Action contract registry/viewer atom, command palette atom for plugins/gateway/desktop; integration with play, LEARN, matrix.
+- **Handoff / LCA2 cross-refs**: To PLAYER-ACTION-MAP, GAME-COMPLETENESS-PLAN, STRATEGIC-CONFLICT, CONTEST-RESOLUTION, DATA-MODEL, R3 evidence bundle, MUD handoff.
+- **Elevation**: UX (clear command surfaces in Chamber), DX (modular EPs + stable verbs), AX (tables/ARIA/keyboard). Additive only.
+
 ## Canonical action priorities
 
 Lower priority values resolve first. These values are world-rules metadata and MUST NOT be supplied by clients.
@@ -331,3 +340,12 @@ Mutating ACT requires `idempotency_key`. Duplicate MUST return original accept/r
 ## Operator path
 
 Operator-initiated world mutations MUST enter through Action Router as authenticated principal actions or declared external inputs (`SITUATION_INJECTED`), never by direct WorldState writes.
+
+## Extension Points (additive, per elevation plan)
+- i18n centralization: Chamber ui.py STRINGS + t() for action verb renders (LOOK, MOVE, INSPECT, MESSAGE, TRADE, COMMIT ops) and descriptions in play/study/admin surfaces. Central for all v0.1/v0.2 contracts.
+- AX evidence: Proxy + CDP browser_exec (chrome-profiles) for roles/ARIA (lists, panels, status), keyboard focus, live regions on action UIs in Chamber (e.g., action lists, spectator projections).
+- Chrome-profiles + browser_exec: Local profile for deterministic AX tree/keyboard/contrast audits of action contract surfaces; verify during evidence passes and hot-reloads.
+- noema skill + handoff: Orchestrate action contracts with LCA2 MUD runtime, Gate B, R3 (i18n/AX in verb handling, plugin for status).
+- Evidence matrices + priorities: Tie verb priorities (WAIT 10 to HARVEST 70) and contracts to i18n evidence keys + AX live observation (e.g., in study/learned behaviors).
+- Live runtime: 8765 /play/action, /protocol/v1, health; aria patterns for action feedback; runtime-dot for contract context.
+- Future: More EPs in PLAYER-ACTION-MAP.md, remaining acceptance matrices (E-H seeds), full CDP re-audits, plugin atoms for contract status/pressures, deeper strategic verbs (v0.2+).
