@@ -733,4 +733,34 @@ All per plan. Ready for "merge and continue" or specific next.
 - Verifs (real): health ok; endpoints 200; 9222 LISTEN; EP 72; ui stats; proxy AX strong.
 - Chromium: 9222 active; CDP ready (WSL default limits full browser_exec local).
 - Docs touched/updated with slice. Cross-refs R3/Gate B/i18n/AX/ui/8765/atoms/handoff.
-- Elevation: UX/DX/AX continued. Additive. Real outputs. Server live. Ready for more EPs (DATA-MODEL etc.), remaining sweeps, plugin atoms impl, full CDP.
+|- Elevation: UX/DX/AX continued. Additive. Real outputs. Server live. Ready for more EPs (DATA-MODEL etc.), remaining sweeps, plugin atoms impl, full CDP.
+
+**"Merge and Continue" (this turn)**:
+- Commits: Noema (ui.py additional i18n: cycle/seq defaults, offline, CLI ONLY, unified, Configuration/Verification/System/Runtime labels) on docs/spec-directed-continuation-plan; pushed.
+- Specs (CAPABILITY-CANDIDATES, CONSTRUCTION, NOEMA-HIGH..., + new CAPABILITY-GRAPH.md + CAPABILITY-PRIMITIVES.md EPs) committed on docs/gate-b-controller-independence; pushed.
+- Main merges blocked (worktree + divergent local changes); features carry all slices. Ready for PR.
+- Verifs pre/post: health ok, EP 74, ui 340 t()/746 lines/388 keys, endpoints 200, 9222 active, graft ~136k saved, hardcode reduced.
+- Elevation upheld. Real outputs. No breakage.
+
+**Next slice (more EPs + sweeps)**:
+- More EPs: CAPABILITY-GRAPH.md (graph nodes/edges/status i18n, R3 WATCH limited/STUDY evidence/PLAY isolation, Gate B S0-S3, AX tables, plugin atoms for LEARN UI, handoff) + CAPABILITY-PRIMITIVES.md (field labels/claim_label i18n, R3 STUDY, Gate B, AX, atoms, handoff). EP now 74.
+- i18n/hardcode: + keys (cycle_default, sequence_default, offline_tag, verification_kicker, system_kicker, configuration_kicker, cli_only, unified_state, runtime_label, status_header, text_first). Replacements in play_html, connect, admin HTML/JS (meta, tags, kickers, dt, nav, status spans, sequence defaults). Hardcode sweep: Status/table headers + small literals remain (further sweeps recommended).
+- Graft: build/ask ✓ (savings ~136k this pack).
+- Verifs (real): health ok; EP 74; ui stats; 9222 LISTEN; graft; endpoints 200.
+- Chromium/CDP: 9222 active, ready.
+- Docs: plan updated with this merge/continue + slice; touched files.
+- Cross-refs: R3/Gate B/i18n/AX/ui/8765/atoms/handoff/elevation.
+- Elevation: continued (more discoverable capability evidence in Chamber; DX modular; AX semantic). Additive.
+- All real tool outputs; server live 8765. Ready for next (more candidates e.g. CIVILIZATION-CAPABILITY-MATRIX, DATA-MODEL, DIPLOMACY; remaining hardcode; plugin atoms code; full CDP on Chromium default; graft).
+
+**"Merge and Continue" (this turn)**:
+- **Commits + pushes**: Noema (ui.py i18n: status_header key + table <th>Status replacements for players/research tables; prior hardcode cleanup) on docs/spec-directed-continuation-plan; pushed to origin.
+- **Specs**: Added ## Extension Points to CIVILIZATION-CAPABILITY-MATRIX.md (matrix headers, planes, gates i18n/R3 agent-only full/Gate B S0-S3/human S0/AX semantic table/plugin atoms/LCA2 handoff) + COMMUNICATION-ECOLOGY.md (GC5 slices, verbs, doctrine i18n/R3 surfaces/AX live feeds/atoms/handoff). EP count now 76.
+- **Main merge**: Blocked (worktree at admin-preview + local mods); features carry full work. Ready for PR/merge externally.
+- **Verifs (real, split)**: Health {"frontier": "optional", "research_capture": "ok", "status": "ok"}. EP 76. ui.py 340+ t()/746+ lines/389 keys (status_header added). Endpoints /watch/study/connect/play/health 200. 9222 LISTEN (default profile chrome). Graft build (295 nodes/1021 edges); ask saved ~136k (97%). Hardcode sweep: table Status now dynamic; remaining mostly Loading.../small (e.g. "test results", "session <", "Status: not exposed").
+- **i18n/hardcode**: status_header centralized; table headers use t()/STRINGS.get. More keys in STRINGS.
+- **Graft**: high savings this pack.
+- **Elevation**: UX (matrix/comm in Chamber discoverable), DX (EPs + i18n), AX (semantic tables/ARIA). Per AGENTS.md.
+- **Docs touched/updated**: This plan, CIVILIZATION-CAPABILITY-MATRIX.md, COMMUNICATION-ECOLOGY.md, ui.py. Touches for reload.
+- **Cross-refs**: R3 Chamber (RFC-0120), Gate B S0-S3, i18n/AX/ui/8765/plugin atoms/handoff/LCA2.
+- All real tool outputs. Server live. Additive only. No breakage. Ready for next (more EPs from candidates, remaining sweeps, plugin atoms impl, full CDP).

@@ -28,7 +28,17 @@ Communication infrastructure MUST be able to produce, deterministically:
 
 ```text
 information asymmetry
-coordination advantage
+```
+
+## Extension Points
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize GC5 slice labels, pin titles (GC5-S0 etc.), verb names (MESSAGE, SHOUT, BOARD), doctrine text, surface labels (mailbox, boards, notices, channels), and status ("P1. Phase GC-B"). Keys: `gc5_slice_label`, `message_verb`, `board_label`, `channel_label`, `doctrine_label`, `communication_thesis`.
+- **R3 Chamber (agent-only RFC-0120, WATCH/STUDY/PLAY)**: Full agent access to communication surfaces in R3 controller (boards, channels, notices); human NON-CANONICAL WATCH-only for public feeds; STUDY for message provenance/evidence; PLAY for simulation of asymmetry/relay.
+- **Gate B (S0-S3 access, human S0, version comparisons)**: S0 basic public feeds; S1 detailed routing; S2 institution/org channels + relay config; S3 full controller rebuild of ecology. Human S0 (view-only). Version comps for RFCs/pins.
+- **AX (semantic/ARIA/keyboard/live regions/contrast)**: Semantic lists/sections for slices, aria-live for new messages/notices, keyboard navigation on boards, role="feed" or "log", high-contrast labels.
+- **noema skill / plugin atoms for Gate B**: Atoms for communication registry UI (slice list, pin explorer, simulation); integration with LEARN/evidence in desktop plugins.
+- **LCA2 MUD runtime handoff cross-refs**: GC5 pins for communication ecology in handoff; R3+ surfaces for boards/notices in Chamber; cross-ref to CIVILIZATION-CAPABILITY-MATRIX and BEHAVIOR docs.
+- **Elevation**: UX (coherent comms in R3), DX (modular pins), AX (live semantic feeds). Additive.coordination advantage
 regional isolation
 delayed information
 rumor propagation
