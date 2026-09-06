@@ -45,3 +45,14 @@ S0 hosts the existing `COMMIT.ACCESS_POLICY` verb for **EXIT DENY and CLEAR** on
 ## Runtime rule
 
 Hosted Chamber MUST accept `access <dir> deny for <org>` and `access <dir> clear for <org>` when the actor holds an occupied `GRANT_ACCESS` office on that org, is entered, and stands in a public room that has that exit. DENY appends a live restriction and `ACCESS_RESTRICTED`. CLEAR removes a matching live restriction and emits `ACCESS_RESTRICTED` (`mode=CLEAR`). Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize access policy terms (DENY/CLEAR, GRANT_ACCESS, EXIT/ROOM scope, ACCESS_RESTRICTED, org/player names, restriction notices, "access <dir> deny", "access here deny", "for <org>"), "Evidence operations", "Evidence and receipts", "Verification", CLI ONLY, status headers, player/controller labels in /play /watch /study /admin. Ties to prior sweeps (status_header, evidence, etc.).
+- **R3 Chamber**: Full policy enforcement, restriction sims, and evidence in agent-only controller mode (full GRANT_ACCESS authority); human NON-CANONICAL limited public WATCH (visible restrictions only), permissioned STUDY for traces/ledgers, PLAY isolated with observable MOVE blocks. Per RFC-0120.
+- **Gate B (S0-S3 controller policies)**: S0 public restriction overviews in WATCH; S1+ ROOM/EXIT for basic; S3 full controller access to policy registry, enforcement, revokes. Human S0 only. Version comparisons for access catalog. Controller enrollment for authority (agent vs human).
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables/lists for restrictions (role="table"), ARIA for verbs/scopes, live regions for ACCESS_RESTRICTED updates, keyboard for commands ("access ..."), theme contrast. CDP/browser_exec on /play /watch /admin.
+- **noema skill / plugin atoms**: Modular atoms for access policy registry/viewer, restriction simulator, enforcement notifier for desktop plugins + gateway /play /admin integration + Chamber contest/ecology/LEARN.
+- **LCA2 / MUD handoff / cross-refs**: To ACTION-CONTRACTS (verb scope), PLAYER-ACTION-MAP, STRATEGIC-CONFLICT (crime via violations), DATA-MODEL (restrictions as entities), DIPLOMACY (access as coupling), GAME-COMPLETENESS-PLAN, R3 evidence bundle, MUD craft for policy mechanics, ANOMALY-DETECTION (coordination via restrictions), WORLD-REPORTS. Full R3 Chamber fixtures for Gate B.
+- **Elevation (UX/DX/AX)**: UX discoverable policy evidence/restrictions in Chamber; DX modular slices + i18n + graft + atoms; AX semantic/ARIA + CDP. Additive, backward-compatible. Per AGENTS.md.
+
+(Expanded per "merge and continue" + prior slices to 83+ EPs.)
