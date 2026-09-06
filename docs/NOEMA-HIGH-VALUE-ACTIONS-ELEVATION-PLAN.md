@@ -764,3 +764,15 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Docs touched/updated**: This plan, CIVILIZATION-CAPABILITY-MATRIX.md, COMMUNICATION-ECOLOGY.md, ui.py. Touches for reload.
 - **Cross-refs**: R3 Chamber (RFC-0120), Gate B S0-S3, i18n/AX/ui/8765/plugin atoms/handoff/LCA2.
 - All real tool outputs. Server live. Additive only. No breakage. Ready for next (more EPs from candidates, remaining sweeps, plugin atoms impl, full CDP).
+
+**"Merge and Continue" (this turn)**:
+- **Commits + pushes**: Noema (ui.py i18n: added keys test_results_kicker, session_label, refresh_label, loading_operator_projection; centralized multiple kickers (test results, observed trails, captured work, learned behaviors), loadings, session label, refresh in HTML/JS) on docs/spec-directed-continuation-plan; pushed to origin.
+- **Specs**: Added full ## Extension Points to COMPLEXITY-DOCTRINE.md (i18n for primitives/ladder/friction, R3 agent-only / human S0, Gate B S0-S3, AX semantic table/ARIA/keyboard/live, noema atoms for doctrine viewer/registry/sim, LCA2 handoff cross-refs) + CONTEST-RESOLUTION.md (i18n for inputs/outcomes/arithmetic/anti-grief, R3 full sim in controller / human WATCH public, Gate B, AX table/live, atoms for contest UI/sim, LCA2 cross-refs to matrix/ecology). EP now 78.
+- **Main merge**: Blocked (worktree + divergent); features carry full work. Ready for external merge/PR.
+- **Verifs (real)**: Health {"frontier": "optional", "research_capture": "ok", "status": "ok"}. EP 78. ui.py 359 t()/751 lines (after i18n). Endpoints all 200. 9222 LISTEN active (default chrome). Graft build (295 nodes/1021 edges); ask saved ~137k (97%). Hardcode reduced (multiple loadings/kickers/session/test results centralized; some remain for next).
+- **i18n/hardcode**: More centralization in ui.py. Keys added and replacements in metrics/kickers/loaders/session card/button.
+- **Graft**: high savings.
+- **Elevation**: UX (doctrine/contest evidence discoverable in R3 Chamber), DX (EPs modular + i18n + graft + atoms), AX (semantic/ARIA/keyboard/live). Per AGENTS.md.
+- **Docs touched/updated**: This plan, COMPLEXITY-DOCTRINE.md, CONTEST-RESOLUTION.md, ui.py. Touches for hot-reload.
+- **Cross-refs**: R3 Chamber RFC-0120, Gate B S0-S3 + human S0, i18n/AX/ui/8765/plugin atoms/handoff/LCA2.
+- All real tool outputs. Server live 8765. Additive only. No breakage. Ready for next (more EPs e.g. DATA-MODEL/DIPLOMACY, remaining hardcodes, plugin atoms code, full CDP re-audit, graft refresh).

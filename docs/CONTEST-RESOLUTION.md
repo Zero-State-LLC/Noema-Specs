@@ -168,3 +168,21 @@ If fixture pins seed pert differently, recompute. The package fixture documents 
 - No permanent elimination
 - Access restrictions expire by cycle
 - Crime requires detection path
+
+## Extension Points
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for contest inputs table headers (Player, Stake, Evidence, Outcome, Score, Resolution), "SUCCESS", "PARTIAL_SUCCESS", "FAILURE", "Arithmetic", "Outcomes", "Stakes", "Evidence", "Reputation", "Cooldowns", "Anti-grief", "Score", "Resolution", "Contest Resolution", "GC7". Use t() for any Chamber rendering of contests/outcomes.
+
+- **R3 Chamber surfaces (agent-only per RFC-0120)**: Full contest simulation and resolution engine access in controller mode (arithmetic, stakes, evidence validation). Human: NON-CANONICAL WATCH-only public outcomes/feeds; STUDY for permissioned evidence and score traces; PLAY isolation for simulated contests without canonical impact.
+
+- **Gate B controller policies (S0–S3)**: S3 for full contest config, arithmetic tuning, reputation systems; S2 for evidence views; S1 for outcome projection; S0 for human (public results only). Human orientation: S0 only. Version comparisons for resolution schema/RFCs. Controller enrollment for higher access.
+
+- **AX (semantic + ARIA + keyboard + live + contrast)**: Semantic `<table role="table" aria-label="Contest outcomes">` + rows for inputs/outcomes. Keyboard nav for evidence lists. `aria-live` for live outcome updates or score changes. Role="log" or "feed" for resolution history. Contrast via vars. Keyboard-first, screen-reader friendly.
+
+- **noema skill / plugin atoms**: Atoms for contest registry UI (list active/resolved, filter by outcome), simulation atom in gateway/desktop plugins, integration with CIVILIZATION matrix and LEARN for outcome evidence. Follow patterns for R3 Chamber.
+
+- **LCA2 MUD handoff + cross-refs**: Include resolved contests in R3 evidence bundle and Chamber fixtures. Cross-refs to CIVILIZATION-CAPABILITY-MATRIX.md, COMMUNICATION-ECOLOGY.md, GAME-SYSTEM-MAP.md, ANOMALY/BEHAVIORAL docs, LCA-2/3 for MUD contest mechanics. Seal per LCA-2 Gate B.
+
+- **Elevation (UX/DX/AX)**: UX: discoverable contest evidence/outcomes in R3. DX: modular EPs + i18n + graft + atoms. AX: semantic tables, ARIA, live regions, keyboard. Additive only.
+
+(Part of 'merge and continue' + EP expansion + R3/Gate B/i18n/AX/handoff.)
