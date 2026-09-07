@@ -16,3 +16,4 @@ cd "$ROOT"
 "$VENV_DIR/bin/python" validation/validate_all.py
 "$VENV_DIR/bin/python" validation/validate_direction.py
 "$VENV_DIR/bin/python" validation/validate_freshness.py --offline
+"$VENV_DIR/bin/python" validation/validate_gateb_traceability.py

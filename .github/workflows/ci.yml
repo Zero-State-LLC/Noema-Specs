@@ -15,12 +15,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        # Add your project's dependencies here, e.g.:
-        # pip install -r requirements.txt
-    - name: Run tests
-      run: |
-        # Add your test command here, e.g.:
-        # pytest
+    # run.sh installs validation/requirements-validation.txt and propagates failures.
+    # Freshness is metadata-only here, not a live availability or gate-promotion check.
+    - name: Validate specifications, direction, offline freshness, and Gate B traceability
+      run: bash validation/run.sh
