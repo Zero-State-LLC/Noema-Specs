@@ -7,6 +7,34 @@
 
 This register distinguishes open contracts from runtime delivery, campaign acceptance, and doctrine deferrals. It does not thaw v0.1–v0.7, authorize v0.8, add Player verbs, or promote runtime claims.
 
+## Follow-up — 2026-09-07: repository baseline, client pin, and metric meaning
+
+The [P0 reconciliation packet](evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md)
+records locally inspected Specs `94286ca` and runtime `c1be766`, separate from
+historical Gate A and recorded deployment pins. Its exhaustive scoped
+[JSON ledger](evidence/P0-BASELINE-LEDGER-2026-09-07.json) and
+[CSV ledger](evidence/P0-BASELINE-LEDGER-2026-09-07.csv) cover the enumerated
+Living Alpha acceptance obligations, Gate C companion, and plan G01–G13.
+They are not an all-RFC census or a runtime-conformance verdict.
+
+**Client A10:** runtime `spec-compat.json` now records `noema-client==0.1.21`
+after #628. The retained C7 amendment explicitly says enrollment-bound checks
+remain unrun. Earlier `0.1.15` observations and the `0.1.20` proposal below are
+historical, not current pin guidance or evidence of present incompatibility.
+
+**Population A2/A9:** the third-pass inference below from readiness `players: 0`
+to no enrolled or previously active Agents is not supported. At the inspected
+runtime baseline, `countLivePlayers` counts present actors classified `live`,
+while agent Controllers are classified `system`. This counter is not an
+enrollment census. No new live observation was made. Gate A remains accepted,
+Gate B/C remain **BLOCKED**, and D/E/F remain unproven because the required
+acceptance packets are not established, not because a health counter proves
+an empty enrollment history. Preserve the earlier audit as dated provenance.
+
+The residual B/PAM rows remain conditional contracts or doctrine deferrals.
+This follow-up does not activate their proposals, change a schema, assign CI
+or validators to this documentation workstream, or authorize live operations.
+
 ## Status vocabulary
 
 | Status | Meaning |

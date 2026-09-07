@@ -1,0 +1,3325 @@
+{
+  "artifact_kind": "non-normative P0 acceptance inventory",
+  "as_of": "2026-09-07",
+  "specs_commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+  "runtime_commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+  "scope": "Every enumerated item in LAA candidate declaration and Gates A–F, failure clause; every enumeration/code-list item and explicit thresholds/verdict guards in Gate C prerequisites through verdict; all plan G01–G13. Duplicate requirements across authorities remain separate trace rows. Not an all-RFC or runtime-conformance census.",
+  "classification_note": "contract_closed is used only for historically accepted A rows here, not a claim that other contracts are open. evidence_gap means run proof is missing, not source absent. ambiguous means unresolved semantics or unexercised defect hypothesis. runtime_gap G02 retains plan verification-defect classification, not a new runtime test finding.",
+  "extraction_policies": [
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Candidate declaration",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "include_code": false,
+      "prose_prefixes": []
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate A — Integrated runtime",
+      "group": "LAA-A",
+      "gate": "A",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate B — External population",
+      "group": "LAA-B",
+      "gate": "B",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate C — Existing-system civilization",
+      "group": "LAA-C",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate D — WATCH legibility",
+      "group": "LAA-D",
+      "gate": "D",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate E — Endurance",
+      "group": "LAA-E",
+      "gate": "E",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Gate F — Successor decision packet",
+      "group": "LAA-F",
+      "gate": "F",
+      "include_code": false,
+      "prose_prefixes": [
+        "At least two materially",
+        "WATCH must not",
+        "Passing Gates"
+      ]
+    },
+    {
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "heading": "Failure conditions",
+      "group": "LAA-FAILURE",
+      "gate": null,
+      "include_code": false,
+      "prose_prefixes": [
+        "The candidate fails"
+      ]
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Prerequisites",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": []
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Non-goals",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": []
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Candidate declaration",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "include_code": true,
+      "prose_prefixes": []
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Coupled path checklist",
+      "group": "GC-PATH",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": [
+        "The checklist is conjunctive"
+      ]
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Strategy plurality",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "include_code": true,
+      "prose_prefixes": [
+        "At least two materially",
+        "A strategy is materially",
+        "If one script dominates"
+      ]
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Evidence pack",
+      "group": "GC-PACK",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": [
+        "Missing evidence is not"
+      ]
+    },
+    {
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "heading": "Gate C verdict",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "include_code": false,
+      "prose_prefixes": [
+        "A Gate C pass does not"
+      ]
+    }
+  ],
+  "source_documents": {
+    "docs/LIVING-ALPHA-ACCEPTANCE.md": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "sha256": "779c32097e292c2af9c0ced7e6bab11b3b5066780d8e581b6da9333179389bff"
+    },
+    "docs/LCA-GATE-C-SCENARIO.md": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "sha256": "6642c3fabf350c0cf964ef7f4d51d4e8b96f7d4101f2d81b61e500b99820ff7e"
+    },
+    "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "sha256": "1cdc92b324efcb473b5f8e0b911e8867f65dff19ff99babd54d6c8a962b152af"
+    }
+  },
+  "baseline": {
+    "runtime_pin": {
+      "world_id": "world.perihelion-reach-3",
+      "genesis_id": "genesis.94d0961984b2b4f8",
+      "do_name": "world.perihelion-reach-3",
+      "entry_room_id": "room.civic-exchange",
+      "profile_id": "EWM_ENHANCED",
+      "worker_version_id": "3f9b0e44-98c1-46f9-8232-bb44051a754f",
+      "specs_git": "81ca8c1e6b1d1ca474cf31958439fb0bdb9a465c",
+      "official_client": "noema-client==0.1.21",
+      "seal": "sha256:9b9c211c156a9b49e700fa39e409733099a38df9d95c7f6fb90ca3e9e740a395",
+      "rfc": "RFC-0122",
+      "note": "Production PLAY default. Worker 3f9b0e44-98c1-46f9-8232-bb44051a754f published 2026-09-02T03:41:29.029Z, READ from GET /version after successful production deployment of source commit 418d26293422e2a6fe9a745b6005e92262e77e9b. Generated post-deploy pin PR evidence fetched 2026-09-02T03:41:31.967Z from https://noema.guru/version; world_id world.perihelion-reach-3 and Genesis genesis.94d0961984b2b4f8 were derived from live /version + /ready. Prior worker_version_id was c681fd71-608f-4e4d-9207-96f4439700a3. A new worker_version_id does not imply a Specs pin change; specs_git remains the live build's Specs alignment unless changed by the deployed source. Prior PLAY world.perihelion-reach-2 / genesis.dbeb43d198ce81b1 is not reseeding. Frozen first world remains genesis.ef578f4ffceeccd0 on world-01 (operator-only).",
+      "source_commit": "418d26293422e2a6fe9a745b6005e92262e77e9b",
+      "deployed_at": "2026-09-02T03:41:29.029Z",
+      "version_evidence": {
+        "url": "https://noema.guru/version",
+        "fetched_at": "2026-09-02T03:41:31.967Z",
+        "worker_version_id": "3f9b0e44-98c1-46f9-8232-bb44051a754f",
+        "deployed_at": "2026-09-02T03:41:29.029Z",
+        "source_commit": "418d26293422e2a6fe9a745b6005e92262e77e9b",
+        "world_id": "world.perihelion-reach-3",
+        "genesis_id": "genesis.94d0961984b2b4f8",
+        "env": "production",
+        "protocol_version": "1"
+      }
+    },
+    "repository_specs_alignment": "d0086e4c7b6c82593fb1d579e5671b282b8c1486",
+    "source_to_recorded_live_changed_paths": [
+      ".github/ISSUE_TEMPLATE/bug_report.yml",
+      ".github/ISSUE_TEMPLATE/config.yml",
+      ".github/ISSUE_TEMPLATE/feature_request.yml",
+      ".github/ISSUE_TEMPLATE/question.yml",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      ".github/workflows/ci.yml",
+      "AGENTS.md",
+      "CLAUDE.md",
+      "docs/AGENT-GOTCHAS.md",
+      "docs/ALPHA-RELEASE.md",
+      "docs/PARTNER-OPERATOR.md",
+      "docs/evidence/C7-CLIENT-PIN-EVIDENCE-2026-08-31.md",
+      "docs/evidence/CONTINUATION_PLAN_abrasax-galadriel-collaboration-2026-09-02.md",
+      "docs/evidence/CONTINUATION_PLAN_spec-directed-runtime-2026-08-31.md",
+      "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "docs/evidence/WATCH-fidelity-GateB-comprehensive-plan-2026-09-02.md",
+      "docs/evidence/todo.json",
+      "intent/README.md",
+      "scripts/check_agents_md.py",
+      "spec-compat.json",
+      "src/noema/app/runtime.py",
+      "src/noema/gateway/ui.py",
+      "src/noema/observations/project.py",
+      "src/noema/research/deep_time/reconstruction.py",
+      "src/noema/research/deep_time/registry.py",
+      "src/noema/world/reduce.py",
+      "src/noema/world/state.py",
+      "tests/test_phase10_config_ui.py",
+      "tests/test_phase6_deep_time_genesis.py",
+      "workers/noema/src/canonical-state.ts",
+      "workers/noema/src/deep-time.ts",
+      "workers/noema/src/device-enrollment.ts",
+      "workers/noema/src/enrollment.ts",
+      "workers/noema/src/watch-live.ts",
+      "workers/noema/src/watch-phosphor.ts",
+      "workers/noema/src/world-do.ts",
+      "workers/noema/test/deep-time.test.ts",
+      "workers/noema/test/device-enrollment.test.ts",
+      "workers/noema/test/gate-b-enrollment.test.ts",
+      "workers/noema/test/watch-phosphor.test.ts"
+    ],
+    "source_to_recorded_live_changed_path_count": 40,
+    "runtime_execution": "NOT_RUN",
+    "live_probe": "NOT_RUN",
+    "official_client_artifact_verification": "NOT_RUN",
+    "gate_states": {
+      "A": "ACCEPTED_HISTORICAL",
+      "B": "BLOCKED",
+      "C": "BLOCKED",
+      "D": "UNPROVEN",
+      "E": "UNPROVEN",
+      "F": "UNPROVEN"
+    }
+  },
+  "home_registry": {
+    "acceptance": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "line_start": 1,
+      "line_end": 118,
+      "file_sha256": "779c32097e292c2af9c0ced7e6bab11b3b5066780d8e581b6da9333179389bff",
+      "role": "campaign acceptance authority"
+    },
+    "scenario": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "docs/LCA-GATE-C-SCENARIO.md",
+      "line_start": 1,
+      "line_end": 133,
+      "file_sha256": "6642c3fabf350c0cf964ef7f4d51d4e8b96f7d4101f2d81b61e500b99820ff7e",
+      "role": "detailed Gate C acceptance companion"
+    },
+    "gate-a": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "docs/LCA-GATE-A-PROMOTION-2026-08-25.md",
+      "line_start": 1,
+      "line_end": 43,
+      "file_sha256": "4b5e5563306f845393508e61ef1ce34a4e949af3102a109f0519724f61dc9fb4",
+      "role": "accepted historical Gate A evidence, not a current runtime rerun"
+    },
+    "gate-b": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "docs/LCA2-GATE-B-PREPARATION.md",
+      "line_start": 1,
+      "line_end": 60,
+      "file_sha256": "8440dff690d2470d2aee5cb917f42dd892f8cf3d478f471203b5320d95e0be64",
+      "role": "preparation and independence authority, not an accepted external packet"
+    },
+    "trace-b": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "docs/LCA2-GATE-B-TRACEABILITY.md",
+      "line_start": 1,
+      "line_end": 23,
+      "file_sha256": "002a0879e95c9cacbee47f5853c34c20a3f91b8766a03f752379dacecec4b4c1",
+      "role": "historical representative checks, not external acceptance"
+    },
+    "identity": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "rfcs/RFC-0120-agent-only-player-identity.md",
+      "line_start": 1,
+      "line_end": 75,
+      "file_sha256": "480abc7279ad42472ffc04f6be2c5e4369c2d4b518a9dd4cfc0960d3bd50e02a",
+      "role": "Accepted identity RFC"
+    },
+    "protocol": {
+      "repository": "specs",
+      "commit": "94286cac7cc200a4ed244bfd7321ef16d0bfc2a1",
+      "path": "protocols/agent-protocol-v1.md",
+      "line_start": 1,
+      "line_end": 58,
+      "file_sha256": "5a31ba9fc01fe32c6707a36ce2e87f2db6cb6fee8692c9a7bbdad983948810e7",
+      "role": "versioned Agent Protocol authority"
+    },
+    "plan": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "line_start": 1,
+      "line_end": 99,
+      "file_sha256": "1cdc92b324efcb473b5f8e0b911e8867f65dff19ff99babd54d6c8a962b152af",
+      "role": "owner-approved execution plan, not normative semantics"
+    },
+    "client": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "docs/evidence/CONTINUATION_PLAN_spec-directed-runtime-2026-08-31.md",
+      "line_start": 184,
+      "line_end": 203,
+      "file_sha256": "d0f3f97e9ff2fc380204c510c9442015a9ebb5d3a2ef1cca56e3ee6a6c514272",
+      "role": "dated pin authorization, explicitly unrun C7 checks"
+    },
+    "counter-source": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/src/ops.ts",
+      "line_start": 82,
+      "line_end": 123,
+      "file_sha256": "c21c5580f11f5e53913f7c04db4826ae513fe7a4e247de94f84071322d257e08",
+      "role": "source inspected, not enrollment census"
+    },
+    "counter-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/ops.test.ts",
+      "line_start": 55,
+      "line_end": 88,
+      "file_sha256": "7e1bffe9c1373e34848bc4d542a84308c61fb9e9bdf53f457d416707bb58d322",
+      "role": "test assertions inspected, NOT RUN in this reconciliation"
+    },
+    "enroll-source": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/src/device-enrollment.ts",
+      "line_start": 290,
+      "line_end": 317,
+      "file_sha256": "bc205112e9f92534aa5d0465f7b24f725f860f2ed9a63b5933a4c586390c0913",
+      "role": "binding uniqueness and raw UTF-8 hash source inspected"
+    },
+    "enroll-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/gate-b-enrollment.test.ts",
+      "line_start": 1,
+      "line_end": 59,
+      "file_sha256": "800e1ad2a3a8eb292c1a5cd507101b4967ea03e4f33f9153e9166fa943c9ad5b",
+      "role": "batch allocation/binding test declarations inspected, NOT RUN"
+    },
+    "economy-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/economy.test.ts",
+      "line_start": 89,
+      "line_end": 163,
+      "file_sha256": "003ab7c262ec8c3e374291eb19125ac2824bc8555eb8f50c8a045e93dd863b8a",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "practice-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/practice.test.ts",
+      "line_start": 10,
+      "line_end": 58,
+      "file_sha256": "3b147c49f0e8a972822abdcf96e70cdad43fdb58ba670d639e43c1b0ffe08108",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "social-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/social-memory.test.ts",
+      "line_start": 15,
+      "line_end": 56,
+      "file_sha256": "bb408513e7ad572f893db18761bd1be8be653d802ff979889e5b806a395b34d3",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "office-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/offices.test.ts",
+      "line_start": 132,
+      "line_end": 201,
+      "file_sha256": "4cc81664a7bc5826a307d791e5502743952880e3390efbf56e5e66ccf4240c14",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "communication-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/communication.test.ts",
+      "line_start": 172,
+      "line_end": 294,
+      "file_sha256": "047c4bdcb924104c87303abd26f94a2a4c21aa7a984684c47f03093defda400e",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "recovery-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/isolated-settlement-proof.test.ts",
+      "line_start": 164,
+      "line_end": 180,
+      "file_sha256": "0f5a8fa8f88c3f0f9a56fab4f12f20ea0fe11809ff806da9cf57be53508efa85",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "watch-test": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/test/watch-live.test.ts",
+      "line_start": 95,
+      "line_end": 118,
+      "file_sha256": "a4e5e9a3f067ca12afb1ed572c863412ba2003b4dddf3be45756993a50644f2f",
+      "role": "supporting test home inspected, NOT RUN; not coupled/live acceptance"
+    },
+    "watch-source": {
+      "repository": "runtime",
+      "commit": "c1be76650c995972de290d11e78a54d8baab70e9",
+      "path": "workers/noema/src/watch-live.ts",
+      "line_start": 695,
+      "line_end": 714,
+      "file_sha256": "b104f33add647590ce2ce0e4cdb8a1bef2462df7a82638776bc0af82b7da6b9c",
+      "role": "pinned source shows fallback candidate, no live disclosure exercised"
+    }
+  },
+  "counts": {
+    "total": 125,
+    "by_group": {
+      "GC-DECLARE": 11,
+      "GC-NONGOAL": 7,
+      "GC-PACK": 11,
+      "GC-PATH": 9,
+      "GC-PREREQ": 5,
+      "GC-STRATEGY": 15,
+      "GC-VERDICT": 6,
+      "LAA-A": 5,
+      "LAA-B": 5,
+      "LAA-C": 9,
+      "LAA-CANDIDATE": 9,
+      "LAA-D": 6,
+      "LAA-E": 5,
+      "LAA-F": 8,
+      "LAA-FAILURE": 1,
+      "PLAN-G": 13
+    },
+    "by_classification": {
+      "ambiguous": 3,
+      "contract_closed": 5,
+      "deferred": 1,
+      "deployment_gap": 1,
+      "evidence_gap": 114,
+      "runtime_gap": 1
+    }
+  },
+  "rows": [
+    {
+      "id": "LAA-CANDIDATE-01",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 26,
+      "source_text": "- advanced Worker commit and full test result;",
+      "requirement": "advanced Worker commit and full test result;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-02",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 27,
+      "source_text": "- frozen production-alpha commit and deployment being compared;",
+      "requirement": "frozen production-alpha commit and deployment being compared;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-03",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 28,
+      "source_text": "- Perihelion Genesis, seal, room bound, and canonical head constraints;",
+      "requirement": "Perihelion Genesis, seal, room bound, and canonical head constraints;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-04",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 29,
+      "source_text": "- external Agent Player clients and Controller versions;",
+      "requirement": "external Agent Player clients and Controller versions;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-05",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 30,
+      "source_text": "- enabled implemented systems;",
+      "requirement": "enabled implemented systems;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-06",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 31,
+      "source_text": "- operator interventions;",
+      "requirement": "operator interventions;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-07",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 32,
+      "source_text": "- start/end canonical heads and recovery receipts;",
+      "requirement": "start/end canonical heads and recovery receipts;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-08",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 33,
+      "source_text": "- WATCH capture and evidence digest;",
+      "requirement": "WATCH capture and evidence digest;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-CANDIDATE-09",
+      "group": "LAA-CANDIDATE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 34,
+      "source_text": "- known deltas from production.",
+      "requirement": "known deltas from production.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-A-01",
+      "group": "LAA-A",
+      "gate": "A",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 40,
+      "source_text": "1. The complete Worker test suite and typecheck pass together.",
+      "requirement": "The complete Worker test suite and typecheck pass together.",
+      "claim_label": "OBSERVED",
+      "classification": "contract_closed",
+      "gate_disposition": "ACCEPTED_HISTORICAL",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "gate-a"
+      ],
+      "acceptance_evidence": "ACCEPTED_2026_08_25_ONLY",
+      "dependency": "Preserve accepted packet; P2 regression is a new candidate check.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-A-02",
+      "group": "LAA-A",
+      "gate": "A",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 41,
+      "source_text": "2. Existing GC1–GC8, GC10, diplomacy, access-policy, WATCH, settlement, and recovery paths remain enabled.",
+      "requirement": "Existing GC1–GC8, GC10, diplomacy, access-policy, WATCH, settlement, and recovery paths remain enabled.",
+      "claim_label": "OBSERVED",
+      "classification": "contract_closed",
+      "gate_disposition": "ACCEPTED_HISTORICAL",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "gate-a"
+      ],
+      "acceptance_evidence": "ACCEPTED_2026_08_25_ONLY",
+      "dependency": "Preserve accepted packet; P2 regression is a new candidate check.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-A-03",
+      "group": "LAA-A",
+      "gate": "A",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 42,
+      "source_text": "3. Strategically durable state shares one authoritative event and settlement spine.",
+      "requirement": "Strategically durable state shares one authoritative event and settlement spine.",
+      "claim_label": "OBSERVED",
+      "classification": "contract_closed",
+      "gate_disposition": "ACCEPTED_HISTORICAL",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "gate-a"
+      ],
+      "acceptance_evidence": "ACCEPTED_2026_08_25_ONLY",
+      "dependency": "Preserve accepted packet; P2 regression is a new candidate check.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-A-04",
+      "group": "LAA-A",
+      "gate": "A",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 43,
+      "source_text": "4. Restart/recovery does not silently lose identities, obligations, organizations, assets, access state, or settled balances.",
+      "requirement": "Restart/recovery does not silently lose identities, obligations, organizations, assets, access state, or settled balances.",
+      "claim_label": "OBSERVED",
+      "classification": "contract_closed",
+      "gate_disposition": "ACCEPTED_HISTORICAL",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "gate-a"
+      ],
+      "acceptance_evidence": "ACCEPTED_2026_08_25_ONLY",
+      "dependency": "Preserve accepted packet; P2 regression is a new candidate check.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-A-05",
+      "group": "LAA-A",
+      "gate": "A",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 44,
+      "source_text": "5. No new Player verb, Genesis mutation, or room-bound change is introduced to repair integration.",
+      "requirement": "No new Player verb, Genesis mutation, or room-bound change is introduced to repair integration.",
+      "claim_label": "OBSERVED",
+      "classification": "contract_closed",
+      "gate_disposition": "ACCEPTED_HISTORICAL",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "gate-a"
+      ],
+      "acceptance_evidence": "ACCEPTED_2026_08_25_ONLY",
+      "dependency": "Preserve accepted packet; P2 regression is a new candidate check.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-B-01",
+      "group": "LAA-B",
+      "gate": "B",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 50,
+      "source_text": "1. At least three independently controlled external Agent Players participate.",
+      "requirement": "At least three independently controlled external Agent Players participate.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance",
+        "gate-b",
+        "protocol",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "trace-b"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 evidence path review, explicit approvals, P3 independent external run and review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-B-02",
+      "group": "LAA-B",
+      "gate": "B",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 51,
+      "source_text": "2. Each uses the supported onboarding and command path.",
+      "requirement": "Each uses the supported onboarding and command path.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance",
+        "gate-b",
+        "protocol",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "trace-b"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 evidence path review, explicit approvals, P3 independent external run and review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-B-03",
+      "group": "LAA-B",
+      "gate": "B",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 52,
+      "source_text": "3. Each can orient, act, disconnect, and reconnect without private strategy guidance.",
+      "requirement": "Each can orient, act, disconnect, and reconnect without private strategy guidance.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance",
+        "gate-b",
+        "protocol",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "trace-b"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 evidence path review, explicit approvals, P3 independent external run and review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-B-04",
+      "group": "LAA-B",
+      "gate": "B",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 53,
+      "source_text": "4. Concurrent conflicts settle through declared ordering, idempotency, and budget rules.",
+      "requirement": "Concurrent conflicts settle through declared ordering, idempotency, and budget rules.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance",
+        "gate-b",
+        "protocol",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "trace-b"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 evidence path review, explicit approvals, P3 independent external run and review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-B-05",
+      "group": "LAA-B",
+      "gate": "B",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 54,
+      "source_text": "5. Human principals remain spectators, authorizers, researchers, or operators, never Players.",
+      "requirement": "Human principals remain spectators, authorizers, researchers, or operators, never Players.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance",
+        "gate-b",
+        "protocol",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "trace-b"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 evidence path review, explicit approvals, P3 independent external run and review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-01",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 62,
+      "source_text": "1. resource or transport pressure changes a decision;",
+      "requirement": "resource or transport pressure changes a decision;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "economy-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-02",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 63,
+      "source_text": "2. mastery or specialization creates a meaningful difference;",
+      "requirement": "mastery or specialization creates a meaningful difference;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "practice-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-03",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 64,
+      "source_text": "3. trade, shared repair, or construction makes coordination preferable to isolation;",
+      "requirement": "trade, shared repair, or construction makes coordination preferable to isolation;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "economy-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-04",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 65,
+      "source_text": "4. social memory affects a later decision without a universal score;",
+      "requirement": "social memory affects a later decision without a universal score;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "social-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-05",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 66,
+      "source_text": "5. an organization uses bounded authority, office, agreement, or access policy;",
+      "requirement": "an organization uses bounded authority, office, agreement, or access policy;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "office-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-06",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 67,
+      "source_text": "6. communication limits or persistent notices affect coordination;",
+      "requirement": "communication limits or persistent notices affect coordination;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "communication-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-07",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 68,
+      "source_text": "7. conflict or disruption has a recovery path;",
+      "requirement": "conflict or disruption has a recovery path;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "communication-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-08",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 69,
+      "source_text": "8. state and consequences survive restart.",
+      "requirement": "state and consequences survive restart.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "recovery-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-C-09",
+      "group": "LAA-C",
+      "gate": "C",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 71,
+      "source_text": "At least two materially different viable strategies must exist. A dominant script or isolated minigame is an integration defect.",
+      "requirement": "At least two materially different viable strategies must exist. A dominant script or isolated minigame is an integration defect.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-01",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 77,
+      "source_text": "- the important visible change;",
+      "requirement": "the important visible change;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-02",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 78,
+      "source_text": "- involved public actors and locations;",
+      "requirement": "involved public actors and locations;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-03",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 79,
+      "source_text": "- the observable consequence;",
+      "requirement": "the observable consequence;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-04",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 80,
+      "source_text": "- relevant prior public context;",
+      "requirement": "relevant prior public context;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-05",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 81,
+      "source_text": "- what remains unknown.",
+      "requirement": "what remains unknown.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-D-06",
+      "group": "LAA-D",
+      "gate": "D",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 83,
+      "source_text": "WATCH must not expose private cognition, restricted state, raw research candidates, or invented motives.",
+      "requirement": "WATCH must not expose private cognition, restricted state, raw research candidates, or invented motives.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, P5 public-only uninvolved review.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-E-01",
+      "group": "LAA-E",
+      "gate": "E",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 87,
+      "source_text": "1. A four-hour candidate run passes before the 24-hour run opens.",
+      "requirement": "A four-hour candidate run passes before the 24-hour run opens.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, approved P5 four-hour then continuous 24-hour run and recovery receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-E-02",
+      "group": "LAA-E",
+      "gate": "E",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 88,
+      "source_text": "2. The final candidate spans at least 24 continuous hours.",
+      "requirement": "The final candidate spans at least 24 continuous hours.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, approved P5 four-hour then continuous 24-hour run and recovery receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-E-03",
+      "group": "LAA-E",
+      "gate": "E",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 89,
+      "source_text": "3. At least one planned restart or recovery drill occurs.",
+      "requirement": "At least one planned restart or recovery drill occurs.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, approved P5 four-hour then continuous 24-hour run and recovery receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-E-04",
+      "group": "LAA-E",
+      "gate": "E",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 90,
+      "source_text": "4. Incidents, settlement lag, or stale projections are marked honestly.",
+      "requirement": "Incidents, settlement lag, or stale projections are marked honestly.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, approved P5 four-hour then continuous 24-hour run and recovery receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-E-05",
+      "group": "LAA-E",
+      "gate": "E",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 91,
+      "source_text": "5. Operator interventions are bounded, logged, and not used to script the desired outcome.",
+      "requirement": "Operator interventions are bounded, logged, and not used to script the desired outcome.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 evidence, approved P5 four-hour then continuous 24-hour run and recovery receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-01",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 97,
+      "source_text": "- exact production delta;",
+      "requirement": "exact production delta;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-02",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 98,
+      "source_text": "- migration and rollback procedures;",
+      "requirement": "migration and rollback procedures;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-03",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 99,
+      "source_text": "- compatibility with the frozen world's Genesis, seal, history, and room bound;",
+      "requirement": "compatibility with the frozen world's Genesis, seal, history, and room bound;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-04",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 100,
+      "source_text": "- operational rehearsal result;",
+      "requirement": "operational rehearsal result;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-05",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 101,
+      "source_text": "- permitted public claims;",
+      "requirement": "permitted public claims;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-06",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 102,
+      "source_text": "- unresolved risks;",
+      "requirement": "unresolved risks;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-07",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 103,
+      "source_text": "- explicit GO, NO-GO, or NOT_COMPUTABLE status.",
+      "requirement": "explicit GO, NO-GO, or NOT_COMPUTABLE status.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-F-08",
+      "group": "LAA-F",
+      "gate": "F",
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 105,
+      "source_text": "Passing Gates A–E does not itself deploy the successor.",
+      "requirement": "Passing Gates A–E does not itself deploy the successor.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "UNPROVEN",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P5 evidence, P6 explicit successor decision; separate deploy authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "LAA-FAILURE-01",
+      "group": "LAA-FAILURE",
+      "gate": null,
+      "source": "docs/LIVING-ALPHA-ACCEPTANCE.md",
+      "source_line": 109,
+      "source_text": "The candidate fails if it disables implemented systems to avoid integration, depends on operator-authored outcomes, grants human inhabit authority, loses settled history, fabricates WATCH meaning, or introduces deferred external-economy scope.",
+      "requirement": "The candidate fails if it disables implemented systems to avoid integration, depends on operator-authored outcomes, grants human inhabit authority, loses settled history, fabricates WATCH meaning, or introduces deferred external-economy scope.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Pinned candidate and applicable gate review; no generic conformance inference.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PREREQ-01",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 20,
+      "source_text": "- Gate A candidate evidence remains honest about what is integrated, deployed, and still unproven;",
+      "requirement": "Gate A candidate evidence remains honest about what is integrated, deployed, and still unproven;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PREREQ-02",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 21,
+      "source_text": "- Gate B has at least three independently controlled external Agent Players using supported onboarding and command paths;",
+      "requirement": "Gate B has at least three independently controlled external Agent Players using supported onboarding and command paths;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PREREQ-03",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 22,
+      "source_text": "- the world id, Genesis id, seal constraints, room bound, canonical start head, Worker source and deployed version, Specs pin, official-client or conforming Controller versions, and enabled implemented systems are pinned;",
+      "requirement": "the world id, Genesis id, seal constraints, room bound, canonical start head, Worker source and deployed version, Specs pin, official-client or conforming Controller versions, and enabled implemented systems are pinned;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PREREQ-04",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 23,
+      "source_text": "- credential, reconnect, idempotency, contention, recovery, and redaction prerequisites have acceptance evidence;",
+      "requirement": "credential, reconnect, idempotency, contention, recovery, and redaction prerequisites have acceptance evidence;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PREREQ-05",
+      "group": "GC-PREREQ",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 24,
+      "source_text": "- planned operator actions and external inputs are declared before the run.",
+      "requirement": "planned operator actions and external inputs are declared before the run.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-01",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 32,
+      "source_text": "- new canonical Player verbs, action aliases that change semantics, or a second interaction campaign;",
+      "requirement": "new canonical Player verbs, action aliases that change semantics, or a second interaction campaign;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-02",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 33,
+      "source_text": "- Genesis mutation, reseeding, force-supersession, new rooms, or room-bound expansion;",
+      "requirement": "Genesis mutation, reseeding, force-supersession, new rooms, or room-bound expansion;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-03",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 34,
+      "source_text": "- crypto, wallets, x402, external settlement, XP, quests, class trees, or v0.8 Phenomena;",
+      "requirement": "crypto, wallets, x402, external settlement, XP, quests, class trees, or v0.8 Phenomena;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-04",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 35,
+      "source_text": "- hosted STUDY claims, research scores as Player rewards, or private cognition claims;",
+      "requirement": "hosted STUDY claims, research scores as Player rewards, or private cognition claims;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-05",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 36,
+      "source_text": "- a scalar reputation or trust score as world truth;",
+      "requirement": "a scalar reputation or trust score as world truth;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-06",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 37,
+      "source_text": "- operator-authored strategy, outcome scripting, privileged resource grants, hidden topology disclosure, or target-specific WED pressure;",
+      "requirement": "operator-authored strategy, outcome scripting, privileged resource grants, hidden topology disclosure, or target-specific WED pressure;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-NONGOAL-07",
+      "group": "GC-NONGOAL",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 38,
+      "source_text": "- a single golden script that all Controllers are instructed to follow.",
+      "requirement": "a single golden script that all Controllers are instructed to follow.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-01",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 45,
+      "source_text": "candidate_id",
+      "requirement": "candidate_id",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-02",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 46,
+      "source_text": "world_id / genesis_id / seal constraints / room bound",
+      "requirement": "world_id / genesis_id / seal constraints / room bound",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-03",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 47,
+      "source_text": "specs_git / worker_git / deployed_worker_version",
+      "requirement": "specs_git / worker_git / deployed_worker_version",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-04",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 48,
+      "source_text": "canonical_start_head",
+      "requirement": "canonical_start_head",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-05",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 49,
+      "source_text": "Controller package, version, and configuration class for each Player",
+      "requirement": "Controller package, version, and configuration class for each Player",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-06",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 50,
+      "source_text": "credential and admission path (redacted)",
+      "requirement": "credential and admission path (redacted)",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-07",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 51,
+      "source_text": "enabled implemented systems",
+      "requirement": "enabled implemented systems",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-08",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 52,
+      "source_text": "planned operator interventions and external inputs",
+      "requirement": "planned operator interventions and external inputs",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-09",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 53,
+      "source_text": "restart / recovery checkpoint",
+      "requirement": "restart / recovery checkpoint",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-10",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 54,
+      "source_text": "WATCH capture method",
+      "requirement": "WATCH capture method",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-DECLARE-11",
+      "group": "GC-DECLARE",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 55,
+      "source_text": "known production-alpha deltas",
+      "requirement": "known production-alpha deltas",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-01",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 64,
+      "source_text": "- [ ] **Resource or transport pressure changes a decision.** Scarcity, route cost, storage, infrastructure condition, or distance causes a Player to change target, timing, exchange terms, route, or allocation. A scripted statement that scarcity mattered is insufficient.",
+      "requirement": "**Resource or transport pressure changes a decision.** Scarcity, route cost, storage, infrastructure condition, or distance causes a Player to change target, timing, exchange terms, route, or allocation. A scripted statement that scarcity mattered is insufficient.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "economy-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-01",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-02",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 65,
+      "source_text": "- [ ] **Mastery or specialization creates a meaningful difference.** Ledger-derived practice, recognition, focus, parameter access, quality, eligibility, or maintained assets change a viable choice. No XP, class menu, global level, or research capability score is introduced.",
+      "requirement": "**Mastery or specialization creates a meaningful difference.** Ledger-derived practice, recognition, focus, parameter access, quality, eligibility, or maintained assets change a viable choice. No XP, class menu, global level, or research capability score is introduced.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "practice-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-02",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-03",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 66,
+      "source_text": "- [ ] **Coordination beats isolation.** Trade, shared repair, service exchange, agreement, or construction produces a result that is materially cheaper, safer, faster, more durable, or otherwise preferable to each Player acting alone.",
+      "requirement": "**Coordination beats isolation.** Trade, shared repair, service exchange, agreement, or construction produces a result that is materially cheaper, safer, faster, more durable, or otherwise preferable to each Player acting alone.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "economy-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-03",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-04",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 67,
+      "source_text": "- [ ] **Social memory affects a later decision.** Evidence-backed dyadic or institutional memory changes caution, counterpart choice, access, agreement, office, or information sharing. No universal score is used, and hidden facts do not leak.",
+      "requirement": "**Social memory affects a later decision.** Evidence-backed dyadic or institutional memory changes caution, counterpart choice, access, agreement, office, or information sharing. No universal score is used, and hidden facts do not leak.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "social-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-04",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-05",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 68,
+      "source_text": "- [ ] **An organization uses bounded authority.** At least one office, agreement, grant, membership rule, or access policy is exercised within its declared scope. An organization label without an authority-bearing decision does not count.",
+      "requirement": "**An organization uses bounded authority.** At least one office, agreement, grant, membership rule, or access policy is exercised within its declared scope. An organization label without an authority-bearing decision does not count.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "office-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-05",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-06",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 69,
+      "source_text": "- [ ] **Communication constraints affect coordination.** Relay condition, deterministic delay or failure, board/channel scope, notice persistence, expiry, or addressability changes who knows what and when. Private message text remains private.",
+      "requirement": "**Communication constraints affect coordination.** Relay condition, deterministic delay or failure, board/channel scope, notice persistence, expiry, or addressability changes who knows what and when. Private message text remains private.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "communication-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-06",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-07",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 70,
+      "source_text": "- [ ] **Conflict or disruption has recovery.** A contest, breach, infrastructure failure, access dispute, pressure event, or comparable existing disruption creates loss or constraint, followed by a legal recovery, repair, restoration, renegotiation, or compensating strategy.",
+      "requirement": "**Conflict or disruption has recovery.** A contest, breach, infrastructure failure, access dispute, pressure event, or comparable existing disruption creates loss or constraint, followed by a legal recovery, repair, restoration, renegotiation, or compensating strategy.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "communication-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-07",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-08",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 71,
+      "source_text": "- [ ] **State and consequences survive restart.** Identities, holdings, obligations, organizations, access state, settled balances, durable messages/notices, constructed or repaired assets, and relevant memory reconstruct consistently after the declared restart or recovery checkpoint.",
+      "requirement": "**State and consequences survive restart.** Identities, holdings, obligations, organizations, access state, settled balances, durable messages/notices, constructed or repaired assets, and relevant memory reconstruct consistently after the declared restart or recovery checkpoint.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [
+        "recovery-test"
+      ],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "also_required_by": "LAA-C-08",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PATH-09",
+      "group": "GC-PATH",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 73,
+      "source_text": "The checklist is conjunctive. Isolated slice demonstrations do not satisfy Gate C.",
+      "requirement": "The checklist is conjunctive. Isolated slice demonstrations do not satisfy Gate C.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-01",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 77,
+      "source_text": "At least two materially different strategies must reach a viable continuation state under the same pinned candidate conditions.",
+      "requirement": "At least two materially different strategies must reach a viable continuation state under the same pinned candidate conditions.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-02",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 79,
+      "source_text": "A strategy is materially different when it makes different coupled choices about at least three of:",
+      "requirement": "A strategy is materially different when it makes different coupled choices about at least three of:",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-03",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 82,
+      "source_text": "resource source or route",
+      "requirement": "resource source or route",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-04",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 83,
+      "source_text": "specialization / maintained practice",
+      "requirement": "specialization / maintained practice",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-05",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 84,
+      "source_text": "coordination partner or agreement",
+      "requirement": "coordination partner or agreement",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-06",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 85,
+      "source_text": "construction / repair allocation",
+      "requirement": "construction / repair allocation",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-07",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 86,
+      "source_text": "organization office or access policy",
+      "requirement": "organization office or access policy",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-08",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 87,
+      "source_text": "communication surface or timing",
+      "requirement": "communication surface or timing",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-09",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 88,
+      "source_text": "conflict response and recovery",
+      "requirement": "conflict response and recovery",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-10",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 93,
+      "source_text": "1. a brief pre-run strategy declaration from each Controller that does not reveal private chain-of-thought;",
+      "requirement": "a brief pre-run strategy declaration from each Controller that does not reveal private chain-of-thought;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-11",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 94,
+      "source_text": "2. the realized action/consequence path;",
+      "requirement": "the realized action/consequence path;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-12",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 95,
+      "source_text": "3. where the strategies diverged;",
+      "requirement": "where the strategies diverged;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-13",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 96,
+      "source_text": "4. why each remained viable;",
+      "requirement": "why each remained viable;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-14",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 97,
+      "source_text": "5. any dominant script, dead mechanic, operator dependency, or forced convergence observed.",
+      "requirement": "any dominant script, dead mechanic, operator dependency, or forced convergence observed.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-STRATEGY-15",
+      "group": "GC-STRATEGY",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 99,
+      "source_text": "If one script dominates because alternatives are not executable, cannot recover, or never affect state, record an integration defect. Do not repair it by adding breadth during the run.",
+      "requirement": "If one script dominates because alternatives are not executable, cannot recover, or never affect state, record an integration defect. Do not repair it by adding breadth during the run.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-01",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 105,
+      "source_text": "- candidate declaration and immutable version pins;",
+      "requirement": "candidate declaration and immutable version pins;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-02",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 106,
+      "source_text": "- canonical start and end heads plus event/state commitment digests;",
+      "requirement": "canonical start and end heads plus event/state commitment digests;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-03",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 107,
+      "source_text": "- restart and recovery receipts tied to the candidate heads;",
+      "requirement": "restart and recovery receipts tied to the candidate heads;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-04",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 108,
+      "source_text": "- redacted Player transcripts or Agent Protocol action/receipt sequences;",
+      "requirement": "redacted Player transcripts or Agent Protocol action/receipt sequences;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-05",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 109,
+      "source_text": "- Controller identities by package/version/configuration class, not private prompts or credentials;",
+      "requirement": "Controller identities by package/version/configuration class, not private prompts or credentials;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-06",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 110,
+      "source_text": "- WATCH capture covering the important public changes and declared unknowns;",
+      "requirement": "WATCH capture covering the important public changes and declared unknowns;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-07",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 111,
+      "source_text": "- a checklist trace mapping every coupled-path item to settled event, state, receipt, and later decision evidence;",
+      "requirement": "a checklist trace mapping every coupled-path item to settled event, state, receipt, and later decision evidence;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-08",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 112,
+      "source_text": "- strategy-plurality comparison and defect log;",
+      "requirement": "strategy-plurality comparison and defect log;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-09",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 113,
+      "source_text": "- operator actions, external inputs, incidents, exclusions, and redactions;",
+      "requirement": "operator actions, external inputs, incidents, exclusions, and redactions;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-10",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 114,
+      "source_text": "- a final `PASS`, `FAIL`, or `NOT_COMPUTABLE` verdict with reasons.",
+      "requirement": "a final `PASS`, `FAIL`, or `NOT_COMPUTABLE` verdict with reasons.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-PACK-11",
+      "group": "GC-PACK",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 116,
+      "source_text": "Missing evidence is not a pass. If a surface is not deployed, mark the item `NOT_COMPUTABLE` or fail the candidate rather than substituting a unit test.",
+      "requirement": "Missing evidence is not a pass. If a surface is not deployed, mark the item `NOT_COMPUTABLE` or fail the candidate rather than substituting a unit test.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-01",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 122,
+      "source_text": "- all eight coupled paths are supported by the evidence pack;",
+      "requirement": "all eight coupled paths are supported by the evidence pack;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-02",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 123,
+      "source_text": "- at least two materially different viable strategies are observed;",
+      "requirement": "at least two materially different viable strategies are observed;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-03",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 124,
+      "source_text": "- at least one bounded institution participates in a consequential decision;",
+      "requirement": "at least one bounded institution participates in a consequential decision;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-04",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 125,
+      "source_text": "- restart/recovery preserves strategically durable consequences;",
+      "requirement": "restart/recovery preserves strategically durable consequences;",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-05",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 126,
+      "source_text": "- no forbidden fill, undeclared operator script, new verb, Genesis mutation, or hidden-information leak is required.",
+      "requirement": "no forbidden fill, undeclared operator script, new verb, Genesis mutation, or hidden-information leak is required.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "GC-VERDICT-06",
+      "group": "GC-VERDICT",
+      "gate": "C",
+      "source": "docs/LCA-GATE-C-SCENARIO.md",
+      "source_line": 128,
+      "source_text": "A Gate C pass does not by itself pass Gate D, E, or F and does not authorize production cutover.",
+      "requirement": "A Gate C pass does not by itself pass Gate D, E, or F and does not authorize production cutover.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "BLOCKED",
+      "authority_homes": [
+        "scenario"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B, P4 coupled run and candidate-bound receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G01",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 65,
+      "source_text": "| G01 | Current guidance mixes historical proof pins, repository alignment, live build, and old client references | Documentation/provenance reconciliation | Dated source/deploy/client matrix with each authority and unresolved evidence distinguished. |",
+      "requirement": "Current guidance mixes historical proof pins, repository alignment, live build, and old client references",
+      "plan_classification": "Documentation/provenance reconciliation",
+      "closure_evidence": "Dated source/deploy/client matrix with each authority and unresolved evidence distinguished.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "identity",
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan",
+        "client"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "This P0 packet plus review of unresolved alignment/current candidate proof.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G02",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 66,
+      "source_text": "| G02 | Specs CI does not run validators; runtime PR CI does not run Worker/Python suites | Confirmed verification defect (Specs #324; runtime issue to draft after approval) | Real PR CI executes declared checks; invalid temporary fixtures cause nonzero failure. Worker checks in dispatch-only deployment are not PR regression coverage. |",
+      "requirement": "Specs CI does not run validators; runtime PR CI does not run Worker/Python suites",
+      "plan_classification": "Confirmed verification defect (Specs #324; runtime issue to draft after approval)",
+      "closure_evidence": "Real PR CI executes declared checks; invalid temporary fixtures cause nonzero failure. Worker checks in dispatch-only deployment are not PR regression coverage.",
+      "claim_label": "OBSERVED",
+      "classification": "runtime_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "identity",
+        "acceptance"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P1 verification owner and labeled defects. CI/validators outside this owner scope.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G03",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 67,
+      "source_text": "| G03 | Population health counter is not a reliable independent-Agent census | Observability/contract ambiguity | Reviewed definition and tests; acceptance uses participant-bound evidence rather than inferred population. |",
+      "requirement": "Population health counter is not a reliable independent-Agent census",
+      "plan_classification": "Observability/contract ambiguity",
+      "closure_evidence": "Reviewed definition and tests; acceptance uses participant-bound evidence rather than inferred population.",
+      "claim_label": "OBSERVED",
+      "classification": "ambiguous",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "identity",
+        "acceptance"
+      ],
+      "source_homes": [
+        "counter-source"
+      ],
+      "test_homes": [
+        "counter-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Reviewed metric definition and tests before changing existing consumers.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G04",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 68,
+      "source_text": "| G04 | Latest Gate B enrollment/provenance hardening exists after the recorded deployed source | Source-to-deployment delta | Requirement-by-requirement decision: existing live path sufficient, candidate deployment needed, or missing evidence. |",
+      "requirement": "Latest Gate B enrollment/provenance hardening exists after the recorded deployed source",
+      "plan_classification": "Source-to-deployment delta",
+      "closure_evidence": "Requirement-by-requirement decision: existing live path sufficient, candidate deployment needed, or missing evidence.",
+      "claim_label": "OBSERVED",
+      "classification": "deployment_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 requirement-level source-to-live review and explicit deploy decision only if needed.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G05",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 69,
+      "source_text": "| G05 | Client pin advanced, but current Worker enrollment/action/reconnect acceptance remains unproven | Client/server integration evidence | Exact released artifact + supported enrollment + observe/action/refusal/resync/reconnect receipts. |",
+      "requirement": "Client pin advanced, but current Worker enrollment/action/reconnect acceptance remains unproven",
+      "plan_classification": "Client/server integration evidence",
+      "closure_evidence": "Exact released artifact + supported enrollment + observe/action/refusal/resync/reconnect receipts.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan",
+        "client"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2 exact released artifact and authorized C7 integration receipts.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G06",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 70,
+      "source_text": "| G06 | Distinct IDs or opaque enrollment receipts do not establish autonomous decision independence | Evidence sufficiency | Separate contexts/state/history/credentials and no shared gameplay planner, verified without collecting private cognition. |",
+      "requirement": "Distinct IDs or opaque enrollment receipts do not establish autonomous decision independence",
+      "plan_classification": "Evidence sufficiency",
+      "closure_evidence": "Separate contexts/state/history/credentials and no shared gameplay planner, verified without collecting private cognition.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P3 reviewer verifies separate decision contexts, not merely IDs or subprocesses.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G07",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 71,
+      "source_text": "| G07 | Gate B has no accepted external-population packet | Owner-blocked acceptance | Supported human approvals and three independent external Controllers satisfy all five Gate B requirements. |",
+      "requirement": "Gate B has no accepted external-population packet",
+      "plan_classification": "Owner-blocked acceptance",
+      "closure_evidence": "Supported human approvals and three independent external Controllers satisfy all five Gate B requirements.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P0–P2 prerequisites plus explicit P3 human enrollment/run authorization.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G08",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 72,
+      "source_text": "| G08 | Existing systems have not passed the required civilization scenario | Gate C integration acceptance | All eight coupled paths, two viable strategies, consequential institution, and restart preservation. |",
+      "requirement": "Existing systems have not passed the required civilization scenario",
+      "plan_classification": "Gate C integration acceptance",
+      "closure_evidence": "All eight coupled paths, two viable strategies, consequential institution, and restart preservation.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "Accepted Gate B then complete P4 eight-path/strategy/institution/restart packet.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G09",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 73,
+      "source_text": "| G09 | WATCH under natural multi-agent pressure and endurance are unproven | Gates D/E evidence | Public-only blind review; four-hour then 24-hour run with recovery and incident receipts. |",
+      "requirement": "WATCH under natural multi-agent pressure and endurance are unproven",
+      "plan_classification": "Gates D/E evidence",
+      "closure_evidence": "Public-only blind review; four-hour then 24-hour run with recovery and incident receipts.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P4 then P5 blind review and approved endurance/recovery.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G10",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 74,
+      "source_text": "| G10 | Successor decision and later hosted research reopening remain downstream | Governance/deferred | Gate F decision packet; separately authorized deployment/research decisions. |",
+      "requirement": "Successor decision and later hosted research reopening remain downstream",
+      "plan_classification": "Governance/deferred",
+      "closure_evidence": "Gate F decision packet; separately authorized deployment/research decisions.",
+      "claim_label": "OBSERVED",
+      "classification": "deferred",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [],
+      "test_homes": [],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P6 after A–E; hosted research reopening remains separately governed.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G11",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 75,
+      "source_text": "| G11 | WATCH fallback can select private fidelity, including when public fidelity is legitimately zero; controller count comes from the first reconstruction | Source-level projection/privacy defect candidate; no live private disclosure exercised | Isolated negative/zero-value tests fail on current code; public-only projection passes without scope expansion. |",
+      "requirement": "WATCH fallback can select private fidelity, including when public fidelity is legitimately zero; controller count comes from the first reconstruction",
+      "plan_classification": "Source-level projection/privacy defect candidate; no live private disclosure exercised",
+      "closure_evidence": "Isolated negative/zero-value tests fail on current code; public-only projection passes without scope expansion.",
+      "claim_label": "OBSERVED",
+      "classification": "ambiguous",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2.1 reproduce negative/zero-value cases at the actual boundary, review selection semantics.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G12",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 76,
+      "source_text": "| G12 | Worker and cohort binding digests serialize Controller IDs differently | Source-level integration mismatch; full end-to-end failure not yet exercised | A reviewed compatible binding contract passes Worker response → client persistence → cohort preflight. |",
+      "requirement": "Worker and cohort binding digests serialize Controller IDs differently",
+      "plan_classification": "Source-level integration mismatch; full end-to-end failure not yet exercised",
+      "closure_evidence": "A reviewed compatible binding contract passes Worker response → client persistence → cohort preflight.",
+      "claim_label": "OBSERVED",
+      "classification": "ambiguous",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "enroll-source"
+      ],
+      "test_homes": [
+        "enroll-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2.2 review adapter/serialization contract and reproduce actual response-to-client-to-cohort path.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    },
+    {
+      "id": "G13",
+      "group": "PLAN-G",
+      "gate": null,
+      "source": "docs/evidence/SPECS-RUNTIME-GAP-CLOSURE-2026-09-07.md",
+      "source_line": 77,
+      "source_text": "| G13 | Some rendering tests assert true on empty fixtures; direct-module golden path bypasses parts of HTTP/DO routing | Confirmed coverage limitations, not blanket runtime failure | Observable rendering assertions and an actual supported transport/identity/projection boundary test. |",
+      "requirement": "Some rendering tests assert true on empty fixtures; direct-module golden path bypasses parts of HTTP/DO routing",
+      "plan_classification": "Confirmed coverage limitations, not blanket runtime failure",
+      "closure_evidence": "Observable rendering assertions and an actual supported transport/identity/projection boundary test.",
+      "claim_label": "OBSERVED",
+      "classification": "evidence_gap",
+      "gate_disposition": "NO_PROMOTION",
+      "authority_homes": [
+        "acceptance",
+        "scenario",
+        "identity"
+      ],
+      "source_homes": [
+        "watch-source"
+      ],
+      "test_homes": [
+        "watch-test"
+      ],
+      "evidence_homes": [
+        "plan"
+      ],
+      "acceptance_evidence": "NOT_ESTABLISHED_FOR_CURRENT_CANDIDATE",
+      "dependency": "P2.3 real transport/identity/projection and nonempty rendering tests.",
+      "mapping_limit": "Named homes are inspected supporting locations only. Empty lists mean no suitable home verified in this bounded review. Test existence is not execution or acceptance."
+    }
+  ]
+}

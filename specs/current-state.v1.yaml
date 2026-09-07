@@ -42,6 +42,8 @@ runtimes:
     live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
     live_deployed_at: 2026-09-02T03:41:29.029508Z
     live_source_commit: 418d26293422e2a6fe9a745b6005e92262e77e9b
+    # Retained readiness observation, not an enrollment or independent-Agent census.
+    # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
@@ -62,10 +64,18 @@ runtimes:
       noema-client==0.1.15. #621 does not close Gate B: canonical operator
       enrollment and three independently controlled external Controllers remain
       unmet.
+      FOLLOW-UP 2026-09-07 (local repository inspection, no live probe): Noema
+      c1be766 records hosted_live.official_client noema-client==0.1.21 after
+      Noema PR #628. The earlier 0.1.15 statement above is historical, not the
+      current recorded client pin. The owner-authorized pin amendment explicitly
+      leaves enrollment-bound C7 checks unrun and does not complete Gate B.
+      Specs 94286ca and runtime c1be766 are inspected repository baselines, not
+      new deployment or acceptance evidence. Historical Gate A anchors remain.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
       - "GET https://noema.guru/version 2026-09-03"
+      - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
       - public Home, Manifesto, WATCH, and CONNECT
