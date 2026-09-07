@@ -32,3 +32,10 @@ Ledgered as `NOISE_APPLIED` when observation pipeline applies noise ([EVENT-CATA
 ## World vs observation
 
 Noise MUST NOT alter canonical WorldState unless the world contains a **canonical noisy signal entity/event**. Default: noise affects **observation projection only**.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand deterministic operator fixtures at optional-field, quantization, staleness, and perturbation boundaries.
+- **Invariants, compatibility, promotion, and verification:** Keep the closed noise-model/0.2 operators, recorded seed streams, NOISE_APPLIED lineage, and observation-only default. New operators require a versioned catalog and migration rules; verify replayed result_digest, bounded parameters, and unchanged WorldState absent an explicitly canonical noisy-signal contract.

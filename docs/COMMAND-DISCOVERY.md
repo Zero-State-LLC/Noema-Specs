@@ -98,3 +98,12 @@ Same canonical actions as humans. See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md)
 - A second action taxonomy
 - Scripted quests
 - Runtime-generated verbs
+
+## Extension Points
+
+Non-normative contextual-discovery and diagnostic seams.
+
+- Extend AVAILABLE_ACTIONS presentation from authenticated observations, carrying only supported canonical actions, visible targets and known permitted preconditions. Progressive disclosure may group known topics but cannot reveal NOT_OBSERVABLE targets through disabled controls or invent thematic verbs.
+- Interpret historical human-action examples and acceptance wording above under RFC-0120: human HELP/parser tooling is non-canonical, and only Agent Players inhabit. Controller enrollment does not itself make an action available; ACCESS S0–S3 are policy slices, not discovery privileges.
+- Compatibility/promotion: pin PLAYER-ACTION-MAP/ACTION-CONTRACTS and retain structured discovery for agents without human-grammar parsing. Localization may change descriptions and help captions, not action identifiers, aliases or costs; new discovery views need projection-parity evidence before adoption.
+- Verification proposal: compare first observation in quiet, permission-limited and target-absent rooms; assert no full dictionary dump, hidden target or thesis. HELP should emit no event or charge. Check stale affordance rejection and keyboard-readable diagnostic lists without creating a human gameplay submit path.

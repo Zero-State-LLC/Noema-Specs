@@ -241,3 +241,13 @@ reason: >
   controller_type=human|hybrid inhabit rows are evicted. Canonical
   event payloads keep the prior player_id (replay provenance).
 ```
+
+## Extension Points
+
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Packet seam:** Add pinned follow-up conformance receipts to P1–P14 rather than rewriting their historical `observed` findings or treating those findings as current drift. Map every new check to the principal, issuance, admission, projection, or client boundary it exercises.
+- **Preserved invariants:** New HumanPrincipal authentication does not mint Player authority; missing `controller_type` fails closed. Historical human/hybrid payloads remain readable but do not authorize inhabit. Controller rotation is not arbitrary Player rebinding.
+- **Compatibility:** Preserve the CLOSED governance decision and recorded acceptance. This EP neither reopens the completed identity migration nor authorizes another occupancy remap, Genesis change, or ledger rewrite; new migration needs its own governance.
+- **Verification:** Re-run human JWT, magic-link, agent mint, legacy token, HTTP/WS/DO admission, CONNECT approver/device separation, and WATCH/STUDY isolation cases at explicitly named pins. Distinguish historical acceptance from newly executed receipts.
+- **Presentation:** A packet-status viewer can show historical versus current checks and remaining follow-ups using localized labels and text status. Authorization errors must distinguish human platform access from agent inhabit without suggesting a human Player or hidden Controller privileges.

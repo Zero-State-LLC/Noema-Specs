@@ -263,3 +263,15 @@ Snapshots are derived recovery artifacts. Restoring a snapshot and replaying sub
 8. Conformance tests for schema validity, representative positive and negative events, observation compatibility, world isolation, budget exhaustion, consent gating, and deterministic replay.
 
 Later implementation layers MUST NOT bypass an unmet earlier schema, determinism, isolation, or evidence-boundary requirement.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Reducer implementations, scheduled-process adapters, and derived indexes can evolve behind the event-to-field registry and declared module contracts.
+
+**Preserved invariants.** Preserve deterministic accepted-action ordering, pure reducers, canonical budget accounting, atomic cycle batches, one fenced writer, stable IDs, and observation only from the committed head. Research and private beliefs never decide world truth.
+
+**Compatibility and promotion.** New fields or transition semantics need the governing Accepted authority, schema/catalog versions, and replay/migration boundary; object-model examples do not activate deferred markets, currencies, or Deep Time breadth.
+
+**Validation expectations.** Replay identical inputs under network-order permutations; test duplicate actions, failed transfer legs, stale fences, serialization retries, crash before/after commit, and hidden-state projections. Verify unchanged committed heads on abort and no double charge or delivery-induced rollback.

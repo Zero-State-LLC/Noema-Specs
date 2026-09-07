@@ -58,9 +58,14 @@ GC3-S0 trade lines still apply independently. A Player MAY see both reliable-in-
 
 ### Visibility
 
-Same as S0: self only. Other Players, WATCH, and GUI affordances show nothing from this slice.
+## Extension Points
 
----
+Non-normative private-edge reconstruction and redaction seams.
+
+- Extend distinct-evidence fixtures for directed victim-to-actor danger from resolved contests, breaches and named-victim detections. Exercise both defender and AGENT target paths, agreement parties, missing participant IDs and duplicate contest/breach/detection IDs without inventing an unspecified fallback identity.
+- Preserve derived rather than WorldState storage, threshold of one distinct admitted danger reference and independence from reliable-in-trade memory. A legal TRADE_REJECTED or unresolved/declared-only contest is not danger or deception evidence; no reputation scalar or automatic refusal is introduced.
+- Compatibility/promotion: pin social-memory-catalog/gc3-s1 and RFC-0022 with existing event versions. Historical human/agent prose grants no human Player identity under RFC-0120; Controllers receive no extra victim memory. Future institutional or decay rules do not silently alter this slice.
+- Verification proposal: rebuild duplicate and mixed reliable/danger evidence, then inspect self, unrelated Player, WATCH and GUI projections. Only authorized self PLAY may show the existing public-handle danger line; methods, stock, routes and private IDs remain absent, including accessible labels and translated text. No public danger badge is an extension seam.
 
 ## A–J
 

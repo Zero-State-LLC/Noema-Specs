@@ -64,3 +64,19 @@ Changing any claim-bearing input (source, interval, target, boundary, units, gra
 ## Forbidden
 
 Hidden LLM planning on the authoritative path. Optional assistive UI copy must not alter machine fields.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the research-side capture preview to show how an eligible Lab Result, trajectory interval, defaults version, and allowed overrides become a compilation request. Pair each blocked state with its stable reason code and a safe next research action.
+
+### Compatibility and promotion
+
+CAPTURE AS TEST is an experience-layer convenience, not a native MUD verb or hidden PLAY affordance. RESEARCH_ISOLATED visibility, consent/export partitioning, and readiness checks remain intact. Defaults and claim-bearing overrides change identity; assistive copy never changes machine fields.
+
+### Verification before adoption
+
+Compare equivalent intents for deterministic requests, then change an allowed override or defaults version and require a distinct identity. Reject unlisted overrides, NOT_READY sources, broken lineage, and public exports needing private evidence. Verify failed eligibility emits no compilation and never renders success.

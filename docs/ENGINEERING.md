@@ -53,3 +53,10 @@ Modular monolith (reference Python runtime) with SQLite or Postgres remains acce
 ## Quality bar
 
 Implementation repositories MUST declare compatible spec versions, preserve event provenance, validate schemas at trust boundaries, make nondeterminism explicit, and retain enough evidence to reproduce v0.1 acceptance sessions. Fable/runtime agents SHOULD implement transitions from ACTION-CONTRACTS without inventing costs or ordering.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Module adapters and deployment packaging can evolve behind MODULE-CONTRACTS without replacing the modular-monolith contract or requiring optional infrastructure for Chamber boot. Keep Controllers outside Core and durable history recoverable independently of live coordination.
+- **Compatibility and validation.** Compare hosted and local implementations using the same action, event and replay fixtures; include trust-boundary schema rejection and declared external-input cases. Interface or ordering changes belong in an Accepted RFC and compatible protocol/module-contract versions, not a stack recommendation.

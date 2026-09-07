@@ -54,3 +54,10 @@ Changing the live room set requires a new Genesis / `world_version`, not an ad-h
 That successor is RFC-0121: `world.perihelion-reach-2`, not an edit of `genesis.ef578f4ffceeccd0`.
 
 See [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing, [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md), and the runtime closeout in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Maintain a compatibility matrix linking core pins, additive accepted authority, and hosted product evidence to exact deployment receipts.
+- **Invariants, compatibility, promotion, and verification:** Do not infer later ADR implementation from specs.commit, make Perihelion a Python digest target, or alter frozen Genesis. New-world promotion requires explicit accepted world_version/Genesis authority. Verify each implementation claim on its own surface and preserve the recorded five-room observation as historical evidence.

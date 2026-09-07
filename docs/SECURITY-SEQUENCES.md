@@ -114,3 +114,13 @@ First-world operational overlay (status vs health, settlement bound, DO/auth out
 4. Audit records mismatch fingerprint for abuse detection.
 
 All sequences MUST be covered by conformance tests before production identity-plane release; sequences 1–8 remain required for v0.1 containment. Sequences 9–12 are required when the identity/auth plane is enabled.
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Containment and identity sequence fixtures
+
+Extend failure-injection coverage around quarantine, revocation, cycle commit and export verification without rolling back committed history or treating delivery bookkeeping as world mutation. RFC-0120 overrides sequence 9 legacy human-Player creation: human authentication resolves a platform principal, not an inhabitant.
+
+Changed auth transitions, export receipt semantics or recovery policies require versioned owning contracts. Validate revocation before reservation, refresh-family reuse, crashes on either side of commit, out-of-retention resume and invalid export signatures; assert human JWTs cannot create PlayerSessions and audit contains fingerprints rather than secrets.

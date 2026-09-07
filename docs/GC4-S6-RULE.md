@@ -56,3 +56,13 @@ Chamber help advertising
 ## Runtime rule
 
 Hosted Chamber MUST accept `COMMIT.ORG_SUCCESSION_RULE rule_id=MEMBER_ORDER` from a founder or officer, and on holder vacate/leave MUST seat the first remaining eligible member in stored membership order or leave the office vacant. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Roster-rule recovery
+
+Extend fixtures for published MEMBER_ORDER rules across holder departure, roster changes and reload. Stored membership order, eligibility and explicit publication remain decisive; an empty eligible roster stays VACANT rather than choosing an implicit successor.
+
+Other rule ids, elections or emergency scope need a separate accepted contract and catalog version. Validate unauthorized publication, unpublished vacancy, first eligible selection, empty roster and replay-stable seating; retain only the existing seat pulse and unchanged help.

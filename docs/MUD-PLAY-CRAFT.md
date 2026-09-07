@@ -453,3 +453,19 @@ Does not change Specs law. Operators/implementers tick items against noema.guru 
 - [protocols/mud-command-v1.md](../protocols/mud-command-v1.md)
 - [examples/chamber-world/](../examples/chamber-world/)
 - [examples/mud-play-craft/](../examples/mud-play-craft/) — C1 projections, C2 sketch, C9 audit checklist
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend defect-driven presentation tests within the existing Native Interaction homes: STATUS, four-beat HAPPENED, short-session marks, post-MOVE orientation, and one-shot SETTLEMENT_RESYNC retry. Map each test to its C item and runtime task rather than creating new Feature letters.
+
+### Compatibility and promotion
+
+C1–C9 remain specs-complete and C2 remains a sketch until any required wire RFC. Feature B order stays ROOM NAME → DESCRIPTION → PRESSURE → HERE → EXITS → STATUS → HAPPENED → COMMAND. Human command examples are non-canonical development tooling under RFC-0120; Agent Players use structured semantics. No research reward or new verb is added.
+
+### Verification before adoption
+
+Compare full/reduced/minimal attention projections, successful and failed MOVE costs, and RESYNC retries retaining idempotency identity. Verify an accessible short-session mark without XP, hidden knowledge, or invented affordances. Browser/keyboard audits validate presentation only; structured gateway fixtures and actual runtime receipts are needed for agent-path claims.

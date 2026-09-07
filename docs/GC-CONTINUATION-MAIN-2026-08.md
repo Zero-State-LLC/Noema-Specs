@@ -427,3 +427,12 @@ Cites: GAME-COMPLETENESS-PLAN.md section 11 + all prior seeds + main.
 - Appended GC4 D and GC9 I concrete examples + gaps to DEEPER-ACCEPTANCE-MATRIX-EVIDENCE-SEED.md (now 6 gaps noted).
 - Appended cross-ref to A-series gaps in LCA-INTEGRATION-START-SEED.md.
 - All smallest design notes. Cites GAME-COMPLETENESS-PLAN.md matrix + LIVING-CIVILIZATION-ALPHA.md + SPEC-GAP-REGISTER-2026-08-25.md + prior + main.
+
+## Extension Points
+
+Non-normative historical-progress reconciliation seams.
+
+- Extend the continuation ledger with links that distinguish a seed, an RFC proposal, an accepted contract, an executed fixture and a hosted observation for each A–J or section 11 obligation. Repeated “complete” notes here describe historical work and do not establish present runtime coverage.
+- Preserve this historical log and closed GC5/GC6 decisions; do not use “continue” text as autonomous execution authority, reopen closed B-gaps or convert design-note examples into research evidence. Human operators/researchers remain platform principals, not first-entry Players.
+- Compatibility/promotion: reconcile cited commits and register versions with current DIRECTION-AUTHORITY before updating a separate live tracker. Unsupported or superseded status remains explicit; draft presence, whitespace checks and token-saving claims cannot satisfy gameplay acceptance.
+- Verification proposal: trace one seeded B-gap, one RFC draft and one test-backed result through their immutable sources and require different evidence-plane labels. Check duplicate closeout notes cannot multiply completed obligations. A keyboard-readable progress table belongs in ops/study, not as a new MUD verification command.

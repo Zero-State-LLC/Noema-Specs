@@ -36,3 +36,9 @@ Suite: `conformance/v0.5/` · **P01–P30** · 90 atomic cases · depends on v0.
 | P30 | RFC-0003 Provenance Reuse |
 
 Fixtures: `examples/v05-compiler/`. Validator gate: `check_compiler_v05`.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Compiler conformance may add fixtures within P01–P30 or propose separately reviewed families, while keeping the published 90-case baseline distinguishable from later suite revisions. Pin compiler, oracle, dependency and fixture versions in run receipts; changed minimization or oracle identity semantics require owning-contract compatibility review, not silently updated goldens. Promotion evidence should run check_compiler_v05 with Lab prerequisites and exercise budget exhaustion, oracle disagreement, dependency closure, counterexample retention, privacy partitioning and RFC-0003 provenance. Added cases should state their family, inputs, expected outcome and failure reason; counts change only with enumerated fixtures and observed validator results, never inferred coverage.

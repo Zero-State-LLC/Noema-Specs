@@ -17,3 +17,10 @@
 **Citations:** GAME-COMPLETENESS-PLAN.md (coupling table, GC7/GC3 sections), GC7-CRIME-*SEED.md + RFC proposals, STRATEGIC-CONFLICT.md, SOCIAL-MEMORY.md, GC3-S1-BETRAYAL.md / GC3-S2-WATCH-PUBLIC.md, PR #305 + main continuation.
 
 Smallest coupling note per Next-20-items item 12. Ready for integration if Gate evidence surfaces.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Evidence-maintenance additions can trace a contest/detection record through victim-specific relational memory and the reconciled public gate. Preserve this note as input only: no aggregated guilt, new scalar, event producer or exposure follows from the coupling sketch.
+- **Compatibility and validation.** Attach pinned accepted authorities and fixtures for public versus private evidence, distinct incidents and the harmed counterparty before proposing integration. Promotion belongs in the existing GC7/GC3 contract and campaign path, with schema/catalog compatibility and gate evidence; a seed citation alone does not prove runtime or hosted availability.

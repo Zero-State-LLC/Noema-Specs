@@ -185,3 +185,12 @@ Optional `victim_id` and `visibility` on `CRIME_DETECTED_payload` only. Catalog 
 ### `TRADE_CANCELLED`
 
 Payload: `trade_id`, `by`, and `reason` (`CANCELLED`). Reducer: require an open proposal; `by` must be its proposer. Mark it `CANCELLED` and release proposer reservations. Reject missing/closed trade or unauthorized cancellation. No notification side effect. Distinct from `TRADE_REJECTED` reason `CANCELLED`, which remains the 0.1 Chamber recording of withdrawal. Worlds on `event-catalog/0.1` MUST reject this type.
+
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Pinned catalog inspection and replay diagnostics:** A catalog browser can join the pinned composed admission schema to REDUCER-REGISTRY ownership and explain a rejected payload without applying it. Translate descriptions only: event_type, envelope fields and schema identifiers remain exact.
+- **Preserved invariants:** Reducers stay pure and atomic; no network calls, live delivery, second ledger entries or wall-clock reads. A translated event viewer does not authorize raw ledger disclosure or mutation, and research situation metadata is not automatically PLAY content.
+- **Compatibility and promotion:** Preserve the 0.1 versus 0.2 boundary, including RFC-0127 TRADE_CANCELLED as a 0.2 amendment rather than rewriting the 0.1 cancellation record. New payload meaning requires the catalog governance path, not an inferred event type.
+- **Verification targets:** Test admission under both catalog pins, mismatched payload types, duplicate sequence, invalid digest linkage and failed preconditions with unchanged state. Replay accepted events for equal state/observation digests and confirm MESSAGE delivery uses its separate ordered event before projection.

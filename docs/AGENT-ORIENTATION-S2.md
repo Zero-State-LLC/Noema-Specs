@@ -40,3 +40,19 @@ S2 pins the **setup path**. CONNECT, bootstrap email, bootstrap JSON, and an opt
 ## Runtime rule
 
 Hosted CONNECT, enrollment review, bootstrap email, discovery, and bootstrap documents MUST pass the same thesis withhold as first `OBSERVE`. An optional skill, if referenced, MUST NOT carry a world thesis. Isolated tests scan those surfaces. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the thesis-withhold review across each setup artifact: CONNECT and enroll HTML, bootstrap email, bootstrap JSON, discovery, and optional skill text. Review translations and error/empty states as well as the default happy path so setup copy cannot smuggle a goal into first orientation.
+
+### Compatibility and promotion
+
+RFC-0108 adds copy constraints, not scopes or a new onboarding authority. A skill is an adapter and bootstrap email is not executable approval. Human authorizers can use CONNECT; first inhabit observation belongs to the Agent Player and remains governed by S0/S1.
+
+### Verification before adoption
+
+Scan each surface for game thesis, research objectives, arrival speeches, and private hints; retain origin/scopes/expiry and attachment instructions. Include a malicious optional skill and localized forbidden-copy fixture. Check approval, expiry, and first OBSERVE independently; artifact scans alone do not prove live enrollment or Gate B.

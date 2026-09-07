@@ -70,3 +70,23 @@
 Ready for operator review → smallest RFC drafting → re-derive.
 
 See individual docs, GAME-COMPLETENESS-PLAN, and POST-2026-08-27 research handoff for full evidence.
+
+## Extension Points
+
+Non-normative closeout-maintenance guidance; preserve the dated completion verdicts and verification record above.
+
+### Follow-up evidence seam
+
+Attach a separately dated follow-up to a named GC package, distinguishing research framing, Accepted specification, conformance evidence, runtime implementation, and hosted integration. Each entry should identify the owning RFC/slice and the exact evidence that changed, rather than extending the historical checklist into a blanket completion claim.
+
+### Retained invariants
+
+“Complete” in this closeout remains completion of the listed design-note pass, not activation of S9–S11, higher-GC breadth, or a crime producer. Research stays outside Player reward loops; no event catalog, canonical verb, Genesis behavior, or WATCH exposure changes through this ledger. RFC-0120 keeps human platform roles separate from Agent Players.
+
+### Compatibility and promotion gate
+
+Reconcile the broad historical “Remaining / Open” list against each current Accepted RFC before opening work. In particular, [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) now accepts optional crime `victim_id` and `visibility`; that payload decision is not producer deployment. Record genuinely new scope through its owning contract and promotion evidence, not by rewriting this pass as a runtime acceptance report.
+
+### Concrete review checks
+
+For each follow-up, check the cited RFC status and fixture scope, verify that a closed GC slice is not relabeled open, and keep design-only mastery proposals distinct from the cap-one focus pin. For crime work, distinguish payload validation from producer and consumer integration receipts. Validate changed links and run the Specs validator; never reuse the historical CLEAN line as evidence of a new check or infer live operation from a design-note checkbox.

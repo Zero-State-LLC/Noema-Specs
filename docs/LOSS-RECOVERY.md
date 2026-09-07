@@ -51,3 +51,15 @@ See also [GAME-BALANCE.md](GAME-BALANCE.md). Large successful Realms naturally a
 ## Relation to contracts
 
 Loss and recovery must be expressible through existing resources, infrastructure condition, organization membership, and ledgered events ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md)).
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Recovery scenario coverage can be expanded for combinations of route loss, damaged infrastructure, fractured membership, and strategic information loss using existing action families.
+
+**Preserved invariants.** Keep consequential scars and historical records: recovery is adaptation, not reset, guaranteed victory, or a paid history wipe. Realm scale creates structural costs rather than arbitrary debuffs.
+
+**Compatibility and promotion.** New recovery affordances or resource effects require the relevant Accepted contract and versioned parameters; examples cannot add verbs or override the conflict and resource authorities.
+
+**Validation expectations.** Trace each proposed loss through observable consequences and at least one contract-supported recovery vector; include scarce resources and restricted routes without asserting that every attempted recovery succeeds.

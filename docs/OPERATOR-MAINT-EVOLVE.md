@@ -58,3 +58,19 @@ Runtime implementations MUST cover: valid pack load + defaults for missing keys;
 ## 8. Non-goals
 
 No new Player verbs. No WATCH surface work. No auto-imported plugins. No Admin-as-Player. No reseed/force/same-id activation. No live surgical pause of the production world from the supervisor.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend pack-review diagnostics with candidate version, validation result, active-pack digest, and isolated probe target identity. Distinguish a proposed plugin’s advisory text from human-enabled code and keep the production identity pulse read-only.
+
+### Compatibility and promotion
+
+Policy packs cannot widen patrol verbs or override code vetoes. Admin credentials never enter Player command paths; proposed plugins remain non-importable and enabling remains a human action. The supervisor cannot use a probe UI to inhabit production, force, reseed, or perform recovery.
+
+### Verification before adoption
+
+Test unknown-major packs, rejected candidates preserving current bytes, missing supervisor defaults, forbidden pack permissions, and production/frozen/unset probe targets with zero commands sent. Include timeout/5xx and identity drift. Verify atomic replacement and proposed-plugin isolation before adoption; a pack editor mockup is not evidence of safe auto-load.

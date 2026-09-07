@@ -99,3 +99,19 @@ None of these papers may be used to:
 - authorize runtime behavior without an Accepted RFC when the behavior changes wire, state, event, authority, replay, claim, or security semantics.
 
 The operational gap analysis remains input, not canon. The [residual register](SPEC-GAP-REGISTER-2026-08-25.md) records what is actually open, closed, runtime-only, or deferred on this Specs head.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the input map only with a source-specific design question, applicable existing contract, and disposition: acceptance metric, demonstrated residual, or deferred research. Tie a proposed coordination metric to observation, settled transition, restart, and later decision rather than importing the paper’s environment.
+
+### Compatibility and promotion
+
+Papers are not NOEMA evidence or private Controller hints. Closed relay bands and accepted culture/pressure slices remain closed; an old deferral does not revoke them. No hosted STUDY reopen, research command, Player score, or new mechanic is authorized here. Research review uses separately authorized evidence, not a supposed S3 privilege.
+
+### Verification before adoption
+
+For a proposed metric, state the evidence needed and what remains NOT_COMPUTABLE; verify citations support the design concept without claiming they prove runtime behavior. Compare the dated residual with accepted successors before drafting a change. Gate C/D/E claims require actual campaign receipts and redaction checks, not this literature mapping.

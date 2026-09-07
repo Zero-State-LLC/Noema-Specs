@@ -106,36 +106,26 @@ Optional extensions remain subject to existing schema, privacy, projection, and 
 - Toggleable layers and filters.
 - Event-born emphasis only; spectator moments and gamification remain deferred.
 
-## 5. Extension Points (for Future Growth)
+## Extension Points
 
-This section is the primary mechanism for easy expansion.
+Non-normative future guidance; the binding privacy, motion and reconciliation rules above constrain every extension, including older layer-table suggestions.
 
-### 5.1 Adding a New Visual Layer
-1. Define the data schema extension (optional fields).
-2. Register the layer in the rendering pipeline with priority and z-order.
-3. Implement a toggle + legend entry.
-4. Document impact on cognitive load and performance budget.
+### 5.1 Public projection and rendering seams
 
-### 5.2 Adding New Metrics or Overlays
+New layers may consume only server-filtered public snapshot data. Preserve the separate opt-in route, lightweight public default, one-map public door, deterministic server-selected events/headlines, and safe text nodes. Optional fields must remain compatible with existing `watch-map/1.0` consumers; breaking payload or layer-model changes need the major version and migration notes described in §9. A cosmetic extension cannot authorize a new source of public information.
+
 - Requires separate authorization for the public projection; this document does not authorize raw values or new wire fields.
 - Any public encoding must use an existing coarse, semantic role rather than a research scalar or dashboard metric.
 - Must support reduced-motion and high-contrast variants.
 - Recommended: keep authorized public context adjacent to the map; do not promote it into a competing overlay without reconciliation.
 
-### 5.3 Adding New Interaction Modes
-- Define as a “Mode” with clear entry/exit and data requirements.
-- Examples of planned future modes: “Director View”, “Timeline Scrub”, “Story Follow”, “Comparison Mode”.
+### 5.2 Redaction before visualization
 
-### 5.4 Integrating New Game Mechanics
-When a new system is added (e.g., new semantic signals, new Deep Time features, new resource types):
-- Add a corresponding data field to the common projection.
-- Define at least one visual primitive (glyph modification, overlay, or event type).
-- Update the “immediate comprehension” test cases.
+Overlays must remain keyed to publicly exposed rooms and use permitted coarse bands. The earlier raw-value, velocity, reputation and composite-health suggestions are not permission to ship those values: §1.1 and the lightweight doctrine govern. Validate serialized payloads with hidden-room/entity fixtures, absent research scalars and reputation fields, and hostile world text. Compare old-client rendering with optional fields absent and present; no client may reconstruct hidden topology.
 
-### 5.5 Performance & Density Controls
-- Global density slider (low / medium / high).
-- Per-layer enable/disable.
-- Automatic aggregation when entity or event count exceeds thresholds.
+### 5.3 Promotion and interaction evidence
+
+A proposed layer should identify its public source, deterministic derivation, legend and structured alternative. Verify pause actually stops polling, hidden documents skip polling, reduced-motion uses instant replacement, and refresh reserves layout space. Record the tested viewport and entity load rather than assuming the target frame rate proves usability. Scrubbers, analytics, badges, voting and generative summaries remain deferred behind a future RFC and lightweight §15 reconciliation row; this section does not reopen them.
 
 ## 6. Roadmap & Phasing (Expandable)
 

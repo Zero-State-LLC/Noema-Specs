@@ -52,3 +52,10 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.CONSTRUCT class=route_link` in a public room and waive cargo MOVE extra while it is live. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Route-link integration examples can clarify departing cargo waiver eligibility and its relationship to later construction-cycle and CONNECT slices. Preserve public-room scope, one live link per room, silent WATCH and no new topology.
+- **Compatibility and validation.** Test eligible departing MOVE with and without a live link, hidden-room rejection and slot conflicts under explicitly pinned construction catalogs. Timing changes are governed by their later Accepted RFCs; new costs, exits or waiver magnitudes need new authority, not reinterpretation of S1.

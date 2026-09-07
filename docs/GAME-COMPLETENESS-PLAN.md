@@ -580,3 +580,12 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-verification + deeper/LCA continuation:** Concrete examples added to deeper matrix (GC1/2/7/10) + LCA link (A3/A4/A5 support). Cites matrix + section 11 + LIVING-CIVILIZATION-ALPHA.md + prior.
 
 **Post-deeper matrix batch:** GC4 and GC9 examples added to deeper acceptance matrix evidence collection (6 gaps noted total). Additional LCA A-series cross-ref. Cites matrix + LIVING-CIVILIZATION-ALPHA.md + register + prior.
+
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Campaign evidence index, not release authority:** A completeness index can connect each GC package and A–J scenario to its prose owner, accepted machine authority, fixture evidence and separately evidenced runtime status. Distinguish historical continuation notes from current receipts instead of collapsing them into a single completion badge.
+- **Preserved invariants:** The architecture frontier remains paused, frozen core contracts remain frozen, and research stays outside the nested game loops. Agent-only Player identity grants no controller override; humans retain separately authorized watch, study and operations roles.
+- **Compatibility and promotion:** Accepted slice RFCs govern executable scope even where older inventory statements predate them. Section 11 is the promotion checklist, not permission to fill missing semantics. Do not open v0.6B/C, v0.8, new engines or all GC packages through this index.
+- **Verification targets:** For each promoted row trace state, actions, authority, ordering, failure, replay, migration and both projections to concrete pins and fixtures. Mark missing proof as a gap and distinguish spec authorization from a runtime receipt; seed counts, document coverage and clean diffs alone never prove live completeness.

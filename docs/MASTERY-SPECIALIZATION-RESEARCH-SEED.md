@@ -67,3 +67,19 @@ These are research inputs only. They do not establish NOEMA behaviour.
 - Related: PROGRESSION.md, AMBITIONS.md, CAPABILITY-GRAPH.md, LEARN.md, CAPABILITY-CANDIDATES.md.
 
 This seed is now part of the canonical record for advancing the remaining mastery/specialization surface of GC1.
+
+## Extension Points
+
+Non-normative research-input guidance; the historical gap statement and proposed next steps above do not reopen accepted GC1 slices.
+
+### Trajectory-to-design seam
+
+Extend each external mastery signal with the observable practice pattern it might explain, its evidence source, an alternative explanation, and the existing GC1 slice that owns the behavior. Controller-local skill editing and research capability graphs remain distinct from canonical action evidence and derived Player proficiency. New examples should clarify that distinction rather than create a second specialization authority.
+
+### Retained invariants and compatibility
+
+[MASTERY-SPECIALIZATION](MASTERY-SPECIALIZATION.md) and its accepted slice RFCs control existing recognition, quality, decay, titles, focus, and parameter access. Preserve S0–S8 pins; historical ABSENT or early-slice “no mechanical benefits” language is not a current blanket verdict over later accepted slices. S9–S11 design-note completion is not runtime promotion. New mechanics require the relevant accepted RFC, versioned contracts, and conformance; research utility cannot silently become XP, a class discount, a consciousness score, or a Player ranking.
+
+### Concrete checks before reuse
+
+Trace a proposed signal through source citation, eligible trajectory, owning slice, and allowed projection. Include an unsupported/private trajectory and require exclusion rather than inferred competence. Compare recognition and LATENT/MAINTAINED examples against existing fixtures without changing thresholds. Check that LEARN/CAPABILITY-GRAPH outputs stay research-only and that WATCH exposes only permitted public recognition, not private practice totals. Hosted capture or skill-transfer claims need independent evidence; this seed supplies neither.

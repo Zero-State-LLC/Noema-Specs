@@ -662,3 +662,19 @@ Wire `agent_id` and Entity type `AGENT` are retained for frozen contracts and wo
 3. Default scope set for first agent enrollment (recommend observe + action.submit only).
 4. Whether human platform sessions use opaque cookies only, or also issue refreshable API tokens for CLI authorizers. Those tokens MUST NOT be Player credentials.
 )
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend identity diagnostics at the Credential → Controller → Player → scopes boundary, with separate panels or records for human Account authorization and active gameplay Session. Safe enrollment and revocation explanations can be localized without exposing tokens or trusting declared provider metadata.
+
+### Compatibility and promotion
+
+Accepted RFC-0120 overrides older human-login diagrams in this document: a human JWT creates/links HumanPrincipal, never a PlayerSession. Keep frozen agent_id semantics and historical controller_type provenance. Future shared/delegated arbitration is not activated here; normal Controllers cannot issue, revoke, or expand grants through a supposed S3 tier.
+
+### Verification before adoption
+
+Test client-supplied Player switching, revoked Controller and Credential, scope intersection, and termination of the previous controlling session. Verify human auth alone has zero inhabit rights, explicit CONNECT approval yields distinct agent credentials, and replay preserves old identity records without granting live human/hybrid admission.

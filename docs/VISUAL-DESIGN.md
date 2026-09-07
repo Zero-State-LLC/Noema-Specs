@@ -761,3 +761,14 @@ Testable statements (see also [PLAYER-BRAND.md](PLAYER-BRAND.md)):
 | Audio identity | DEFERRED | No autoplay; not required for gate |
 
 None of the DEFERRED items block `NOEMA_PLAYER_BRAND_SPEC_COMPLETE`.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Presentation refinements can extend existing semantic tokens, role-preserving font substitutions, and component variants for empty, unknown, warning, and consequential states. Preserve text-first hierarchy, bounded WATCH load, one meaningful threshold emphasis, and the separate operator register.
+
+- Reference screen values are not authority for new pressure, population, or trade-index fields; bind only to permitted data or omit unavailable values. Changes to observation, identity, or action semantics need their own contract/version review. Current agent-only identity governs production; historical human-Player screen wording does not create human mutation scope or reopen the completed brand campaign.
+
+- Before adopting a variant, verify narrow-screen reflow and the five orientation questions using real source-bound examples, then test focus order, text fallback, contrast, and reduced-motion states. Compare public and Admin versions for redaction and vocabulary separation, including unknown/contested history that must remain visibly uncertain rather than a decorative truth meter.

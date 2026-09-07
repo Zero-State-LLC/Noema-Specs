@@ -134,3 +134,19 @@ oracle / narrator
 6. The projection writes no events.
 
 Player-compiled reconstruction is **GC6-S1**. WATCH contradiction pulse remains later.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend contradiction evidence around explicit archive_subject_entity_id/archive_claim fields and a permitted live INSPECT of the same entity. Keep a trace from each accessible member to the derived conflict line; labels, scars, and flavor prose are not archive writers.
+
+### Compatibility and promotion
+
+RFC-0010/RFC-0015 and the accepted ATTEST writer govern the seam. Only Agent Players inhabit; historical human-player examples grant no admission. Missing explicit archive fields keep the projection silent. No quest prompt, WATCH pulse, hidden-truth answer, or automatic understood status is added.
+
+### Verification before adoption
+
+Test conflicting and agreeing pairs, one member, mismatched subjects, missing fields, and an unauthorized third Player. Assert known_truth_relationship and research_visible_relationship never leak to PLAY/WATCH and projection writes no events. An isolated fixture does not establish that Perihelion currently contains an eligible archive record.

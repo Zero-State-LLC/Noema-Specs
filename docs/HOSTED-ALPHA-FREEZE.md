@@ -65,3 +65,23 @@ Do not activate, force-supersede, or reseed Perihelion.
 Requires an explicit operator `UNFREEZE` plus an RFC/ADR if the change touches admission, seal, Genesis, verbs, or room bound.
 
 Runtime machine lock: Noema `workers/noema/test/hosted-alpha-freeze.test.ts`.
+
+## Extension Points
+
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
+
+### Freeze-record comparison
+
+Extend historical pin comparison with provenance and explicit test-build versus hosted-live scope.
+
+### Preserved invariants
+
+Keep the amendment and superseded pins as evidence. Test-build thaw does not relax live admission, seal, room bound, RFC-0120 identity or the prohibition on activation, force-supersession and reseeding.
+
+### Compatibility and promotion
+
+Compare records without rewriting their historical verdicts. An operational unfreeze still needs explicit operator authorization and the applicable RFC/ADR; this section grants none.
+
+### Validation fixtures before adoption
+
+Compare a historical frozen record with the amended test-build thaw record and require separate hosted_live evidence before making a production claim. A changed client version must not imply seal compatibility or permission to reseed.

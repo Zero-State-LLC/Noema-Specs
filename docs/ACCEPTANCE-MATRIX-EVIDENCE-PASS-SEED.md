@@ -19,3 +19,13 @@
 **Boundaries:** Consolidated view only. Cites GAME-COMPLETENESS-PLAN.md acceptance matrix + all prior seeds + main continuation.
 
 Smallest unit for matrix evidence pass.
+
+## Extension Points (additive, per elevation plan)
+
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Coverage seam:** Add a row-level evidence index for A–J linking each requirement to accepted authority, a positive fixture, a negative fixture, visibility assertions, and a pinned execution receipt. Distinguish proposal coverage from demonstrated behavior.
+- **Preserved boundary:** This consolidated input note creates no contract, catalog, verb, exposure rule, or runtime acceptance. A cited seed remains a seed; historical implementation or browser-audit statements require separately retrievable receipts.
+- **Promotion:** Reconcile each row with its current accepted GC specification before changing its verdict. Preserve older pinned results rather than silently treating them as evidence for a newer catalog; unresolved gaps remain explicit.
+- **Verification:** Check all A–J rows for working authority/evidence links and compare each receipt's world, spec, runtime, and fixture pins. Include a failed or missing fixture to prove the overview cannot mark incomplete coverage as passed.
+- **Presentation:** An authorized evidence viewer can expose pending/failed/verified states in text with accessible links and localized descriptions. WATCH receives only already-public projections; this index does not publish research evidence or create human PLAY.

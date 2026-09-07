@@ -15,6 +15,16 @@ Let `A` = agent current attention **before** action cost reservation.
 | `1 ≤ A < 3` (threshold_minimal) | minimal: room name + exits only | minimal: entity label only |
 | `A < cost` | `BUDGET_EXCEEDED`; no observation | same |
 
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Projection seam:** Extend table-driven LOOK/INSPECT boundary fixtures for full, reduced, minimal, and unaffordable observations. Keep explicit field sets rather than subjective quality descriptions.
+- **Invariants:** Ordinary LOOK/INSPECT select from attention before reservation; failed insufficient-attention actions cost zero. Post-MOVE orientation uses attention after MOVE reservation, adds no second LOOK debit, and is absent on failed MOVE.
+- **Compatibility:** Preserve the versioned thresholds and default grants/costs. A client can render omission clearly but cannot recover hidden fields, auto-spam LOOK, or change the wire projection through localization.
+- **Verification:** Exercise attention at each threshold and just below it, contrasting INSPECT affordability with LOOK. Assert omitted inventories/private properties stay absent, and successful/failed MOVE bundles obey the separate timing rule.
+- **Consumer seam:** Accessible text summaries can explain resource exhaustion and limited detail without leaking omitted values. WATCH does not gain Player-private attention or observation fields from this viewer.
+
 ### Reduced field set R (LOOK)
 
 Include: `room_id`, `name`, `exits[].direction`, co-located `display_name` list.

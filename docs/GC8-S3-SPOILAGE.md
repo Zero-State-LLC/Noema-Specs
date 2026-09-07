@@ -49,3 +49,11 @@ WATCH ticker
 ## Runtime rule
 
 Hosted Chamber MUST spoil WORN holdings on cycle commit. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Resource lifecycle seam:** Extend cases for WORN resource keys across cycle commits, including multiple keys and exhaustion. Keep SOUND holdings unchanged and retain integer one-unit loss rather than percentages or elapsed-time decay.
+- **Compatibility boundary:** RFC-0047 and economy-catalog/gc8-s3 own this spoilage rule. Transport and later economic slices need their own pins; neither the note nor an extra fixture opens v0.6B, currency, or order-book behavior.
+- **Validation expectations:** Check positive remaining stock, exactly one remaining unit, multiple WORN keys, and a SOUND comparison. At zero, verify grade and origin clear together with no negative balance; compare replayed holdings and ensure no duplicate cycle loss or WATCH feed.

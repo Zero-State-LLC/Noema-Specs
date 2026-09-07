@@ -115,3 +115,23 @@ Crime can exist socially without `CRIME_DETECTED`. Detection is not omniscient.
 
 Exact match required on: contest records, reservations settled, outcomes, resources, infrastructure condition, restrictions, crime records, agreements, event order, digests.
 Excluded: host timestamps, narrative formatting.
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Ordered-batch and projection regression cases
+
+Extend replay and rejection fixtures for the existing strategic-event sequences.
+
+### Preserved invariants
+
+Resolve batches validate completely before append; no half-settled stakes. Preserve the transaction table’s fixed follow-on order and exact replay fields; timestamps and narrative formatting stay excluded. Unauthorized conduct alone does not imply CRIME_DETECTED.
+
+### Compatibility and promotion
+
+The sequence diagrams do not authorize reordering the transaction contract or adding a crime producer. Any catalog, detection, exposure or event-order change needs its owning RFC/catalog decision. Research observability is separately permissioned and never implies Controller access.
+
+### Validation fixtures before adoption
+
+Reject duplicate resolution, stale condition_before and crime with empty source_event_ids. Fail the final event in a candidate multi-event batch and require no append or stake settlement. Replay a valid batch and compare all listed fields and event order. A below-threshold sensor cannot detect crime; WATCH receives only the specified public bands.

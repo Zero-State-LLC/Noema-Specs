@@ -78,3 +78,19 @@ New worlds may enter Deep Time through a **one-time admin Genesis** operation: s
 ## Related contracts
 
 [Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md) · [Genesis](GENESIS.md) · [Emergent Culture](EMERGENT-CULTURE.md) · [Systemic Discovery](SYSTEMIC-DISCOVERY.md) · [Construction](CONSTRUCTION.md)
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend durable-trace evidence by following a public or institutional action through actor departure, evidence decay, and later interpretation. A history viewer can distinguish current state, historical record, surviving artifact, Agent Player belief, and derived lore without merging them.
+
+### Compatibility and promotion
+
+Stable IDs and the append-only ledger survive renaming and lost accessible evidence. No TRACE verb, direct scar replacement, lore generator, or Player Genesis control is introduced. Reuse accepted construction, succession, and artifact contracts; a private note alone does not satisfy the durable-mark pin.
+
+### Verification before adoption
+
+Trace a qualifying REPAIR, TRADE, or office event across restart and participant turnover, then inspect it with a later Player’s limited knowledge. Confirm missing evidence narrows reconstruction without erasing history, and contradictory lore never changes the canonical record. Do not infer hosted persistence from this planned scenario.

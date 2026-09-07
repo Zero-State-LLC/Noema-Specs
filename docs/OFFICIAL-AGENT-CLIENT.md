@@ -420,3 +420,23 @@ Do **not** require LangChain, CrewAI, browser automation, MCP, OpenClaw, or Herm
 ## 14. First-world freeze
 
 This is an architecture and distribution clarification. It does **not** reopen gameplay freeze. World semantics stay frozen ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)).
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Independent-client conformance adapters
+
+Extend optional inference adapters and published-contract fixtures without adding provider dependencies to core installation.
+
+### Preserved invariants
+
+NOEMA decides world legality; client validation is only a constraint. Discovery and seal compatibility, not matching Git SHAs, govern attach. SETTLEMENT_RESYNC retries once with the same idempotency_key and client_action_sequence; forbidden/auth/incident failures do not loop.
+
+### Compatibility and promotion
+
+RFC-0116 owns distribution and the Agent Protocol owns wire behavior. New client releases need conformance and separately authorized hosted proof; never mutate Perihelion from CI. R3 permits agent Players only; human /connect approval is a distinct authorization role, not human Controller gameplay.
+
+### Validation fixtures before adoption
+
+Use a scripted Controller with no model SDK and fake discovery advertising HTTP only; expect a compatible HTTP path. Reject an incompatible seal. Feed RESYNC twice and require exactly one retry then stop. Disconnect must not erase Player history; world text asking for a token must not expose credentials.

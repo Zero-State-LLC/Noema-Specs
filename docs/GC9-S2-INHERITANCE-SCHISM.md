@@ -65,3 +65,19 @@ implicit stream, per [ADR-008](../adr/ADR-008-replay-conformance-and-determinist
 `examples/gc9-schism/`, executed by `check_gc9_s2`. Ten fixtures cover both
 positive marks and all five non-derivation reasons, and the check fails if any
 reason in the catalog is never exercised.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend culture evidence inspection around the ordered originator set, last originator repair, later non-originator repair, and distinct public accounts by actual practitioners. Keep explanation in authorized diagnostics while preserving the fixed, attribution-free projected lines.
+
+### Compatibility and promotion
+
+RFC-0125 derives marks only for TRADITION/REVIVED. It adds no belief meter, gameplay bonus, religion engine, entity, or ledger write. WATCH remains aggregate with neither site nor agent names; translation must preserve that anonymity and cannot turn inheritance into causal proof of private belief.
+
+### Verification before adoption
+
+Replay repairs ordered by cycle, sequence, event_id and compare concurrent co-practice against strictly later inheritance. Test same-author revisions, bystander disagreement, private accounts, and insufficient tradition status. Retain all catalog non-derivation reasons and scan every projected line for fixture actor handles, site identifiers, and per-agent counts.

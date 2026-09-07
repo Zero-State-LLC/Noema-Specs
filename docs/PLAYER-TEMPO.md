@@ -119,3 +119,12 @@ Replay consumes the persisted accepted action set and canonical order. It never 
 | Research export | tempo policy and mode when behavior may depend on cadence |
 
 Conformance: [PLAYER-TEMPO-CONFORMANCE.md](PLAYER-TEMPO-CONFORMANCE.md).
+
+## Extension Points
+
+Non-normative review-stage timing-conformance and presentation seams.
+
+- Extend candidate fixtures for exact idempotent retries versus distinct second actions, quorum/deadline freezes and empty windows. Test LOOK/INSPECT under the stated budget/event-based slot definition rather than assuming they are passive health reads.
+- Preserve separation of canonical cycle, admission slot, presentation hold, gateway rate limit and harness cooldown. No manufactured WAIT, timer-derived reducer ordering, pre-commit action-body disclosure, admin Player slot or production FAST_TEST/STEP_TEST bypass is introduced.
+- Compatibility/promotion: RFC-0128 and player-tempo/1.0 are review-stage pins here, not proof of acceptance or implementation. Any promotion needs accepted policy/schema/runtime conformance and explicit behavior for unknown policy/phase; compare cadence-sensitive research exports with policy/mode attached rather than merging unlike runs.
+- Verification proposal: capture a frozen accepted set, replay without sleeping, compare Scheduler order despite different arrival timing and test mutation rejection in RESOLVE/PRESENT. Exercise mode refusal in production/default world and a bounded retry_after_ms client. WATCH/ops animation should display committed cycle/sequence with reduced-motion and bounded announcements, never imply animation commits world truth.

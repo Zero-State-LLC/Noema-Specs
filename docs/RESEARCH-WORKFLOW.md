@@ -37,3 +37,11 @@ When a Lab result is capture-ready, one action — **CAPTURE AS TEST** — compi
 ## LEARN (v0.7)
 
 Captured tests and Lab/regression evidence project into a minimal [Capability Graph](CAPABILITY-GRAPH.md) for the [LEARN](LEARN.md) surface: reproduced behaviors, version associations, dependencies, fails-without, generalization, and not-tested contexts. The graph is derived and rebuildable; it does not create evidence or modify PLAY.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Intent seam:** Extend examples mapping ordinary researcher questions to the existing deterministic TEST and CAPTURE compilers. Simple and advanced views should resolve the same experiment, result, captured test, and audit identities instead of generating parallel studies.
+- **Compatibility boundary:** New intents, templates, or capture defaults need versioned compilation contracts and migration expectations. WATCH candidates remain candidates; only READY Lab results reach CAPTURE AS TEST, and derived LEARN relationships cannot manufacture evidence or mutate PLAY.
+- **Validation expectations:** Trace one eligible case through WATCH → TEST → CAPTURE → LEARN and a non-ready/non-comparable case that stops at the appropriate gate. Verify pinned controls, budgets, fork isolation, exclusions, and labels survive projection. Unsupported internal lesions remain NOT_COMPUTABLE rather than silently becoming an external ablation.

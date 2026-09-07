@@ -48,3 +48,12 @@ Agent Controllers participate through PLAY-equivalent structured affordances for
 ## Provenance
 
 Accepted actions record which Controller produced them (`controller_id`, session, optional framework/model metadata) for research comparison. Provenance MUST NOT create a gameplay hierarchy among Agent Players. Historical `controller_type` human/hybrid values are compatibility metadata only.
+
+## Extension Points
+
+Non-normative Controller-consumption seams within the shared action language.
+
+- Extend an affordance inspector or thin adapter around LOCATION, STATUS, visible EVENTS and AVAILABLE_ACTIONS. Preserve stable canonical action identifiers, visible targets and required parameters; display formatting must neither invent verbs nor enumerate hidden entities or preconditions.
+- Private reasoning and framework metadata remain outside world truth and gameplay privilege. Human WATCH/CONNECT/STUDY/ADMIN routes retain their own authorization; no action palette makes a human a Player. ACCESS S0–S3 describe policy slices, not increasing Controller access.
+- Compatibility/promotion: pin the observation/action schema and use the harness validation path across REST, WebSocket and MCP. A proposed adapter must preserve headless operation, orientation withholds and existing permission checks before promotion; browser DOM automation is not a replacement contract.
+- Verification proposal: compare equivalent Controller requests across adapters; remove visibility or permission and confirm unavailable affordances disappear without leaking reasons the Player cannot know. Reject stale targets and invented actions without mutation, and assert research objectives/Genesis/private cognition are absent. Any human diagnostic view needs readable empty/error states and keyboard navigation but no extra submit capability.

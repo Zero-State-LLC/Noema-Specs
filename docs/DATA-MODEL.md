@@ -351,3 +351,11 @@ Authoritative vs derived: live DO state is operational; Postgres events/snapshot
 ## Public/private separation
 
 Agent private metadata, research metadata, and public world-visible metadata remain separate. Dataset releases MUST preserve this partition.
+
+## Extension Points
+
+Non-normative schema-inspection and migration seams.
+
+- Extend entity/lineage inspection with field-specific ID validation, visibility partitions and declared lifecycle transitions. Preserve Player as agent, the historical agent_id wire alias and immutable identities; browser provenance never creates a human Player or unrestricted private-metadata access.
+- Compatibility/promotion: compare version-pinned schemas and serialization before a separately approved migration. Keep JCS/I-JSON, integer scales, durable Postgres settlement and reducer field writers authoritative. An inspector cannot edit append-only events, reuse retired IDs or make DO-local state canonical by display.
+- Verification proposal: reject a valid-looking ID of the wrong semantic type, floating replay-critical quantities, missing causal lineage and secret credential exports. Check tombstones remain referencable and public exports omit account linkage and private observations. Use readable field/value tables with visibility and migration errors in text; localize labels, never patterns or serialized keys.

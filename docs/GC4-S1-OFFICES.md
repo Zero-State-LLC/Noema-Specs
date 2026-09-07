@@ -146,3 +146,15 @@ emergency scopes
 designated succession
 Chamber help advertising office commands
 ```
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend named-seat lifecycle and permission fixtures without treating display titles as grants. Preserve stable office_id, closed profiles, VACANT/OCCUPIED/RETIRED states, holder history and vacancy on departure or loss of eligibility; retirement remains terminal.
+
+- Office, Player and membership role remain distinct. Hosted S1 exercises PUBLISH_NOTICE only; later resource/asset powers remain governed by their own slices. Human platform authorization does not make a human an office-holding Player under RFC-0120.
+
+- Pin RFC-0023 and existing COMMIT.ORG_OFFICE_* operations. New profiles or succession semantics require separately accepted authority, not a label change. No ROLE_* event, election system, payroll or new help-advertised command follows from this seam.
+
+- Validate unauthorized creation, assignment without replace, nonmember/cross-world target, unknown profile, former holder action and retired-seat action. Assert typed denials, retained history and immediate loss of the office grant on vacancy while independent membership grants remain separate.

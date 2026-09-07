@@ -104,3 +104,15 @@ Recorded so later readers do not inherit them.
 - It does not open organized crime. That waits for a working first loop, per the hysteresis paper's own sequencing.
 
 Continuation is governed by the rows added to [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** The research input map and correction ledger can receive dated follow-up evidence distinguishing detection, adjudication, sanction, and rehabilitation findings.
+
+**Preserved invariants.** Preserve the 2026-08-25 baseline and the unauthorized-versus-detected distinction; uncertainty is not guilt, private evidence is not public, and research does not calibrate sanction numbers.
+
+**Compatibility and promotion.** Route new evidence through the existing gap register and Accepted RFC process. This note does not authorize a CRIME_DETECTED producer, payload additions, event-catalog/0.3, organized crime, or a sanction retune.
+
+**Validation expectations.** For a future reconciliation, inspect producers and all listed consumers against pinned payload/envelope schemas; test PUBLIC_HISTORY-only and absent visibility/victim_id cases, and retain the victim-specific rehabilitation correction rather than reintroducing the rejected claim.

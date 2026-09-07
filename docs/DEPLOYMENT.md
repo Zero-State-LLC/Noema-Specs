@@ -258,3 +258,12 @@ See [OPERATIONS.md](OPERATIONS.md): `noema backup`, `noema restore`, `noema veri
 ## Conformance
 
 C14–C17 cover reference deployment, persistence, backup/restore, and version pinning.
+
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Deployment adapters and recovery evidence:** A deployment inspector can compare resolved non-secret configuration, runtime manifest pins, writer-fence ownership, and readiness without embedding vendor administration in PLAY. Keep the local one-Chamber path separate from the hosted Worker/DO/Supabase topology.
+- **Preserved invariants:** Restart cannot reset cycles, budgets, identity or ledger history. Preserve the atomic SERIALIZABLE cycle boundary, fenced canonical writer and read-only transport bookkeeping; a deployment plugin is not another writer.
+- **Compatibility and promotion:** Topology or storage adapters need the same protocol/export semantics. Incompatible rule changes require explicit migration or world-version lineage; optional infrastructure never becomes a hidden startup prerequisite.
+- **Verification targets:** Exercise clean startup and crash recovery, stale-fence and serialization-failure rejection, and backup/restore continuity under C14–C17. Compare state/ledger heads and ensure configuration digests contain no secrets. A manifest or plan alone is not a healthy deployment receipt.

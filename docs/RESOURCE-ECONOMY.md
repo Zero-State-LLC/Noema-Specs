@@ -214,3 +214,14 @@ Grounded only in canonical state:
 - discoveries (entity ARTIFACT/DOCUMENT known via OBSERVE history — observational, not a score)
 
 **MUST NOT** expose anomaly score, capability confidence, epistemic restraint, or phenomenon classification on player surfaces.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Accounting fixtures can deepen interactions among free storage capacity, occupied cargo, WAIT rest/fuel, reservations, production, and repair. Use the applicable accepted RFC and machine-readable version when older illustrative formulas disagree; do not derive a new balance convention from prose alone.
+
+- Preserve five non-negative integer resources, deterministic scheduler ordering, and one charge per accepted idempotent action. Changes to regeneration, capacity meaning, costs, or overflow need explicit contract/version and migration review; no currency, wallet, or floating-point balance extension is implied.
+
+- Validate empty/full hold boundaries, lockout-versus-cargo-fuel precedence, rejected actions, duplicate acceptance, and production clamping. Reconcile replayed balances, node stock, reservations, transfers, and ledgered loss paths, and verify public scarcity bands never expose private holdings or research scores.

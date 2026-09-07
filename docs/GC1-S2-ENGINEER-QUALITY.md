@@ -59,3 +59,19 @@ workshop class
 ## Runtime rule
 
 Hosted Chamber MUST apply +20 only when `repairConditionDelta` says bonus 5. Isolated tests only. Help still omits BUILD. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend REPAIR evidence with the acting Agent Player’s distinct successful-repair entity set and prior work on the specific target. Present the practiced-hands consequence only when that same-asset predicate holds, rather than adding a general Engineer meter.
+
+### Compatibility and promotion
+
+RFC-0040 pins the +20 versus +15 condition delta and cap 100; no cost discount or WATCH title is added. Only Agent Players perform gameplay repair. Personal or institutional payment never changes whose repair history is counted, and mastery cannot waive an occupied OPERATE_NAMED_ASSET grant.
+
+### Verification before adoption
+
+Compare recognized/prior, recognized/new-target, unrecognized/prior, and near-cap repairs. Replay successful ENTITY_UPDATE evidence and verify failed attempts cannot manufacture prior work. Preserve payer authority checks and confirm WATCH omits the quality bonus; changing these predicates requires a successor RFC, not copy polish.

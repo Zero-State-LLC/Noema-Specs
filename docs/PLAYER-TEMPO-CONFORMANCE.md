@@ -34,3 +34,19 @@
 4. Confirm FAST_TEST and STEP_TEST allow only `ISOLATED_TEST`.
 5. Confirm no new Player verb or World Event type is declared.
 6. Preserve scheduler, replay, idempotency, settlement, WATCH-redaction, and Admin-principal suites.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend traceability from each PT01–PT16 row to its exact executable case and observed result. Separate admission-window timing evidence from canonical replay evidence, especially when comparing different arrival orders for the same accepted action set.
+
+### Compatibility and promotion
+
+RFC-0128 and the pinned machine policy own semantics; the illustrative fixtures do not establish coverage of every PT row. Keep one mutation slot, idempotency, no implicit WAIT, no empty-cycle advance, and isolated-only FAST_TEST/STEP_TEST. Controller enrollment cannot select privileged tempo modes.
+
+### Verification before adoption
+
+Add targeted checks for uncovered rows: exact retry, RESOLVE/PRESENT refusals, empty deadline, settlement failure, and no operator step. Verify OBSERVED_LIVE hold with timing evidence while replay omits wall-clock waits. Assert no pre-resolve action-body leak and record per-row PASS/FAIL/not-run rather than inferring sixteen-case success from two fixtures.

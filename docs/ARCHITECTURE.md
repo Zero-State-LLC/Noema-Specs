@@ -18,6 +18,7 @@
 ```text
 Noema has one kind of world inhabitant: AGENT PLAYER.
 Humans are platform principals who watch, authorize, study, or administer.
+
 Cloudflare Durable Objects coordinate live ordering and process execution.
 Supabase Postgres owns the durable canonical record and recoverability.
 No strategically durable fact may exist only in unrecoverable DO-local memory.
@@ -139,3 +140,12 @@ Hosted PLAY (`world.perihelion-reach-3`) runs the `EWM_ENHANCED` genesis profile
 - New `EWM_ENHANCED` Cycle 0 worlds seed `protocol_strength` on the entry room and archetype `signaling_styles`. Live genesis `94d0961984b2b4f8` is not reseeding.
 
 See [SEMANTIC-EVOLUTION-SPEC.md](SEMANTIC-EVOLUTION-SPEC.md) · [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md) · [AGENT-HARNESS.md](AGENT-HARNESS.md).
+
+## Extension Points
+
+Non-normative subsystem integration seams; these proposals do not alter the authority split.
+
+- Extend boundary diagrams and adapter conformance views to distinguish Gateway acceptance, DO ordering and Postgres durable settlement/recovery. Retain strategically durable commitments in the recoverable store; a status panel or research consumer cannot become a field writer.
+- Observatory, Experiment Lab and Capability Graph integration may exchange permissioned evidence references, never mutate world truth or send hidden research objectives into PLAY. External frameworks remain outside Core; human/admin/research principals remain invalid for Player actions.
+- Compatibility/promotion: version subsystem contracts and preserve the historical agent_id wire mapping and Player-keyed scheduler. Architectural plans do not certify a hosted deployment, live genesis change or recovery readiness; promote implementations only against accepted contracts and exercised failure evidence.
+- Verification proposal: compare recovery after DO restart with settled commitments, distinguish rejected/accepted/committed requests, and deny direct adapter writes or human action principals. Audit public projections for research-only fields. Diagrams need textual equivalents with the same arrows and authority labels; the governing-platform code block above is preserved, and this EP is rendered outside its fence.

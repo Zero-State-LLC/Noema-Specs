@@ -215,3 +215,11 @@ Specs remain authoritative. Implementation lag does not remove them from the des
 1. First-world implementation does not invent product, identity, ops, recovery, or admin behavior.
 2. Further pre-launch Specs work is defect-driven only.
 3. Next repository: `Zero-State-LLC/Noema`.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Authority maintenance:** Future freeze/thaw clarifications can append a dated decision, its authorizing RFC or operational approval, affected rows, and explicitly unaffected pins. Preserve the 2026-08-20 thaw record and the original first-world identity; this ledger is not a production-default selector.
+- **Compatibility boundary:** Keep operational thaw distinct from the core-loop freeze. A successor world or implementation handoff does not rewrite the recorded Genesis, grant human Player identity, or activate any deferred mechanic. Link subsequent authority rather than retroactively describing this historical pin as the latest live deployment.
+- **Validation evidence:** Review proposed changes against the authority-owner table, RFC-0120, and the exact seed/Genesis/Cycle 0 values retained above. Runtime readiness and cutover claims need separate dated receipts; specification approval alone does not prove hosted parity.

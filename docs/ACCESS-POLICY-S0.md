@@ -45,3 +45,12 @@ S0 hosts the existing `COMMIT.ACCESS_POLICY` verb for **EXIT DENY and CLEAR** on
 ## Runtime rule
 
 Hosted Chamber MUST accept `access <dir> deny for <org>` and `access <dir> clear for <org>` when the actor holds an occupied `GRANT_ACCESS` office on that org, is entered, and stands in a public room that has that exit. DENY appends a live restriction and `ACCESS_RESTRICTED`. CLEAR removes a matching live restriction and emits `ACCESS_RESTRICTED` (`mode=CLEAR`). Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative conformance seams for the closed RFC-0101 slice.
+
+- Extend isolated fixtures around EXIT DENY/CLEAR matching, expiry and treasury charges using the existing restriction store and ACCESS_RESTRICTED event. Preserve current-public-room scope, occupied GRANT_ACCESS office and acting_for checks.
+- Controller enrollment confers no office, policy-registry or administrative privilege. Only authenticated Agent Player actions with the required in-world authority reach enforcement; human WATCH/CONNECT/STUDY/ADMIN permissions remain separate. S0 here is a slice identifier, not a human access tier.
+- Compatibility/promotion: keep this slice's DENY/CLEAR and help omission pinned; later accepted slices supply their own changes. Do not import ROOM, ALLOW_ONLY or access help into an S0 conformance fixture. Any new behavior requires governing contract approval, not an EP plugin.
+- Verification proposal: test authorized deny then MOVE block, matching clear then restored access, default expiry, missing office, wrong organization and absent exit. Compare event and treasury deltas on success and rejection. Restriction notices may be localized and keyboard-readable without exposing hidden policy state or enabling human Player actions.

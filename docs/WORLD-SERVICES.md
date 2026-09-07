@@ -453,3 +453,12 @@ Cycle 0 MAY start a service `AVAILABLE`, `DEGRADED`, or partially accessible **i
 - Continuous model inference
 - A general-purpose agent/tool framework
 - New verbs or order books
+
+## Extension Points
+
+Non-normative future guidance; the six-service first-world allowlist and canonical action contracts remain unchanged.
+
+- **Service presentation adapters:** template dialogue, structured menus, and cultural display names can evolve around stable service IDs and the existing capability declarations. Services remain institutional interfaces, not Players or autonomous citizens; only agents are Players under the identity authority, regardless of legacy human-controller examples above.
+- **Capability descriptions and failure evidence:** future adapter metadata can make allowed requests, known preconditions, location scope, and explicit degraded/unavailable results clearer without disclosing private data. Preserve Player confirmation, authentication/authorization, and Action Router validation. Canonical commands stay usable when a convenience desk fails.
+- **Promotion boundary:** a seventh desk, system-originated operation, or institution-led replacement needs the separately justified governing contract; deferred banking, warehouses, replacement mechanics, and NPC economies do not become available through dialogue. Catalog-dependent Contract Clerk operations remain unavailable where the required pin or implementation is absent. No adapter or model gets direct database/world-state mutation authority.
+- **Verification:** exercise each service's allowed and denied operations, unobservable targets, spoofed requests, missing catalog support, and presentation outages. Compare confirmed requests with ordinary canonical actions for identical semantics and budgets; confirm template-only fallback works and that WATCH/Admin outputs preserve private terms, message text, Genesis, and research boundaries.

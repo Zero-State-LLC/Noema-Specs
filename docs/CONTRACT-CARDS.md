@@ -60,3 +60,19 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 **Key invariant:** Ten acceptance items map 1:1 to machine-readable cases.  
 **Mandatory for World Engine claims:** C04 seed/replay equivalence.  
 **Full:** docs/v0.1-CONFORMANCE.md
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend a card only where it improves navigation to a concrete contract invariant, failure case, or conformance check. Add source/version context so a reader can distinguish a broad verb vocabulary from the actions actually enabled on a pinned deployment.
+
+### Compatibility and promotion
+
+Cards summarize rather than override Accepted RFCs, protocols, or schemas. No summarized lifecycle or verb list authorizes a new hosted action. Separate human Account roles from Agent Player mutation and keep research cards out of ordinary world-facing action discovery.
+
+### Verification before adoption
+
+Compare each changed summary with its linked owner and a representative positive/negative fixture. Test disclosure with keyboard and text-only reading while retaining source links and stable machine terms. Flag contradictory summaries as defects instead of silently using the shorter card as authority.

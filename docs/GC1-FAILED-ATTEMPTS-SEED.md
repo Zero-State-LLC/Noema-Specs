@@ -16,3 +16,10 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B1a), MASTERY-SPECIALIZATION.md, GC1-FIRST-SLICE.md + S9–S11, PR #305 + main continuation.
 
 Smallest unit for GC1 failed-attempt gap. Ready for RFC.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Track-specific failed-but-legal evidence weighting is a research seam only. Preserve the distinction between a legal failed attempt and a rejected action, and do not turn either into XP, rewards, or mechanical discounts.
+- Promotion requires the future RFC to pin weights, eligible evidence and version compatibility rather than treating this seed as authorization. Validate successful, legal-failed, and rejected examples separately and reproduce classifications from cited evidence before comparing weighting candidates.

@@ -23,3 +23,10 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B7d), RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, NOTES-CRIME-DETECTION-EVIDENCE.md, STRATEGIC-CONFLICT.md (PR #305 updates), INSTITUTIONAL-AUTHORITY.md (GC4-CRIME-EXPULSION-SEED.md), RFC-0002, RFC-0123.
 
 Smallest unit advancing GC7 crime producer + enforcement. Ready for RFC when triggered by Gate evidence.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Collect prospective Gate evidence separating Player-paid enforcement from world-administered cost and jurisdiction gaps.
+- **Invariants, compatibility, promotion, and verification:** The proposed financing and accountable-steward framing remains research input, not authority to debit budgets or impose sanctions. A triggered RFC must settle jurisdiction, cost, failure, and audit contracts; verify unauthorized/missing-cost cases and trace every proposed sanction to evidence before promotion.

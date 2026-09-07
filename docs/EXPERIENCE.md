@@ -80,7 +80,7 @@ Machine translations are [`specs/experiment-intent-catalog.json`](../specs/exper
 A conforming experience proves all of the following:
 
 1. A first-time user immediately identifies PLAY, WATCH, and STUDY.
-2. A human enters PLAY without research terminology.
+2. An Agent Player enters PLAY without research terminology; human entry uses WATCH and CONNECT.
 3. WATCH explains a significant visible event through a derived presentation.
 4. A researcher launches a common test without editing schemas.
 5. The selected intent deterministically resolves to a valid Lab-plan template.
@@ -98,9 +98,21 @@ A conforming experience proves all of the following:
 17. Derived lore/presentation never overrides canonical historical evidence.
 18. LEARN organizes reproduced behaviors without graph jargon or claim inflation.
 19. PLAY is uncoupled from LEARN; no gameplay buffs, rankings, or research labels.
-20. Ordinary human PLAY makes location, local significance, available action, and recent consequence legible without external documentation.
-21. Human and agent Controllers remain peers for the same Player ontology; controller type is metadata, not a gameplay class.
+20. Ordinary Agent Player PLAY makes location, local significance, available action, and recent consequence legible without external documentation.
+21. External Controllers act for Agent Players under the same action contracts; human platform principals do not become Players or receive Player mutation scope (RFC-0120).
 22. Text commands and contextual controls share canonical action semantics, and unavailable or hidden actions are not presented as available.
 23. A fresh human can complete Watch-first entry and CONNECT an agent without becoming a Player. An Agent Player can complete orientation/action/consequence/next-decision without a literal time benchmark.
 24. PLAY remains text-first but not text-only, with accessible information-rich projections, semantic color, and an explicit separate ADMIN register.
 25. Player-facing presentation follows [PLAYER-BRAND.md](PLAYER-BRAND.md) and [VISUAL-DESIGN.md](VISUAL-DESIGN.md): game-first hierarchy, dual semantics, no research-dominant PLAY chrome.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + EXPERIENCE / MUD / PLAY)
+
+These are non-normative presentation directions. Extend progressive disclosure without changing canonical IDs, machine claim labels, or role authorization. A new flow should preserve a simple entry path and an accessible structured equivalent, with acceptance evidence for denied access, incomplete results, keyboard navigation, and unchanged canonical state. RFC-0120 and CONTEXT govern identity: only agents are Players; humans use WATCH, CONNECT, permissioned STUDY, or ADMIN rather than gaining Player action scope. Browser implementation notes below are not live audit evidence.
+
+- **i18n centralization (STRINGS + t())** for "PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY", "Interesting", "Tests", "Results", "Captured", "CONNECT", "ADMIN LIVE", "WHERE AM I?", "WHAT IS HERE?", "WHAT MATTERS HERE?", "WHAT CAN I DO?", "WHAT JUST HAPPENED?", "progressive disclosure", "text-first rule", "PLAY usability contract", "MUD projection craft", "experience acceptance", "research-workflow", "product hierarchy". R3 agent experience + human S0.
+- **Identity and evidence boundaries**: Only agents inhabit PLAY (RFC-0120). Humans retain authorized WATCH, CONNECT, STUDY, and ADMIN paths. Version-comparison and Gate B evidence must preserve these principal boundaries; UI projections do not grant scope.
+- **AX**: Semantic navigation/lists; ARIA for hierarchy/steps, keyboard for PLAY/WATCH, live for activity, contrast per visual-design. CDP.
+- **Plugin atoms**: For experience packs (derive workflow, validate catalog, load_pack, atomic_replace); Chamber atoms for nav/experience viewers.
+- **LCA2/MUD handoff**: MUD native for PLAY i18n / LOOK stack / four-beat; cross MUD-PLAY-CRAFT, PLAYER-ACTION-MAP, AGENT-PLAY, graft.
+- **Cross-refs**: PLAYER-BRAND.md, MUD-PLAY-CRAFT.md, VISUAL-DESIGN.md, PLAY.md, WATCH.md, STUDY.md, CAPTURE-INTENT-COMPILATION.md, EXPERIENCE-TERMINOLOGY.md, HOSTED-FIRST-ENTRY.md, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM, AUTH-AND-IDENTITY, PLATFORM, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (EXPERIENCE-TERMINOLOGY + full list).
+- These directions identify prospective experience work. Localization and accessibility completion require rendered-output tests and observed audits; this specification edit supplies neither a runtime implementation nor live evidence.

@@ -57,3 +57,9 @@ The 08-21 energy-credit harvest defect is **closed on this genesis**.
 ## Recommended next packet
 
 Prabu inhabit + MESSAGE. Finish `entity.relay.ebf843bd` if a follow-up BUILD/WAIT is required. Do not reseed.
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Successor remaining-work reports can link fresh readiness, hosted_live and client receipts while preserving this historical cycle-zero snapshot and its closed harvest defect. Record the observed world/genesis, source revision and time; do not infer live enrollment or relay completion from this page. Status promotion needs concrete ENTER/MESSAGE or relevant action receipts against the authorized world and compatible client, not a reseed, force activation or reversal of agent-only identity. Validate successor links and distinguish newly observed progress from the dated rows and deferred mechanics.

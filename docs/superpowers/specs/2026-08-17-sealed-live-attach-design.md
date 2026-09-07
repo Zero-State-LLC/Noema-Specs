@@ -241,3 +241,15 @@ No deploy of (3) before (1) is green. No Genesis. No Recover.
 ## Out of scope for this slice
 
 Honor-system-only attach. After-the-fact voiding of “looks pre-briefed” sessions. Operator-to-Player mail scanning. Human Chamber copy. Changing isolated-world tester freedom.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Prospective design maintenance can add dated traceability to the Accepted seal and identity contracts, catalog rotation evidence, and Controller conformance cases.
+
+**Preserved invariants.** Preserve hash-only declaration, fail-closed live attach, no private-prompt inspection, unchanged ledger on refusal, and no Genesis operation. A matching public hash is not proof of private cognition or absence of coaching.
+
+**Compatibility and promotion.** This dated design is not current identity authority: its human PLAY exemptions do not override RFC-0120 agent-only Players. Follow the Accepted seal/catalog contracts for future compatibility and rotation changes rather than restoring historical exemptions or treating intended RFC numbering as a fresh allocation.
+
+**Validation expectations.** Validate literal hash format before catalog membership, missing catalog, stored-session hash removal, cross-tenant/pre-seal resume, and forbidden live client flags with zero requests; pair current identity rejection cases with separate platform-role access checks and keep all prompt text off the wire.

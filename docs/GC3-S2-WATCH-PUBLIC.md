@@ -94,3 +94,15 @@ MESSAGE text
 ## Runtime rule
 
 Hosted Chamber MAY project S2 lines on `/watch` and as public PLAY copy when public evidence exists. If Perihelion has no qualifying public events, WATCH stays silent. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend public-evidence rebuild and descriptor-rendering fixtures for the closed hostile, breach and contradicted-public-ATTEST sources. Preserve evidence-id deduplication and public-handle output; institutional or private visibility never credits a public band.
+
+- Keep zero evidence silent and the existing dangerous/deceptive lines at qualifying public evidence. No reliable or unknown hint, private dyadic memory, trade/message source, reputation number or hidden TRADE control is permitted.
+
+- Pin social-memory-catalog/gc3-s2 and RFC-0034. New evidence families or thresholds require their own accepted authority; a translation or WATCH layout cannot widen disclosure. Help and Genesis remain unchanged.
+
+- Validate public versus private crime/breach, mixed-visibility ATTEST, duplicate evidence and no qualifying events. Assert equal permitted public lines in WATCH and PLAY, both bands when supported, silence rather than unknown otherwise, and unchanged visible TRADE affordances.

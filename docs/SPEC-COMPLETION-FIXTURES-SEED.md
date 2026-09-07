@@ -12,3 +12,13 @@
 **Boundaries:** Notes only. Ties to acceptance matrix and machine inventory. Cites GAME-COMPLETENESS-PLAN.md section 11 + matrix A–J + prior seeds/PR #305 + main.
 
 Smallest unit for fixtures element.
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Evidence-family fixture inventory
+
+Expand this micro-note by linking each GC positive and negative fixture to its exact accepted slice, input pin and expected result. Keep S9–S11 and other design seeds distinct from executable contracts; a listed fixture is not a passing runtime receipt.
+
+Promote only against the owning RFC/schema and acceptance matrix, with versioned fixture identity when expected semantics change. Validate legal evidence, duplicate evidence, authorization failure and visibility refusal for the relevant GC; report missing tests rather than filling them with generic success cases or reopening closed slices.

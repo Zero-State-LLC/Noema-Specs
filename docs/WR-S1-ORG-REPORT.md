@@ -39,3 +39,13 @@ S1 adds public institutions to the existing 5-cycle report.
 ## Runtime rule
 
 Hosted Chamber MUST append one `{name} stands.` line per ACTIVE organization when rebuilding the last-1 public report. Isolated tests only. Help unchanged except RFC-0090 BUILD. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Organization report rebuilds
+
+Additional fixtures can test ACTIVE organization lines in the existing last-one, five-committed-cycle report. Preserve public names only, no roster, no emitted events and WATCH silence; an organization line is not a new NEWS command.
+
+Keep RFC-0091 and world-report-catalog/wr-s1 pinned. Later report sections belong to their accepted slices. Validate the pre-interval empty case, interval boundary, inactive organizations, repeated rebuilds without duplicate lines and no member-list disclosure; report cadence changes require the owning versioned contract.

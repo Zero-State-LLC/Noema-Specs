@@ -46,3 +46,13 @@ Missing intervals MUST be explicit (`missing_intervals[]`), never silently fille
 * Reference canonical evidence; do not copy mutable state as truth.
 * Digest = `sha256:` of canonical JSON without `digest` field.
 * Consent fail-closed for research capture.
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Trajectory builders and legacy readers
+
+Additional builders can derive bounded or multi-agent views while preserving canonical reference ordering, explicit missing_intervals and consent partitions. Never fill missing evidence with inferred records or copy mutable state as historical truth.
+
+Keep trajectory/0.3 distinct from legacy trajectory/1.0 and version content when the selected references or interpretation changes. Validate canonical JSON digest exclusion of digest itself, interval boundaries, redaction, unresolved references and denied consent; a legacy reader must not silently reinterpret an old sample as the newer schema.

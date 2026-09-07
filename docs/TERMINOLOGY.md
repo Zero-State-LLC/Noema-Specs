@@ -96,3 +96,19 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 - Do not expose private cognition or casual private-message text on Admin Live.
 - Do not send `SECRET` material to the Admin Live browser.
 - Do not treat Admin Live as a public WATCH/PLAY door.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the glossary only for a recurring cross-document ambiguity, with its owning contract and register. Useful distinctions include Controller decision-context independence versus number of human operators, evidence tier versus deployment plane, and a slice identifier versus an access grant.
+
+### Compatibility and promotion
+
+Canonical terms and machine tokens are not silently renamed by localization. Hermes/Abraxas vocabulary belongs in explicitly external integration notes unless NOEMA authority defines it. S0–S3 labels do not create a public-to-full-Controller privilege ladder; human platform roles and Agent Player gameplay remain separate under RFC-0120.
+
+### Verification before adoption
+
+Check each proposed term against CONTEXT and the owning RFC/schema, then sample onboarding, research, and operator usage for contradictory meanings. Verify Independent Controller never means shared gameplay planning is acceptable, translations preserve identifiers, and no new term implies hidden research exposure, human inhabit, or framework-specific authority.

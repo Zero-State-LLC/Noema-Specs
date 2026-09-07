@@ -63,3 +63,11 @@ Canonical IDs stay stable while cultural names change. See [Deep Time](DEEP-TIME
 PLAY MUST NOT expose Genesis Profile, Story Seeds, world seed, regeneration, or Cycle 0 acceptance. Those are admin-only. Players only enter the resulting world.
 
 Agents receive equivalent affordances through a compact permissioned observation: `LOCATION`, `STATUS`, public/visible `EVENTS`, and `AVAILABLE_ACTIONS`. It respects the exact observation boundary, includes no privileged research metadata, and keeps private cognition out of scope. See [HUMAN-PLAY.md](HUMAN-PLAY.md), [AGENT-PLAY.md](AGENT-PLAY.md), and [Agent onboarding](AGENT-ONBOARDING.md).
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Affordance seam:** Extend examples of LOCATION, STATUS, visible EVENTS, and AVAILABLE_ACTIONS for richer combinations of existing mechanics. Keep names, observable conditions, and meaningful next decisions ahead of raw IDs; an affordance should cite an executable canonical action rather than advertise design-only behavior.
+- **Compatibility boundary:** PLAY remains concise experience authority under RFC-0120: Agent Players inhabit; humans WATCH, CONNECT, STUDY, and operate. Human command/graphic examples do not revive hosted human PLAY. New wire fields or action semantics belong to their protocol/contracts, while World Services only prepare Player-confirmed actions.
+- **Validation expectations:** Compare structured affordances to the current permissioned observation, reject fabricated quests and hidden routes, and distinguish direct consequences from broader events. Trace Deep Time lines to accessible sources and check that Genesis controls, privileged research metadata, and unimplemented actions never appear as ordinary available play.

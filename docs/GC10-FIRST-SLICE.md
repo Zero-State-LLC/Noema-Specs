@@ -107,6 +107,15 @@ Frontier request IDs
 
 Hosted RFC-0019 cycle commit may apply this schedule once in cycles 4–20. The drop fires only when preview stays ≥ 25. PLAY / help / Admin spawn still omit WED. Do not activate or reseed Genesis.
 
+## Extension Points
+
+Non-normative schedule-audit and symptom-projection seams.
+
+- Extend isolated schedule receipts linking preview digest, authorizer, cycle and existing ENTITY_UPDATE. Check the −15 condition effect only where preview remains at least 25, with at most one scheduled activation in cycles 1–20 and no invented replay drop when its ledger input is absent.
+- Preserve pressure-catalog/gc10-s0, no forced response and no Player/LLM/STUDY injection. RFC-0120 governs the historical human/agent comparison: only agents act as Players; authorized human spectators see the permitted public condition, not a gameplay identity.
+- Compatibility/promotion: this documentation adds no storm class, Admin spawn, Frontier ID sharing, reseed or deployment claim. More complete scenario J work belongs to its accepted later slice; S0 projections remain symptoms only, without WED/class labels in PLAY or WATCH.
+- Verification proposal: compare preview to activation, a below-band refusal, duplicate schedule admission and replay with/without the event. Exercise legal repair/leave/wait alternatives without demanding any response. Accessible condition text should communicate the observed change without leaking the research partition or implying a correct action.
+
 ## Acceptance (narrower than scenario J)
 
 1. Schedule at cycle 4 drops a named live relay by 15 via `ENTITY_UPDATE`.

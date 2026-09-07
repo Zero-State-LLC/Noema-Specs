@@ -41,3 +41,11 @@ S1 hosts the existing `COMMIT.AGREEMENT_TERMINATE` verb for agreements already f
 ## Runtime rule
 
 Hosted Chamber MUST accept `terminate agreement <id> reason=<enum>` from a party. ACTIVE → `BROKEN` and `AGREEMENT_BROKEN`. OFFERED withdrawn by the offerer emits nothing. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative conformance and termination-inspection seams within RFC-0098.
+
+- Extend isolated cases for party termination of ACTIVE agreements and offerer withdrawal of OFFERED agreements. Preserve compute cost 1, ACTIVE → BROKEN with AGREEMENT_BROKEN, and eventless offered withdrawal; no silent deletion or bystander termination.
+- Compatibility/promotion: retain diplomacy-catalog/s1 and the existing COMMIT.AGREEMENT_TERMINATE mapping. Additional agreement types, HELP entries, tickers or Genesis mutations remain excluded; this EP is not a new slice or runtime deployment receipt.
+- Verification proposal: reject a non-party and a non-offerer withdrawal, verify the active event and offered no-event paths, and check no influence debit. Compare existing agreement_broken WATCH projection with private reason visibility. Localized captions may explain outcomes but must not change enum/parser tokens or create a human action channel.

@@ -42,3 +42,14 @@ World content and research records MUST support unknown identifiers such as `UNK
 ## Persistence
 
 Application lifecycle ≠ world lifecycle. Restart MUST preserve resources, organizations, infrastructure, cycles, and ledger ([DEPLOYMENT.md](DEPLOYMENT.md)).
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Integration examples can trace coupled rooms, budgets, infrastructure, organizations, and messages across canonical, observable, research, and spectator state. Keep each domain's ownership explicit; a new projection or unknown ontology identifier is not a new world primitive or hidden dependency.
+
+- New canonical state or transition semantics require accepted protocol/schema review with world-version and migration boundaries. Preserve named seed streams, ordered ledger replay, and durable history across application restart; Deep Time retention does not activate deferred currency or semantic-evolution mechanics.
+
+- Validate a coupled trajectory before and after restart using pinned versions, seed, config, and external inputs. Compare canonical digests and permissioned observation points, check derived spectator/research records cannot write back into truth, and retain unknown identifiers without forcing premature taxonomy.

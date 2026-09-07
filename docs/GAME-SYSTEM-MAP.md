@@ -101,3 +101,19 @@ WORLD EVENT DIRECTOR  ↔  CONDITIONS (never Player objectives)
 | Social memory / offices | [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md), [GC3-FIRST-SLICE.md](GC3-FIRST-SLICE.md), [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md), [GC4-FIRST-SLICE.md](GC4-FIRST-SLICE.md), [INSTITUTIONS.md](INSTITUTIONS.md) |
 | Communication / discovery | [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md), [GC5-FIRST-SLICE.md](GC5-FIRST-SLICE.md), [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md), [GC6-FIRST-SLICE.md](GC6-FIRST-SLICE.md) |
 | Economic specialization / culture / WED | [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md), [GC8-FIRST-SLICE.md](GC8-FIRST-SLICE.md), [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md), [GC9-FIRST-SLICE.md](GC9-FIRST-SLICE.md), [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md), [GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md) |
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend dependency mapping by annotating an existing edge with the action/reducer that owns its transition and the observable consequence that demonstrates coupling. For example, distinguish infrastructure condition affecting communication from a research metric that merely describes the pattern.
+
+### Compatibility and promotion
+
+Keep the seven primitives and primary domain chain; overlays do not create separate industries or runtime species. Research instrumentation is not a secret gameplay planner or a license to change conditions on production. New mechanics require their owning contracts, not a new arrow on this map.
+
+### Verification before adoption
+
+For a proposed edge, trace one settled source action, its affected state, and a later authorized observation/decision. Include a counterexample where the prerequisite is absent. Compare GAME-SYSTEM-DEPENDENCY and reducer ownership references for drift; do not infer end-to-end implementation from a complete-looking diagram.

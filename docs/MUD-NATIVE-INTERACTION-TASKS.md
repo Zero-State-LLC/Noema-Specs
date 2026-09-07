@@ -297,3 +297,23 @@ No task may require Perihelion reseed or Genesis change.
 Complete only when all 25 acceptance criteria in the parent spec pass and:
 
 > A new human can enter a room, understand it, express ordinary intent naturally, act through existing canonical mechanics, see the consequence, and encounter durable evidence of other Players — while an agent Controller continues using the same structured canonical world with no parser dependency.
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Task-to-evidence traceability
+
+Extend per-task dependency and evidence records rather than expanding the frozen craft horizon.
+
+### Preserved invariants
+
+S0 parser remains offline dev tooling; production agents bypass it through A3/A4. Keep all 25 parent acceptance criteria, observation-fingerprinted ambiguity invalidation, ordinary-action macro settlement and the no-reseed gate. Historical human completion language does not authorize human PLAY.
+
+### Compatibility and promotion
+
+Use the parent interaction spec and plan for task changes and the craft closeout for runtime phase ownership. S0–S7 here are task slices; access-policy S0–S3 elsewhere are versioned slices, never privilege levels. A documentation fixture cannot mark a runtime task VERIFIED.
+
+### Validation fixtures before adoption
+
+Compare east/go east offline against one legal MOVE; a hidden exit yields no suggestion. Change the observation after ambiguity and require invalidation. Inject private MESSAGE text into a WATCH/home candidate and require rejection. Keep keyboard, bounded live-region and reduced-motion evidence pending until actual UI audits.

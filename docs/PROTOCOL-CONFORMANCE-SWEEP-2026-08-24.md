@@ -74,3 +74,9 @@ stream exists for a position to be resumed into. The codes are reserved
 against a streamed-delivery future. If server push ever lands, the
 redelivery-window MUSTs (§delivery) come due with it, and this row flips from
 "reserved" to "owed".
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Later sweeps can append dated clause-level receipts across harness, Worker and official-client lineage without rewriting these fixed/conformant verdicts or claiming coverage of uninstrumented qualitative clauses. Record the implementation revision, test and mutation that establishes each new result. The observed accepted-result cache policy is evidence, not a normative all-failures rule; any protocol promotion needs its RFC and compatibility analysis. Recheck one same-key SETTLEMENT_RESYNC retry, unchanged replay budget/events and current authorization after resume. Reserved stream-position errors remain reserved unless a separately approved push transport activates their obligations.

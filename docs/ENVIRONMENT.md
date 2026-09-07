@@ -232,3 +232,11 @@ Capture settings MUST be evaluated before collection, and consent MUST be re-eva
 Before promotion, deployments SHOULD verify configuration parsing, strict sandbox activation, denied unapproved egress, world-qualified storage and queues, reducer exact-limit and over-limit behavior, research-disabled behavior, public opt-out, consent withdrawal, and secret redaction. The resolved non-secret configuration and its digest MUST be recordable for replay and audit ([deployment-config.schema.json](../specs/deployment-config.schema.json)). Secret values MUST never be included in that record.
 
 `noema verify` operationalizes these checks; see [OPERATIONS.md](OPERATIONS.md).
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Configuration adapters:** Future provider, storage, or deployment entries can extend the existing classification tables with type, local requirement, default, secret placement, and failure behavior. Keep the credential-free local boot path intact; a world identifier is never an authorization grant and research switches remain consent ceilings.
+- **Compatibility boundary:** Document renamed variables with precedence and deprecation behavior rather than silently changing existing defaults. Replay-affecting changes need a versioned resolved non-secret configuration; auth changes follow AUTH-AND-IDENTITY and RFC-0120, not the historical hosted-human-PLAY wording here.
+- **Validation evidence:** Pair proposed entries with missing/invalid-value cases, a boot without optional services, cross-world denial, consent-withdrawal behavior, and checks that secrets are absent from logs and configuration digests. A documented variable is not evidence that a deployment consumes it.

@@ -271,3 +271,19 @@ Observable checks (hosted reference):
 ## Implementation note (non-normative)
 
 Reference runtime today: Cloudflare Worker HTML shells (`landingHtml`, `manifestoHtml`, `playHtml`, `playCallbackHtml`, `watchHtml`). Marketing `site/` / `public/index.html` is not the product door. No world-state change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend first-entry regression around Home’s Watch-first action, optional watch-link callback, and CONNECT’s separate human authorization purpose. Keep actual observation-based agent orientation distinct from the public world door and from local Chamber development tooling.
+
+### Compatibility and promotion
+
+RFC-0120 wins over residual Player-email or browser-inhabit terminology: human identity is HumanPrincipal and never grants Player mutation. Preserve /play redirection and callback compatibility without reviving human gameplay. No new thesis, Lab capture, Genesis control, or fabricated live-world statistics are introduced on Home.
+
+### Verification before adoption
+
+Check anonymous and authenticated human navigation, callback success/expiry, /play redirect, CONNECT approval/denial, and human mutation refusal. Audit first-read banned copy, keyboard form use, focus, and accessible status messages on the actual hosted shell. Local ui.py checks must be labeled local and cannot prove the Worker route behavior.

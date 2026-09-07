@@ -58,3 +58,9 @@ Chamber help news
 ## Runtime rule
 
 Hosted Chamber MUST rebuild last-1 public `report_lines` when a committed cycle is ≥ 5 and divisible by 5, from public-room live infrastructure condition only. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Report rendering and fixture coverage may expand around the existing infrastructure projection, not the source domain. Preserve last-1 retention, rebuild only at qualifying committed cycles divisible by five, public-room live infrastructure sources, and silence on WATCH. Keep world-report-catalog/wr-s0 pinned for S0 consumers; different cadence, sources, verbs or events require an owning Accepted RFC and explicit catalog compatibility, not an implementation convenience. Validate cycles before the first interval, interval boundaries, replacement rather than accumulation, private-room exclusion, unchanged help and Genesis, and absence of REPORT_* events. Later report slices are separate authorities, not retroactive S0 scope.

@@ -44,3 +44,19 @@ S2 adds **ALLOW_ONLY** to the existing `COMMIT.ACCESS_POLICY` verb. EXIT/ROOM DE
 ## Runtime rule
 
 Hosted Chamber MUST accept `access <dir|here> allow for <org> applies_to=<player>` under the same GRANT_ACCESS rule as S0/S1. ALLOW_ONLY writes a live restriction. MOVE on a matching route succeeds only for the listed player. Other live DENY restrictions still reject. CLEAR removes a matching ALLOW_ONLY restriction. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend policy diagnostics by comparing a named ALLOW_ONLY restriction with the MOVE result on its existing outbound EXIT or ROOM scope. Present a refusal only from the acting Agent Player’s authorized observation, with localized explanation beside the stable machine reason.
+
+### Compatibility and promotion
+
+RFC-0103 preserves DENY precedence, matching CLEAR, occupied GRANT_ACCESS authority, and the existing restriction store. S0–S3 here are slice identifiers, not Controller privilege levels. Human WATCH/CONNECT/STUDY/ADMIN roles remain separate; this EP adds no inbound lock or extra help advertising.
+
+### Verification before adoption
+
+Cover listed and unlisted Players, wildcard refusal, an overlapping DENY, matching CLEAR, and loss of the occupied grant. Assert no unauthorized charge or restriction write. Retain S0/S1 fixtures and declare the catalog pin before comparing old and new behavior; record runtime evidence separately from these test requirements.

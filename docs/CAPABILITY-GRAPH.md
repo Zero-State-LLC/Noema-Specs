@@ -116,3 +116,12 @@ LEARN / graph never modifies gameplay, grants buffs, rankings, or player labels.
 See [LEARN.md](LEARN.md).
 
 Executable package: [releases/v0.7/](releases/v0.7/).
+
+## Extension Points
+
+Non-normative projection and LEARN inspection seams.
+
+- Extend deterministic projection adapters over settled captured tests and Lab results, keeping BEHAVIOR as the primary node and the six closed edge types. Preserve supporting and counterevidence on contested edges; missing or incompatible evidence produces no edge, not speculative fact.
+- Keep the graph a disposable, rebuildable index outside the PLAY hot path. No transitive closure, automatic ontology, buffs, ranking or consciousness inference follows from an inspector. Controller enrollment grants no graph rebuild or research permission; ACCESS slice versions are not access tiers.
+- Compatibility/promotion: pin source artifacts and graph/feature versions; compare rebuilt output before replacing a projection. Source evidence stays immutable, and authorized STUDY/LEARN visibility does not imply public WATCH publication or PLAY exposure.
+- Verification proposal: delete and rebuild the projection from frozen sources, test counterevidence retention and reject an unsupported edge type. Confirm A→B plus B→C does not invent A→C. Provide a keyboard-readable edge/evidence table with claim label and status as text; translate captions without changing identifiers or strengthening claims.

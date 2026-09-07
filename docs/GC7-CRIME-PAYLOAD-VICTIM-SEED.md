@@ -23,3 +23,9 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B7a), GC3-S1-BETRAYAL.md, GC3-S2-WATCH-PUBLIC.md, RFC-0094, EVENT-CATALOG-AUDIT.md, event-types.0.2.json, RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, PR #305 + main continuation.
 
 Smallest unit for payload reconciliation in GC7 crime work. Ready for RFC.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+The reconciliation seam is the CRIME_DETECTED payload/envelope disagreement, not a new crime mechanic. Preserve incident-level evidence and separation of detection from sanction. Promotion needs an accepted amendment that selects one public representation and declares compatibility with event-catalog/0.2 producers and consumers. Validate old and amended payloads, victim derivation failures and private/public social-memory projections; do not silently choose between the competing definitions in this seed.

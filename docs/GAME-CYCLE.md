@@ -50,3 +50,10 @@ East Relay condition: 41%.
 ```
 
 Reports are projections, not additional canonical truth.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Report projections and declared reporting intervals are extension seams, not additional cycle phases or sources of canonical truth. Keep immediate actions governed by ACTION-CONTRACTS and deterministic resolution governed by SCHEDULER.
+- Changes to phase semantics need versioned scheduler/world-rule authority; WR-S0 remains its own bounded hosted slice. Validate report regeneration from committed events and ensure generating or retrying a report never advances a cycle or changes state.

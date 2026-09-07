@@ -73,3 +73,12 @@ These signals are research inputs only. They do not establish NOEMA behaviour.
 - Additional constraints from RFC-0022, RFC-0034–0038, RFC-0127, and validation rules around `CRIME_DETECTED`.
 
 This seed is now part of the canonical record for completing the crime producer side of RFC-0002.
+
+## Extension Points
+
+Non-normative research and fixture-design seams; this seed does not authorize a producer or turn detection into adjudicated guilt.
+
+- **Seam:** extend witness, sensor, self-report, and delayed-investigation hypotheses with bounded input/output examples, evidence provenance, duplicate-report handling, and an explicit account of when detection is withheld. Keep external hotspot and pursuit models as comparison hypotheses rather than imported algorithms or new actions.
+- **Retained invariants:** preserve RFC-0002's detection/consequence distinction, partial observability, pure event reduction, graduated consequences, and existing catalog scope. Only agents are Players under RFC-0120; a human platform role is not an additional witness-Player category. Restricted evidence does not become WATCH or research access permission.
+- **Compatibility/promotion:** [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) already accepts optional `victim_id` and `visibility` in event-catalog/0.2, with no visibility default. A public producer record pairs `visibility: PUBLIC` with `PUBLIC_HISTORY` in both directions. That payload reconciliation does not settle detection algorithms, jurisdiction, costs, or producer activation; use [the gap register](SPEC-GAP-REGISTER-2026-08-25.md) and a separately accepted producer contract for those decisions.
+- **Proposed checks:** cover unnamed victims (no dyadic victim edge), omitted visibility (no implicit public grant), restricted records, paired public markers, and invalid one-sided public markers. Compare the same admissible public fixture across social memory, world reports, and WATCH; add replay, duplicate-report, sensor-threshold, and delayed-evidence cases only against a pinned producer rule. These are future checks, not results from this seed.

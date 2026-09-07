@@ -58,6 +58,22 @@ AUDIT       Ledgered events, intervention receipts, verify
 
 If any of those verbs is ambiguous, the defect is in the cited document below — not a missing gameplay system.
 
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the operations map with separately labeled activation, readiness, settlement, backup, pause/resume, and recovery receipts for the approved first-world candidate. Keep local rehearsal evidence and hosted evidence distinguishable by world/genesis identity and runtime revision.
+
+### Compatibility and promotion
+
+The approved Perihelion inputs and Cycle 0 digest remain unchanged. RFC-0120 overrides the historical CREATE-through-AUDIT PLAY line: only agents enter as Players; humans watch, authorize, study, or operate. A plugin health read is not authority to activate, reseed, recover, or mutate the production world.
+
+### Verification before adoption
+
+Compare the candidate identity to the pin, verify a backup, and rehearse settlement failure and recovery on an isolated target before any authorized cutover. Test PAUSED mutation refusal and human-JWT inhabit denial. Record actual verification receipts; this EP neither runs operations nor proves current production readiness.
+
 First-play structure:
 
 ```text

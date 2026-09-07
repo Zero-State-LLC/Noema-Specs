@@ -57,3 +57,15 @@ project minigame
 ## Runtime rule
 
 Hosted Chamber MUST create a public `generator` CONSTRUCT as `IN_PROGRESS`, promote that same `entity_id` after 1 committed cycle, and salvage an in-progress generator without leaving a live generator or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend generator lifecycle fixtures around restart and cycle settlement. Preserve immediate generator-slot occupancy, one entity_id and IN_PROGRESS→live only after one committed cycle, not elapsed wall time.
+
+- Keep generator-only scope, accepted ENTITY_* and BUDGET_CONSUMED events, WATCH silence and omitted BUILD help. In-progress salvage leaves neither a live generator nor a scar; no new room, STRUCTURE_* event or project minigame is implied.
+
+- Pin construction-catalog/gc2-s14 and RFC-0073. Another class, duration or exposure change needs its own accepted authority; this seam does not change Genesis or the isolated-test rule.
+
+- Validate a slot conflict while IN_PROGRESS, restart before promotion, duplicate cycle settlement and pre-promotion DISMANTLE. Assert one stable identity, no premature live effect and no post-salvage promotion.

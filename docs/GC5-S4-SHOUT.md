@@ -50,6 +50,22 @@ WATCH ticker
 Chamber help shout
 ```
 
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend MESSAGE rendering with the current public room’s last shout and provenance-safe text escaping. Retain the difference between a local audible message surface and ordinary direct/long-range delivery so a shout is not mistaken for a global broadcast.
+
+### Compatibility and promotion
+
+RFC-0062 adds surface=SHOUT, not a new verb. Preserve compute 1, last-1 retention, public same-room restriction, and silent WATCH. Later retention slices are separate pins; localization must not turn message content into executable instructions or broaden its audience.
+
+### Verification before adoption
+
+Test same-room observation, adjacent-room exclusion, hidden-room refusal, overwrite, and repeated idempotent submission. Include markup and prompt-injection-like message text as inert content. Verify no WATCH ticker, additional event type, or cross-room leak appears and later retention fixtures do not rewrite S4’s baseline.
+
 ---
 
 ## Runtime rule

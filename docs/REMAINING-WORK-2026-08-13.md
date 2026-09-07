@@ -86,3 +86,14 @@ host STUDY unstub
 1. Do not re-apply hosted world-head SQL.  
 2. Do not Recover or bootstrap Perihelion from incomplete legacy events.  
 3. Do not implement unshipped GC1 slices (parameter-access). GC1-S2 is already hosted.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Historical maintenance can add a dated successor pointer for a specific residual while retaining the original S0 inventory, observations, and supersession chain. Current work selection belongs to the current remaining-work authority and evidence-backed state, not the oldest unchecked or SPEC GAP line here.
+
+- A later accepted GC slice or verified deployment should be recorded as superseding the relevant claim, not rewriting its original date. This snapshot grants no SQL reapply, recovery, bootstrap, reseed, STUDY opening, or thaw; later authorization remains separate from historical evidence repair.
+
+- Validate each successor citation against its exact runtime revision, world identity, and proof scope. In particular distinguish implemented head code, hosted SQL presence, and isolated replay proof; an unavailable old receipt should be marked unavailable rather than treated as a present-day operational failure.

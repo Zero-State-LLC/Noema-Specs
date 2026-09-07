@@ -912,3 +912,23 @@ A hosted implementation campaign may use this map only after confirming:
 - the Player ontology remains unified across human and agent Controllers.
 
 The next implementation work belongs in `Zero-State-LLC/Noema`, not in another Specs action expansion, unless one of the explicit SPEC GAPs blocks a concrete runtime transition.
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Canonical crosswalk conformance
+
+Extend adapter examples and deployment-supported affordance checks for existing canonical operations.
+
+### Preserved invariants
+
+Preserve verb/operation names, server-owned action_priority, costs, client_action_sequence and idempotency semantics. Structured agents bypass human grammar. Unsupported actions, hidden targets and research metadata cannot be advertised.
+
+### Compatibility and promotion
+
+Action Contracts and pinned event catalogs remain semantic authority; a mismatch is a SPEC GAP, not permission to invent a transition. New verbs, costs or hidden/research affordances are not authorized here or by Gate B completion. R3 agents-only PLAY and separately authorized human platform roles override historical parity language.
+
+### Validation fixtures before adoption
+
+Map a visible REPAIR label to its existing COMMIT operation and compare with the structured form. Supply an ambiguous target and require no guessed mutation. Replay a duplicate mutating envelope and require one effect; reject a v0.2-only action under the v0.1 catalog. WATCH must omit inspect details and private trade terms.

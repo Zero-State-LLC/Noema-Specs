@@ -39,3 +39,13 @@ Weights `w_axis` and caps are versioned in `novelty-axes.v02.json` (default weig
 | `pairwise_diversity_min` | 120 | selected pair distance must be ≥ this unless control |
 
 Changing thresholds creates a new `director_version` / axes pin identity.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior or release claim is introduced.
+
+### Axis encodings and comparison fixtures
+
+Additional examples can sharpen the existing nine axis encodings and missing-data behavior without replacing millipoints with floating-point or treating missing components as zero novelty. Weights, caps and axis normalization remain explicit inputs.
+
+Any changed thresholds, distance semantics or axes need a new director/axes pin identity. Validate normalization endpoints, cap saturation, missing components, solved_distance and pairwise_diversity_min boundary cases against the selected catalog; a new score does not become a Player reward.

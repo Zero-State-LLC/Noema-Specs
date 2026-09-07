@@ -373,3 +373,12 @@ Terminology alignment:
 | Agent Gateway (sketched) | **This document** (normative boundary) |
 | `agent_id` (wire) | Player principal (historical field name) |
 )
+
+## Extension Points
+
+Non-normative adapter and observability seams within the existing Gateway boundary.
+
+- Add protocol-conformance adapters that normalize REST, WebSocket and MCP requests to the existing action envelope. Keep server-bound identity, idempotency, client sequence and world ordering intact; only the World Engine commits canonical transitions.
+- Extend redacted session diagnostics with acceptance-versus-commit state and rate-limit explanations. A Controller's framework metadata grants no extra capability; credentials and private cognition never enter diagnostics, observations or exports. ACCESS S0–S3 are contract slices, not privilege tiers.
+- Compatibility/promotion: compare adapters against the pinned Agent Protocol and AUTH contracts, preserving historical agent_id mapping. Promote an adapter only with equivalent authorized results and fail-closed denials; a plugin status view cannot add tools or direct database writes.
+- Verification proposal: submit equivalent actions across transports, replay an idempotency key, spoof player_id, revoke a credential mid-session and exhaust a budget. Confirm one canonical commit where appropriate and no write on denial. Human CONNECT status needs keyboard-accessible pending/rejected/committed distinctions without becoming human PLAY.

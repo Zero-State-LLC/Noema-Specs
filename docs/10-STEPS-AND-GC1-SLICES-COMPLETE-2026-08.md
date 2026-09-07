@@ -43,3 +43,12 @@ GC2/GC3: Pre-existing extensive slice documentation + 2026-08-27 extensions. Cri
 **Ready for operator review → RFCs (smallest first) → re-derive.**
 
 See closeout, handoff, and individual artifacts for full evidence. No contracts mutated. Spec-first. MSW followed.
+
+## Extension Points
+
+Non-normative guidance for extending this dated completion record; “complete” here remains completion of design artifacts, not runtime promotion.
+
+- **Seam:** attach follow-on review evidence to each numbered deliverable: its source seed, resulting authority/design note, unresolved decision, and successor RFC or handoff. Keep GC1 S9–S11 separate from already specified S0–S8 so a completed checklist does not imply shipped mastery behavior.
+- **Retained invariants:** preserve the historical ten-step verdict and verification statements as dated provenance. Research remains outside Player objectives; no new verbs, Genesis changes, catalog expansion, public research exposure, or activation of v0.8 follows from this closeout.
+- **Compatibility/promotion:** reconcile successor claims against [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md) and [current-state.v1.yaml](../specs/current-state.v1.yaml). Accepted RFC-0129 reconciles optional crime payload fields, not a live crime producer; later evidence belongs in a linked successor record rather than a rewritten historical success claim.
+- **Proposed checks:** trace every numbered step to an existing artifact, resolve each S9–S11 link, and distinguish design completion, accepted contract, tested implementation, and hosted evidence. Reject a follow-on packet that uses the old whitespace check as fresh validation or treats the crime design note as producer conformance.

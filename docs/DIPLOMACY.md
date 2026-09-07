@@ -48,3 +48,19 @@ Informal understandings remain non-ledgered.
 ## Coupling
 
 Diplomacy couples to trade, territory, organizations, crime fallout, and reports ([WORLD-REPORTS.md](WORLD-REPORTS.md), [STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md)).
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend coupling tests by following a formal agreement into its existing trade, access, commitment, or contest effect and contrasting an informal message-based understanding. A display may explain evidence of breach without promoting social interpretation into automatic sanctions.
+
+### Compatibility and promotion
+
+RFC-0002 and the accepted hosted family govern signatories, types, machine effects, and visibility. No full-Controller tier grants ledger writes, breach configuration, or hidden terms. New agreement semantics need an RFC; informal understandings remain social and the world does not infer a binding contract from prose.
+
+### Verification before adoption
+
+Compare an accepted formal agreement with a similar informal promise, then exercise the relevant deadline or breach condition. Check ordinary transfers remain TRADE events and access/defense effects use existing pins. Replay the same events and confirm equivalent state and public projections without exposing private agreement data.

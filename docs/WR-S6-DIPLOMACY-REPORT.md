@@ -42,3 +42,9 @@ S6 adds ACTIVE public agreements to the existing 5-cycle report.
 ## Runtime rule
 
 Hosted Chamber MUST append one public diplomacy line per ACTIVE public agreement when rebuilding the last-1 public report. Isolated tests only. Help unchanged. No Genesis change. No new agreement types.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Diplomacy report formatters and fixtures may grow around the existing {type} is agreed. projection. Preserve one line per ACTIVE PUBLIC agreement at the inherited five-cycle rebuild, last-1 retention, and omission of parties and terms. Retain world-report-catalog/wr-s6 compatibility; additional agreement types or status reporting require the owning accepted slice/RFC and catalog review, not promotion through this note. Validate ACTIVE/public inclusion against offered, broken and private exclusion cases, interval boundaries, and multiple qualifying agreements without exposing identifiers through labels. Keep NEWS, REPORT_* events, WATCH ticker, AGREEMENT help, YOUR POSITION and WED/ATTEST closed.

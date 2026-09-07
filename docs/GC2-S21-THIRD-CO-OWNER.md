@@ -64,3 +64,19 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept a third `BUILD.SHARE` from the personal owner, set `co_owner_3_id` to one other entered Player, treat owner and all three co-owners as stewards, and reject a fourth SHARE. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend ownership views with the ordered co_owner_id, co_owner_2_id, and co_owner_3_id stamps and their existing stewardship consequences. Show an eligible entered partner without exposing unobserved Player data or presenting co-owners as new institutional roles.
+
+### Compatibility and promotion
+
+RFC-0085 is the third-stamp slice: only the personal owner shares a public live constructible; no institution asset or share/vest mix. Its fourth-SHARE refusal is scoped to S21. Accepted S22/S23/S24 successors govern later pins; this EP neither reopens them nor invents an N-of-M roster.
+
+### Verification before adoption
+
+Test owner versus co-owner submission, duplicate partner, unentered partner, non-live target, and institutional ownership. Verify one compute charge and unchanged entity_id on success. Run fourth-stamp refusal against S21 specifically and keep successor fixtures separate so version comparison does not misclassify accepted later behavior.

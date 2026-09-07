@@ -85,3 +85,10 @@ one-trade rehab
 ## Runtime rule
 
 Hosted Chamber MAY apply S4 when projecting S0/S1/S2/S3/S6. `as_of_cycle` is the world's current cycle. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Rebuild and explanation fixtures can clarify how family weights soften while source history remains intact. Preserve full-history reconstruction, current membership semantics and victim-specific post-hostility trades; no paid wipe or scalar reputation is introduced.
+- **Compatibility and validation.** Check the twelve-cycle boundary, two versus three distinct qualifying trades, trades with a different object, contested positive/hostile lines and equal WATCH weights. A change to decay or rehabilitation needs an accepted versioned catalog and old-history compatibility cases rather than rewriting existing evidence.

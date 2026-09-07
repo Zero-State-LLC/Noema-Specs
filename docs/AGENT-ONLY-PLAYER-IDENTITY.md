@@ -184,3 +184,19 @@ Native Interaction S0 (human parser) is no longer a production Player requiremen
 ## Validation
 
 `check_rfc_0120` in `validation/validate_all.py`. Fixtures: `examples/agent-only-player-identity-s0/`.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend migration diagnostics with separate HumanPrincipal authentication, CONNECT authorization, agent Controller credential issuance, and AgentPlayerPrincipal admission receipts. A principal viewer should show binding failures without displaying credential material.
+
+### Compatibility and promotion
+
+RFC-0120 governs live issuance and admission; legacy human/hybrid Controller metadata remains historical provenance, not a migration grant. WATCH, CONNECT, authorized STUDY and ADMIN are legitimate human platform roles, not non-canonical roles. Controller software has no blanket authority to issue identities.
+
+### Verification before adoption
+
+Verify human JWTs never resolve to player_id or mutation scopes, including attempts to relabel them agent. Retain historical metadata through replay; refuse legacy non-agent inhabit without rewriting records. Check explicit CONNECT approval and headless admission separately, and ensure rejection causes no Genesis or history change.

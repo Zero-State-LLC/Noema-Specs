@@ -58,3 +58,12 @@ Chamber help board
 ## Runtime rule
 
 Hosted Chamber MUST keep the last 5 `MESSAGE surface=BOARD` notices in a public room for PLAY. Hidden rooms still reject. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative bounded-board projection and retention regression seams.
+
+- Extend public-room board fixtures across the fifth and sixth MESSAGE: retain exactly the last five in canonical order, remove the oldest and keep shout last-1 independent. A larger visual viewport must not turn the board into an unlimited archive.
+- Preserve compute 1, existing MESSAGE only, hidden-room rejection, silent WATCH, unchanged help and no Genesis mutation. This slice changes count retention, not cycle expiry; later accepted S10 expiry must be evaluated under its own version rather than contradicted by this historical contract.
+- Compatibility/promotion: pin communication-catalog/gc5-s5/RFC-0063 with S3’s earlier capacity and S4 shout behavior; retain catalog-specific expectations when comparing older captures.
+- Verification proposal: post six notices, replay, compare room isolation and hidden-room failures, then separately test accepted expiry composition if enabled. Localized notice wrappers and ordered accessible lists must preserve text/order without reannouncing all five on each update or adding a WATCH board feed.

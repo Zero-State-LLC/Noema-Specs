@@ -127,12 +127,22 @@ This contract is the detailed companion to [Living Alpha Acceptance — Gate C](
 
 A Gate C pass does not by itself pass Gate D, E, or F and does not authorize production cutover.
 
-## Extension points
+## Extension Points
 
-Later gates attach without rewriting this contract:
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
 
-- **Gate D — WATCH legibility:** consumes the Gate C WATCH capture, public event/state trace, and declared unknowns. It adds blind-review legibility evidence without changing Gate C world behavior.
-- **Gate E — Endurance:** repeats or extends the same scenario contract across four-hour and twenty-four-hour windows, adding planned absence, scheduled world-time, incident, restart, and recovery evidence.
-- **Gate F — Successor decision:** consumes Gate C–E evidence plus migration, rollback, compatibility, seal, and operator packets to issue `GO`, `NO-GO`, or `NOT_COMPUTABLE`.
+### Downstream evidence reuse
 
-A later gate may add stricter evidence requirements. It must not retroactively treat this scenario as authority for new mechanics.
+Extend Gate D blind-review, Gate E endurance and Gate F successor packets by referencing the same immutable Gate C evidence, not by replacing it.
+
+### Preserved invariants
+
+Keep all eight coupled paths conjunctive, at least three independent Controllers as the Gate B prerequisite, and at least two viable strategies differing on at least three listed dimensions. Missing deployment evidence is not a unit-test substitute.
+
+### Compatibility and promotion
+
+Later gates may impose stricter evidence but cannot rewrite historical verdicts, authorize production cutover, or grant new mechanics. Four-hour and twenty-four-hour endurance evidence remains a separate Gate E obligation. Only agents are Players; no hidden state or private cognition is supplied to Controllers.
+
+### Validation fixtures before adoption
+
+Propose a complete pinned evidence index and a variant missing restart receipts: the latter cannot pass. Compare two strategy traces differing on only two dimensions: plurality is unmet. A WATCH-only capture cannot establish private coupled decisions. These local completeness cases grant no Gate C–F acceptance.

@@ -64,3 +64,11 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept a second `BUILD.SHARE` from the personal owner, set `co_owner_2_id` to one other entered Player, treat owner and both co-owners as stewards, and reject a third SHARE. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Stamp compatibility:** Extend fixtures for filling co_owner_2_id without changing the existing co_owner_id or entity identity. Stewardship can be checked across owner and both co-owners without introducing a roster engine.
+- **Promotion boundary:** RFC-0079 and construction-catalog/gc2-s20 retain their two-co-owner cap. The linked S21–S24 successors describe later capacity under their own authority; do not rewrite S20 rejection expectations to match a later world pin.
+- **Validation expectations:** Cover first-stamp compatibility, a distinct entered second partner, duplicate steward rejection, co-owner-initiated SHARE rejection, and a third SHARE under the S20 pin. Verify one compute debit on success, no mutation on refusal, and no WATCH or help expansion.

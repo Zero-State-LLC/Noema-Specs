@@ -107,3 +107,9 @@ A task enters this campaign only when it names:
 - explicit non-goals.
 
 Unmapped feature work is not authorized campaign work.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Integration-edge evidence and work-admission receipts can be extended within the existing LCA milestones. Preserve completed Gate A, blocked Gate B prerequisites, implementation-plane distinctions and the frozen alpha. Promotion evidence should pin candidate commits, enrollment and independently controlled external Players before changing gate status; test reconnect, contention and recovery on that candidate. LCA-4 evidence permits a cutover decision, not deployment, and does not reopen deferred breadth.

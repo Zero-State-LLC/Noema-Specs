@@ -61,3 +61,19 @@ S3 millipoint retune
 ## Runtime rule
 
 Hosted Chamber MUST create a public `defensive_work` CONSTRUCT as `IN_PROGRESS`, occupy the class slot immediately, refuse the S3 contest-defense bonus until that same `entity_id` is live after 1 committed cycle, and salvage an in-progress work without leaving a live work or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend construction-to-contest evidence with the shell’s immediate slot occupancy and the same entity_id becoming live after one committed cycle. A progress display should distinguish pending work from an already functioning defense.
+
+### Compatibility and promotion
+
+RFC-0076 is defensive_work-only: preserve duration, S3 +50 millipoints, existing events, and no scar on in-progress salvage. Existing live works retain their effect; worlds without S17 keep their prior pin. Progress UI cannot add a project minigame or extend other classes.
+
+### Verification before adoption
+
+Attempt a second build while the shell occupies the slot; compare contest scoring before and after promotion. Restart across the boundary and confirm one promotion, same identity, no early bonus. Dismantle before completion and assert salvage without live leftover or scar; retain class-specific hidden-target rejection.

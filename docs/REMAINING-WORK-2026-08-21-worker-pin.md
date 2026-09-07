@@ -320,3 +320,13 @@ lagging a publish: here a real Worker version id was attached to a change that c
 Worker code, so the row read as hosted when nothing about it was. `Zero-State-LLC/Noema`
 `docs/RFC-RUNTIME-AUDIT-2026-08-23.md` now carries the per-RFC version of this distinction
 for all 125 contracts.
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Dated deployment and release evidence
+
+Maintain this tracker prospectively with new dated observations rather than rewriting the historical publishes, resolved client defects or incident outcomes. Distinguish a merged source change, a released package, a Worker deployment and an observed behavior; harness-only and CI-only changes do not belong to Worker payload claims.
+
+For each future reconciliation, compare /version with hosted_live, record the observation time and exact package/build pins, and inspect the relevant installed artifact or behavior probe. Missing probes remain explicitly unverified. This maintenance guidance authorizes no deploy, enrollment, reseed, force activation or reversal of RFC-0120.

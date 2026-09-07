@@ -16,3 +16,9 @@ Schema: [`specs/story-seed.schema.json`](../specs/story-seed.schema.json)
 Example — `LOST_ARCHIVE` prefers: one old archive/record site, missing/incomplete evidence, at least one unresolved historical question.
 
 Human-authored structured seeds only. No LLM/natural-language compiler requirement. No constraint solver.
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Human-authored seed guidance can add examples of starting pressure and unresolved evidence within the six frozen v0.6 seed identities. Preserve admin-only Genesis selection and the absence of prescribed outcomes, a language compiler or a constraint solver. A new seed identity or changed machine constraints needs an explicit catalog/schema version decision and owning Genesis review. Validate examples against story-seed.schema.json and the pinned catalog, and demonstrate that generated starting conditions leave the historical question unresolved rather than scripting Player behavior.

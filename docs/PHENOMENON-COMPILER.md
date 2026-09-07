@@ -183,3 +183,15 @@ Promotion supports only a reproducible behavior claim under stated conditions. R
 9. Property, mutation, tamper, stochastic-boundary, privacy, budget, and end-to-end reproduction tests.
 
 Each stage MUST be independently testable. Registry integration MUST NOT precede reliable replay, provenance, policy, and promotion gates.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Unit extractors, dependency-closure rules, and typed perturbation adapters are extension seams for additional reproducible behavior candidates.
+
+**Preserved invariants.** Retain predeclared targets and equivalence boundaries, stable enumeration, protected units, bounded oracle calls, and acceptance of removals only on PRESERVED. One-minimal is not globally minimum.
+
+**Compatibility and promotion.** Changed predicates, tolerances, versions, or ignored fields create a new compilation identity and cannot reuse incompatible cache entries. New adapters pass schema, provenance, consent, replay, controls, and partition gates before promotion.
+
+**Validation expectations.** Run dependency-protection, oracle-disagreement, budget-exhaustion, failed-control, and private-export cases; check final one-unit sweep and receipts even for NOT_COMPUTABLE, with no minimality or promotion claim after exhaustion.

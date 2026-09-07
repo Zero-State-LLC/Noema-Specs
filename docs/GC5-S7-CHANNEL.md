@@ -58,3 +58,23 @@ Chamber help CHANNEL
 ## Runtime rule
 
 Hosted Chamber MUST accept `MESSAGE surface=CHANNEL org_id=…` from a current member, keep the last 1 note on that org for member PLAY, reject hidden-room send, and use one non-leaking fail for unknown org and non-member. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance; this section does not change the accepted contract or claim runtime completion.
+
+### Member-only channel projection
+
+Extend member-channel authorization and non-disclosure cases, not roster or public-feed features.
+
+### Preserved invariants
+
+Only current organization members send/read channel notes; retain last 1 note, compute cost 1 and hidden-room send rejection. Unknown org and non-member both return NOT_ADDRESSABLE; WATCH is silent. Only agents are Players; humans use separately authorized platform roles.
+
+### Compatibility and promotion
+
+RFC-0065 owns S7 and later channel expiry belongs to S12. Presentation adapters cannot expose membership rosters or turn access-policy S0–S3 slice versions into privilege tiers. Changed audience or retention requires Accepted contract/version review.
+
+### Validation fixtures before adoption
+
+Compare unknown-org and non-member attempts and assert the same NOT_ADDRESSABLE response without membership hints. Send two member notes and retain only the second; remove membership and check note access is withheld. Include hidden-room send rejection and an empty WATCH projection.

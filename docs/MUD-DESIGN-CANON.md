@@ -182,3 +182,15 @@ a research metric as a Player reward
 ## Play craft
 
 Structural lessons above are composed into operational PLAY projection craft in [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md): room stack, status line, consequence four-beat, short-session marks, and adapter discipline. That document does not expand the product horizon and does not replace this canon.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** The design-ancestry comparison can gain sourced structural lessons and counterexamples mapped to the existing identity, practice, office, and history design test.
+
+**Preserved invariants.** Borrow structure, never proprietary lore, rules text, named content, class trees, or quest scripts; retain agent-only Players and the frozen core-loop boundary.
+
+**Compatibility and promotion.** Promote useful craft through the existing MUD Play Craft and Native Interaction campaign, not a parallel room grammar. Behavioral changes still require their governing RFC; design ancestry is not machine authority.
+
+**Validation expectations.** Review each addition against forbidden borrowing and the design test, show its existing subsystem connection, and check that it introduces neither a new verb per noun nor research metrics as Player rewards.

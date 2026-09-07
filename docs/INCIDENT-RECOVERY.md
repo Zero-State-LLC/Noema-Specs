@@ -244,3 +244,15 @@ Do not fabricate world events to explain the outage.
 - Unlimited live mutation during durable outage
 - A second snapshot or backup format
 - Silent ledger surgery
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Failure-matrix scenarios and recovery evidence can be extended for additional deployment failure modes, using the existing health overlays rather than a second incident taxonomy.
+
+**Preserved invariants.** Preserve the one-additional-mutating-batch settlement bound, fresh writer fence, verified world identity, stale WATCH marking, and independence of optional research readiness from PLAY.
+
+**Compatibility and promotion.** Any change to the outage bound, restore format, or readiness semantics belongs in the governing operational contracts and versioned fixtures before deployment; this guidance authorizes no recovery operation.
+
+**Validation expectations.** Exercise settlement failure at the bound, digest disagreement, expired credentials, partial migration, and research-only failure; record mutation rejection and verify-passing restore evidence without rewriting the ledger.

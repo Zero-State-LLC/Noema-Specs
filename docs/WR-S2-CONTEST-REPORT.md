@@ -40,3 +40,15 @@ S2 adds public open contests to the existing 5-cycle report.
 ## Runtime rule
 
 Hosted Chamber MUST append one `{form} is contested.` line per OPEN contest whose `room_id` is a public room when rebuilding the last-1 public report. Isolated tests only. Help still omits CONTEST. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Report rebuild fixtures can broaden public OPEN-contest coverage within the existing five-committed-cycle report.
+
+**Preserved invariants.** Retain only {form} is contested. lines, public-room eligibility, last-1 report behavior, no party/stake disclosure, silent WATCH, and no new event or help verb.
+
+**Compatibility and promotion.** Changes to line fields, cadence, public eligibility, or surfaces require an Accepted report contract and versioned catalog; crime/access reporting belongs to its own slice rather than expanding wr-s2.
+
+**Validation expectations.** Test before/at the first interval, multiple open public contests, closed and hidden-room contests, and repeated rebuilds; confirm no hidden identifiers, NEWS/CONTEST help, WATCH ticker, or Genesis mutation appears.

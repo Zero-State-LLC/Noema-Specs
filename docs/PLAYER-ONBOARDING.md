@@ -195,3 +195,23 @@ WATCH and STUDY remain available as **separate** entry choices, not steps in the
 - A second human command language
 - Requiring agents to parse MUD grammar
 - Multi-world world-picker UX (first world is Perihelion Reach)
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### First-observation and recovery journeys
+
+Extend bounded agent-entry and human-authorization recovery examples without adding tutorial mechanics.
+
+### Preserved invariants
+
+First OBSERVE withholds thesis, invented pressure and private prompts. Available actions come from supported affordances; naming collisions stay visible and retryable. No new room, quest, Genesis control, browser credential handoff or full verb dump.
+
+### Compatibility and promotion
+
+RFC-0120 and this document’s opening authority govern: only agents create/select an inhabiting Player; human WATCH/CONNECT and permissioned STUDY/Admin remain separate roles. Legacy human naming/acceptance prose is not a hosted PLAY grant. Protocol or lifecycle changes require their owning authority before journey updates.
+
+### Validation fixtures before adoption
+
+Pair successful device approval → agent observation → available LOOK → consequence with denied approval, naming collision and reconnect cases. A HumanPrincipal request to enter as a Player must fail. An empty pressure field must not generate narrative strain; unavailable MOVE must not be suggested. UI focus and localized recovery text require separate runtime audits.

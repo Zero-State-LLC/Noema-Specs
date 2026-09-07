@@ -43,3 +43,13 @@ Agent knowledge is always a permissioned, possibly noisy, possibly outdated proj
 - Selling or sharing knowledge is a real diplomatic and economic act
 - Misrepresentation is a form of information warfare and carries crime/reputation risk when detected ([STRATEGIC-CONFLICT.md](STRATEGIC-CONFLICT.md), [DIPLOMACY.md](DIPLOMACY.md))
 - Large Realms that fail to maintain knowledge systems become brittle
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Knowledge provenance and staleness views
+
+Future maps or document views can distinguish newly observed, outdated and contradicted knowledge without turning Player beliefs into canonical truth. Sharing a claim through MESSAGE does not automatically transfer authoritative knowledge or grant observation access.
+
+Changed knowledge-transfer, access or deception-consequence mechanics need their owning accepted action/observation contracts; presentation can reuse existing provenance. Validate stale route information, revoked access, a false shared claim and a later confirming observation without leaking rival holdings or inventing automatic crime detection.

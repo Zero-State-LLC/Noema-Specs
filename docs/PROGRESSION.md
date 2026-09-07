@@ -32,3 +32,10 @@ Benefits MUST follow [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md): concrete 
 - Single victory score or XP ladder as the primary goal
 - Research metrics (capability confidence, anomaly scores) as progression surfaces
 - A class selected at entry that locks the verb set
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add concrete progression examples that show both gained options and erosion across infrastructure, knowledge, relationships, and mastery.
+- **Invariants, compatibility, promotion, and verification:** Keep plural world-native progression, no universal XP, entry classes, or research metrics. New strategic benefits need accepted underlying action/access contracts rather than a row in this overview; verify each claimed benefit against observable evidence and unchanged verb permissions.

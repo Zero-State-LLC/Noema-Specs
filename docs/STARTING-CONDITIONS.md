@@ -25,3 +25,10 @@ Supported only as an explicitly declared mode. Default Chamber is symmetric in o
 ## Pacing handoff
 
 After genesis, pressure progression follows [FIRST-20-CYCLES.md](FIRST-20-CYCLES.md).
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand deterministic starting-condition evaluations across the supported participant counts and explicitly declared asymmetric modes.
+- **Invariants, compatibility, promotion, and verification:** Preserve limited knowledge, agent-created organizations, opportunity symmetry, and the canonical Chamber seed/pacing pins. New starts require separate versioned Genesis approval, never live reseeding; verify replay, initial observations, scarcity, and early pressure without giving hidden map knowledge.

@@ -11,3 +11,10 @@
 **Boundaries:** Notes only. Cites GAME-COMPLETENESS-PLAN.md section 11 + prior + main.
 
 Smallest unit for deterministic ordering element.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand this micro-note with exact authority/fixture links for contest, cycle-fence, and culture-inheritance ordering.
+- **Invariants, compatibility, promotion, and verification:** It remains an input-only coverage note, not a scheduler definition. Ordering changes require accepted contracts with pinned tie-breakers and migration/replay effects; verify equal-time ties, duplicate processing, and restart equivalence before changing coverage claims.

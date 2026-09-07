@@ -20,3 +20,11 @@ frontier pressure:
 ```
 
 Agents are **not** scripted. Fixture supplies genome, request, candidates, plan, injection event, observations, spectator + research overlay, digests, replay context.
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Additional Frontier walkthrough annotations can connect the existing genome, request, candidate, plan, observations, and replay digests.
+- **Unchanged invariants:** Keep agents unscripted and preserve the validity of the legacy situation-genome/1.0 sample. Fixtures are not live-world canon.
+- **Compatibility, promotion, and verification:** New scenario packages should pin their schemas and replay inputs rather than replacing historical examples. Validate positives and genome negatives and compare repeat-run digests before presenting a package as conformant.

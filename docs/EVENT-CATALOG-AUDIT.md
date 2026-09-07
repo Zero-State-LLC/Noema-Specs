@@ -81,3 +81,19 @@ plane. The `visibility` / `victim_id` payload gap is closed by RFC-0129 on
 `event-catalog/0.2`. Detection remains unwired; see
 [Research Assimilation — Crime](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md)
 and `B7b`–`B7e` in [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend audit receipts with the scanned runtime revision, producer call site, pinned catalog, payload schema, and disposition: emitted and catalogued, catalogued but unproduced, or defect. Keep error-return codes separate from ledger event producers and distinguish a consumer from a producer.
+
+### Compatibility and promotion
+
+Accepted RFC-0127 closes TRADE_CANCELLED on event-catalog/0.2, not 0.1 or a new 0.3. Historical never-emits findings are dated observations, not permanent runtime truth. Audit viewers are operator/developer tooling; they do not expose full catalogs or hidden event payloads to PLAY.
+
+### Verification before adoption
+
+Rescan every producer at the candidate revision and validate emitted payloads against its catalog. Include wrong-version types and unknown operations as negative cases. Verify a reference in a projection or social-memory consumer does not count as production, and require a new receipt rather than claiming this design edit re-audited the Worker.

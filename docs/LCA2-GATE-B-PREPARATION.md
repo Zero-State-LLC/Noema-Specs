@@ -185,3 +185,13 @@ Until these actions occur, `external_agent_population_gate_b` remains `BLOCKED` 
 - No third-party compatibility-at-scale claim.
 - No consciousness or inner-experience claim.
 - No successor deployment or cutover.
+
+## Extension Points
+
+Non-normative preparation-packet and independence-review seams.
+
+- Extend the redacted participant/run record with explicit links from enrollment, isolated context/storage, reconnect and contention receipts to each acceptance requirement. Distinguish three scripted subprocesses from potentially admissible autonomous external Controllers; subprocess count alone is not population evidence.
+- Preserve PREPARATION ONLY and the existing BLOCKED/NOT_COMPUTABLE/REJECTED distinctions. The Controller independence contract above controls older checklist wording: separate human operators are not required, but separate decision contexts and no shared gameplay planner are. An orchestrator may pace or stop loops, never pick actions or share private observations.
+- Compatibility/promotion: pin runtime/Worker/Specs, world/Genesis/seal and head before any authorized run. Repository validation, translated enrollment copy and accessibility previews cannot open Gate B, authorize production enrollment or promote later gates. Actual receipts remain necessary, with secrets/private cognition excluded.
+- Verification proposal: challenge packets with shared action queues, duplicated local state, absent approval, failed reconnect, conflicting heads and incomplete redaction; verify honest blocked/unknown/rejected dispositions rather than COMPLETE. Test operator-facing status and device-code error text without copying credentials into logs or accessible announcements.
+- Historical “Continue” claims previously embedded in this EP are not carried forward as current evidence. Health checks, ARIA counts and local UI work need their own retained, dated artifacts; none establishes Controller independence or a live external run.

@@ -200,3 +200,11 @@ Replay outputs use `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` l
 9. Property, tamper, migration, privacy, and end-to-end reproduction tests.
 
 Later stages MUST NOT be used to bypass an unmet earlier integrity or determinism requirement.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Replay seam:** Extend immutable input-resolution and comparison fixtures for the existing replay modes, canonicalization profile, named streams, and boundary predicates. A new adapter can supply recorded external bytes without invoking a live provider as an undeclared dependency.
+- **Compatibility boundary:** Changes to canonicalization, predicates, sampling, or equivalence semantics require new pinned identities and explicit migration comparisons. Keep the v0.1 event, final-state, and focal-observation digest requirements intact; a wider boundary after divergence is a new experiment, never a repaired success.
+- **Validation expectations:** Test missing bytes, digest tampering, duplicate sequences, unknown versions, required/ignored path overlap, cancellation, and a genuine first divergence. Verify exact output classification and preserved partial audits, checkpoints, and first-failure location. Compare replay under changed host locale/time with declared inputs fixed, while protecting private artifacts and consent boundaries.

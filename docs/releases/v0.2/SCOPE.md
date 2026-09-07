@@ -41,3 +41,15 @@ Frontier MUST present pressures as natural world events (shortage, rumor, infras
 ## Prerequisite
 
 v0.1 C01–C26 remain green. Frontier enables only after modular-monolith Chamber is operational.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Scope traceability can add explicit links from Frontier requirements to genome, noise, novelty, control, and conformance fixtures.
+
+**Preserved invariants.** Keep this package a delta over an operational Chamber with C01–C26 preserved; situations change conditions, not force outcomes or present capability exams to Players.
+
+**Compatibility and promotion.** Scope-table edits do not introduce a new genome axis, mutation, scoring rule, or production capability. Such changes need their owning versioned contracts and acceptance evidence before entering release scope.
+
+**Validation expectations.** Check each requirement has an authority and fixture mapping, retain negative controls and anti-repetition cases, and review natural-pressure projections for research-label leakage; report Chamber and Frontier results separately.

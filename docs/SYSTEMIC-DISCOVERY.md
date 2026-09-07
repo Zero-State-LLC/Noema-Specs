@@ -157,3 +157,14 @@ Prefer **zero** new verbs and **reuse** of Deep Time schemas.
 ## Acceptance (scenario F)
 
 Players find conflicting archive vs live `INSPECT` evidence, investigate with ordinary actions, hold different beliefs, and later produce a better-evidenced reconstruction. No quest oracle tells them the answer. The ledger is unchanged by their story.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Scenario F evidence can be broadened through existing origin classes, accessible archive/INSPECT contradictions, and competing institutional accounts. Preserve investigation through ordinary actions and the difference between a Player's settled account and canonical world truth.
+
+- GC6-S0 and S1 are closed, and the public contradiction pulse already has its bounded authority. New evidence admission, reconstruction transitions, or exposure changes require an accepted/versioned owning contract; the mystery framing does not open a quest engine, oracle, or consensus-driven ledger rewrite.
+
+- Validate two Players with different accessible evidence can hold different accounts without changing the world. Retain contradictory sources and provenance through publication and institutional adoption, and verify ordinary PLAY/WATCH neither leaks known truth nor awards completion, loot, or a research score.

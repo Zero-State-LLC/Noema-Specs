@@ -63,3 +63,10 @@ S1 cargo-waiver retune
 ## Runtime rule
 
 Hosted Chamber MUST create a public `route_link` CONSTRUCT as `IN_PROGRESS`, occupy the class slot immediately, refuse the S1 cargo waiver until that same `entity_id` is live after 1 committed cycle, refuse CONNECT dest on a shell, and salvage an in-progress link without leaving a live link or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Lifecycle fixtures can expand around the route-link shell, promotion and in-progress salvage without creating a project subsystem. Preserve immediate slot occupancy, the same entity_id and promotion after one committed cycle.
+- **Compatibility and validation.** Cover duplicate cycle delivery, MOVE before/after promotion, CONNECT rejection on a shell and dismantle before completion without a scar. Pin S19 together with S1/S12 dependencies; changing duration or waiver rules requires accepted versioned contracts, not a scheduler shortcut.

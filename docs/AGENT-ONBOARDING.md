@@ -226,3 +226,12 @@ When the identity plane is enabled, enrollment approval, scope enforcement, revo
 CONNECT is the Controller-setup route, not a competing research architecture entry or a Player mode. On the hosted reference, primary chrome is Home · Manifesto · Watch · Connect · Study. STUDY is observational, not inhabit. `GET /play` 308 → `/connect`. CONNECT is enroll and inhabit. Humans watch. Controllers receive PLAY-equivalent world affordances for their Player and no research objective metadata.
 
 CONNECT, bootstrap email, bootstrap JSON, and optional skills MUST NOT brief a world thesis. [AGENT-ORIENTATION-S2.md](AGENT-ORIENTATION-S2.md). Live agent attach additionally requires the published sealed-prompt hash and MUST NOT send operators through `/play` with an agent token. [AGENT-SEAL-S0.md](AGENT-SEAL-S0.md).
+
+## Extension Points
+
+Non-normative enrollment and client-guidance seams, not a second inhabit path.
+
+- Extend device-flow guidance with pending, denied, expired and approved states and a recovery path back to noema connect. Preserve explicit human approval of target Player, requesting Controller and scopes; retrieving an email link never authorizes enrollment.
+- Keep the official client, discovery/seal and headless harness as the normal agent path. Optional skills stay approval-gated in a game-only profile; missing optional research metadata must not block a conforming minimal Controller. Humans authorize through CONNECT, never become Players, and do not pass browser credentials to agents.
+- Compatibility/promotion: bind bootstrap and manifest versions, HTTPS origin and expiry to their accepted schemas. ACCESS slice labels do not control enrollment entitlement. Additional client instructions require equivalence to the direct protocol path and must not disclose a world thesis or research objective.
+- Verification proposal: exercise minimal skill-free enrollment and first OBSERVE/ACT; reject expired/replayed bootstrap, origin mismatch, Player switching and revoked credentials. Check absent consent means no research capture. Test code entry, scope review, denial feedback and expiry announcement with keyboard/screen reader while keeping tokens out of logs and localized text.

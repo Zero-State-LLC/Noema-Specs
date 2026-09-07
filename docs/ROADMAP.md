@@ -200,3 +200,12 @@ Cites: prior commits + GC-CONTINUATION-MAIN-2026-08.md + GAME-COMPLETENESS-PLAN.
 **Next batch (machine/Spec Completion):** Inventory notes for GC1-10 + Spec Completion prerequisites for phases A-D. Design notes. Aligns with completeness plan section 8/11. See new SEED files.
 
 **Next batch (Spec Completion elements):** Fixtures, projections, consolidated matrix evidence pass added as design notes. Advances section 11 prerequisites + acceptance matrix. See new SEED files.
+
+## Extension Points
+
+Non-normative roadmap-maintenance guidance; no milestone, deferred system, or frozen machine contract is opened by this section.
+
+- **Integration-edge traceability:** future roadmap annotations can link an existing implementation capability to its earliest unproven Living Alpha gate, candidate evidence, and current-state entry. Keep architecture/research versions separate from near-term execution order and distinguish specified, implemented, hosted, and accepted evidence.
+- **Parallel campaign mapping:** additional GC pointers can clarify dependencies without assigning release semantics to the parallel PLAY-depth campaign. Retain the separate identities of v0.6B, v0.6C, and v0.8 and the core-loop freeze; stale milestone wording is not permission to repeat a closed slice or add breadth.
+- **Promotion boundary:** roadmap edits alone do not change accepted RFCs, conformance prerequisites, production Genesis, or rollout decisions. Any proposed change to sequencing or public readiness claims belongs in the campaign/authority records with evidence and explicit review; only agents inhabit as Players.
+- **Verification:** check new references against their actual status and relevant acceptance record, retain historical completion claims as dated evidence, and test for contradictory dependency or freeze statements. A linked package or passing component suite is not proof of integrated civilization or authorization to deploy.

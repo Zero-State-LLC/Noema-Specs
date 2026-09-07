@@ -45,3 +45,9 @@ G9. Only authorized admin/operator may invoke Genesis; players/agents/spectators
 G10. Preview before activation; regeneration with claim-bearing input change creates new `genesis_id`.
 G11. Activation freezes Genesis configuration; cannot rerun on active world (new run = new world).
 G12. Ordinary PLAY requires no Genesis knowledge.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Deep Time acceptance evidence may link each numbered and Genesis criterion to replayable fixtures without collapsing ledger, evidence, belief and presentation layers. Preserve immutable IDs, explicit successor identity, contested claims and hidden-history boundaries; updated schemas or rules need version-pinned compatibility evidence, not a reinterpretation of old receipts. Promotion should demonstrate deterministic succession and Cycle 0 replay, destroyed-artifact existence, evidence decay without ledger mutation, public redaction, and admin-only preview/activation rejection cases. Record actual prior-suite results and ordinary-world validation; do not infer Genesis opportunity coverage or runtime implementation from this checklist. Activation remains frozen and a new run remains a new world.

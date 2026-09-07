@@ -24,3 +24,19 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B7b), RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, contest-config.v02.json, STRATEGIC-EVENT-COUPLING.md, RFC-0002, PR #305 + main continuation.
 
 Smallest unit for the detection algorithm gap. Ready for RFC.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend algorithm triage with a per-incident evidence trace that distinguishes missed observation, bad assessment, and failed execution. Identify how published detection constants would enter a versioned replayable function rather than assigning them an invented runtime meaning.
+
+### Compatibility and promotion
+
+This research seed does not implement a producer, activate constants, or settle guilt. Check current accepted detection contracts before opening any residual; closed work stays closed. No wall-clock randomness, private-cognition inference, automatic sanction, or new public exposure follows from an algorithm sketch.
+
+### Verification before adoption
+
+For any future proposal, require seeded repeatability, threshold-boundary cases, absent/invalid sensors, and false-positive/false-negative expectations. Separate CRIME_DETECTED production from consumption and projection. Tie each output to incident provenance and permission checks; mark missing evidence honestly rather than treating this planning note as observed detection.

@@ -39,3 +39,12 @@ S2 closes the AGREEMENT family. Form, accept, and terminate stay S0/S1.
 ## Runtime rule
 
 Hosted Chamber MUST accept `form agreement <type> with <player>` for all five catalog types, apply the live effects in RFC-0100, and list AGREEMENT on `help` / `help agreement`. Isolated tests only. No Genesis change.
+
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Five-type agreement presentation:** An agreement adapter can derive help and accessible type selection from diplomacy-catalog/s2 while submitting the existing form/accept/terminate path. Localize explanatory labels, not the five machine identifiers or canonical command grammar.
+- **Preserved invariants:** S2 closes the AGREEMENT family: no sixth type, ACCESS_POLICY verb, new event, WED/ATTEST help, ticker, or YOUR POSITION projection. Breach effects do not turn into pre-emptive contest blocking.
+- **Compatibility and promotion:** Keep S0/S1 formation lifecycle and RFC-0100 effects authoritative. A richer client requires no effect-writing plugin; any changed machine semantics need separate accepted authority, not an EP implementation choice.
+- **Verification targets:** In isolated fixtures cover every catalog type, malformed and sixth-type rejection, applicable live effects, and the same ordinary authority checks for native and assisted commands. Confirm AGREEMENT help appears while forbidden help and WATCH ticker remain absent; retain Genesis unchanged.

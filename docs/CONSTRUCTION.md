@@ -315,3 +315,19 @@ Supporting signals (assimilation): neural composition from existing elements for
 This extends the authority with 2026-08-27 research signals without mutating shipped S0 pins, frozen contracts, or event catalog. BUILD remains deferred for runtime until RFC.
 
 **Citations / provenance:** [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) (GC2 table + research input row), CONSTRUCTION-RESEARCH-SEED.md, RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md (WorldGen section), arXiv:2511.16825v1, [GC2-FIRST-SLICE.md](GC2-FIRST-SLICE.md), RFC-0006, [INFRASTRUCTURE.md](INFRASTRUCTURE.md), [DEEP-TIME.md](DEEP-TIME.md), [GEOGRAPHY.md](GEOGRAPHY.md), [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md), [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md).
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend integration evidence across construct, committed-cycle completion, ownership/stewardship, abandonment, and restoration using existing GC2 slices. Trace the same asset through a restart and a later Agent Player decision; asset lineage is more useful than a build counter.
+
+### Compatibility and promotion
+
+Accepted slice RFCs and RFC-0090 win over older generalized deferral prose. No new STRUCTURE_* event, class, exit, co-owner roster, or independent crafting engine is opened. Construction affordances remain permissioned and catalog-pinned; Controller enrollment does not waive geography, costs, or occupied-office authority.
+
+### Verification before adoption
+
+Exercise an IN_PROGRESS asset with no live bonus, duplicate construction without double charging, hidden/illegal targets, and recovery preserving entity_id and history. Distinguish an abandoned constructible from an irreparable scar. Preserve each slice’s fixtures and identify the deployed catalog before claiming hosted scenario-C completion.

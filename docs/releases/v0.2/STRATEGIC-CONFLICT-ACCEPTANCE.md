@@ -33,3 +33,11 @@
 - `docs/CONTEST-RESOLUTION.md`
 - `docs/STRATEGIC-EVENT-COUPLING.md`
 - RFC-0002 **Accepted**
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Acceptance seam:** Extend concrete positive and rejection cases within S01–S18, especially reservation settlement and permitted event coupling. Keep this release checklist mapped to RFC-0002 and its evidence package, not a competing contest algorithm.
+- **Compatibility boundary:** Preserve catalog 0.1 rejection of 0.2 types and explicit world pin migration. Later contest slices require their own catalog/contract evidence; they do not silently change the meaning of the original S-family acceptance record.
+- **Validation expectations:** Reconcile declaration/defense stake ledgers with resolution follow-ons, test forbidden sequences and private stake redaction, compare replay digests, and reject unapproved upgrades. Attach exact fixtures and runner results for each strengthened coverage claim, retaining previous release evidence and any non-comparable cases.

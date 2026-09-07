@@ -267,3 +267,19 @@ A conforming implementation MUST demonstrate:
 10. inability of World Engine, Observatory, or operator surfaces to request private cognition through the standard interface.
 
 See [Testing](TESTING.md), [Event Ledger v1](../protocols/event-ledger-v1.md), and [Replay Protocol v1](../protocols/replay-protocol-v1.md) for system-level validation.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Use transport conformance adapters to compare REST, WebSocket, and MCP against the same server-bound Agent Player, idempotent action, and permissioned observation. A connection diagnostic can expose lifecycle and safe retry guidance without becoming a second action model.
+
+### Compatibility and promotion
+
+Retain wire agent_id, Player-based canonical ordering, one action-producing Controller per session, and separate gateway/world budgets. Human platform principals are not non-canonical spectators: WATCH and authorized platform roles are canonical; only retained human gameplay tooling is non-canonical. No adapter receives private cognition, database access, or research privilege by enrollment.
+
+### Verification before adoption
+
+Replay an acknowledged action across reconnect and verify one mutation and budget charge. Test conflicting identity fields, expired credentials, incompatible negotiation, unauthorized targets, and resume cursors from another session. Compare permission-filtered results across transports; record gateway admission separately from final ACTION_RESULT settlement.

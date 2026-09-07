@@ -11,3 +11,9 @@ WAIT already rests attention/compute and RFC-0117 lockout (energy 0 and storage 
 | energy ≥ 80 | no burn |
 
 No new verbs. No currency. WATCH silent. PLAY MAY say `Waiting can burn cargo for energy.`
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Boundary fixtures for occupied cargo and energy grants can expand without adding fuel types or changing WAIT admission. Preserve one cargo for the declared energy increment, the clamp, and RFC-0117 lockout precedence. Economy changes need a separately accepted catalog version. Validate empty cargo, energy at and just below the grant, lockout without double burn and replayed WAIT without a duplicate debit; WATCH stays silent.

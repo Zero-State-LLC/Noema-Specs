@@ -58,3 +58,10 @@ cycle expiry is [GC5-S13-TRADE-NOTICE-EXPIRY.md](GC5-S13-TRADE-NOTICE-EXPIRY.md)
 ## Runtime rule
 
 Hosted Chamber MUST accept `MESSAGE surface=TRADE_NOTICE` in a public room and keep the last 1 trade notice for PLAY. Hidden rooms reject. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Trade-notice projection tests can expand around replacement of the last public-room message. Preserve MESSAGE semantics, current-room locality, the single retained notice and silent WATCH; text is neither a certified price nor an automatic offer.
+- **Compatibility and validation.** Check hidden-room rejection, sequential notices, compute charging and absence of TRADE side effects. Apply expiry only under the separately pinned S13 contract; new reach, retention or surface identifiers need accepted versioned communication authority rather than an S8 reinterpretation.

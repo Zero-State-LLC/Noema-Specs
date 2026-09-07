@@ -168,3 +168,12 @@ If fixture pins seed pert differently, recompute. The package fixture documents 
 - No permanent elimination
 - Access restrictions expire by cycle
 - Crime requires detection path
+
+## Extension Points
+
+Non-normative deterministic-conformance and result-inspection seams.
+
+- Extend isolated contest fixtures around integer millipoint arithmetic, recomputed seed perturbation, capped mutual-defense support and exact threshold boundaries. Keep command-layer ABORTED/EXPIRED separate from scored outcomes and preserve ordered CONTEST_RESOLVED then follow-on events.
+- A trace viewer may explain authorized inputs and spent/released stakes, but Controller credentials confer neither config tuning nor unrestricted engine access. ACCESS S0–S3 are unrelated slice versions, not privilege tiers; live PLAY actions retain canonical consequences, while simulations stay isolated.
+- Compatibility/promotion: every numeric-constant change requires a new contest_rules_version and corresponding config/fixture review. Historical examples or documentation-pinned draws never override the published algorithm. Promote only after recomputing resolution_digest with canonical JSON and accepted seed rules.
+- Verification proposal: cover equality at both thresholds, missing weights, unknown resources, support cap, expiry and no valid forced-move exit. Assert no overdraft, no condition mutation inside CONTEST_RESOLVED, no defense spend on expiry and no permanent elimination. Accessible result tables should expose outcome and authorized evidence without leaking hidden stakes or turning score into public reputation.

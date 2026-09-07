@@ -226,3 +226,9 @@ git commit -m "feat(play): require sealed prompt hash on live agent attach"
 | Catalog missing fail closed | 2 |
 | Connect copy | 2 |
 | S0/S2 still pass | 1 (`validate_all`) |
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Prospective maintenance may add dated verification receipts for seal-catalog rotation, client compatibility and AUTH/resume/per-command parity without changing the historical task list or treating unchecked steps as shipped work. Preserve hash-only attestation, no prompt text on wire/storage/logs, live-agent fail-closed behavior, and the isolated/human exceptions. Changed accepted hashes or seal semantics require the owning RFC/catalog version review and explicit handling of older bound sessions; this plan is not deployment authorization. Validate byte-identical prompt hashes, missing/wrong/retired seals, unavailable catalog, resume revalidation, forbidden client flags before network requests, and human/isolated non-regression. Record actual spec/runtime test revisions separately; no Genesis reseed, activation or new Player verbs follows from maintenance.

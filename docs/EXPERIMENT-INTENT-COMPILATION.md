@@ -45,3 +45,12 @@ The display is a projection only. Advanced detail always resolves to the same `e
 ## Compiler readiness
 
 `READY` requires complete required execution, passing required controls, a resolved evidence rule, no fatal confound, satisfied replication requirement, and a bounded phenomenon suitable for v0.5. `NOT_READY` means more evidence, replication, or confound resolution is required. `REJECTED` retains evidence that collapsed the candidate. A Lab result does not create a regression fixture. The simple `CAPTURE AS TEST` action is permitted only for `READY`.
+
+## Extension Points
+
+Non-normative compiler conformance and explanation seams.
+
+- Extend table-driven cases across common intents and CUSTOM, retaining source_intent_id, pinned catalog/template, applied defaults, accepted overrides and input_digest. An assistant can explain rejected inputs but cannot invent an intervention, substitute evidence or use an LLM as compiler authority.
+- Preserve the exact override allowlist and source-candidate measure/equivalence defaults. CUSTOM still chooses declared v0.4 interventions; generalization remains a REPLICATION intervention. Authorized human researchers may use STUDY; agent-only Player identity is not a research-role restriction.
+- Compatibility/promotion: new templates require catalog/version review and deterministic output comparisons. A COMPLETE execution display alone does not imply compiler READY, a captured fixture or public research consent; CAPTURE AS TEST remains gated on readiness.
+- Verification proposal: compile identical pinned inputs twice, reject an unregistered variable and unauthorized override, and retain the original intent on failure. Test missing evidence gives its stated reason with no fallback. A readable defaults/overrides diff should preserve stable codes and audit lineage while translating only explanatory STUDY captions.

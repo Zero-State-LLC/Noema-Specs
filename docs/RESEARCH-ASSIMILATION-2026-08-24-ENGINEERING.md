@@ -48,6 +48,7 @@ Already cited by [RFC-0001](../rfcs/RFC-0001-phenomena-self-reference-integratio
 
 - [Consciousness in Artificial Intelligence: Insights from the Science of Consciousness](https://arxiv.org/abs/2308.08708)
 - [Initial results of the Digital Consciousness Model](https://arxiv.org/abs/2601.17060)
+
 - [Emergent Language as an Approach to Conscious AI](https://arxiv.org/abs/2606.06380)
 
 Projection and fail-closed views:
@@ -252,3 +253,23 @@ the research sharpens; anything that changes a contract needs its own RFC,
 and anything that changes public exposure needs an exposure decision under
 the rule [RFC-0126](../rfcs/RFC-0126-watch-entity-update-exposure.md)
 established.
+
+## Extension Points
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Offline research concordance and view cases
+
+Extend cited offline concordances for Deep Time tails, deferred cultural metrics and per-view projection policy.
+
+### Preserved invariants
+
+RFC-0001 stays Draft/v0.8-blocked, Forman–Ricci remains the shipped metric, and myth production stays absent. path_dependence_strength is not a cost driver; reversal_cost is. Preserve the thirteen global tokens / twenty-one unscoped leftovers distinction.
+
+### Compatibility and promotion
+
+Accepted RFCs remain authority; any changed exposure requires the RFC-0126-style exposure decision. This note does not authorize research data in Controller observations, a generator, a client release, WATCH chrome, new events, Genesis or hosting. Access-policy versions confer no research privilege.
+
+### Validation fixtures before adoption
+
+An empty offline histogram returns NOT_COMPUTABLE, not synthetic culture. Pair lawful LOOK reputation_summary with a WATCH projection that must omit it and path_dependence_index. Verify “Stocks recovered” is not rejected merely by a substring stock rule. Keep RFC-0001 constructs separate from Slice H tails; fixture success establishes no hosted or gate acceptance.

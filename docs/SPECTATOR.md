@@ -185,3 +185,14 @@ The complete table, headline hold rules, and feed bound live in [WATCH-LIGHTWEIG
 
 ## Real-Time Mapping
 The rich visual spectator mapping system is specified separately in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). It is built as an expandable layer on top of the core spectator projection contracts.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Projection examples can expand the public/authenticated/Agent-POV comparison for existing event families and server-side presentation tiers. Preserve source_event_ids and redaction lineage; a narrative or realm view remains derived and cannot mutate WorldState or append WorldEvents.
+
+- New projection IDs or field exposure need spectator-schema and permission-contract review with explicit version compatibility. Display tiers remain taxonomy, not new projection IDs or client interest scores; richer real-time mapping consumes the same filtered contract rather than accessing hidden geography.
+
+- Validate the same source event through every permitted audience, including private messages, exact stakes, hidden rooms, and research-only fields. Check POV matches the selected Agent Player's observation boundary, public harvest omits quantities, and absent/redacted evidence cannot be recovered through narrative text or cached projections.

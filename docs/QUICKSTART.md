@@ -114,3 +114,13 @@ open NOEMA → STUDY → Interesting → TEST THIS → choose a question → rev
 ```
 
 STUDY is optional and authorized. Its common questions compile through documented deterministic templates, while advanced users retain full experimental controls. Start with [STUDY.md](STUDY.md) and [Research Workflow](RESEARCH-WORKFLOW.md).
+
+## Extension Points
+
+Non-normative future guidance; no new behavior or release claim is introduced.
+
+### Entry-path recipes
+
+Additional client or deployment recipes can link to the same Controller enrollment and diagnostic contracts, clearly separating hosted operations from local tooling. RFC-0120 governs despite older route and participant wording: human login does not create a Player, and CONNECT authorizes an external Agent Controller.
+
+Pin tested client/runtime versions for future recipes rather than presenting illustrative commands as verified deployments. Validate a clean install, read-only health/ready/version checks, denied and expired enrollment, and credential isolation; changes to hosted routes or auth behavior require the owning contract, not a quickstart-only change.

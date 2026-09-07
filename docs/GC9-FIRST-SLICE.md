@@ -118,3 +118,13 @@ Hosted Chamber PLAY projects the custom line on the current room for accessors. 
 5. WATCH is empty. No events are written.
 
 Named tradition, dormancy, and public WATCH pulses are **GC9-S1**. v0.6C remains later.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Maintenance-custom projection evidence
+
+Extend replay and access fixtures for distinct repair evidence on one entity, separating the count from lore claims and names. Projection remains derived, writes no events, grants no office authority and exposes nothing to WATCH in S0.
+
+Keep RFC-0013 thresholds and the existing-world no-historical-backfill boundary. Named traditions and public pulses belong to their accepted later slices. Validate two versus three distinct repairs, duplicate event ids, accessor/non-accessor visibility, contradictory lore and cache recovery without inventing missing historical repairs.

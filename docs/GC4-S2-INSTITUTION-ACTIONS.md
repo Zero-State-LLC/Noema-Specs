@@ -197,3 +197,10 @@ Hosted Chamber applies `acting_for` on existing TRADE and REPAIR. Help org topic
 3. Member, advisor, vacant office, and former holder cannot act.
 4. Personal lots and treasury stay separate through turnover.
 5. No new verbs or event types.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Extend authority-turnover and account-selection examples for institutional TRADE reservations and REPAIR asset scope.
+- **Invariants, compatibility, promotion, and verification:** Keep acting_for explicit, ambiguous office selection forbidden, treasury separate from personal funds, and institutions non-Players. New grants or conflict-of-interest rules need separately accepted contracts; verify revocation rejects future acts while settled transfers survive and balances never leak to WATCH.

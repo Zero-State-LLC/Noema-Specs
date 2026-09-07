@@ -41,6 +41,16 @@ visibility: research
 claim_label: INFERRED
 ```
 
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Feature seam:** Extend deterministic trajectory-to-feature fixtures for the declared families and catalog version, retaining event references and fixed-point units. A feature viewer can expose how counts or deltas were derived without assigning mental traits.
+- **Invariants:** Features are not intelligence scores. Event-derived counts may be OBSERVED; aggressive, deceptive, cooperative, or criminal interpretations retain inference labels and confounds. Controller enrollment confers no research registry or baseline access.
+- **Compatibility:** Version changed feature definitions and preserve the mapping needed to replay earlier outputs. Reconcile strategic catalog-0.2 source events with feature catalog-0.3 rather than treating their version numbers as interchangeable.
+- **Verification:** Use event-only fixtures for contest, agreement, access, condition-drop, and repair mappings; test empty/missing evidence and duplicated input handling according to the accepted derivation contract. Compare deterministic output and claim labels across reruns.
+- **Presentation:** Authorized STUDY may show units, source events, and confounds with localized descriptions and semantic tables. PLAY/WATCH get no new behavior-feature exposure, simulations, or enforcement powers from these research adapters.
+
 No feature is an “intelligence” score. Fixed-point millipoints preferred. Thresholds versioned in catalog.
 
 ## Strategic conflict event mappings (catalog 0.2)

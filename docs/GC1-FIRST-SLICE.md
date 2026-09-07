@@ -274,3 +274,15 @@ Full scenario A waits for a later GC1-S1 (recognition + one benefit family) with
 ## 6. Recommended next implementation work
 
 S0 is shipped. The next bounded *spec* slice is [GC1-S1-RECOGNITION.md](GC1-S1-RECOGNITION.md). Do not implement recognition until RFC-0005 is Accepted. Do not implement GC2–GC10. Do not grant Engineer cost discounts. Do not add `BUILD`.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend rebuild fixtures and self-only practice adapters for the four closed S0 tracks. Preserve ledger order, event-id deduplication, distinct room/entity/trade counting and explicit envelope actor attribution; missing trades or actor_id do not become inferred success.
+
+- Keep derived practice out of authoritative WorldState and reducer inputs. S0 emits at most three self practice lines, no counts, recognition, benefits, hidden affordances or WATCH projection. Only agents are Players under RFC-0120 despite historical parity language above.
+
+- Changed counting rules require a new mastery catalog id and an explicit historical mapping. This maintenance seam does not reopen closed S0 contracts, activate later GC1 behavior or turn the historical hosted audit into current runtime evidence.
+
+- Validate duplicate events, rejected trade, missing actor, another Player observation and replay/cache equivalence. Assert unchanged costs and help, silent WATCH and no practice from observe-only calls or truncated operator digests.

@@ -70,3 +70,10 @@ Chamber help
 ## Runtime rule
 
 Hosted Chamber MUST accept `INFORMATION_CONTEST` on existing `CONTEST_DECLARE`. Help still omits CONTEST. Isolated tests only.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand seal-boundary fixtures for SUCCESS/PARTIAL durations, restart, and attempts to inspect already sealed public artifacts.
+- **Invariants, compatibility, promotion, and verification:** Keep archive_claim immutable, ATTEST as writer, visible in-room ARTIFACT targeting, and the shared NOT_FOUND privacy failure. New forms or exposure need accepted contracts; verify thresholds and seal expiry without hidden facts, claim rewrites, HP, or new events.

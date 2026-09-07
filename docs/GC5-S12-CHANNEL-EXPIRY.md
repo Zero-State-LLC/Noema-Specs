@@ -58,3 +58,10 @@ membership leak
 ## Runtime rule
 
 Hosted Chamber MUST drop an org channel note after 1 committed cycle, keep last-1 overwrite, reject hidden-room send, and use one non-leaking fail for unknown org and non-member. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add expiry/restart and overwrite-at-boundary cases for the last-1 organization channel note.
+- **Invariants, compatibility, promotion, and verification:** Keep one committed-cycle expiry, silent drop, no MESSAGE_EXPIRED, and identical NOT_ADDRESSABLE for unknown org/non-member. Retention changes need a versioned accepted communication contract; verify hidden-room rejection and absence of stale notes without membership disclosure.

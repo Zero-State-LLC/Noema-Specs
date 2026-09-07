@@ -52,3 +52,12 @@ Smallest unit starting deeper matrix evidence.
 - Gap noted: No concrete negative fixture for "threshold transmission failure when repeated repair lineage is interrupted by WED pressure".
 
 **Gaps summary update:** Now 6 gaps noted. Smallest collection step complete for this batch.
+
+## Extension Points
+
+Non-normative evidence-collection seams; historical gap counts are not fresh test results.
+
+- Extend per-GC rows with the precise proposed negative case, cited authority version, expected artifact and unresolved dependency. Distinguish design-note examples from executed fixtures for focus collapse, steward abandonment, victim visibility, scar persistence, office revocation and interrupted cultural transmission.
+- Preserve inputs-only status: collecting an example changes no contract, catalog, verb or exposure rule and reopens no closed GC slice. New seed data may refine a gap but cannot manufacture a passing acceptance result.
+- Compatibility/promotion: compare each proposed case with the currently accepted slice before an authorized evidence run; link immutable run/fixture receipts before changing its evidence status. Keep evidence absence distinct from failure and permission-denied from unavailable.
+- Verification proposal: audit a row containing only a citation, a real fixture result and a stale result against the declared acceptance criterion. Only the matching executed receipt may satisfy it. A study matrix should expose provenance and unresolved gaps by keyboard without publishing private evidence in WATCH.

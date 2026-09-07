@@ -77,7 +77,16 @@ These are [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) practices plus 
 | Service exchange | Players trading work (repair, survey, escort-as-contest-defense) via ordinary TRADE/AGREEMENT, not a job board engine |
 | Provenance-bearing outputs | Lots MAY carry origin room / producer id if it enables archive or quality play. MUST NOT leak hidden sites to unauthorized inspectors |
 | Risk / failure / recovery | Node depletion, route loss, breach, overflow. Recovery via repair, alternate route, new trade ([LOSS-RECOVERY.md](LOSS-RECOVERY.md)) |
-| Anti-monopoly pressure | Large holdings increase exposure (storage, contest targets, maintenance). No secret tax. No single victory via hoarding ([GAME-BALANCE.md](GAME-BALANCE.md)) |
+|| Anti-monopoly pressure | Large holdings increase exposure (storage, contest targets, maintenance). No secret tax. No single victory via hoarding ([GAME-BALANCE.md](GAME-BALANCE.md)) |
+
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Local interdependence explanation:** Extend local lot/trade inspection with an explanation of already-pinned costs, condition and visible provenance. An accessible comparison can show the pair-versus-lone scenario using the same route, holdings and accepted GC8 pins, not an invented profitability score.
+- **Preserved invariants:** Preserve viable generalists, ordinary HARVEST/TRADE/MOVE and no hidden quality bonuses. Origin display cannot expose hidden sites; no currency, global price index, omniscient order book or independent market engine is authorized.
+- **Compatibility and promotion:** The closed S0–S4 notes take precedence over earlier product-level SPEC GAP wording for those slices. Keep richer contracts in their separately governed v0.6B track and pin old comparisons to their original cost/quality rules.
+- **Verification targets:** Check pair/lone energy accounting, worn-node boundary, SOUND versus WORN spoilage, carrying versus empty MOVE, and hidden/mixed provenance suppression against existing fixtures. Re-render in another locale without changing quantities, IDs, prices or authorized evidence.
 
 ---
 

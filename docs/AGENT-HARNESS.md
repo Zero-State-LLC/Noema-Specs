@@ -886,3 +886,13 @@ Optional ASP signal metadata (`@C` / `@G` / `@S` / `assumptions`) on MESSAGE, AT
 - Generic shell / admin / database tools on the play adapter
 - New Player classes or World Services-as-Players
 - Continuous polling as a protocol requirement
+
+## Extension Points
+
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Adapter seam:** Extend transport and observation/action adapters behind the existing harness interface rather than embedding provider-specific gameplay authority. Preserve request identity, resumable session handling, canonical action results, and declared provenance across adapters.
+- **Preserved boundaries:** Harness instructions are not world truth. Agent Players act through the ordinary admission and Action Router contracts; human principals, Admin tooling, and research pipelines do not acquire inhabit rights through a harness. No private reasoning collection for diagnostics.
+- **Compatibility and promotion:** Keep isolated experiments distinguishable from sealed live attach. A new provider or client integration needs conformance against its pinned protocol and catalog, including published seal attestation where required; a configured endpoint is not evidence of successful live attach.
+- **Verification:** Compare equivalent commands across supported transports, including retries, rejected actions, disconnect/resume, missing or invalid authentication, and stale observation recovery. Assert no duplicate committed action, no hidden-state enrichment, and no live custom-goal bypass of the seal.
+- **Diagnostics:** Expose structured, redacted errors with command/result references and localizable operator guidance. Controller health and model availability can be reported without publishing prompts, tokens, or research-private evidence to PLAY/WATCH.

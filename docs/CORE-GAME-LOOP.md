@@ -51,6 +51,20 @@ ADAPT
 - Consequences persist across cycles → decisions compound.
 - News and observations create anticipation and rivalry.
 
+## Extension Points
+
+These are non-normative integration directions. Extend a loop by naming which existing action, budget, observation, and persistent consequence it couples; do not add a second scheduler or research reward loop. Preserve canonical action order and replay, partial observability, and separation of research from gameplay. A proposed coupling should supply a multi-cycle trace showing cost, consequence, subsequent observation, and a meaningful next decision, plus rejection and replay cases. Presentation and handoff notes below cannot activate deferred mechanics or grant human Player scope.
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize loop terms (OBSERVE/ASSESS/PLAN/ACT/COMMIT RESOURCES/WORLD RESOLVES/CONSEQUENCES ACCUMULATE/NEWS / OBSERVATIONS ARRIVE/ADAPT, "primary loop", "strategic overlay loop", DISCOVER/ACQUIRE/PRODUCE/STORE/INVEST/ORGANIZE/EXPAND/DEFEND/NEGOTIATE/COMPETE/RECOVER, "partial and permissioned", "opportunity cost in budgets", "deterministic and replayable", "Consequences persist across cycles") in Chamber /play /watch /study surfaces, docs, clients. Ties to prior ui i18n (study steps, watch tabs, admin, nav, action verbs).
+- **R3 integration evidence**: Exercise observe→act→commit→resolve→adapt through Agent Player actions and server settlement. Human WATCH and permissioned STUDY remain supported platform projections; neither is a Player mode. Simulations may test the loop but are not live external-controller acceptance evidence.
+- **Gate B evidence**: Use independently controlled Agent Players and redacted action/consequence receipts to demonstrate the loop. Access-policy slices do not create full-state Controller access. Humans authorize connections without becoming Players; server-side authorization and partial observation remain unchanged.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for loop diagrams/steps (role="list" or "region"), ARIA for phases, live regions for news/observations/consequences, keyboard for actions, theme contrast. CDP/browser_exec on /play /watch.
+- **noema skill / plugin atoms**: Modular atoms for core loop visualizer, phase stepper, consequence tracker for desktop plugins + gateway /play integration + Chamber LEARN/matrix/contest/ecology.
+- **LCA2 / MUD handoff / cross-refs**: To PLAYER-ACTION-MAP, GAME-COMPLETENESS-PLAN (GC loops), STRATEGIC-CONFLICT, DATA-MODEL (consequences as ledger), DIPLOMACY, R3 evidence bundle, MUD craft for loop mechanics, ANOMALY/BEHAVIOR features on observations, WORLD-REPORTS on news, ACCESS-POLICY. R3 Chamber fixtures provide representative local preparation only; Gate B acceptance additionally requires independent external Controller runs and redacted receipts.
+- **Elevation (UX/DX/AX)**: UX discoverable persistent loop/strategy in Chamber; DX modular phases + i18n + graft + atoms; AX semantic/ARIA + CDP. Additive. Per AGENTS.md.
+
+(Expanded per "continue" / merge and continue + prior to 83+ EPs.)
+
 ## Strategic overlay loop
 
 ```text
@@ -149,3 +163,10 @@ It does not override their exact transitions. It defines the player-facing inten
 - [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) — post-core PLAY-depth campaign (not v0.8)
 - [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) — structural MUD lessons, not a setting clone
 - [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) — PLAY projection craft companion (feeds Native Interaction)
+
+## Runtime handoff notes
+- **Primary / sub-loops expansion**: Map OBSERVE/ASSESS/PLAN/ACT/COMMIT/RESOLVE/CONSEQUENCES/NEWS/ADAPT (and ACTION/MASTERY/ECONOMIC/SOCIAL/CIVILIZATIONAL) to R0–R5 MUD pressures (noema-specs-mud-runtime-handoff). E.g. OBSERVE/STATUS R0; ACT/MOVE R1; consequences + resync R2; HARVEST/TRADE/build R3 fixtures + C9.
+- **Player actions tie-in**: Link to PLAYER-ACTION-MAP canonical verbs (LOOK/INSPECT for observe; MOVE/ENTER for navigation; HARVEST/REPAIR/TRADE_*/MESSAGE for act/commit). Non-canonical dev tooling only.
+- **Chamber / observations / UI**: Live observations in /play /watch /study use i18n (ui.py STRINGS + t()) + ARIA (aria-live for news/consequences, roles for status). Extension Point for live runtime data import (e.g. health, events).
+- **Handoff / graft / elevation**: Cross-ref LCA2-MUD-RUNTIME-HANDOFF-MAP + AGENT-GATEWAY; use graft ask before edits. UX: glanceable loops; DX: modular specs/contracts; AX: semantic + WCAG via theme + i18n per omh-accessibility-audit and hermes-desktop-plugins.
+- **Research separation**: Research capture outside player loops (as documented); preserve for instrumentation without altering core.

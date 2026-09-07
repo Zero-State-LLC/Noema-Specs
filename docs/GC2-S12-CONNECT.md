@@ -57,3 +57,14 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.CONNECT` on a stewarded public `route_link` when `dest` is already a public two-way neighbor, stamp `dest_room_id`, and MUST NOT create an exit. Isolated tests only. Help unchanged. No Genesis change.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Route-facing examples can add combinations of steward authority and existing two-way public neighbors. CONNECT remains BUILD.CONNECT stamping dest_room_id on the same live route_link; it never creates geography or changes the cargo waiver.
+
+- Any change to destination eligibility, costs, or failure disclosure needs review against RFC-0071 and construction-catalog/gc2-s12. Later construction slices do not retroactively change the S12 fixture boundary or authorize a standalone CONNECT verb.
+
+- Validate success preserves entity_id and the exit set, charges compute once, and leaves WATCH silent. Pair hidden, missing, and one-way destinations with the same NOT_OBSERVABLE outcome; test non-stewards and replay/retry without a second debit.

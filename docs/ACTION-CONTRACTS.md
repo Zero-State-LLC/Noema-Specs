@@ -24,6 +24,18 @@ Wire verbs remain those in [`agent-action.schema.json`](../specs/agent-action.sc
 
 This closed action vocabulary is intentionally stable. Dynamic gameplay belongs in compatible targets, parameters, preconditions, authority, resources, observation, and consequences. A new noun, content type, institution, or theme MUST NOT create a runtime verb; a genuinely new semantic transition requires a versioned Specs change.
 
+## Extension Points
+
+These are non-normative extension directions, not additional action grants. Extend targets, parameter schemas, and preconditions under the existing closed vocabulary; a new semantic transition needs an Accepted RFC and versioned contracts. Preserve canonical ordering, authorization, idempotency, and failure atomicity. Promotion evidence should include duplicate-key outcomes, reordered-arrival replay, insufficient-budget rejection, and hidden-target rejection; translated labels must not alter wire identifiers. The presentation notes below grant no controller or human principal additional access.
+
+- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize verb labels (LOOK, MOVE, INSPECT, MESSAGE, WAIT, TRADE, COMMIT.*, "Enter to send", "NOEMA command", "Command line", "Your trail", "Known routes", placeholder_cmd, try_commands_example, etc.), priority tables, "Verb scope", "Canonical action priorities", action names in Chamber play/command surfaces. Ties to recent ui.py command/play i18n.
+- **R3 integration evidence**: Exercise existing actions through authenticated Agent Player Controllers with the same preconditions and budgets as other Players. Humans use authorized WATCH, CONNECT, STUDY, or ADMIN surfaces; offline simulations are separate test evidence, not Player admission or hosted Gate B proof.
+- **Gate B evidence**: Compare authorized action attempts, contention outcomes, and replay traces under pinned contracts. Access-policy slices are not escalating Controller privilege tiers; neither the comparison UI nor this section grants private STUDY data or action authority.
+- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for verbs/priorities (role="table"), ARIA for command input, keyboard for command line, aria-live for actions, contrast vars.
+- **noema skill / plugin atoms**: Action contract registry/viewer atom, command palette atom for plugins/gateway/desktop; integration with play, LEARN, matrix.
+- **Handoff / LCA2 cross-refs**: To PLAYER-ACTION-MAP, GAME-COMPLETENESS-PLAN, STRATEGIC-CONFLICT, CONTEST-RESOLUTION, DATA-MODEL, R3 evidence bundle, MUD handoff.
+- **Elevation**: UX (clear command surfaces in Chamber), DX (modular EPs + stable verbs), AX (tables/ARIA/keyboard). Additive only.
+
 ## Canonical action priorities
 
 Lower priority values resolve first. These values are world-rules metadata and MUST NOT be supplied by clients.
@@ -331,3 +343,12 @@ Mutating ACT requires `idempotency_key`. Duplicate MUST return original accept/r
 ## Operator path
 
 Operator-initiated world mutations MUST enter through Action Router as authenticated principal actions or declared external inputs (`SITUATION_INJECTED`), never by direct WorldState writes.
+
+## Presentation integration notes
+- i18n centralization: Chamber ui.py STRINGS + t() for action verb renders (LOOK, MOVE, INSPECT, MESSAGE, TRADE, COMMIT ops) and descriptions in play/study/admin surfaces. Central for all v0.1/v0.2 contracts.
+- AX evidence: Proxy + CDP browser_exec (chrome-profiles) for roles/ARIA (lists, panels, status), keyboard focus, live regions on action UIs in Chamber (e.g., action lists, spectator projections).
+- Chrome-profiles + browser_exec: Local profile for deterministic AX tree/keyboard/contrast audits of action contract surfaces; verify during evidence passes and hot-reloads.
+- noema skill + handoff: Orchestrate action contracts with LCA2 MUD runtime, Gate B, R3 (i18n/AX in verb handling, plugin for status).
+- Evidence matrices + priorities: Tie verb priorities (WAIT 10 to HARVEST 70) and contracts to i18n evidence keys + AX live observation (e.g., in study/learned behaviors).
+- Live runtime: 8765 /play/action, /protocol/v1, health; aria patterns for action feedback; runtime-dot for contract context.
+- Future presentation work can extend the action map, evidence matrices, and contract-status views. Strategic depth must compose the existing action vocabulary; any genuinely new transition requires its own accepted versioned contract. None of these notes proves a live CDP audit or implemented plugin.

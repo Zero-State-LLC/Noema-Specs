@@ -58,3 +58,15 @@ The Specs side is green: canonical validation, direction validation, offline fre
 ## Audit conclusion
 
 The core protocol, world identity, catalog layering, and public projection boundaries are reconciled. The material remaining issue is provenance freshness: the Specs current-state document still describes the earlier `61234cc` / `01ebc196...` Gate A deployment while the verified live deployment is `27f9aa8...` / `772e244c...`. This should be resolved as an explicit authority decision, not guessed from a later source checkout.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Prospective reconciliation entries can compare later Specs pins, runtime source, deployment identity, and public readiness with the dated audit baseline.
+
+**Preserved invariants.** Retain the recorded failures, counts, commits, and 2026-08-28 conclusion as historical evidence; do not repair runtime failures by weakening Specs or conflate source main with deployed source.
+
+**Compatibility and promotion.** A current-state pointer change needs the responsible operator authority decision and evidence packet. New provenance checks must distinguish historical snapshots from current pointers before becoming gates.
+
+**Validation expectations.** A follow-up should record exact Specs/runtime/deployed pins and dated endpoint evidence, rerun and report suites/typecheck independently, and classify intentional adapter/catalog differences separately from drift; unavailable checks stay unverified.

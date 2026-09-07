@@ -61,3 +61,12 @@ S4 discount retune
 ## Runtime rule
 
 Hosted Chamber MUST create a public `archive_annex` CONSTRUCT as `IN_PROGRESS`, occupy the class slot immediately, refuse the S4 attention discount until that same `entity_id` is live after 1 committed cycle, and salvage an in-progress annex without leaving a live annex or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative construction-boundary and discount-display seams.
+
+- Extend isolated cases for archive_annex from IN_PROGRESS to live after one committed cycle, retaining the same entity_id and occupying its class slot immediately. A shell cannot provide S4 INSPECT/ATTEST attention −1 before promotion.
+- Preserve salvage without a live annex or scar when an in-progress annex is dismantled. Do not add rooms, project minigames, remaining-class durations, STRUCTURE_* or BUILD/ATTEST help; the closed S4 discount is not a tuning seam.
+- Compatibility/promotion: pin construction-catalog/gc2-s18 and RFC-0077 against the S4/S9 behavior; display adapters must distinguish construction state from discount eligibility without changing commit timing or Genesis.
+- Verification proposal: inspect before commit, after the promotion commit, after replay and after pre-promotion dismantle. Assert slot occupancy prevents duplicate construction, live discount applies only after promotion, event types remain existing and WATCH stays silent. Localize the under-construction line without presenting a shell as a usable archive.

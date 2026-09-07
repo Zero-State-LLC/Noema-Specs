@@ -26,3 +26,13 @@
 ## Authority
 
 Derived artifacts only. v0.5 MUST NOT rewrite world history, Observatory candidates, Lab experiments, or Lab results.
+
+## Extension Points
+
+Non-normative prospective guidance; this section neither changes release scope nor authorizes execution.
+
+### Compiler artifact readers
+
+Additional readers can connect CaptureIntent, CompilationRequest, compiled units, receipts and regression results using the declared schemas, without rewriting source candidates or Lab outcomes. A friendly capture status remains a projection of the machine status, not a replacement for it.
+
+Version schema, reason-catalog or default changes that alter interpretation, including the distinct phenomenon-compile-receipt/v1 pin. Validate representative record chains, unresolved dependencies, digest/receipt mismatch and unknown reason codes while retaining immutable source references; valid serialization alone does not promote a captured test to a supported phenomenon.

@@ -38,3 +38,13 @@ Observatory answers: *What is unusual, changed, or potentially capability-releva
 It does **not** claim: *The agent definitively possesses capability X.*
 
 Outputs are research candidates. They do not mutate world truth, alter incentives, or expose research scores to ordinary players.
+
+## Extension Points
+
+Non-normative prospective guidance; this section neither changes release scope nor authorizes execution.
+
+### Observatory scope traceability
+
+Future scope notes can add evidence links for feature, baseline, detector and candidate coverage while preserving the separation between unusual behavior and confirmed capability. UNKNOWN markers remain meaningful outcomes, not placeholders to replace with confident labels.
+
+Any additional claim-bearing feature or detector needs its own versioned authority and fixtures; additions must preserve C01–C26 and F01–F15 compatibility. Validate each claimed scope row against O01–O16 or a named supplemental fixture, including insufficient evidence, and keep offline acceptance separate from hosted availability.

@@ -55,3 +55,10 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.REPURPOSE` on an owned public workshop and change that entity’s class to `storage_bay` without changing `entity_id`. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Conversion validation can gain clearer failure examples for the closed workshop-to-storage_bay mapping. Preserve owned live public targets, entity identity, the pinned debit and existing event types.
+- **Compatibility and validation.** Test unsupported reverse/other conversions, non-owner and non-live targets, insufficient budget and unchanged entity_id on success. Any additional conversion belongs in an Accepted RFC and new construction-catalog scope; it must not silently broaden gc2-s6 or advertise new help commands.

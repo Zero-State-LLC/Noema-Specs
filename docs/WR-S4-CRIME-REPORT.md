@@ -42,3 +42,14 @@ S4 adds public `CRIME_DETECTED` lines to the existing 5-cycle report.
 ## Runtime rule
 
 Hosted Chamber MUST append one public crime line per public `CRIME_DETECTED` on the existing social-event cache whose room is public when rebuilding the last-1 public report. Isolated tests only. Help unchanged. No Genesis change. No AGREEMENT_FORM thaw.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Report fixtures can add combinations of public crime events and public-room eligibility inside the existing five-committed-cycle rebuild. Keep the line category-only and preserve last-1 report behavior rather than introducing a live crime feed.
+
+- RFC-0094 and world-report-catalog/wr-s4 own this projection boundary; a new crime producer is separate from report rendering. Subject, method, severity, new events, WATCH ticker, or help exposure require their own accepted contract and version review rather than enrichment of the template.
+
+- Validate PUBLIC_HISTORY and host PUBLIC eligibility, hidden-room suppression, interval boundaries, and repeated rebuilds with the same source cache. Confirm each eligible event produces its specified line without subject or investigation leakage, extra events, or a second report generation side effect.

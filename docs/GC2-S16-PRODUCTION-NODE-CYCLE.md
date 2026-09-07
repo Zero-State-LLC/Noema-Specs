@@ -57,3 +57,13 @@ project minigame
 ## Runtime rule
 
 Hosted Chamber MUST create a public `production_node` CONSTRUCT as `IN_PROGRESS`, promote that same `entity_id` after 1 committed cycle, and salvage an in-progress node without leaving a live node or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; this section changes no current contract.
+
+### Production-node lifecycle conformance
+
+Extend isolated evidence around production_node start, committed-cycle promotion and in-progress salvage. Preserve one entity_id, immediate slot occupancy, no production before promotion and no scar for a node that was never live.
+
+RFC-0075 and construction-catalog/gc2-s16 remain the pin; other classes or durations require separate accepted changes, not edits to this slice. Validate duplicate/retried cycle handling, slot conflicts, promotion after exactly one committed cycle, and dismantle before promotion with WATCH and help unchanged.

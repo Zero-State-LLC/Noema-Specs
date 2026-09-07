@@ -101,3 +101,12 @@ WATCH DM text
 ## Runtime rule
 
 Hosted Chamber applies this table on existing `MESSAGE`. Help still omits a delay tutorial. Do not add rumor. Do not reseed Genesis.
+
+## Extension Points
+
+Non-normative deterministic timing and private delivery-presentation seams.
+
+- Extend relay-band fixtures at 24/25 and 49/50, no live relay, and same-room addressable delivery. Track accepted MESSAGE separately from MESSAGE_DELIVERED; expose only that a send is delayed, not relay ID, hidden room or recipient location.
+- Preserve one committed world-cycle delay at 25–49, unchanged compute 1, UNREACHABLE without events/debit below 25, and no MESSAGE_FAILED. Repair accelerates new sends only; pending deliver_at_cycle is frozen, and cron cannot advance world-time or deliver.
+- Compatibility/promotion: pin communication-catalog/gc5-s1/RFC-0021 with RFC-0019 settlement and S0 reachability. Historical human/agent parity language does not create human Players under RFC-0120; rumor remains outside this slice.
+- Verification proposal: send at 49, repair to 50, send again, replay before/after the committed delivery cycle and compare inbox/event timing. Ensure pending text is absent from recipient observation, other Players and WATCH. Delayed/sent/delivered text must remain distinct in translations and accessible announcements without announcing private message content publicly.

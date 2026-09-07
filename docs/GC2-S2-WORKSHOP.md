@@ -52,3 +52,15 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.CONSTRUCT class=workshop` in a public room and discount in-room CONSTRUCT/REPAIR storage by 1. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend room-local workshop cost fixtures and readable observation projections. Preserve one live workshop per public room, the published construct/salvage costs and the in-room CONSTRUCT/REPAIR storage reduction of one with floor zero.
+
+- A workshop is not a prerequisite for building. No recipe system, mastery discount, hidden room, WATCH line or BUILD-help advertisement is authorized here; only the accepted class effect applies.
+
+- Pin construction-catalog/gc2-s2 and RFC-0050. Keep later UPGRADE semantics in their own slice rather than changing S2 defaults. Isolated tests, unchanged help and no Genesis change remain binding.
+
+- Validate live versus non-live workshop, same versus another room, occupied slot and costs already at zero. Compare ordinary builds without a workshop to ensure no soft-lock and check rejected attempts cause no resource or entity mutation.

@@ -75,3 +75,23 @@ Isolated test: `test.hosted-canonical.gc1-s9`.
 - GAME-COMPLETENESS-PLAN GC1 table (research seeds 2026-08-27).
 
 Design note only. Moves multi-focus from "Still open" once a full RFC is Accepted. No new verbs. All proposals must still pass complexity doctrine A–J.
+
+## Extension Points
+
+Non-normative proposal guidance; the S9 tables and runtime rule above remain unshipped design intent, not amendments to Accepted S7/S3 behavior.
+
+### Active-set proposal seam
+
+A future multi-focus proposal can specify active-set ordering, duplicate handling, replacement versus clear, and migration from one persisted focus. Resolve the draft's alternative wording about accelerated decay explicitly before promotion; selection intent and qualifying maintenance evidence are separate decisions.
+
+### Retained invariants
+
+[RFC-0110](../rfcs/RFC-0110-focus-declaration.md) retains cap one, optional recognition for declaration, and no automatic benefit. [RFC-0043](../rfcs/RFC-0043-mastery-decay.md) retains its decay and rehabilitation pins. Keep hidden-room and LATENT public withholding, no XP/internal track identifiers, no `FOCUS_DECLARED`, and no WED/ATTEST help expansion. The legacy “Human” syntax row is presentation notation, not human Player authorization under RFC-0120.
+
+### Compatibility and promotion gate
+
+An Accepted RFC must settle the cap, snapshot compatibility, maintenance-credit eligibility, and interaction with S3 before S9 can supersede any pin. Preserve single-focus readers and existing structured `COMMIT.FOCUS` behavior until that decision. Neither the proposed isolated test name nor the word “pinned” in this design note proves implementation or authorizes new verbs, recognition rules, or Genesis changes.
+
+### Concrete review checks
+
+Keep baseline fixtures for declaration without recognition, replacement retaining one focus, and clear removing the line. For a future candidate contract, add duplicate tracks, over-cap selection, unknown tracks, clearing an absent member, and snapshot migration/replay cases. Compare self and public projections for active, LATENT, and hidden-room tracks; exercise inactivity and rehabilitation boundaries to expose any unintended S3 timing change. Run baseline S7/S3 conformance separately from proposed S9 cases and report their statuses independently.

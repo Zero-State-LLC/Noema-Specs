@@ -125,3 +125,12 @@ complex Genesis actors · large historical populations · long-running prehistor
 ## Related
 
 [Genesis Profiles](GENESIS-PROFILES.md) · [Story Seeds](STORY-SEEDS.md) · [Deep Time](DEEP-TIME.md) · [RFC-0003](../rfcs/RFC-0003-deterministic-contract-hardening.md)
+
+## Extension Points
+
+Non-normative future guidance, not permission to regenerate an activated world or implement deferred Genesis machinery.
+
+- **Bounded prehistory inputs:** future profile/template refinements can describe additional inherited institutions, scars, or artifacts through existing Chamber and Deep Time mechanics. Keep seed, profile, story seeds, and rule versions explicit; do not leave Genesis-only runtime state or create a second lore canon.
+- **Preview evidence:** administrative review packets can retain validation results, input digests, and comparisons between candidate Cycle 0 snapshots. Changed claim-bearing inputs produce a new `genesis_id`; accepted candidates are not silently overwritten. Player, WATCH, and STUDY projections retain their existing secrecy boundaries.
+- **Compatibility and promotion:** new generation semantics need the relevant reviewed version/RFC and migration analysis before adoption. Post-activation generation is another world, not a reseed or implicit production cutover; the hosted successor remains separately human-gated. Deferred solvers, APIs, and long-running simulations remain deferred.
+- **Verification:** demonstrate identical Cycle 0 output from identical pinned inputs, ordinary world-state validation, authorization denials for non-admin principals, and rejection of regeneration against active worlds. Retain old candidate provenance so later validation does not revise the original activation record.

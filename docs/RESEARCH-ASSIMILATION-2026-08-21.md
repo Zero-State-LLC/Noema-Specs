@@ -169,3 +169,9 @@ Player caste is required.
 This note is ready for maintainer review. It intentionally closes the research
 assimilation loop at the design/integration level while leaving new executable
 semantics RFC-gated.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Further assimilation may add a bounded scenario connecting inherited practice, office authority, contest recovery, and lot provenance to the existing Slice A–D authorities. Keep paper claims distinct from NOEMA observations: research interpretation cannot become supernatural truth, executable charter text, Player objectives, or a recipe/combat subsystem. New scenarios should identify the existing action and evidence path for every state change and include a failure or disagreement case. Machine semantics require a dedicated Accepted RFC, explicit schema/catalog version compatibility, and positive/negative fixtures before implementation; this Draft note neither reopens closed GC slices nor activates deferred culture engines. Validate cited authority links and show that each scenario can be expressed without new verbs, hidden-fact exposure, or research-driven rewards.

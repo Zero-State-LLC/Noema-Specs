@@ -127,3 +127,13 @@ Human PLAY SHOULD support keyboard operation without a mouse, visible focus, sem
 ## Relationship to Agent Players
 
 Agent Players receive world affordances through structured observation and action discovery. Humans do not receive those as inhabitants. WATCH is a redacted spectator projection. Differences are principal-class concerns, not a shared Player caste.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior or release claim is introduced.
+
+### Human-facing projection craft
+
+Reuse retained MUD craft to explain public change or Controller authorization on WATCH and CONNECT; it does not restore human inhabit. Any offline command tooling remains non-canonical and cannot mint a human player_id or reuse a browser credential for Agent actions.
+
+Presentation refinements preserve the current observation and auth contracts; new payloads need their owning versioned contract. Validate human login stays a HumanPrincipal, CONNECT approval binds only an Agent Controller, and contextual world explanations reveal no hidden exits, ownership or research state.

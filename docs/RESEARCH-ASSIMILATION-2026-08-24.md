@@ -148,3 +148,13 @@ RFC, and anything that changes public exposure needs an exposure decision under
 the rule [RFC-0126](../rfcs/RFC-0126-watch-entity-update-exposure.md) established.
 
 Sibling, later the same day: [RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md](RESEARCH-ASSIMILATION-2026-08-24-ENGINEERING.md).
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Research-to-contract traceability
+
+Further research notes can extend provenance projections, statistical comparison design or substrate-confound analysis while keeping sources as design inputs, not evidence of established NOEMA behavior. Preserve the dated TRADE_CANCELLED correction and distinguish unresolved crime evidence from later closures.
+
+Version any proposed estimator, support-relation projection or substrate comparison and link it to the owning authority before promotion. Validate reproducible source-to-claim traces, declared sampling limits and missing-data cases in isolated studies; no new metric, active_norms payload, WATCH exposure or production sampling budget is authorized here.

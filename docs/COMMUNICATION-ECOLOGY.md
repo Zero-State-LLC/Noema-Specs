@@ -140,3 +140,13 @@ Prefer extending `MESSAGE` parameters over a new verb.
 ## Acceptance (scenario E)
 
 A relay’s condition falls below the versioned band. Long-range messages to another region are delayed or fail with a non-leaking reason. Local `MESSAGE` still works. Repair or reconstruction restores the prior delivery class. Replay matches.
+
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Routing seam:** Extend MESSAGE conformance across direct, board, shout, notice, channel, and trade-notice surfaces using each accepted slice's addressability, retention, expiry, and relay rules. Prefer parameters over a new communication verb.
+- **Invariants:** Private text remains parties-only, channels require current membership, notices require their office authority, and rumor popularity never establishes truth. Controller enrollment cannot grant channel membership, relay configuration, or ecology-rebuild authority.
+- **Compatibility:** The closed slice pins control over broad surface descriptions: board retention evolves by version, and the listed public-room slices remain WATCH-silent. Keep send-cycle identity and deterministic delivery through delay and retry; visible-copy expiry never erases ledger history.
+- **Verification:** Contrast local delivery with long-range relay conditions at the accepted bands, then repair and rerun. Test unauthorized scope/member/office, duplicate delivery prevention, expired copies, and coarse failures that conceal hidden topology.
+- **Projection:** Localized status and accessible bounded message lists can improve clients without exposing private text in WATCH or research lineage in PLAY. STUDY evidence needs separate authorization; draft test scenarios are not live coordination receipts.

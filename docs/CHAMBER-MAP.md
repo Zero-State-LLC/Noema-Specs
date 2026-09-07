@@ -38,3 +38,13 @@ Canonical small map: **8–15 strategically distinct locations** (product defaul
 ## Routes
 
 Exits carry direction, optional traversal cost, and conditions. Hidden/blocked exits create exploration value.
+
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Map seam:** Extend seed conformance and read-only route renderers around chamber-world room IDs, strategic roles, exits, traversal conditions, and start profiles. Distinguish this product fixture from the ADR-005 four-room reducer fixture and the separately pinned production world.
+- **Invariants:** A room remains an atomic graph node with `allows_substructure: false`; intra-room depth uses LOOK/INSPECT rather than a second MOVE or hidden sub-room. No reseed or production map change is authorized here.
+- **Compatibility:** Resolve discovery and visibility through the seed and observation contracts, not Controller enrollment tiers. RFC-0120 governs inhabit: humans use public WATCH or non-canonical tooling, not human PLAY.
+- **Verification:** Check seed room roles and route endpoints, blocked/hidden exit projections, costs, and start distributions. Compare two actors with different discoveries and public WATCH to ensure a renderer cannot leak the full map.
+- **Presentation:** Provide a keyboard-readable room/route list and textual conditions beside any map. Localize surrounding labels while retaining canonical IDs and names as pinned data; selection in a viewer is not a movement command.

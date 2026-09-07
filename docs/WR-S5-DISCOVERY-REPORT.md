@@ -43,3 +43,11 @@ S5 adds public reconstructions to the existing 5-cycle report.
 ## Runtime rule
 
 Hosted Chamber MUST append one public discovery line per public recorded reconstruction whose subject is a public entity or room when rebuilding the last-1 public report. Isolated tests only. Help unchanged. No Genesis change. No AGREEMENT_FORM thaw.
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Discovery report fixture coverage can grow around duplicate reconstruction evidence, report-interval boundaries, and public-subject eligibility.
+- **Unchanged invariants:** Keep the five-committed-cycle cadence, public RECORDED filter, last-1 rebuild, and WATCH silence; do not expose claims, authors, or evidence.
+- **Compatibility, promotion, and verification:** A new report line family needs separately accepted authority and catalog/fixture updates. Verify hidden subjects remain absent and repeated rebuilds emit the same permitted lines; this does not open diplomacy or AGREEMENT_FORM.

@@ -49,3 +49,12 @@ v0.6B
 ## Runtime rule
 
 Hosted Chamber MUST stamp public harvests and clear mixed origins. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative origin projection and stack-merge regression seams.
+
+- Extend provenance fixtures for public HARVEST stamps (room_id and producer_id), hidden harvest with no stamp, and merging different-room lots to clear origin. Render an authorized public room name rather than exposing storage IDs.
+- Preserve forgotten mixed origins, silent WATCH, unchanged help and no hidden-room stamp even in metadata, translated placeholders or accessible labels. No contributor-room list, spoilage or transport economy is introduced.
+- Compatibility/promotion: pin economy-catalog/gc8-s2/RFC-0046 with S1 quality so origin display neither replaces quality nor silently upgrades old unstamped lots. Any new provenance field requires accepted schema review rather than a UI-derived guess.
+- Verification proposal: harvest public/hidden, merge same/different origins, replay and inspect PLAY/WATCH payloads. Check mixed/unstamped output does not falsely claim a source and producer storage is not automatically public. Keep resource and room placeholders intact across localized wrappers.

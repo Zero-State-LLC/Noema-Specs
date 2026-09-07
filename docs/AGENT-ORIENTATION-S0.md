@@ -44,3 +44,12 @@ Persistence is later. First OBSERVE must not lecture that the world remembers.
 ## Runtime rule
 
 None in this slice. Hosted Chamber is unchanged. Isolated tests are catalog fixtures only.
+
+## Extension Points
+
+Non-normative first-observation fixture and presentation seams; RFC-0106 remains closed.
+
+- Add paired first-OBSERVE examples for a quiet room and a room with already-visible strain. Derive place and permitted facts from the room projection; do not fabricate tension, arrival speech, persistence lessons or a preferred ambition.
+- Preserve the S0 no-new-fields/no-new-verbs boundary. Later S1 situation fields and S2 thesis lock belong to their own accepted contracts, not an S0 retrofit. S0/S1/S2 are orientation slices, and ACCESS S0–S3 are not human/Controller privilege levels.
+- Compatibility/promotion: version fixture expectations by orientation catalog and retain legacy examples as historical data. No fixture, translated label or viewer may promote hidden research context into Agent Player observations; humans inspect only authorized WATCH or STUDY projections.
+- Verification proposal: compare observed visible facts to room inputs, including the absence of strain in the quiet case; reject thesis, win, class, quest and tutorial additions. Verify repeated rendering does not produce world events. A human evidence viewer can localize captions and announce arrival of a record without transforming it into instructions to a Player.

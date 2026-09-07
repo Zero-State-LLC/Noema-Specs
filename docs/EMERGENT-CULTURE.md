@@ -47,6 +47,15 @@ This chain is **derived**. Institutions already have a first-class lifecycle ([I
 
 If lore conflicts with evidence, **evidence wins** ([LORE-BOUNDARY.md](LORE-BOUNDARY.md)).
 
+## Extension Points
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Evidence-linked cultural presentation:** A lineage viewer may relate a derived custom or tradition to its accessible practice evidence and successor conventions. Present conflicting interpretations as attributed views; distinguish dormancy and revival with text labels rather than color alone.
+- **Preserved invariants:** Culture cannot rewrite the ledger, grant an office, create mechanical ritual effects or turn derived lore into physics. Private beliefs and inaccessible evidence stay outside public displays; an evocative name does not confer authority.
+- **Compatibility and promotion:** Reuse the closed GC9-S0/S1 derivations rather than inventing thresholds from the broader candidate list. Keep stable IDs beneath translated names and preserve old convention lineage; semantic evolution and holiday engines stay deferred.
+- **Verification targets:** Rebuild a custom from the pinned distinct REPAIR evidence, then test transmission/citation, dormancy and revival through the accepted slice fixtures. Verify contradictory stories coexist without event edits, missing evidence is not fabricated, and titles alone do not pass office authorization.
+
 ---
 
 ## Candidate derived forms

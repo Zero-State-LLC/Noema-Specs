@@ -60,3 +60,10 @@ REPURPOSE-as-shell
 ## Runtime rule
 
 Hosted Chamber MUST create a public `storage_bay` CONSTRUCT as `IN_PROGRESS`, promote that same `entity_id` after 1 committed cycle, and salvage an in-progress bay without leaving a live bay or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Storage-bay lifecycle fixtures can cover interrupted construction, slot occupancy and salvage. Preserve the same entity_id across promotion, the one-committed-cycle duration, no in-progress capacity or scar, and live REPURPOSE conversion.
+- Any duration or additional-class change requires separate accepted slice/catalog authority, not an extension of gc2-s15 in place. Validate pre-promotion slot rejection, promotion replay, early dismantle without a live bay, and REPURPOSE remaining live; keep WATCH and help exposure unchanged.

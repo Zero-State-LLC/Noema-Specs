@@ -36,3 +36,10 @@ Chamber PLAY may name BUILD. The operations are the ones already hosted.
 ## Runtime rule
 
 Hosted Chamber MUST list BUILD on `help` and list existing construct/dismantle/upgrade/repurpose/restore/vest/share/connect aliases on `help build`. WED and ATTEST stay omitted here. CONTEST help is [GC7-THAW-PLAY.md](GC7-THAW-PLAY.md). Isolated tests only. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Improve help-to-hosted-operation traceability for the existing BUILD aliases and unavailable-target examples.
+- **Invariants, compatibility, promotion, and verification:** This is a presentation thaw, not new mechanics: WED/ATTEST stay omitted and WATCH remains unchanged. Any additional advertised capability needs its own accepted authority and implemented action evidence; verify help lists only the authorized existing operations.

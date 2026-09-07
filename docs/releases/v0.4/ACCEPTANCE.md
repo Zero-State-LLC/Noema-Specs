@@ -40,3 +40,15 @@ Conformance mapping: **L01–L34** in [CONFORMANCE.md](CONFORMANCE.md).
 34. intent, Lab, and STUDY projection integration is deterministic and auditable.
 
 No `PROVEN`, consciousness score, automatic capability proof, current mutable baseline, or undeclared causal comparison is permitted.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Acceptance evidence can add traceability from the existing Lab checklist to deterministic intent compilation, isolated runs, controls, and Compiler handoff cases.
+
+**Preserved invariants.** Retain failed/null/aborted evidence, explicit confounds, immutable run identity, PARTIAL on exhaustion, and identical simple/advanced evidence. READY is bounded readiness, not proof or fixture creation.
+
+**Compatibility and promotion.** Additional checks may clarify the existing L01–L34 obligations; changed lifecycle, readiness, or intervention semantics require versioned governing contracts and compatible fixtures, not a checklist relaxation.
+
+**Validation expectations.** Exercise unsupported lesions, sham failures, nondeterministic replication, exhausted budgets, non-comparability, and non-READY CAPTURE denial; report prerequisite suite results and each mapped check without promoting incomplete evidence to acceptance.

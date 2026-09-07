@@ -50,3 +50,13 @@ Chamber help BUILD ATTEST
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.CONSTRUCT class=archive_annex` in a public room and discount in-room INSPECT/ATTEST attention by 1. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; this section changes no current contract.
+
+### Archive-annex cost composition
+
+Additional fixtures can exercise the annex discount alongside already-authorized cost modifiers and access checks. The annex is a local attention discount, never an evidence source, oracle or prerequisite for ATTEST.
+
+Preserve RFC-0053 costs, public-room slot and floor-zero semantics; route upgrades to the existing S5 authority instead of reopening them here. Validate INSPECT and ATTEST in and outside the room, zero-floor behavior, absent/non-live annexes and removal of the discount after dismantle, without WATCH or help expansion.

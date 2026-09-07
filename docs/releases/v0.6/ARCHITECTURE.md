@@ -44,3 +44,13 @@ Genesis is not a runtime subsystem. After activation, configuration is immutable
 ## RFC-0003
 
 Reuse `noema-jcs/1`, content hashing, state lineage, receipts, catalog admission, recovery fencing.
+
+## Extension Points
+
+Non-normative prospective guidance; this section neither changes release scope nor authorizes execution.
+
+### Historical projection adapters
+
+Future PLAY, WATCH and STUDY readers can offer different levels of disclosure from the same ledger/snapshot lineage. Names, reconstructions and significance remain derived; neither an interpretation nor an Admin Story Seed becomes public world truth.
+
+Preserve noema-jcs/1, receipts, recovery fencing and accepted exposure rules. New event semantics require an RFC; new Genesis means a distinct world, not a running-history edit. Validate public versus authorized views, conflicting claims, replay-stable derivations and immutable post-activation configuration.

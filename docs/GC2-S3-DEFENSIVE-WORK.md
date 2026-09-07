@@ -50,3 +50,10 @@ Chamber help BUILD CONTEST
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.CONSTRUCT class=defensive_work` in a public room and add 50 defense millipoints to contests there. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Defense contribution and removal fixtures are the bounded seam for defensive_work. Preserve the public-room slot, pinned construction/salvage costs, existing contest form and exactly the declared defense contribution; no HP subsystem is implied.
+- A changed bonus or class rule belongs in a separately authorized catalog/contest version. Validate contests with and without a live defensive work, removal of its contribution after dismantle, hidden-room rejection and unchanged WATCH/help exposure.

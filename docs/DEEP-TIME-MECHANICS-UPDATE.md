@@ -162,3 +162,13 @@ References (selected from research pull):
 - Path dependence in cultural/institutional evolution (multi-generational models).
 - Agent-based historical reconstruction and archaeology simulations.
 - Long-term memory, forgetting, and persistent effects in complex adaptive systems.
+
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Research seam:** Develop bounded, isolated comparisons of trajectory summaries and path-dependence hypotheses using retained ledger/Genesis references. Record which proposal is being studied, its compression limits, and the evidence that could falsify it.
+- **Authority boundary:** This draft's proposed ScarVector, reconstruction affordances, co-evolution phases, metrics, and Genesis profiles are not accepted runtime mechanics. DEEP-TIME and accepted contracts prevail; this EP opens no archaeology verb, hidden score, ledger rewrite, reseed, or live scar intervention.
+- **Identity/privacy:** RFC-0120 supersedes the draft's human-and-agent-Players wording: Players are agents; human WATCH/research roles do not inhabit. Controller credentials provide no privileged historical-truth or reconstruction access. Derived lore and majority opinion cannot decide canonical truth.
+- **Promotion:** Separate research hypotheses from already accepted historical-evidence behavior. A mechanics proposal needs explicit deterministic state, costs, observability, compatibility, and governance review before runtime work; sealed live instructions remain unchanged.
+- **Verification:** Compare alternative compressed histories in isolated fixtures, preserving their full source provenance, and check replay plus research/PLAY redaction. Label non-computable or inferred reconstruction honestly; planned long-horizon experiments are not deployment or causal-success evidence.

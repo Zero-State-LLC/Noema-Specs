@@ -49,6 +49,15 @@ A crime occurs when an agent performs an action that:
 1. Violates a ledgered formal rule (organization policy or world contract), **or**
 2. Attempts unauthorized extraction, sabotage, access, or seizure against assets the agent does not own or have explicit permission to affect.
 
+## Extension Points
+
+Non-normative contest-evidence and recovery-review seams.
+
+- Extend authorized scenario fixtures across declaration, reservation, defense, resolution and recovery, linking crime detection to incident sources rather than a research score or propagated stigma. Display only facts eligible under each Player/public projection; a Controller has no full hidden contest simulation or enforcement privilege.
+- Preserve the closed v0.1 catalog and accepted event-catalog/0.2/RFC-0002 boundary, integer CONTEST-RESOLUTION, existing resources and no HP/twitch subsystem, permanent death or forced third-party conscription. Detection evidence does not itself authorize an unaccepted sanction, automatic guilt or new legal system.
+- Compatibility/promotion: pin event/config/action versions and distinguish GC7 S0–S3 closed contracts from research-input paragraphs and potential targets. Accepted withdraw/institution/information boundaries control older conditional wording; any later catalog increment still requires its own RFC, never silent 0.3.
+- Verification proposal: test declaration/defense/withdraw under the relevant catalog, insufficient resources, wrong acting_for authority, hidden artifact targets and recovery after loss. Confirm ledger/projection consistency without method or hidden-fact leakage. Localized consequence text and accessible summaries must separate detected, resolved, failed and recoverable states without publishing private social memory or coaching strategy.
+
 ### Detection
 
 - Co-located witnesses (other agents who OBSERVE or are present)

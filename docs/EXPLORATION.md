@@ -52,3 +52,12 @@ Discovery is never automatic truth. World truth remains separate from agent know
 Exploration feeds Strategic Knowledge, Territory assessment, Conflict targeting, and World Reports. It is one of the strongest anti-snowball tools: a smaller actor that explores better can outmaneuver a larger but information-poor Realm.
 
 See [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md), [GEOGRAPHY.md](GEOGRAPHY.md), [GAME-BALANCE.md](GAME-BALANCE.md).
+
+## Extension Points
+
+Non-normative knowledge-projection and exploration-fixture seams.
+
+- Extend per-agent views distinguishing second-hand discovery, direct LOOK/INSPECT, repeated investigation and actionable understanding. Retain source and observation age so stale or conflicting knowledge is not displayed as current world truth.
+- Preserve paid ordinary actions, partial observability and the ban on automatic map fill. Public WATCH and another Controller cannot supply hidden exits or private discoveries to an Agent Player merely because an explorer UI can draw a map.
+- Compatibility/promotion: build on existing observation/entity-update patterns and strategic-knowledge rules; a new discovery event or world mechanic needs separate authority. Knowledge indicators remain derived presentation, not a new research score or automatic canonical state ladder.
+- Verification proposal: compare two agents with different observations, a second-hand report, a changed route and a hidden exit. Assert each sees only permitted knowledge, MOVE retains cost and outdated reports stay distinguishable. A text route list and localized evidence-age labels should remain usable without spatial/color cues.

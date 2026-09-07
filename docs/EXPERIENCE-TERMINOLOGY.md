@@ -165,3 +165,12 @@ The following table remains the STUDY / progressive-disclosure dictionary. It do
 | Event presentation tier | NORMAL / NOTABLE / MAJOR display rank |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.
+
+## Extension Points
+
+Non-normative register-mapping and translation-validation seams.
+
+- Extend the concept_id mapping with reviewed localized captions, fallback rules and per-surface leak notes. Resolve duplicate dictionary entries explicitly in a generated mapping rather than silently selecting whichever row appears last; do not rename protocol fields, enum values or claim labels.
+- Apply RFC-0120 over the historical “human or agent-driven” Player phrase: Players are agents, humans are platform principals, and Controller describes external software provenance. A world-native alias cannot authorize a research metric in PLAY; cognition-signature wording remains unavailable without the future instrument the worked example requires.
+- Compatibility/promotion: mapping revisions remain presentation-only and retain canonical advanced-detail identifiers under the same authorization. Permissioned STUDY, public WATCH and PLAY require separate projection tests; translating a term never declassifies its source data.
+- Verification proposal: render one concept in each register and assert machine IDs and claim strength survive round-trip inspection. Test missing translations, ambiguous aliases, NOT_TESTED versus failure, and hidden research fields. Use readable names with accessible canonical detail and text-based uncertainty, not color or atmosphere that implies truth.

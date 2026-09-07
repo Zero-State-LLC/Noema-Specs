@@ -56,3 +56,12 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.VEST` from a personal owner who holds an occupied `OPERATE_NAMED_ASSET` office, set `owner_id` to that org, and treat that office holder as steward. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative VEST conformance and ownership-projection seams under RFC-0067.
+
+- Extend isolated validation cases across actor ownership, public/live constructible status and the occupied OPERATE_NAMED_ASSET office in the target org. The transfer keeps entity_id, sets owner_id to that org and assigns the office holder as steward; the institution never becomes a Player.
+- Preserve compute 1 and ENTITY_UPDATE plus BUDGET_CONSUMED, WATCH silence and omitted BUILD help. No SHARED ownership, UNCLAIMED/scar/in-progress vesting, CONNECT entitlement, STRUCTURE_* event or new property law follows from a projection adapter.
+- Compatibility/promotion: pin construction-catalog/gc2-s10 and office authority, compare existing BUILD.VEST serialization and do not borrow S11 behavior into this slice. An absent or revoked office cannot be repaired by Controller provenance or account-holder approval alone.
+- Verification proposal: exercise one eligible personal owner and refusals for a wrong org, vacant office, non-owner, private target and in-progress constructible. Assert unchanged identity, permitted owner/steward result, exact cost/event path and no WATCH entry. Localize “The {label} is held by {org}.” with readable ownership context while retaining protocol identifiers and authorization boundaries.

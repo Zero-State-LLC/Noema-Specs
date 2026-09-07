@@ -17,3 +17,15 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B2a), CONSTRUCTION.md, GC2-FIRST-SLICE.md, PR #305 + main continuation.
 
 Smallest unit for GC2 material tables gap. Ready for RFC.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend proposed material-table examples by existing operation and constructible class, recording resource units and the source catalog pin. Quantities remain closed, versioned entries rather than Player-selected recipes or free-form generation.
+
+- Preserve current S0 quantities, budgets and accepted construction behavior. This seed remains research input and does not activate a generalized materials system, create a new verb or authorize runtime changes.
+
+- A future table proposal needs the narrow governing RFC, explicit mapping from old entries and compatibility analysis for retained examples. New versions must not silently reinterpret historical construction costs or resource attribution.
+
+- Validate representative operation/class lookups, absent entries, invalid quantities and insufficient budgets against the proposed schema and existing pins. Require explicit rejection or unresolved status rather than defaulting a missing material cost to zero.

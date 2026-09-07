@@ -23,3 +23,11 @@ Fixed-point: millipoints 0–1000 unless noted. Config: [`specs/information-gain
 * Do not invent zeros for unknown uncertainty—use `NOT_COMPUTABLE` and block ranking component or whole plan per FRONTIER-DIRECTOR failure handling.
 * Expected information gain is **not** a scientific claim of bits learned.
 * No component is a consciousness or intelligence score.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Ranking seam:** Extend worked ranking fixtures against information-gain.v02.json, recording component inputs and the resulting fixed-point estimate. Keep planning estimates INFERRED and separate from later measured information gain.
+- **Compatibility boundary:** Changed weights, bounds, missing-data policy, or normalization require a new configuration identity and a reproducible comparison against the old pin. This section introduces neither a new metric nor a claim of bits learned, intelligence, or consciousness.
+- **Validation expectations:** Cover bound endpoints, capped novelty, explicitly empty coverage/failure sets, missing uncertainty, and unknown risk. Verify identical inputs rank identically, legitimate zeros remain distinguishable from NOT_COMPUTABLE, and unavailable inputs cannot be coerced into a favorable ranking.

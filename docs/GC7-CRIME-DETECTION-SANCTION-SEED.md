@@ -24,3 +24,23 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B7c), RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, GC3-S1-BETRAYAL.md, RFC-0002, GC7-CRIME-ENFORCEMENT-SEED.md, PR #305.
 
 Smallest unit for clarifying detection semantics in GC7 crime producer work. Ready for RFC when needed.
+
+## Extension Points
+
+Non-normative guidance; this section does not change the accepted contract or claim runtime completion.
+
+### Detection/sanction migration design
+
+Extend the future-RFC comparison with evidence-path and sanction-authority cases, keeping this seed an input-only proposal.
+
+### Preserved invariants
+
+An unauthorized act does not establish detection or guilt. A detection record is not independent sanction authority; provenance, jurisdiction and victim-specific restitution remain distinct.
+
+### Compatibility and promotion
+
+Do not remove RFC-0002 influence fields or activate a new sanction event from this note. A split needs an Accepted RFC, versioned payload migration and compatibility fixtures for existing consumers. No new verbs or exposure are authorized here.
+
+### Validation fixtures before adoption
+
+Describe old-contract detection with required influence fields beside a proposed detection-only record and a separately authorized sanction. Include undetected wrongdoing, ambiguous actor identification and out-of-jurisdiction sanction refusal. Label proposed expectations as design fixtures, not current reducer behavior or gap closure.

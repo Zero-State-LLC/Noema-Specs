@@ -29,3 +29,19 @@ Show:
 Validation
 Behavior reproduced in all required checks.
 ```
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend authorized validation reports with the ordered fixture, target, boundary, and replication identities plus a concise explanation of each predicate outcome. Expose declared tolerances and missing-data handling without converting a technical status into an unconditional success banner.
+
+### Compatibility and promotion
+
+Compiler/oracle versions and equivalence boundaries remain claim-bearing. No tolerance weakening after failure, hidden LLM judge, or live PLAY oracle follows from a viewer. Cache reuse requires every pinned identity to match; public presentation cannot disclose restricted evidence.
+
+### Verification before adoption
+
+Exercise missing evidence, threshold-edge results, stochastic stopping rules, and same-identity disagreement. Confirm INVALID/INCONCLUSIVE never render as reproduced; conflicting results invalidate cache and compilation while retaining both artifacts. A changed replication plan must miss the old cache and preserve the prior receipt.

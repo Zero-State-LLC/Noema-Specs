@@ -22,3 +22,9 @@ A conforming v0.3 Observatory MUST prove:
 18. candidate rejection preserves lineage.
 
 Suite: [CONFORMANCE.md](CONFORMANCE.md) · [`conformance/v0.3/`](../../../conformance/v0.3/).
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Acceptance evidence may add criterion-to-fixture mappings for trajectory lineage, frozen baselines, incompatible comparisons and rejected candidates without weakening these eighteen obligations. Keep historical run receipts pinned to their inputs and analysis/schema versions; materially changed extraction or comparison semantics need the owning contract revision and a fresh acceptance run rather than relabeling older results. Promotion evidence should include deterministic reruns, missing-versus-zero negatives, retained confounds/counterevidence, hidden-metric exclusion and append-only rejection/correction history alongside the prior C/F suites. A passing Observatory gate authorizes candidate discovery and triage only, never causal conclusions without controls or mutation of world truth.

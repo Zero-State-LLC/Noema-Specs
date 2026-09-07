@@ -18,3 +18,15 @@
 16. No runtime graph service or dedicated graph database is specified.
 17. Implementable as ordinary app data structures in the modular monolith.
 18. Graph work stays off the PLAY hot path.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Acceptance traceability can deepen evidence-to-node/edge examples, especially contested, failed, and not-yet-tested contexts.
+
+**Preserved invariants.** Keep source evidence immutable, graph projections deterministic, simple claims no stronger than advanced evidence, and graph work off the PLAY hot path without gameplay mutation.
+
+**Compatibility and promotion.** New edge or ontology semantics require explicit versioned contracts and compatibility cases; this checklist cannot authorize transitive automatic edges, a graph service, or v0.8 behavior.
+
+**Validation expectations.** Rebuild from pinned research/captured evidence, reject unsupported edges, test exact generalization/dependency boundaries and CONTESTED retention, and verify simple-view identity with no stronger claims; retain prerequisite suite evidence rather than assuming it passes.

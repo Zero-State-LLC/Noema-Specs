@@ -157,3 +157,11 @@ Do not invent a second Frontier schema. If `SITUATION_INJECTED` can carry a WED 
 ## Acceptance (scenario J)
 
 An authorized operator (or the seeded schedule) introduces a bounded scarcity or relay outage. Different Players hoard, repair, trade, or relocate. The pressure is replayable. Research can observe the divergence. PLAY never sees a required “correct” response.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Pressure seam:** Extend evidence for how already authorized schedule/scarcity/access effects couple through existing conditions and Player choices. Identify the exact source events and observation boundaries; a compelling narrative is not a causal or emergence receipt.
+- **Compatibility boundary:** Preserve the closed GC10-S0–S2 ledger despite earlier SPEC GAP wording. Pressure does not gain scar production, new event classes, or Frontier IDs through this guidance. Operator confirm/receipt work and later bands need separately approved versioned scope, not activation from the product-family list.
+- **Validation expectations:** Compare preview and activation for identical pinned inputs, replay without inventing injects, and exercise unauthorized actors, bounded intensity/duration, and restricted observations. Record different or absent Player responses without requiring a desired outcome; compensating events never erase immutable history or reverse a declared irreversible scar.

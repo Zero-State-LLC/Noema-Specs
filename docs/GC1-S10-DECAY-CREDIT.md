@@ -73,3 +73,12 @@ When a track is in the active focus set:
 - GAME-COMPLETENESS-PLAN GC1 (research seeds 2026-08-27).
 
 Design note only. Moves decay-window credit from "Still open" once a full RFC is Accepted. No new verbs. All proposals must still pass complexity doctrine A–J.
+
+## Extension Points
+
+Non-normative design-refinement seams. The proposed runtime rule above remains a design note, not authorization to ship decay credit.
+
+- **Seam:** specify how focus declaration, replacement, clearing, and recognition changes affect an idle window already in progress. Record whether credit is recomputed or latched, how cycle boundaries are ordered, and how the active-set cap interacts with S9 before choosing a numeric credit. The illustrative `+6` is not a selected constant.
+- **Retained invariants:** leave [S3](GC1-S3-DECAY.md)'s non-focused 12-cycle latency and three-qualifying-success rehabilitation unchanged; retain recognition evidence and deny automatic restoration or new recognition. Credit introduces no discounts, new verbs/events, Genesis changes, or public counters. S7/S9 withholding still prevents hidden-room or LATENT-track public focus disclosure.
+- **Compatibility/promotion:** resolve the draft mastery proposal and versioned credit semantics through an accepted RFC before changing runtime or help. Neither skill-graph research nor the `mastery-catalog/gc1-s10` design label activates cross-track sharing; compare against accepted S3/S7 behavior and keep S9 dependencies explicit.
+- **Proposed checks:** exercise immediately-before/at/after base and proposed extended thresholds, focus rotation near expiry, clear before expiry, restart/replay, and partial versus complete rehabilitation. Compare focused and non-focused recognized tracks under identical histories; test hidden-room and LATENT suppression without emitting a new event or exposing private evidence totals.

@@ -228,3 +228,12 @@ EMERGENCE / COMPLEXITY MAP  (primitives → pressures → actions → consequenc
 The domain chain in [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) is not replaced. The emergence map is a higher-order complement.
 
 Campaign sequencing remains [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md). This doctrine **filters** that campaign. It does not delete GC1–GC10.
+
+## Extension Points
+
+Non-normative design-review seams, not authorization for additional mechanics.
+
+- Extend A–J review records with a concrete transition, primitive reuse explanation, pressure grounding, two cross-system consequences and a deletion counterfactual. Preserve the seven named primitives; a registry or visualization cannot introduce new ones by relabeling metrics as primitives.
+- Keep practice recognition distinct from institution formalization and culture distinct from ledger truth. Interpret historical human/agent parity as equivalent semantics across valid agent Controllers under RFC-0120, not a human Player class. Research still observes meaningful play rather than directing it.
+- Compatibility/promotion: failed reuse/removal tests remain REJECT/DEFER. Changes to the design gate require governing review, not Controller enrollment, plugin configuration or an ACCESS slice tier. Future-money deferrals remain hard exclusions with no new wallets, schemas, dependencies or payment routes.
+- Verification proposal: contrast a composition of existing resources/assets/agreements with an unnecessary standalone subsystem; document why each passes or fails the gate. Test that removing research instrumentation leaves meaningful decisions and no new verbs. A readable review table should retain failed criteria and uncertainty rather than displaying a fabricated aggregate completeness score.

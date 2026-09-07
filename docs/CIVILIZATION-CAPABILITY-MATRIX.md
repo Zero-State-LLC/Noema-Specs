@@ -22,6 +22,23 @@ Gate A is complete through Noema PR #587 and the accepted evidence packet [LCA-G
 | World pressure | pressure runtime, GC10 tests | IMPLEMENTED_RUNTIME | Authorized pressure changes conditions without forcing target outcomes | LCA-3 |
 | WATCH and world reports | WATCH live, Phosphor, public bands, reports tests | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME depth | Uninvolved humans accurately explain major visible changes and unknowns | LCA-4 |
 | Persistence, settlement, recovery | hosted head, Postgres settlement, integrated restart path, older-format DO load, isolated rollback, and Gate A evidence in Noema #587 | LIVE_HOSTED | Gate A complete; endurance recovery remains unproven for LCA-4 | LCA-4 |
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend each capability row with a trace from cited implementation to the remaining integration proof, its evidence plane, and the relevant campaign gate. Keep offline research distinct from hosted capability; a runtime test link is useful but not a hosted civilization receipt.
+
+### Compatibility and promotion
+
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A evidence does not prove Gate B independence, Gate C integration, or endurance. The offline research-spine row remains downstream of a separate reopen decision.
+
+### Verification before adoption
+
+For each proposed promotion, resolve the source revision and run artifact, compare the claim with current-state.v1.yaml, and check the gate-specific acceptance contract. Reject planning-only or scripted shared-planner evidence for independent population. Preserve unresolved rows when evidence is absent rather than inferring success from neighboring capabilities.
+
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
 
 ## Integration graph

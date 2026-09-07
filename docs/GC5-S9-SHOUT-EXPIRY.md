@@ -57,3 +57,11 @@ WATCH ticker
 ## Runtime rule
 
 Hosted Chamber MUST drop a public-room shout after 1 committed cycle, keep last-1 overwrite, and reject hidden-room shout. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Retention seam:** Extend replay fixtures around last-1 overwrite and the next committed-cycle expiry of public SHOUT content. Wall-clock passage and delivery retries should not be used as substitutes for the declared world-cycle rule.
+- **Compatibility boundary:** RFC-0080 and communication-catalog/gc5-s9 pin a one-cycle projection lifetime, not ledger erasure or a new expiry event. Other surfaces already have their own linked expiry slices; do not generalize S9 into a shared policy that changes their contracts.
+- **Validation expectations:** Compare pre-expiry and post-commit observations, two shouts in one cycle, replay from a snapshot, and hidden-room refusal. Check that the line disappears while source MESSAGE history remains, with no MESSAGE_EXPIRED, WATCH ticker, or newly advertised verb.

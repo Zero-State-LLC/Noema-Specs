@@ -868,3 +868,12 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 This lightweight upgrade is the low-cognitive-load default. A separate, more visual and layered real-time mapping system (with explicit support for future expansion) is defined in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) — reconciled with this contract by its §1.1/§6.1/§8.1 and the §15 row above.
 
 The two surfaces coexist; this door stays the default.
+
+## Extension Points
+
+Non-normative future presentation guidance; this section does not reopen `spectator-projection/1.0`, event catalogs, accepted WATCH slices, or private-state access.
+
+- **Public presentation adapters:** future grouping, room-detail, or world-graph treatments can improve orientation using the same permitted public projection. Keep notable-event and recent-context selection bounded and explain observable consequences without invented motives, research candidates, or hidden history. A different layout is not a new source of world truth.
+- **Low-load delivery:** rendering/cache refinements can reduce repeated work while preserving ordering, freshness indicators, and honest empty/degraded states. They should not introduce a second event stream with different semantics, silently expand polling/subscription load, or mistake stale projected data for a current live observation.
+- **Compatibility and promotion:** projection shape, disclosure rules, event selection semantics, or load-budget changes need review at their owning contracts rather than a UI-only exception. Preserve accepted slice limits and the public-only boundary across WATCH, room detail, and any reused Home excerpt; new presentation options do not authorize new gameplay actions.
+- **Verification:** compare rendered output with the same public fixture across populated, empty, stale, and failed-load cases; check deterministic event order and the absence of private terms, hidden locations, and restricted research material. Exercise keyboard traversal and text equivalents for graph/detail interactions, reduced-motion behavior, and network/request counts against the existing bounded-load expectations before claiming an improvement.

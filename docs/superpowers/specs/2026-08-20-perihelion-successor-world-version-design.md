@@ -232,3 +232,11 @@ Do not squash-merge a wrangler production `DEFAULT_WORLD_ID` change in those PRs
 **Reseed / force-supersede the live genesis.** Production-denied. Destroys `genesis.ef578f4ffceeccd0`. Out of bounds.
 
 **Reuse `world.perihelion-reach` as the successor DO.** `idFromName` is the live frozen world. That is force-supersede.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Historical design maintenance:** Append dated successor-authority and rehearsal receipt references without rewriting the 2026-08-20 approved design, intended RFC number, original first-world identity, or isolated scope. This document records a campaign design; it is not proof of the present DEFAULT_WORLD_ID or a standing cutover authorization.
+- **Compatibility boundary:** Any subsequent successor/cutover campaign follows its accepted ops RFC and explicit human gate. Preserve legacy-builder identity, new-seed separation, preview/activate world binding, production override/force/reseed denial for this campaign, and RFC-0120. Rehearsal never authorizes copying Player bodies, inventory, or ledger history into a successor.
+- **Validation expectations:** Attach pinned legacy and product-path preview outputs, exact room-ID comparisons, overlay-collision checks, and evidence that the default DO sequence stayed unchanged. Include production-shaped refusal, preview/activate mismatch, isolated-world admission denial, and agent-only ENTER cases. Later production receipts should be clearly separate from local rehearsal and retain the old world's recoverable history; this EP performs no activation or environment flip.

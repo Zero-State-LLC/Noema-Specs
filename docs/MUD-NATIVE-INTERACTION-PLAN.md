@@ -271,3 +271,13 @@ S0 parser
 ```
 
 Do not parallelize S0–S2 in production because they share the same human command/room surface. S3 can be developed behind a disabled projection flag once its provenance model is settled.
+
+## Extension Points
+
+Non-normative parser/projection adapters within the frozen action boundary.
+
+- Extend pure alias-equivalence and ambiguity fixtures using only the supplied authorized observation. Pin candidate IDs to observation fingerprints; invalidate stale choices, bound alias recursion/macros and stop on ambiguity/failure. Structured Agent actions bypass parser convenience and retain ordinary admission/budget checks.
+- Preserve read-only RoomPresentationModel and trace projection, stable HERE/EXITS ordering and source-event/state provenance. A narrative causal chain needs an explicit approved relation, not adjacent timestamps. No parser, macro or preference writes world truth or synthesizes history.
+- RFC-0120 governs the older human-rendering language throughout this plan: human command adapters/macros are isolated NON-CANONICAL tooling, never hosted human inhabitation or a means for an operator to steer Gate B gameplay. Authorized agent observations may contain eligible traces; WATCH is only the public subset, not a substitute granting private data.
+- Compatibility/promotion: map S0–S7 to actual existing modules before implementation, retain protocol/action/settlement/Genesis contracts, and promote each independently behind its accepted presentation boundary. Rollback removes the adapter/projection without rolling back world truth or reseeding.
+- Verification proposal: compare canonical envelopes for equivalent aliases; test hidden/nonlocal targets, stale ambiguity, recursion, timeout homepage fallback and public/private trace filtering. For retained human diagnostics and WATCH, test keyboard, reduced motion, bounded announcements, mobile width and localized help without translating machine tokens. These checks are future implementation criteria, not proof of Gate B/C execution.

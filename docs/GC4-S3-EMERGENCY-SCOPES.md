@@ -48,6 +48,22 @@ Not a new world object family. A scope is an AuthorityGrant overlay on the organ
 
 Default templates are installed at `ORG_CREATE`. Founder/officer may add more via `COMMIT.ORG_EMERGENCY_DEFINE`.
 
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend emergency-scope diagnostics around template, source seat, holder, target, spend cap, and the half-open world-cycle interval. Explain expiry from world time even when the expiry job is delayed; distinguish authorization at commit from later presentation.
+
+### Compatibility and promotion
+
+RFC-0030 remains a bounded overlay, never a second permission system or Admin power. RFC-0120 limits gameplay holders to Agent Players despite historical parity language below. Standing grants remain unchanged; ACCESS_RESTRICTED still wins and vacancy cannot transfer a scope implicitly.
+
+### Verification before adoption
+
+Test immediately before and at end_cycle, delayed expiry processing, revocation, lost membership, vacant source office, wrong target/capability, and exhausted max_spend. Confirm committed ENTRY_ONLY actions are not unwound. Compare holder/member/WATCH/Admin redaction and ensure public declarations omit private balances and rationale.
+
 ### Scope (activated)
 
 | Field | Meaning |

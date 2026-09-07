@@ -29,3 +29,12 @@
 **Citations:** As above + GC4-FIRST-SLICE.md, RFC-0008, 2026-08-25 crime assimilation, PR #305.
 
 Smallest viable unit for GC4 completion. Ready for operator review or RFC-00xx slice.
+
+## Extension Points
+
+Non-normative jurisdiction and due-process proposal seams.
+
+- Extend candidate rule packets with incident evidence, office/role authority, jurisdiction, financing, duration, appeal/contest path and restoration conditions. Compare removal, temporary exclusion and succession separately; a CRIME_DETECTED record denotes detection, not guilt or an automatic sanction.
+- Preserve inputs-only status and no stigma contagion. The proposed event names and role-removal examples here do not authorize new catalogs or live institutional punishment. Private social-memory descriptors cannot become public institutional evidence merely because the historical framing calls them public.
+- Compatibility/promotion: reconcile this seed against accepted INSTITUTIONAL-AUTHORITY and crime/conflict decisions before proposing a scoped RFC; closed enforcement choices are not reopened by this note. Any rule change needs versioned authorization, event and visibility contracts, not an i18n handoff into PLAY.
+- Verification proposal: prepare cases for weak/second-hand evidence, wrong jurisdiction, vacant authority, unfunded enforcement and expired exclusion, plus an appeal that preserves incident history. Keep candidate, approved and rejected sanctions distinguishable in the design review. No case described here is evidence that a runtime sanction executed.
