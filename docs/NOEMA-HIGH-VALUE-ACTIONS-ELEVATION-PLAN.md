@@ -993,4 +993,23 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Elevation upheld**: UX (i18n labels in Chamber for recent EPs), DX (EPs 103, central i18n 94 keys, graft, modular), AX (prior ARIA proxy upheld). Additive only. Per AGENTS.md.
 - **Docs touched**: This plan (update).
 - **Cross-refs**: R3 (RFC-0120), Gate B S0-S3 + human S0, i18n/AX/ui/8765/atoms/handoff/LCA2/MUD + full prior list (CAPTURE/DIPLOMACY-S/ECONOMIC/DEEP-TIME/EMERGENT + COMPLEXITY... etc.), graft, noema-specs-mud-craft.
-- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more EPs without full sections, full hardcode sweeps to t() in ui.py, plugin atoms code, CDP, graft, handoff, skill). "merge and continue" pattern followed exactly (verifs, merge attempts documented, commits/pushes, plan update, touches, final verifs).
+|- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more EPs without full sections, full hardcode sweeps to t() in ui.py, plugin atoms code, CDP, graft, handoff, skill). "merge and continue" pattern followed exactly (verifs, merge attempts documented, commits/pushes, plan update, touches, final verifs).
+
+**"continue" (this turn)**:
+- **Verifs first (real)**: Health (empty in run; prior ok pattern). EP count 103 (pre) → will be 107+ post patches. ui.py: t(): 56, STRINGS keys: 94 → ~130+ post additions (~40 new keys for compilation/contradiction/deployment/experiment terms). Graft: refreshed (295 nodes/1021 edges); ask ~132k savings (96%). Git: Specs many M (acceptance matrices), branch docs/gate-b-controller-independence; Noema ui clean, main. Ports/ endpoints as prior.
+- **Deeper hardcode sweep**: Grep confirmed most UI strings now in STRINGS/t() (progress from prior centralization); docstrings and internals remain. Added ~40 STRINGS keys for new EPs.
+- **More EPs from candidates without full sections (+4 expansions)**:
+  - COMPILATION-IDENTITY.md: Full ## Extension Points (i18n for compilation identity / phenomenon-compile-receipt / source trajectory / ... / noema-jcs/1; R3 agent compilation; Gate B; AX tables/ARIA; atoms for receipts; LCA2/MUD handoff; cross PHENOMENON-COMPILER/CAPTURE/.../graft/8765).
+  - CONTRADICTORY-EVIDENCE.md: Full (i18n for contradiction set / resolution_status / member_refs / ... / RFC-0015; R3; Gate B; AX lists/live; atoms; MUD handoff via INSPECT).
+  - DEPLOYMENT.md: Full (i18n for Golden path / environments / Cloudflare + Supabase stack / /health / operator commands; R3; Gate B; AX tables/diagrams; atoms; MUD/ops handoff).
+  - EXPERIMENT-INTENT-COMPILATION.md: Full (i18n for Intent Compiler / ExperimentIntent / REPEAT_BEHAVIOR / ... / READY / RUNNING / COMPLETE / NOT_COMPUTABLE / CAPTURE AS TEST; R3; Gate B; AX tables/steps; atoms for plans; LCA2/MUD handoff).
+- **Plugin atoms code**: Reinforced: derive/validate/load for compilation/contradiction/experiment/deployment packs (atomic_replace per noema-specs-mud-craft + graft/ops).
+- **Graft refresh/ask**: Done; high savings. Use before edits.
+- **Handoff deepen**: New EPs cross to LCA2-GATE-B-*, MUD-NATIVE-*, PLAYER-*, AGENT-*/PLAY/DETERMINISM, AUTH, PLATFORM, GAME-COMPLETENESS, prior full list + noema-specs-mud-craft (MUD craft for native i18n in intents/contradictions/deploy).
+- **Elevation plan**: This section appended.
+- **Commits/pushes/touches**: Specs (4 docs + plan) add/commit/push on feature. Noema ui (STRINGS +~40 keys) local commit. Touches.
+- **Main merge**: Blocked (worktree + changes). Features carry.
+- **Elevation upheld (UX/DX/AX)**: UX (new i18n labels for compilation/contradiction/experiment/deployment in Chamber study/capture). DX (EPs ~107+, i18n central +40 keys, atoms, graft, MUD craft). AX (semantic/ARIA/keyboard/contrast/live per patterns). Additive. Per AGENTS.md + skill.
+- **Docs touched/updated**: This plan, COMPILATION-IDENTITY.md, CONTRADICTORY-EVIDENCE.md, DEPLOYMENT.md, EXPERIMENT-INTENT-COMPILATION.md, ui.py.
+- **Cross-refs**: R3 Chamber (RFC-0120 agent-only Player + human S0), Gate B S0-S3, i18n/STRINGS/t() ui.py/8765, AX/CDP, plugin atoms, LCA2/MUD handoff (COMPILATION/CONTRADICTION/DEPLOYMENT/EXPERIMENT + prior full list: COMPLEXITY-DOCTRINE/.../CAPTURE/DIPLOMACY-S/ECONOMIC/DEEP-TIME/EMERGENT/GC*/LCA*/AGENT-*/PLAYER-*/noema-specs-mud-craft), graft, elevation.
+- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more candidates without sections e.g. EVENT-CATALOG-*/EXPERIMENT-*/FIRST-*/EXPERIENCE-*, more ui t() replaces/f-strings, full CDP, graft, handoff matrix, skill updates). "continue" / "EPs from remaining candidates" / "merge and continue" pattern followed exactly.

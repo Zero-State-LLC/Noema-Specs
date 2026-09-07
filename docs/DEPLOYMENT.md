@@ -258,3 +258,13 @@ See [OPERATIONS.md](OPERATIONS.md): `noema backup`, `noema restore`, `noema veri
 ## Conformance
 
 C14–C17 cover reference deployment, persistence, backup/restore, and version pinning.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + DEPLOYMENT / HOSTED)
+
+- **i18n centralization (STRINGS + t())** for "Golden path", "local", "test", "staging", "production", "research-isolated", "application / UI", "agent protocol endpoint", "spectator surface (WATCH)", "/health", "/ready", "/version", "one Chamber world", "Cloudflare + Supabase", "Human auth", "Identity + history", "Large artifacts", "Realtime", "API / Gateway", "Live world", "Static web", "Agents", "Supabase Auth", "Supabase Postgres", "Supabase Storage", "Cloudflare Workers", "Cloudflare Durable Objects", "noema.guru", "golden path", "reference compose", "operator commands", "noema backup", "noema restore", "noema verify", "conformance". R3 agent deployment + human S0.
+- **Gate B S0-S3 + R3**: Agent-only Player (RFC-0120) for hosted; version comps; human S0.
+- **AX**: Semantic tables for environments/stack; ARIA for diagrams/lists, keyboard nav for deploy docs, live for status, contrast. CDP proxy.
+- **Plugin atoms**: For deployment packs (derive config, validate conformance, load_pack, atomic_replace); Chamber atoms for deploy viewers, health tools.
+- **LCA2/MUD handoff**: MUD native for deployment/ops commands i18n; cross PLATFORM, OPERATIONS, PLAYER-ACTION-MAP, AGENT-*, graft.
+- **Cross-refs**: PLATFORM.md, OPERATIONS.md, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM/GATEWAY, AUTH-AND-IDENTITY, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (HOSTED/OPERATOR/MUD + full list).
+- All real outputs. Additive. Ready for Chamber i18n in runtime/deploy surfaces.

@@ -45,3 +45,13 @@ The display is a projection only. Advanced detail always resolves to the same `e
 ## Compiler readiness
 
 `READY` requires complete required execution, passing required controls, a resolved evidence rule, no fatal confound, satisfied replication requirement, and a bounded phenomenon suitable for v0.5. `NOT_READY` means more evidence, replication, or confound resolution is required. `REJECTED` retains evidence that collapsed the candidate. A Lab result does not create a regression fixture. The simple `CAPTURE AS TEST` action is permitted only for `READY`.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + EXPERIMENT / INTENT / COMPILATION)
+
+- **i18n centralization (STRINGS + t())** for "Intent Compiler", "ExperimentIntent", "catalog_version", "resolved candidate evidence", "validation", "generated design", "ExperimentPlan", "isolated Lab execution", "source_intent_id", "intent_catalog_version", "plan_template_id", "input_digest", "REPEAT_BEHAVIOR", "REMOVE_DEPENDENCY", "CHANGE_CONDITION", "COMPARE_VERSION", "TEST_GENERALIZATION", "CUSTOM", "REPLICATION", "ABLATION", "PERTURBATION", "COUNTERFACTUAL", "VERSION_DIFFERENTIAL", "GENERALIZATION_PROBE", "ADVANCED_EXPERIMENT_DESIGN", "dependent_measure_source", "equivalence_boundary_source", "fork_point", "seed_policy", "intervention", "controls", "run_count", "DRAFT", "VALIDATED", "READY", "RUNNING", "COMPLETE", "PARTIAL", "NOT_COMPUTABLE", "INVALID", "ABORTED", "QUARANTINED", "Preparing test", "Ready", "Testing", "Result available", "Incomplete result", "Cannot determine", "Test cannot be interpreted", "compiler readiness", "CAPTURE AS TEST". R3 agent experiment compilation + human S0.
+- **Gate B S0-S3 + R3**: Agent-only Player (RFC-0120) for experiments; version comps; human S0.
+- **AX**: Semantic tables for intents/lifecycle/states; ARIA for study steps/tables, keyboard nav for experiment design, live regions for status, contrast. CDP.
+- **Plugin atoms**: For experiment/intent packs (derive plan, validate intent/catalog, load_pack, atomic_replace); Chamber atoms for experiment viewers, intent compilers.
+- **LCA2/MUD handoff**: MUD native for experiment commands / parser i18n for intents/states; cross CAPTURE-INTENT, PLAYER-ACTION-MAP, AGENT-*, graft.
+- **Cross-refs**: CAPTURE-INTENT-COMPILATION.md, PHENOMENON-COMPILER, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM/GATEWAY, AUTH-AND-IDENTITY, PLATFORM, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (CAPTURE/DIPLOMACY/ECONOMIC/DEEP-TIME/EMERGENT/COMPILATION/CONTRADICTION + full list).
+- All real outputs. Additive. Ready for Chamber i18n in study/experiment surfaces.
