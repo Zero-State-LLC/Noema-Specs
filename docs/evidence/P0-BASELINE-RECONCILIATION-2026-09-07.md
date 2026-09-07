@@ -145,6 +145,27 @@ open Gate B/C, resolve the #634 compatibility/version decision, establish live
 client enrollment, or authorize deployment. Downstream work need not finish
 before this documentation packet is handed off.
 
+### Locally verified integration follow-up at 05:29 UTC
+
+After the coordinator reported PR #326 merged, local `origin/main` resolved to
+`061d2b0c6489ca5e004f443e98eb2c5f93a69b8f`, whose commit records that merge.
+No network fetch was performed by this workstream. The clean documentation
+branch rebased onto that locally available base without conflicts.
+
+The three original documentation commits map to `0461fba` (table repairs),
+`7445f3b` (ledger/report), and `c59527e` (attributed execution follow-up).
+The inherited full `validation/run.sh` now includes Gate B traceability.
+Its actual offline rerun passed **6 tests**, **444 schemas**, **923 example
+JSON/JSONL files**, and **67 Gate B traceability rows**, plus internal links,
+required structure, direction, and offline freshness. See the separate
+[integration validation receipt](P0-BASELINE-CHECKS-2026-09-07.md).
+
+Specs `94286ca` and runtime `c1be766` remain this inventory's original dated
+inspection baselines. The 125-row JSON/CSV artifacts and machine gate states
+are unchanged. CI and validator changes belong to inherited PR #326, not this
+documentation diff against `origin/main`. Earlier pending/review-required
+reports above are historical, not the current locally observed merge state.
+
 ## Reproduce the exhaustive inventory check
 
 From this Specs worktree, use Python 3 and a local runtime repository containing `c1be766`. The script reads Git objects only and validates coverage independently of the stored row counts. It checks exact JSON/CSV parity and pinned home digests as well as every source enumeration. It neither runs nor modifies repository validators.

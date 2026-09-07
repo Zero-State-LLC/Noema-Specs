@@ -2,7 +2,23 @@
 
 **Scope:** the [P0 reconciliation packet](P0-BASELINE-RECONCILIATION-2026-09-07.md), its JSON/CSV ledger, two structural repairs, and dated metadata notes. This is Specs/document validation, not runtime, client, hosted, or external gate acceptance.
 
-## Environment and commands
+## Integration rerun: 2026-09-07 05:29 UTC
+
+The clean documentation branch was rebased without conflicts onto locally
+available `origin/main` at `061d2b0c6489ca5e004f443e98eb2c5f93a69b8f` (PR #326).
+The inherited full `validation/run.sh`, using the same offline environment
+below, exited 0: **6 tests passed**, **444 schemas** and **923 example
+JSON/JSONL files** parsed, internal Markdown links/required structure/direction/
+offline freshness passed, and the now-integrated Gate B traceability check
+passed **67 rows**. No extra standalone Gate B command is required by this
+new entrypoint, unlike the original baseline receipt below.
+
+The exhaustive 125-row ledger/home-digest/CSV-parity and structural/state/JSON/
+baseline-path checks also passed after rebase. The original `94286ca` inventory
+and earlier results remain dated history. This workstream did not edit the
+inherited CI or validators. No runtime, live, or gate acceptance follows.
+
+## Original baseline environment and commands
 
 Run from the assigned Specs worktree on the `94286ca` baseline. Dependencies were already provisioned in the canonical Specs validation environment. `PIP_NO_INDEX=1` prevents network package lookup. No network or live operations were used.
 
