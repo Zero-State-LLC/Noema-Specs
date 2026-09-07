@@ -47,6 +47,17 @@ This chain is **derived**. Institutions already have a first-class lifecycle ([I
 
 If lore conflicts with evidence, **evidence wins** ([LORE-BOUNDARY.md](LORE-BOUNDARY.md)).
 
+## Extension Points (additive, i18n AX R3 Gate B handoff + EMERGENT-CULTURE / DEEP-TIME / without full sections)
+
+- **i18n centralization (STRINGS + t())** for emergent culture, canonical chain, repeated behavior → custom → tradition → institution → cultural identity, layer distinction, canonical event, historical evidence, institutional memory, Player belief, shared interpretation, cultural convention, derived lore, "evidence wins", candidate derived forms (names, titles, rituals, symbols) — for /study /watch /play lore and culture projections.
+- **R3 / RFC-0120**: Agent emergent culture; human S0 for interpretation oversight.
+- **Gate B**: Access for culture features; versioned tradition/institution.
+- **AX**: Semantic for culture lists; ARIA for ritual/symbol views; keyboard; live for derivations; contrast in heritage displays.
+- **Plugin atoms**: Atomic for culture packs (derive tradition, validate); graft for emergence candidates; atomic_replace.
+- **LCA2 / MUD handoff**: MUD native for culture marks, tradition; i18n parser; noema-specs-mud-craft; handoff to DEEP-TIME/EMERGENCE.
+- **Cross-refs**: EMERGENT-CULTURE.md, DEEP-TIME.md, LORE-BOUNDARY.md, INSTITUTIONAL-MEMORY.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/BEHAVIOR-FEATURES, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765, omh-accessibility-audit.
+- **Handoff deepen**: R3 Chamber i18n AX, MUD native culture, attention to emergent signals, agent determinism in culture.
+
 ---
 
 ## Candidate derived forms

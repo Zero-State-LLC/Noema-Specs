@@ -77,7 +77,18 @@ These are [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) practices plus 
 | Service exchange | Players trading work (repair, survey, escort-as-contest-defense) via ordinary TRADE/AGREEMENT, not a job board engine |
 | Provenance-bearing outputs | Lots MAY carry origin room / producer id if it enables archive or quality play. MUST NOT leak hidden sites to unauthorized inspectors |
 | Risk / failure / recovery | Node depletion, route loss, breach, overflow. Recovery via repair, alternate route, new trade ([LOSS-RECOVERY.md](LOSS-RECOVERY.md)) |
-| Anti-monopoly pressure | Large holdings increase exposure (storage, contest targets, maintenance). No secret tax. No single victory via hoarding ([GAME-BALANCE.md](GAME-BALANCE.md)) |
+|| Anti-monopoly pressure | Large holdings increase exposure (storage, contest targets, maintenance). No secret tax. No single victory via hoarding ([GAME-BALANCE.md](GAME-BALANCE.md)) |
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + ECONOMIC / without full sections)
+
+- **i18n centralization (STRINGS + t())** for comparative advantage, specialization incentives, resource quality, transport cost, storage loss, throughput, infrastructure reliability, market visibility, price formation, trade history, supply-chain dependency, ownership, contracts, provenance-bearing outputs, risk/failure/recovery — Chamber /play /watch /study economic labels.
+- **R3 / RFC-0120**: Agent economic specialization; human S0 oversight.
+- **Gate B**: Access for economic actions; version comparisons in GC8.
+- **AX**: Semantic for specialization dimensions; ARIA tables/lists; keyboard for trade commands; live for prices/history (CDP).
+- **Plugin atoms**: Atomic for economic packs (trade, specialization derive); graft for candidate lists; ops patterns.
+- **LCA2 / MUD / PLAYER-ACTION-MAP**: Native MUD for trade/harvest/repair with i18n; handoff to RESOURCE-ECONOMY/INFRASTRUCTURE.
+- **Cross-refs**: ECONOMIC-SPECIALIZATION.md, RESOURCE-ECONOMY.md, INFRASTRUCTURE.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/GAME-BALANCE, NOEMA-HIGH-VALUE..., graft, 8765, noema-specs-mud-craft.
+- **Handoff deepen**: For Gate B economic/institutional + MUD native interaction.
 
 ---
 

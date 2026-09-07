@@ -162,3 +162,14 @@ References (selected from research pull):
 - Path dependence in cultural/institutional evolution (multi-generational models).
 - Agent-based historical reconstruction and archaeology simulations.
 - Long-term memory, forgetting, and persistent effects in complex adaptive systems.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + DEEP-TIME / without full sections)
+
+- **i18n centralization (STRINGS + t())** for scars, HistoricalTrajectorySummary, ScarVector, deepTimeCoEvolve, ARCHAEOLOGY, reconstruction, lore_attractors, path_dependence_index, reconstruction_confidence, scar(domain, strength), "Reconstruct Scar", historical_context — for /study /watch evidence and future PLAY affordances.
+- **R3 / RFC-0120**: Agent behaviors under deep time; human S0 for orientation.
+- **Gate B**: Access for archaeology/reconstruction; versioned deep time profiles.
+- **AX**: Semantic for scar lists, ARIA tables for trajectory; keyboard for reconstruction actions; live regions for confidence; contrast in history views (CDP).
+- **Plugin atoms**: Atomic for scar vectors, reconstruction packs (derive, validate); graft for historical candidate extraction; maint_evolve patterns.
+- **LCA2 / MUD handoff**: Native MUD for archaeology/reconstruct; parser i18n for deep time terms; noema-specs-mud-craft; trace to LCA-2 Gate B.
+- **Cross-refs**: DEEP-TIME.md, SEMANTIC-EVOLUTION-SPEC.md, ECONOMY-EWM-SPEC.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/BEHAVIOR-FEATURES, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765 Chamber, omh-accessibility-audit.
+- **Handoff deepen**: For R3+ i18n AX, MUD native, attention projection in deep time flows, agent determinism with history.

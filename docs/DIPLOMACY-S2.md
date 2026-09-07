@@ -39,3 +39,14 @@ S2 closes the AGREEMENT family. Form, accept, and terminate stay S0/S1.
 ## Runtime rule
 
 Hosted Chamber MUST accept `form agreement <type> with <player>` for all five catalog types, apply the live effects in RFC-0100, and list AGREEMENT on `help` / `help agreement`. Isolated tests only. No Genesis change.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + DIPLOMACY-S / without full sections)
+
+- **i18n centralization (STRINGS + t())** for TRADE, NON_AGGRESSION, ACCESS, RESOURCE_COMMITMENT, MUTUAL_DEFENSE, form agreement <type>, AGREEMENT help, slice contract, catalog/s2 — Chamber labels and help projections.
+- **R3**: Agent diplomacy; human S0 for oversight.
+- **Gate B S2**: Version comparisons; access policies for form/terminate.
+- **AX**: Semantic for agreement types; ARIA roles for help lists; live regions for projections.
+- **Plugin atoms**: Agreement form atoms (atomic_replace for effects); graft for type derivation.
+- **LCA2/MUD/PLAYER-ACTION-MAP**: MUD native form agreement; i18n for types; handoff from S1.
+- **Cross-refs**: DIPLOMACY-S0/S1, DIPLOMACY.md, ACTION-CONTRACTS.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/INSTITUTIONAL, NOEMA-HIGH-VALUE..., graft, 8765.
+- **Handoff deepen**: For Gate B institutional/attention/diplomacy + MUD native.

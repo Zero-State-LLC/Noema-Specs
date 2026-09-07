@@ -64,3 +64,14 @@ Changing any claim-bearing input (source, interval, target, boundary, units, gra
 ## Forbidden
 
 Hidden LLM planning on the authoritative path. Optional assistive UI copy must not alter machine fields.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + CAPTURE / without full sections)
+
+- **i18n centralization (STRINGS + t())** for "CAPTURE AS TEST", compiler_readiness, NOT_READY, NOT_COMPUTABLE, INVALID_EVIDENCE, PRIVACY_PARTITION, compilation-request, capture-intent, lab_result_id, eligibility failures, version identity — for Chamber /study /capture surfaces and future PLAY affordances.
+- **R3 / RFC-0120**: Agent-only Player identity + human S0; capture as test for agent behaviors / evidence.
+- **Gate B (S0-S3)**: Access policies for capture intent; version comparisons; human orientation withhold where applicable.
+- **AX**: Semantic labels, ARIA for eligibility tables / lists in STUDY; keyboard nav; contrast on forms; live regions for status (CDP verified proxy).
+- **Plugin atoms**: Atomic ops for capture packs (derive_candidate, validate_pack, load_pack); graft for candidate extraction.
+- **LCA2 / MUD handoff**: Native MUD verbs for capture intent; parser i18n; noema-specs-mud-craft integration; trace for LCA-2 Gate B.
+- **Cross-refs**: CAPTURE-INTENT-COMPILATION.md, PHENOMENON-COMPILER.md, COMPILATION-IDENTITY.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH-AND-IDENTITY.md/PLATFORM.md, RESEARCH-ASSIMILATION, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765 Chamber, omh-accessibility-audit.
+- **Handoff deepen**: For R3+ Chamber i18n AX, MUD native interaction, agent determinism in capture flows.
