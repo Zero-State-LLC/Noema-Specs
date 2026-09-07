@@ -165,3 +165,19 @@ The following table remains the STUDY / progressive-disclosure dictionary. It do
 | Event presentation tier | NORMAL / NOTABLE / MAJOR display rank |
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+
+- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experience_terminology", "dual_semantic_architecture", "player_surface", "internal_research_schema", "registers_schema", "registers_research", "registers_operator", "registers_player", "registers_lore", "concept_id", "player_facing", "agent_ecology", "observation_signal_record", "metric_index_trait", "emergent_behavior_adaptation", "test_scenario_event", "evaluation_assessment". Use t() for mapping tables, registers, projections in Chamber terminology/experience/PLAY surfaces.
+
+- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent dual semantics for PLAYER SURFACE vs internal. Human S0 separate.
+
+- **Gate B S0-S3 + version comparisons**: Mapping framework, runtime projection rules, register distinctions. Versioned terminology.
+
+- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for registers/mappings with aria-labels, keyboard, live for displays.
+
+- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for terminology mapping packs. Graft for register validation.
+
+- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for player-facing terms in MUD/PLAY (e.g. player register). Handoff to MUD-NATIVE-*, EXPERIENCE.md, PLAYER-ACTION-MAP, AGENT-PLAY, LCA2. Room order preserved.
+
+- Cross-refs: EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list incl. PLAYER-*, AGENT-*.

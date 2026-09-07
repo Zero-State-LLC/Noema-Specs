@@ -1031,4 +1031,14 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Elevation upheld (UX/DX/AX)**: UX (event/experience i18n in Chamber play/study). DX (EPs 111+, i18n central +45 keys, atoms, graft, MUD craft). AX (semantic/ARIA/keyboard/contrast/live). Additive. Per AGENTS.md + skill.
 - **Docs touched/updated**: This plan, EVENT-CATALOG.md, EXPERIENCE.md, EXPERIMENT-DESIGN.md, COORDINATION-SIGNALS.md, ui.py.
 - **Cross-refs**: R3 (RFC-0120), Gate B S0-S3, i18n/STRINGS/t() ui.py/8765, AX/CDP, plugin atoms, LCA2/MUD handoff (EVENT-CATALOG/EXPERIENCE/EXPERIMENT-DESIGN/COORDINATION + prior full list incl. MUD-PLAY-CRAFT/COMPILATION/...), graft, noema-specs-mud-craft, elevation.
-- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more without sections e.g. EXPERIMENT-*/EXPERIENCE-*/FIRST-*/GAME-BALANCE.md etc., more ui polish, CDP, graft, handoff, skill). "continue" pattern followed exactly.
+|- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more candidates without sections e.g. EXPERIMENT-*/EXPERIENCE-*/FIRST-*/GAME-BALANCE.md etc., more ui polish, CDP, graft, handoff, skill). "continue" pattern followed exactly.
+
+**"complete EPs batch" (this turn)**: 
+- Verifs: graft, health (prior), ui t() 56+ , STRINGS ~200+ (added ~100 keys this batch for audit, errors, terminology, experiment comparison/controls/fork/identity, exploration, first-20, game-balance, mud-play-craft).
+- +10 EPs added (additive, i18n AX R3 Gate B handoff MUD/PLAY per noema-specs-mud-craft): EVENT-CATALOG-AUDIT.md, EVENT-CATALOG-DEEP-TIME-AUDIT.md, EXPERIENCE-ERRORS.md, EXPERIENCE-TERMINOLOGY.md, EXPERIMENT-COMPARISON.md, EXPERIMENT-CONTROLS.md, EXPERIMENT-FORK.md, EXPERIMENT-IDENTITY.md, EXPLORATION.md, FIRST-20-CYCLES.md, GAME-BALANCE.md, MUD-PLAY-CRAFT.md (12 total this slice).
+- ui.py: STRINGS expanded with terms like event_catalog_audit, crime_detected, experience_errors, dual_semantic_architecture, experiment_comparison, experimental_world_fork, exploration, mud_play_craft, pacing_target, coupling_density, etc. Hardcode sweeps confirmed centralization progress.
+- Elevation: UX (discoverable i18n labels in Chamber), DX (modular EPs, plugin atoms, graft), AX (ARIA/tables/keyboard/live). Additive only.
+- Git: Specs patches; commits pending verif. "merge and continue" pattern.
+- MUD handoff deepened: native i18n for events, errors, terminology, forks, exploration, craft, pacing, balance per skill.
+- Cross-refs: prior EPs (EVENT-CATALOG, EXPERIENCE, EXPERIMENT-DESIGN, COORDINATION-SIGNALS), noema-specs-mud-craft, ui.py, 8765, R3/RFC-0120, Gate B S0-S3, full list (COMPLEXITY-DOCTRINE, GC*, LCA*, AGENT-*, PLAYER-*, MUD-* etc.).
+- Next: Continue batching remaining (hundreds left; prioritize EVENT-*, EXPERIMENT-*, GC*, FRONTIER*, HOSTED*, RESEARCH-*, PLAYER-*, MUD-*). More ui t() , hardcode sweeps, graft, plan updates, commits. Dont stop until finished. All real tool outputs.
