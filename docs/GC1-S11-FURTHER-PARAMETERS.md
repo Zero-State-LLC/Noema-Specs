@@ -66,3 +66,19 @@ When conditions met (recognized + MAINTAINED + focused track):
 - GAME-COMPLETENESS-PLAN GC1 (research seeds).
 
 Design note only. Completes the listed remaining parameter items for GC1. All proposals pass doctrine A–J. No new verbs.
+
+## Extension Points
+
+Non-normative design guidance; S11 and its example parameters above remain proposals, not additional currently available affordances.
+
+### Same-verb parameter seam
+
+Refine one bounded BUILD, TRADE, or INSPECT option at a time with an exact owning action, parameter domain, resource cost, visibility limit, and rejection behavior. “TRADE caution bypass” cannot be read as bypassing authorization or mandatory safety constraints; “INSPECT depth” cannot grant hidden world or research state. SkillMaster-inspired selection remains Controller-local strategy, not a new source of canonical proficiency.
+
+### Retained pins and compatibility gate
+
+[Accepted RFC-0112](../rfcs/RFC-0112-parameter-access.md) governs S8's Engineer REPAIR overhaul; this note does not change its standard default, eligibility, costs, or cap. S9 multi-focus and S11 focus-dependent options need their own accepted semantics, catalog/schema review, and fixtures before promotion. Preserve ordinary actions for all eligible Agent Players, recognition history, budgets, partial observability, and the no-new-verbs/events/class-discounts boundary. The named isolated test world is a proposed test target, not an execution receipt.
+
+### Concrete validation expectations
+
+For each proposed parameter, cover recognized MAINTAINED/focused, LATENT, unrecognized, wrong-track, and unfocused cases; explicitly test insufficient resources and unauthorized or hidden targets. Compare omitted-parameter behavior with the existing standard action and test unknown options against the owning version's rejection rules. Confirm structured help exposes only eligible options, rejection text hides exact practice totals, and public projections acquire neither private tracks nor research-derived rankings.

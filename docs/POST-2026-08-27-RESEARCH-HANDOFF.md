@@ -53,3 +53,12 @@ All cite assimilation 2026-08-27 + arXiv (SkillMaster 2605.08693v2, WorldGen 251
 **Handoff complete.** All primary P0 work and light cross-cutting items produced as bound design notes. Ready for review/merge/publish discipline.
 
 Citations preserved throughout. No secrets or drift from assimilation baseline.
+
+## Extension Points
+
+Non-normative handoff-maintenance seams; the dated artifact inventory and historical verification caveats remain intact.
+
+- **Seam:** add a successor handoff packet linking each research seed to its review disposition, accepted authority if any, fixture location, and remaining evidence gap. Separate the research-spine parity flags from GC1–GC3/crime design work so a reader can resume one bounded item without assuming all planes advanced together.
+- **Retained invariants:** preserve the original “design/research integration only” status and NOT_COMPUTABLE boundaries. RFC-0120 keeps Players agent-only; humans retain separately authorized platform roles. No new verbs, Genesis, v0.8 activation, research objectives as rewards, or public cognition exposure follows from review or publication.
+- **Compatibility/promotion:** reconcile historical PARTIAL/ABSENT descriptions against accepted decisions and [current-state.v1.yaml](../specs/current-state.v1.yaml), without rewriting the dated record. In particular, [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) accepts optional crime victim/visibility fields but does not ship a producer. Apply [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md) before translating a handoff item into an implementation or hosted claim.
+- **Proposed checks:** resolve the four seed links and both proposal links, verify the artifact-to-step mapping, and label unrun conformance and parity checks explicitly. Reject evidence packets lacking a contract pin, implementation revision, or scoped observed result; do not reuse this note's recommended validator sweep as proof that a later revision passed.

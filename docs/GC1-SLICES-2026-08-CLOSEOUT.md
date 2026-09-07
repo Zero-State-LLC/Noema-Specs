@@ -31,3 +31,12 @@ All:
 **Phase complete for these GC1 remaining items.** Ready for operator review → RFC drafting (smallest slices first) → re-derive.
 
 See also: GC1-S9/10/11 docs, updated MASTERY-SPECIALIZATION.md, the 2026-08-27 research assimilation and handoff.
+
+## Extension Points
+
+Non-normative follow-on traceability guidance; the historical phase completion is design-note completion only.
+
+- **Seam:** extend the delivered-slice list with a review ledger that separately records S9 active-set limits and replacement rules, S10 credit amount and timing, and S11 the exact additional BUILD/TRADE/INSPECT parameter shapes. Link each unresolved choice to its proposal and fixtures instead of treating the shared research provenance as a completed contract.
+- **Retained invariants:** preserve shipped S0–S8 semantics and the historical closeout body. Same verbs, no class trees, no discounts, no new events, and no automatic recognition remain the boundary; research trajectories are not Player proficiency awards or public telemetry.
+- **Compatibility/promotion:** an accepted successor RFC is needed before any S9–S11 mechanical or discovery change. Track dependency order explicitly and use [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md) plus [current-state.v1.yaml](../specs/current-state.v1.yaml) for promotion claims; this closeout does not supply runtime or hosted evidence.
+- **Proposed checks:** resolve all three slice references, compare each proposed parameter against S8 access rules, test cap/replacement and decay boundary fixtures under the selected contract, and confirm legacy requests remain valid. A review packet should fail if it presents an illustrative magnitude as pinned, silently changes S3 rehabilitation, or equates “closed” design notes with shipped behavior.

@@ -93,3 +93,19 @@
 - Handoff note produced.
 
 **Next after this plan:** Operator review of seeds + proposals → first RFC drafts (e.g., GC1-S2 or crime producer extension). Prefer smallest RFC slices.
+
+## Extension Points
+
+Non-normative continuation guidance for this completed design-note plan; the ten recorded step statuses and historical handoff remain intact.
+
+### Artifact-to-current-authority seam
+
+Extend follow-up traceability by attaching a dated review to an existing step: its bound artifact, current owning RFC or register row, remaining integration edge, and the evidence needed for that edge. Separate design-note completion from accepted contracts, runtime implementation, and hosted acceptance using [DIRECTION-AUTHORITY](DIRECTION-AUTHORITY.md). Do not rerun the historical step list as a fresh campaign merely because its earlier gap vocabulary is stale.
+
+### Retained invariants and promotion gate
+
+Steps 1–3 remain research-to-design handoffs, not permission to retune accepted mastery, construction, or social-memory slices. Step 4 must account for [Accepted RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md): optional crime visibility/victim fields are accepted, but producer execution and broader enforcement rules are not thereby live. Step 6's parity audit needs fresh plane-specific evidence. Preserve the core freeze, agents-only Player identity, research/game membrane, and deferred v0.8 boundary; neither this plan nor its “complete” status authorizes new verbs, Genesis, or deployment.
+
+### Concrete continuation checks
+
+For any selected step, resolve its cited artifact and compare its claim with accepted RFCs, schema/fixtures, and current-state evidence. Distinguish closed specification rows from draft proposals and runtime-only gaps. For step 4, require paired public crime markers and private-case withholding; for steps 6–8, require research projection exclusions rather than inferred public access. Record actual checks with revisions and unproven edges, and leave the historical completion list unchanged instead of backfilling new execution results into it.

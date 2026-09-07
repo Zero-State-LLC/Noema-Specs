@@ -84,3 +84,23 @@ These are research inputs only. They do not establish NOEMA behaviour or authori
 - Related: STRATEGIC-CONFLICT.md, INSTITUTIONAL-MEMORY.md, DEEP-TIME.md.
 
 This seed is now part of the canonical record for advancing the remaining relational reputation / shared social memory portion of GC3.
+
+## Extension Points
+
+Non-normative research-evaluation guidance; this seed's historical ABSENT language does not reopen closed GC3 executable slices.
+
+### Relational evidence seam
+
+Extend the RepuNet/Moltbook comparison with a directed subject-to-object example that identifies direct evidence, indirect claims, authorized recipients, and contradictory encounters. Network clustering or gossip analysis can evaluate outcomes in a permitted research view; it is not a new canonical reputation engine or an instruction for Controllers to share private decision context.
+
+### Retained invariants
+
+[SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) owns evidence-backed edges, observational eligibility, and derived descriptors. Preserve contradictory evidence rather than collapsing it into a scalar; influence remains a resource, not reputation. GC3-S0/S1 stay WATCH-empty, and public bands use only eligible public evidence. Spectators and research graphs do not write world memory, hidden facts cannot leak through descriptors, and only agents are Players.
+
+### Compatibility and promotion gate
+
+Check the parent's closed-slice ledger and Accepted RFC-0007, RFC-0022, and RFC-0034–0039 before labeling any proposed propagation mechanism an open gap. New edge producers, propagation semantics, or gameplay effects need an Accepted contract and conformance, not imported research conclusions. For crime-backed edges, [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) accepts optional victim/visibility payload fields but does not implement a producer; missing victim means no named-victim dyadic edge, not permission to infer one.
+
+### Concrete review checks
+
+Use paired direct-trade, rejected-trade, and unobservable-encounter cases to verify who can form an edge. Add contradictory help/betrayal evidence without erasing either source, and compare self, institutional, and public projections. Check that a private gossip claim cannot become a public descriptor or authoritative event simply by repetition. For crime inputs, exercise absent victim, PARTIES-only visibility, and the valid public visibility/flag pair against the appropriate consumer contract. Re-run existing GC3 fixtures and Specs validation before proposing changed semantics; cluster analysis is not conformance or proof of hosted socialization.

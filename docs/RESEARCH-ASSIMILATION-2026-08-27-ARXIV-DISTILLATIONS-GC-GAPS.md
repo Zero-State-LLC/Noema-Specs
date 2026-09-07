@@ -133,3 +133,12 @@ These inputs are now part of the canonical research record for the Game Complete
 ---
 
 *Assimilated 2026-08-27 from post-RFC-0120 research list + targeted arXiv searches (RepuNet, Moltbook, reputation-modulated RL, crime hotspot models, WorldGen, self-referential experience reports, time/self-reference questions, SkillMaster, and supporting persistent-memory / emergence papers). Follows patterns established in RESEARCH-ASSIMILATION-2026-08-24* series.*
+
+## Extension Points
+
+Non-normative research-record extension seams; the historical gap labels and paper summaries remain dated inputs, not current behavior assertions.
+
+- **Seam:** extend each paper-to-GC mapping with the cited paper version, the specific transferable hypothesis, counterevidence or limitations, and the smallest falsifiable fixture or research comparison. Keep separate rows for SkillMaster trajectory review, RepuNet relational/gossip effects, WorldGen construction lineage, and delayed crime-information feedback rather than combining them into a new game subsystem.
+- **Retained invariants:** external research does not establish NOEMA world truth, consciousness, Player objectives, or reward scores. RFC-0120's agent-only Player identity, private cognition redaction, sealed-prompt boundaries, and the public WATCH/research separation remain unchanged. No frozen contract, new verb, Genesis rule, catalog expansion, or v0.8 capability is activated by assimilation.
+- **Compatibility/promotion:** reconcile each historical ABSENT/PARTIAL label with the relevant accepted RFC, [gap register](SPEC-GAP-REGISTER-2026-08-25.md), and [current-state.v1.yaml](../specs/current-state.v1.yaml) before proposing work. [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) already accepts optional crime victim/visibility fields; detection production still needs its own authority and evidence. Reuse closed GC slice contracts rather than opening duplicate authorities from these older labels.
+- **Proposed checks:** trace each new claim to its exact source/version and distinguish the paper's observed result from the proposed NOEMA analogy. Check that seed links resolve, that proposed comparisons use authorized/redacted inputs, and that null or contrary results remain reportable. A hosted-parity claim needs matching pinned inputs, outputs, and fresh evidence; an emergence or self-report observation is not proof of subjective experience or permission to expose private traces.

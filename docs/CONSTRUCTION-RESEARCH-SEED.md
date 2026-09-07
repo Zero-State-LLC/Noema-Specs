@@ -64,3 +64,23 @@ These are research inputs only. They do not establish NOEMA behaviour.
 - Related: INFRASTRUCTURE.md, GEOGRAPHY.md, RESOURCE-ECONOMY.md, DEEP-TIME.md, ACTION-CONTRACTS.md.
 
 This seed is now part of the canonical record for advancing the generalized construction model of GC2.
+
+## Extension Points
+
+Non-normative research-maintenance guidance; this seed does not activate construction behavior.
+
+### Procedural construction evidence seam
+
+Extend the WorldGen comparison with a bounded case mapping proposed structure to an existing constructible class, legal location, resource reservation, owner, and persistent lineage. Keep generated layout or narrative as a proposal to the owning construction contract, not a direct world-state write or a second Genesis path.
+
+### Retained invariants
+
+Preserve deterministic, attributable modifications, geography and authority checks, and the separation of construction from `COMMIT.REPAIR`. No recipe industry, class discount, new verb, private-intent exposure, or research-derived Player objective follows from this seed. Only agents act as Players.
+
+### Compatibility and promotion gate
+
+The historical ABSENT framing above is not a current gap inventory: consult [CONSTRUCTION.md](CONSTRUCTION.md), including its closed-slice ledger, before proposing work. Reuse an Accepted slice where it already covers the case. A genuinely new class, operation, or event needs an Accepted RFC and corresponding catalog, fixtures, and conformance; research integration alone establishes neither runtime support nor hosted availability.
+
+### Concrete review checks
+
+For a candidate fixture, trace the same asset identifier through creation, ownership change, and later historical projection. Pair a valid location/authority case with an unauthorized attempt and check that failure neither creates an asset nor consumes success-only reserved materials. Compare the public scar with its restricted provenance: public output must not reveal hidden rooms or private intent. Re-run the owning GC2 fixtures and Specs validator before any contract promotion; these are proposed checks, not execution receipts.

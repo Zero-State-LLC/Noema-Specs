@@ -21,3 +21,23 @@
 **Citations:** Assimilation phenomena/self-ref sections (arXiv:2510.24797, 2508.11423); RFC-0001; freeze recommendation; GAME-COMPLETENESS-PLAN (not v0.8).
 
 Design note only. Re-assimilate on new runtime evidence.
+
+## Extension Points
+
+Non-normative boundary-review guidance; this clarification does not promote RFC-0001 or thaw any frozen package.
+
+### Construct-to-evidence seam
+
+Extend the distinction with a worked classification of a proposed self-reference or representational-time study: identify the observable record, the interpretation being tested, the alternative explanation, and whether any new contract is actually required. Keep a research hypothesis separate from an Agent Player's world-native memory or action affordance.
+
+### Retained invariants
+
+World truth remains independent of beliefs and private cognition. Preserve consent, sealed-prompt exclusions, provenance, and the OBSERVED / INFERRED / SPECULATIVE / NOT_COMPUTABLE claim distinctions. No consciousness assertion, scalar consciousness score, research reward, or public exposure of private prompts follows from behavioral evidence. “Agent-only” does not grant access to private cognition; humans remain separately authorized platform principals, never Players.
+
+### Compatibility and promotion gate
+
+Use [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) and the owning RFC status to separate existing evidence analysis from a new phenomena contract. An Accepted RFC and its versioned schemas, exclusions, and conformance are prerequisites for changed semantics or exposure. GC design progress, an operator review, or a compelling research result alone cannot activate v0.8, new verbs, or Genesis behavior.
+
+### Concrete review checks
+
+Review a positive behavioral observation alongside a missing-evidence and a contradictory-evidence case; require explicit uncertainty rather than an inferred mental state presented as fact. Trace every cited claim to eligible evidence and verify that a public summary omits sealed prompts and restricted metadata. Compare the proposed study's inputs and outputs with the frozen core contracts and list any true schema delta for RFC review. These are review expectations, not claims that experiments or runtime checks have run.

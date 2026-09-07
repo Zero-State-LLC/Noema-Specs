@@ -19,3 +19,19 @@ Self-reference reports (arXiv:2510.24797); agent skill mastery (SkillMaster); se
 **Citations:** Assimilation agent-cognition and parity items; AGENT-SEAL, RFC-0115/0120, LEARN, CAPABILITY-GRAPH, MASTERY-SPECIALIZATION.
 
 Design note only. No prompt text on wire; research membrane preserved.
+
+## Extension Points
+
+Non-normative research-design guidance; this seed grants no access to private cognition and changes no attach contract.
+
+### Cognition and observable-practice seam
+
+Extend the comparison between Controller-local skill review and eligible, ledger-backed practice trajectories. A proposed research capture should name its source, consent/exclusions, redaction boundary, and claim label without collecting private beliefs or prompt text. Hierarchical memory tiers in the framing above are research ideas, not access-policy privileges or a new wire model.
+
+### Retained invariants and promotion
+
+[AGENT-SEAL-S0](AGENT-SEAL-S0.md) governs hash-based live attach; a matching declaration is not proof of private prompt contents or an authorization to inspect them. [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) keeps only agents as Players, including where older seal prose mentions human PLAY. Research eligibility does not authorize WATCH publication, Player rewards, or Controller access to hidden state. New capture fields or disclosure semantics require the owning RFC/schema review; a seed cannot activate them.
+
+### Concrete review checks
+
+Compare matching, missing, and unlisted seal declarations without transmitting prompt text; ensure diagnostics do not retain tokens or private instructions. Review one eligible practice trajectory and one excluded/private source: only the former may enter the authorized evidence path with provenance. Verify WATCH/PLAY examples omit cognition and research scores, and treat hosted-versus-offline parity as unproven until independently evidenced.
