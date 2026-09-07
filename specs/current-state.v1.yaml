@@ -1,9 +1,11 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-08-31
+as_of: 2026-09-07
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
   #   was authored against. It is an evidence anchor, not a self-referential head.
+  #   Gate A promotion remains pinned at 492ccc9 (validate_direction.py).
+  #   It is not today's Specs main and is not hosted_live.specs_git.
   # production_implements_specs: the Specs commit the LIVE WORKER BUILD implements,
   #   derived as the Specs head at the instant the build was cut. Moves per publish.
   #   Mirrors Noema hosted_live.specs_git and must equal it.
@@ -11,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
+  live_worker_version_id: 04ef6ecb-65b9-430e-b0fd-141a2cc7179f
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -39,42 +41,55 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
-    live_deployed_at: 2026-09-02T03:41:29.029508Z
-    live_source_commit: 418d26293422e2a6fe9a745b6005e92262e77e9b
+    live_worker_version_id: 04ef6ecb-65b9-430e-b0fd-141a2cc7179f
+    live_deployed_at: 2026-09-07T22:46:20.53456Z
+    live_source_commit: 9c25603581992da0440b2dd733a554aca98adef0
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Live is 3f9b0e44-98c1-46f9-8232-bb44051a754f, deployed 2026-09-02 from Noema source
-      418d262 and pinned by the generated post-deploy pin PR Noema#623.
-      The recorded live pointer was refreshed from that evidence on 2026-09-03.
+      Live is 04ef6ecb-65b9-430e-b0fd-141a2cc7179f, deployed 2026-09-07T22:46:20.53456Z
+      from Noema source 9c25603581992da0440b2dd733a554aca98adef0 and pinned by the
+      generated post-deploy pin PR Noema#639. Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/34167731843 SUCCESS.
+      The previously recorded Specs current-state live pointer was
+      3f9b0e44-98c1-46f9-8232-bb44051a754f, deployed 2026-09-02 from source 418d262
+      and pinned by Noema#623; that is a prior recorded snapshot, not current live.
+      Probe-time /ready 2026-09-07: ACTIVE, HEALTHY, ready=true, play_blocked=false,
+      genesis.94d0961984b2b4f8, playable=true, cycle 16882 at probe only.
       OPEN RECONCILIATION, owner-sequenced: evidence_commits.production_successor_runtime
-      and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the live
-      build runs 418d262. Those pins are promotion evidence, so they are deliberately not
-      moved here; re-deriving them requires a new evidence packet.
+      and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the
+      live build runs 9c256035. Those pins are promotion evidence, so they are
+      deliberately not moved here; re-deriving them requires a new evidence packet.
     specs_pin_note: >-
-      Live source 418d262 remains aligned to Specs 81ca8c1, matching Noema
+      Live source 9c256035 remains aligned to Specs 81ca8c1, matching Noema
       hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
       change. Later Specs documentation changes do not silently alter the
       contract implemented by that live build.
-      OBSERVED 2026-09-03: source 418d262 is Noema#621 (Deep Time reconstruction
-      fidelity and Controller evidence). hosted_live.official_client remains
-      noema-client==0.1.15. #621 does not close Gate B: canonical operator
-      enrollment and three independently controlled external Controllers remain
-      unmet.
-      FOLLOW-UP 2026-09-07 (local repository inspection, no live probe): Noema
-      c1be766 records hosted_live.official_client noema-client==0.1.21 after
-      Noema PR #628. The earlier 0.1.15 statement above is historical, not the
-      current recorded client pin. The owner-authorized pin amendment explicitly
-      leaves enrollment-bound C7 checks unrun and does not complete Gate B.
-      Specs 94286ca and runtime c1be766 are inspected repository baselines, not
-      new deployment or acceptance evidence. Historical Gate A anchors remain.
+      production_implements_specs stays 81ca8c1. production_specs_baseline stays
+      492ccc9, the Gate A promotion evidence anchor; it is not today's Specs main
+      and is not equal to hosted_live.specs_git. Noema specs.commit / Specs main
+      alignment is b86c4b09cf75b3027d87998eff0952c2421bf52d; that is repository
+      alignment, not the live-build Specs pin.
+      OBSERVED 2026-09-07: hosted_live.official_client remains
+      noema-client==0.1.21. Historical 0.1.15 observations remain historical.
+      The owner-authorized pin amendment explicitly leaves enrollment-bound C7
+      checks unrun and does not complete Gate B. Historical Gate A anchors remain.
+      Prior recorded live source 418d262 / Worker 3f9b0e44 (2026-09-02, Noema#623)
+      and the 2026-09-03 Deep Time reconstruction note are historical snapshots.
+      FOLLOW-UP 2026-09-07 (local repository inspection, no live probe at that
+      writing): Noema c1be766 recorded hosted_live.official_client
+      noema-client==0.1.21 after Noema PR #628. Specs 94286ca and runtime
+      c1be766 were inspected repository baselines, not new deployment or
+      acceptance evidence.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-03"
+      - "GET https://noema.guru/version 2026-09-07"
+      - "GET https://noema.guru/ready 2026-09-07"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34167731843"
+      - "Noema PR #639: https://github.com/Zero-State-LLC/Noema/pull/639"
       - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
