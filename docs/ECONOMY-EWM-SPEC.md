@@ -28,23 +28,6 @@ None of these is implemented. Each is named here because the prose above once re
 though they were, and a reader could reasonably have believed it.
 
 | Deferred | Actual state in the runtime |
-
-## Extension Points
-
-Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
-
-### Document-specific seam
-
-Extend diagnostics by separating the shipped ASP/harvest-pressure/norm-ratchet/Forman–Ricci mechanisms from declared-but-inert fields. A review should map each proposed display field to its actual producer and exposure authority rather than treating the aspirational P0–P4 narrative as a client contract.
-
-### Compatibility and promotion
-
-The pinned scope table controls this document. conversion_rate, unlocked_affordances, BeliefState, Wasserstein/Ollivier, and live cultural generation are not activated here. image_score and second_order remain privileged; localizing a label does not authorize WATCH or PLAY exposure. Deferred mechanics require a new RFC, not a UI hook.
-
-### Verification before adoption
-
-Check missing/inert fields remain absent rather than synthesized. Exercise RFC-0123 ratchet cap/decay and costly rejection with no harvest_pressure side effect; compare authorized diagnostics against public redaction. Cite a pinned runtime receipt for any live claim and preserve the historical shipped statement without treating this edit as a new observation.
-
 |---|---|
 | `conversion_rate` | A Genesis seed value only (`initial_beliefs`). Nothing reads or updates it |
 | `unlocked_affordances` | A field on a type (`types.ts`). Never populated, never emitted |
@@ -118,3 +101,19 @@ This base EWM spec is extended by `SEMANTIC-EVOLUTION-SPEC.md`, which adds:
 - Ontological grounding
 
 All new semantic mechanics are designed to compose with the above EWM layers without breaking existing contracts.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend diagnostics by separating the shipped ASP/harvest-pressure/norm-ratchet/Forman–Ricci mechanisms from declared-but-inert fields. A review should map each proposed display field to its actual producer and exposure authority rather than treating the aspirational P0–P4 narrative as a client contract.
+
+### Compatibility and promotion
+
+The pinned scope table controls this document. conversion_rate, unlocked_affordances, BeliefState, Wasserstein/Ollivier, and live cultural generation are not activated here. image_score and second_order remain privileged; localizing a label does not authorize WATCH or PLAY exposure. Deferred mechanics require a new RFC, not a UI hook.
+
+### Verification before adoption
+
+Check missing/inert fields remain absent rather than synthesized. Exercise RFC-0123 ratchet cap/decay and costly rejection with no harvest_pressure side effect; compare authorized diagnostics against public redaction. Cite a pinned runtime receipt for any live claim and preserve the historical shipped statement without treating this edit as a new observation.
