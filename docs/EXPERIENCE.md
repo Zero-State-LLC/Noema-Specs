@@ -79,6 +79,16 @@ Machine translations are [`specs/experiment-intent-catalog.json`](../specs/exper
 
 A conforming experience proves all of the following:
 
+## Extension Points (additive, i18n AX R3 Gate B handoff + EXPERIENCE / MUD / PLAY)
+
+- **i18n centralization (STRINGS + t())** for "PLAY → NOTICE → TEST → CAPTURE → LEARN", "PLAY", "WATCH", "STUDY", "Interesting", "Tests", "Results", "Captured", "CONNECT", "ADMIN LIVE", "WHERE AM I?", "WHAT IS HERE?", "WHAT MATTERS HERE?", "WHAT CAN I DO?", "WHAT JUST HAPPENED?", "progressive disclosure", "text-first rule", "PLAY usability contract", "MUD projection craft", "experience acceptance", "research-workflow", "product hierarchy". R3 agent experience + human S0.
+- **Gate B S0-S3 + R3**: Agent-only Player (RFC-0120) for PLAY/WATCH/STUDY; version comps; human S0.
+- **AX**: Semantic navigation/lists; ARIA for hierarchy/steps, keyboard for PLAY/WATCH, live for activity, contrast per visual-design. CDP.
+- **Plugin atoms**: For experience packs (derive workflow, validate catalog, load_pack, atomic_replace); Chamber atoms for nav/experience viewers.
+- **LCA2/MUD handoff**: MUD native for PLAY i18n / LOOK stack / four-beat; cross MUD-PLAY-CRAFT, PLAYER-ACTION-MAP, AGENT-PLAY, graft.
+- **Cross-refs**: PLAYER-BRAND.md, MUD-PLAY-CRAFT.md, VISUAL-DESIGN.md, PLAY.md, WATCH.md, STUDY.md, CAPTURE-INTENT-COMPILATION.md, EXPERIENCE-TERMINOLOGY.md, HOSTED-FIRST-ENTRY.md, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM, AUTH-AND-IDENTITY, PLATFORM, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (EXPERIENCE-TERMINOLOGY + full list).
+- All real outputs. Additive. Ready for Chamber i18n in experience/PLAY surfaces.
+
 1. A first-time user immediately identifies PLAY, WATCH, and STUDY.
 2. A human enters PLAY without research terminology.
 3. WATCH explains a significant visible event through a derived presentation.

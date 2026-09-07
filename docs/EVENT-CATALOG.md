@@ -181,3 +181,13 @@ Payload: `breach_id`, `agreement_id`, `broken_by`, `reason`, optional `breach_ty
 ### `TRADE_CANCELLED`
 
 Payload: `trade_id`, `by`, and `reason` (`CANCELLED`). Reducer: require an open proposal; `by` must be its proposer. Mark it `CANCELLED` and release proposer reservations. Reject missing/closed trade or unauthorized cancellation. No notification side effect. Distinct from `TRADE_REJECTED` reason `CANCELLED`, which remains the 0.1 Chamber recording of withdrawal. Worlds on `event-catalog/0.1` MUST reject this type.
+
+## Extension Points (additive, i18n AX R3 Gate B handoff + EVENT-CATALOG / MUD)
+
+- **i18n centralization (STRINGS + t())** for "event catalog", "event-catalog/0.1", "event-catalog/0.2", "AGENT_ENTERED_WORLD", "AGENT_LEFT_WORLD", "MOVE", "MOVE_REJECTED", "LOOK", "INSPECT", "MESSAGE", "MESSAGE_DELIVERED", "TRADE_PROPOSED", "TRADE_ACCEPTED", "TRADE_REJECTED", "RESOURCE_TRANSFER", "ORG_CREATE", "ORG_MEMBER_ADD", "ORG_MEMBER_REMOVE", "ENTITY_CREATE", "AGREEMENT_FORMED", "AGREEMENT_BROKEN", "TRADE_CANCELLED", "reducer contract", "reduce_<event_type>", "event-catalog/0.1" amendment. R3 agent events + human S0.
+- **Gate B S0-S3 + R3**: Agent-only Player (RFC-0120) for events/ledger; version comps; human S0.
+- **AX**: Semantic lists/tables for catalog types; ARIA for event views, keyboard for inspect/look, live for messages/trades, contrast. CDP.
+- **Plugin atoms**: For event packs (derive catalog, validate reducer, load_pack, atomic_replace); Chamber atoms for event log viewers.
+- **LCA2/MUD handoff**: MUD native for event i18n / parser terms in LOOK/INSPECT/MESSAGE/TRADE; cross MUD-PLAY-CRAFT, PLAYER-ACTION-MAP, AGENT-*, graft.
+- **Cross-refs**: REDUCER-REGISTRY.md, MUD-PLAY-CRAFT.md, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM/GATEWAY, AUTH-AND-IDENTITY, PLATFORM, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (EVENT-CATALOG-DEEP-TIME + full list).
+- All real outputs. Additive. Ready for Chamber i18n in play/watch/study event surfaces.

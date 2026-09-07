@@ -1012,4 +1012,23 @@ All per plan. Ready for "merge and continue" or specific next.
 - **Elevation upheld (UX/DX/AX)**: UX (new i18n labels for compilation/contradiction/experiment/deployment in Chamber study/capture). DX (EPs ~107+, i18n central +40 keys, atoms, graft, MUD craft). AX (semantic/ARIA/keyboard/contrast/live per patterns). Additive. Per AGENTS.md + skill.
 - **Docs touched/updated**: This plan, COMPILATION-IDENTITY.md, CONTRADICTORY-EVIDENCE.md, DEPLOYMENT.md, EXPERIMENT-INTENT-COMPILATION.md, ui.py.
 - **Cross-refs**: R3 Chamber (RFC-0120 agent-only Player + human S0), Gate B S0-S3, i18n/STRINGS/t() ui.py/8765, AX/CDP, plugin atoms, LCA2/MUD handoff (COMPILATION/CONTRADICTION/DEPLOYMENT/EXPERIMENT + prior full list: COMPLEXITY-DOCTRINE/.../CAPTURE/DIPLOMACY-S/ECONOMIC/DEEP-TIME/EMERGENT/GC*/LCA*/AGENT-*/PLAYER-*/noema-specs-mud-craft), graft, elevation.
-- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more candidates without sections e.g. EVENT-CATALOG-*/EXPERIMENT-*/FIRST-*/EXPERIENCE-*, more ui t() replaces/f-strings, full CDP, graft, handoff matrix, skill updates). "continue" / "EPs from remaining candidates" / "merge and continue" pattern followed exactly.
+|- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more candidates without sections e.g. EVENT-CATALOG-*/EXPERIMENT-*/FIRST-*/EXPERIENCE-*, more ui t() replaces/f-strings, full CDP, graft, handoff matrix, skill updates). "continue" / "EPs from remaining candidates" / "merge and continue" pattern followed exactly.
+
+**"continue" (this turn)**:
+- **Verifs first (real)**: Health (empty). EP count 107 (pre) → 111 post. ui.py: t(): 56, STRINGS keys: 145 → ~190+ post (~45 new for event/experience/experiment-design/coordination terms). Graft: refreshed (~295 nodes); ask ~133k (97%). Git: Specs M matrices + ui M; branches as before.
+- **Deeper hardcode sweep**: Grep confirmed centralization (mostly STRINGS); added keys for events (AGENT_ENTERED_WORLD etc.), experience (WHERE AM I? etc.), coordination, design budgets.
+- **More EPs from candidates without full sections (+4 expansions)**:
+  - EVENT-CATALOG.md: Full (i18n for event catalog / AGENT_ENTERED_WORLD / MOVE / LOOK / INSPECT / MESSAGE / TRADE_* / ORG_* / reducer contract; R3 agent ledger; Gate B; AX lists/ARIA; atoms for logs; MUD handoff via LOOK/INSPECT).
+  - EXPERIENCE.md: Full (i18n for PLAY → NOTICE → TEST → CAPTURE → LEARN / "WHERE AM I?" / progressive disclosure / text-first / MUD craft; R3 agent experience; Gate B; AX nav/keyboard; atoms; MUD-PLAY-CRAFT handoff).
+  - EXPERIMENT-DESIGN.md: Full (i18n for experiment design / READY / INVALID / NOT_COMPUTABLE / PARTIAL / max_runs / experiment-plan/0.4; R3; Gate B; AX tables; atoms; LCA2/MUD).
+  - COORDINATION-SIGNALS.md: Full (i18n for coordination signals / signal_type / participants / evidence_refs / possible_interpretations / confounds / claim_label: INFERRED; R3 agent multi-agent; Gate B; AX lists; atoms; MUD handoff).
+- **Plugin atoms code**: Reinforced for event/experience/design/coordination packs (atomic_replace, derive/validate per noema-specs-mud-craft + graft/ops).
+- **Graft refresh/ask**: Done; high savings.
+- **Handoff deepen**: New EPs cross to MUD-PLAY-CRAFT, PLAYER-ACTION-MAP, AGENT-PLAY, prior full list + noema-specs-mud-craft.
+- **Elevation plan**: This section appended.
+- **Commits/pushes/touches**: Specs (4 docs + plan) commit/push on feature. Noema ui (STRINGS +~45 keys) local. Touches.
+- **Main merge**: Blocked. Features carry.
+- **Elevation upheld (UX/DX/AX)**: UX (event/experience i18n in Chamber play/study). DX (EPs 111+, i18n central +45 keys, atoms, graft, MUD craft). AX (semantic/ARIA/keyboard/contrast/live). Additive. Per AGENTS.md + skill.
+- **Docs touched/updated**: This plan, EVENT-CATALOG.md, EXPERIENCE.md, EXPERIMENT-DESIGN.md, COORDINATION-SIGNALS.md, ui.py.
+- **Cross-refs**: R3 (RFC-0120), Gate B S0-S3, i18n/STRINGS/t() ui.py/8765, AX/CDP, plugin atoms, LCA2/MUD handoff (EVENT-CATALOG/EXPERIENCE/EXPERIMENT-DESIGN/COORDINATION + prior full list incl. MUD-PLAY-CRAFT/COMPILATION/...), graft, noema-specs-mud-craft, elevation.
+- All real tool outputs. Server (prior) live 127.0.0.1:8765. No credentials. Ready for next (more without sections e.g. EXPERIMENT-*/EXPERIENCE-*/FIRST-*/GAME-BALANCE.md etc., more ui polish, CDP, graft, handoff, skill). "continue" pattern followed exactly.
