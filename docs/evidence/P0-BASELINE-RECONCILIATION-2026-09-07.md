@@ -124,6 +124,27 @@ The coordinator reported the following after this pinned inventory was generated
 | Noema-Specs PR #326 | Coordinator reports publication and independent local full-entrypoint PASS, hosted CI pending. This documentation workstream neither authored nor verified that PR. |
 | Runtime full baseline | Coordinator reports exact-Specs `CI=true` run still in progress. No result is recorded here. |
 
+### Execution follow-up reported at 05:27 UTC
+
+The coordinator subsequently supplied these executed results. They supersede
+the pending-work descriptions in the 05:23 report for the named checks only.
+This workstream has not independently inspected their logs or remote status.
+Keep them attributed and separate from its own offline verification receipt.
+
+| Reported execution | Exact reported result and boundary |
+|---|---|
+| Noema-Specs PR #326 actual CI | Full entrypoint PASS, including 67 Gate B traceability rows. Still review-required, not reported merged. |
+| Runtime `c1be766`, Node 24, `CI=true` | Worker suite: 1,642 passed, 0 skipped. Typecheck passed. Source-level result, not a deployment or external acceptance run. |
+| Runtime `c1be766`, Python 3.11, exact Specs | 558 passed, 4 skipped. Official-client E2E subsequently passed as a separate 1-test run; three PostgreSQL cases remain. Preserve the separate run counts rather than presenting an unexecuted aggregate suite. |
+| Official client `v0.1.21`, isolated installed suite | 165 passed, 0 skipped. This is isolated installed-client validation, not canonical enrollment or completion of C7. |
+| WATCH changes, parent-focused checks | 60 passed. The message did not provide an exact candidate commit or retained log reference; do not treat this as a pinned whole-suite or hosted acceptance result. |
+
+The original 125-row inventory, G01–G13 dispositions, source/home digests and
+JSON/CSV counts remain unchanged. These results do not promote Gate A anew,
+open Gate B/C, resolve the #634 compatibility/version decision, establish live
+client enrollment, or authorize deployment. Downstream work need not finish
+before this documentation packet is handed off.
+
 ## Reproduce the exhaustive inventory check
 
 From this Specs worktree, use Python 3 and a local runtime repository containing `c1be766`. The script reads Git objects only and validates coverage independently of the stored row counts. It checks exact JSON/CSV parity and pinned home digests as well as every source enumeration. It neither runs nor modifies repository validators.
