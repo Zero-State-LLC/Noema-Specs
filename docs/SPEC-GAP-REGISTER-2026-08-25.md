@@ -35,6 +35,27 @@ The residual B/PAM rows remain conditional contracts or doctrine deferrals.
 This follow-up does not activate their proposals, change a schema, assign CI
 or validators to this documentation workstream, or authorize live operations.
 
+## Follow-up — 2026-09-07: current-state live Worker pin after Noema Deploy
+
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) live authority
+was refreshed from OBSERVED `GET https://noema.guru/version` and `/ready` after
+the 2026-09-07 Noema Deploy
+([run 34167731843](https://github.com/Zero-State-LLC/Noema/actions/runs/34167731843),
+pin [Noema#639](https://github.com/Zero-State-LLC/Noema/pull/639)).
+
+Current live Worker is `04ef6ecb-65b9-430e-b0fd-141a2cc7179f` from source
+`9c25603581992da0440b2dd733a554aca98adef0`. The previously recorded Specs
+pointer `3f9b0e44` / source `418d262` / deploy 2026-09-02 is a prior snapshot,
+not current live.
+
+Deliberately unchanged: `production_implements_specs` remains `81ca8c1`
+(`hosted_live.specs_git`); `production_specs_baseline` remains `492ccc9` (Gate A
+evidence anchor, not today's Specs main); Gate B stays **BLOCKED** on enrollment
+and independent Controllers; C7 enrollment checks remain unrun; Gate C remains
+unproven. Noema `specs.commit` alignment to Specs main `b86c4b09` is repository
+alignment, not a live-build Specs re-pin. This note does not rewrite the
+historical audit body below or the earlier 2026-09-07 P0 follow-up.
+
 ## Status vocabulary
 
 | Status | Meaning |

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **Current-state live Worker pin reconciled after 2026-09-07 Noema Deploy.** `specs/current-state.v1.yaml` now records OBSERVED live Worker `04ef6ecb-65b9-430e-b0fd-141a2cc7179f` (`deployed_at` `2026-09-07T22:46:20.53456Z`, source `9c256035`, pin Noema#639). Prior recorded live `3f9b0e44` / source `418d262` / 2026-09-02 is historical. `production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`). `production_specs_baseline` stays `492ccc9` (Gate A evidence anchor). Gate B remains blocked; C7 enrollment checks remain unrun; Gate C remains unproven. No contract, catalog, verb, or runtime change.
+
 ### Added
 
 - **Thin multi-agent adapters (docs-only).** `CLAUDE.md` points only at `AGENTS.md`. `AGENTS.md` has a short Escalation rule: if CI or validation looks wrong, open a labeled defect; do not patch tests to green. `SKILLS.md` records the `## Workflows` section lock for any future `spec.md` (existing skills only; no new skills, bots, or RFCs). No Worker publish.
