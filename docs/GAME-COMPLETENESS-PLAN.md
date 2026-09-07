@@ -52,9 +52,9 @@ Produced before writing new authorities. Status values:
 | **CONFLICT-RISK** | Nearby authority could be duplicated if a new doc is careless |
 | **ABSENT** | No dedicated authority; this campaign creates one |
 
+**GC1–GC3 pass captured in PR #305** (research integration 2026-08-27 batch + closeout). See also main updates from the 2026-08-25 crime assimilation.
 
-**GC1–GC3 pass captured in PR #305** (research integration 2026-08-27 batch + closeout). See also main updates 2026-08-25 crime assimilation.
-### GC1 Mastery and specialization — P0
+### GC1 Mastery and specialization — P0 (slices complete as design notes)
 
 | Nearby authority | Status | Rule |
 |------------------|--------|------|
@@ -62,10 +62,12 @@ Produced before writing new authorities. Status values:
 | [AMBITIONS.md](AMBITIONS.md) | EXISTS (no victory function) | Keep |
 | [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md) / [LEARN.md](LEARN.md) | EXISTS (research, derived) | **Do not** reuse as Player classes |
 | [CAPABILITY-CANDIDATES.md](CAPABILITY-CANDIDATES.md) | EXISTS (Observatory) | Research-only |
-| Player proficiency / specialization | ABSENT | New: [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) |
-**Continuation (main):** GC1 failed-but-legal practice attempt weights seed (B1a). See GC1-FAILED-ATTEMPTS-SEED.md.
+| Player proficiency / specialization | Design notes complete | [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) + S9–S11 |
+| Research input (2026-08-27) + slices | Complete | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (SkillMaster) + GC1-S9/S10/S11 design notes. All listed remaining items addressed. |
 
-**Continuation (main):** GC1 B1b multi-focus/parameter magnitudes covered by S9–S11 design notes. See GC1-MULTI-FOCUS-MAGNITUDES-SEED.md.
+**Continuation (main):** GC1 failed-but-legal practice attempt weights seed (B1a). See [GC1-FAILED-ATTEMPTS-SEED.md](GC1-FAILED-ATTEMPTS-SEED.md).
+
+**Continuation (main):** GC1 B1b multi-focus/parameter magnitudes are covered by S9–S11. See [GC1-MULTI-FOCUS-MAGNITUDES-SEED.md](GC1-MULTI-FOCUS-MAGNITUDES-SEED.md).
 
 
 ### GC2 Construction and world modification — P0
@@ -77,9 +79,11 @@ Produced before writing new authorities. Status values:
 | [GEOGRAPHY.md](GEOGRAPHY.md) / [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md) | EXISTS | Construction MUST couple here |
 | [DEEP-TIME.md](DEEP-TIME.md) | EXISTS (scars, names, artifacts) | Construction writes lineage into history |
 | Generalized construction model | ABSENT | New: [CONSTRUCTION.md](CONSTRUCTION.md) |
-**Continuation (main, post-PR #305):** GC2 construction quantities seed (B2a). See GC2-CONSTRUCTION-QUANTITIES-SEED.md.
+| Research input (2026-08-27) | — | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (WorldGen, procedural + verifiable generation) |
 
-**Continuation (main):** GC2 owner/steward split seed (B2b). See GC2-OWNER-STEWARD-SEED.md.
+**Continuation (main, post-PR #305):** GC2 construction quantities seed (B2a). See [GC2-CONSTRUCTION-QUANTITIES-SEED.md](GC2-CONSTRUCTION-QUANTITIES-SEED.md).
+
+**Continuation (main):** GC2 owner/steward split seed (B2b). See [GC2-OWNER-STEWARD-SEED.md](GC2-OWNER-STEWARD-SEED.md).
 
 
 ### GC3 Social memory and relational reputation — P0
@@ -90,6 +94,16 @@ Produced before writing new authorities. Status values:
 | [INSTITUTIONAL-MEMORY.md](INSTITUTIONAL-MEMORY.md) | EXISTS (archives ≠ relationship) | Keep distinct |
 | [PROGRESSION.md](PROGRESSION.md) “Relationships” row | PARTIAL | Names the surface only |
 | Player↔Player / Institution↔Player memory | ABSENT | New: [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) |
+ | Research input (2026-08-27) | — | [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) (RepuNet, Moltbook, shared social memory prerequisite) |
+
+### Research seeds 2026-08-27 (post-arXiv assimilation)
+- GC1: [MASTERY-SPECIALIZATION-RESEARCH-SEED.md](MASTERY-SPECIALIZATION-RESEARCH-SEED.md) + extension in MASTERY-SPECIALIZATION.md (SkillMaster autonomous mastery signals).
+
+- New slices (design notes): GC1-S9 multi-focus, S10 decay-window credit, S11 further parameters (BUILD/TRADE/INSPECT). All integrate 2026-08-27 research signals. See docs/GC1-S9-MULTI-FOCUS.md, GC1-S10-DECAY-CREDIT.md, GC1-S11-FURTHER-PARAMETERS.md and updated MASTERY-SPECIALIZATION.md.
+- GC2: [CONSTRUCTION-RESEARCH-SEED.md](CONSTRUCTION-RESEARCH-SEED.md) + extension in CONSTRUCTION.md (WorldGen procedural/verifiable).
+- GC3: [SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md](SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md) + extension in SOCIAL-MEMORY.md (RepuNet/Moltbook relational + shared memory).
+- RFC-0002 crime producer: [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md) + bounded note in STRATEGIC-CONFLICT.md (hotspot/delay models, witness/sensor flows).
+Full plan: [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md). Design notes only.
 
 ### GC4 Institutional roles and bounded authority — P1
 

@@ -1,8 +1,10 @@
 # RFC-PROPOSAL: GC7 Crime Payload Victim ID / Visibility Reconciliation (B7a)
 
-**Status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
+**Status:** Superseded by [RFC-0129](RFC-0129-crime-detected-payload-reconciliation.md), which specifies the first of the two exits framed below. Retained for its framing, boundaries, and citations. Do not treat this note and RFC-0129 as two live proposals for `B7a`.
 
-**Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B7a (OPEN_SPEC in GC7 crime).
+**Original status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
+
+**Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B7a (`CLOSED_BY_RFC` by RFC-0129). This note stays superseded.
 
 **Source design note:** [GC7-CRIME-PAYLOAD-VICTIM-SEED.md](../docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md)
 

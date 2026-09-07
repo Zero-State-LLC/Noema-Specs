@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-08-25
+as_of: 2026-08-31
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -11,7 +11,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
+  live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -39,15 +39,33 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 01ebc196-b762-4689-a166-272e26bd73ad
-    live_deployed_at: 2026-08-25T19:27:58.964668Z
+    live_worker_version_id: 3f9b0e44-98c1-46f9-8232-bb44051a754f
+    live_deployed_at: 2026-09-02T03:41:29.029508Z
+    live_source_commit: 418d26293422e2a6fe9a745b6005e92262e77e9b
     players_present: 0
-    pin_note: GET /version is the running Worker. Noema hosted_live.worker_version_id matches live 01ebc196 after the deployment of source 61234cc and the Gate A pin evidence in #587.
-    specs_pin_note: Runtime source 61234cc was built against Specs 81ca8c1, matching Noema hosted_live.specs_git. Later Specs documentation changes do not silently alter the contract implemented by that live build.
+    pin_note: >-
+      GET /version is the running Worker and is the only authority for this field.
+      Live is 3f9b0e44-98c1-46f9-8232-bb44051a754f, deployed 2026-09-02 from Noema source
+      418d262 and pinned by the generated post-deploy pin PR Noema#623.
+      The recorded live pointer was refreshed from that evidence on 2026-09-03.
+      OPEN RECONCILIATION, owner-sequenced: evidence_commits.production_successor_runtime
+      and advanced_worker_runtime still pin 61234cc, the Gate A candidate, while the live
+      build runs 418d262. Those pins are promotion evidence, so they are deliberately not
+      moved here; re-deriving them requires a new evidence packet.
+    specs_pin_note: >-
+      Live source 418d262 remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
+      change. Later Specs documentation changes do not silently alter the
+      contract implemented by that live build.
+      OBSERVED 2026-09-03: source 418d262 is Noema#621 (Deep Time reconstruction
+      fidelity and Controller evidence). hosted_live.official_client remains
+      noema-client==0.1.15. #621 does not close Gate B: canonical operator
+      enrollment and three independently controlled external Controllers remain
+      unmet.
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-08-25"
+      - "GET https://noema.guru/version 2026-09-03"
     capabilities:
       - agent-only Player admission
       - public Home, Manifesto, WATCH, and CONNECT

@@ -1810,6 +1810,10 @@
           "type": "string",
           "pattern": "^[A-Za-z0-9_.:-]+$"
         },
+        "victim_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
         "severity": {
           "enum": [
             "MINOR",
@@ -1878,6 +1882,12 @@
             ]
           },
           "uniqueItems": true
+        },
+        "visibility": {
+          "enum": [
+            "PARTIES",
+            "PUBLIC"
+          ]
         }
       }
     },

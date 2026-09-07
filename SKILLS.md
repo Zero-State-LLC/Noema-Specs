@@ -8,9 +8,23 @@ Skills are repeatable workflows. They do not create new authority.
 | [AGENTS.md](AGENTS.md) | behavioral constraints for agents in this repository |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | contribution policy and normative requirement language |
 | [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) | completion and checking requirements |
+| [intent/README.md](intent/README.md) | SDLC intent records for non-trivial RFCs and features |
 | `SKILLS.md` | deterministic procedures for recurring specification work |
 
 Resolve authority in this order: **Accepted RFC → versioned protocol/schema → canonical subsystem documentation → release package → conformance → examples/fixtures**. This is the precedence in `CONTEXT.md`. A conflict is a **SPEC DEFECT**. Do not silently select a side.
+
+## Workflows section (new spec.md)
+
+Non-trivial RFCs and features are intent-first. Start from [intent/README.md](intent/README.md). The next stage is `specify/spec.md`. Do not invent intent records for existing RFCs.
+
+This repository has no `specify/` tree or constitution template yet. Repeatable procedures are the `SKILL.*` entries below.
+
+If a specification campaign adds `specify/spec.md`, include a `## Workflows` section that:
+
+- Names **existing** skills only. Defaults when those skills exist: `anti-slop-code`, `production-systems`, `google-developer-style`. In this repository, name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
+- Names the owner specialist.
+- Names any existing GitHub Action to reuse or add under `.github/workflows/`.
+- Does not invent an RFC.
 
 ## SKILL.ORIENT
 **Use when** Starting any substantive task.
@@ -21,16 +35,17 @@ Resolve authority in this order: **Accepted RFC → versioned protocol/schema �
 2. Identify the roadmap milestone, affected version domains, and canonical authority hierarchy.
 3. Inspect related protocols, schemas, fixtures, conformance, validation, and open branch/PR state if tooling supports it.
 4. Decide whether the request changes a contract or only documentation.
-**Outputs** Task scope, authoritative files, affected version domains, RFC required yes/no, known drift, validation targets.
+5. If the work is a non-trivial RFC or feature, require a filled [intent](intent/README.md) record before `specify/spec.md` or an RFC draft. Skip intent for clarifications and docs-only hygiene. Do not invent intents for existing RFCs.
+**Outputs** Task scope, authoritative files, affected version domains, RFC required yes/no, intent required yes/no, known drift, validation targets.
 **Validation** Confirm every cited authority exists.
 **Stop / escalate when** Authority conflicts or required evidence is missing. Report `SPEC DEFECT` or `NOT_COMPUTABLE`.
 
 ## SKILL.SPEC_CHANGE
 **Use when** Making a normative specification change.
 **Inputs** Requested behavior and canonical source.
-**Authority to read** `CONTEXT.md`, affected subsystem docs, `CONTRIBUTING.md`, versioning, related RFCs.
+**Authority to read** `CONTEXT.md`, affected subsystem docs, `CONTRIBUTING.md`, versioning, related RFCs, [intent/README.md](intent/README.md) when the change is a non-trivial feature.
 **Procedure**
-1. Orient, identify authority, domains, version impact, and RFC requirement.
+1. Orient, identify authority, domains, version impact, and RFC requirement. For a non-trivial feature, fill `intent/` from [`_TEMPLATE.md`](intent/_TEMPLATE.md) before drafting `specify/spec.md`.
 2. Check protocol, schema, ontology, replay, security, claims, experience, and migration impact.
 3. Edit the smallest canonical surface, then machine contracts, examples, conformance, and indexes.
 4. Update changelog, versioning, roadmap, and checklist when contracts move.
@@ -41,11 +56,12 @@ Resolve authority in this order: **Accepted RFC → versioned protocol/schema �
 ## SKILL.RFC
 **Use when** A protocol, schema, ontology, reproducibility, claims, security, version-domain, or dataset-immutability boundary changes.
 **Inputs** Problem and affected authority.
-**Authority to read** `rfcs/README.md`, affected RFCs, `CONTRIBUTING.md`.
+**Authority to read** `rfcs/README.md`, affected RFCs, `CONTRIBUTING.md`, [intent/README.md](intent/README.md).
 **Procedure**
-1. State problem, affected authority, proposal, alternatives, compatibility, data/research/security impact, migration, validation, rollback, and unresolved questions.
-2. Use lifecycle `Draft → Review → Accepted / Rejected → Implemented / Superseded`.
-3. Add required machine contracts and validation evidence before requesting acceptance.
+1. For a non-trivial new RFC, fill `intent/` from [`_TEMPLATE.md`](intent/_TEMPLATE.md) first. Do not invent intent records for existing RFCs.
+2. State problem, affected authority, proposal, alternatives, compatibility, data/research/security impact, migration, validation, rollback, and unresolved questions.
+3. Use lifecycle `Draft → Review → Accepted / Rejected → Implemented / Superseded`.
+4. Add required machine contracts and validation evidence before requesting acceptance.
 **Outputs** RFC and linked implementation plan.
 **Validation** Apply required review lenses from `rfcs/README.md`.
 **Stop / escalate when** Required evidence is absent. An RFC MUST NOT become Accepted without machine-readable contracts and validation evidence.

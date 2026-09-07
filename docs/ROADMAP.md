@@ -36,6 +36,8 @@ Golden path: [QUICKSTART.md](QUICKSTART.md). Acceptance: ADR-005 equivalence **a
 
 **Game completeness (specification campaign, not executable):** [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md) · [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [MUD-PLAY-CRAFT.md](MUD-PLAY-CRAFT.md) · [MUD-PLAY-CRAFT-CLOSEOUT.md](MUD-PLAY-CRAFT-CLOSEOUT.md) · [MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md](MUD-NATIVE-INTERACTION-AND-WORLD-PRESENCE.md) · [MASTERY-SPECIALIZATION.md](MASTERY-SPECIALIZATION.md) · [CONSTRUCTION.md](CONSTRUCTION.md) · [SOCIAL-MEMORY.md](SOCIAL-MEMORY.md) · [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md) · [COMMUNICATION-ECOLOGY.md](COMMUNICATION-ECOLOGY.md) · [SYSTEMIC-DISCOVERY.md](SYSTEMIC-DISCOVERY.md) · [ECONOMIC-SPECIALIZATION.md](ECONOMIC-SPECIALIZATION.md) · [EMERGENT-CULTURE.md](EMERGENT-CULTURE.md) · [WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md).
 
+Research seeds 2026-08-27 (post-assimilation): see docs/MASTERY-SPECIALIZATION-RESEARCH-SEED.md, CONSTRUCTION-RESEARCH-SEED.md, SOCIAL-MEMORY-RELATIONAL-REPUTATION-SEED.md, CRIME-PRODUCER-RESEARCH-SEED.md and docs/POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md. Design notes only; no contracts mutated. GC1 slices S9–S11 (multi-focus, decay credit, further parameters) complete as design notes in MASTERY-SPECIALIZATION.md + dedicated slice docs.
+
 ### Recommended implementation sequence (platform + identity)
 
 Dependency order (does not open v0.8 game content):
@@ -56,6 +58,18 @@ Dependency order (does not open v0.8 game content):
 14. Scaling topology only if evidence requires
 
 **Not in early slices:** K8s, Redis, Kafka, multi-controller arbitration, framework-specific Core backends, premature DO sharding.
+
+
+
+## Game Completeness Campaign (GC1–GC10) Status (2026-08)
+GC1 (Mastery): S0–S11 design notes complete; MASTERY-SPECIALIZATION.md authority + research assimilation (SkillMaster). See GC1-SLICES-2026-08-CLOSEOUT.md.
+GC2 (Construction): Authority in CONSTRUCTION.md + WorldGen research integration. S0 shipped (RFC-0006); extensive higher slices (multicycle, share, etc.).
+GC3 (Social Memory): Authority in SOCIAL-MEMORY.md + RepuNet/Moltbook research integration. S0 shipped (RFC-0007); S1–S6 RFCs.
+RFC-0002 crime producer: Bounded producer extension in STRATEGIC-CONFLICT.md + CRIME-PRODUCER.md (witness/sensor/delay flows from arXiv hotspot models).
+Higher GC4–GC10: S0 pinned/shipped (RFC-0008–0014); detailed slice docs and RFCs exist (GC4 offices, GC5 comms, GC6 discovery, GC7 contest v2, GC8 economy, GC9 culture, GC10 steward). Authority extensions per GAME-COMPLETENESS-PLAN.
+All per post-RFC-0120 research assimilation and GAME-COMPLETENESS-PLAN. Design notes only; no frozen contract changes. See GAME-COMPLETENESS-PLAN.md for full tables and POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md.
+
+Research assimilation 2026-08-27 integrated for P0 gaps.
 
 ## v0.2 — The Frontier
 
@@ -114,6 +128,7 @@ Prerequisite: C/F/O/S/L/P/D/G + RFC-0003 green. No graph DB/service, ranking, co
 **Core-loop freeze:** [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) — freeze v0.1–v0.7 for implementation; do not open v0.8 until runtime feedback demands it.
 
 ## Game Completeness — parallel PLAY-depth campaign (not a release tag)
+ Research assimilation 2026-08-27 (arXiv distillations for GC gaps) added as parallel input: see docs/RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md. No change to shipped S0 slices or frozen contracts.
 
 Post-core **specification** campaign for mature Player-world depth. It does **not** reopen v0.1–v0.7 machine contracts, does **not** redefine v0.6B Contracts & Markets or v0.6C Semantic Evolution, and does **not** open **v0.8 Phenomena**.
 

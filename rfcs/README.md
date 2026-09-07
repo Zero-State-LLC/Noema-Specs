@@ -165,6 +165,7 @@ drafts", which was never accurate — one entry is a draft and the rest are Acce
 | [RFC-0126](RFC-0126-watch-entity-update-exposure.md) | **Accepted** | WATCH `ENTITY_UPDATE` exposure closes generic fallback; explicit projections only |
 | [RFC-0127](RFC-0127-trade-cancelled-catalog.md) | **Accepted** | Catalog `TRADE_CANCELLED` on `event-catalog/0.2` (32 types); Chamber 0.1 stays 24 |
 | [RFC-0128](RFC-0128-player-tempo-and-cycle-admission.md) | **Review** | Server-authoritative Player tempo and cycle admission; runtime implementation remains separate |
+| [RFC-0129](RFC-0129-crime-detected-payload-reconciliation.md) | **Accepted** | Optional `victim_id` + `visibility` on `CRIME_DETECTED` 0.2; no default; co-extensive with `PUBLIC_HISTORY`; closes `B7a`; no producer, no `event-catalog/0.3` |
 
 ## Required review lenses
 

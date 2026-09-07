@@ -37,11 +37,14 @@ def main() -> None:
     production = state.get("runtimes", {}).get("production_alpha", {})
     expected_world = production.get("world")
     expected_genesis = production.get("genesis_id")
+    expected_worker = production.get("live_worker_version_id")
     endpoints = production.get("required_endpoints")
     if not expected_world or not expected_genesis:
         fail("production world and genesis expectations are required")
     if endpoints != ["/ready", "/version"]:
         fail("production freshness endpoints must be /ready and /version")
+    if not expected_worker:
+        fail("production live_worker_version_id must be recorded so drift can be detected")
     if args.offline:
         print("OK: freshness expectations are structurally complete")
         return
@@ -62,9 +65,17 @@ def main() -> None:
         fail(f"/version missing: HTTP {version_status}")
     if version.get("world_id") != expected_world:
         fail(f"version world drift: {version.get('world_id')} != {expected_world}")
-    if not version.get("worker_version_id"):
+    live_worker = version.get("worker_version_id")
+    if not live_worker:
         fail("/version lacks worker_version_id")
-    print(f"OK: live freshness matches {expected_world} / {expected_genesis} / {version['worker_version_id']}")
+    if live_worker != expected_worker:
+        fail(
+            "live Worker drift: "
+            f"{live_worker} is deployed but current-state records {expected_worker}. "
+            "Update specs/current-state.v1.yaml (evidence_commits.live_worker_version_id and "
+            "runtimes.production_alpha.live_worker_version_id) from GET /version."
+        )
+    print(f"OK: live freshness matches {expected_world} / {expected_genesis} / {live_worker}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,30 @@
+{
+  "schema_version": "world-event/1.0",
+  "event_id": "evt.rfc0129.neither",
+  "event_type": "CRIME_DETECTED",
+  "world_id": "world-sc-01",
+  "cycle": 12,
+  "sequence": 21,
+  "occurred_at": "2026-08-30T18:00:21Z",
+  "actor_id": "system.world",
+  "payload": {
+    "detection_id": "crime.rfc0129.neither",
+    "subject_id": "agent.nacre",
+    "severity": "MINOR",
+    "category": "POLICY_VIOLATION",
+    "room_id": "room.relay-quarter",
+    "source_event_ids": [
+      "evt.sc.002"
+    ],
+    "detection_method": "WITNESS",
+    "influence_delta": -3,
+    "influence_applied": -3
+  },
+  "provenance": {
+    "protocol": "agent-protocol/v1",
+    "source": "rfc-0129-crime-detected-payload",
+    "catalog_version": "event-catalog/0.2"
+  },
+  "previous_digest": "sha256:c1a29e0f8b4d6a1753e0c8f2d91b4a6e7c3d5f08192a4b6c8d0e1f2a3b4c5d6e",
+  "digest": "sha256:d2b30f1a9c5e7b2864f1d9a3e02c5b7f8d4e6a19203b5c7d9e1f2a3b4c5d6e7f"
+}

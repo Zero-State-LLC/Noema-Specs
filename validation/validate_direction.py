@@ -109,14 +109,26 @@ def main() -> None:
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
         "Gate C remains unproven",
-        "01ebc196-b762-4689-a166-272e26bd73ad",
-        "hosted_live.worker_version_id matches live",
         "Noema PR #570",
         "61234cc",
         "canonical operator device enrollment",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
+    # The live Worker id is a deployment fact, not a constant. Pinning a literal
+    # id here previously froze a stale value into the validator: correcting the
+    # file to the real live Worker would have failed validation. Check the shape
+    # and the internal agreement instead, and let validate_freshness compare the
+    # recorded pin against GET /version.
+    live_ids = {
+        parsed.get("evidence_commits", {}).get("live_worker_version_id"),
+        parsed.get("runtimes", {}).get("production_alpha", {}).get("live_worker_version_id"),
+    }
+    if len(live_ids) != 1:
+        fail("live Worker id disagrees between evidence_commits and runtimes.production_alpha")
+    live_id = live_ids.pop()
+    if not isinstance(live_id, str) or not re.fullmatch(r"[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}", live_id):
+        fail("live Worker id must be a Worker version UUID")
     if "0bddbeb" in state:
         fail("production Specs baseline 0bddbeb is stale after canonical main 492ccc9")
     if "2bb3a8b4" in state:
