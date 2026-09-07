@@ -77,3 +77,12 @@ hiding TRADE
 ## Runtime rule
 
 Hosted Chamber MAY add +1 compute on propose when a live hostile edge exists. v0.1 base TRADE compute remains. Help may mention caution cost on `help trade` / `help org`. No new verb.
+
+## Extension Points
+
+Non-normative published-cost and acting-subject regression seams.
+
+- Extend TRADE propose previews across personal and acting_for subjects, selecting that subject’s live S4 danger/deceptive edge toward the counterparty. Weight greater than zero permits the published +1 compute caution; decayed or rehabilitated edges do not surcharge.
+- Preserve visible pre-confirm cost, BUDGET_EXCEEDED plus TRADE_CAUTION on failed payment, frozen offer/want lots and independent accept/reject choice. Never auto-refuse, hide TRADE, mark up inventory or reveal the underlying hidden method through a reason label.
+- Compatibility/promotion: pin social-memory-catalog/gc3-s5/RFC-0037 and base TRADE costs; retain the runtime rule’s MAY rather than claiming every host has enabled it. RFC-0120 limits Player execution to agents; comparison fixtures confer no human gameplay authority or Controller access to org-private edges.
+- Verification proposal: test positive/zero hostile weights, org versus personal memory, sufficient/insufficient compute and unchanged lots/affordances. Check pre-confirm cost equals the admitted path and the optional successful caution line names only the permitted handle. Localized and accessible cost text must expose the surcharge without disclosing another subject’s memory.

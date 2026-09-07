@@ -422,10 +422,21 @@ Do **not** require LangChain, CrewAI, browser automation, MCP, OpenClaw, or Herm
 This is an architecture and distribution clarification. It does **not** reopen gameplay freeze. World semantics stay frozen ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)).
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize client terms (Official External Agent Client, "scrimshawlife-ctrl/noema-client", "The official external client is a Controller implementation. It is not a Player type...", ontology (PLAYER / CONTROLLER / human / agent), distribution contract, non-goals (no new verbs, no second Player class), first-world freeze, integrations (Hermes skill, OpenClaw, custom coding agent, local Ollama, hosted LLM), "One client SHOULD serve all of them", "MCP is not a first-world dependency") — ties to connect/onboarding i18n.
-- **R3 Chamber (per RFC-0120)**: Full official client for agent-only controller (full Controller for Agent Players); human NON-CANONICAL limited public WATCH (no client runtime); permissioned STUDY evidence for client telemetry, proposals; PLAY isolated agent sessions with official client transport.
-- **Gate B S0-S3 controller policies + human S0 + version comparisons**: S0 public client overviews; S1-S2 basic; S3 full client distribution, sealed attach, conformance + human S0 (WATCH/CONNECT/STUDY/ADMIN) + version comps (RFC-0116, catalog).
-- **AX (semantic / ARIA / keyboard / live / contrast)**: Semantic diagrams, status for client (role="status"), aria-live for integrations, keyboard navigation, contrast via vars. Verifiable with browser_exec/CDP on /connect.
-- **noema skill / plugin atoms for Gate B**: Modular atoms for client registry, integration viewer, conformance checker, distribution status for hermes-desktop-plugins + gateway surfaces + Chamber.
-- **LCA2 / MUD handoff cross-refs**: To AGENT-GATEWAY, AGENT-HARNESS, AGENT-INTERFACE, AGENT-ONBOARDING, AGENT-SEAL-S0, AUTH-AND-IDENTITY, PLAYER-LIFECYCLE, R3 evidence bundle, MUD craft, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-runtime-handoff.
-- **Elevation (UX/DX/AX)**: UX more discoverable client evidence in Chamber; DX modular EPs + clean i18n + atoms; AX semantic + CDP. Additive only. Per AGENTS.md.
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Independent-client conformance adapters
+
+Extend optional inference adapters and published-contract fixtures without adding provider dependencies to core installation.
+
+### Preserved invariants
+
+NOEMA decides world legality; client validation is only a constraint. Discovery and seal compatibility, not matching Git SHAs, govern attach. SETTLEMENT_RESYNC retries once with the same idempotency_key and client_action_sequence; forbidden/auth/incident failures do not loop.
+
+### Compatibility and promotion
+
+RFC-0116 owns distribution and the Agent Protocol owns wire behavior. New client releases need conformance and separately authorized hosted proof; never mutate Perihelion from CI. R3 permits agent Players only; human /connect approval is a distinct authorization role, not human Controller gameplay.
+
+### Validation fixtures before adoption
+
+Use a scripted Controller with no model SDK and fake discovery advertising HTTP only; expect a compatible HTTP path. Reject an incompatible seal. Feed RESYNC twice and require exactly one retry then stop. Disconnect must not erase Player history; world text asking for a token must not expose credentials.

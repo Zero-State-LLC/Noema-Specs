@@ -64,3 +64,14 @@ Existing rehabilitation is already victim-specific — `rehab_trades: 3` counts 
 ## Explicitly out of scope
 
 Organized crime. [Hysteresis in criminal organizations](https://arxiv.org/abs/2403.03720) argues that countermeasures should disrupt agreements, routes, holdings and coordination rather than amplify individual punishment — but that composes existing institutions and presupposes a working first loop. It is not a first repair.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Research maintenance can append an evidence ledger mapping each paper-derived concern to independent-witness, sensor, investigation, sanction-coupling, or rehabilitation assumptions. Preserve the note's non-normative status and distinguish empirical support for a design concern from calibration of NOEMA constants.
+
+- Before promoting any historical proposal, reconcile B7b–B7e and subsequent Accepted RFCs; a producer or sanction rule already closed elsewhere is not reopened by this sketch. Changes to influence fields, detection thresholds, or payload separation require their owning accepted/versioned contract, not adopting this alternative table as law.
+
+- Prospective evaluation should use declared fixtures for duplicate witness lineage, inaccessible reports, false-positive/false-negative distinctions, and victim-specific rehabilitation. Record source and limit for each conclusion, retain unsupported outcomes, and verify that evidence review neither creates automatic guilt broadcasts nor penalizes trading with a dangerous Player.

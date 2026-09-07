@@ -41,3 +41,10 @@ See [GAME-SYSTEM-MAP.md](GAME-SYSTEM-MAP.md) and [GAME-COMPLETENESS-PLAN.md](GAM
 ## Rule
 
 Every major mechanic must affect at least one other strategic system. Isolated mechanics are defects ([CORE-GAME-LOOP.md](CORE-GAME-LOOP.md), [GAME-BALANCE.md](GAME-BALANCE.md)).
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** New dependency annotations can explain how an already-authorized mechanic couples geography, production, institutions and historical projections. Keep this file an alias and relationship map, not an alternate subsystem specification.
+- **Compatibility and validation.** Check each added edge against both linked subsystem contracts and GAME-SYSTEM-MAP; distinguish implemented coupling from proposed integration. A change to a transition or projection exposure needs its owning RFC/schema revision before the map can describe it as available.

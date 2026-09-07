@@ -20,3 +20,13 @@ A v0.2 implementation is accepted when **all** hold:
 16. Missing evidence yields `NOT_COMPUTABLE`, not invented zero scores.
 
 Normative suite: [CONFORMANCE.md](CONFORMANCE.md) · [`conformance/v0.2/`](../../../conformance/v0.2/).
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Frontier acceptance evidence
+
+Extend acceptance receipts with pinned fixture inputs and the declared decision-equivalence boundary, retaining v0.1 regression evidence alongside Frontier checks. No-safe-candidate and NOT_COMPUTABLE outcomes are valid, not failures to be repaired into a selection.
+
+Keep F01–F15 and catalog identities explicit; changed selection, mutation or noise semantics require revised versioned authority. Validate deterministic repeat decisions, resulting event-path effects and negative observability cases. A green specification suite does not by itself establish hosted deployment or authorize a world injection.

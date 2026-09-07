@@ -41,3 +41,13 @@ replay_rule: "same params + seed → same genome digest"
 ## Application
 
 Mutations compose in canonical order on a parent genome → child genome with `mutation_lineage` and new `content_digest`. Invalid mutations are **rejected**, not silently repaired.
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Mutation composition fixtures
+
+Additional fixtures can exercise interactions among the existing operators in canonical parameter order. Mutations remain deterministic condition transforms on genomes, not edits to evidence, history, research labels or private cognition; invalid combinations are rejected, not repaired.
+
+New operators, allowed paths or transform semantics require a mutation-catalog version and owning contract review. Validate identical-input child digests and lineage, order-sensitive compositions, forbidden paths, failed preconditions and any declared inverse/restore rule; a valid proposal still does not bypass canonical world admission.

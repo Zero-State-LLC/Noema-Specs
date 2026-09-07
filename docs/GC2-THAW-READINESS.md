@@ -15,3 +15,10 @@
 | Remaining runtime gaps | CONTEST / WED / ATTEST still omitted from help |
 
 Hosted CONSTRUCT/DISMANTLE is live. Chamber help names BUILD (RFC-0090). Contest and WED shipped on their own slices; this document does not authorize their help text.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Future readiness receipts can append evidence for hosted construction and BUILD help exposure while retaining this dated thaw assessment. Keep storage-head reconstruction, fail-closed reservation, co-location and owner lineage distinct from presentation readiness.
+- Cite the runtime revision, accepted RFC and catalog for each new receipt; later slices do not retroactively alter S0. Recheck rejected actions without spend, reconstructable committed heads and BUILD help independently, without inferring CONTEST/WED/ATTEST exposure.

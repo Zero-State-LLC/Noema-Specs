@@ -22,3 +22,9 @@ v0.1 world (ledger + state + runtime manifest)
 ## Fail-closed
 
 If Frontier config is incomplete (missing director_version constants, axes, or seed), requests yield `NOT_COMPUTABLE` and no plan execution.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Migration tooling may add preflight manifests and replay receipts without rewriting the durable v0.1 ledger. Record old and proposed module/schema pins separately and preserve world_id, historical digests and original rule versions. Research-only additions may retain world/v1 under the existing rule; changed observation semantics require an explicit rules-version migration. Promotion should demonstrate replay of retained pre-upgrade events under original pins, prospective-only Frontier events, feature-disabled compatibility, and NOT_COMPUTABLE with no execution for missing configuration. Derived historical enrichment stays in the research partition with provenance; it cannot masquerade as original Frontier metadata.

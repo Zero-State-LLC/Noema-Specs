@@ -43,3 +43,11 @@ No separate simple truth model.
 ## RFC-0003 reuse
 
 Canonicalization `noema-jcs/1`, content hashing, receipt identity, evidence export profiles—no Compiler-specific parallel provenance rules.
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Component documentation can expand adapter and failure-path examples between capture intent, dependency closure, minimization, oracle, and receipt.
+- **Unchanged invariants:** Ordinary and machine flows remain one operation with one truth model; RFC-0003 canonicalization, hashing, receipts, and export rules are reused.
+- **Compatibility, promotion, and verification:** Alternative minimizers or oracle integrations require pinned contracts and compatibility review before promotion. Verify every disclosure level describes the same captured test and preserves INCONCLUSIVE/INVALID outcomes and provenance.

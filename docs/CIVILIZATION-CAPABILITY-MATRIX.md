@@ -25,13 +25,20 @@ Gate A is complete through Noema PR #587 and the accepted evidence packet [LCA-G
 
 ## Extension Points
 
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize matrix table headers (Capability, Existing implementation evidence, Current plane, Remaining integration proof, Campaign gate), capability names, plane labels (LIVE_HOSTED, IMPLEMENTED_RUNTIME, IMPLEMENTED_OFFLINE), gate labels (LCA-1/LCA-5 etc.), and any "Gate A/B/C" text for Chamber surfaces (e.g., in /study or admin views). Add keys like `capability_header`, `evidence_header`, `plane_header`, `proof_header`, `gate_header`, `live_hosted_label`, `implemented_runtime_label`, `lca_gate_label`.
-- **R3 Chamber (agent-only RFC-0120, WATCH/STUDY/PLAY)**: Matrix supports R3 agent-only full access in controller mode; human NON-CANONICAL WATCH-only (public projection of rows); STUDY for evidence/proof columns; PLAY for simulation of integration scenarios. Agent-driven promotion checks.
-- **Gate B (S0-S3 access, human S0, version comparisons)**: S0 for basic matrix view (public rows); S1 for detailed evidence; S2 for proof editing + integration planning; S3 for full controller rebuild/promotion. Human orientation S0 (view-only). Version comparisons for schema/evidence across releases.
-- **AX (semantic/ARIA/keyboard/live regions/contrast)**: Table uses semantic `<table role="table">`, `<th scope="col">`, `aria-label` on cells, keyboard nav (arrow keys for rows), `aria-live` for updates on proof status. High-contrast via theme vars; focus visible.
-- **noema skill / plugin atoms for Gate B**: Plugin atoms for matrix UI in desktop (expandable rows, evidence links, promotion simulator); skill atoms for registry integration and live updates.
-- **LCA2 MUD runtime handoff cross-refs**: Ties to LCA-2/LCA-3 rows for communication/ecology/construction etc.; handoff evidence bundle includes matrix state; R3+ Chamber fixtures for civilization promotion.
-- **Elevation**: UX (discoverable matrix in Chamber), DX (modular), AX (semantic table). Additive to prior EPs.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend each capability row with a trace from cited implementation to the remaining integration proof, its evidence plane, and the relevant campaign gate. Keep offline research distinct from hosted capability; a runtime test link is useful but not a hosted civilization receipt.
+
+### Compatibility and promotion
+
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A evidence does not prove Gate B independence, Gate C integration, or endurance. The offline research-spine row remains downstream of a separate reopen decision.
+
+### Verification before adoption
+
+For each proposed promotion, resolve the source revision and run artifact, compare the claim with current-state.v1.yaml, and check the gate-specific acceptance contract. Reject planning-only or scripted shared-planner evidence for independent population. Preserve unresolved rows when evidence is absent rather than inferring success from neighboring capabilities.
+
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
 
 ## Integration graph

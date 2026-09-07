@@ -32,3 +32,14 @@ normalized_situation_digest = sha256(canonical_json({
 ## Repetition admission
 
 Repetition (solved/near-solved) is **rejected** unless `control_role` ∈ {`positive-control`, `negative-control`, `regression`} and quotas allow.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Additional calibration examples can exercise the existing positive-control, negative-control, and regression admission paths without expanding the closed control-role vocabulary or allowing solved situations through ordinary candidate selection.
+
+- Changes to normalized situation identity, distance rules, or quotas belong in the versioned Frontier configuration and governing contracts. Retain old digest inputs and selection results so replay of an existing plan does not silently use new normalization.
+
+- Validate boundary pairs at solved_distance and pairwise_diversity_min, quota exhaustion, target quota interaction, and reordered affected-room input. Record both rejected repetitions and admitted controls with the configuration and normalized digest that explain the decision.

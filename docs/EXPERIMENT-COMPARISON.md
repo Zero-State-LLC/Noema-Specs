@@ -2,18 +2,11 @@
 
 Every comparison records run A/B, comparison variable, held constants, pinned feature/metric versions, equivalence boundary, confounds, comparison rule, and effect result. It never uses a current baseline or mutable metric. Missing measure is `NOT_COMPUTABLE`; failed material boundary/severe confound is `NOT_COMPARABLE`; only then may the pinned predicate/fixed-point comparison classify an effect. Interpretation and claim labels cannot override the comparison.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experiment_comparison", "comparison_variable", "held_constants", "pinned_feature_metric_versions", "equivalence_boundary", "comparison_rule", "effect_result". Use t() for comparison tables, rules, effects in Chamber experiment/s tudy surfaces.
+Non-normative extension guidance; the authorities above remain controlling.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent comparison records for experiments. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: NOT_COMPUTABLE/NOT_COMPARABLE rules, pinned versions, no override by labels. Versioned comparisons.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for comparisons with aria-labels, keyboard, live for results.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for comparison packs. Graft for rule validation.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for comparison effects in MUD/PLAY. Handoff to MUD-NATIVE-*, EXPERIMENT-DESIGN.md, PLAYER-*, AGENT-PLAY, LCA2.
-
-- Cross-refs: EXPERIMENT-DESIGN.md, EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+- **Auditable comparison explanation:** An authorized research comparison view can trace the declared variable, held constants, pinned metric/feature versions and comparison predicate to the two run bundles. Display exact machine result alongside localized reasoning and linked confounds.
+- **Preserved invariants:** Evaluate missing measures as NOT_COMPUTABLE before material boundary/confound failures as NOT_COMPARABLE; only eligible comparisons reach the effect predicate. Interpretation labels cannot upgrade either failure state.
+- **Compatibility and promotion:** Preserve original pins when metrics evolve; a rerun under new versions is a separate comparison, not replacement of the earlier result. This is STUDY evidence, not a PLAY objective, comparative Player rank, or controller privilege.
+- **Verification targets:** Use missing-measure, failed-boundary, severe-confound, eligible-null and eligible-effect cases, including simultaneous missing and boundary failures. Confirm predicate ordering, deterministic fixed-point results and retention of negative outcomes; planned tests are not observed effects.

@@ -163,13 +163,12 @@ References (selected from research pull):
 - Agent-based historical reconstruction and archaeology simulations.
 - Long-term memory, forgetting, and persistent effects in complex adaptive systems.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + DEEP-TIME / without full sections)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for scars, HistoricalTrajectorySummary, ScarVector, deepTimeCoEvolve, ARCHAEOLOGY, reconstruction, lore_attractors, path_dependence_index, reconstruction_confidence, scar(domain, strength), "Reconstruct Scar", historical_context — for /study /watch evidence and future PLAY affordances.
-- **R3 / RFC-0120**: Agent behaviors under deep time; human S0 for orientation.
-- **Gate B**: Access for archaeology/reconstruction; versioned deep time profiles.
-- **AX**: Semantic for scar lists, ARIA tables for trajectory; keyboard for reconstruction actions; live regions for confidence; contrast in history views (CDP).
-- **Plugin atoms**: Atomic for scar vectors, reconstruction packs (derive, validate); graft for historical candidate extraction; maint_evolve patterns.
-- **LCA2 / MUD handoff**: Native MUD for archaeology/reconstruct; parser i18n for deep time terms; noema-specs-mud-craft; trace to LCA-2 Gate B.
-- **Cross-refs**: DEEP-TIME.md, SEMANTIC-EVOLUTION-SPEC.md, ECONOMY-EWM-SPEC.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/BEHAVIOR-FEATURES, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765 Chamber, omh-accessibility-audit.
-- **Handoff deepen**: For R3+ i18n AX, MUD native, attention projection in deep time flows, agent determinism with history.
+Non-normative extension guidance; accepted authority controls.
+
+- **Research seam:** Develop bounded, isolated comparisons of trajectory summaries and path-dependence hypotheses using retained ledger/Genesis references. Record which proposal is being studied, its compression limits, and the evidence that could falsify it.
+- **Authority boundary:** This draft's proposed ScarVector, reconstruction affordances, co-evolution phases, metrics, and Genesis profiles are not accepted runtime mechanics. DEEP-TIME and accepted contracts prevail; this EP opens no archaeology verb, hidden score, ledger rewrite, reseed, or live scar intervention.
+- **Identity/privacy:** RFC-0120 supersedes the draft's human-and-agent-Players wording: Players are agents; human WATCH/research roles do not inhabit. Controller credentials provide no privileged historical-truth or reconstruction access. Derived lore and majority opinion cannot decide canonical truth.
+- **Promotion:** Separate research hypotheses from already accepted historical-evidence behavior. A mechanics proposal needs explicit deterministic state, costs, observability, compatibility, and governance review before runtime work; sealed live instructions remain unchanged.
+- **Verification:** Compare alternative compressed histories in isolated fixtures, preserving their full source provenance, and check replay plus research/PLAY redaction. Label non-computable or inferred reconstruction honestly; planned long-horizon experiments are not deployment or causal-success evidence.

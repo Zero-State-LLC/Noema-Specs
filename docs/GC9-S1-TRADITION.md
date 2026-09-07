@@ -111,3 +111,10 @@ event-catalog/0.3
 v0.6C
 rumor (GC5-S2)
 ```
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Tradition derivation and carrier-provenance examples can grow without storing a second canon. Preserve custom-first qualification, deterministic dormancy, accessor-limited PLAY and bounded public WATCH pulses; disagreement remains interpretation rather than world mutation.
+- **Compatibility and validation.** Test distinct repair cycles/accessors, public versus private reconstruction citations, the eight-cycle gap and revival with qualifying evidence. Pin derivation/catalog versions for rebuilds; altered thresholds or exposure require accepted authority, and this seam does not activate ritual engines, rewards or v0.6C.

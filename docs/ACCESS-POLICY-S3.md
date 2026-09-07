@@ -40,12 +40,10 @@ S3 lets Chamber PLAY name ACCESS. The operations are the ones already hosted in 
 Hosted Chamber MUST list ACCESS on `help` and list existing deny / clear / allow aliases on `help access`. MUST still omit WED, ATTEST, and the schema name ACCESS_POLICY. Isolated tests only. No Genesis change.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize ACCESS help text, aliases (deny/clear/allow), policy descriptions, "Chamber ACCESS help", help affordances in /play /watch /study, "help access", player labels, status, "Evidence operations". Ties to prior i18n (shell_*, trade, history, etc.).
-- **R3 Chamber**: Full help for ACCESS in agent-only controller (full R3+ help surfaces); human NON-CANONICAL public WATCH / permissioned STUDY / PLAY with help. Per RFC-0120.
-- **Gate B (S0-S3 controller policies)**: S3 enables help for access policies; full controller access to help content. Human S0. Version comps.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic lists for help (role="list"), ARIA for aliases, live regions for dynamic policy, keyboard for help commands, contrast. CDP on /play /watch.
-- **noema skill / plugin atoms**: Atoms for help registry, policy help viewer for plugins + gateway + Chamber.
-- **LCA2 / MUD handoff / cross-refs**: To S0-S2, PLAYER-ACTION-MAP, R3/R4 help, access as strategic, handoff map, AX audit, noema skill, 8765.
-- **Elevation (UX/DX/AX)**: UX discoverable help in Chamber; DX modular + i18n + graft + atoms; AX semantic/ARIA + CDP. Per AGENTS.md.
 
-(Expanded per "merge and continue".)
+Non-normative help-presentation seams for the closed RFC-0104 slice.
+
+- Extend an ACCESS help renderer from the accepted S0–S2 operations, preserving the public ACCESS name and deny/clear/allow aliases. Localization belongs to explanations and accessible names, not wire tokens or parser semantics.
+- S3 is the help slice, not a privileged Controller security level. Help neither grants an occupied office nor bypasses enforcement; humans may inspect permitted documentation or non-canonical development tooling but do not issue Player actions.
+- Compatibility/promotion: retain the accepted help listing and WATCH behavior. WED, ATTEST, ACCESS_POLICY schema-name advertising, new modes and an invented S4 remain outside this seam.
+- Verification proposal: snapshot help and help access for the supported aliases; assert omitted names remain absent and help creates no world event or cost. Test missing translations, keyboard focus and screen-reader reading order independently from command authorization.

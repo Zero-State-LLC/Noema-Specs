@@ -300,12 +300,20 @@ Complete only when all 25 acceptance criteria in the parent spec pass and:
 
 ## Extension Points
 
-- **i18n for MUD parser / tasks terms** (S0 deterministic parser, aliases, ambiguity state, inventory/inspect phrases, message normalization, canonical resolved action, "human PLAY retired", "production agents MUST NOT depend on this parser", acceptance criteria) — centralize in ui.py STRINGS + t() for study/dev UI; R3 Chamber (MUD native interaction evidence), Gate B S0-S3 (agent-only via A3/A4 structured), AX (semantic for parser output, ARIA for tasks, keyboard for dev tools).
-- **R3 / RFC-0120** (S0 non-canonical/dev only; production continuation A3/A4 structured observation + AVAILABLE_ACTIONS; agents only Players).
-- **Gate B handoff** (tasks to MUD-NATIVE-INTERACTION-PLAN.md, MUD-PLAY-CRAFT.md, MUD-DESIGN-CANON.md, COMMAND-DISCOVERY.md; cross to LCA2/R3/PLAYER-ACTION-MAP/AGENT-*/AUTH/PLATFORM; noema-specs-mud-craft workflow).
-- **AX / CDP** (parser results accessible in dev UI; CDP on study for MUD traces; contrast/keyboard).
-- **Plugin atoms** (parser result viewer, alias normalizer, ambiguity resolver; registry for MUD tasks).
-- **Graft / savings** (query on MUD native tasks, S0 parser, aliases, RFC-0120).
-- **Elevation**: UX (clear task boundaries for MUD implementation), DX (EPs + i18n + atoms per noema-specs-mud-craft), AX (semantic/ARIA). Per AGENTS.md.
-- **Future**: Full i18n for MUD traces in Chamber; live parser debug UI.
-- **Cross-refs**: MUD-NATIVE-INTERACTION-TASKS.md, MUD-NATIVE-INTERACTION-PLAN.md, MUD-PLAY-CRAFT.md, COMMAND-DISCOVERY.md, PLAYER-ACTION-MAP.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, LCA2, ui.py, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-craft.
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Task-to-evidence traceability
+
+Extend per-task dependency and evidence records rather than expanding the frozen craft horizon.
+
+### Preserved invariants
+
+S0 parser remains offline dev tooling; production agents bypass it through A3/A4. Keep all 25 parent acceptance criteria, observation-fingerprinted ambiguity invalidation, ordinary-action macro settlement and the no-reseed gate. Historical human completion language does not authorize human PLAY.
+
+### Compatibility and promotion
+
+Use the parent interaction spec and plan for task changes and the craft closeout for runtime phase ownership. S0–S7 here are task slices; access-policy S0–S3 elsewhere are versioned slices, never privilege levels. A documentation fixture cannot mark a runtime task VERIFIED.
+
+### Validation fixtures before adoption
+
+Compare east/go east offline against one legal MOVE; a hidden exit yields no suggestion. Change the observation after ambiguity and require invalidation. Inject private MESSAGE text into a WATCH/home candidate and require rejection. Keep keyboard, bounded live-region and reduced-motion evidence pending until actual UI audits.

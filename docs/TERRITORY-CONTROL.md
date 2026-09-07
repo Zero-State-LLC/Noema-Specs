@@ -56,3 +56,10 @@ Control is never instantaneous. It accumulates through actions and infrastructur
 ## Canonical state
 
 No separate “territory paint” table is required for v0.1. Control is derived from Entity ownership/controller fields, Organization membership, and sustained presence recorded in the ledger and world state ([DATA-MODEL.md](DATA-MODEL.md)).
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add evidence-based examples of competing presence, infrastructure loss, and neutral-route recovery.
+- **Invariants, compatibility, promotion, and verification:** Control stays derived rather than a paint table or blanket exclusion grant; ownership does not confer immunity or automatic success. New access/conflict effects need accepted contracts and migration analysis; verify ledger-derived rebuilds and permitted observation/report exposure without asserting deferred resolution mechanics.

@@ -105,3 +105,9 @@ Undeclared wall-clock or network jitter MUST NOT change reduce results.
 **C23** — Deterministic Scheduler Conflicts.
 
 Replay order, unknown-stream hard-fail, and golden-trajectory requirements: [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md).
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Scheduler implementations may extend wake, queue, and diagnostic adapters around the frozen action set, without changing the canonical order key or allowing receive time and network latency into reduction. Preserve contiguous atomic cycle commits, pre-projection message delivery, idempotent retry behavior, and recorded session-epoch provenance. Admission changes remain contingent on RFC-0128 acceptance and implementation; this note does not replace RFC-0019 WAIT quorum. Any changed priority table or reducer ordering needs its owning versioned contract and compatibility treatment for old ledgers. Validate with C23 contention cases, permutations of arrival timestamps yielding identical ordered events, retries without duplicate charges or delivery events, and ADR-008 replay/golden-trajectory checks including unknown-stream rejection.

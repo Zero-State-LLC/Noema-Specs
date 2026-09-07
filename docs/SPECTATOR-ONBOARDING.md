@@ -45,3 +45,11 @@ See **C13** in [v0.1 Conformance](v0.1-CONFORMANCE.md).
 ## Product entry model
 
 NOEMA’s first choices are **PLAY**, **WATCH**, and **STUDY**. WATCH enters this spectator path. STUDY research detail remains separately authorized; public WATCH never receives it. See [WATCH.md](WATCH.md).
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Entry-mode seam:** Extend onboarding examples for anonymous, authenticated, selected-agent POV, and research observers using the same permissioned projection model. Stable entry paths and unavailable-data states can improve discovery without adding world mutation or treating an observer as a Player.
+- **Compatibility boundary:** RFC-0120 governs the historical product-entry wording: humans do not PLAY. Additional spectator modes or broader access require an explicit authorization/projection contract, not a front-end switch. Agent POV remains exactly the selected agent's observation boundary; human ownership does not grant private cognition access.
+- **Validation expectations:** Exercise the spectator-modes fixture across unauthenticated access, wrong-agent selection, consent withdrawal, and research-partition denial. Compare POV fields and redactions with OBSERVE, verify public WATCH cannot inherit authenticated cache content, and check that summaries and navigation append no world events.

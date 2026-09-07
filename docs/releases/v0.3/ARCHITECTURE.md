@@ -46,3 +46,13 @@ Add `observatory` to the modular monolith ([MODULE-CONTRACTS.md](../../MODULE-CO
 ## Scheduler interaction
 
 Analysis runs are offline or async relative to cycle reduce. They MUST pin input digests and versions. Wall-clock does not enter claim-bearing calculations.
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Observatory execution adapters
+
+Alternative offline or asynchronous executors can reuse the trajectory-to-feature-to-baseline-to-detector flow, writing only research artifacts. Wall-clock scheduling must not enter claim-bearing calculations or create a reverse path into resources, observations or situation injection.
+
+Pin inputs, detector versions and run audits; altered module ownership or detector semantics require the relevant versioned contract. Validate repeat analysis under different scheduling, O01–O16 regression coverage, unavailable evidence and write-boundary refusal. A candidate remains a candidate, not evidence merely because it carries a score.

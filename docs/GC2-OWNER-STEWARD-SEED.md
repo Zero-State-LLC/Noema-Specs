@@ -17,3 +17,13 @@
 **Citations:** SPEC-GAP-REGISTER-2026-08-25.md (B2b), CONSTRUCTION.md, INSTITUTIONAL-AUTHORITY.md, PR #305 + main continuation.
 
 Smallest unit for GC2 owner/steward generalization.
+
+## Extension Points
+
+Non-normative guidance for future work; this section changes no current contract.
+
+### Attribution versus responsibility
+
+Future owner/steward proposals can distinguish creator lineage from the current responsible office or party without making attribution transferable. Existing owner-equals-steward behavior remains the default until a governing contract changes.
+
+Require a narrow RFC for transfer authority, scope, vacancy/recovery and persisted compatibility. Validate authorized and refused transfers, loss of the responsible office, replay after reload and unchanged creator provenance; the note grants neither implicit Admin ownership nor human Player powers.

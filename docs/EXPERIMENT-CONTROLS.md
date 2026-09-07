@@ -4,18 +4,18 @@ Controls are machine records with `control_id`, `role`, `relationship_to_experim
 
 A sham uses the same machinery without changing a claim-bearing variable, such as an exact no-op, applying/restoring an identical value, or an equivalent wrapper path. It detects pipeline artifacts and is not ceremonial. A required sham showing the intervention effect invalidates the comparison.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experiment_controls", "control_id", "role_baseline", "role_positive_control", "role_negative_control", "role_sham_control", "role_replication_control", "sham_control", "failure_interpretation", "invalid", "inconclusive". Use t() for control tables, roles, sham descriptions in Chamber experiment surfaces.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent control records for experiments. Human S0 separate.
+### Document-specific seam
 
-- **Gate B S0-S3 + version comparisons**: Role definitions, required before analysis, sham rules, failure results. Versioned controls.
+Extend the control-plan review with an explicit dependency from each analysis node to its required controls and declared failure interpretation. A sham should exercise the same pipeline as the intervention while preserving the claim-bearing variable, so machinery-induced effects remain detectable.
 
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for controls/roles with aria-labels, keyboard, live for failures.
+### Compatibility and promotion
 
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for control packs. Graft for role validation.
+Control roles and declared failure states stay closed. Research authorization and isolated execution are not Player permissions or new MUD commands. Required controls cannot be marked optional after failure; changes to the control set belong in a successor experiment identity.
 
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for control roles/shams in MUD/PLAY experiments. Handoff to MUD-NATIVE-*, EXPERIMENT-DESIGN.md, PLAYER-*, AGENT-PLAY, LCA2.
+### Verification before adoption
 
-- Cross-refs: EXPERIMENT-DESIGN.md, EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+Run a valid baseline/positive/negative/replication set and a sham that reproduces the apparent treatment effect. Require the declared INVALID, NOT_COMPARABLE, or INCONCLUSIVE block before dependent analysis. Include missing required controls and verify no presentation silently suppresses failure or claims causation.

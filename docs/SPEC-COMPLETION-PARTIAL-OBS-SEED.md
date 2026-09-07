@@ -13,3 +13,9 @@
 **Boundaries:** Notes only. Cites GAME-COMPLETENESS-PLAN.md section 11 + FIRST-WORLD-OPERATIONS + prior + main.
 
 Smallest unit for partial-obs/security element.
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Coverage can expand through concrete knowledge-pathway and authorization examples for discovery, communication, social memory and institutional scopes. Preserve private cognition, admin-only operations and research redaction; reduced observability does not grant authority. Keep proposals as inputs until the owning GC/security specification and any versioned contract change are approved. Validate paired authorized/redacted observations and scope-denied mutations, including cases where the backend knows more than the Player.

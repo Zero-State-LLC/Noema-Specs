@@ -7,3 +7,10 @@ Execution states are `DRAFT → VALIDATED → READY → RUNNING → COMPLETE`, w
 ## STUDY projection
 
 The technical lifecycle projects deterministically to `Preparing test` for `DRAFT`/`VALIDATED`, `Ready` for `READY`, `Testing` for `RUNNING`, `Result available` for `COMPLETE`, `Incomplete result` for `PARTIAL`, and `Cannot determine` for `NOT_COMPUTABLE`. `INVALID`, `ABORTED`, and `QUARANTINED` display that the test cannot be interpreted. The projection never hides the canonical execution state, interpretation, claim label, confounds, or audit record from an authorized advanced view.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Lifecycle audit consumers and STUDY status projections can be extended without conflating execution, interpretation, and claim provenance. Preserve append-only correction lineage, the READY prerequisites, and the prohibition on PROVEN.
+- Version any transition or projection mapping change through the owning contract before promotion; old audit chains remain interpretable. Validate budget exhaustion with every unexecuted node recorded, quarantine without interpretation, and corrections linked to the previous digest.

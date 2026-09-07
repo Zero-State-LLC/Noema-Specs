@@ -58,3 +58,13 @@ notice cycle expiry is [GC5-S11-NOTICE-EXPIRY.md](GC5-S11-NOTICE-EXPIRY.md)
 ## Runtime rule
 
 Hosted Chamber MUST accept `MESSAGE surface=NOTICE` from a holder of an occupied `PUBLISH_NOTICE` office in a public room and keep the last 1 institution notice for PLAY. Vacant / non-holder fail closed. Hidden rooms reject. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Institution-notice adapters
+
+Additional notice renderers can reuse MESSAGE surface=NOTICE without granting office authority from membership alone. Preserve occupied PUBLISH_NOTICE authority, current-public-room scope, last-one retention and WATCH silence.
+
+Keep RFC-0064 and communication-catalog/gc5-s6 semantics; expiry belongs to the already specified S11 slice, not a new timer invented here. Validate non-holder and vacant-office refusals, hidden-room rejection, replacement of the prior notice and no remote or public-ticker disclosure.

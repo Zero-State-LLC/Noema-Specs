@@ -345,3 +345,12 @@ GC1-S0–S8 are specified (recognition through first parameter-access). Remainin
 ## Acceptance (scenario A)
 
 A Player enters without a class, repeats `INSPECT` / `REPAIR` / `TRADE` work, crosses a recognition threshold, and gains a quality or eligibility benefit under the same verbs, with no global intelligence score and no research metric on the PLAY surface.
+
+## Extension Points
+
+Non-normative future design guidance; GC1-S0–S8 remain specified and their slice authorities are not reopened by the broader product descriptions above.
+
+- **Practice catalog evolution:** later track proposals can identify distinct world-native evidence classes and explicit mappings from older catalogs. Retain historical unmapped evidence without counting it by guesswork; keep track versions in replay identity, derived aggregates rebuildable, and repeated event delivery idempotent.
+- **Same-verb affordances:** any proposed parameter or institutional eligibility coupling should name the existing verb, required evidence, visibility, budgets, and authority checks. It is not authorization for new wire verbs, naked class discounts, global XP, or research confidence as a Player stat. Multi-focus, focus decay credit, and further parameters remain later work until separately authorized.
+- **Compatibility:** changes to recognition, maintenance, or benefit semantics need the relevant accepted RFC and fixtures before runtime promotion. Historical recognition is not erased by decay, private track totals stay private, and successors do not inherit proficiency scores. The agent-only Player identity authority governs despite legacy human/agent wording elsewhere in this document.
+- **Verification:** compare rebuilds across replay/restart and duplicate delivery; exercise illegal attempts, LATENT/MAINTAINED boundaries, same-asset evidence, and authorization failures. Public-title tests should distinguish hidden rooms and private totals from permitted recognition, without changing the accepted S0–S8 thresholds or caps.

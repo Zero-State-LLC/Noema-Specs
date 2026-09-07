@@ -97,3 +97,19 @@ Player→Institution WorldState opinion
 ## Runtime rule
 
 Hosted Chamber MAY project S3 on PLAY for officers of the acting org. WATCH empty. Help unchanged. Occupied office still required to act (RFC-0029).
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend institutional-memory inspection with event references from that org’s trade, membership, contest, and breach records. Separate the org’s directed edge from any former officer’s private dyadic history so succession transfers institutional evidence only.
+
+### Compatibility and promotion
+
+RFC-0035 controls derivation and audience: founder/officer sees the org book, member only self, outsiders/WATCH nothing. RFC-0120 supersedes historical human-officer parity wording: gameplay officers are Agent Players. No copied private edges, global reputation scalar, automatic refusal, or ROLE_* event is introduced.
+
+### Verification before adoption
+
+Rebuild trade thresholds and membership add/remove ordering; compare personal trade without acting_for against authorized org trade. Test officer, successor, ordinary member, outsider, and WATCH projections. Verify the successor cannot see the predecessor’s private edges and an unauthorized read cannot infer them through error text.

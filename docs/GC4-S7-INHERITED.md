@@ -54,3 +54,10 @@ Chamber help advertising
 ## Runtime rule
 
 Hosted Chamber MUST accept `COMMIT.ORG_SUCCESSION_RULE rule_id=INHERITED_BY_ORGANIZATION` from a founder or officer. On holder vacate/leave the office MUST stay `VACANT` on that org and MUST NOT be retired. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Vacancy lifecycle examples can cover organization-retained offices across holder departure and later authorized seating. Preserve VACANT rather than retirement or automatic succession, and never turn the organization into a Player.
+- **Compatibility and validation.** Test founder/officer authorization, inactive organizations, the compute debit and holder vacate/leave with office identity retained. New succession rules or emergency inheritance require separate accepted authority and a versioned authority catalog; S7 does not open elections or SUCCESSION_* events.

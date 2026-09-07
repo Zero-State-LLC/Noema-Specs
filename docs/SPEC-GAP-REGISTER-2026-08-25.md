@@ -78,3 +78,13 @@ A later RFC may amend a closed scope only when it identifies the exact prior aut
 ## Continuation rule
 
 Prioritize A1–A3 evidence. Open a Draft RFC only when an integration run is blocked by a row marked `OPEN_SPEC`. Rows marked `RUNTIME_ONLY` belong to `Zero-State-LLC/Noema` or operations, not this repository. Rows marked `DEFERRED_DOCTRINE` remain closed until their named gate.
+
+## Extension Points
+
+Non-normative prospective guidance; existing outcomes and contract authority are unchanged.
+
+### Register evidence maintenance
+
+Future dated amendments can record exact authority and evidence changes against stable B/A row identities. Preserve the original snapshot and distinguish contract closure, implementation, publish and campaign acceptance; an old OPEN_SPEC row is not permission to duplicate a later accepted slice.
+
+Before reclassification, check the full current RFC and machine pins, record the superseding version and observed trigger, and compare direction/current-state authorities. Validate that every claimed closure has its cited authority and that deferred rows retain their gates; do not infer LIVE_HOSTED or a passed Gate B–E from source merges or a clocking empty world.

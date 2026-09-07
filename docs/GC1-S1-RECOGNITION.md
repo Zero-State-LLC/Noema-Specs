@@ -105,3 +105,10 @@ HELP class menu
 5. `REPAIR` still costs energy 3 / compute 2 / storage 1 and still adds +15 condition.
 
 Full scenario A waits for **GC1-S2** (one benefit family, separate RFC).
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Recognition explanation and cache-rebuild documentation can expand around distinct-unit evidence while retaining self-only PLAY, recognized-before-practicing order and the three-line cap. Missing historical repaired entity IDs remain NOT_COMPUTABLE rather than inferred from repair counts.
+- **Compatibility and validation.** Exercise cycle-zero distinct units, repeated repair of one entity, threshold crossings and other-Player/WATCH omission. Catalog or visibility changes require separate accepted authority and versioned migration; this S1 section does not redefine later S2 benefits or reopen focus and decay.

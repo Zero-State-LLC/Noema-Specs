@@ -40,13 +40,11 @@ S2 closes the AGREEMENT family. Form, accept, and terminate stay S0/S1.
 
 Hosted Chamber MUST accept `form agreement <type> with <player>` for all five catalog types, apply the live effects in RFC-0100, and list AGREEMENT on `help` / `help agreement`. Isolated tests only. No Genesis change.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + DIPLOMACY-S / without full sections)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for TRADE, NON_AGGRESSION, ACCESS, RESOURCE_COMMITMENT, MUTUAL_DEFENSE, form agreement <type>, AGREEMENT help, slice contract, catalog/s2 — Chamber labels and help projections.
-- **R3**: Agent diplomacy; human S0 for oversight.
-- **Gate B S2**: Version comparisons; access policies for form/terminate.
-- **AX**: Semantic for agreement types; ARIA roles for help lists; live regions for projections.
-- **Plugin atoms**: Agreement form atoms (atomic_replace for effects); graft for type derivation.
-- **LCA2/MUD/PLAYER-ACTION-MAP**: MUD native form agreement; i18n for types; handoff from S1.
-- **Cross-refs**: DIPLOMACY-S0/S1, DIPLOMACY.md, ACTION-CONTRACTS.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/INSTITUTIONAL, NOEMA-HIGH-VALUE..., graft, 8765.
-- **Handoff deepen**: For Gate B institutional/attention/diplomacy + MUD native.
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Five-type agreement presentation:** An agreement adapter can derive help and accessible type selection from diplomacy-catalog/s2 while submitting the existing form/accept/terminate path. Localize explanatory labels, not the five machine identifiers or canonical command grammar.
+- **Preserved invariants:** S2 closes the AGREEMENT family: no sixth type, ACCESS_POLICY verb, new event, WED/ATTEST help, ticker, or YOUR POSITION projection. Breach effects do not turn into pre-emptive contest blocking.
+- **Compatibility and promotion:** Keep S0/S1 formation lifecycle and RFC-0100 effects authoritative. A richer client requires no effect-writing plugin; any changed machine semantics need separate accepted authority, not an EP implementation choice.
+- **Verification targets:** In isolated fixtures cover every catalog type, malformed and sixth-type rejection, applicable live effects, and the same ordinary authority checks for native and assisted commands. Confirm AGREEMENT help appears while forbidden help and WATCH ticker remain absent; retain Genesis unchanged.

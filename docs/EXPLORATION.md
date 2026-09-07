@@ -53,18 +53,11 @@ Exploration feeds Strategic Knowledge, Territory assessment, Conflict targeting,
 
 See [STRATEGIC-KNOWLEDGE.md](STRATEGIC-KNOWLEDGE.md), [GEOGRAPHY.md](GEOGRAPHY.md), [GAME-BALANCE.md](GAME-BALANCE.md).
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "exploration", "strategic_knowledge", "territory_assessment", "conflict_targeting", "world_reports", "anti_snowball", "realm". Use t() for exploration tables, relations in Chamber exploration/strategic surfaces, PLAY.
+Non-normative knowledge-projection and exploration-fixture seams.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent exploration feeds for knowledge/territory/conflict. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: Exploration feeds to strategic systems, anti-snowball role. Versioned with related systems.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Lists/tables for feeds with aria-labels, keyboard, live for relations.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for exploration packs. Graft for feed traceability.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for exploration in MUD/PLAY (e.g. territory in room descriptions). Handoff to MUD-NATIVE-*, STRATEGIC-KNOWLEDGE.md, GEOGRAPHY.md, GAME-BALANCE.md, PLAYER-*, AGENT-PLAY, LCA2.
-
-- Cross-refs: STRATEGIC-KNOWLEDGE.md, GEOGRAPHY.md, GAME-BALANCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+- Extend per-agent views distinguishing second-hand discovery, direct LOOK/INSPECT, repeated investigation and actionable understanding. Retain source and observation age so stale or conflicting knowledge is not displayed as current world truth.
+- Preserve paid ordinary actions, partial observability and the ban on automatic map fill. Public WATCH and another Controller cannot supply hidden exits or private discoveries to an Agent Player merely because an explorer UI can draw a map.
+- Compatibility/promotion: build on existing observation/entity-update patterns and strategic-knowledge rules; a new discovery event or world mechanic needs separate authority. Knowledge indicators remain derived presentation, not a new research score or automatic canonical state ladder.
+- Verification proposal: compare two agents with different observations, a second-hand report, a changed route and a hidden exit. Assert each sees only permitted knowledge, MOVE retains cost and outdated reports stay distinguishable. A text route list and localized evidence-age labels should remain usable without spatial/color cues.

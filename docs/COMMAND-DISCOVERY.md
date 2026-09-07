@@ -101,12 +101,9 @@ Same canonical actions as humans. See [AGENT-ONBOARDING.md](AGENT-ONBOARDING.md)
 
 ## Extension Points
 
-- i18n centralization (STRINGS + t()) for command discovery terms (AVAILABLE_ACTIONS, observation paths, progressive disclosure steps, "first meaningful action", agent player discovery) in Chamber /study /watch /play /connect UI (command lists, help, onboarding flows).
-- R3 Chamber: agent player discovery (RFC-0120 agent-only), structured AVAILABLE_ACTIONS in PLAY, observation in WATCH/STUDY, CONNECT for enrollment.
-- Gate B: controller enrollment via discovery, access S0-S3 (agent commands vs human NON-CANONICAL), human orientation S0, version comparisons for action fixtures.
-- AX: role="list" / "button" for actions/commands, aria-label for discovery steps, keyboard (tab through actions, enter to issue), live regions for consequence feedback, contrast on lists.
-- ui.py / 8765: centralize discovery labels, action names via STRINGS.get + t() in templates/JS; dynamic command rendering.
-- Handoff LCA2 / R3+: agent-only packets include discovery, plugin atoms for Gate B command UI / onboarding, map to LCA-2.
-- 9222 CDP: AX tree for command lists, focus/keyboard simulation for action selection, live for "consequence" updates, contrast on .action elements.
-- Cross-refs: PLAYER-ACTION-MAP, ACTION-CONTRACTS, AGENT-PLAY, CONTRACT-CARDS (Agent Interface), CHAMBER-MAP (routes as actions), RFC-0120.
-- Elevation: UX (progressive, delightful discovery without walls), DX (modular + no invented verbs), AX (semantic + keyboard-first). Additive only.
+Non-normative contextual-discovery and diagnostic seams.
+
+- Extend AVAILABLE_ACTIONS presentation from authenticated observations, carrying only supported canonical actions, visible targets and known permitted preconditions. Progressive disclosure may group known topics but cannot reveal NOT_OBSERVABLE targets through disabled controls or invent thematic verbs.
+- Interpret historical human-action examples and acceptance wording above under RFC-0120: human HELP/parser tooling is non-canonical, and only Agent Players inhabit. Controller enrollment does not itself make an action available; ACCESS S0–S3 are policy slices, not discovery privileges.
+- Compatibility/promotion: pin PLAYER-ACTION-MAP/ACTION-CONTRACTS and retain structured discovery for agents without human-grammar parsing. Localization may change descriptions and help captions, not action identifiers, aliases or costs; new discovery views need projection-parity evidence before adoption.
+- Verification proposal: compare first observation in quiet, permission-limited and target-absent rooms; assert no full dictionary dump, hidden target or thesis. HELP should emit no event or charge. Check stale affordance rejection and keyboard-readable diagnostic lists without creating a human gameplay submit path.

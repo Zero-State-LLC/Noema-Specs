@@ -454,18 +454,18 @@ Does not change Specs law. Operators/implementers tick items against noema.guru 
 - [examples/chamber-world/](../examples/chamber-world/)
 - [examples/mud-play-craft/](../examples/mud-play-craft/) — C1 projections, C2 sketch, C9 audit checklist
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "mud_play_craft", "player_action_map", "command_discovery", "attention_projection", "gc1_first_slice", "mud_command_v1", "chamber_world", "mud_play_craft_examples". Use t() for craft tables, cross-refs, examples in Chamber MUD/PLAY surfaces.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent MUD PLAY craft for native interaction. Human S0 separate.
+### Document-specific seam
 
-- **Gate B S0-S3 + version comparisons**: MUD command v1, chamber world examples, C1/C2/C9 audits. Versioned with GC1, AGENT-*, PLAYER-*.
+Extend defect-driven presentation tests within the existing Native Interaction homes: STATUS, four-beat HAPPENED, short-session marks, post-MOVE orientation, and one-shot SETTLEMENT_RESYNC retry. Map each test to its C item and runtime task rather than creating new Feature letters.
 
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Lists/tables for cross-refs/examples with aria-labels, keyboard, live for projections.
+### Compatibility and promotion
 
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for MUD craft packs. Graft for example validation. Maint for craft evolution.
+C1–C9 remain specs-complete and C2 remains a sketch until any required wire RFC. Feature B order stays ROOM NAME → DESCRIPTION → PRESSURE → HERE → EXITS → STATUS → HAPPENED → COMMAND. Human command examples are non-canonical development tooling under RFC-0120; Agent Players use structured semantics. No research reward or new verb is added.
 
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for commands, attention, actions in MUD/PLAY. Handoff to PLAYER-ACTION-MAP, COMMAND-DISCOVERY, ATTENTION-PROJECTION, GC1-FIRST-SLICE, OFFICIAL-AGENT-CLIENT, AGENT-HARNESS, MUD-NATIVE-*, PLAYER-*, AGENT-PLAY, LCA2. Room order, no new verbs.
+### Verification before adoption
 
-- Cross-refs: PLAYER-ACTION-MAP.md, COMMAND-DISCOVERY.md, ATTENTION-PROJECTION.md, GC1-FIRST-SLICE.md, OFFICIAL-AGENT-CLIENT.md, AGENT-HARNESS.md, MUD-PLAY-CRAFT.md (self), noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list (AGENT-*, PLAYER-*, MUD-*, LCA*, GC*).
+Compare full/reduced/minimal attention projections, successful and failed MOVE costs, and RESYNC retries retaining idempotency identity. Verify an accessible short-session mark without XP, hidden knowledge, or invented affordances. Browser/keyboard audits validate presentation only; structured gateway fixtures and actual runtime receipts are needed for agent-path claims.

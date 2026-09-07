@@ -24,18 +24,11 @@ Institution, succession, historical-artifact, claims, reconstruction, scars, nam
 
 **Decision:** No event-catalog/0.3 in v0.6 foundation. Expand only via RFC workflow with schemas, fixtures, and isolation tests.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "event_catalog_deep_time_audit", "role_assigned", "role_vacated", "succession_recorded", "institution_transformed", "artifact_created", "artifact_decayed", "derived_machine_records", "organization_create", "infrastructure_damage", "contestation_transfer", "documents_artifacts". Use t() for coverage tables, candidate lists, decision notes in Chamber deep-time/audit/PLAY surfaces.
+Non-normative catalog-coverage and derived-record audit seams.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent-derived records for institutions/succession/artifacts/claims/scars/names from ledger. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons (event-catalog/0.2 strategic + future RFCs)**: No 0.3 in v0.6; RFC-only expansion with schemas/fixtures/isolation. Version comparisons for org/infra/contest/artifacts.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for existing coverage/candidates with aria-labels, keyboard for rows, live for decisions.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for deep-time record packs, candidate RFC validation. Graft for ledger evidence traceability. Maint for derived records.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for deep-time projections (institution lineage, world scars) in MUD/PLAY. Handoff to MUD-NATIVE-*, EVENT-CATALOG.md, PLAYER-*, AGENT-PLAY, LCA2. Room order, no new canonical verbs.
-
-- Cross-refs: EVENT-CATALOG.md, EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs (EVENT-CATALOG-AUDIT etc.), full list incl. INSTITUTIONS, DEEP-TIME, EMERGENT-CULTURE, GC*/LCA*.
+- Extend coverage matrices linking institution, succession, artifact, scar and naming records to exact existing ledger evidence digests. Derived projections may be rebuilt but cannot masquerade as new event types or rewrite the source ledger.
+- Preserve the v0.6 foundation decision: ROLE_ASSIGNED/ROLE_VACATED, SUCCESSION_RECORDED, INSTITUTION_TRANSFORMED and artifact lifecycle candidates remain deferred here. A localized candidate label or plugin export does not admit that type to a closed catalog.
+- Compatibility/promotion: any event expansion follows a separate RFC with schema bindings, fixtures and isolation tests; do not infer event-catalog/0.3 from this audit. Pin source catalog and derivation version when comparing coverage.
+- Verification proposal: rebuild a derived succession/scar record from referenced evidence, detect a missing digest and reject a deferred type at catalog admission. Check historical interpretations remain distinguishable from canonical transitions and public projections omit private lineage. Provide readable coverage and deferred-status tables rather than color-only coverage claims.

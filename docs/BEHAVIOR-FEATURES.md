@@ -28,17 +28,28 @@ strategy_switching
 ## Per-feature contract
 
 ```yaml
+feature_id:
+version:
+input_records: [events, observations, messages, ...]
+calculation: deterministic rule
+window: { type, cycles }
+domain: millipoints_0_1000 | count | rate_milli
+normalization: clamp / rank / none
+missing_data: NOT_COMPUTABLE | zero_if_empty_window_declared
+confounds: []
+visibility: research
+claim_label: INFERRED
+```
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize feature families (action_distribution, resource_allocation, movement_exploration, communication, trade_economic, organization_faction, information_seeking, tool_usage, waiting_inaction, repair_infrastructure, cooperation_signal, conflict_rivalry, response_latency_cycles, strategy_persistence, strategy_switching), millipoints, confounds, claim labels (OBSERVED/INFERRED), "Interesting work", "Evidence", "Observed trails", "Captured work", "Learned behaviors", "Rebuild LEARN", study/learned metrics, watch tabs (Live/Realms/Map/History), pressures, realms, known sites, "Refresh projection", "Visible pressure", "Active presence" etc. in /study /watch /play. Ties to prior i18n (interesting_work, evidence, watch_*, study_*).
-- **R3 Chamber**: Full feature calculation, projection, and evidence in agent-only controller mode (full access, sims); human NON-CANONICAL limited public WATCH (public features only), permissioned STUDY for traces/evidence, PLAY isolated observable effects. Per RFC-0120.
-- **Gate B (S0-S3)**: S0 public feature summaries in WATCH; S3 full controller access to feature registry, baselines, confounds, mappings. Human S0. Version comparisons (behavior-features/0.3). Controller enrollment for feature authority.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic cards/lists for features (role="region"), ARIA for families/values, live regions for updates, keyboard filters, theme vars contrast. CDP on /study /watch.
-- **noema skill / plugin atoms**: Modular atoms for behavior feature registry/viewer, projection visualizer, confounds inspector for desktop plugins + gateway /study /watch /LEARN integration + Chamber matrix/contest/ecology.
-- **LCA2 / MUD handoff / cross-refs**: To ANOMALY-DETECTION, CONTEST-RESOLUTION (conflict mappings), STRATEGIC-CONFLICT (crime/exposure), DATA-MODEL (evidence/lineage), GAME-COMPLETENESS-PLAN (GC behavior coverage), R3 evidence bundle, MUD craft for feature mechanics, Observatory, ACCESS-POLICY, WORLD-REPORTS. Full R3 Chamber fixtures for Gate B.
-- **Elevation (UX/DX/AX)**: UX discoverable behavior evidence in Chamber; DX modular catalog + i18n + graft + atoms; AX semantic/ARIA + CDP. Additive. Per AGENTS.md.
 
-(Expanded per "merge and continue" + prior to 83+ EPs.)
+Non-normative extension guidance; accepted authority controls.
+
+- **Feature seam:** Extend deterministic trajectory-to-feature fixtures for the declared families and catalog version, retaining event references and fixed-point units. A feature viewer can expose how counts or deltas were derived without assigning mental traits.
+- **Invariants:** Features are not intelligence scores. Event-derived counts may be OBSERVED; aggressive, deceptive, cooperative, or criminal interpretations retain inference labels and confounds. Controller enrollment confers no research registry or baseline access.
+- **Compatibility:** Version changed feature definitions and preserve the mapping needed to replay earlier outputs. Reconcile strategic catalog-0.2 source events with feature catalog-0.3 rather than treating their version numbers as interchangeable.
+- **Verification:** Use event-only fixtures for contest, agreement, access, condition-drop, and repair mappings; test empty/missing evidence and duplicated input handling according to the accepted derivation contract. Compare deterministic output and claim labels across reruns.
+- **Presentation:** Authorized STUDY may show units, source events, and confounds with localized descriptions and semantic tables. PLAY/WATCH get no new behavior-feature exposure, simulations, or enforcement powers from these research adapters.
 
 No feature is an “intelligence” score. Fixed-point millipoints preferred. Thresholds versioned in catalog.
 

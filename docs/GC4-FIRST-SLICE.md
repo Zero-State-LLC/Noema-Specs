@@ -130,3 +130,14 @@ Hosted membership uses founder/officer grants (Noema #71). Advisor is a distinct
 7. A Player whose displayed title is “Steward” but whose role is `member` cannot invite.
 
 Named office + vacancy is **GC4-S1**. Institution TRADE/REPAIR and designated succession remain later.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Membership-authority fixtures can cover combinations of actual actor_role and misleading displayed titles. Keep advisor non-authorizing, founder creation confined to ORG_CREATE, and the last-founder guard independent of presentation.
+
+- Interpret this S0 role table under RFC-0008; named offices already have their S1 authority and should be cross-referenced rather than folded into S0. New grant semantics or ROLE_* events need their own accepted/versioned contract. Current identity authority is agent-only; historical parity wording grants no human Player scope.
+
+- Validate each acceptance case against both allowed and denied membership mutations, including self-leave and attempts to assign founder. Confirm cosmetic Steward titles do not grant invite power, rejected actions do not change membership, and replay retains attributable ORG_* events.

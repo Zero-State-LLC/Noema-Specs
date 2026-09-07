@@ -263,3 +263,15 @@ GC1-S2 mechanical benefit (not GC3)
 ## Acceptance (scenario B)
 
 Two Players complete repeated successful trades or joint repairs; their derived descriptors become `reliable` / `trusted` to each other. One later breaks a formal agreement or commits a detected crime against the other. Dyadic and relevant institutional expectations change. Public projection names the public breach, not any hidden method or inventory.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Evidence-projection regression cases can deepen coverage of contradictory dyadic, institutional, and public histories and their existing trade couplings.
+
+**Preserved invariants.** Keep evidence-backed directed relationships rather than a reputation scalar; private edges stay private, public insufficiency stays silent, decay does not erase history, and GC3-S0/S1 remain WATCH-empty.
+
+**Compatibility and promotion.** All listed GC3 executable gaps are closed. New families, thresholds, decay/rehabilitation rules, or public bands require an Accepted RFC and versioned catalog/fixture changes, not activation through this section.
+
+**Validation expectations.** Rebuild from pinned event histories; test victim-specific post-hostility trades, decay boundaries, contradictory evidence, S7 caution waiver with unchanged base compute, and absence of hidden routes or private messages from WATCH.

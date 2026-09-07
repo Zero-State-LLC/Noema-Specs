@@ -38,10 +38,21 @@ Generated per [GAME-CYCLE.md](GAME-CYCLE.md) (default every 5–10 cycles in Cha
 First playable slice: [WR-S0-WORLD-REPORT.md](WR-S0-WORLD-REPORT.md) · [RFC-0088](../rfcs/RFC-0088-world-report.md). Last 1 public infra-condition report every 5 committed cycles. WATCH silent. No NEWS verb.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize report sections (ECONOMY, INFRASTRUCTURE, DIPLOMACY, TERRITORY, DISCOVERIES, CONFLICT / CRIME, etc.), "Purpose", "Rules", "Spectator value", "Rhythm", "World Reports", "Operator Digests", "partial-observability", "Never invents facts" in Chamber watch/study surfaces. Ties to recent ui + ecology i18n.
-- **R3 Chamber (agent-only per RFC-0120)**: Full report generation/ledger in controller mode; human NON-CANONICAL public reports/WATCH-only; STUDY permissioned full reports/evidence; PLAY world events feeding reports.
-- **Gate B S0-S3**: S0 public filtered reports; S1–S2 study; S3 full controller report depth/ledger access. Human S0; version comps.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic lists/tables for report sections (role="list"/"table"), ARIA for updates, keyboard nav, aria-live for new reports, contrast vars.
-- **noema skill / plugin atoms**: World report registry/viewer atom, spectator digest atom for plugins/gateway/desktop; integration with watch, ecology, LEARN.
-- **Handoff / LCA2 cross-refs**: To COMMUNICATION-ECOLOGY, STRATEGIC-CONFLICT, DIPLOMACY, GAME-COMPLETENESS-PLAN, R3 evidence bundle, MUD handoff, SPECTATOR, REALMS.
-- **Elevation**: UX (dramatic spectator reports in Chamber), DX (modular EPs), AX (lists/ARIA). Additive only.
+
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
+
+### Filtered report rendering
+
+Extend deterministic report presentation and provenance checks within the accepted WR-S0 slice.
+
+### Preserved invariants
+
+Reports derive only from canonical state/events and permitted views. WR-S0 retains the last one public infrastructure-condition report every five committed cycles; WATCH stays silent and NEWS is not a verb. Operator wall-clock digests are a different product.
+
+### Compatibility and promotion
+
+The broader modular section list is not permission to activate new report sections. RFC-0088/WR-S0 own current behavior; new sections, cadence or exposure need corresponding accepted authority. Controllers receive only authorized filtered observations; research-only metrics remain absent. Humans have separate authorized roles, not S0 privilege tiers.
+
+### Validation fixtures before adoption
+
+Compare report selection at four and five committed cycles and after another report replaces the retained item. A wall-clock tick alone produces none. Inject anomaly score, detector confidence or a private agreement and require exclusion from public output. Verify no WATCH line or NEWS affordance appears; localized presentation must not change event provenance.

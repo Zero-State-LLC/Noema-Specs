@@ -57,3 +57,15 @@ Implementation repositories MUST declare compatible spec versions. Schema-breaki
 Additive schema fields may be allowed only when `additionalProperties` and version negotiation permit them. Protocol-breaking changes require a new protocol version and migration plan. Making previously required manifest fields optional (minimal registration) is a compatible relaxation for clients; servers MUST continue to accept full advanced manifests.
 
 Changing Frontier scoring constants, mutation semantics, novelty axis definitions, or canonicalization rules MUST create a new relevant version identity (`director_version` / axes / catalog pin). See [releases/v0.2/MIGRATION.md](releases/v0.2/MIGRATION.md).
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** The domain inventory and compatibility examples can expand for explicitly authorized schema, catalog, projection, and runtime-manifest identities.
+
+**Preserved invariants.** Keep product, world instance, rules, dataset, protocol, and presentation versions distinct; immutable datasets and recorded bundle lineage cannot be repinned in place.
+
+**Compatibility and promotion.** A listed candidate is not a live pin. Breaking schemas/protocols require their version and migration path; additive fields are compatible only where closed schemas and negotiation permit them. Semantic rule changes require migration or a new world_version.
+
+**Validation expectations.** Check old/full manifests, permitted relaxed registration, unknown fields, incompatible pin combinations, and replay under recorded catalogs; confirm a Review candidate cannot be reported as live before its authority and conformance gates.

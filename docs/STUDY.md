@@ -54,3 +54,15 @@ Genesis Profile / Story Seeds are admin world-creation provenance when authorize
 ### LEARN (v0.7)
 
 After CAPTURE, open **LEARN** for reproduced behaviors, version coverage, dependencies, failures, generalization, and not-yet-tested contexts. See [LEARN.md](LEARN.md). Simple views derive from the same edges as advanced technical detail.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Intent templates, simple/advanced result projections, and longitudinal question examples can evolve around NOTICE → TEST → COMPARE → CAPTURE.
+
+**Preserved invariants.** Keep researchers separate from Players, consent and isolation gates intact, and CAPTURE gated by immutable compiler_readiness: READY. Simple labels never strengthen canonical claims.
+
+**Compatibility and promotion.** Version defaults, intent catalogs, and status mappings together with their machine contracts. Offline conformance is not hosted availability; a future hosted research slice needs its own isolation and deployment evidence without rewriting the dated boundary.
+
+**Validation expectations.** Compare simple and advanced views for identical result/test IDs, failed controls, NOT_COMPUTABLE and privacy-blocked cases; verify unauthorized capture is denied and an observational hosted page does not advertise absent research routes.

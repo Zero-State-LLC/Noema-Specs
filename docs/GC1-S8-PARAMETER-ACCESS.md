@@ -58,3 +58,10 @@ On locked overhaul, explain the observable blocker. Do not leak hidden practice 
 ## Runtime rule
 
 Hosted inhabit MUST accept structured `COMMIT.REPAIR` with `extent=overhaul` only for a recognized, maintained Engineer who can pay the extra energy. Observation affordances expose that parameter when eligible. Isolated `test.hosted-canonical.gc1-s8`. No Genesis change. Human `repair <target> overhaul` remains Chamber/test tooling (RFC-0120).
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand eligibility examples for structured extent discovery, energy shortage, recognition loss, and MAINTAINED-to-LATENT transitions.
+- **Invariants, compatibility, promotion, and verification:** Standard REPAIR, the extra energy/condition pins, cap 100, and hidden-practice-count privacy remain unchanged. Additional parameter access requires a separately accepted mastery contract; verify eligible overhaul, locked overhaul, and ordinary repair parity without opening a new verb.

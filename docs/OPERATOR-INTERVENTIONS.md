@@ -179,3 +179,15 @@ Do not invent parallel names for these:
 - Arbitrary room or ledger editors
 - A second intervention taxonomy besides the four classes
 - Using Lab perturbations against the production world
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** New runbook examples can clarify authorization, consequence preview, confirmation, and receipt handling within the four existing intervention classes.
+
+**Preserved invariants.** Preserve separate Admin authority, read-only default, pre-live-only Genesis operations, and the prohibition on direct WorldState edits or live Lab perturbations.
+
+**Compatibility and promotion.** A new world-changing operation needs existing canonical authority or an Accepted contract before exposure; receipt-format changes need versioned compatibility and do not create a fifth class.
+
+**Validation expectations.** Check rejected field edits, missing confirmation or required reason, credential revocation with history intact, and recovery through the declared route; verify resulting audit lineage without injecting operator prose into world history.

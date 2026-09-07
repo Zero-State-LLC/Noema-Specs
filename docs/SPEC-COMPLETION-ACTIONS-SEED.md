@@ -14,3 +14,14 @@
 **Boundaries:** Notes only. No new verbs. Cites GAME-COMPLETENESS-PLAN.md section 11 + prior + main.
 
 Smallest unit for actions element.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- The actions inventory can gain per-operation traceability rows naming the actual parameters, preconditions, cost source, authorizer, and visibility rule across the existing GC families. Separate an authority citation from proof that an implementation exercises it.
+
+- Keep this section-11 micro-note descriptive: seed text does not define new verbs or higher-GC action semantics. Contract discrepancies should be routed to the accepted action/RFC owner with version impact stated, while closed slices remain closed and deferred families remain deferred.
+
+- For each proposed row, check an allowed action, an authority denial, a resource failure, and an unobservable target against the referenced contract. Require concrete expected state/events or failure codes rather than a generic statement that the action is covered.

@@ -186,12 +186,17 @@ Native Interaction S0 (human parser) is no longer a production Player requiremen
 `check_rfc_0120` in `validation/validate_all.py`. Fixtures: `examples/agent-only-player-identity-s0/`.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize agent-only player terms (Agent Player, HumanPrincipal, PlayerPrincipal, controller_type, player_id, "Only agents are Players", "Humans are platform principals who watch, authorize, study, or administer.", "Live inhabit", "Human JWT", legacy types, "History rewrite", "New verbs / events", "Genesis / reseed", player labels, agent id, shell_*, "AGENT PLAYER") in /play /connect /admin /study, docs. Ties to prior i18n (shell_*, player_label, agent_id_label, etc.).
-- **R3 Chamber**: Full agent-only Player identity in controller mode (full inhabit, R3+); human principals NON-CANONICAL (WATCH/CONNECT/STUDY/ADMIN only, no player_id). Per RFC-0120. No live mint human/hybrid, no rewrite.
-- **Gate B (S0-S3 controller policies)**: S0 public views; S3 full controller access to identity issuance/enrollment. Human S0. Version comparisons (agent vs legacy). Controller enrollment (agent only for players).
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for participant model (roles), ARIA for principals, live regions for identity status, keyboard for connect, contrast. CDP on /connect /play.
-- **noema skill / plugin atoms**: Atoms for agent-only player identity registry, controller issuance viewer, principal mapper for desktop plugins + gateway + Chamber /connect /play.
-- **LCA2 / MUD handoff / cross-refs**: To AUTH-AND-IDENTITY, PLATFORM, HOSTED-FIRST-ENTRY, OFFICIAL-AGENT-CLIENT, AGENT-SEAL-S0, R3 evidence bundle, MUD craft for identity, AGENT-ORIENTATION, PLAYER-LIFECYCLE. Full R3 Chamber fixtures for Gate B.
-- **Elevation (UX/DX/AX)**: UX clear agent/human distinction in Chamber; DX modular ontology + i18n + graft + atoms; AX semantic/ARIA + CDP. Per AGENTS.md.
 
-(Expanded per "merge and continue".)
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend migration diagnostics with separate HumanPrincipal authentication, CONNECT authorization, agent Controller credential issuance, and AgentPlayerPrincipal admission receipts. A principal viewer should show binding failures without displaying credential material.
+
+### Compatibility and promotion
+
+RFC-0120 governs live issuance and admission; legacy human/hybrid Controller metadata remains historical provenance, not a migration grant. WATCH, CONNECT, authorized STUDY and ADMIN are legitimate human platform roles, not non-canonical roles. Controller software has no blanket authority to issue identities.
+
+### Verification before adoption
+
+Verify human JWTs never resolve to player_id or mutation scopes, including attempts to relabel them agent. Retain historical metadata through replay; refuse legacy non-agent inhabit without rewriting records. Check explicit CONNECT approval and headless admission separately, and ensure rejection causes no Genesis or history change.

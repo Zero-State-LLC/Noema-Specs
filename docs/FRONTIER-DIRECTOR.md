@@ -168,3 +168,11 @@ The Director proposes experiments; it does not validate capabilities or phenomen
 9. End-to-end replay and adversarial tests for unsafe, missing, poisoned, and explosive inputs.
 
 No later optimization or learned proposal layer may become claim-bearing until it can emit a finite candidate set that this deterministic pipeline independently validates and ranks.
+
+## Extension Points
+
+Non-normative future guidance; the `frontier-director/0.2` contracts and accepted RFCs retain authority. These seams do not authorize new selection behavior.
+
+- **Candidate sources and mutation operators:** propose bounded, content-addressed templates or typed operators with explicit writable paths, preconditions, and finite enumeration order. Keep hard safety/consent filters, deduplication, and anti-repetition controls ahead of selection; never alter evidence or latent truth to favor a target capability.
+- **Scoring and compatibility:** additional novelty dimensions or revised fixed-point constants belong to a separately reviewed director version and decision identity. Preserve the current lexicographic key, HMAC tie-break, and old replay behavior for pinned requests; a learned proposal layer is not an alternative claim-bearing ranker.
+- **Verification before promotion:** compare complete candidate derivations, dispositions, score components, selected order, budget ledger, and stop reason, not merely the winning candidate. Include missing-input, unsafe-candidate, enumeration-budget, and equal-score cases. Audit annotations can grow without changing selected events only where schema compatibility permits; protected metadata remains private and expected information gain remains `INFERRED`.

@@ -168,3 +168,11 @@ Those wait for an explicit RFC if a later implementation cannot execute this tab
 3. GC derived lines are listed as non-writers.
 4. `SITUATION_INJECTED` is not a WED id.
 5. Frozen event names are unchanged.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Ownership seam:** Extend the registry with precise references when an accepted contract changes a reducer's allowlist or persistence responsibility. Treat the table as an ownership index, not permission to bypass event payload rules or add a second writer.
+- **Compatibility boundary:** Catalog 0.1 worlds still reject 0.2 types. A machine-readable registry, new field family, or changed mutation authority requires explicit approved scope and versioned contracts; projections, research, queues, and caches do not acquire canonical writes through implementation convenience.
+- **Validation expectations:** Cross-check catalog coverage and overlapping field ownership, test allowed and forbidden mutations, and replay legal ordered event pairs. Include stale-fence rejection, recovery without derived caches, and reconstruction of durable obligations after DO-local loss. Historical hosted handoff wording is not evidence that later transaction/fence work has shipped.

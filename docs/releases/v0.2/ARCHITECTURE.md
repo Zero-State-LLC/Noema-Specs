@@ -53,3 +53,15 @@ Frontier decisions become eligible at `decision_cycle` ([SCHEDULER.md](../../SCH
 ## Gamification constraint
 
 Situations appear as natural pressures. Research targets (`target_capabilities`, novelty, control_role) are **research overlay only**, not player UI.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Frontier plan adapters and admission traceability can extend the proposal-to-external-input boundary of the modular monolith.
+
+**Preserved invariants.** Selection alone has no world effect; plans and audits stay research-side, claim-bearing ranking is deterministic, and only admitted canonical events change WorldState. Research target labels stay off Player surfaces.
+
+**Compatibility and promotion.** Version director/ranking and catalog semantics when they change; module wiring does not authorize production injection or bypass existing policy admission and scheduler order.
+
+**Validation expectations.** Trace a selected-but-denied plan, an admitted injection, and repeated replay through decision_cycle ordering; confirm no direct Frontier state writes and redaction of novelty/control-role fields from Player projections.

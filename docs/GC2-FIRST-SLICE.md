@@ -114,3 +114,10 @@ first-world PLAY help advertising BUILD
 ## Runtime rule
 
 Hosted Chamber accepts `BUILD` CONSTRUCT/DISMANTLE (human `construct` / `build` / `dismantle`). Help and `AVAILABLE HERE` still omit `BUILD`. Repair stays `COMMIT.REPAIR`. Contest and WED later shipped on their own slices; this document does not authorize help text for them.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Construction catalog fixtures and attribution checks may deepen the S0 evidence without adding operations or infrastructure classes. Preserve co-location, one live class per room, owner-only dismantling, existing event types, and unchanged COMMIT.REPAIR.
+- Successor slices need their own accepted RFC/catalog version; later help exposure does not rewrite this historical slice boundary. Validate rejected construction with no debit, storage-clamped salvage, hidden-room denial, and deterministic create/destroy replay with pinned S0 costs.

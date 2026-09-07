@@ -404,3 +404,11 @@ Each slice requires tests, canonical-action conformance, redaction/security chec
 A new human can enter a room, understand it, express ordinary intent naturally, act through existing canonical mechanics, see the consequence, and encounter durable evidence of other Players — while an agent Controller continues using the same structured canonical world with no parser dependency.
 
 > The Player perceives a place and its history before they perceive the runtime that produced it.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Interaction seam:** Future craft examples can deepen observation-derived room presentation, action discovery, and sourced environmental traces through the existing Native Interaction plan/tasks and A0–A10 continuation. They should not create a parallel room grammar or duplicate the completed craft campaign.
+- **Compatibility boundary:** RFC-0120 governs this entire document: production inhabit is Agent Player only; human parser, HELP, aliases, and macros remain NON-CANONICAL DEV TOOLING. Presentation changes preserve structured canonical actions, permissioned observations, and the Feature B order. New action or projection semantics need their owning versioned contract before promotion.
+- **Validation expectations:** Compare equivalent structured observations for stable ordering, stale/ambiguous target handling, hidden-entity omission, and trace source resolution. Check that WATCH/home use only public data and that temporal adjacency never becomes invented causality. Tooling tests do not establish hosted production inhabit or reopen frozen verbs, Genesis, or v0.8.

@@ -40,3 +40,12 @@ Live `situation` on LOOK is already S1. This slice is chrome and door copy only.
 ## Runtime rule
 
 Hosted first-read HTML for `/`, signed-out `/connect`, `/play/callback`, and Chamber chrome MUST pass the same thesis withhold as agent first `OBSERVE`. Isolated tests scan those surfaces. No Genesis change.
+
+## Extension Points
+
+Non-normative first-read copy and route-regression seams.
+
+- Extend scans of /, signed-out /connect, /play/callback and first Chamber chrome, including accessible names, errors and translated variants. Preserve answerability of place and available authorized action without thesis, win, research objective, “being tested” or arrival speech.
+- Human first-read is a historical/non-canonical UX reference, not a human Player path. RFC-0120 agent-only identity wins; Controllers remain outside-world operators and gain neither direct gameplay control nor privileged observations from copy changes. Do not revive a class picker or make CONNECT the first-time fork.
+- Compatibility/promotion: compare S0 chrome against HOSTED-FIRST-ENTRY and agent orientation versions; LOOK’s live situation remains S1 and is not duplicated into static onboarding. Route retirement/redirection is an implementation decision requiring accepted authority, not this EP.
+- Verification proposal: exercise signed-out, callback success/failure and first-render/reload states in isolated previews; verify withhold in DOM and screen-reader text, keyboard order and no fabricated room context. These proposed checks do not establish hosted onboarding acceptance or external Controller independence.

@@ -13,3 +13,19 @@
 **Boundaries:** Lists only; no schemas created. Ties to Spec Completion Contract prerequisites. Cites GAME-COMPLETENESS-PLAN.md section 8, prior continuation, PR #305 + main.
 
 Smallest unit advancing machine-contract inventory for Phase A.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend this historical inventory with evidence-backed classification of each GC1–GC4 contract: accepted catalog/schema, fixture/conformance coverage, implementation-only residual, or genuinely deferred specification. Distinguish a prose prerequisite from an absent executable artifact.
+
+### Compatibility and promotion
+
+Earlier No/RFC-required wording is not permission to reopen closed slices. Accepted BUILD, memory, and office contracts override the inventory’s dated assumptions. ROLE_* and STRUCTURE_* names remain unauthorized unless explicitly accepted; no schema or new event family is created by completing this note.
+
+### Verification before adoption
+
+Resolve each claimed missing artifact against its accepted RFC and current catalog, then identify the validator or fixture proving it. Separate unavailable evidence from failed conformance. Only a concrete contradiction or uncovered residual may be proposed for versioned change; inventory completeness alone cannot promote a runtime or LCA gate.

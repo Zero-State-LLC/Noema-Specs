@@ -67,3 +67,14 @@ Explicit non-goals
 ## After the sequence
 
 If cutover is not ready, continue closing integration and operational defects. If cutover succeeds, update [`current-state.v1.yaml`](../specs/current-state.v1.yaml) from evidence and then decide whether hosted STUDY or another deferred campaign should open.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Packet refinement can split an integration defect into smaller evidence-bearing packets while retaining the implementation pin, production-alpha delta, permitted claim, and non-goals. Elapsed days do not satisfy an acceptance gate.
+
+- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A completion remains recorded; additional Controller runs do not by themselves prove Gates C–F or open hosted STUDY.
+
+- Before promoting a revised packet, trace its result to a pinned test/run and the relevant acceptance gate, distinguish isolated from hosted evidence, and check that blocked enrollment, failed endurance, or unavailable cutover evidence cannot produce GO.

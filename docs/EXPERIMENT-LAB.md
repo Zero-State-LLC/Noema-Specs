@@ -17,3 +17,10 @@ Authorized STUDY views present intent-first TEST actions through the versioned [
 ## Intent compiler and result projection
 
 The complete product boundary is **USER INTENT → Intent Compiler → Validated Experiment Design → Experiment Plan → Isolated Lab Execution → Lab Result → Simple Result Projection**. [`EXPERIMENT-INTENT-COMPILATION.md`](EXPERIMENT-INTENT-COMPILATION.md) defines versioned TEST defaults and overrides. [`SIMPLE-RESULT-PROJECTION.md`](SIMPLE-RESULT-PROJECTION.md) defines the claim-preserving return path. `source_intent_id` joins the simple request, experiment, Lab result, and advanced audit detail.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Extend intent-to-result traceability examples for failed controls, partial runs, and non-reproduction.
+- **Invariants, compatibility, promotion, and verification:** Keep isolated execution, immutable counterevidence, deterministic claim-bearing decisions, and source_intent_id linkage. New TEST intents need versioned catalog/schema authority and positive/negative fixtures; verify production-ledger nonmutation and READY-only Compiler handoff, never automatic causal truth.

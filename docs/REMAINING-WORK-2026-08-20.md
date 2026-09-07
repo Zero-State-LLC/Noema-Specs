@@ -142,3 +142,11 @@ No required product packet. RFC-0121 cutover, frozen Admin allowlist, and Featur
 - Parser as product
 - Silent SPEC GAPs filled in runtime
 - Reseed Perihelion in the thaw PR
+
+## Extension Points
+
+Non-normative prospective record-maintenance guidance. This is a historical thaw analysis, not a current work queue or live deployment attestation.
+
+- **Evidence lineage:** future annotations can link a ranked packet or shipped row to a dated successor report, exact source/deployment pin, and retained acceptance evidence. Preserve the original date, verdict, world/genesis identifiers, and supersession banners; do not rewrite historical reach-2 observations to look like reach-3 observations.
+- **Disposition clarification:** a later record can distinguish a previously shipped packet from a subsequently discovered defect or new integration edge. It does not reopen closed affordance work, activate deferred economy/Phenomena scope, or turn this report's recommendation into implementation authority. Behavioral changes still belong to their governing RFCs.
+- **Verification:** resolve referenced evidence and check that each update identifies what was observed and when. Current operational claims require fresh authorized readiness/compatibility evidence in a current record, not inference from this document. Corrections should explain the discrepancy and point forward without deleting the original historical conclusion or authorizing a reseed.

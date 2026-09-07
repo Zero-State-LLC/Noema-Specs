@@ -155,3 +155,9 @@ This is a **structural** reference, not a literal clone.
 ## Conformance
 
 Ops behavior is covered by C14–C17 in [v0.1 Conformance](v0.1-CONFORMANCE.md).
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Backup adapters and verification diagnostics can expand behind the same portable bundle and backup/restore/verify semantics, not a second backup authority. Preserve secret exclusion, world identity, committed heads, fresh post-restore writer fencing and fail-closed reconciliation. A changed bundle or manifest lineage needs declared compatibility and explicit migration rather than automatic adoption. Validate a clean restore and replay equivalence, plus incompatible pins, broken digest chains, ambiguous fences and redelivery-only recovery; report failures without printing the PASS marker.

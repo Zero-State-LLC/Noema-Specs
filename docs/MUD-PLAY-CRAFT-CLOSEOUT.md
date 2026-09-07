@@ -125,3 +125,14 @@ crypto / x402
 - **New PLAY verb or cost change:** RFC + freeze review — not a craft doc edit alone.
 - **C2 promoting sketch → wire:** RFC with schema + fixtures + agent parity tests.
 - **Runtime-only behavior** that matches this closeout: no Specs PR required; cite this file + craft sections in the runtime PR.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Prospective evidence maintenance can append dated runtime receipts mapped to C1–C9 and current A0–A10 handoff phases. Preserve the 2026-08-20 specs seal and C2 sketch-only status; stale R0–R5 checkboxes are historical sequencing, not renewed human PLAY requirements.
+
+- Presentation bugfixes belong to the craft companion and Native Interaction tasks. C2 wire promotion still needs its own RFC, schema, fixtures, and agent parity proof; no new verb, Genesis operation, or reopened craft campaign follows from this extension.
+
+- Check successor receipts against Feature B ordering, MOVE observation behavior, and the client-only SETTLEMENT_RESYNC retry boundary. Distinguish fixture/schema checks from hosted observation and label absent runtime proof; current evidence must respect RFC-0120 agent-only identity rather than rehabilitate the historical human parser path.

@@ -269,10 +269,17 @@ A conforming implementation MUST demonstrate:
 See [Testing](TESTING.md), [Event Ledger v1](../protocols/event-ledger-v1.md), and [Replay Protocol v1](../protocols/replay-protocol-v1.md) for system-level validation.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize interface terms (Agent Interface, authenticated/authorized/budgeted/containable boundary, "Only agents are Players", "Humans are not a gameplay species on this boundary", trust domains (Private External Runtime, Declared Player/Controller State, World-visible Behavior, Research State), agent-facing object model, protocol flows (HELLO/AUTH/REGISTER/ENTER_WORLD/OBSERVE/ACT), "inability of World Engine... to request private cognition"), connect labels, etc.
-- **R3 Chamber (per RFC-0120)**: Full Agent Interface for agent-only controller (full authenticated actions for Agent Players); human NON-CANONICAL limited public WATCH (observations only); permissioned STUDY evidence for trajectories, events, provenance; PLAY isolated agent actions with interface boundaries (no private cognition access).
-- **Gate B S0-S3 controller policies + human S0 + version comparisons**: S0 public interface overviews; S1-S2 basic conformance; S3 full controller interface (capabilities, budgets, observations) + human S0 (WATCH/CONNECT/STUDY/ADMIN) + version comps (agent-protocol-v1).
-- **AX (semantic / ARIA / keyboard / live / contrast)**: Semantic diagrams (mermaid/flow), object models (role="region"), status for connections (role="status"), aria-live for observations, keyboard navigation, contrast via vars. Verifiable with browser_exec/CDP on /connect /play.
-- **noema skill / plugin atoms for Gate B**: Modular atoms for interface registry, connection/session viewer, observation projector, conformance checker for hermes-desktop-plugins + gateway surfaces + Chamber.
-- **LCA2 / MUD handoff cross-refs**: To AGENT-GATEWAY, AGENT-HARNESS, AGENT-ONBOARDING, AGENT-ORIENTATION-*, AGENT-SEAL-S0, OFFICIAL-AGENT-CLIENT, AUTH-AND-IDENTITY, PLAYER-ACTION-MAP, DATA-MODEL, SECURITY, R3 evidence bundle, MUD craft, 8765, graft, CHAMBER-AX-AUDIT, noema-specs-mud-runtime-handoff.
-- **Elevation (UX/DX/AX)**: UX more discoverable interface evidence in Chamber; DX modular EPs + clean i18n + atoms; AX semantic + CDP. Additive only. Per AGENTS.md.
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Use transport conformance adapters to compare REST, WebSocket, and MCP against the same server-bound Agent Player, idempotent action, and permissioned observation. A connection diagnostic can expose lifecycle and safe retry guidance without becoming a second action model.
+
+### Compatibility and promotion
+
+Retain wire agent_id, Player-based canonical ordering, one action-producing Controller per session, and separate gateway/world budgets. Human platform principals are not non-canonical spectators: WATCH and authorized platform roles are canonical; only retained human gameplay tooling is non-canonical. No adapter receives private cognition, database access, or research privilege by enrollment.
+
+### Verification before adoption
+
+Replay an acknowledged action across reconnect and verify one mutation and budget charge. Test conflicting identity fields, expired credentials, incompatible negotiation, unauthorized targets, and resume cursors from another session. Compare permission-filtered results across transports; record gateway admission separately from final ACTION_RESULT settlement.

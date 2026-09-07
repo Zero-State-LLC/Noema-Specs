@@ -11,3 +11,11 @@
 **Boundaries:** Notes prerequisites without claiming machine half. Cites GAME-COMPLETENESS-PLAN.md section 11 + matrix H/I/J, prior seeds, PR #305 + main.
 
 Smallest unit for Spec Completion prerequisites (Phase D).
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Prerequisite seam:** Extend the GC8–GC10 dependency notes with authority-to-fixture links: quality/provenance for economy, repeated-practice lineage for culture, and authorized bounded activations for WED. Keep coupling evidence separate from an assertion that the machine contract exists.
+- **Promotion boundary:** Classify each referenced prerequisite against accepted slices before opening work. Later transport/economy and cultural proposals do not activate v0.6B/C or a lore generator; WED preview/receipt extensions require their own approved contracts and never grant research users production mutation.
+- **Validation expectations:** Trace H/I/J examples through exact catalog versions and replayable sources. Include non-qualifying cultural practice, economic boundary/refusal cases, and unauthorized pressure attempts. Record missing executable or hosted evidence explicitly; a planning dependency graph cannot promote a plane to implemented or live.

@@ -58,3 +58,14 @@ project minigame
 ## Runtime rule
 
 Hosted Chamber MUST create a public `relay` CONSTRUCT as `IN_PROGRESS`, promote that same `entity_id` after 1 committed cycle, and salvage an in-progress relay without leaving a live relay or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Construction lifecycle examples can expand settlement and recovery coverage for a relay moving from IN_PROGRESS to live. Preserve one entity_id, immediate slot occupancy, and promotion after one committed cycle rather than elapsed wall time.
+
+- Duration, other-class construction, and visibility changes belong to their own accepted slices and catalog pins, not a rewrite of RFC-0061 examples. The S9 boundary keeps WATCH silent and does not add STRUCTURE_* events or a project-management system.
+
+- Exercise restart before promotion, repeated settlement, slot contention, and dismantle before the cycle commits. Compare replayed state and event order; an in-progress relay must neither carry live communications nor leave a scar when salvaged.

@@ -60,3 +60,14 @@ Clear removes the line. Never print XP or track ids.
 ## Runtime rule
 
 Hosted Chamber MUST persist at most one focus track on the Player snapshot, project the self line, and project the public line in public rooms (and WATCH) unless the focused track is LATENT or the room is hidden. Isolated `test.hosted-canonical.gc1-s7`. No Genesis change.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Projection examples can cover focus declaration, replacement, and clear across self PLAY, public PLAY, and WATCH. Keep focus as one persisted soft-intent track, independent of recognition and without a new event or cheaper action.
+
+- Maintain RFC-0110 and mastery-catalog/gc1-s7 compatibility; parameter access is already owned by S8, not an open S7 extension. Multiple focus tracks, altered decay, or new event semantics require a separate accepted contract rather than changes to the pinned lines.
+
+- Validate restart persistence, clear removing the line, replacement retaining cap one, LATENT-track suppression, and hidden-room suppression. Check that public output contains neither XP nor internal track identifiers, while the authorized self view still reflects the declared focus.

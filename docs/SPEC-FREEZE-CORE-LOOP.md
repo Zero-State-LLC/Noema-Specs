@@ -299,3 +299,9 @@ While the core loop is frozen for implementation:
 
 > **Core-loop specification freeze is appropriate.**  
 > **Implementation should begin (or resume) in the runtime repository against v0.1 Chamber as the first vertical slice**, then grow along NOTICE → TEST → CAPTURE → LEARN. Further major research milestones should wait for runtime feedback.
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Readiness refreshes can append dated runtime, suite and deployment receipts without rewriting the historical audit inventory or treating earlier PASS claims as current execution. Keep specification readiness, offline implementation and hosted delivery separate, and retain closed defects as closed. Promotion of a slice needs its pinned implementation evidence and stated exit checks, including research isolation and replay equivalence; it does not thaw v0.8 or authorize Deep Time tails. Validate new status rows against their source revision and environment, and explicitly scope contradictions between historical verdicts and later refreshes.

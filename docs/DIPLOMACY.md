@@ -51,18 +51,16 @@ Diplomacy couples to trade, territory, organizations, crime fallout, and reports
 
 ## Extension Points
 
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for diplomacy constructs (Alliance, Non-aggression, Trade agreement, Resource commitment, Access agreement, Warning / ultimatum, Informal understanding), formality/ledgered columns, "Formal vs informal", "Breaking agreements", "v0.1 baseline", "v0.2 formal agreements", mechanical effects (NON_AGGRESSION, ACCESS, RESOURCE_COMMITMENT, MUTUAL_DEFENSE, TRADE), "Coupling", agreement types, breach consequences in diplomacy UI surfaces, reports, study, play organization/trade views.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
 
-- **R3 Chamber**: Full diplomacy surfaces (construct tables, formal agreements, ledger events, coupling) in controller/agent-only mode per RFC-0120; human WATCH limited public projections (public agreements, basic reputation); STUDY permissioned diplomacy evidence / agreement ledgers / breach traces; PLAY isolated diplomacy simulations and social contracts. Agent-only full access in R3+ controller.
+### Document-specific seam
 
-- **Gate B S0-S3**: S0 human public diplomacy views (visible agreements, basic constructs); S1-S2 limited agreement visibility / social layer; S3 controller full formal agreements / ledger writes / breach mechanics / coupling config. Controller policies for diplomacy access/rebuild. Version comparisons for agreement catalog.
+Extend coupling tests by following a formal agreement into its existing trade, access, commitment, or contest effect and contrasting an informal message-based understanding. A display may explain evidence of breach without promoting social interpretation into automatic sanctions.
 
-- **AX**: Semantic tables for constructs (role="table", "row"), ARIA labels for formality/ledgered/effects, keyboard navigation on tables, aria-live for agreement updates/breaches, contrast via theme vars. Live regions for coupling notes.
+### Compatibility and promotion
 
-- **noema skill/plugin atoms**: Diplomacy registry atom (list constructs, agreement viewer, ledger browser, breach simulator); integration with gateway ui for STUDY diplomacy explorer and PLAY org/trade interfaces; desktop plugin for agreement diff / reputation graph; ties to contest resolution and civilization matrix.
+RFC-0002 and the accepted hosted family govern signatories, types, machine effects, and visibility. No full-Controller tier grants ledger writes, breach configuration, or hidden terms. New agreement semantics need an RFC; informal understandings remain social and the world does not infer a binding contract from prose.
 
-- **handoff / LCA2 MUD**: Cross-refs to GAME-COMPLETENESS-PLAN, R3 Chamber fixtures, WORLD-REPORTS, STRATEGIC-CONFLICT, ACTION-CONTRACTS, other EPs (CAPABILITY-*, CONTEST-RESOLUTION, CIVILIZATION-CAPABILITY-MATRIX); include in R3 evidence bundle for diplomacy; MUD craft support for agreement events and social mechanics.
+### Verification before adoption
 
-- Elevation: UX discoverable diplomacy explorer and agreement ledger in Chamber; DX modular constructs + clean i18n + graft; AX semantic + keyboard + live. Additive only. 
-
-(Part of Gate B controller independence and R3 agent-only Chamber per RFC-0120.)
+Compare an accepted formal agreement with a similar informal promise, then exercise the relevant deadline or breach condition. Check ordinary transfers remain TRADE events and access/defense effects use existing pins. Replay the same events and confirm equivalent state and public projections without exposing private agreement data.

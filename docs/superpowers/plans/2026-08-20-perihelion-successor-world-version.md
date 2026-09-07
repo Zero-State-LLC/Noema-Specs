@@ -804,3 +804,13 @@ git commit -m "docs(ops): successor genesis rehearsal; production cutover stays 
 **Placeholder scan:** none. Rehearsal seed and successor `world_id` are literal.
 
 **Type consistency:** `SUCCESSOR_WORLD_ID`, `FROZEN_GENESIS_ID`, `GenesisInput.world_id?: string`, `resolveAdminGenesisWorldId`, `CHAMBER_MAP_ROOM_IDS`, `chamberMapRooms()` used under those names in Tasks 2–5.
+
+## Extension Points
+
+Non-normative prospective guidance; this section neither changes release scope nor authorizes execution.
+
+### Successor rehearsal evidence maintenance
+
+Future annotations can attach dated receipts to this historical plan without ticking unexecuted tasks or treating embedded code and expected PASS text as execution evidence. Preserve its original world/seed identifiers as historical inputs; this plan is not current permission to activate reach-2, reseed the frozen genesis or change production DEFAULT_WORLD_ID.
+
+Any renewed successor work starts from current Accepted RFCs and the current human-gated cutover authority, with explicit new world/version compatibility and rollback evidence. Validate isolated preview identity, exact room set, collision refusal, preview/activate target agreement, production-shaped denial and Agent-only ENTER; record actual outputs and unrun checks separately. Do not copy ledgers or infer cross-world trajectory equivalence from a successful rehearsal.

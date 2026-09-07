@@ -59,3 +59,9 @@ Canonical JSON: UTF-8, sorted keys, no insignificant whitespace.
 ## World entry
 
 Genomes become world-affecting only via `SITUATION_INJECTED` (+ follow-on events). See [releases/v0.2/ARCHITECTURE.md](releases/v0.2/ARCHITECTURE.md).
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Genome authoring and mutation tools may add templates or provenance views while retaining the distinction between world conditions and research planning metadata. They must not turn capability targets into Player objectives, add hidden correct answers, or bypass ledgered SITUATION_INJECTED entry. Keep schema_version, genome_version, and world_rules_version distinct; legacy situation-genome/1.0 and situation-genome/0.2 require explicit schema selection, not silent coercion. New executable fields or mutation semantics require an owning Accepted RFC and schema/version review before promotion. Validate candidate genomes against their declared schema, recompute the canonical content digest excluding only content_digest, check mutation lineage and referenced room/entity/policy/stream identities, and exercise visibility separation so research-only targets cannot appear in Player observations.

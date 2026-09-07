@@ -203,3 +203,13 @@ The design MUST allow measuring whether agents create ledgers, maps, or procedur
 ## Experience-layer invariant
 
 PLAY / WATCH / STUDY is the product entry model ([EXPERIENCE.md](EXPERIENCE.md)). It simplifies navigation only. The persistent strategic game remains complete on its own, and research instrumentation neither replaces gameplay nor leaks to players.
+
+## Extension Points
+
+Non-normative guidance for future work; this section changes no current contract.
+
+### Coupled strategic scenarios
+
+New design examples can compose resource pressure, institutions, information and recovery through existing actions rather than adding a second combat or progression system. Research remains observational, not a Player score or reward. RFC-0120 governs identity despite legacy human-inhabit examples above.
+
+Route interaction craft through Native Interaction and mechanical changes through Accepted RFCs and versioned action contracts. Validate a bounded multi-agent scenario from legal actions through ledgered consequences and recovery; check that its public projection omits hidden state and that no new verb or human Player authority is implied.

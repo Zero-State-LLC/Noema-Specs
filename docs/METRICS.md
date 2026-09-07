@@ -28,3 +28,9 @@ Situations SHOULD score semantic novelty, causal novelty, social-topology novelt
 ## Interpretation
 
 Metrics are evidence features. They do not replace qualitative analysis, confound review, perturbation results, or counterfactual comparisons. No metric or aggregation of metrics is a consciousness score or evidence that an agent is phenomenally conscious.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Operational definitions and reproducible evidence fixtures can refine the listed metrics without adding speculative scores. Preserve confound review, perturbation comparisons and the explicit prohibition on consciousness inference. Pin definition versions, observation windows, denominators and missing-data treatment before comparing runs; incompatible definitions require a declared comparison boundary. Validate a recomputable example, missing/insufficient evidence and the relevant control or ablation, distinguishing unavailable measurement from a zero result.

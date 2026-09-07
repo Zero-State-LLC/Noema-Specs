@@ -128,3 +128,13 @@ Hosted Chamber accepts `CONTEST_DECLARE` / `CONTEST_DEFEND`. `CONTEST_RESOLVE` i
 5. `character_dead` is `DEATH_FORBIDDEN`.
 
 Full scenario G (two groups, economic pressure, skillful recovery) remains a later composition of this table plus existing v0.2 trajectories.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Contest-rhythm composition
+
+Extend scenario evidence from reconnaissance through recovery using the existing stage table and deterministic contest resolution. World-side CONTEST_RESOLVE does not become a Player command, and loss does not acquire death or permanent exclusion mechanics.
+
+Keep this S0 comparison pinned to its four forms and contest-rules/0.2.0; later accepted form or withdrawal changes remain separately versioned authorities rather than generic open gaps. Validate refusal of unsupported forms/verbs, ordered resolution follow-ons, banded public stakes and recoverability without hidden target leakage.

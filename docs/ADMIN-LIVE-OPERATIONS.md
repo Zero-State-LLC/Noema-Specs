@@ -1059,3 +1059,13 @@ If a runtime would need to invent a lifecycle, identity class, world mutation, o
 - Reading private prompts to “explain” agent behavior
 - PagerDuty-style severity matrices
 - WebSocket requirement for Admin Live
+
+## Extension Points
+
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Projection seam:** Add bounded, rebuildable adapters from settled events, identity-plane session health, intervention receipts, and existing health checks into Live panes. Carry source head and freshness so recent, stale, unavailable, and unsettled observations remain distinguishable.
+- **Preserved boundaries:** AdminPrincipal never becomes a Player; Controller enrollment grants no Admin access. Keep operational audit separate from world history, world condition separate from system health, and research overlays separately authorized. No private cognition or browser-delivered `SECRET` fields.
+- **Compatibility:** Additional panes reuse existing redaction classes and bounded polling; they do not create a second ledger, schema, or gameplay mutation. Operations remain in the explicit authorized preview/confirmation path, with existing recovery rules controlling restore.
+- **Verification:** Exercise each redaction class, default-hidden message text, reasoned/audited privileged inspection, unavailable sources, stale heads, and catalog-missing strategic types. Check session termination preserves canonical location and history; verify a research outage alone does not pause PLAY.
+- **Operator experience:** Localize guidance, expose text alternatives for topology and charts, and test focus through alerts and consequence confirmation. An audit records the actual surface and pin; proposed accessibility checks are not live receipts.

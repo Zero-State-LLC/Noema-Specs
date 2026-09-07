@@ -77,3 +77,11 @@ rebuild-and-restart-equivalent.json
 ## Deferred questions
 
 Cross-context borrowing, institutional cards, anti-sybil analysis, and Observatory calibration belong to later RFC or STUDY work. None is part of Gate C, and none becomes hidden world truth.
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Research notes can collect Gate C counterexamples that distinguish practice conflation from missing or incorrectly rebuilt dyadic edges.
+- **Unchanged invariants:** No global reputation, automatic decisions, hidden-evidence disclosure, or HumanPrincipal social-memory subjects; the relay matrix remains closed and deferred questions stay deferred.
+- **Compatibility, promotion, and verification:** Only the stated four-part Gate C trigger can justify a future RFC; this section does not open one. Future evaluation should include context mismatch, sparse and contradictory evidence, WATCH silence, and restart equivalence before any schema promotion.

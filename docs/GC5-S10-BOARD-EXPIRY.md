@@ -57,3 +57,23 @@ WATCH ticker
 ## Runtime rule
 
 Hosted Chamber MUST drop public-room board notices after 1 committed cycle, keep last-5 overwrite in the posting cycle, and reject hidden-room board. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance; this section does not change the accepted contract or claim runtime completion.
+
+### Board expiry boundary cases
+
+Extend board retention/expiry conformance traces across committed-cycle boundaries.
+
+### Preserved invariants
+
+S10 keeps last 5 notices in the posting cycle and silently removes them after 1 committed cycle. Hidden-room board is rejected; WATCH and help remain unchanged.
+
+### Compatibility and promotion
+
+RFC-0081 owns S10 expiry. Keep the earlier S3 last-3 contract version-distinct rather than rewriting its historical threshold. Any duration or retention change needs an Accepted RFC/catalog revision.
+
+### Validation fixtures before adoption
+
+Post six notices during one cycle: only the newest five remain. Advance wall time without committing: expiry must not follow wall time. Commit the next cycle: no board lines remain and no MESSAGE_EXPIRED event or WATCH ticker appears. Include hidden-room rejection.

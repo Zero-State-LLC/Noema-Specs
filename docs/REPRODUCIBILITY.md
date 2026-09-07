@@ -34,3 +34,10 @@ phenomena/NP-000381/
 ## Equivalence criteria
 
 Every bundle MUST declare exact byte-for-byte fields, tolerated nondeterministic fields, semantic equivalence predicates, divergence reporting, and stop conditions.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Document additional bundle boundary profiles and divergence reports for external-model variation.
+- **Invariants, compatibility, promotion, and verification:** Keep exact fields, tolerated nondeterminism, equivalence predicates, and stop conditions explicit; stochastic agent behavior is not deterministic world replay. New bundle profiles require versioned schema/export compatibility and consent review; verify digests and declared predicates with both matching and divergent replays.

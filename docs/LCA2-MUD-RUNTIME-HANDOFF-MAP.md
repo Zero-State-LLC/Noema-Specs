@@ -22,16 +22,21 @@
 - noema-ops Hermes plugin for operator visibility of handoff state.
 
 ## Extension Points
+
+These are non-normative handoff-maintenance directions. Add an action-to-phase row with its canonical action authority, owning runtime surface, prerequisites, privacy boundary, and required acceptance evidence. Do not let a mapping row activate a deferred verb or promote a runtime phase. Validate new rows against the action map and Native Interaction sequence, including rejected or hidden actions and resynchronization after stale state. Historical implementation notes are not current health, accessibility, or deployment receipts; obtain fresh observations before changing completion status.
+
 - Add specific action-to-phase matrix rows.
 - Hermes plugin commands for R-phase status.
 - AX audit integration for each phase's UI surface.
 - Full mapping table in PLAYER-ACTION-MAP.md.
 - Live runtime tie-in (server at 8765, /health, routes; importable via curl or protocol for R3+ context).
 - Pressures / fuel / move/harvest/trade specifics per PLAYER-ACTION-MAP + noema-world-ops.
-- Chrome-profiles / CDP for AX on Chamber surfaces per R3 (WATCH/STUDY/PLAY); profile default 9222 launched and listening (headless for audits); proxy ARIA evidence (tabs, live regions, status, labels) strong for R0/R3 UI.
+- Future Chamber accessibility evidence should identify the tested build, authorized test session, and observed keyboard, contrast, name/role, and live-region results. A configured debug port or a count of ARIA attributes does not prove accessibility conformance.
 - i18n/AX EPs in AGENT-DETERMINISM, FULL-PASS matrices for determinism classifications, evidence pass in R3 fixtures.
 
 ## Live Runtime Tie-in (observed 2026-09-06, deepened for R3+)
+
+Historical report retained for traceability; the following runtime, audit, and metric claims were not re-executed by the EP completion pass. They are not current readiness or acceptance evidence. A fresh run must record its own environment and receipts before relying on them.
 - Server: http://127.0.0.1:8765 (noema listening; seed fixtures/v01-seed/world-seed.json loaded). All endpoints 200 (/play /watch /study /connect /health).
 - Health: {"frontier": "optional", "research_capture": "ok", "status": "ok"}.
 - UI routes: /, /play, /watch, /connect, /study, /admin/login, /admin.
@@ -85,7 +90,7 @@ This is the **complete crosswalk** for the handoff. All entries are canonical (a
 
 **Next (post full table):** Continue i18n sweep on remaining ui.py surfaces (watch/study/JS fallbacks), full browser AX if available, deeper plugin atoms for phases, Gate B, more EPs. Live runtime tie-in (8765) for operator visibility of phase status.
 
-## Extension Points (updated)
+## Historical extension implementation notes
 - Add specific action-to-phase matrix rows (done above; R3 expanded with agent-only identity, access S2/S3 ALLOW_ONLY/help, human orientation S0 withhold, version comparisons).
 - Hermes plugin commands for R-phase status (added :live, :routes, :protocol; pressures, seal).
 - AX audit integration for each phase's UI surface (CHAMBER-AX-AUDIT updated with live curls + proxy evidence; CDP readiness via chrome-profiles port 9222).

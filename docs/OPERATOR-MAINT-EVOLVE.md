@@ -61,12 +61,16 @@ No new Player verbs. No WATCH surface work. No auto-imported plugins. No Admin-a
 
 ## Extension Points
 
-- **i18n for maint-evolve / operator terms** (maint-evolve supervisor, policy packs, propose prompts, isolated probes, production identity pulse, actor split, Admin read-only, Player credential on probes, fail-closed table, "no Admin-as-Player") — centralize in ui.py STRINGS + t() for admin/runtime/ops labels; R3 Chamber (operator tools evidence), Gate B S0-S3 (human oversight vs agent Player), AX (semantic tables, ARIA for packs/probes, keyboard for supervisor UI).
-- **R3 / RFC-0120** (Admin never Player; maintenance patrol uses Player credential; supervisor read-only on production; only agents inhabit).
-- **Gate B handoff** (maint-evolve to OPERATIONS.md, ADMIN-LIVE-OPERATIONS.md, AGENT-HARNESS.md, SECURITY.md; cross to LCA2/MUD for probes on isolated worlds; hosted freeze/thaw).
-- **AX / CDP** (policy table accessible; CDP on /admin or ops views; contrast/keyboard for operator flows).
-- **Plugin atoms** (policy pack viewer/editor, probe runner, pulse monitor; registry for maint-evolve affordances).
-- **Graft / savings** (query on maint-evolve, policy packs, probes, RFC-0120, operator split).
-- **Elevation**: UX (clear operator tooling boundaries), DX (EPs + i18n + atoms), AX (semantic/ARIA). Per AGENTS.md.
-- **Future**: Live policy pack UI in Chamber; i18n for incident/recovery flows.
-- **Cross-refs**: OPERATOR-MAINT-EVOLVE.md, OPERATIONS.md, ADMIN-LIVE-OPERATIONS.md, AGENT-HARNESS.md, SECURITY.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, HOSTED-*, LCA2, MUD, ui.py, 8765, graft, CHAMBER-AX-AUDIT, noema skills.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend pack-review diagnostics with candidate version, validation result, active-pack digest, and isolated probe target identity. Distinguish a proposed plugin’s advisory text from human-enabled code and keep the production identity pulse read-only.
+
+### Compatibility and promotion
+
+Policy packs cannot widen patrol verbs or override code vetoes. Admin credentials never enter Player command paths; proposed plugins remain non-importable and enabling remains a human action. The supervisor cannot use a probe UI to inhabit production, force, reseed, or perform recovery.
+
+### Verification before adoption
+
+Test unknown-major packs, rejected candidates preserving current bytes, missing supervisor defaults, forbidden pack permissions, and production/frozen/unset probe targets with zero commands sent. Include timeout/5xx and identity drift. Verify atomic replacement and proposed-plugin isolation before adoption; a pack editor mockup is not evidence of safe auto-load.

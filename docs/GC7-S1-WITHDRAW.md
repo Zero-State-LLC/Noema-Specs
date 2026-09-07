@@ -102,3 +102,11 @@ HP / ATTACK / SCAN
 event-catalog/0.3
 Chamber help advertising CONTEST
 ```
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Settlement seam:** Expand interleaving cases for WITHDRAW, defend, and expiry using the World DO application order. Keep declarer/defender stake treatment and ABORTED versus SUCCESS follow-ons distinct.
+- **Compatibility boundary:** RFC-0026 extends the existing contest lifecycle without refunding spent fees or moving Players. Any future withdrawal policy needs a versioned contest contract; disconnect, idle, office title, and institutional affiliation do not acquire withdrawal authority through this note.
+- **Validation expectations:** Exercise both participant roles before expiry, the exact expiry boundary, non-participants, and a second withdrawal after closure with and without an expected-status assertion. Verify consumed/released reservations balance once, replay preserves ordering, SUCCESS follow-ons occur only where specified, and WATCH contains no private stake maps.

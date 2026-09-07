@@ -19,18 +19,11 @@ Isolated mechanics that do not affect other strategic systems are defects ([CORE
 
 **Decision density** and **coupling density** are qualitative gates in [COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md). Prefer friction that creates decisions over repetitive labor. Prefer one infrastructure concept with many consequences over a private progression tree.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "game_balance", "coupling_requirement", "decision_density", "coupling_density". Use t() for balance tables, coupling notes in Chamber game/strategic surfaces, PLAY.
+Non-normative tradeoff-review and comparative-fixture seams.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent game balance and coupling in strategic systems. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: Coupling to core loop/system map, decision/coupling density gates. Versioned with COMPLEXITY-DOCTRINE.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Notes/lists for coupling/density with aria-labels, keyboard, live for gates.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for balance packs. Graft for coupling traceability.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for game balance in MUD/PLAY. Handoff to MUD-NATIVE-*, CORE-GAME-LOOP.md, GAME-SYSTEM-MAP.md, COMPLEXITY-DOCTRINE.md, PLAYER-*, AGENT-PLAY, LCA2.
-
-- Cross-refs: CORE-GAME-LOOP.md, GAME-SYSTEM-MAP.md, COMPLEXITY-DOCTRINE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+- Extend coupling reviews with explicit alternatives: hoard versus invest, expand versus maintain, cooperate versus isolate, and explore versus spend resources. Record opportunity cost and downstream dependencies rather than inventing a scalar decision-density score.
+- Preserve qualitative doctrine: no secret large-Realm debuff, one universally optimal action, private progression tree or irreversible lucky-start advantage. Balance presentation cannot conceal a new reducer rule behind narrative friction.
+- Compatibility/promotion: numerical or mechanical changes require separately versioned rules and authority; proposed comparisons are analysis, not evidence of hosted balance. Use the current CORE-GAME-LOOP and COMPLEXITY-DOCTRINE gates before admission.
+- Verification proposal: compare pinned replays for resource-rich/information-poor and smaller/informed actors, and trace expansion maintenance burdens to declared mechanics. Report inconclusive and strategy-specific outcomes instead of a global fairness claim. Keep method tables in study/design views; PLAY presents only permitted world consequences.

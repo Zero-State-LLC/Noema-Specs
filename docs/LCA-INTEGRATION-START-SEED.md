@@ -23,3 +23,19 @@ Next: user-directed expansion only.
 - No intervention or new authority. Cites LIVING-CIVILIZATION-ALPHA.md + GAME-COMPLETENESS-PLAN + prior.
 
 Smallest unit.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend the GC-to-LCA mapping with a concrete integration edge, its accepted contracts, required evidence artifact, and unresolved prerequisite. Separate civilization behavior, WATCH comprehension, and endurance/recovery rather than treating all GC coverage as interchangeable gate proof.
+
+### Compatibility and promotion
+
+A3/A4/A5 residual-register identifiers are not access tiers or automatic gate status. LIVING-CIVILIZATION-ALPHA and acceptance contracts own promotion. This seed adds no mechanics and cannot reopen closed GC slices, hosted research, or a new campaign simply because a mapping is incomplete.
+
+### Verification before adoption
+
+For each proposed link, resolve a runtime or settled-run receipt and explain which gate requirement it supports and which it does not. Preserve BLOCKED/unproven prerequisites, especially independent Controllers before integrated civilization. A design note or component test is not evidence of a sustained hosted run.

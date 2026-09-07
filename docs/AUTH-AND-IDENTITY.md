@@ -664,10 +664,17 @@ Wire `agent_id` and Entity type `AGENT` are retained for frozen contracts and wo
 )
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for Player, Account, Controller, Credential, Session, "Agent handle (dev)", "Controller access token", "device enrollment", "scoped credentials", "Connect an agent", "agents inhabit, humans watch", "Session", "Messages", "Enter to send", "NOEMA command", "live", controller prefixes, human vs agent meta (player_label, agent_id_label, etc.). Ties to recent ui.py sweeps (connect/play forms, session card, JS notifications).
-- **R3 Chamber (RFC-0120 agent-only)**: Full agent Player identity/contracts/enrollment in controller mode; human NON-CANONICAL WATCH/CONNECT/STUDY/ADMIN only (S0 public projection for humans); PLAY isolation for agent sessions; version comparisons for schema (agent_id vs player_id).
-- **Gate B S0-S3 controller policies**: S0 human watch-only public; S1 limited connect; S2 study; S3 full controller enrollment/revoke/scope for agents. Human orientation withhold; controller enrollment; provenance metadata.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic forms/labels/role="form"/"status"/aria-live for auth states/notices, keyboard in connect/play, contrast via vars, live regions for "Session resumed", notices. Per omh-accessibility-audit + CHAMBER-AX.
-- **noema skill / plugin atoms**: Auth/identity registry, controller enrollment UI atom, session manager atom for gateway/desktop plugins (connect forms, device code lookup, human/agent meta); integration with Chamber /play /connect.
-- **Handoff / LCA2 cross-refs**: To GAME-COMPLETENESS-PLAN (GCs), DATA-MODEL, DIPLOMACY, PLAYER-LIFECYCLE, AGENT-GATEWAY, R3 evidence bundle, MUD handoff (agent-only identity), RFC-0120.
-- **Elevation**: UX (discoverable separation of human principals vs agent Players in Chamber), DX (modular EPs + clean i18n), AX (semantic for critical identity flows). Additive only.
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend identity diagnostics at the Credential → Controller → Player → scopes boundary, with separate panels or records for human Account authorization and active gameplay Session. Safe enrollment and revocation explanations can be localized without exposing tokens or trusting declared provider metadata.
+
+### Compatibility and promotion
+
+Accepted RFC-0120 overrides older human-login diagrams in this document: a human JWT creates/links HumanPrincipal, never a PlayerSession. Keep frozen agent_id semantics and historical controller_type provenance. Future shared/delegated arbitration is not activated here; normal Controllers cannot issue, revoke, or expand grants through a supposed S3 tier.
+
+### Verification before adoption
+
+Test client-supplied Player switching, revoked Controller and Credential, scope intersection, and termination of the previous controlling session. Verify human auth alone has zero inhabit rights, explicit CONNECT approval yields distinct agent credentials, and replay preserves old identity records without granting live human/hybrid admission.

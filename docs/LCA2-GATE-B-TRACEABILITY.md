@@ -18,6 +18,20 @@
 | `CHK-SHELL` | Existing public-shell and admin-boundary checks | PASS. Changed-output traceability is intentionally not computable for the offline actionless shell, which exposes no contextual actions under that boundary. |
 | `CHK-TRACE` | `python3 validation/validate_gateb_traceability.py` | PASS when this matrix is complete. It requires every enumerated requirement/output row, linked documents, blocked-state preservation, and credential-safety boundaries. |
 
+## Extension Points
+
+These are prospective evidence-maintenance directions, not a new gate verdict. Add a requirement row only with its authority, exact check, redacted receipt location, tested environment, and observed outcome. Keep representative local checks separate from independently controlled external runs. Changed controller-independence or acceptance semantics require the governing contract to change first. Validate that every added row has a resolvable check and that missing or simulated evidence cannot promote Gate B or Gate C; preserve earlier run outcomes rather than overwriting them.
+
+
+- Additional Controller evidence rows may cover independent decision contexts, enrollment approvals, protocol/version compatibility, action contention, and replay receipts. Tool-specific telemetry must not substitute for these gate requirements.
+- i18n and AX extensions for /connect and Chamber (STRINGS, ARIA, keyboard).
+- Post-Gate B: Independent operator tooling, noema-ops plugin commands for evidence.
+- MUD handoff mapping to R0-R5 with PLAYER-ACTION-MAP cross-refs.
+- Full omh-accessibility-audit on Chamber UI surfaces.
+- **R0–R5 MUD pressures + live runtime**: Tie traceability checks (e.g. CHK-HTTP, CHK-WS, actions like ENTER_WORLD/LOOK/INSPECT/MOVE) to R-phases (R0 STATUS/LOOK, R1 MOVE, R3 HARVEST/TRADE etc.); integrate live server data (8765 health, routes) and Chamber i18n (ui.py STRINGS + t()) + AX (roles/aria-live from omh-accessibility-audit).
+- **Hermes/noema-ops + graft**: Plugin commands for Gate B status / handoff evidence; graft ask before changes for context.
+- **UX/DX/AX elevation**: Glanceable evidence in plugin; modular (cross-refs to PLAYER-ACTION-MAP, handoff map); semantic/ARIA/i18n in Chamber; verifiable with curl + code + live fetches.
+
 ## Preparation requirements
 
 | ID | Explicit requirement from `LCA2-GATE-B-PREPARATION.md` | Check | Observed result |
@@ -106,3 +120,7 @@ Every required field is explicitly represented in the runbook. The observed resu
 ## Honest conclusion
 
 The repository, Specs, HTTP, and WebSocket integration surfaces are validated. The traceability matrix covers every preparation requirement and changed output, and records the observed result for each. The external Gate B acceptance itself remains **BLOCKED**, because local simulations cannot substitute for three independently controlled external Controllers, human `/connect` approvals, live contention evidence, and redacted acceptance receipts.
+
+## Prospective evidence integration
+- New EPs in AGENT-ORIENTATION-S0, FIRST-WORLD-OPERATIONS, PLATFORM, AGENT-HARNESS, LCA2-GATE-B-TRACEABILITY itself tie R0–R5 pressures + PLAYER-ACTION-MAP actions + live 8765 data + Chamber i18n/AX (ui.py STRINGS/t() + semantic per omh-audit) + Hermes/noema-ops plugin + graft.
+- Recommendation: Add specific CHK- rows or evidence columns for these in future Gate B runs (e.g. CHK-TRACE for handoff mapping, CHK-HTTP for live runtime fetch in ops). Cross-ref handoff map and plan.

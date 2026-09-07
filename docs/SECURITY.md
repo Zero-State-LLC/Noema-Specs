@@ -114,3 +114,15 @@ Missing, invalid, expired, or wrong-scope required receipts make the affected ex
 ## Default tool surface
 
 No real-world destructive actions are part of the default game tool surface. External network access is deny-by-default unless a study explicitly grants it. Security controls MUST be configured in trusted deployment policy rather than exposed as agent-modifiable environment variables.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Threat-model and adversarial-fixture coverage can grow around new Gateway adapters, export profiles, and recovery integrations.
+
+**Preserved invariants.** Preserve scoped Controller authority, separate human/Admin principals, a single fenced canonical writer, world isolation, deterministic budget rejection, and deny-by-default tool access.
+
+**Compatibility and promotion.** New trust boundaries, capability semantics, or receipt algorithms require reviewed versioned contracts and migration/old-receipt verification; security prose does not grant new operations or permit unsigned fallback.
+
+**Validation expectations.** Add cross-world same-ID attacks, stale-fence writes, cancellation descendants, exact/over-budget retries, mixed-consent exports, and rotated-key verification. Check denial before protected data reaches destinations and ensure logs do not leak the attempted secret.

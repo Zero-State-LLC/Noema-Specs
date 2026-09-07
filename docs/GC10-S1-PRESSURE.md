@@ -306,6 +306,17 @@ crypto / Genesis reseed
 
 Hosted RFC-0019 cycle commit may apply each accepted class once in cycles 1–20 when preview stays legal. PLAY / help / Admin spawn still omit WED. Do not activate or reseed Genesis.
 
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend deterministic preview/replay receipts for the existing infrastructure, resource and access classes. Retain the published cycles, magnitudes, floors, expiry and infrastructure→resource→access ordering; invalid subjects skip rather than adapt the pressure.
+
+- Preserve one activation per accepted class in cycles 1–20, canonical-world selectors and existing events. Player performance, research scores, model choices and Controller type are never target selectors; operators gain no raw-edit or spawn power here.
+
+- New classes or scheduling semantics require separately accepted versioned authority. S0 remains valid, Genesis remains untouched and consequence-only PLAY/WATCH disclosure stays separate from authorized Admin evidence. Historical human-Player wording is subordinate to RFC-0120.
+
+- Validate missing preferred subjects, floor violations, duplicate activation, cycle jumps, stale heads and access expiry by world-time. Compare preview with committed effects and reject cross-world refs, unauthorized Player/model triggers and research-driven targeting.
 ## Acceptance
 
 1. S0 cycle-4 relay drop still holds.

@@ -67,3 +67,14 @@ idle withdraw
 ## Runtime rule
 
 Hosted Chamber MUST accept `acting_for` on the three existing contest operations. Help still omits CONTEST. Isolated tests only.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Institution-party fixtures can vary occupied office profiles, colocated actors, and treasury balances across declaration, defense, withdrawal, and resolution. The Agent Player remains the actor; the institution is the represented party and payer, never a Player.
+
+- Preserve RFC-0041 and conflict-catalog/gc7-s2 form/profile mappings and existing office conflict precedence. New forms, broader jurisdiction, or substituted actors require an accepted contract rather than an extension of the acting_for field by convention.
+
+- Validate same-org defense denial, permitted personal defense by another member, declarer self-defense denial, and mismatched office profiles. Trace reserved stake back to the original treasury through release or consumption, including retry/replay, with unchanged contest outcomes and no double charging.

@@ -3,10 +3,17 @@
 `DETERMINISTIC` permits exact behavior equivalence with pinned inputs. `SEED_CONTROLLED` permits it only with pinned seeds and no recorded stream divergence. `NONDETERMINISTIC` remains studyable with declared wider bands/more repetitions. `UNKNOWN` disallows exact behavioral equivalence and needs conservative analysis. Classification is pinned in experiment/run identity. Nondeterminism never automatically invalidates a study.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize determinism classifications (DETERMINISTIC/SEED_CONTROLLED/NONDETERMINISTIC/UNKNOWN), labels ("pinned inputs", "pinned seeds", "wider bands", "more repetitions", "declared", "conservative analysis", "experiment/run identity", "Nondeterminism never automatically invalidates a study"), study/play evidence, agent lists, projections in Chamber /study /play /watch — ties to i18n sweeps for study metrics, test results, observed trails, etc.
-- **R3 Chamber (per RFC-0120)**: Full determinism classification and pinning in agent-only controller mode (exact equivalence for agent Players); human NON-CANONICAL limited public WATCH projections of classifications (no pinning control); permissioned STUDY evidence for run identity, bands, divergence traces; PLAY isolated simulations with declared determinism.
-- **Gate B S0-S3 controller policies + human S0 + version comparisons**: S0 public overviews of classifications; S1-S2 basic labels; S3 full controller access to pinning, experiment identity, conservative analysis tools + human S0 (WATCH-only) + version comps (catalog v0.3 determinism metadata).
-- **AX (semantic / ARIA / keyboard / live / contrast)**: Semantic tables or badges (role="status", role="region", aria-label for DETERMINISTIC etc.), keyboard navigation for lists, aria-live for status changes, contrast via theme vars on tags. Verifiable with browser_exec/CDP on /study /play /watch (tree, focus, announcements).
-- **noema skill / plugin atoms for Gate B**: Modular atoms for determinism registry/viewer, experiment pinning UI, classification badges, study integration in hermes-desktop-plugins + gateway /study surfaces + Chamber LEARN/matrix/contest/ecology.
-- **LCA2 / MUD handoff cross-refs**: To AGENT-GATEWAY, AGENT-HARNESS, AGENT-INTERFACE, AGENT-ONBOARDING, AGENT-ORIENTATION-*, PLAYER-*, BEHAVIOR-FEATURES, ANOMALY-DETECTION, STRATEGIC-CONFLICT, DATA-MODEL, R3 evidence bundle, MUD craft, Observatory, Phenomenon Compiler, CHAMBER-AX-AUDIT, noema-specs-mud-runtime-handoff.
-- **Elevation (UX/DX/AX)**: UX more discoverable determinism evidence in Chamber; DX modular EPs + clean i18n + atoms; AX semantic + CDP. Additive only. Per AGENTS.md + graft.
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend research reporting with a classification rationale tied to pinned inputs, seeds or recorded response streams, and observed divergence. Classification describes the reproducibility boundary of the declared AgentVersion; it does not inspect private cognition.
+
+### Compatibility and promotion
+
+Keep the four classification identifiers stable and bind changes to experiment/run identity. Nondeterminism permits appropriately declared replication, not exact-equivalence claims. Pinning and analysis require research authorization; Controller enrollment grants neither, and ordinary PLAY/WATCH gains no classification feed.
+
+### Verification before adoption
+
+Check exact-equivalence eligibility for all four classes, missing seed/stream evidence, and divergence under SEED_CONTROLLED. Verify UNKNOWN cannot yield an exact-equivalence conclusion and a nondeterministic run retains its declared wider bands and repetition plan. Localized labels must not alter serialized classifications.

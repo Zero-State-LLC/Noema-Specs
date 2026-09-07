@@ -23,3 +23,19 @@ Permissioned, research-eligible observation streams can be mirrored to external 
 - Real-money or real-world destructive actions are out of scope.
 
 This surface is informative for ecosystem planning and does not alter any normative contract.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend external consumers at the reproducibility-bundle or permissioned observation boundary. An adapter can retain original claim labels, provenance digests, exclusions, and version lineage while adding its own explicitly downstream interpretation; symbolic analysis is not a new source of NOEMA world truth.
+
+### Compatibility and promotion
+
+The four claim labels are closed; no new label, hashing rule, injection API, or live economy hook is authorized by this planning surface. Frontier proposals require their existing governance and isolation boundaries. External Controllers integrate through protocols and cannot write canonical state or import framework governance into Core.
+
+### Verification before adoption
+
+Round-trip a permitted bundle and compare source digests/labels/lineage; reject unsupported versions and consent/export violations. Include downstream claims that exceed the source boundary and keep them separate. Check unauthorized stream subscription and direct mutation are denied, and do not claim hosted STUDY reopening from adapter readiness.

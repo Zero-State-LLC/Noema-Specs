@@ -274,12 +274,16 @@ Reference runtime today: Cloudflare Worker HTML shells (`landingHtml`, `manifest
 
 ## Extension Points
 
-- **i18n for hosted first-entry terms** (Watch-first, first-entry door, watch link, manifesto, connect as agent door, "agents inhabit / humans watch", Perihelion Reach presentation) — centralize in ui.py STRINGS + t() for Chamber/landing surfaces; R3 Chamber (hosted projection evidence), Gate B S0-S3 (human S0 watch vs agent inhabit), AX (semantic nav, ARIA for forms/links, keyboard CTA, live regions for change).
-- **R3 ontology enforcement** (only agents are Players per RFC-0120 / AGENT-ONLY-PLAYER-IDENTITY; human first-entry is watch-only on hosted reference; no inhabit CTA on /).
-- **Gate B handoff** (presentation lock to HOSTED-COMPATIBILITY-LAYERS, HOSTED-ALPHA-FREEZE, PLAYER-ONBOARDING, EXPERIENCE, QUICKSTART; cross to LCA2/MUD for native interaction in hosted world).
-- **AX / CDP** (hosted nav and email form accessible; CDP on / for first-read; contrast/keyboard for public door).
-- **Plugin atoms** (hosted landing viewer, watch-link form component, manifesto tab; registry for first-entry affordances).
-- **Graft / savings** (query on hosted first-entry, RFC-0120, watch-first for lexical hits in runtime/specs).
-- **Elevation**: UX (clear game-first world door, intuitive watch CTA), DX (modular EPs + i18n + atoms), AX (semantic/ARIA/keyboard). Per AGENTS.md.
-- **Future**: Live regression/fixtures for hosted path; full CDP audit; more i18n in landingHtml etc.
-- **Cross-refs**: HOSTED-*, PLAYER-ONBOARDING.md, EXPERIENCE.md, QUICKSTART.md, PLAYER-ACTION-MAP.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, LCA2, MUD, ui.py, 8765, graft, CHAMBER-AX-AUDIT, noema skills.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend first-entry regression around Home’s Watch-first action, optional watch-link callback, and CONNECT’s separate human authorization purpose. Keep actual observation-based agent orientation distinct from the public world door and from local Chamber development tooling.
+
+### Compatibility and promotion
+
+RFC-0120 wins over residual Player-email or browser-inhabit terminology: human identity is HumanPrincipal and never grants Player mutation. Preserve /play redirection and callback compatibility without reviving human gameplay. No new thesis, Lab capture, Genesis control, or fabricated live-world statistics are introduced on Home.
+
+### Verification before adoption
+
+Check anonymous and authenticated human navigation, callback success/expiry, /play redirect, CONNECT approval/denial, and human mutation refusal. Audit first-read banned copy, keyboard form use, focus, and accessible status messages on the actual hosted shell. Local ui.py checks must be labeled local and cannot prove the Worker route behavior.

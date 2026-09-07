@@ -56,3 +56,15 @@ Organizations remain the canonical social entity ([DATA-MODEL.md](DATA-MODEL.md)
 ## Spectator / reports
 
 Realm summaries MAY appear as spectator projections and operator/world reports. They are **never** independent world truth and MUST NOT mutate the ledger ([SPECTATOR.md](SPECTATOR.md)).
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Realm summaries can add permission-scoped views of overlapping organizational and independent strategic footprints, linked to their source assets and history.
+
+**Preserved invariants.** A Realm remains derived, not a canonical entity or grant of ownership, combat privilege, research access, or ledger-writing authority. Organizations retain canonical social identity.
+
+**Compatibility and promotion.** Version projection rules when membership, presence, or aggregation interpretation changes; a presentation revision cannot silently change access or territorial contracts.
+
+**Validation expectations.** Rebuild summaries from the same authorized inputs, test overlapping affiliations and removed access, and compare spectator/rival views for private-resource or hidden-site leakage; confirm projection produces no world events.

@@ -49,3 +49,10 @@ WATCH price ticker
 ## Runtime rule
 
 Hosted Chamber MUST grade HARVEST and charge WORN construct storage +1. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future work; existing authorities and closed-slice boundaries remain unchanged.
+
+- **Seam and invariants.** Lot-quality fixtures can expand at harvest, mixing and construction boundaries while retaining only SOUND/WORN, unchanged harvest amounts and unchanged REPAIR. Quality remains a bounded input to the existing economy, not currency or a price oracle.
+- **Compatibility and validation.** Check node condition just below/at 50, mixed-grade holdings, WORN storage charging and insufficient-storage rejection. A changed grade set or debit needs accepted versioned economy authority and compatibility cases; provenance, spoilage and v0.6B remain outside this slice.

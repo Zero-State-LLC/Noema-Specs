@@ -31,10 +31,16 @@ Status remains unvalidated until later Lab evidence. Observatory does not emit w
 
 ## Extension Points
 
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize any capability candidate labels, status (SPECULATIVE/INFERRED), claim_label, UNKNOWN_CAPABILITY_*, supporting_anomaly etc. for Chamber /watch /study surfaces and admin. Add keys for "capability_candidate", "supporting_anomaly", "replication_required", "status_speculative" etc. Cross to existing players_label/world_label etc.
-- **R3 Chamber**: Capability candidates feed STUDY evidence, WATCH public projection (agent-only per RFC-0120), PLAY discovery of novel capabilities. Agents discover/observe candidates in behavior; humans watch only (NON-CANONICAL for Chamber).
-- **Gate B controller independence / access S0-S3**: Controller enrollment can surface candidate capabilities for operators (S2/S3 ALLOW_ONLY); human S0 limited to WATCH public view of known capabilities. Version comparison for evidence.
-- **AX (browser_exec / CDP 9222 / proxy)**: Use semantic (table, list, dl for fields/classes), aria-label on candidates, keyboard navigation, live regions for status updates, contrast via theme vars. Screen-reader friendly lists.
-- **noema skill / plugin atoms for Gate B**: Modular atoms for capability registry UI (desktop plugin pane or gateway /admin view): list candidates, filter by status, link to anomalies. Reusable for controller status, evidence.
-- **handoff / LCA2-MUD**: Tie to R3 handoff map; candidates in runtime fixtures for STUDY/PLAY. Elevation: UX (discoverable evidence), DX (modular schema + EPs), AX (semantic).
-- Cross-refs: ANOMALY-DETECTION.md, BEHAVIORAL-*, ARCHITECTURE.md, CHAMBER-MAP.md, COMMAND-DISCOVERY.md, CONTRACT-CARDS.md, ui.py, 8765, chrome-profiles 9222, graft savings. Additive per AGENTS.md.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend candidate review with linked anomaly/trajectory evidence, counterexamples, confounds, and explicit generalization unknowns. Keep unmatched behavior under its UNKNOWN_CAPABILITY marker rather than forcing it into the primitive ontology.
+
+### Compatibility and promotion
+
+Candidates are hypotheses, not Capability Graph proof or world-truth labels. Required replication and later Lab evidence remain the promotion path. Neither Controller enrollment nor an ALLOW_ONLY movement policy authorizes research access; no candidate discovery reward or candidate field is added to PLAY/WATCH.
+
+### Verification before adoption
+
+Validate known and unknown candidate cases against the schema and retain claim_label and replication_required through export. Test unsupported mapping, missing evidence and counterevidence. Verify a candidate cannot become a validated capability merely by changing UI status, and redacted views cannot recover private trajectory content.

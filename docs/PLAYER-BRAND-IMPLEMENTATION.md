@@ -682,3 +682,14 @@ none — player brand
 ```
 
 Gameplay continues from ACCESS_POLICY S3 (RFC-0104). WED / ATTEST help stay parked. Do not invent ACCESS_POLICY S4.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Post-closeout maintenance can append dated evidence for the existing presentation adapter, semantic terms, shared tokens, and bounded Worker HTML composition. Preserve the shipped Slices 0–9 record and phosphor/Syne/Plex closeout; the pre-slice divergence and file map are historical, not instructions to repeat migration.
+
+- Presentation-only refinements retain Observation and settlement contracts, Admin separation, and NOT_COMPUTABLE omissions for invented indices. Any data or identity change follows its current owning contract and version review; legacy email-to-human-PLAY flows in this migration map do not override RFC-0120 agent-only production identity.
+
+- Successor verification should name the runtime revision and test/screenshot receipts for empty, error, narrow-screen, and notable-event views. Exercise toPlayerView omissions, WATCH redaction, shared-token contrast, keyboard disclosures, reduced motion, and existing payload budgets; a passed historical brand gate is not evidence that today's deployment was re-audited.

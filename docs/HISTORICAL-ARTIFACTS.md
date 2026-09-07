@@ -31,3 +31,13 @@ GC6-S0 hosted source ([RFC-0015](../rfcs/RFC-0015-archive-record-source.md)): Ch
 `INTACT` → `DEGRADED` → `FRAGMENTARY` → `CORRUPTED` → `DESTROYED`
 
 If destroyed: preserve the canonical fact that it **existed** (`existed_fact_preserved`). Do not rewrite prior history.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Artifact readers and integrity views
+
+Future readers can present additional provenance or integrity explanations while separating artifact existence from the truth of its claims. Destruction preserves the fact of prior existence; corrupted content does not rewrite canonical events.
+
+New artifact classes or machine-interpreted claim values require an accepted schema/catalog change. Preserve RFC-0015 explicit archive_subject_entity_id and DESTROYED/OPERATING parsing rather than interpreting prose. Validate forged or contradictory claims, unsupported claim values, visibility denial and destroyed-artifact provenance continuity.

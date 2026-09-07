@@ -68,12 +68,20 @@ Runtime machine lock: Noema `workers/noema/test/hosted-alpha-freeze.test.ts`.
 
 ## Extension Points
 
-- **i18n for alpha-freeze / thaw terms** (FROZEN/THAWED status, frozen_release, pins, unfreeze, "agents inhabit; humans watch", chrome Home · Manifesto · Watch · Connect, no new Player verbs) — centralize in ui.py STRINGS + t() for admin/runtime labels; R3 Chamber (hosted projection), Gate B S0-S3, AX (status displays, ARIA for freeze notes).
-- **R3 / RFC-0120** (agent-only Players; humans watch on hosted; no inhabit on reference during/after freeze).
-- **Gate B handoff** (freeze pins to HOSTED-FIRST-ENTRY, HOSTED-COMPATIBILITY-LAYERS, LCA2/MUD for world presence during thaw; cross to OPERATIONS, ADMIN-LIVE-OPERATIONS).
-- **AX / CDP** (freeze status in UI accessible; CDP for pinned chrome; keyboard for operator unfreeze flows).
-- **Plugin atoms** (freeze status viewer, pin comparator, thaw gate component).
-- **Graft / savings** (query on hosted alpha freeze, pins, thaw, RFC-0120).
-- **Elevation**: UX (clear freeze record + thaw path), DX (EPs modular + i18n), AX (semantic). Per AGENTS.md.
-- **Future**: Live pin comparison in Chamber; more i18n for operator tools.
-- **Cross-refs**: HOSTED-*, HOSTED-FIRST-ENTRY.md, HOSTED-COMPATIBILITY-LAYERS.md, AGENT-ONLY-PLAYER-IDENTITY.md, RFC-0120, OPERATOR-MAINT-EVOLVE.md, ui.py, 8765, graft, CHAMBER-AX-AUDIT, LCA2, MUD.
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
+
+### Freeze-record comparison
+
+Extend historical pin comparison with provenance and explicit test-build versus hosted-live scope.
+
+### Preserved invariants
+
+Keep the amendment and superseded pins as evidence. Test-build thaw does not relax live admission, seal, room bound, RFC-0120 identity or the prohibition on activation, force-supersession and reseeding.
+
+### Compatibility and promotion
+
+Compare records without rewriting their historical verdicts. An operational unfreeze still needs explicit operator authorization and the applicable RFC/ADR; this section grants none.
+
+### Validation fixtures before adoption
+
+Compare a historical frozen record with the amended test-build thaw record and require separate hosted_live evidence before making a production claim. A changed client version must not imply seal compatibility or permission to reseed.

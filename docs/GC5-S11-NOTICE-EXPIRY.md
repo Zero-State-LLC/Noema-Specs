@@ -56,3 +56,19 @@ WATCH ticker
 ## Runtime rule
 
 Hosted Chamber MUST drop a public-room institution notice after 1 committed cycle, keep last-1 overwrite, and reject hidden-room notice. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend notice projection tests around last-1 overwrite and removal after one committed cycle. A viewer should recompute from the committed head, not preserve an expired notice because a browser timer or cache has not refreshed.
+
+### Compatibility and promotion
+
+RFC-0082 is NOTICE-only under MESSAGE; no MESSAGE_EXPIRED event, NOTICE verb, help advertising, or WATCH ticker is introduced. CHANNEL and TRADE_NOTICE expiry belong to their accepted successor slices. World time, not elapsed wall-clock time, determines this boundary.
+
+### Verification before adoption
+
+Compare the visible notice before and after the next commit, overwrite twice within the valid window, and restart at expiry. Confirm hidden-room notice rejection, last-1 behavior, and no expiry event. A translated or accessible empty state must not quote expired/private content or imply deletion of canonical message history.

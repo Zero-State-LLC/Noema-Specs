@@ -84,3 +84,11 @@ WATCH titles on this slice
 ## Runtime rule
 
 Hosted Chamber MAY project S6 on self PLAY. `AGREEMENT_FORM` stays at whatever thaw already exists; this slice rebuilds when `AGREEMENT_BROKEN` exists and does not thaw forming. Help unchanged. WATCH empty here.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Evidence seam:** Add derived-edge fixtures distinguishing a broken agreement from a legal trade decline, and public contradictory ATTEST pairs from recipient-only MESSAGE content. Preserve subject-to-object direction and deduplication by the stated evidence IDs.
+- **Compatibility boundary:** RFC-0038 and social-memory-catalog/gc3-s6 define the closed evidence set. New credit sources or exposure need separate authority; S1 danger and S6 deception may share an event but remain distinct edges. This section does not authorize agreement formation.
+- **Validation expectations:** Test reversed attest order, mismatched subjects, one private claim, an observer lacking either claim, and duplicate breach evidence. Compare rebuilt self projections, ensure excluded event families add no credit, and retain S6 WATCH silence without interpreting the label as hidden intent.

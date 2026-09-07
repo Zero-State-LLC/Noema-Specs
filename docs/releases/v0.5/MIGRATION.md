@@ -19,3 +19,11 @@ v0.4 Lab Result (compiler_readiness: READY)
 ## Rollback
 
 Dropping v0.5 leaves v0.4 READY handoffs intact; no Lab mutation is required.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Migration seam:** Extend worked migrations from immutable READY Lab results through CaptureIntent and CompilationRequest to CapturedTest, retaining receipt/audit references and the source experiment identity. Include old capture-defaults/0.5.0 inputs rather than assuming current defaults.
+- **Compatibility boundary:** Claim-bearing default changes create new defaults and compilation identities; never rewrite an existing captured test or upstream Lab record to make it resemble a newer run. Dropping the Compiler leaves the READY handoff and its evidence intact.
+- **Validation expectations:** Compare repeat compilation under the same pins, changed defaults under a new identity, non-READY refusal, and rollback with upstream records unchanged. Verify provenance, exclusions, source digests, and regression references survive conversion without mutating world ledgers or Observatory candidates.

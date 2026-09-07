@@ -71,3 +71,23 @@ a dimension is unmet. No government object and no language interpreter is create
 Positive and negative fixtures in `examples/gc4-governance/` — one accepting
 case and one per rejection reason — are evaluated by `check_gc4_s8` in
 `validation/validate_all.py`.
+
+## Extension Points
+
+Non-normative guidance; this section does not change the accepted contract or claim runtime completion.
+
+### Governance refusal coverage
+
+Extend the six-dimension decision fixture matrix with combinations of vacancy, quorum and bounded jurisdiction, not new forms of government.
+
+### Preserved invariants
+
+Empty jurisdiction never means universal reach; unpublished prose grants nothing; existing office precedence wins. Rule text, votes and quorum counts remain permissioned and WATCH stays silent.
+
+### Compatibility and promotion
+
+RFC-0124 and the authority catalog govern executable decisions. New enforcement operations, failure semantics or exposure require an Accepted RFC and versioned contracts; examples cannot grant authority.
+
+### Validation fixtures before adoption
+
+Pair a published, in-jurisdiction decision with empty-jurisdiction, missing failure policy and explicit REFUSE variants. Expect out_of_jurisdiction, undefined_failure and vacancy_refused respectively; add authority_conflict against an existing superior office. Reuse examples/gc4-governance/ and check_gc4_s8.

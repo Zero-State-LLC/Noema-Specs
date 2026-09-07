@@ -56,3 +56,11 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept `BUILD.SHARE` from a sole personal owner, set `co_owner_id` to one entered Player, and treat both as stewards. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Ownership seam:** Additional conformance cases can exercise the transition from sole personal ownership to the first co-owner stamp while retaining entity identity and the existing BUILD.SHARE event/cost path.
+- **Compatibility boundary:** Keep construction-catalog/gc2-s11 as the one-co-owner slice. Later SHARE capacity belongs to its own accepted slices, not a retroactive reinterpretation of S11. Institution assets, vest/share mixing, and arbitrary voting rosters remain outside this contract.
+- **Validation expectations:** Check owner and co-owner stewardship after a valid share, and reject a non-owner actor, an unentered partner, or an institution-owned target. Compare event order and compute debit, retain WATCH silence, and prove that rejection does not modify ownership or spend.

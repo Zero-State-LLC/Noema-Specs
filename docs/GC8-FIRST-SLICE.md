@@ -118,3 +118,13 @@ Hosted v0.1 already contains the comparison: pair `HARVEST`+`TRADE` spends energ
 4. Currency, order book, wallet, and v0.6B flags are `FEATURE_FORBIDDEN`.
 
 Full scenario H (named Explorer/Engineer/Broker practices outperforming a generalist across discovery *and* development) still needs GC1-S2 and/or later quality/transport pins. S0 only pins the distance half.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Distance-cost comparisons
+
+Additional isolated comparisons can vary room separation and declared exit traversal costs while holding harvest yield and starting resources constant. Comparative advantage comes from one body and one energy pool, not recognition bonuses, free remote harvest or a market engine.
+
+Preserve the RFC-0012 S0 cost pin; later accepted economy slices must be evaluated under their own versions. Validate both the distributed and generalist traces against action receipts, including movement surcharges and insufficient budgets. This evidence does not promote v0.6B, lot grades or currency into S0.

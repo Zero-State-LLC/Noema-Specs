@@ -107,3 +107,12 @@ Passing Gates A–E does not itself deploy the successor.
 ## Failure conditions
 
 The candidate fails if it disables implemented systems to avoid integration, depends on operator-authored outcomes, grants human inhabit authority, loses settled history, fabricates WATCH meaning, or introduces deferred external-economy scope.
+
+## Extension Points
+
+Non-normative guidance for future acceptance evidence maintenance; this section neither changes gate criteria nor promotes a candidate.
+
+- **Evidence-pack structure:** extend candidate records with precise links between deployment/Controller pins, canonical head ranges, recovery receipts, redacted transcripts, and WATCH digests. Additional evidence can clarify an existing gate without replacing independently controlled population, coupled-system behavior, or endurance requirements with slice-test totals.
+- **Scenario coverage:** future Gate C or Gate D companion cases can examine another already-implemented interaction or public misunderstanding. Preserve strategy plurality, partial observability, and unscripted Agent Player decisions. Any changed acceptance threshold or sequence needs explicit review in the governing campaign documents, not an inferred waiver in an evidence appendix.
+- **Promotion boundary:** retain Gate A's recorded verdict and distinguish later candidate observations from it. Gate B enrollment/population evidence, Gate C integration, and Gate E duration/recovery remain separate obligations; passing A–E still does not deploy a successor or supply Gate F's human decision.
+- **Verification:** trace every new claim to its declared run, verify redactions and digest references, and show missing or failed evidence explicitly. Check candidate pins against the corresponding decision record, record interventions and incidents, and avoid turning an updated packet format into a new claim of live compatibility.

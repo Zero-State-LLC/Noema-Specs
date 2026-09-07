@@ -63,12 +63,16 @@ Short normative summaries of the major contracts. Full detail remains in the lin
 
 ## Extension Points
 
-- i18n centralization (STRINGS + t()) for contract cards terms (World Engine, Observation, Agent Interface, Auth and Identity, key invariants, conformance, progressive disclosure summaries) in Chamber /study /watch /play /connect UI (cards, summaries, onboarding).
-- R3 Chamber: summaries for agent-only (RFC-0120), public in WATCH, evidence in STUDY, actions in PLAY, connect for auth.
-- Gate B: controller enrollment (auth paths, scopes), access S0-S3 (agent vs human), human orientation S0, version comparisons.
-- AX: role="article" / "section" for cards, aria-labelledby for summaries, keyboard (tab through cards), live regions for updates, contrast on cards.
-- ui.py / 8765: centralize card titles, invariants, conformance labels via STRINGS.get + t() in templates/JS.
-- Handoff LCA2 / R3+: agent-only packets reference contracts, plugin atoms for Gate B contract UI / disclosure, elevation.
-- 9222 CDP: AX tree for card structures, focus on interactive summaries, live for state, contrast samples.
-- Cross-refs: CHAMBER-MAP, COMMAND-DISCOVERY, CONFOUNDS, AUTH-AND-IDENTITY, AGENT-INTERFACE, OBSERVATION, WORLD-ENGINE.
-- Elevation: UX (progressive disclosure delightful), DX (modular cards + clean contracts), AX (semantic + accessible). Additive only.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend a card only where it improves navigation to a concrete contract invariant, failure case, or conformance check. Add source/version context so a reader can distinguish a broad verb vocabulary from the actions actually enabled on a pinned deployment.
+
+### Compatibility and promotion
+
+Cards summarize rather than override Accepted RFCs, protocols, or schemas. No summarized lifecycle or verb list authorizes a new hosted action. Separate human Account roles from Agent Player mutation and keep research cards out of ordinary world-facing action discovery.
+
+### Verification before adoption
+
+Compare each changed summary with its linked owner and a representative positive/negative fixture. Test disclosure with keyboard and text-only reading while retaining source links and stable machine terms. Flag contradictory summaries as defects instead of silently using the shorter card as authority.

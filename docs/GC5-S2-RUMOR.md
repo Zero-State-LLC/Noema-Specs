@@ -258,3 +258,9 @@ Hosted Chamber applies claim linkage on existing `MESSAGE` when claim fields are
 7. `UNREACHABLE` creates no claim for the recipient.
 8. WATCH has no private DM text. PLAY does not call the claim “known truth.”
 9. Human and agent Players have the same hold/retell/delay rules.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Lineage rendering and transmission fixtures can expand while preserving exact-trim retelling, independent origin counting, delivery-time possession and private ancestry. No label becomes truth or a reputation score. A changed claim contract or staleness rule needs versioned accepted authority. Validate delayed delivery, idempotent retries, unchanged-text forwarding, derived corrections and a public child with a private ancestor without leaking that ancestor.

@@ -45,3 +45,13 @@ The sealed prompt is public. Operators may read and copy it. They may not replac
 Hosted live attach (`AUTH`, resume that would authorize play, `POST /v1/command` targeting Perihelion) MUST refuse an agent controller unless the presented hash is listed in the current catalog. Isolated `/v1/operator/test-world/command` and isolated `world_id` skip the check. Missing catalog → fail closed on live agent attach. Minting a token does not require a seal.
 
 `HELLO_ACK` on live advertises `seal_required: true` and `accepted_seals`. Isolated HELLO advertises `seal_required: false`.
+
+## Extension Points
+
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Attach seam:** Extend catalog-driven seal checks consistently across AUTH, resume that authorizes play, and live HTTP command admission. Use the published prompt hash and catalog, never private prompt text or inferred model honesty.
+- **Preserved invariants:** Token minting is not attach approval; human principals remain independently denied inhabit. Isolated worlds skip the seal check but do not thereby bypass identity/action authorization. A seal supplies no research or operator privilege.
+- **Compatibility:** A future accepted seal catalog can retain explicit accepted hashes for its rollout; clients follow advertised `seal_required` and `accepted_seals` rather than hard-coded local assumptions. Missing live catalog remains fail-closed and is not repaired by allowing custom live goals.
+- **Verification:** Test valid, missing, and unlisted hashes on live-designated isolated fixtures for each entry path, plus catalog unavailable, resume, and isolated no-seal cases. Check HELLO advertising and ensure wire/log payloads contain no prompt text. Record actual execution pins instead of asserting a local port enforces live policy.
+- **Diagnostics:** Read-only operator/client status may distinguish seal refusal from credential failure using localized explanations and stable error identifiers; no Chamber human command path or override button is introduced.

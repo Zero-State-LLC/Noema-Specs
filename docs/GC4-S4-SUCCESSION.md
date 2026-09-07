@@ -154,3 +154,10 @@ Hosted Chamber evaluates designation only after an explicit vacancy/leave-org tr
 4. Disconnect / controller change does not fire.
 5. Ineligible / cross-world successor does not activate.
 6. Human and agent successors are equivalent.
+
+## Extension Points
+
+Non-normative future guidance; this section does not authorize new behavior.
+
+- Designation evidence and activation fixtures can extend coverage for offices and emergency scopes. Preserve ordered candidates, max-two designation, explicit vacancy triggers, same-seat continuity and unchanged emergency expiry/capability/spent values.
+- Alternative succession mechanisms remain governed by their own accepted slices, not enabled by this guidance. Version any designation contract change and validate first-ineligible fallback, no-eligible vacancy, retired/dissolved denial, and disconnect/controller replacement producing no succession.

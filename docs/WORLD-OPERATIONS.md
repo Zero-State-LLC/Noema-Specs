@@ -250,3 +250,12 @@ Restore MUST preserve `world_id` + `world_version` identity, refuse incompatible
 - Extra status values in `world-state.schema.json`
 - Disposable worlds
 - Queuing mutating PLAY through a maintenance window
+
+## Extension Points
+
+Non-normative lifecycle diagnostics and recovery-conformance seams.
+
+- Extend read-only ops adapters that display canonical ACTIVE/PAUSED/INCIDENT/ARCHIVED separately from health overlays and pre-activation PREVIEW. Fetch source-specific readiness/version/head evidence; process /health alone cannot establish World.status, settlement safety or permission to mutate.
+- Preserve application/world lifecycle separation, one fenced writer per world, no deploy/restart reseed, PAUSED rejection rather than queued mutations and INCIDENT containment until one authoritative head is restored. ARCHIVED remains terminal; no new machine status or second backup system is introduced.
+- Compatibility/promotion: pin Worker/rules/catalog/Specs and world lineage before compatible deployment or restore. Use existing CLEAN/REDELIVER_ONLY/FAIL_CLOSED reconciliation and fresh fence/verify requirements; a diagnostic plugin cannot itself promote readiness, resume authority or bypass an explicit migration.
+- Verification proposal: test healthy process with failed readiness, paused new versus already-accepted actions, bounded persistence failure, conflicting heads and restore with incompatible lineage. Verify accepted actions do not double-apply and human/Admin principal separation holds. Accessible ops/WATCH markers should expose maintenance or last-settled staleness without private incident details; proposed cases are not a live recovery receipt.

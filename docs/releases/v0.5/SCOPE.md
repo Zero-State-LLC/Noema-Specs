@@ -23,3 +23,11 @@ C01–C26, F01–F15, O01–O16, S01–S18, L01–L34, RFC-0003 architecture har
 > v0.5 MUST reduce implementation ambiguity without increasing ordinary-user conceptual burden.
 
 Authority: [Phenomenon Compiler](../../PHENOMENON-COMPILER.md), [Capture Intent Compilation](../../CAPTURE-INTENT-COMPILATION.md), [Experience](../../EXPERIENCE.md), [Study](../../STUDY.md).
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Scope maintenance can map additional implementation evidence to the existing P01–P30 capture pipeline without expanding release claims.
+- **Unchanged invariants:** READY admission, deterministic dependency-closed minimization, append-only audit, research isolation, and the earlier conformance suites remain intact; no scalar ranking.
+- **Compatibility, promotion, and verification:** A new Compiler capability requires separate accepted scope and machine contracts, not an addition to this release summary. Verify scope claims against conformance evidence and keep ordinary CAPTURE AS TEST free of extra conceptual requirements.

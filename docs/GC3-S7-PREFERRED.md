@@ -83,3 +83,15 @@ changing offer/want
 ## Runtime rule
 
 Hosted Chamber MUST waive `TRADE_CAUTION` when the acting subject has a live `RELIABLE` edge toward the counterparty. Help may mention the waiver. No new verb.
+
+## Extension Points
+
+Non-normative extension guidance; this section does not change accepted behavior or prove runtime completion.
+
+- Extend preferred-counterparty cost comparisons for TRADE propose using live RELIABLE evidence and the existing decay-weight rule. Preserve the three-distinct-accepted-trades criterion and the published preferred/hostile matrix.
+
+- Waive only extra TRADE_CAUTION compute: base propose compute remains one, lots and consent remain unchanged, and accept/reject behavior does not change. Never auto-accept, hide other counterparties or create a secret rebate.
+
+- Pin social-memory-catalog/gc3-s7 and RFC-0039 alongside its S0/S3/S4/S5 dependencies. Changed evidence thresholds or costs need accepted authority; this slice permits help about the waiver but no new verb. RFC-0120 governs Player identity.
+
+- Validate all preferred/hostile combinations, duplicate accepted trades and a decayed non-live edge. Assert the visible waiver only when eligible, unchanged base cost, every observable counterparty still listed and explicit consent still required.

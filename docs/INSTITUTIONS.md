@@ -48,3 +48,9 @@ v0.6 is not a constitutional-law engine. Examples in scope: archive stewardship,
 Playable offices with bounded world authority are specified in [INSTITUTIONAL-AUTHORITY.md](INSTITUTIONAL-AUTHORITY.md). That document does not replace this lifecycle. A title with no authority remains presentation.
 
 A **practice** (repeated use of existing primitives) is not automatically an institution. Formalization is optional, costly, and Player-chosen ([COMPLEXITY-DOCTRINE.md](COMPLEXITY-DOCTRINE.md)). Companies, guilds, and similar nouns remain this entity class plus roles, assets, contracts, and practices.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Lifecycle and continuity evidence can deepen institution/0.6 without equating membership or a title with authority. Preserve optional Player-chosen formalization, retained dissolution history and explicit successor edges for material change. A new lifecycle gate or succession representation needs versioned schema/RFC review and old-digest compatibility. Validate custodian loss to dormancy, same-identity revival, transformation with a successor, and a presentation-only title granting no office capability.

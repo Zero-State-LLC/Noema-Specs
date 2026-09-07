@@ -155,3 +155,14 @@ WATCH contradiction pulse
 institution TRADE/REPAIR
 automatic LLM historian
 ```
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Reconstruction fixtures can deepen append-only revision and publication coverage using the hosted ARCHIVE_CLAIM and LIVE_INSPECT kinds. Preserve accessible evidence, author ownership, and CONTESTED as a valid account rather than engine adjudication.
+
+- Catalog names reserved for later evidence kinds remain unavailable in S1. New kinds, publication grants, or wire fields require the governing RFC/schema review; keep the Player Information record distinct from the v0.6 compiler output and preserve old reconstruction IDs after supersession.
+
+- Validate cross-world and hidden/admin evidence rejection, institutional membership/office gates, non-owner publication denial, and readability of superseded records. Test that publishing an account grants no source access and that contradictory archive/live evidence stays contested on all permitted projections.

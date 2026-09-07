@@ -119,3 +119,13 @@ Hosted Chamber PLAY projects dyadic trade-memory lines from accepted trades (Noe
 6. Projection text never includes resource amounts or hidden entity ids.
 
 Private betrayal scar is **GC3-S1**. Institutional expectation change remains later.
+
+## Extension Points
+
+Non-normative guidance; the existing slice and its authority remain unchanged.
+
+### Trade-memory rebuilds
+
+Future cache or presentation adapters can improve reconstruction of directed accepted-trade edges without turning memory into WorldState, a price engine or universal reputation. Preserve distinct trade_id counting, private outgoing edges and the missing-trade skip rule.
+
+Keep RFC-0007 and social-memory-catalog/gc3-s0 pinned; later betrayal and public projections use their own accepted slices. Validate duplicate events, missing trade records, thresholds at two and three trades, third-party isolation and WATCH silence. Rejected trades never become deceptive evidence.

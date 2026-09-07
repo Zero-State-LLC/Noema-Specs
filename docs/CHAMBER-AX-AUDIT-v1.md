@@ -245,3 +245,9 @@ Code + prior proxy + new plugin config supports **PASS for semantic/ARIA/keyboar
 - **noema plugin atoms Gate B**: EPs reference + handoff/plan updates for modular atoms (map/command/contract/evidence/controller UI atoms in gateway or desktop plugins). Ties to R3 agent-only, S0-S3, i18n/AX.
 - **Docs + touches**: Plan, this audit, handoff, ui.py, EPs. Real outputs. Elevation upheld (UX/DX/AX).
 - Server live. Ready for full CDP (set Chromium default), more i18n, atoms impl.
+
+## Extension Points
+
+Non-normative future guidance; no behavior is introduced by this section.
+
+Future Chamber audits may extend the route-by-criterion evidence matrix with dated browser, viewport, runtime revision, and reproduction steps. Preserve all dated findings above as historical claims, including their proxy/partial limitations; a configured Chromium profile, served ARIA markup, or string count is not proof of observed keyboard behavior or measured contrast. Record new AX-tree, focus-order, live-region, target-size, and contrast evidence separately, linking each observation to its route and build. Compare like-for-like environments or explain changed coverage rather than silently replacing earlier verdicts. Any rollout or Gate B promotion needs the applicable acceptance evidence, not this extension note; unavailable browser checks remain explicitly unverified.

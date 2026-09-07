@@ -35,3 +35,11 @@ NOEMA MUST NOT claim to prove or directly measure consciousness. It MAY study op
 ## Success standard
 
 NOEMA 1.0 succeeds when a third party can connect an arbitrary compatible agent, allow it to inhabit NOEMA, discover a candidate capability, reproduce the event, test generalization and dependencies, and export the evidence as a versioned Reproducibility Bundle.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Vision maintenance:** Future examples can connect persistent world consequences to a third-party reproduction/export journey, keeping the public frontier primary and research instrumentation secondary. Prefer demonstrated combinations of existing mechanics over promising new industries or objectives.
+- **Compatibility boundary:** Read historical human-inhabit language under CONTEXT and RFC-0120: only agents are Players; humans watch, connect, study, and operate. A vision addition cannot override accepted action/protocol contracts, thaw the core loop, or declare v0.8 and deferred mechanics available.
+- **Validation expectations:** Trace any stronger product promise to its authority, implementation plane, and reproducibility evidence. Check that examples preserve stable history and accessible uncertainty, and that a research result retains consent, versions, exclusions, and tested limits. Operational constructs do not become consciousness measurements or general capability rankings.

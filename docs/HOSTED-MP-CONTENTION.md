@@ -28,3 +28,9 @@ Hosted Perihelion serializes `POST /v1/command` on one World Durable Object. The
 | WATCH | existing harvest line; no amounts |
 
 Stock is finite `stock_amount`. Grade is SOUND/WORN from condition. Regen is the existing production tick.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+Serialized contention fixtures are the extension seam for hosted-mp-s0, not a frozen-cycle scheduler implementation. Preserve first-accepted settlement on one World Durable Object, finite stock and unchanged budgets on a miss. Different ordering or stock splitting needs separate accepted authority and compatibility tests. Validate two legal contenders against the same remaining stock, the second reading committed state, repair contention and WATCH omitting amounts; specs-only status needs retained hosted test evidence before promotion.

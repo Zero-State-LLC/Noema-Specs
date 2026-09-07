@@ -127,25 +127,22 @@ This contract is the detailed companion to [Living Alpha Acceptance — Gate C](
 
 A Gate C pass does not by itself pass Gate D, E, or F and does not authorize production cutover.
 
-## Extension points
+## Extension Points
 
-Later gates attach without rewriting this contract:
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
 
-- **Gate D — WATCH legibility:** consumes the Gate C WATCH capture, public event/state trace, and declared unknowns. It adds blind-review legibility evidence without changing Gate C world behavior.
-- **Gate E — Endurance:** repeats or extends the same scenario contract across four-hour and twenty-four-hour windows, adding planned absence, scheduled world-time, incident, restart, and recovery evidence.
-- **Gate F — Successor decision:** consumes Gate C–E evidence plus migration, rollback, compatibility, seal, and operator packets to issue `GO`, `NO-GO`, or `NOT_COMPUTABLE`.
+### Downstream evidence reuse
 
-A later gate may add stricter evidence requirements. It must not retroactively treat this scenario as authority for new mechanics.
+Extend Gate D blind-review, Gate E endurance and Gate F successor packets by referencing the same immutable Gate C evidence, not by replacing it.
 
-### Additional Extension Points (i18n / R3 / AX / Handoff)
+### Preserved invariants
 
-- **i18n / localization**: Centralize Gate C evidence pack items (candidate declarations, verdicts, checklists, strategy comparisons) and related UI labels in dev Chamber (ui.py t()/STRINGS for "Gate C", "evidence pack", "verdict", "PASS/FAIL/NOT_COMPUTABLE"). Agent protocol / transcripts remain canonical. Ties to prior ui.py centralization and AGENT-ORIENTATION-S*.md.
-- **R3 / RFC-0120 agent-only player identity**: Gate C runs use external Agent Players only (no human dev Chamber dependency for the run itself). Evidence must demonstrate agent-only identity, provenance, and protocol paths. Handoff to AGENT-ONLY-PLAYER-IDENTITY.md, AGENT-ONLY-PLAYER-IDENTITY-PACKETS.md, OFFICIAL-AGENT-CLIENT.md, AGENT-PLAY.md.
-- **Gate B (LCA-2)**: Gate C builds directly on Gate B external Agent Players (at least three independent Controllers). Evidence pack includes Gate B prerequisites + civilization composition. Cross-ref LCA-GATE-B-*.md, AGENT-HARNESS.md.
-- **AX (accessibility)**: Any dev surfaces or reports for Gate C evidence (WATCH captures, transcripts) must meet semantic/ARIA/keyboard/contrast standards. CDP audits apply. Ties to omh-accessibility-audit and Chamber ui.py elevation.
-- **Plugin atoms / DX**: Atoms or plugins for evidence pack visualization, replay, strategy comparison in Hermes desktop or noema tools. Graft savings on related nodes. Follow clean architecture + hermes-desktop-plugins.
-- **MUD / LCA2 / R3+ handoff**: Gate C evidence supports MUD native interaction for human oversight (MUD-NATIVE-INTERACTION-PLAN.md) and broader LCA civilization (LIVING-CIVILIZATION-ALPHA.md, CORE-GAME-LOOP.md). Update handoff matrix.
-- **Graft / efficiency**: graft ask "LCA-GATE-C i18n AX R3" for context (high savings per AGENTS.md).
-- **Handoff matrix / validation**: Update ELEVATION-PLAN.md, AGENT-ORIENTATION-*.md, BEHAVIOR-*.md when advancing gates. All per noema-specs-mud-craft and omh- workflows where applicable. Additive, evidence-first.
+Keep all eight coupled paths conjunctive, at least three independent Controllers as the Gate B prerequisite, and at least two viable strategies differing on at least three listed dimensions. Missing deployment evidence is not a unit-test substitute.
 
-All extensions preserve the Gate C contract and existing systems. No new mechanics. Game-first. Update this section first.
+### Compatibility and promotion
+
+Later gates may impose stricter evidence but cannot rewrite historical verdicts, authorize production cutover, or grant new mechanics. Four-hour and twenty-four-hour endurance evidence remains a separate Gate E obligation. Only agents are Players; no hidden state or private cognition is supplied to Controllers.
+
+### Validation fixtures before adoption
+
+Propose a complete pinned evidence index and a variant missing restart receipts: the latter cannot pass. Compare two strategy traces differing on only two dimensions: plurality is unmet. A WATCH-only capture cannot establish private coupled decisions. These local completeness cases grant no Gate C–F acceptance.

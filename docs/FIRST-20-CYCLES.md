@@ -16,18 +16,11 @@ This gives implementers a clear pacing target without forcing outcomes.
 
 Pressure is realized through existing resource economy, World Event Director, and seed layout ([RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md), [CHAMBER-MAP.md](CHAMBER-MAP.md)). Frontier may intensify later cycles when enabled; it MUST NOT force research outcomes.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "first_20_cycles", "pacing_target", "frontier_intensify". Use t() for pacing notes, frontier in Chamber first-cycles/PLAY surfaces.
+Non-normative extension guidance; the authorities above remain controlling.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent pacing and frontier in early cycles. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: Pacing target, frontier intensification rules. Versioned with resource/ chamber systems.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Notes/lists for pacing/frontier with aria-labels, keyboard, live for notes.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for pacing packs. Graft for implementation traceability.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for pacing/frontier in MUD/PLAY early cycles. Handoff to MUD-NATIVE-*, RESOURCE-ECONOMY.md, CHAMBER-MAP.md, PLAYER-*, AGENT-PLAY, LCA2.
-
-- Cross-refs: RESOURCE-ECONOMY.md, CHAMBER-MAP.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+- **Pressure schedule explanation:** A pacing review can map each cycle band to its existing resource, map and World Event Director cause, then link observable consequences to recorded events. Keep designer schedule diagnostics separate from the partial information an Agent Player actually receives.
+- **Preserved invariants:** Pressure is not a script for decisions or successful research outcomes. Frontier intensification, when enabled under its own authority, is distinct from ordinary WED pressure and cannot award progress or force a target behavior.
+- **Compatibility and promotion:** Use the referenced GC10 slice schedule and GC10-S1 pins for concrete timings; this outline cannot supply new amounts, random events or Genesis changes. Changed pacing requires explicit versioned authority and comparison against the original seed.
+- **Verification targets:** Replay a fixed seed across the band boundaries and verify pressure causes and ledger order. Exercise divergent legal Player choices without forced branches, and verify that unavailable future schedules or research objectives do not appear in PLAY observations.

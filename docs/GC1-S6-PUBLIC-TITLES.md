@@ -77,3 +77,11 @@ parameter-access upgrades
 ## Runtime rule
 
 Hosted Chamber MUST attach at most one third-person public title to each other entered Player in the observer's **public** room, derived from that Player's existing recognition. LATENT and hidden rooms withhold the line. WATCH uses the same line. Isolated world `test.hosted-canonical.gc1-s6`. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Projection seam:** Extend regression coverage for recognition-to-public-title selection, not the recognition taxonomy. Preserve the single third-person line, catalog display ordering, separate self practice lines, and suppression for LATENT recognition or hidden rooms.
+- **Compatibility boundary:** RFC-0105 and mastery-catalog/gc1-s6 pin the title copy and exposure. A changed title catalog or visibility rule needs explicit versioned authority; later focus slices do not silently alter S6 evidence or authorize public counts.
+- **Validation expectations:** Compare public-room PLAY and WATCH for the same recognized Player, exercise multiple recognized tracks, then move to a hidden room or make recognition LATENT. Verify deterministic omission, no counts/track IDs, no new events, and unchanged canonical action costs.

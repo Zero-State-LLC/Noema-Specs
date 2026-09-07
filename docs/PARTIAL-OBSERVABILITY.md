@@ -34,3 +34,9 @@ Machine examples: [`examples/v02-frontier/observations/`](../examples/v02-fronti
 ## Leak rule
 
 Partial observability MUST NOT leak hidden world truth through errors, side channels, or spectator public projections.
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Observation producers can enrich permitted content/provenance extensions with source, resolution, noise-model and staleness detail. Preserve the visibility classes and absence of hidden truth; richer provenance must not expose a redacted value or alter canonical state. New envelope requirements or class semantics need a versioned schema/protocol decision, while optional fields remain compatible with existing consumers. Validate visible, stale, contradictory and permission-restricted examples, including error and WATCH paths that must not reveal their hidden counterparts.

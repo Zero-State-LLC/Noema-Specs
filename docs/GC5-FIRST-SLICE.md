@@ -127,3 +127,11 @@ Hosted Chamber `MESSAGE` applies the S0 band: same-room always delivers; differe
 5. WATCH never includes DM text.
 
 Full scenario E (degraded delay, then repair restoring a delay class) is **GC5-S1**.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Delivery regression seam:** Extend S0 cases separating the maximum live world-relay condition used for delivery from the sender-local relay condition used for extra compute. Adjacent rooms remain long-range; same-room delivery does not need a world relay.
+- **Compatibility boundary:** RFC-0009 and communication-catalog/gc5-s0 retain same-cycle success or UNREACHABLE. Later delay, rumor, and surface slices are separately closed/versioned authorities, not open work inferred from this first-slice note. Do not silently run their rules under the S0 pin.
+- **Validation expectations:** Compare relay conditions 24 and 25, no live relay, multiple live relays, and repair across the boundary. Verify success event order, zero events on path failure, unchanged local cost calculation, and no hidden topology or DM text in sender errors or WATCH.

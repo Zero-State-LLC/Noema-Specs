@@ -259,12 +259,11 @@ See [OPERATIONS.md](OPERATIONS.md): `noema backup`, `noema restore`, `noema veri
 
 C14–C17 cover reference deployment, persistence, backup/restore, and version pinning.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + DEPLOYMENT / HOSTED)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for "Golden path", "local", "test", "staging", "production", "research-isolated", "application / UI", "agent protocol endpoint", "spectator surface (WATCH)", "/health", "/ready", "/version", "one Chamber world", "Cloudflare + Supabase", "Human auth", "Identity + history", "Large artifacts", "Realtime", "API / Gateway", "Live world", "Static web", "Agents", "Supabase Auth", "Supabase Postgres", "Supabase Storage", "Cloudflare Workers", "Cloudflare Durable Objects", "noema.guru", "golden path", "reference compose", "operator commands", "noema backup", "noema restore", "noema verify", "conformance". R3 agent deployment + human S0.
-- **Gate B S0-S3 + R3**: Agent-only Player (RFC-0120) for hosted; version comps; human S0.
-- **AX**: Semantic tables for environments/stack; ARIA for diagrams/lists, keyboard nav for deploy docs, live for status, contrast. CDP proxy.
-- **Plugin atoms**: For deployment packs (derive config, validate conformance, load_pack, atomic_replace); Chamber atoms for deploy viewers, health tools.
-- **LCA2/MUD handoff**: MUD native for deployment/ops commands i18n; cross PLATFORM, OPERATIONS, PLAYER-ACTION-MAP, AGENT-*, graft.
-- **Cross-refs**: PLATFORM.md, OPERATIONS.md, GAME-COMPLETENESS, PLAYER-ACTION-MAP, AGENT-ORIENTATION/PLAY/DETERMINISM/GATEWAY, AUTH-AND-IDENTITY, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, noema-specs-mud-craft, 8765/ui i18n, graft, prior EPs (HOSTED/OPERATOR/MUD + full list).
-- All real outputs. Additive. Ready for Chamber i18n in runtime/deploy surfaces.
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Deployment adapters and recovery evidence:** A deployment inspector can compare resolved non-secret configuration, runtime manifest pins, writer-fence ownership, and readiness without embedding vendor administration in PLAY. Keep the local one-Chamber path separate from the hosted Worker/DO/Supabase topology.
+- **Preserved invariants:** Restart cannot reset cycles, budgets, identity or ledger history. Preserve the atomic SERIALIZABLE cycle boundary, fenced canonical writer and read-only transport bookkeeping; a deployment plugin is not another writer.
+- **Compatibility and promotion:** Topology or storage adapters need the same protocol/export semantics. Incompatible rule changes require explicit migration or world-version lineage; optional infrastructure never becomes a hidden startup prerequisite.
+- **Verification targets:** Exercise clean startup and crash recovery, stale-fence and serialization-failure rejection, and backup/restore continuity under C14–C17. Compare state/ledger heads and ensure configuration digests contain no secrets. A manifest or plan alone is not a healthy deployment receipt.

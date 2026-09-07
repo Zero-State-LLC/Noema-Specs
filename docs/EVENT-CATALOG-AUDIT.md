@@ -74,18 +74,18 @@ plane. The deferred `visibility` / `victim_id` question above is now registered 
 Accepted GC3 slice contracts require exactly those two fields. Detection remains unwired; see
 [Research Assimilation — Crime](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md).
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "event_catalog_audit", "v0_1_catalog", "v0_2_rfc", "contest_declared", "contest_resolved", "crime_detected", "access_restricted", "infrastructure_disrupted", "budget_exceeded", "move_rejected", "situation_injected", "noise_applied", "closed_catalog_conformance", "hosted_worker", "known_uncatalogued", "research_assimilation_crime", "spec_gap_register", "event_catalog_deep_time_audit" (and related). Use t() for all audit tables, type lists, conformance notes, hosted vs offline distinctions, gap registers in Chamber event/audit surfaces and PLAY/WATCH projections.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent ledger audits for v0.1/v0.2 catalogs, CRIME_DETECTED interpretation in social-memory/WATCH. Human orientation separate S0.
+### Document-specific seam
 
-- **Gate B S0-S3 + version comparisons (event-catalog/0.1 vs 0.2, hosted Worker conformance)**: Closed-catalog checks, RFC workflow, no silent expansion, hosted never-emits list, GC3 contracts, SPEC-GAP-REGISTER. Versioned catalogs with fixtures/isolation.
+Extend audit receipts with the scanned runtime revision, producer call site, pinned catalog, payload schema, and disposition: emitted and catalogued, catalogued but unproduced, or defect. Keep error-return codes separate from ledger event producers and distinguish a consumer from a producer.
 
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for catalog types/audits with role="table" aria-label="Event catalog audit", keyboard nav for rows, live regions for "answered" notes/gaps, high contrast lists for hosted Worker distinctions.
+### Compatibility and promotion
 
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atomic packs for audit reports, event-type validations, gap registers. derive_candidate/validate_pack/load_pack/atomic_replace for catalog conformance. Graft traceability for RFCs. Maint sweeps for hosted vs offline.
+Accepted RFC-0127 closes TRADE_CANCELLED on event-catalog/0.2, not 0.1 or a new 0.3. Historical never-emits findings are dated observations, not permanent runtime truth. Audit viewers are operator/developer tooling; they do not expose full catalogs or hidden event payloads to PLAY.
 
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for event projections (e.g. CRIME_DETECTED as danger evidence in MUD), PLAY surfaces for audit visibility. Handoff to MUD-NATIVE-INTERACTION-*, EVENT-CATALOG.md, RESEARCH-ASSIMILATION-*, PLAYER-ACTION-MAP, AGENT-PLAY, LCA2 Gate B. No new verbs; room order preserved. Cross to EXPERIENCE.md, EVENT-CATALOG.md (prior EPs).
+### Verification before adoption
 
-- Cross-refs: EVENT-CATALOG.md, EXPERIENCE.md, SPEC-GAP-REGISTER-2026-08-25.md, RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft skill, ui.py STRINGS, elevation plan, graft, 8765 Chamber, R3/Gate B S0-S3, prior full list (COMPLEXITY-DOCTRINE/.../GC*/LCA*/AGENT-*/PLAYER-*), MUD handoff.
+Rescan every producer at the candidate revision and validate emitted payloads against its catalog. Include wrong-version types and unknown operations as negative cases. Verify a reference in a projection or social-memory consumer does not count as production, and require a new receipt rather than claiming this design edit re-audited the Worker.

@@ -268,3 +268,9 @@ Architecture-design frontier: second resumed slice landed.
 See REDUCER-REGISTRY.md and RFC-0016 hosted durable world head.
 Further architecture (SERIALIZABLE cycle fence) waits for an explicit RFC.
 ```
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Future reconciliation passes can add dated doctrine-to-owner rows with evidence of alignment or unresolved conflict. Preserve the A–R findings, complementary DO ordering/Postgres durability, and frozen verb, event and intervention names; a reconciliation row is not a superseding RFC. Promote any semantic repair through its subsystem owner and explicit version boundary, without resuming paused architecture or deferred economy work. Validate each new row against the cited owner and distinguish documentary drift repair from a machine-contract change.

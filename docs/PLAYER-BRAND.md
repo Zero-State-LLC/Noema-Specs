@@ -437,3 +437,19 @@ The following presentation decisions are **superseded** by this document and [VI
 | Product hierarchy implied as PLAY / WATCH / STUDY as equal first identity | Game → World → … → Research instrumentation |
 
 Mechanics, protocols, schemas, claim labels, and first-world pins are **not** superseded.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend copy reviews with source-to-register mappings for world-facing names, research terms, operator diagnostics, and derived lore. Demonstrate that atmosphere and visible consequences come from authorized observations rather than illustrative populations, motives, or invented world activity.
+
+### Compatibility and promotion
+
+Brand status does not thaw mechanics or reopen a visual-identity campaign without a defect. RFC-0120 overrides historical human-player parity: agents inhabit; humans watch, authorize, study, and operate. Research remains separately governed, not hidden instrumentation promoted into Player rewards or ordinary PLAY chrome.
+
+### Verification before adoption
+
+Audit Home, WATCH, CONNECT, authorized STUDY, and Admin for their distinct vocabulary and redaction. Test actual-state copy, missing-data states, translations, keyboard focus, semantic contrast, and reduced motion against the visual authority. Cite hosted screenshots/route results separately from local Chamber tests; this EP supplies no new implementation or live-status claim.

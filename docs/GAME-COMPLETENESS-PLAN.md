@@ -568,10 +568,10 @@ It should create enough persistent social, economic, informational, institutiona
 **Post-deeper matrix batch:** GC4 and GC9 examples added to deeper acceptance matrix evidence collection (6 gaps noted total). Additional LCA A-series cross-ref. Cites matrix + LIVING-CIVILIZATION-ALPHA.md + register + prior.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize GC table headers, status values (EXISTS/PARTIAL/DEFERRED etc.), GC titles (Mastery, Communication ecology, Systemic mystery, Strategic conflict, Economic specialization, Emergent culture, World Steward), "Spec Completion Contract", "product behavior", "become somebody" phrases, player-facing GC summaries in Chamber UI (watch/study/play). Ties to recent ui.py i18n.
-- **R3 Chamber (agent-only per RFC-0120)**: Full GC1–GC10 simulation/execution in controller mode (agent Players); human NON-CANONICAL public summaries/WATCH-only for GC status; STUDY permissioned evidence/traces; PLAY full persistent world with GC mechanics; version comparisons for GC contracts.
-- **Gate B S0-S3**: S0 human public GC overviews; S1–S2 study; S3 full controller GC sims/enforcement. Human orientation withhold; controller policies for GC depth.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for GC status (role="table"), ARIA for progress, keyboard nav in GC viewers, aria-live for updates, contrast vars. Per audits.
-- **noema skill / plugin atoms**: GC progress viewer/registry atom, completeness matrix UI atom for desktop/gateway plugins; integration with Chamber study/play, LEARN, matrix.
-- **Handoff / LCA2 cross-refs**: To COMPLEXITY-DOCTRINE, CONTEST-RESOLUTION, DATA-MODEL, DIPLOMACY, STRATEGIC-CONFLICT, R3 fixtures, MUD handoff, GAME-DESIGN, SPEC-GAP-REGISTER.
-- **Elevation**: UX (glanceable GC completeness in Chamber), DX (modular EPs + specs-first), AX (tables/ARIA). Additive.
+
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Campaign evidence index, not release authority:** A completeness index can connect each GC package and A–J scenario to its prose owner, accepted machine authority, fixture evidence and separately evidenced runtime status. Distinguish historical continuation notes from current receipts instead of collapsing them into a single completion badge.
+- **Preserved invariants:** The architecture frontier remains paused, frozen core contracts remain frozen, and research stays outside the nested game loops. Agent-only Player identity grants no controller override; humans retain separately authorized watch, study and operations roles.
+- **Compatibility and promotion:** Accepted slice RFCs govern executable scope even where older inventory statements predate them. Section 11 is the promotion checklist, not permission to fill missing semantics. Do not open v0.6B/C, v0.8, new engines or all GC packages through this index.
+- **Verification targets:** For each promoted row trace state, actions, authority, ordering, failure, replay, migration and both projections to concrete pins and fixtures. Mark missing proof as a gap and distinguish spec authorization from a runtime receipt; seed counts, document coverage and clean diffs alone never prove live completeness.

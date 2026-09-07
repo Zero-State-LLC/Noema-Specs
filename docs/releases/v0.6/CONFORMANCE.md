@@ -50,3 +50,15 @@ Suite: `conformance/v0.6/` · **D01–D30** · 90 atomic cases · depends on v0.
 | G09 | Lore Separation / Admin Boundary |
 
 Fixtures: `examples/v06-deep-time/`. Validator: `check_deep_time_v06` (+ Genesis checks).
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Deep Time and Genesis coverage mapping can expand edge cases within D01–D30 and G01–G09, linking historical identity and projection cases to their fixtures.
+
+**Preserved invariants.** Preserve stable IDs, original provenance, hidden-history protection, lore separation, and Admin-only Genesis; decay or reconstruction never rewrites what occurred.
+
+**Compatibility and promotion.** Changed lifecycle, decay, reconstruction, or Genesis semantics require their owning versioned contracts and compatibility fixtures. Updating this conformance index does not activate deferred v0.6 breadth or authorize reseeding.
+
+**Validation expectations.** Check same-seed determinism, renamed identities, conflicting claims, dormant/revived institutions, inaccessible artifacts, and PLAY/WATCH/STUDY partitioning; reconcile declared atomic-case counts with the actual suite and report v0.5 prerequisites independently.

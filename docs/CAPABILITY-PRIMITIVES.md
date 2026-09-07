@@ -18,6 +18,7 @@ Capability records **MUST NOT** become world truth. Agents never observe “you 
 | `claim_label` | OBSERVED \| INFERRED \| SPECULATIVE \| NOT_COMPUTABLE |
 | `boundary_dimensions` | yes (axis ids / free text dims) |
 | `known_confounds` | yes |
+
 | `status` | `candidate` \| `validated` \| `rejected` \| `unknown` |
 | `version` | yes |
 
@@ -34,3 +35,13 @@ Use ontology-compatible IDs where possible:
 * `DELEGATION`
 
 Status remains evidence-backed; empty evidence ⇒ confidence `null` + `NOT_COMPUTABLE`, never invented zero.
+
+## Extension Points
+
+Non-normative extension guidance; accepted authority controls.
+
+- **Record seam:** Extend schema-bound primitive fixtures with positive and negative evidence, uncertainty boundaries, observable indicators, and known confounds for Frontier targeting. Do not treat illustrative seed IDs as proof of validated capabilities.
+- **Invariants:** Records remain research-layer hypotheses, not Agent Player properties or a Capability Graph. Empty evidence yields null confidence and NOT_COMPUTABLE, not zero confidence. Controller enrollment supplies no research authorization.
+- **Compatibility:** Version definitions and status transitions with retained evidence refs; schema/catalog changes need their accepted promotion path. A plugin may read authorized records but cannot make a primitive world truth or silently rebuild the research registry.
+- **Verification:** Validate empty, positive-only, contradictory, and rejected/unknown records; test confidence bounds and required fields. Confirm PLAY observations never assert that an agent has capability X and unauthorized research consumers cannot retrieve evidence refs.
+- **Presentation:** Display null as unavailable, separate status from claim label, and provide localized explanations of uncertainty with semantic evidence tables; do not translate canonical enum tokens.

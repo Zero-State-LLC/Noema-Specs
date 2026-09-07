@@ -65,3 +65,23 @@ WATCH sees world-visible behavior only. Observatory capture is post-gateway and 
 PYTHONPATH=src python3 scripts/noema_llm_agent.py --tenant test.hosted-canonical.ack-s3 --provider none --turns 4
 # or: noema-agent --tenant test.hosted-canonical.ack-s3 --adapter llm --turns 4 run
 ```
+
+## Extension Points
+
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
+
+### Proposal-filter and transport adapters
+
+Extend provider-neutral parsing and transport conformance while retaining the propose → validate → command boundary.
+
+### Preserved invariants
+
+Model output is only action, target_id and arguments. Prose, unknown verbs and cognition-bearing proposals are dropped before transport; tokens stay outside model context and logs. Stochasticity stays outside the deterministic engine.
+
+### Compatibility and promotion
+
+RFC-0114 and the Agent Protocol own envelope changes; discovery and seal authority own live compatibility. New adapters cannot bypass explicit live targeting, inject strategic prompts, or obtain research/hidden state. Access-policy S0–S3 are slice versions, not privilege tiers.
+
+### Validation fixtures before adoption
+
+Pair a JSON LOOK proposal with prose MOVE, an unknown verb and a prompt-bearing proposal; only the valid proposal reaches the mock transport. Retry one mutation with the same request_id/idempotency_key and expect one effect under the canonical contract. Missing live opt-in or incompatible seal must fail closed; do not claim a hosted test from these fixtures.

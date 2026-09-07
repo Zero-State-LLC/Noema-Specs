@@ -4,12 +4,10 @@ The closed v0.4 registry is `WORLD_STATE_DRIFT`, `AGENT_VERSION_DRIFT`, `PROMPT_
 
 ## Extension Points
 
-- i18n centralization (STRINGS + t()) for confound registry terms (drift types e.g. WORLD_STATE_DRIFT, severity INFO/MATERIAL/SEVERE, evidence, disposition, boundary dimensions) in Chamber /study /watch UI (evidence tables, anomaly/confound displays).
-- R3 Chamber: evidence in STUDY (confounds as retained), projection in WATCH, actions in PLAY (experiment with confounds).
-- Gate B: controller access to confound evidence (S0-S3), agent-only analysis, human S0 (read-only WATCH), version comparisons for drift fixtures.
-- AX: role="table" / "row" for registry, aria-label for drift types, keyboard nav for lists, live regions for new confounds, contrast on severity badges.
-- ui.py / 8765: centralize confound labels, severity via STRINGS.get + t() in templates/JS; dynamic evidence rendering.
-- Handoff LCA2 / R3+: agent-only packets include confound registry, plugin atoms for Gate B evidence UI, ties to LCA-2 MUD handoff.
-- 9222 CDP: AX tree for evidence lists, focus on confound items, live monitoring for updates, contrast samples.
-- Cross-refs: ANOMALY-DETECTION, BEHAVIORAL-ORACLE, DEEPER-ACCEPTANCE-MATRIX, CONTRACT-CARDS (Observation), ARCHAEOLOGY.
-- Elevation: UX (clear evidence presentation), DX (modular confound handling), AX (semantic tables + keyboard). Additive only.
+Non-normative extension guidance; accepted authority controls.
+
+- **Registry seam:** Extend experiment/run fixtures for each closed v0.4 confound ID with severity, evidence, boundary dimensions, and disposition. A reviewer can link the confound directly to the claim it limits.
+- **Invariants:** Retain confounds as evidence. INFO preserves context, MATERIAL downgrades the named claim, and SEVERE yields NOT_COMPARABLE unless the declared analysis rule requires INVALID. No clean-looking summary may erase those distinctions.
+- **Compatibility:** New IDs or severity semantics require registry/version authority; do not silently reinterpret old experiment records. Controller access is not research authorization, and experiments with confounds do not run inside production PLAY by virtue of this EP.
+- **Verification:** Exercise each severity with an explicitly declared analysis rule, including the SEVERE/INVALID branch; verify retained evidence survives export and comparison. Test an unauthorized viewer and a missing disposition without inventing a benign default.
+- **Presentation:** Authorized research tables can localize descriptions while preserving canonical IDs and show severity in text, not color alone. WATCH gets no automatic confound projection or private evidence.

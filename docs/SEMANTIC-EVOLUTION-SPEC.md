@@ -216,3 +216,11 @@ New or extended profiles (e.g., `EWM_ENHANCED` + semantic variant) should seed:
 - Emergent Language from Cooperative Foraging (arXiv:2505.12872)  
 - Cultural Evolution of Cooperation among LLM Agents (arXiv:2412.10270)  
 - Auditing Cascading Risks via Semantic–Geometric Co-evolution (arXiv:2603.13325)
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Pinned-scope maintenance:** Append dated evidence for the shipped signaling, grounding, norm, and Forman–Ricci paths with the specific world/runtime revision and source receipts. Retain the 2026-08-23 pin as a dated assertion, not automatic proof of today's hosted state. Runtime paths are evidence references, not specification authority.
+- **Promotion boundary:** The shipped/deferred tables constrain the aspirational body. conversion_rate, unlocked_affordances, BeliefState, Wasserstein/Ollivier curvature, and live cultural generation remain inert until separately authorized by a new RFC. RFC-0120 overrides historical human-Player wording; privileged image/second_order values do not become WATCH-public. RFC-0123 retains its bounded norm and trade-reject semantics.
+- **Validation expectations:** For an approved future change, compare old/new pinned behavior on grounded and hearsay signals, norm cap/quiet-cycle decay, and trade rejection without harvest-pressure coupling. Record observation redactions and deterministic replay evidence. Unspecified ASI weights or unavailable belief data remain unresolved research inputs, not fabricated metrics or Player rewards.

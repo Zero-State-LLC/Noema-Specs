@@ -53,3 +53,12 @@ Chamber help advertising
 ## Runtime rule
 
 Hosted Chamber MUST record member consents on a vacant office and seat a candidate at `ceil(members/2)`. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative membership/consent regression and vacancy-presentation seams.
+
+- Extend isolated consensus cases over current membership, a VACANT office and ACTIVE organization; record consent for one candidate and verify seating at ceil(members/2). This is vacancy filling, not a ballot to remove an occupant.
+- Preserve compute 1, existing ENTITY_UPDATE/BUDGET_CONSUMED, succession WATCH pulse only on seating, unchanged help and no Genesis changes. No elections, parties, emergency consensus or SUCCESSION_* events are introduced.
+- Compatibility/promotion: pin authority-catalog/gc4-s5 and RFC-0060 against SUCCESSION and S4; S6 rule-based succession remains a separate accepted boundary rather than an implied fallback.
+- Verification proposal: test below/exact threshold, nonmember consent, occupied office and inactive org; confirm rejection does not seat and replay does not duplicate seating. Localized vacancy/consent summaries must distinguish pending from seated without publicizing membership details outside the existing visibility contract.

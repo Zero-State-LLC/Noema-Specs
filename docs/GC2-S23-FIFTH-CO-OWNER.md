@@ -64,3 +64,10 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST accept a fifth `BUILD.SHARE` from the personal owner, set `co_owner_5_id` to one other entered Player, treat owner and all five co-owners as stewards, and reject a sixth SHARE. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Expand ownership fixture coverage around duplicate partners, stale steward views, and fifth-slot restart reconstruction.
+- **Invariants, compatibility, promotion, and verification:** Keep the five-co-owner cap, personal-owner-only SHARE, entered-Player partner constraint, and no institution assets or vest-after-share. A roster redesign requires separate accepted contracts and migration; verify sixth SHARE rejection, steward parity, cost, and WATCH silence.

@@ -14,13 +14,11 @@ Conservative candidate label — **not** proof of metaphysical novelty.
 
 Record what was **not specified**. Claim label typically `SPECULATIVE` until Lab controls.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + EMERGENCE / ATTENTION / PLAYER / LLM-AGENT / REMAINING)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for emergence terms (behavior not explicitly scripted, not directly instructed, novel combination, persistent structured strategy, multi-agent structure not preauthored, external artifact/institution creation, unexpected transfer or adaptation, SPECULATIVE, indicative combination) — centralize in Chamber /study /watch for R3.
-- **AX / CDP** for emergence candidates (lists, semantic, aria for novel behaviors, contrast on cards, keyboard navigation) — observed proxy in /play.
-- **R3 / RFC-0120 agent-only Player identity + human S0**: Emergence as agent/LLM behaviors; human S0 for review.
-- **Gate B S0-S3 + version comparisons**: S0 for candidate logging; later for full classification.
-- **Plugin atoms code**: Atomic derivation of candidates (graft/ops patterns for pack/derive).
-- **LCA2 / MUD handoff**: MUD for emergence via native interaction; i18n in outputs; handoff to BEHAVIOR-FEATURES, PLAYER-ACTION-MAP, ATTENTION-PROJECTION, AGENT-*.
-- **Cross-refs**: BEHAVIOR-FEATURES.md, STRATEGIC-CONFLICT.md, AGENT-ORIENTATION-*, AUTH-AND-IDENTITY, PLATFORM, GAME-COMPLETENESS-PLAN, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, graft, 8765 Chamber, noema-specs-mud-craft.
-- **Handoff deepen**: LCA2 Gate B for emergence traceability in agent logs; i18n/AX/attention in R3+; LLM agent integration.
+Non-normative candidate annotation and controlled-follow-up seams.
+
+- Extend candidate packets with cited behavior, world-rule and situation versions, and an explicit account of what was not scripted or instructed. Retain alternative explanations and absent indicators; the indicative list is neither an all-required checklist nor a novelty score.
+- Preserve SPECULATIVE as the usual pre-control label. Novel combinations, institutions or transfer do not establish metaphysical novelty, private cognition or a Player reward; candidate analysis stays outside PLAY.
+- Compatibility/promotion: version detection criteria and require authorized Lab controls before strengthening a claim. Controller enrollment and ACCESS slice identifiers convey no research permission, and candidate discovery does not grant public release consent.
+- Verification proposal: compare a directly scripted behavior with an unprompted combination and a trace missing situation provenance. Preserve the first as explained, the second as a bounded candidate, and the third as uncertain rather than claiming emergence. Accessible study cards should retain exclusions, counterevidence and claim labels in text.

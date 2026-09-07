@@ -213,23 +213,15 @@ Prioritized by value (DX for future work, UX/AX on surfaces, operator tooling, v
 
 **Verification**: Skill files updated, usage in future graft/skills_list.
 
-## Extension Points (Explicit — Add to This and Related Specs)
+## Extension Points
 
-This plan is modular and expandable. Add new points here or in child docs.
+Non-normative work-packet and evidence-quality seams; this plan is not runtime authority.
 
-- **New Surfaces**: Hosted phosphor/WATCH enhancements; official client (noema-client-current) elevation; admin/study UIs.
-- **i18n & Localization**: Full bundles (ja first), runtime translation service, player-facing vs. operator registers.
-- **Hermes/Operator Tooling**: More plugins (economy viz, command palette for actions), cron integration, visual QA widgets.
-- **Action & Affordance**: Post-Gate B verb extensions, dynamic affordance graphs in UI, composition for complex trades/orgs.
-- **Evidence & Gates**: Additional Gate B evidence tiers (scripted → autonomous → independent), traceability matrices for future LCA phases.
-- **Ops & Maint**: SAR/economy integration hooks, more patrol metrics, cross-world cutovers.
-- **Research Instruments**: New projections, pressure building tools, belief convergence trackers (non-player-mutating).
-- **Dev Tooling (Chamber)**: Additional views (map, history), keyboard navigation improvements, reduced-motion polish, contrast audits.
-- **Specs Process**: Automated Extension Points checker in graft/validate; templates for new specs.
-- **Integration**: MCP/REST adapters for external Controllers; Hermes NOEMA skill full runtime.
-- **AX/Accessibility**: Full omh-accessibility-audit runs on all UIs; ARIA for dynamic feeds; i18n for all notices.
-
-When adding: Use `## Extension Points` heading + bullet list with "owner / status / link".
+- Extend each surface-elevation packet with owner, scoped files, accepted spec/RFC reference, status and retained verification artifact. Separate a proposed plugin or translation key from exercised behavior. Historical progress entries below remain historical claims, not current service health, fresh test totals, completion of every EP or proof that a merge/deployment occurred.
+- Preserve frozen gameplay, agent-only Players and outside-world operator authority. Passing Gate B never automatically permits new verbs, composition mechanics, cross-world cutover or controller strategy tooling. Research projections belong in authorized research/LEARN surfaces, not hidden PLAY guidance or Controller-privileged views.
+- Compatibility/promotion: extend existing presentation, client and operator interfaces without bypassing canonical admission or redaction. Reconcile each proposed packet with current-state and its accepted child spec; retain original version pins when comparing historical receipts. Automated EP checking is a documentation aid, not acceptance authority.
+- Verification proposal: check full document-specific EP substance and Markdown rendering, not heading counts; separate repository checks from actual keyboard/contrast/screen-reader audits and external enrollment receipts. Reject token-savings estimates, ARIA counts or HTTP success as substitutes for behavior/AX verification. Gate B independence still requires isolated decision contexts and no shared gameplay planner, not merely three processes.
+- Handoff seam: record a bounded next task and its blocked inputs without auto-running merge/push, credential access, live mutations or another speculative workstream. An accessible, localized operator status view must distinguish historical, proposed, blocked and observed evidence rather than presenting all accumulated progress as live success.
 
 ## Execution Roadmap & "Merge and Continue" Pattern
 

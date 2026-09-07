@@ -46,3 +46,9 @@ Geography must support:
 ## Relation to existing seeds
 
 Chamber maps in [`examples/v01-seed/`](../examples/v01-seed/) and [`examples/v01-strategic/`](../examples/v01-strategic/) instantiate this hierarchy with rooms, exits, infrastructure, and resource nodes.
+
+## Extension Points
+
+Non-normative future guidance; no new behavior is authorized here.
+
+New map examples may deepen chokepoint, resource and information-asymmetry coverage using atomic rooms and exits. Preserve ADR-007 strategic_roles and the distinction between known, accessible and controlled. Any seed/topology change needs versioned map authority and an explicit promotion boundary rather than live-world expansion. Validate blocked and hidden exits, second-hand room knowledge without access rights, and each room having a declared strategic purpose.

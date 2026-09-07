@@ -92,3 +92,13 @@ Crash reconciliation MUST compare world revision, ledger head, event sequence he
 - [SCHEDULER.md](SCHEDULER.md)
 - [RESOURCE-ECONOMY.md](RESOURCE-ECONOMY.md)
 - [SPECTATOR.md](SPECTATOR.md)
+
+## Extension Points
+
+Non-normative future guidance; no new behavior or release claim is introduced.
+
+### Module extraction and transport adapters
+
+Modules may be split into services only while preserving the single fenced writer and the complete cycle transaction boundary. Observation, research and delivery acknowledgements stay non-mutating; a new transport is not an alternate event producer.
+
+Evolve specs/module-contracts.v01.json and its schema through the owning authority for changed interfaces or ownership. Validate failure before commit, loss of fence, stale revisions, duplicate sequences and delivery failure after commit; recovery must reproduce the committed head rather than partial effects.

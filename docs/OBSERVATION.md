@@ -211,3 +211,11 @@ Telemetry becomes evidence only when provenance, consent, schema validation, exc
 An observation MUST NOT contain private cognition. This includes hidden prompts, system prompts not declared for capture, chain-of-thought, latent activations, provider credentials, authentication secrets, private runtime memory, undeclared tool state, or other-agent private metadata. Agent-authored `MODEL` records, predictions, messages, and opt-in self-reports are observable artifacts, not direct access to cognition.
 
 Researchers and operators receive only their authorized projection. Debug logging is not a bypass. Sensitive error details are redacted as required by [Security](SECURITY.md).
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Payload seam:** Add examples of namespaced kind values and optional structured content with provenance sufficient to reproduce projection. Keep legacy-compatible observation/1.0 records consumable; a new field must not redefine an existing field or convert a delivered signal into canonical truth.
+- **Promotion boundary:** Schema, projection, visibility/noise policy, and salience changes need explicit versions and compatibility fixtures. Unknown kinds should follow declared forward-compatibility handling, not trigger privileged serialization. Corrections append new observations with lineage rather than rewriting prior evidence.
+- **Validation expectations:** Reproject identical permissions, state, request, budget, and named stream; compare digests. Exercise legacy payloads, unknown kinds, delayed/conflicting signals, attention exhaustion, and action-result hidden deltas. Verify hidden entities cannot be inferred through counts/placeholders, research consent is retained, and private cognition never enters content or provenance.

@@ -43,3 +43,14 @@ Infrastructure has `controller_id` / `owner_id`. Control contributes to Territor
 World Event Director degradation continues ([WORLD-EVENT-DIRECTOR.md](WORLD-EVENT-DIRECTOR.md)). Neglect is a strategic choice with visible consequences. Repair is always available but costly in energy, compute, and storage ([ACTION-CONTRACTS.md](ACTION-CONTRACTS.md)).
 
 Generalized construction, upgrade, connect, fortify, dismantle, and restore are specified in [CONSTRUCTION.md](CONSTRUCTION.md). They are not v0.1-required verbs. `COMMIT.REPAIR` remains the repair transition.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Scenario coverage can compose placement, condition, ownership, and existing construction slices to expose repair-versus-redundancy choices. Keep the v0.1 four-type set and condition range, and derive strategic effects from RESOURCE-ECONOMY rather than a parallel upgrade formula.
+
+- New progression semantics, infrastructure classes, or controller/owner authority changes require accepted contract and version review. Generalized BUILD operations remain owned by CONSTRUCTION; an investment example does not add a v0.1 verb, tech tree, or automatic territory ownership.
+
+- Validate condition-boundary effects on production and communications, repair clamping, and restart persistence of ownership and condition. Compare resulting budget debits and ENTITY_UPDATE lineage with the governing action/cycle rules, including an asset whose control and ownership differ.

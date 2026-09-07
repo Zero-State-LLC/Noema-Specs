@@ -100,3 +100,11 @@ Phrase within **tested boundary**. Compiler removals do not imply universal inde
 - No PLAY coupling
 - Optional WATCH discovery card is not required for v0.7
 - Authority: [CAPABILITY-GRAPH.md](CAPABILITY-GRAPH.md)
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Presentation seam:** Extend behavior and agent/version views with evidence-backed examples of the existing node/edge taxonomy. Simple, researcher, advanced, and reproducibility views should retain the same relationship and evidence_refs rather than independently summarizing a stronger claim.
+- **Compatibility boundary:** CAPABILITY-GRAPH owns graph identity and edge semantics; a new relationship needs versioned authority there before LEARN wording advertises it. Keep this a researcher projection, not a PLAY objective or a required WATCH feature.
+- **Validation expectations:** Compare all disclosure levels for identical source evidence, check untested versus failed versus reproduced cases, and rebuild after source eligibility changes. Show dependencies and generalization only within tested boundaries; a compiler removal cannot establish universal independence.

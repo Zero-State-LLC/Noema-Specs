@@ -49,3 +49,10 @@ Agents paraphrase affordance `reason`. Name hold and cargo. Never “storage cap
 **WATCH**
 
 Silent on pack fullness, cargo tickers, and TRADE contents. Repair/harvest stay self-only. Public pulses stay culture/pressure, not inventory. GC8-S4 WATCH-silent cargo stands.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add accounting examples combining workshop discounts, WORN construction, cargo TRADE, and boundary hold states.
+- **Invariants, compatibility, promotion, and verification:** storage remains free capacity, not cargo count; work frees storage and transfers conserve cargo without currency or inventory WATCH. Any accounting change needs accepted version/migration authority; verify empty/full holds, insufficient materials, receiver capacity, and unchanged energy/compute costs without inverting historical live numbers.

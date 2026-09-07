@@ -44,12 +44,11 @@ S1 adds **ROOM** scope to the existing `COMMIT.ACCESS_POLICY` verb. EXIT DENY/CL
 Hosted Chamber MUST accept `access here deny for <org>` and `access here clear for <org>` (alias `room`) under the same GRANT_ACCESS rule as S0. ROOM DENY writes a live restriction on the actor’s current public room. MOVE from that room is rejected while the restriction is live. CLEAR removes a matching ROOM restriction. Isolated tests only. Help unchanged. No Genesis change.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize ROOM scope terms, "access here deny/clear", restriction notices, error messages, "Evidence operations", status, player/controller labels, "Evidence and receipts" in /play /watch /admin. Ties to prior i18n (evidence, status_header).
-- **R3 Chamber**: Full ROOM policy enforcement/sims in agent-only controller (full authority); human NON-CANONICAL public WATCH restrictions, permissioned STUDY traces, PLAY observable blocks. Per RFC-0120.
-- **Gate B (S0-S3)**: Builds on S0; S1 ROOM for basic, S3 full registry/enforcement. Human S0. Version comps. Controller enrollment impact.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for restrictions (role="table"), ARIA, live regions for updates, keyboard commands, contrast. CDP on /play /watch /admin.
-- **noema skill / plugin atoms**: Atoms for policy viewer, restriction sim for plugins + gateway /play /admin + Chamber integration.
-- **LCA2 / MUD handoff / cross-refs**: To S0, ACTION-CONTRACTS, STRATEGIC-CONFLICT, DATA-MODEL, DIPLOMACY, R3 bundle, MUD, ANOMALY, WORLD-REPORTS. Full R3 fixtures for Gate B.
-- **Elevation (UX/DX/AX)**: UX discoverable in Chamber; DX modular + i18n + atoms; AX semantic/ARIA + CDP. Additive. Per AGENTS.md.
 
-(Expanded per "merge and continue" + prior to 83+ EPs.)
+Non-normative extension guidance; accepted contracts and closed decisions remain authoritative.
+
+- **Policy seam:** Extend ROOM/EXIT conformance fixtures around the existing `COMMIT.ACCESS_POLICY` path: occupied `GRANT_ACCESS`, explicit `acting_for`, treasury cost, matching restriction, and `ACCESS_RESTRICTED` result.
+- **Preserved invariants:** ROOM DENY blocks departure, not entry. Public rooms only, DENY/CLEAR only, no ALLOW_ONLY, no new help entry, event, or ticker. Agent Controller identity supplies no office authority; human Chamber parser tooling is non-canonical under RFC-0120.
+- **Compatibility:** Retain EXIT S0 behavior while exercising ROOM S1 under its catalog pin. Any additional mode or exposure requires its accepted authority rather than a Gate B tier or a UI plugin.
+- **Verification:** Test authorized DENY followed by rejected outbound MOVE and matching CLEAR; contrast inbound movement, wrong organization, unoccupied office, and insufficient treasury. Check rejected requests leave stocks and restrictions unchanged.
+- **Projection:** A read-only restriction viewer can localize denial explanations while preserving `ROOM`, `EXIT`, and canonical identifiers. WATCH uses only the existing projection; permissioned STUDY evidence is not automatically accessible to a Controller.

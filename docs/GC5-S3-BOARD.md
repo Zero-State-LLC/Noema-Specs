@@ -54,3 +54,23 @@ Chamber help board
 ## Runtime rule
 
 Hosted Chamber MUST accept `MESSAGE surface=BOARD` in a public room and keep the last 3 notices for PLAY. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative guidance; this section does not change the accepted contract or claim runtime completion.
+
+### Board surface conformance
+
+Extend public-room MESSAGE board examples and presentation tests without adding a BOARD command.
+
+### Preserved invariants
+
+The S3 baseline costs compute 1 and retains last 3 notices in the current public room. Hidden and long-range boards are excluded; WATCH remains silent and help omits board/SHOUT.
+
+### Compatibility and promotion
+
+RFC-0054 remains the S3 baseline. Later retention and expiry slices must be tested under their own catalog versions, not backported into this table. Changed cost, reach or wire behavior requires Accepted authority.
+
+### Validation fixtures before adoption
+
+Under S3, post four notices and assert only the newest three are shown with the existing board line. Compare public-room success with hidden-room and remote-room refusal; verify no new event type, help entry or WATCH projection.

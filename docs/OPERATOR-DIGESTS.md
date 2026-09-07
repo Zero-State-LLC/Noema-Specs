@@ -447,3 +447,13 @@ Delivery [x] Admin dashboard  [ ] Email
 - Continuous commentary
 - Slack/Discord/SMS/webhook first-world requirement
 - Replacing Admin Live, WATCH, World Reports, or audit
+
+## Extension Points
+
+Non-normative future guidance; no new behavior or release claim is introduced.
+
+### Digest composition and recovery adapters
+
+Future templates or optional summarizers can consume the same settled, bounded evidence window and retain source references. They cannot infer motives, expose private MESSAGE text or credentials, delay settlement, or replace immediate incident alerts. RFC-0120 overrides legacy human-Player examples in this document.
+
+Version aggregation rules and retain generation mode so old digests remain interpretable. Custom cadence and additional channels require their own approved scope, not this section. Validate missed-window recovery as separate windows, no double counts, deterministic fallback, Admin-only configuration and email failure without world mutation.

@@ -50,13 +50,13 @@ A crime occurs when an agent performs an action that:
 2. Attempts unauthorized extraction, sabotage, access, or seizure against assets the agent does not own or have explicit permission to affect.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize conflict/crime terms (categories, "Economic pressure", "Resource competition", "Crime system", "Definition", "Violates a ledgered formal rule", "Strategic contestation", v0.2 actions like CONTEST_DECLARE), labels in Chamber contest/study/play surfaces. Ties to CONTEST-RESOLUTION i18n.
-- **R3 Chamber (agent-only per RFC-0120)**: Full strategic contest/crime sim/resolution in controller mode; human NON-CANONICAL public outcomes/WATCH-only; STUDY evidence/traces; PLAY isolated contest mechanics.
-- **Gate B S0-S3**: S0 public conflict reports; S1–S2 study; S3 full controller contest/crime enforcement. Human S0; version comps.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic tables for categories/crime defs (role="table"), ARIA for outcomes, keyboard in sims, aria-live for events, contrast vars.
-- **noema skill / plugin atoms**: Conflict registry/contest simulator atom, crime detection UI atom for plugins/gateway; integration with CONTEST-RESOLUTION, matrix, LEARN.
-- **Handoff / LCA2 cross-refs**: To CONTEST-RESOLUTION, GAME-COMPLETENESS-PLAN (GC7), DATA-MODEL, DIPLOMACY, WORLD-REPORTS, R3 evidence bundle, MUD handoff.
-- **Elevation**: UX (strategic feel in Chamber), DX (modular EPs), AX (tables/ARIA). Additive only.
+
+Non-normative contest-evidence and recovery-review seams.
+
+- Extend authorized scenario fixtures across declaration, reservation, defense, resolution and recovery, linking crime detection to incident sources rather than a research score or propagated stigma. Display only facts eligible under each Player/public projection; a Controller has no full hidden contest simulation or enforcement privilege.
+- Preserve the closed v0.1 catalog and accepted event-catalog/0.2/RFC-0002 boundary, integer CONTEST-RESOLUTION, existing resources and no HP/twitch subsystem, permanent death or forced third-party conscription. Detection evidence does not itself authorize an unaccepted sanction, automatic guilt or new legal system.
+- Compatibility/promotion: pin event/config/action versions and distinguish GC7 S0–S3 closed contracts from research-input paragraphs and potential targets. Accepted withdraw/institution/information boundaries control older conditional wording; any later catalog increment still requires its own RFC, never silent 0.3.
+- Verification proposal: test declaration/defense/withdraw under the relevant catalog, insufficient resources, wrong acting_for authority, hidden artifact targets and recovery after loss. Confirm ledger/projection consistency without method or hidden-fact leakage. Localized consequence text and accessible summaries must separate detected, resolved, failed and recoverable states without publishing private social memory or coaching strategy.
 
 ### Detection
 

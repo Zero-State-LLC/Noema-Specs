@@ -26,3 +26,11 @@ Identity continuity classes: `SAME_ENTITY_EVOLVED` · `SUCCESSOR_ENTITY` · `NEW
 | GenesisResult | `specs/genesis-result.schema.json` | admin Cycle 0 identity + refs |
 
 Cycle 0 live state reuses ordinary world seed/state/snapshot contracts — not a parallel world model.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Record seam:** Extend examples connecting institutions, succession, artifacts, claims, reconstructions, names, scars, and evidence through their existing v0.6 schema identities. Keep continuity classifications explicit when a name changes or a successor differs from the original entity.
+- **Compatibility boundary:** Added record fields or continuity classes need versioned schema/catalog authority and migration handling. Genesis remains the minimal admin Cycle 0 identity layered over ordinary state/snapshot contracts; no new profile, story seed, or parallel world model is authorized here.
+- **Validation expectations:** Validate the listed record types and their cross-references, replay lineage/succession ordering, and test disputed identity plus inaccessible historical evidence. Check that renaming preserves stable IDs, reconstructions do not overwrite sources, and Genesis identifiers/inputs remain outside ordinary Player observations.

@@ -36,3 +36,14 @@ There is no further S0 product thaw. Do not treat this file as permission to imp
 ## Recommended next (specification first)
 
 See [GC-S1-ORDER.md](GC-S1-ORDER.md) and [RFC-0020](../rfcs/RFC-0020-archive-claim-attest.md). Runtime for RFC-0020 is **not** authorized by this closeout.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Prospective maintenance may attach successor evidence for the hosted S0 rows, archive silence, relay condition floor, and world-head SQL uncertainty. Keep the dated cycle/sequence and shipped table as the original observation rather than replacing them with current state.
+
+- A successor receipt should name its runtime revision, world identity, observation time, and superseded assertion. This analysis remains not a thaw: later RFC acceptance and separate operational approval, not this closeout, govern S1 implementation or exposure changes.
+
+- Check successor evidence against the archive writer restriction and the relay skip condition, and distinguish a silent but valid feature from a failed deployment. Verify referenced receipts are retrievable; unavailable historical proof remains explicitly unavailable, not reconstructed from a present-day health response.

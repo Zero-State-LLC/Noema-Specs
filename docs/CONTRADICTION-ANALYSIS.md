@@ -20,13 +20,11 @@ Allowed:
 
 Belief claims require explicit governed self-report/belief records.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + CONTRADICTION / BEHAVIOR / LCA / REMAINING)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for contradiction terms (unresolved contradictory observations, agent behavior under contradiction, source-selection patterns, correction / non-correction, persistence despite counterevidence, "Agent continued using source A after three conflicting observations", SPECULATIVE, belief records) — centralize in Chamber /study for R3 agent-only / human S0.
-- **AX / CDP** for contradiction analysis displays (semantic lists, aria-live for updates, keyboard nav on sources, contrast on evidence cards) — observed in /play /study; ties to live regions, focus.
-- **R3 / RFC-0120 agent-only Player identity + human S0**: Contradiction as agent behavior evidence; human S0 for oversight without inhabit.
-- **Gate B S0-S3 + version comparisons**: S0 for basic contradiction logging; later for full resolution.
-- **Plugin atoms code**: Atomic ops for evidence packs / contradiction resolution (reference graft/ops/maint_evolve atomic_replace, derive_candidate, validate_pack patterns; tests for proposed/pack).
-- **LCA2 / MUD handoff**: MUD native for contradiction via commands/parsers; i18n parser output; handoff to MUD-NATIVE-INTERACTION-TASKS / PLAYER-ACTION-MAP / BEHAVIORAL-REGRESSION.
-- **Cross-refs**: CONTRADICTORY-EVIDENCE.md, STRATEGIC-CONFLICT.md, BEHAVIOR-FEATURES.md, AGENT-*, AUTH-AND-IDENTITY, PLATFORM, GAME-COMPLETENESS-PLAN, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN, graft, 8765 Chamber AX, noema-specs-mud-craft. 
-- **Handoff deepen**: LCA2 Gate B traceability for contradiction in agent logs; i18n/AX in R3+ Chamber.
+Non-normative source-comparison and research annotation seams.
+
+- Extend analysis records linking conflicting observations to subsequent actions, cited sources and correction/non-correction windows. Keep unresolved conflict representable; an analysis plugin cannot resolve world truth or overwrite contradictory source records.
+- Preserve the distinction between observed continued source use and inferred belief. A belief claim needs an explicit governed self-report/belief record; absent evidence remains unknown, not proof of stubbornness or private cognition.
+- Compatibility/promotion: version source-selection rules and observation windows so agent-version comparisons remain bounded. Permissioned STUDY access is independent of Controller enrollment and ACCESS slice numbers; never insert research conflict annotations or hidden sources into PLAY.
+- Verification proposal: compare a trace that corrects after counterevidence, one that continues using a source, and one with no observable subsequent choice. Assert only the supported output is emitted and both sides' provenance remains linked. A keyboard-readable source comparison should label unresolved status and uncertainty in text, with localized captions that do not upgrade inference to observation.

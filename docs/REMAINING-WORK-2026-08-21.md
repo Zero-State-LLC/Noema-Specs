@@ -113,3 +113,15 @@ parser as product
 **Runtime:** HARVEST of `stock_resource: materials` must fill materials hold (consequence must not say energy). Then re-prove CONSTRUCT. Prabu's agent still needs ENTER. No reseed.
 
 No reseed. No Admin-as-Player. No Play chrome on the human door.
+
+## Extension Points
+
+Non-normative future guidance; this section does not change the contracts or dated outcomes above.
+
+**Seam.** Later maintenance can add clearly dated follow-up references to partner enrollment, materials harvesting, and construction evidence while retaining this superseded snapshot.
+
+**Preserved invariants.** Keep the recorded reach-2 outcome, failed materials path, and historical deployment/client versions intact; never infer current readiness from this report or reseed the frozen world.
+
+**Compatibility and promotion.** Current status belongs in the named successor remaining-work and authorized runtime evidence pointers. A later checkout or repaired runtime does not retroactively turn this dated failure into PASS.
+
+**Validation expectations.** A follow-up should identify source/build/world/Genesis, observation time, Controller enrollment and actual harvest-to-hold-to-CONSTRUCT receipts, separating observed repair from untested claims and checking successor links.

@@ -135,13 +135,18 @@ oracle / narrator
 
 Player-compiled reconstruction is **GC6-S1**. WATCH contradiction pulse remains later.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + more GC/LCA/REMAINING)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for GC6 archive vs live terms in Chamber: "archive_claim", "live_inspect", "contradiction", "resolution_status", "investigated", "archive-record source", "live inspect member". Extensible to /play /study /watch projections and evidence panels. Ties to ui.py centralization.
-- **AX audits (browser_exec / CDP on 8765 + default Chromium)**: semantic roles for evidence lists, live regions for contradiction pulse (aria-live), keyboard navigation for archive/inspect flows, contrast on conflict lines. No tutorial wall; focus order for first discovery. Full re-audit per slice.
-- **R3 Chamber / RFC-0120 agent-only Player identity + human S0**: archive/inspect available to both human and agent; withhold for agents (no thesis); human first-entry via PLAY without quest. Version comparisons, Gate B S0-S3 + human S0.
-- **Plugin atoms / DX**: atoms for archive evidence viewer, contradiction display; per graft/ops patterns and noema skills (e.g. noema-specs-mud-craft, hermes-desktop-plugins). Modular, extensible.
-- **LCA2 / MUD handoff + Gate B**: GC6 evidence to LCA trace (A3/A4 etc.); MUD parser for natural "inspect artifact" commands leading to archive. Cross to PLAYER-ACTION-MAP, MUD-NATIVE-INTERACTION-TASKS, AGENT-ORIENTATION-S*, AUTH-AND-IDENTITY.
-- **Graft savings + research capture**: high token savings on GC* queries; evidence matrices for archive vs live in study.
-- **Handoff / remaining work**: to GC1-FIRST-SLICE, GC-CONTINUATION-MAIN, GC5-*, INSTITUTIONAL-*, ATTENTION-PROJECTION, PLAYER-ONBOARDING, LLM-AGENT-INTEGRATION, REMAINING-WORK, BEHAVIORAL-*, HOSTED-*, OPERATOR-*, full CDP, more i18n polish, atoms code.
-- **Cross-refs**: GAME-COMPLETENESS-PLAN, STRATEGIC-CONFLICT, ACTION-CONTRACTS, PLATFORM, WORLD-REPORTS, ANOMALY-DETECTION, ACCESS-POLICY-*, CORE-GAME-LOOP, AGENT-*, PLAYER-*, COMPLEXITY-DOCTRINE, CONTEST-RESOLUTION, DATA-MODEL, DIPLOMACY, AUTH-AND-IDENTITY, 8765 health, elevation plan.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend contradiction evidence around explicit archive_subject_entity_id/archive_claim fields and a permitted live INSPECT of the same entity. Keep a trace from each accessible member to the derived conflict line; labels, scars, and flavor prose are not archive writers.
+
+### Compatibility and promotion
+
+RFC-0010/RFC-0015 and the accepted ATTEST writer govern the seam. Only Agent Players inhabit; historical human-player examples grant no admission. Missing explicit archive fields keep the projection silent. No quest prompt, WATCH pulse, hidden-truth answer, or automatic understood status is added.
+
+### Verification before adoption
+
+Test conflicting and agreeing pairs, one member, mismatched subjects, missing fields, and an unauthorized third Player. Assert known_truth_relationship and research_visible_relationship never leak to PLAY/WATCH and projection writes no events. An isolated fixture does not establish that Perihelion currently contains an eligible archive record.

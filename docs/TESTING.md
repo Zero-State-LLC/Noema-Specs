@@ -53,3 +53,9 @@ Machine-readable cases under [`conformance/v0.2/`](../conformance/v0.2/) (F01–
 ## v0.3 Observatory suite
 
 Machine-readable cases under [`conformance/v0.3/`](../conformance/v0.3/) (O01–O16). v0.1 and v0.2 suites MUST remain green. See [releases/v0.3/ACCEPTANCE.md](releases/v0.3/ACCEPTANCE.md).
+
+## Extension Points
+
+Non-normative future guidance; the existing authorities and frozen behavior remain unchanged.
+
+Additional test adapters and regression fixtures can extend the listed classes and C/F/O families while retaining the normative runner and explicit claim subset. Preserve C04 for World Engine claims, C15 for persistence claims and older-suite compatibility; schema parsing is not evidence of runtime execution. New acceptance semantics need their owning versioned contract rather than a runner-only requirement. Validate positive and negative fixtures, declared skipped cases and exact replay divergence diagnostics; record runtime revision and executed families separately from the Specs merge-gate result.

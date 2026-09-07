@@ -231,18 +231,9 @@ Campaign sequencing remains [GAME-COMPLETENESS-PLAN.md](GAME-COMPLETENESS-PLAN.m
 
 ## Extension Points
 
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize labels for "Complexity Doctrine", "Seven primitives", primitive names (DENSITY, FRICTION, DEFERRED, RECURSIVE, EMERGENT, NONLINEAR, CONTEXT-DEPENDENT), table headers (Primitive, Description, Example), "Friction and density", "Ladder of deferral", "Campaign sequencing", pressures, "How this relates", "filters", "does not delete GC1–GC10". Use t() in any Chamber UI rendering of doctrine or primitives (e.g. in admin or study views).
+Non-normative design-review seams, not authorization for additional mechanics.
 
-- **R3 Chamber surfaces (agent-only per RFC-0120)**: Full doctrine access and primitive registry in controller mode for planning/strategy. Human: NON-CANONICAL WATCH-only limited public projection of doctrine summaries; STUDY for permissioned emergence evidence and primitive application traces; PLAY isolation for simulated complexity effects without affecting canonical state.
-
-- **Gate B controller policies (S0–S3)**: S3 for full doctrine rebuild/edit and primitive config; S2 for evidence-backed views; S1 for basic projection; S0 for human (public summaries only). Human orientation: S0 only. Version comparisons for doctrine schema changes. Controller enrollment required for higher S levels.
-
-- **AX (semantic + ARIA + keyboard + live + contrast)**: Semantic `<table role="table" aria-label="Complexity Doctrine primitives">` + `<tr role="row">` for primitive list. Keyboard navigation for ladder/pressure lists. `aria-live` for updates to density/friction metrics. Contrast via theme vars. Reduced motion support. Screen-reader friendly descriptions.
-
-- **noema skill / plugin atoms**: Modular atoms in noema skill for doctrine viewer (list primitives, filter by pressure, simulate ladder), primitive registry UI in gateway/desktop plugins, promotion simulator for R3. Integrate with LEARN for emergent behavior capture. Follow hermes-desktop-plugins patterns.
-
-- **LCA2 MUD handoff + cross-refs**: Include in R3 evidence bundle and Chamber fixtures. Cross-refs to GAME-SYSTEM-MAP.md, CIVILIZATION-CAPABILITY-MATRIX.md, COMMUNICATION-ECOLOGY.md, ANOMALY docs, BEHAVIORAL-* for complexity in MUD play. Seal per LCA-2 Gate B for controller independence.
-
-- **Elevation (UX/DX/AX)**: UX: discoverable primitive evidence in R3 Chamber. DX: modular EPs, clean i18n, graft savings, atoms. AX: semantic tables, ARIA, keyboard-first, live regions. Additive, backward-compatible. 
-
-(Part of 'merge and continue' + EP expansion + R3/Gate B/i18n/AX/handoff.)
+- Extend A–J review records with a concrete transition, primitive reuse explanation, pressure grounding, two cross-system consequences and a deletion counterfactual. Preserve the seven named primitives; a registry or visualization cannot introduce new ones by relabeling metrics as primitives.
+- Keep practice recognition distinct from institution formalization and culture distinct from ledger truth. Interpret historical human/agent parity as equivalent semantics across valid agent Controllers under RFC-0120, not a human Player class. Research still observes meaningful play rather than directing it.
+- Compatibility/promotion: failed reuse/removal tests remain REJECT/DEFER. Changes to the design gate require governing review, not Controller enrollment, plugin configuration or an ACCESS slice tier. Future-money deferrals remain hard exclusions with no new wallets, schemas, dependencies or payment routes.
+- Verification proposal: contrast a composition of existing resources/assets/agreements with an unnecessary standalone subsystem; document why each passes or fails the gate. Test that removing research instrumentation leaves meaningful decisions and no new verbs. A readable review table should retain failed criteria and uncertainty rather than displaying a fabricated aggregate completeness score.

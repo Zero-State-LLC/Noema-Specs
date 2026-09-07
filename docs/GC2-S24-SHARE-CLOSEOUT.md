@@ -48,6 +48,15 @@ Chamber help BUILD
 
 ---
 
+## Extension Points
+
+Non-normative closed-family regression and capacity-presentation seams.
+
+- Extend SHARE validation around the fifth co-owner and refusal of a sixth, using existing owner-names authority. Co-owners cannot issue SHARE merely because they hold a stamp; capacity display cannot create a permission.
+- Preserve the closed five-co-owner family: no co_owner_6_id, variable roster, N-of-M arrangement, institution-as-Player, new event family or BUILD help. This EP offers tests and presentation, not another stamp slice.
+- Compatibility/promotion: compare construction-catalog/gc2-s24/RFC-0089 with S23 payloads; retain existing ENTITY_UPDATE and BUDGET_CONSUMED paths. Later accepted authority, not an extension UI, would be required to change this closed contract.
+- Verification proposal: exercise eligible fifth admission, full-cap refusal, unauthorized co-owner submission and replay of the capped entity. Confirm rejected sixth input never creates a field/roster, WATCH remains silent and help remains unchanged. A readable “five co-owners” capacity label must not imply an expandable control.
+
 ## Runtime rule
 
 Hosted Chamber MUST keep `SHARE` at five co-owners, reject a sixth SHARE, and MUST NOT add `co_owner_6_id` or a roster. Isolated tests only. Help unchanged. No Genesis change.

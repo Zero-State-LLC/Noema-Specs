@@ -915,20 +915,20 @@ The next implementation work belongs in `Zero-State-LLC/Noema`, not in another S
 
 ## Extension Points
 
-- **Post-Gate B verb or composition extensions** (e.g., complex multi-party trades, org diplomacy, new resource interactions) — only after conformance evidence and contract updates. No new canonical verbs without RFC.
-- **Enhanced GUI/command adapters** for new observation fields or dynamic affordance graphs (human/GUI remains non-canonical dev tooling per R3). Ties to ui.py i18n and Chamber.
-- **Additional adapter planes or Controller types** (e.g., full MCP, new protocol versions) while preserving convergence on canonical actions. Handoff to AGENT-GATEWAY.md, AGENT-INTERFACE.md.
-- **Localization / i18n**: Centralize player-facing action language (hints, labels, notices, affordance presentations, error strings) in dev UIs like Chamber (ui.py t()/STRINGS). Operator vs. player registers per TERMINOLOGY.md. Agent protocol machine-only. Ties to AGENT-ORIENTATION-S*.md and prior sweeps (hundreds of t() refs).
-- **Integration with external tooling**: Hermes desktop plugins for action issuance/monitoring (hermes-desktop-plugins), Abraxas symbolic proposal layers (evidence-bound only), or economy SAR hooks. Graft for context.
-- **New conformance tests or harness policies** in AGENT-HARNESS.md for independent external agents (critical for LCA-2 Gate B). Cross-ref AGENT-ONBOARDING.md, OFFICIAL-AGENT-CLIENT.md.
-- **Dynamic cost/precondition evolution** tied to world state (e.g., pressure, regen) without changing core reducer semantics. See BEHAVIOR-FEATURES.md, STRATEGIC-CONFLICT.md.
-- **Research-only affordances or hidden actions** (strictly redacted from WATCH/player views). Ties to ANOMALY-DETECTION.md, ACCESS-POLICY-*.md.
-- **R3 / RFC-0120 agent-only player identity**: Affordances and action maps must be derivable from canonical state for agent-only surfaces (no dev Chamber dependency post-R3). Handoff to AGENT-ONLY-PLAYER-IDENTITY.md, AGENT-ONLY-PLAYER-IDENTITY-PACKETS.md, AGENT-PLAY.md.
-- **Gate B (LCA-2)**: Action taxonomy + affordance graph is foundational evidence for external Agent Players. Must support independent Controllers via harness. Evidence includes transcripts, WATCH, replay. Cross LCA-GATE-B-*.md.
-- **AX (accessibility)**: Affordance presentations (buttons, suggestions, help) must be keyboard-navigable, ARIA-labeled, contrast-compliant, live-region updated in Chamber ui.py. CDP audits (tree, contrast, keyboard, live) on 8765. Reduced motion. Ties to omh-accessibility-audit.
-- **Plugin atoms / DX**: Modular atoms for action map UI, affordance graph viz, command help. Follow uncle-bob / clean patterns + hermes-desktop-plugins. Easy to extend/test.
-- **MUD / LCA2 / R3+ handoff**: Action map feeds MUD parser/aliases (MUD-NATIVE-INTERACTION-PLAN.md) and LCA civilization (LCA-GATE-C-SCENARIO.md, LIVING-CIVILIZATION-ALPHA.md). Update handoff matrix in ELEVATION-PLAN.md.
-- **Graft / efficiency**: Use graft ask "PLAYER-ACTION-MAP affordance i18n AX" (savings ~97%). Maintains AGENTS.md discipline.
-- **Handoff matrix / validation**: Update related docs (AGENT-*, LCA-*, CORE-GAME-LOOP.md, BEHAVIOR-*) when extending. All extensions resolve to action contracts first.
+Non-normative extension guidance; runtime, i18n, accessibility and gate verification remain separate.
 
-All extensions must resolve to existing (or explicitly RFC'd) action contracts. Update this section and the canonical contracts first. Game-first; no silent invention of transitions. Additive only.
+### Canonical crosswalk conformance
+
+Extend adapter examples and deployment-supported affordance checks for existing canonical operations.
+
+### Preserved invariants
+
+Preserve verb/operation names, server-owned action_priority, costs, client_action_sequence and idempotency semantics. Structured agents bypass human grammar. Unsupported actions, hidden targets and research metadata cannot be advertised.
+
+### Compatibility and promotion
+
+Action Contracts and pinned event catalogs remain semantic authority; a mismatch is a SPEC GAP, not permission to invent a transition. New verbs, costs or hidden/research affordances are not authorized here or by Gate B completion. R3 agents-only PLAY and separately authorized human platform roles override historical parity language.
+
+### Validation fixtures before adoption
+
+Map a visible REPAIR label to its existing COMMIT operation and compare with the structured form. Supply an ambiguous target and require no guessed mutation. Replay a duplicate mutating envelope and require one effect; reject a v0.2-only action under the v0.1 catalog. WATCH must omit inspect details and private trade terms.

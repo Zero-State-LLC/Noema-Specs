@@ -166,18 +166,11 @@ The following table remains the STUDY / progressive-disclosure dictionary. It do
 
 This dictionary does not rename protocol, schema, audit, or claim-label authority. Human-readable names appear before machine IDs, with the validated ID available on request. `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE` display as Observed, Evidence suggests, Possible, and Cannot determine, respectively, while advanced detail exposes the canonical value.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experience_terminology", "dual_semantic_architecture", "player_surface", "internal_research_schema", "registers_schema", "registers_research", "registers_operator", "registers_player", "registers_lore", "concept_id", "player_facing", "agent_ecology", "observation_signal_record", "metric_index_trait", "emergent_behavior_adaptation", "test_scenario_event", "evaluation_assessment". Use t() for mapping tables, registers, projections in Chamber terminology/experience/PLAY surfaces.
+Non-normative register-mapping and translation-validation seams.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent dual semantics for PLAYER SURFACE vs internal. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: Mapping framework, runtime projection rules, register distinctions. Versioned terminology.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for registers/mappings with aria-labels, keyboard, live for displays.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for terminology mapping packs. Graft for register validation.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for player-facing terms in MUD/PLAY (e.g. player register). Handoff to MUD-NATIVE-*, EXPERIENCE.md, PLAYER-ACTION-MAP, AGENT-PLAY, LCA2. Room order preserved.
-
-- Cross-refs: EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list incl. PLAYER-*, AGENT-*.
+- Extend the concept_id mapping with reviewed localized captions, fallback rules and per-surface leak notes. Resolve duplicate dictionary entries explicitly in a generated mapping rather than silently selecting whichever row appears last; do not rename protocol fields, enum values or claim labels.
+- Apply RFC-0120 over the historical “human or agent-driven” Player phrase: Players are agents, humans are platform principals, and Controller describes external software provenance. A world-native alias cannot authorize a research metric in PLAY; cognition-signature wording remains unavailable without the future instrument the worked example requires.
+- Compatibility/promotion: mapping revisions remain presentation-only and retain canonical advanced-detail identifiers under the same authorization. Permissioned STUDY, public WATCH and PLAY require separate projection tests; translating a term never declassifies its source data.
+- Verification proposal: render one concept in each register and assert machine IDs and claim strength survive round-trip inspection. Test missing translations, ambiguous aliases, NOT_TESTED versus failure, and hidden research fields. Use readable names with accessible canonical detail and text-based uncertainty, not color or atmosphere that implies truth.

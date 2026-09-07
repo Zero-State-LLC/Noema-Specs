@@ -4,18 +4,11 @@ A fork records `source_world_id`, `source_world_version`, `source_snapshot_id`, 
 
 Legal replayable points are `CYCLE_BOUNDARY`, `BEFORE_OBSERVATION`, `AFTER_OBSERVATION`, `BEFORE_ACTION`, `AFTER_ACTION`, `BEFORE_SITUATION_INJECTION`, and `AFTER_SITUATION_INJECTION`. Mid-reducer, uncheckpointed, or unreplayable forks are forbidden. Recreating the same source identity, boundary, experimental identity, and namespace must reproduce `fork_digest`.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experimental_world_fork", "source_world_id", "source_world_version", "source_snapshot_id", "source_ledger_head", "fork_cycle", "fork_event_boundary", "experimental_world_id", "fork_digest", "mutates_production", "cycle_boundary", "before_observation", "after_observation", "before_action", "after_action", "before_situation_injection", "after_situation_injection". Use t() for fork tables, replay points in Chamber experiment/fork surfaces.
+Non-normative extension guidance; the authorities above remain controlling.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent fork records for experimental worlds. Human S0 separate.
-
-- **Gate B S0-S3 + version comparisons**: Fork rules, replay points, deterministic fork_digest, mutates_production=false. Versioned forks.
-
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for forks/replay points with aria-labels, keyboard, live for rules.
-
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for fork packs. Graft for digest validation.
-
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for fork events in MUD/PLAY experiments. Handoff to MUD-NATIVE-*, EXPERIMENT-DESIGN.md, PLAYER-*, AGENT-PLAY, LCA2.
-
-- Cross-refs: EXPERIMENT-DESIGN.md, EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+- **Fork lineage and boundary validation:** An isolated-fork inspector can expose source snapshot/head, exact event boundary, experimental identity, storage namespace and fork_digest to authorized researchers. A readable boundary timeline should preserve the machine boundary enum.
+- **Preserved invariants:** Keep source history byte-for-byte through the fork boundary and experimental writes in their own ledger/namespace; mutates_production stays false. Mid-reducer or uncheckpointed creation cannot become a convenience fork option.
+- **Compatibility and promotion:** Additional adapters must reproduce the same digest for the same source and experimental identities and replayable boundary. A new boundary type requires accepted contract changes; this EP neither executes a fork nor introduces fork controls in PLAY.
+- **Verification targets:** For each legal boundary, replay and recreate the pinned identity to compare fork_digest. Reject mid-reducer/unreplayable inputs and attempted source-ledger append; check source head and namespace isolation before and after experimental events.

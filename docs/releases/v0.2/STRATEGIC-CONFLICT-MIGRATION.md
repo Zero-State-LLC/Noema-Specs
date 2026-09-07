@@ -32,3 +32,11 @@ See [runtime-manifest.schema.json](../../../specs/runtime-manifest.schema.json) 
 ## Feature gate
 
 Contestation is opt-in. Chamber v0.1 acceptance remains on `event-catalog/0.1` only.
+
+## Extension Points
+
+Non-normative future guidance; this section grants no new behavioral authority and does not reopen accepted or deferred slices.
+
+- **Seam:** Migration documentation can add preflight and rollback-boundary examples for mixed 0.1/0.2 histories.
+- **Unchanged invariants:** Historical events and snapshot catalog pins remain immutable; seven new event types require explicit 0.2 migration, and contestation stays opt-in.
+- **Compatibility, promotion, and verification:** New version domains require accepted contract changes, not silent manifest defaults. Verify downgrade refusal after a 0.2-only event and replay from a valid earlier boundary with original rules pins.

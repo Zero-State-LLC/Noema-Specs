@@ -4,18 +4,18 @@ Experiment identity is immutable and content-addressed. `input_digest` is SHA-25
 
 Changing any claim-bearing input, variable definition, intervention semantic, comparison or analysis rule creates a new experiment identity. A correction appends a successor linked by `supersedes_experiment_id`; it never rewrites prior identity. Run IDs are deterministic derivatives of experiment identity, plan-node ID, replicate ordinal, and seed identity.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + MUD/PLAY craft per noema-specs-mud-craft)
+## Extension Points
 
-- **i18n centralization (STRINGS + t() in ui.py/8765 Chamber)**: Keys for "experiment_identity", "input_digest", "sha_256", "experiment_version", "supersedes_experiment_id", "run_id", "deterministic_derivative". Use t() for identity tables, digests, run IDs in Chamber experiment surfaces.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
 
-- **R3 Chamber (RFC-0120 agent-only Player identity + human S0 withhold)**: Agent immutable experiment identities. Human S0 separate.
+### Document-specific seam
 
-- **Gate B S0-S3 + version comparisons**: Content-addressed, input_digest SHA-256, supersedes, deterministic run IDs. Versioned identities.
+Extend provenance comparison with an immutable successor view showing the changed claim-bearing inputs, source snapshot and ledger head, and supersedes_experiment_id. Explain identity changes separately from cosmetic display changes or repeated execution of the same plan.
 
-- **AX (semantic/ARIA/keyboard/contrast/live regions per omh patterns + CDP)**: Tables for identities/digests with aria-labels, keyboard, live for rules.
+### Compatibility and promotion
 
-- **Plugin atoms / graft / ops / maint-evolve (noema-specs-mud-craft)**: Atoms for identity packs. Graft for digest validation.
+Preserve canonical JSON SHA-256 identity, digest-field exclusion, deterministic run derivation, and historical receipts. Research identity does not authorize an Agent Player to run Lab workflows, and translations must not modify serialized IDs. New identity semantics require the owning schema/contract version review.
 
-- **MUD native interaction / PLAY craft / LCA2 handoff (per noema-specs-mud-craft + MUD-PLAY-CRAFT)**: Native i18n for experiment identities in MUD/PLAY. Handoff to MUD-NATIVE-*, EXPERIMENT-DESIGN.md, PLAYER-*, AGENT-PLAY, LCA2.
+### Verification before adoption
 
-- Cross-refs: EXPERIMENT-DESIGN.md, EXPERIENCE.md, MUD-PLAY-CRAFT.md, noema-specs-mud-craft, ui.py, elevation plan, graft, 8765, R3/Gate B, prior EPs, full list.
+Test repeated canonical input, changed intervention/control digest, changed consent or boundary, and changed replicate ordinal/seed identity. Confirm corrections append successors rather than rewrite predecessors. Validate that source-head mismatches are surfaced and that display ordering or localized labels do not silently change claim-bearing payloads.

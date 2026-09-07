@@ -30,3 +30,14 @@
 28. Counterexamples remain queryable after a later passing run; a pass never deletes recorded failure evidence.
 29. Research partition access never exposes private cognition, prompts, or provider completions; unauthorized research detail is refused.
 30. Compiler receipts and captured-test identities reuse RFC-0003 canonicalization and content hashing; no second provenance scheme is introduced.
+
+
+## Extension Points
+
+Non-normative guidance for future maintenance; this section changes no current behavior or promotion status.
+
+- Acceptance evidence can add a requirement-to-fixture map for admission, minimization, retained counterexamples, and simple/advanced view parity. Preserve numbered acceptance identities so existing conformance references retain their meaning.
+
+- Changes to target protection, oracle handling, or ONE_MINIMAL semantics need the governing Compiler contract/version review, not a relaxed acceptance wording. Captured identities continue to use RFC-0003 lineage, and scenario-exact regression remains neither global ranking nor behavior-family proof.
+
+- Validate budget-exhausted and invalid-oracle runs cannot claim minimality or authorize removal, required-control/provenance failures block promotion, and later passes retain counterexamples. Check both STUDY views use the same captured record and claim labels while unauthorized research detail remains refused.

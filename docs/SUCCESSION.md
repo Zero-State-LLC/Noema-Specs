@@ -57,3 +57,11 @@ Hosted `RULE_BASED` succession is specified in [GC4-S6-RULE.md](GC4-S6-RULE.md) 
 ## Playable INHERITED_BY_ORGANIZATION (GC4-S7)
 
 Hosted inherit-by-org is specified in [GC4-S7-INHERITED.md](GC4-S7-INHERITED.md) · [RFC-0070](../rfcs/RFC-0070-inherited-org.md). An officer publishes that the org keeps the seat. Vacate does not auto-seat and does not retire the office.
+
+## Extension Points
+
+Non-normative guidance for future maintenance; no new behavior is authorized here.
+
+- **Transfer seam:** Extend examples combining the closed succession mechanisms with office vacancy, institution continuity, and artifact stewardship. Keep source evidence and stable role/entity identity distinct from the successor's Player identity.
+- **Compatibility boundary:** succession-record/0.6 and the accepted GC4-S4–S7 slices own their mechanisms. New rule languages, triggers, or ROLE_* events require explicit RFC/catalog promotion; disconnect, controller replacement, and idleness do not become implicit succession triggers. Do not reopen the already specified playable mechanisms.
+- **Validation expectations:** Replay same-cycle records in stable succession_id order; test exhausted designated lists, remaining emergency validity, consensus vacancy, stored membership order, and organization-retained vacancy. Check institution survival where declared and reject attempts to transfer Player identity or grant authority beyond the office's scope.

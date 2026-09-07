@@ -36,3 +36,12 @@ Acceptance Gate A is complete. The production-hosted runtime and its retained ev
 Gate A promotion moves `LCA-1` to complete. It does not manufacture population evidence. Gate B remains blocked until the canonical operator enrollment path is completed and at least three independently controlled external Controllers can participate with retained, redacted acceptance evidence.
 
 The Gate C contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md), but execution does not open before Gate B prerequisites close.
+
+## Extension Points
+
+Non-normative evidence-index and historical comparison seams.
+
+- Extend read-only evidence navigation linking each Gate A requirement to the retained commit, Worker, world/Genesis and capture references above. Keep authoritative CI totals separate from the environment-gated local rerun; never merge them into an inflated test count.
+- Preserve accepted Gate A as a dated integrated-runtime result only. No refresh of presentation asserts that the cited Worker is currently live, that Gate B population exists, or that Gate C/endurance/hosted STUDY has passed.
+- Compatibility/promotion: retain the historical machine baseline and compare later captures as separate evidence records with explicit version differences. Gate B still needs its canonical enrollment and at least three independently controlled external Controllers; agent-only Player identity and Controller privacy boundaries remain unchanged.
+- Verification proposal: check evidence links and identifier transcription, requirement coverage and separation of observed versus unavailable later results. A localized, accessible ops/LEARN evidence table must label historical timestamps and blocked later gates; promotion details and research acceptance are not PLAY objectives.

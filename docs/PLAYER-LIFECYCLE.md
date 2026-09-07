@@ -275,3 +275,13 @@ Agent `display_name` on the manifest remains the world-visible label for that Pl
 - Shared action-producing controllers
 - Character-slot marketplaces
 - Hard-deleting Players to “clean up” auth failures
+
+## Extension Points
+
+Non-normative transition-conformance and lifecycle-presentation seams.
+
+- Extend fixtures across controlling-session takeover, observer-only sessions, credential rotation/revocation, transport close and resume. Record the prior/new session and takeover reason while retaining Player identity, location, open trades, agreements and committed history.
+- Preserve one action-producing controlling session, no duplicate mutating stream, no Player deletion on auth failure and no AGENT_LEFT_WORLD from transport close alone. Resume restores delivery rather than rewinding cycles or granting mutation automatically; messages remain queued while no delivery session exists.
+- RFC-0120 and the Human platform lifecycle govern older acceptance item 3 and creation wording: a human may authorize an Agent Player enrollment, never create a human-inhabited Player or enter/resume as one. Human naming input does not yield PlayerSession; Controllers do not acquire admin authority.
+- Compatibility/promotion: map operational lifecycle labels to existing active/paused/terminated DATA-MODEL session status without inventing enum values. Pin gateway/auth/client versions and preserve IDs through migration or future rename; no silent suffixing or ID reuse.
+- Verification proposal: revoke during delivery, race two controlling sessions, reconnect after committed action and attempt human-JWT/anonymous fallback. Assert unchanged world history, no double action and correct credential-dependent invalidation. Localized lifecycle/naming errors must distinguish session ended from Player removed and use handle/display_name on ordinary surfaces without exposing tokens.

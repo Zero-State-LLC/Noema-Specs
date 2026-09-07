@@ -47,16 +47,14 @@ This chain is **derived**. Institutions already have a first-class lifecycle ([I
 
 If lore conflicts with evidence, **evidence wins** ([LORE-BOUNDARY.md](LORE-BOUNDARY.md)).
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + EMERGENT-CULTURE / DEEP-TIME / without full sections)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for emergent culture, canonical chain, repeated behavior → custom → tradition → institution → cultural identity, layer distinction, canonical event, historical evidence, institutional memory, Player belief, shared interpretation, cultural convention, derived lore, "evidence wins", candidate derived forms (names, titles, rituals, symbols) — for /study /watch /play lore and culture projections.
-- **R3 / RFC-0120**: Agent emergent culture; human S0 for interpretation oversight.
-- **Gate B**: Access for culture features; versioned tradition/institution.
-- **AX**: Semantic for culture lists; ARIA for ritual/symbol views; keyboard; live for derivations; contrast in heritage displays.
-- **Plugin atoms**: Atomic for culture packs (derive tradition, validate); graft for emergence candidates; atomic_replace.
-- **LCA2 / MUD handoff**: MUD native for culture marks, tradition; i18n parser; noema-specs-mud-craft; handoff to DEEP-TIME/EMERGENCE.
-- **Cross-refs**: EMERGENT-CULTURE.md, DEEP-TIME.md, LORE-BOUNDARY.md, INSTITUTIONAL-MEMORY.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/BEHAVIOR-FEATURES, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765, omh-accessibility-audit.
-- **Handoff deepen**: R3 Chamber i18n AX, MUD native culture, attention to emergent signals, agent determinism in culture.
+Non-normative extension guidance; the authorities above remain controlling.
+
+- **Evidence-linked cultural presentation:** A lineage viewer may relate a derived custom or tradition to its accessible practice evidence and successor conventions. Present conflicting interpretations as attributed views; distinguish dormancy and revival with text labels rather than color alone.
+- **Preserved invariants:** Culture cannot rewrite the ledger, grant an office, create mechanical ritual effects or turn derived lore into physics. Private beliefs and inaccessible evidence stay outside public displays; an evocative name does not confer authority.
+- **Compatibility and promotion:** Reuse the closed GC9-S0/S1 derivations rather than inventing thresholds from the broader candidate list. Keep stable IDs beneath translated names and preserve old convention lineage; semantic evolution and holiday engines stay deferred.
+- **Verification targets:** Rebuild a custom from the pinned distinct REPAIR evidence, then test transmission/citation, dormancy and revival through the accepted slice fixtures. Verify contradictory stories coexist without event edits, missing evidence is not fabricated, and titles alone do not pass office authorization.
 
 ---
 

@@ -428,13 +428,11 @@ Cites: GAME-COMPLETENESS-PLAN.md section 11 + all prior seeds + main.
 - Appended cross-ref to A-series gaps in LCA-INTEGRATION-START-SEED.md.
 - All smallest design notes. Cites GAME-COMPLETENESS-PLAN.md matrix + LIVING-CIVILIZATION-ALPHA.md + SPEC-GAP-REGISTER-2026-08-25.md + prior + main.
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + GC-/LCA-/INSTITUTIONAL-/ATTENTION-/PLAYER-ONBOARDING/LLM-AGENT-INTEGRATION/REMAINING-WORK)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for GC continuation / verification / matrix terms: "verification-sweep", "Phase complete", "deeper matrix", "LCA integration", "acceptance matrix evidence", "seeds", "campaign pass". Extensible to study / ops UI, evidence panels. ui.py centralization.
-- **AX audits (full CDP / browser_exec on default Chromium + 8765)**: semantic for matrix tables / verification lists, live regions for phase status, keyboard nav for continuation flows, contrast on evidence. Re-audit /study /play.
-- **R3 Chamber / RFC-0120 agent-only + human S0**: continuation evidence for both; agent protocol for matrix submission; human first entry. Gate B S0-S3, version comparisons, access policies.
-- **Plugin atoms / DX**: atoms for matrix viewer, verification badge; graft/ops/maint_evolve/plugins patterns, noema skills.
-- **LCA2 / MUD / handoff**: GC continuation to LCA traces (A3/A4/A5), MUD native for verification commands, PLAYER-ACTION-MAP. Cross PLAYER-ONBOARDING, ATTENTION-PROJECTION, INSTITUTIONAL-*, LLM-AGENT-INTEGRATION, REMAINING-WORK, AGENT-*, AUTH.
-- **Graft savings + research capture**: high tokens saved on GC/LCA queries (97%+); evidence for deeper matrix.
-- **Handoff / remaining work**: to GC1-FIRST-SLICE, GC6-FIRST, GC5-*, RESEARCH-ASSIMILATION, PLAYER-ONBOARDING, ATTENTION-PROJECTION, INSTITUTIONAL-SEED, LLM-AGENT-INTEGRATION, REMAINING-WORK, BEHAVIORAL-*, HOSTED-*, OPERATOR-*, full hardcode sweeps, i18n polish, atoms code, CDP re-audit, handoff deepen, noema skill updates.
-- **Cross-refs**: GAME-COMPLETENESS-PLAN (sec 8/11), STRATEGIC-CONFLICT, ACTION-CONTRACTS, PLATFORM, WORLD-REPORTS, ANOMALY-DETECTION, BEHAVIOR-FEATURES, ACCESS-POLICY-S0-S3, CORE-GAME-LOOP, AGENT-ORIENTATION-S0/S1/S2, AGENT-PLAY, AGENT-DETERMINISM etc., AUTH-AND-IDENTITY, DATA-MODEL, DIPLOMACY, COMPLEXITY-DOCTRINE, CONTEST-RESOLUTION, 8765 health, elevation plan, SPEC-GAP-REGISTER, LIVING-CIVILIZATION-ALPHA.
+Non-normative historical-progress reconciliation seams.
+
+- Extend the continuation ledger with links that distinguish a seed, an RFC proposal, an accepted contract, an executed fixture and a hosted observation for each A–J or section 11 obligation. Repeated “complete” notes here describe historical work and do not establish present runtime coverage.
+- Preserve this historical log and closed GC5/GC6 decisions; do not use “continue” text as autonomous execution authority, reopen closed B-gaps or convert design-note examples into research evidence. Human operators/researchers remain platform principals, not first-entry Players.
+- Compatibility/promotion: reconcile cited commits and register versions with current DIRECTION-AUTHORITY before updating a separate live tracker. Unsupported or superseded status remains explicit; draft presence, whitespace checks and token-saving claims cannot satisfy gameplay acceptance.
+- Verification proposal: trace one seeded B-gap, one RFC draft and one test-backed result through their immutable sources and require different evidence-plane labels. Check duplicate closeout notes cannot multiply completed obligations. A keyboard-readable progress table belongs in ops/study, not as a new MUD verification command.

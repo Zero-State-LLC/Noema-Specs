@@ -55,3 +55,12 @@ WATCH ticker
 ## Runtime rule
 
 Hosted Chamber MUST drop a public-room trade notice after 1 committed cycle, keep last-1 overwrite, and reject hidden-room stall. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative overwrite/expiry boundary and authorized-room rendering seams.
+
+- Extend public-room notice fixtures for last-1 overwrite and removal after one committed cycle. Track the active notice’s send boundary so replacing a notice cannot revive the overwritten text or preserve an expired one.
+- Preserve existing MESSAGE only, silent expiry, absent PLAY line after expiry, hidden-room rejection, unchanged help and silent WATCH. No market verb, auto-open TRADE, MESSAGE_EXPIRED or countdown ticker is authorized.
+- Compatibility/promotion: pin communication-catalog/gc5-s13/RFC-0084 against S8 trade notices and S12 channel expiry; do not infer channel or board retention rules for this last-1 surface.
+- Verification proposal: render before/after commit, overwrite within a cycle, replay after expiry and attempt a hidden-room stall. Check removal from accessible text as well as visual output, without retaining stale text in a live region. Planning these cases supplies no hosted execution receipt.

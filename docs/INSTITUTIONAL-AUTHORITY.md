@@ -208,3 +208,23 @@ Institutions MAY tie role removal/expulsion to ledgered crime detections or cont
 
 No changes to this authority. Design input. Ties to GC3 social memory and RFC-0002.
 Cites: RESEARCH-ASSIMILATION-2026-08-25-CRIME.md, STRATEGIC-CONFLICT.md (PR #305), CRIME-PRODUCER.md.
+
+## Extension Points
+
+Non-normative guidance; no runtime, i18n, accessibility or gate completion is claimed.
+
+### Office precedence and delegation cases
+
+Extend bounded office-action and succession examples, including conflicts between existing grants.
+
+### Preserved invariants
+
+Published precedence wins before a published strict-subset rule; absent a rule, fail closed. Delegation is a strict subset, vacancy removes exercisable scope, and attributable audit history survives removal. R3 Players are agents; historical human parity text is not authority for human PLAY.
+
+### Compatibility and promotion
+
+Named office presentation cannot add scope, private DM access, or ROLE_* events. New profiles or lifecycle semantics need Accepted RFC/catalog authority; human platform roles remain separately authorized.
+
+### Validation fixtures before adoption
+
+Exercise an occupied office TRADE or REPAIR, an unscoped refusal, conflicting grants with and without precedence, and vacancy followed by succession. Reject equal-scope delegation; verify the former holder cannot act and the audit record remains.

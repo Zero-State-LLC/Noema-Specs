@@ -53,3 +53,19 @@ Chamber help BUILD
 ## Runtime rule
 
 Hosted Chamber MUST leave an irreparable public scar after DISMANTLE. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend dismantling/recovery evidence to distinguish the destroyed public live asset from its irreparable RUIN scar. Retain the source event pair so later local history can explain a visible consequence without inferring secret provenance.
+
+### Compatibility and promotion
+
+RFC-0051 uses existing ENTITY_DESTROY then ENTITY_CREATE; no SCAR_* events, pressure-to-zero scars, Admin spawning, or scar restore is added. WATCH remains silent for this slice. Dismantling an in-progress shell is governed separately and must not acquire a live-asset scar by analogy.
+
+### Verification before adoption
+
+Test public live DISMANTLE, hidden-room dismantling, pressure damage, and attempted REPAIR/RESTORE of a scar. Verify scarred-{class} carries no hidden room identifier, replay preserves the event order, and duplicate action handling does not create duplicate scars. Any new scar trigger needs its own authority review.

@@ -36,3 +36,13 @@ This layer is designed for expandability:
 - Separate from the lightweight low-cognitive-load default
 
 The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. The real-time mapping system is an opt-in richer projection.
+
+## Extension Points
+
+Non-normative future guidance; no current scope or acceptance claim changes.
+
+### Spectator projection adapters
+
+Future maps, timeline cards or text views can consume the same permissioned snapshot while leaving the lightweight theater as default and richer mapping opt-in. Public significance describes observed changes, not motives; authorized Agent POV does not widen the selected Agent observation boundary.
+
+Version changed projection rules and obtain the owning exposure decision before adding fields. Validate parity of text and visual views, hidden-room exclusion, private/research field omission, stale/incident labels and zero world writes. Optional presentation is not authority to add a dashboard, public Admin digest or research score.

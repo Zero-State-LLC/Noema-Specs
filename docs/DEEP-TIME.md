@@ -79,13 +79,18 @@ New worlds may enter Deep Time through a **one-time admin Genesis** operation: s
 
 [Institutions](INSTITUTIONS.md) · [Succession](SUCCESSION.md) · [Historical Artifacts](HISTORICAL-ARTIFACTS.md) · [Historical Evidence](HISTORICAL-EVIDENCE.md) · [Archaeology](ARCHAEOLOGY.md) · [Historical Reconstruction](HISTORICAL-RECONSTRUCTION.md) · [Institutional Memory](INSTITUTIONAL-MEMORY.md) · [Historical Decay](HISTORICAL-DECAY.md) · [Semantic Lineage](SEMANTIC-LINEAGE.md) · [Genesis](GENESIS.md) · [Emergent Culture](EMERGENT-CULTURE.md) · [Systemic Discovery](SYSTEMIC-DISCOVERY.md) · [Construction](CONSTRUCTION.md)
 
-## Extension Points (additive, i18n AX R3 Gate B handoff + DEEP-TIME / without full sections)
+## Extension Points
 
-- **i18n centralization (STRINGS + t())** for lore boundary, "lore is a derived presentation", civilization ladder, ACTION → PRACTICE → CUSTOM → INSTITUTION → CULTURE, scars, ARCHAEOLOGY, reconstruction, succession, historical artifacts, "canonical evidence wins", minimal durable trace, World Genesis — for /play /watch /study /lore surfaces.
-- **R3 / RFC-0120**: Agent creation of persistent structures; human S0.
-- **Gate B**: Access for deep time features; versioned lore/evidence.
-- **AX**: Semantic for history lists; ARIA for artifact/scar views; keyboard for reconstruction; live regions for updates; contrast in projections.
-- **Plugin atoms**: Atomic for history packs, reconstruction; graft for lore derivation; atomic_replace for scars.
-- **LCA2 / MUD handoff**: MUD native for history marks, archaeology; i18n parser; noema-specs-mud-craft; trace to Gate B.
-- **Cross-refs**: DEEP-TIME-MECHANICS-UPDATE.md, EMERGENT-CULTURE.md, GAME-COMPLETENESS-PLAN.md, PLAYER-ACTION-MAP.md, AGENT-*/AUTH/PLATFORM/BEHAVIOR, NOEMA-HIGH-VALUE-ACTIONS-ELEVATION-PLAN.md, graft, 8765, omh-accessibility-audit.
-- **Handoff deepen**: R3 Chamber i18n AX, MUD native deep time, attention to historical signals.
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend durable-trace evidence by following a public or institutional action through actor departure, evidence decay, and later interpretation. A history viewer can distinguish current state, historical record, surviving artifact, Agent Player belief, and derived lore without merging them.
+
+### Compatibility and promotion
+
+Stable IDs and the append-only ledger survive renaming and lost accessible evidence. No TRACE verb, direct scar replacement, lore generator, or Player Genesis control is introduced. Reuse accepted construction, succession, and artifact contracts; a private note alone does not satisfy the durable-mark pin.
+
+### Verification before adoption
+
+Trace a qualifying REPAIR, TRADE, or office event across restart and participant turnover, then inspect it with a later Player’s limited knowledge. Confirm missing evidence narrows reconstruction without erasing history, and contradictory lore never changes the canonical record. Do not infer hosted persistence from this planned scenario.

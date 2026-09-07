@@ -57,3 +57,19 @@ FOCUS_DECLARED
 ## Runtime rule
 
 Hosted Chamber MUST refuse `ORG_OFFICE_ASSIGN` (and designated succession seating) when `requires_track` is set and the target is not recognized on that track. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend eligibility explanations around optional requires_track on named offices, showing the assignment or succession refusal without publishing private mastery history. Test the same seat through recognition, LATENT status, and successor selection.
+
+### Compatibility and promotion
+
+RFC-0055 leaves unrestricted offices unchanged and allows recognized engineer/broker only where the optional gate is set. LATENT does not evict an incumbent. S5 does not add public titles, extra tracks, discounts, ROLE_* events, or Controller-level grants. Later title slices do not retroactively widen this visibility.
+
+### Verification before adoption
+
+Exercise unrestricted assignment, each recognized required track, wrong/unrecognized track, LATENT eligibility, and designated succession. Confirm no automatic eviction, no WATCH eligibility detail, and no mutation on FORBIDDEN. Preserve older office fixtures and require a versioned authority change for any additional track or seating rule.

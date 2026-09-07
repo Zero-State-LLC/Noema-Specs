@@ -34,3 +34,10 @@ GC1-S2 same-asset Engineer quality is hosted (RFC-0040). GC1-S3 decay is [RFC-00
 ## Runtime rule
 
 Ranks 1–8 plus GC5-S2 are hosted. GC1-S2 / GC1-S3 are specified (S3 hosted with RFC-0043). GC3-S2–S6 (RFC-0034–0038) are specified. ACCESS_POLICY S0–S3 is hosted (RFC-0101–0104). Chamber help names BUILD, CONTEST, AGREEMENT, and ACCESS. WED / ATTEST stay omitted.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Maintain dated evidence links for ranked S1 dependencies and hosted status without treating rank as authorization.
+- **Invariants, compatibility, promotion, and verification:** Keep the no-runtime-thaw boundary and hard deferrals; require Accepted RFC, fixtures, and an explicit implementation pass before promoting status. Verify each status link against its scoped authority rather than inferring readiness from ordering.

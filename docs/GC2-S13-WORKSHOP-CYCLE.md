@@ -60,3 +60,10 @@ UPGRADE / REPURPOSE of IN_PROGRESS
 ## Runtime rule
 
 Hosted Chamber MUST create a public `workshop` CONSTRUCT as `IN_PROGRESS`, promote that same `entity_id` after 1 committed cycle, refuse UPGRADE and REPURPOSE while in progress, and salvage an in-progress workshop without leaving a live workshop or a scar. Isolated tests only. Help unchanged. No Genesis change.
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add lifecycle evidence for restart across workshop promotion and dismantling immediately before the committed-cycle boundary.
+- **Invariants, compatibility, promotion, and verification:** Retain the same entity_id, immediate slot occupancy, one-cycle promotion, and no live discount or scar before promotion. New durations/classes require separate accepted authority; verify in-progress UPGRADE/REPURPOSE rejection and WATCH silence.

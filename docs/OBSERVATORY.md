@@ -40,3 +40,10 @@ Candidates MAY feed the Experiment Lab for controlled intervention tests on expe
 ## Experience translation
 
 Authorized product views may present candidates as **Interesting behavior** or **Possible capability** before revealing Observatory terminology. This translation is presentation-only and does not change candidate status, claim labels, or world truth ([EXPERIENCE.md](EXPERIENCE.md)).
+
+## Extension Points
+
+Non-normative future guidance; no new behavioral authority or reopening of accepted/deferred slices.
+
+- **Document-specific seam:** Add detector-output examples linking candidates and contradictions to trajectories and Lab handoff evidence.
+- **Invariants, compatibility, promotion, and verification:** Observatory cannot mutate WorldState or promote inferred/speculative candidates into proven capabilities. New analysis families need pinned feature/detector contracts and consent-aware fixtures; verify lineage and NOT_COMPUTABLE handling without consciousness or scalar intelligence claims.

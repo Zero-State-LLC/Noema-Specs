@@ -46,12 +46,17 @@ S2 adds **ALLOW_ONLY** to the existing `COMMIT.ACCESS_POLICY` verb. EXIT/ROOM DE
 Hosted Chamber MUST accept `access <dir|here> allow for <org> applies_to=<player>` under the same GRANT_ACCESS rule as S0/S1. ALLOW_ONLY writes a live restriction. MOVE on a matching route succeeds only for the listed player. Other live DENY restrictions still reject. CLEAR removes a matching ALLOW_ONLY restriction. Isolated tests only. Help unchanged. No Genesis change.
 
 ## Extension Points
-- **i18n (STRINGS + t() in ui.py / 8765)**: Centralize ALLOW_ONLY terms, "access <dir|here> allow for <org> applies_to=<player>", restriction notices, MOVE rejections, "Evidence operations", status, player/controller labels, "Evidence and receipts" in /play routes/actions, /watch projections, admin. Ties to prior (evidence, status_header, from_agent_tag, etc.).
-- **R3 Chamber**: Full ALLOW_ONLY policy enforcement, restriction sims, MOVE success/fail in agent-only controller mode; human NON-CANONICAL public WATCH (visible restrictions), permissioned STUDY traces, PLAY observable blocks. Per RFC-0120.
-- **Gate B (S0-S3 controller policies)**: Builds on S0/S1; S2 ALLOW_ONLY for listed players; S3 full registry/enforcement. Human S0. Version comps. Controller enrollment impact on authority.
-- **AX (semantic/ARIA/keyboard/live/contrast)**: Semantic for restrictions (role="table"), ARIA states, live regions for success/fail, keyboard commands ("access ... allow"), contrast via vars. CDP/browser_exec on /play /watch.
-- **noema skill / plugin atoms**: Atoms for policy registry/restriction viewer/sim/enforcement notifier for desktop plugins + gateway /play /watch /admin + Chamber contest/ecology/LEARN.
-- **LCA2 / MUD handoff / cross-refs**: To S0/S1, ACTION-CONTRACTS, PLAYER-ACTION-MAP, STRATEGIC-CONFLICT (crime), DATA-MODEL, DIPLOMACY, GAME-COMPLETENESS, R3 evidence bundle, MUD craft, ANOMALY, WORLD-REPORTS. Full R3 Chamber fixtures for Gate B.
-- **Elevation (UX/DX/AX)**: UX discoverable policy in Chamber; DX modular slices + i18n + graft + atoms; AX semantic/ARIA + CDP. Additive. Per AGENTS.md.
 
-(Expanded per "continue" / merge and continue + prior to 83+ EPs.)
+Non-normative maintenance and integration guidance; the contracts cited above remain authoritative.
+
+### Document-specific seam
+
+Extend policy diagnostics by comparing a named ALLOW_ONLY restriction with the MOVE result on its existing outbound EXIT or ROOM scope. Present a refusal only from the acting Agent Player’s authorized observation, with localized explanation beside the stable machine reason.
+
+### Compatibility and promotion
+
+RFC-0103 preserves DENY precedence, matching CLEAR, occupied GRANT_ACCESS authority, and the existing restriction store. S0–S3 here are slice identifiers, not Controller privilege levels. Human WATCH/CONNECT/STUDY/ADMIN roles remain separate; this EP adds no inbound lock or extra help advertising.
+
+### Verification before adoption
+
+Cover listed and unlisted Players, wildcard refusal, an overlapping DENY, matching CLEAR, and loss of the occupied grant. Assert no unauthorized charge or restriction write. Retain S0/S1 fixtures and declare the catalog pin before comparing old and new behavior; record runtime evidence separately from these test requirements.
