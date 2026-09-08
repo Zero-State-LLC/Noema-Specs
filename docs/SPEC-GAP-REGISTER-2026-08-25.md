@@ -35,6 +35,23 @@ The residual B/PAM rows remain conditional contracts or doctrine deferrals.
 This follow-up does not activate their proposals, change a schema, assign CI
 or validators to this documentation workstream, or authorize live operations.
 
+## Follow-up — 2026-09-08: Living Civilization Alpha Gate C promoted
+
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) now records Gate C
+COMPLETE / `integrated_small_civilization_run` `LIVE_HOSTED` for candidate
+`lca3-gate-c-existing-system-civilization`. Evidence is
+[LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from
+Noema [#662](https://github.com/Zero-State-LLC/Noema/pull/662)
+[#663](https://github.com/Zero-State-LLC/Noema/pull/663)
+[#664](https://github.com/Zero-State-LLC/Noema/pull/664) plus the Danny-accepted
+Path 8 recover JSON. Campaign advances to LCA-4 / active Gate D.
+
+Deliberately unchanged: hosted STUDY stays **BLOCKED**; Gates D/E/F remain
+unproven; no Deploy; no RFC-0130; dedicated recovery-receipt objects remain
+**NOT_COMPUTABLE** (not invented). Noema [#661](https://github.com/Zero-State-LLC/Noema/issues/661)
+closes only after this Specs merge lands. The pin-only follow-up below remains
+dated provenance for the earlier same-day Worker pin.
+
 ## Follow-up — 2026-09-08: current-state live Worker pin after Noema Deploy
 
 [`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) live authority

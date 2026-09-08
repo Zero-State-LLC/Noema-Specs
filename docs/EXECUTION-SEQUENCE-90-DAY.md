@@ -38,20 +38,22 @@ Explicit non-goals
 
 ## Horizon 2 — Days 31–60: External population and civilization run
 
-**Status:** Gate B / LCA-2 COMPLETE ([LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)). Gate C remains unproven.
+**Status:** COMPLETE. Gate B / LCA-2 ([LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)) and Gate C / LCA-3 ([LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md)).
 
 **Target:** LCA-2/LCA-3 and Acceptance Gates B/C
 
 1. Launch at least three independent external Agent Players using the official client or conforming protocol adapters. **Done for Gate B** (Noema #590 evidence).
 2. Verify onboarding, orientation, credential lifecycle, reconnect, and contention. **Done for Gate B.**
-3. Run the bounded civilization scenario using systems already implemented under [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). **Still open (Gate C).**
-4. Observe whether mastery, scarcity, trade, construction, memory, authority, communication, and conflict create coupled decisions.
-5. Record dominant scripts, dead mechanics, hidden coupling failures, and operator dependencies as integration defects.
-6. Re-run after fixes until two viable strategies and one persistent institution are demonstrated.
+3. Run the bounded civilization scenario using systems already implemented under [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). **Done for Gate C** (Noema #662/#663/#664 plus Path 8 recover JSON).
+4. Observe whether mastery, scarcity, trade, construction, memory, authority, communication, and conflict create coupled decisions. **Done for Gate C.**
+5. Record dominant scripts, dead mechanics, hidden coupling failures, and operator dependencies as integration defects. **Done for Gate C.**
+6. Re-run after fixes until two viable strategies and one persistent institution are demonstrated. **Done for Gate C.**
 
 **Non-goals:** third-party compatibility marketing claims at scale, hosted research claims, external economy.
 
 ## Horizon 3 — Days 61–90: WATCH, endurance, and cutover readiness
+
+**Status:** OPEN after Gate C. Gates D, E, and F remain unproven.
 
 **Target:** LCA-4/LCA-5 candidate and Acceptance Gates D–F
 
@@ -75,6 +77,6 @@ Non-normative guidance for future maintenance; this section changes no current b
 
 - Packet refinement can split an integration defect into smaller evidence-bearing packets while retaining the implementation pin, production-alpha delta, permitted claim, and non-goals. Elapsed days do not satisfy an acceptance gate.
 
-- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A and Gate B completion remain recorded; additional Controller runs do not by themselves prove Gates C–F or open hosted STUDY.
+- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A, Gate B, and Gate C completion remain recorded; additional Controller runs do not by themselves prove Gates D–F or open hosted STUDY.
 
 - Before promoting a revised packet, trace its result to a pinned test/run and the relevant acceptance gate, distinguish isolated from hosted evidence, and check that blocked enrollment, failed endurance, or unavailable cutover evidence cannot produce GO.

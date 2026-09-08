@@ -14,6 +14,7 @@ REQUIRED = [
     "docs/LIVING-ALPHA-ACCEPTANCE.md",
     "docs/LCA-GATE-A-PROMOTION-2026-08-25.md",
     "docs/LCA-GATE-B-PROMOTION-2026-09-08.md",
+    "docs/LCA-GATE-C-PROMOTION-2026-09-08.md",
     "docs/EXECUTION-SEQUENCE-90-DAY.md",
     "docs/DIRECTION-AUTHORITY.md",
     "specs/current-state.v1.yaml",
@@ -86,8 +87,15 @@ def main() -> None:
             fail(f"{key} must be a Git commit")
     if parsed.get("evidence_commits", {}).get("production_specs_baseline") != "492ccc9":
         fail("production Specs baseline must pin canonical main 492ccc9 used for Gate A promotion")
-    if parsed.get("capabilities", {}).get("integrated_small_civilization_run", {}).get("state") != "BLOCKED":
-        fail("Gate C run must remain BLOCKED until Gate C evidence passes")
+    gate_c = parsed.get("capabilities", {}).get("integrated_small_civilization_run", {})
+    if gate_c.get("state") != "LIVE_HOSTED":
+        fail("Gate C run must be LIVE_HOSTED after promotion")
+    if "Gate C is complete" not in str(gate_c.get("claim") or ""):
+        fail("Gate C claim must record completion")
+    if parsed.get("surfaces", {}).get("study_hosted") != "BLOCKED":
+        fail("hosted STUDY must remain BLOCKED after Gate C promotion")
+    if parsed.get("capabilities", {}).get("hosted_study_pipeline", {}).get("state") != "BLOCKED":
+        fail("hosted_study_pipeline must remain BLOCKED after Gate C promotion")
     gate_b = parsed.get("capabilities", {}).get("external_agent_population_gate_b", {})
     if gate_b.get("state") != "LIVE_HOSTED":
         fail("Gate B external population must be LIVE_HOSTED after promotion")
@@ -109,18 +117,22 @@ def main() -> None:
         "Noema PR #551",
         "Noema PR #552",
         "Noema PR #587",
-        "current_milestone: LCA-3",
+        "current_milestone: LCA-4",
         "Gate A is complete",
         "Gate B is complete",
+        "Gate C is complete",
         "remaining_lca2_prerequisites:",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
-        "Gate C remains unproven",
+        "Gate D remains unproven",
         "Noema PR #570",
         "61234cc",
         "canonical operator device enrollment",
         "LCA-GATE-B-PROMOTION-2026-09-08.md",
+        "LCA-GATE-C-PROMOTION-2026-09-08.md",
         "acceptance_authority_digest:",
+        "lca3-gate-c-existing-system-civilization",
+        "path8_recover_json:",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
@@ -159,11 +171,12 @@ def main() -> None:
         "not a greenfield feature campaign",
         "Gate A is complete",
         "Gate B is complete",
+        "Gate C is complete",
         "LCA-1",
         "LCA-5",
         "IMPLEMENTED_RUNTIME",
         "canonical operator enrollment",
-        "Gate C remains unproven",
+        "Gate D remains unproven",
     ):
         if marker not in campaign:
             fail(f"campaign missing marker: {marker}")
@@ -172,10 +185,13 @@ def main() -> None:
     for marker in (
         "Gate A is complete",
         "Gate B is complete",
+        "Gate C is complete",
         "LCA-GATE-A-PROMOTION-2026-08-25.md",
         "LCA-GATE-B-PROMOTION-2026-09-08.md",
+        "LCA-GATE-C-PROMOTION-2026-09-08.md",
         "lca2-gate-b-three-external-agent-population",
-        "Gate C remains unproven",
+        "lca3-gate-c-existing-system-civilization",
+        "Gate D remains unproven",
         "compatibility-at-scale claim",
         "canonical operator device enrollment",
     ):
@@ -190,6 +206,14 @@ def main() -> None:
         fail("Gate B promotion must agree across machine state and campaign authorities")
     if "Gate B is not complete" in state or "Gate B is not complete" in campaign or "Gate B is not complete" in acceptance:
         fail("Gate B promotion is accepted; stale non-complete guidance remains")
+    if "Gate C is complete" not in state or "Gate C is complete" not in campaign or "Gate C is complete" not in acceptance:
+        fail("Gate C promotion must agree across machine state and campaign authorities")
+    if "Gate C is not complete" in state or "Gate C is not complete" in campaign or "Gate C is not complete" in acceptance:
+        fail("Gate C promotion is accepted; stale non-complete guidance remains")
+    if parsed.get("active_campaign", {}).get("current_milestone") != "LCA-4":
+        fail("campaign current_milestone must be LCA-4 after Gate C promotion")
+    if parsed.get("active_campaign", {}).get("next_milestone") != "LCA-5":
+        fail("campaign next_milestone must be LCA-5 after Gate C promotion")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
     if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:
