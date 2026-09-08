@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 963b5edf-17ea-41f4-892f-130e278e0bb8
+  live_worker_version_id: 2c48d671-620a-43df-bb56-87438671e734
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -41,35 +41,46 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 963b5edf-17ea-41f4-892f-130e278e0bb8
-    live_deployed_at: 2026-09-08T05:52:14.712143Z
-    live_source_commit: 308c98de4173874d8a1941818ba4392ddcc2cba6
+    live_worker_version_id: 2c48d671-620a-43df-bb56-87438671e734
+    live_deployed_at: 2026-09-08T09:03:17.074Z
+    live_source_commit: 4aedef79259262df411d28cf49d139788939a125
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Live is 963b5edf-17ea-41f4-892f-130e278e0bb8, deployed 2026-09-08T05:52:14.712143Z
-      from Noema source 308c98de4173874d8a1941818ba4392ddcc2cba6 and pinned by Noema#649
-      (lookup evidence Noema#655). Prior Specs-recorded live 04ef6ecb (2026-09-07,
-      source 9c256035, Noema#639) is historical. Gate B COMPLETE uses this live pin.
-      Probe-time /ready 2026-09-08: ACTIVE, HEALTHY, ready=true, play_blocked=false,
-      genesis.94d0961984b2b4f8, playable=true. /ready players census is not the Gate B
-      population proof; retained Admin ICR/bindings are.
+      Live is 2c48d671-620a-43df-bb56-87438671e734, deployed 2026-09-08T09:03:17.074Z
+      from Noema source 4aedef79259262df411d28cf49d139788939a125 and pinned by
+      Noema#660 (merge f23c18c6). Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/34207763040 SUCCESS.
+      Prior Specs-recorded live 963b5edf-17ea-41f4-892f-130e278e0bb8, deployed
+      2026-09-08T05:52:14.712143Z from source 308c98de4173874d8a1941818ba4392ddcc2cba6
+      (Noema#649; lookup Noema#655), is the Gate B COMPLETE evidence Worker and is
+      not current live. Do not rewrite that promotion.
+      Prior recorded live 04ef6ecb (2026-09-07, source 9c256035, Noema#639) remains
+      historical. Probe-time /ready 2026-09-08: ACTIVE, HEALTHY, ready=true,
+      play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 17257 at
+      probe only. /ready players census is not the Gate B population proof; retained
+      Admin ICR/bindings are. Gate C remains unproven.
     specs_pin_note: >-
-      Live source 308c98de remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git. production_implements_specs stays 81ca8c1.
+      Live source 4aedef79 remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
+      change. production_implements_specs stays 81ca8c1.
       production_specs_baseline stays 492ccc9, the Gate A promotion evidence anchor.
-      Gate B promotion evidence is docs/LCA-GATE-B-PROMOTION-2026-09-08.md.
-      hosted_live.official_client remains noema-client==0.1.21 while Gate B cohort
-      OBSERVED client 0.1.22 — both recorded; no invented pin flip.
+      Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
+      uses historical Worker 963b5edf / source 308c98de. hosted_live.official_client
+      remains noema-client==0.1.21 while Gate B cohort OBSERVED client 0.1.22 — both
+      recorded; no invented pin flip. Campaign stays LCA-3. Gate C remains unproven;
+      integrated_small_civilization_run stays BLOCKED. Recovery-receipt objects
+      remain NOT_COMPUTABLE (waived; not invented).
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-07"
-      - "GET https://noema.guru/ready 2026-09-07"
-      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34167731843"
-      - "Noema PR #639: https://github.com/Zero-State-LLC/Noema/pull/639"
+      - "GET https://noema.guru/version 2026-09-08"
+      - "GET https://noema.guru/ready 2026-09-08"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34207763040"
+      - "Noema PR #660: https://github.com/Zero-State-LLC/Noema/pull/660"
+      - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
