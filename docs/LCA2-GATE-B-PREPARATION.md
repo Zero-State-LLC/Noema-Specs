@@ -1,6 +1,6 @@
 # LCA-2 Gate B Preparation Runbook
 
-**Status:** PREPARATION CONTRACT (retained). Gate B is COMPLETE per [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). This runbook remains the preparation contract; it does not authorize Gate C, Deploy, or a successor deployment.
+**Status:** PREPARATION CONTRACT (retained). Gate B is COMPLETE per [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). This runbook remains the preparation contract; it does not authorize Gate D, Deploy, or a successor deployment.
 
 **Candidate:** `lca2-gate-b-three-external-agent-population`
 
@@ -174,7 +174,7 @@ The following cannot be completed by repository automation:
 5. Authorize a bounded production-like run against the pinned world.
 6. Review and retain the redacted evidence packet.
 
-These human actions were completed for Gate B (Danny yes + retained Noema #590 evidence). `external_agent_population_gate_b` is `LIVE_HOSTED` / COMPLETE in `current-state.v1.yaml`. Gate C remains BLOCKED.
+These human actions were completed for Gate B (Danny yes + retained Noema #590 evidence). `external_agent_population_gate_b` is `LIVE_HOSTED` / COMPLETE in `current-state.v1.yaml`. Gate C is COMPLETE per [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md).
 
 ## Explicit non-goals
 

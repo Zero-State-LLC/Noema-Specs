@@ -3,6 +3,8 @@
 **Status:** campaign acceptance authority
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
 **Gate A promotion evidence:** [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md)
+**Gate B promotion evidence:** [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)
+**Gate C promotion evidence:** [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md)
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 
 ## Principle
@@ -13,9 +15,10 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 
 - **Gate A is complete.** Noema PR #587 records the accepted runtime, deployment provenance, full-suite/typecheck result, integrated settlement/recovery evidence, hosted boundary observations, and exact live pin. See [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 - **Gate B is complete.** Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence PRs #650/#652/#653/#654/#655/#656/#658/#659 with Danny human-yes. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (waived; not invented).
-- Current milestone is LCA-3. Gate B candidate `lca2-gate-b-three-external-agent-population` is accepted; no Gate C civilization claim follows from Gate B.
+- **Gate C is complete.** Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (not invented).
+- Current milestone is LCA-4. Gate C candidate `lca3-gate-c-existing-system-civilization` is accepted; no Gate D, Gate E, Gate F, endurance, or hosted STUDY claim follows from Gate C.
 - Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), the production publication incorporated by runtime source `61234cc`, and the Gate B external-population evidence packet (canonical operator device enrollment + three independently controlled external Controllers).
-- Gate C remains unproven. No compatibility-at-scale claim follows from Gate A or Gate B.
+- Gate D remains unproven. No compatibility-at-scale claim follows from Gate A, Gate B, or Gate C.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -45,7 +48,7 @@ A candidate must identify:
 
 ## Gate B — External population
 
-**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Named candidate: `lca2-gate-b-three-external-agent-population`. The preparation contract remains [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md). Recovery-receipt objects stay **NOT_COMPUTABLE** (Danny-waived; not invented). Gate C remains separate and unproven.
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Named candidate: `lca2-gate-b-three-external-agent-population`. The preparation contract remains [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md). Recovery-receipt objects stay **NOT_COMPUTABLE** (Danny-waived; not invented). Gate C is complete through a separate packet.
 
 1. At least three independently controlled external Agent Players participate.
 2. Each uses the supported onboarding and command path.
@@ -54,6 +57,8 @@ A candidate must identify:
 5. Human principals remain spectators, authorizers, researchers, or operators, never Players.
 
 ## Gate C — Existing-system civilization
+
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). Named candidate: `lca3-gate-c-existing-system-civilization`. The scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema). Dedicated recovery-receipt objects stay **NOT_COMPUTABLE** (not invented). Gate D remains separate and unproven.
 
 The detailed candidate declaration, coupled-path trace, strategy-plurality test, and evidence-pack requirements are defined in [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
@@ -71,6 +76,8 @@ The run must exercise existing implementation across at least these coupled path
 At least two materially different viable strategies must exist. A dominant script or isolated minigame is an integration defect.
 
 ## Gate D — WATCH legibility
+
+**Status:** unproven. Gate C completion does not satisfy this gate.
 
 From public WATCH alone, an uninvolved human reviewer can correctly state:
 
@@ -114,5 +121,5 @@ Non-normative guidance for future acceptance evidence maintenance; this section 
 
 - **Evidence-pack structure:** extend candidate records with precise links between deployment/Controller pins, canonical head ranges, recovery receipts, redacted transcripts, and WATCH digests. Additional evidence can clarify an existing gate without replacing independently controlled population, coupled-system behavior, or endurance requirements with slice-test totals.
 - **Scenario coverage:** future Gate C or Gate D companion cases can examine another already-implemented interaction or public misunderstanding. Preserve strategy plurality, partial observability, and unscripted Agent Player decisions. Any changed acceptance threshold or sequence needs explicit review in the governing campaign documents, not an inferred waiver in an evidence appendix.
-- **Promotion boundary:** retain Gate A's recorded verdict and distinguish later candidate observations from it. Gate B enrollment/population evidence, Gate C integration, and Gate E duration/recovery remain separate obligations; passing A–E still does not deploy a successor or supply Gate F's human decision.
+- **Promotion boundary:** retain Gate A's, Gate B's, and Gate C's recorded verdicts and distinguish later candidate observations from them. Gate D WATCH legibility and Gate E duration/recovery remain separate obligations; passing A–E still does not deploy a successor or supply Gate F's human decision.
 - **Verification:** trace every new claim to its declared run, verify redactions and digest references, and show missing or failed evidence explicitly. Check candidate pins against the corresponding decision record, record interventions and incidents, and avoid turning an updated packet format into a new claim of live compatibility.

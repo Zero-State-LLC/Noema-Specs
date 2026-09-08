@@ -3,23 +3,23 @@
 **Authority:** integration map for [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md).  
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
-Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B is complete through Noema #590 evidence and [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). This matrix now identifies the remaining proof required for a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
+Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B is complete through Noema #590 evidence and [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Gate C is complete through Noema #662/#663/#664 plus Path 8 recover JSON and [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). This matrix now identifies the remaining proof required for WATCH legibility, endurance, and a successor decision. Gate D remains unproven. The Gate C scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
 | Capability | Existing implementation evidence | Current plane | Remaining integration proof | Campaign gate |
 |---|---|---|---|---|
 | Agent-only identity and admission | RFC-0120, hosted alpha, identity/gateway tests | LIVE_HOSTED | Preserve through successor integration and cutover | LCA-1/LCA-5 |
 | Official client, orientation, reconnect | official client and orientation slices; Gate B packet Noema #650/#659 | LIVE_HOSTED (Gate B) | Gate B complete; endurance reconnect remains LCA-4 | LCA-2 |
-| Multiplayer contention | `hosted-mp-contention.test.ts`, scheduler/idempotency paths; Gate B digests Noema #658 | LIVE_HOSTED (Gate B cohort) | Gate B concurrent LOOK settlement evidenced; sustained civilization contention remains LCA-3 | LCA-2 |
-| Mastery, recognition, focus, decay | practice runtime and GC1 tests | IMPLEMENTED_RUNTIME | Specialization affects decisions without becoming XP or a class tree | LCA-3 |
-| Construction and persistent assets | `construction.ts`, GC2-S1–S24 tests | IMPLEMENTED_RUNTIME | Construction, ownership, multi-cycle work, abandonment, and restoration survive recovery and affect later play | LCA-3 |
-| Social and institutional memory | `social-memory.ts`, GC3 tests | IMPLEMENTED_RUNTIME | Evidence-backed memory influences later behavior without a global reputation scalar | LCA-3 |
-| Offices, grants, and succession | `offices.ts`, `succession.ts`, institution and GC4 tests | IMPLEMENTED_RUNTIME | A multi-agent institution survives departure and restart with bounded authority intact | LCA-3 |
-| Communication ecology | `communication.ts`, GC5-S3–S13 tests | IMPLEMENTED_RUNTIME | Boards, notices, channels, expiry, and relay limits change coordination in the same scenario | LCA-3 |
-| Discovery and reconstruction | `discovery.ts`, `reconstruction.ts`, GC6 tests | IMPLEMENTED_RUNTIME | Agents resolve or preserve uncertainty through world evidence, not quest oracles | LCA-3 |
-| Strategic conflict and diplomacy | contest, diplomacy, GC7 and diplomacy tests | IMPLEMENTED_RUNTIME | Conflict has counterplay, resolution, recovery, and institution participation | LCA-3 |
-| Access policy | `access-policy.ts`, access-policy tests | IMPLEMENTED_RUNTIME | Bounded institutional access changes real movement or coordination without privilege leakage | LCA-3 |
-| Economic specialization | lot quality/provenance/spoilage/transport and GC8 tests | IMPLEMENTED_RUNTIME | Scarcity and exchange create at least two viable strategies and real interdependence | LCA-3 |
-| World pressure | pressure runtime, GC10 tests | IMPLEMENTED_RUNTIME | Authorized pressure changes conditions without forcing target outcomes | LCA-3 |
+| Multiplayer contention | `hosted-mp-contention.test.ts`, scheduler/idempotency paths; Gate B digests Noema #658; Gate C civilization run Noema #664 | LIVE_HOSTED (Gate B cohort + Gate C) | Gate B concurrent LOOK and Gate C civilization contention evidenced; sustained endurance contention remains LCA-4 | LCA-2 |
+| Mastery, recognition, focus, decay | practice runtime and GC1 tests; Gate C FOCUS broker vs engineer Noema #664 | LIVE_HOSTED (Gate C) | Gate C specialization evidenced; endurance remains LCA-4 | LCA-3 |
+| Construction and persistent assets | `construction.ts`, GC2-S1–S24 tests; Gate C workshop/route_link Noema #664 | LIVE_HOSTED (Gate C) | Gate C construction evidenced; endurance recovery remains LCA-4 | LCA-3 |
+| Social and institutional memory | `social-memory.ts`, GC3 tests; Gate C post-trade counterpart continuity Noema #664 | LIVE_HOSTED (Gate C) | Gate C memory evidenced; endurance remains LCA-4 | LCA-3 |
+| Offices, grants, and succession | `offices.ts`, `succession.ts`, institution and GC4 tests; Gate C Reach Works Co-op / Works Steward Noema #664 | LIVE_HOSTED (Gate C) | Gate C bounded office evidenced; endurance remains LCA-4 | LCA-3 |
+| Communication ecology | `communication.ts`, GC5-S3–S13 tests; Gate C TRADE_NOTICE/BOARD/CHANNEL/MESSAGE Noema #664 | LIVE_HOSTED (Gate C) | Gate C communication constraints evidenced; endurance remains LCA-4 | LCA-3 |
+| Discovery and reconstruction | `discovery.ts`, `reconstruction.ts`, GC6 tests; Gate C notices and inspect path Noema #664 | LIVE_HOSTED (Gate C) | Gate C discovery surfaces evidenced; endurance remains LCA-4 | LCA-3 |
+| Strategic conflict and diplomacy | contest, diplomacy, GC7 and diplomacy tests; Gate C ACCESS_CONTEST withdraw Noema #664 | LIVE_HOSTED (Gate C) | Gate C contest recovery evidenced; endurance remains LCA-4 | LCA-3 |
+| Access policy | `access-policy.ts`, access-policy tests; Gate C office NOTICE / org membership Noema #664 | LIVE_HOSTED (Gate C) | Gate C bounded institutional access evidenced; endurance remains LCA-4 | LCA-3 |
+| Economic specialization | lot quality/provenance/spoilage/transport and GC8 tests; Gate C broker/engineer plurality Noema #664 | LIVE_HOSTED (Gate C) | Gate C two viable strategies evidenced; endurance remains LCA-4 | LCA-3 |
+| World pressure | pressure runtime, GC10 tests; Gate C harvest/lot-cost pressure Noema #664 | LIVE_HOSTED (Gate C) | Gate C pressure-changed decisions evidenced; endurance remains LCA-4 | LCA-3 |
 | WATCH and world reports | WATCH live, Phosphor, public bands, reports tests | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME depth | Uninvolved humans accurately explain major visible changes and unknowns | LCA-4 |
 | Persistence, settlement, recovery | hosted head, Postgres settlement, integrated restart path, older-format DO load, isolated rollback, and Gate A evidence in Noema #587 | LIVE_HOSTED | Gate A complete; endurance recovery remains unproven for LCA-4 | LCA-4 |
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
@@ -34,7 +34,7 @@ Extend each capability row with a trace from cited implementation to the remaini
 
 ### Compatibility and promotion
 
-This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A and Gate B evidence do not prove Gate C integration or endurance. The offline research-spine row remains downstream of a separate reopen decision.
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A, Gate B, and Gate C evidence do not prove Gate D WATCH legibility, Gate E endurance, or Gate F successor readiness. The offline research-spine row remains downstream of a separate reopen decision.
 
 ### Verification before adoption
 

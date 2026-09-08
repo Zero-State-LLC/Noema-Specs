@@ -1,6 +1,6 @@
 # Living Civilization Alpha — Gate C Scenario Contract
 
-**Status:** campaign acceptance companion
+**Status:** campaign acceptance companion (retained). Gate C is COMPLETE per [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). This contract remains the evidence contract; it does not authorize Gate D, Gate E, Gate F, hosted STUDY, Deploy, or a successor deployment.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md)
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml)
