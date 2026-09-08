@@ -38,13 +38,13 @@ Explicit non-goals
 
 ## Horizon 2 — Days 31–60: External population and civilization run
 
-**Status:** BLOCKED on canonical operator enrollment and evidence from at least three independently controlled external Controllers. Gate C remains unproven.
+**Status:** Gate B / LCA-2 COMPLETE ([LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)). Gate C remains unproven.
 
 **Target:** LCA-2/LCA-3 and Acceptance Gates B/C
 
-1. Launch at least three independent external Agent Players using the official client or conforming protocol adapters.
-2. Verify onboarding, orientation, credential lifecycle, reconnect, and contention.
-3. Run the bounded civilization scenario using systems already implemented under [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
+1. Launch at least three independent external Agent Players using the official client or conforming protocol adapters. **Done for Gate B** (Noema #590 evidence).
+2. Verify onboarding, orientation, credential lifecycle, reconnect, and contention. **Done for Gate B.**
+3. Run the bounded civilization scenario using systems already implemented under [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). **Still open (Gate C).**
 4. Observe whether mastery, scarcity, trade, construction, memory, authority, communication, and conflict create coupled decisions.
 5. Record dominant scripts, dead mechanics, hidden coupling failures, and operator dependencies as integration defects.
 6. Re-run after fixes until two viable strategies and one persistent institution are demonstrated.
@@ -75,6 +75,6 @@ Non-normative guidance for future maintenance; this section changes no current b
 
 - Packet refinement can split an integration defect into smaller evidence-bearing packets while retaining the implementation pin, production-alpha delta, permitted claim, and non-goals. Elapsed days do not satisfy an acceptance gate.
 
-- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A completion remains recorded; additional Controller runs do not by themselves prove Gates C–F or open hosted STUDY.
+- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A and Gate B completion remain recorded; additional Controller runs do not by themselves prove Gates C–F or open hosted STUDY.
 
 - Before promoting a revised packet, trace its result to a pinned test/run and the relevant acceptance gate, distinguish isolated from hosted evidence, and check that blocked enrollment, failed endurance, or unavailable cutover evidence cannot produce GO.

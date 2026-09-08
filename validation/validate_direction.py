@@ -13,6 +13,7 @@ REQUIRED = [
     "docs/CIVILIZATION-CAPABILITY-MATRIX.md",
     "docs/LIVING-ALPHA-ACCEPTANCE.md",
     "docs/LCA-GATE-A-PROMOTION-2026-08-25.md",
+    "docs/LCA-GATE-B-PROMOTION-2026-09-08.md",
     "docs/EXECUTION-SEQUENCE-90-DAY.md",
     "docs/DIRECTION-AUTHORITY.md",
     "specs/current-state.v1.yaml",
@@ -86,7 +87,12 @@ def main() -> None:
     if parsed.get("evidence_commits", {}).get("production_specs_baseline") != "492ccc9":
         fail("production Specs baseline must pin canonical main 492ccc9 used for Gate A promotion")
     if parsed.get("capabilities", {}).get("integrated_small_civilization_run", {}).get("state") != "BLOCKED":
-        fail("Gate C run must remain BLOCKED until Gate B passes")
+        fail("Gate C run must remain BLOCKED until Gate C evidence passes")
+    gate_b = parsed.get("capabilities", {}).get("external_agent_population_gate_b", {})
+    if gate_b.get("state") != "LIVE_HOSTED":
+        fail("Gate B external population must be LIVE_HOSTED after promotion")
+    if "Gate B is complete" not in str(gate_b.get("claim") or ""):
+        fail("Gate B claim must record completion")
     if parsed.get("active_campaign", {}).get("state") != "ACTIVE_INTEGRATION":
         fail("Living Civilization Alpha campaign must remain ACTIVE_INTEGRATION")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
@@ -103,8 +109,9 @@ def main() -> None:
         "Noema PR #551",
         "Noema PR #552",
         "Noema PR #587",
-        "current_milestone: LCA-2",
+        "current_milestone: LCA-3",
         "Gate A is complete",
+        "Gate B is complete",
         "remaining_lca2_prerequisites:",
         "integrated_small_civilization_run:",
         "state: ACTIVE_INTEGRATION",
@@ -112,6 +119,8 @@ def main() -> None:
         "Noema PR #570",
         "61234cc",
         "canonical operator device enrollment",
+        "LCA-GATE-B-PROMOTION-2026-09-08.md",
+        "acceptance_authority_digest:",
     ):
         if marker not in state:
             fail(f"current state missing marker: {marker}")
@@ -149,6 +158,7 @@ def main() -> None:
     for marker in (
         "not a greenfield feature campaign",
         "Gate A is complete",
+        "Gate B is complete",
         "LCA-1",
         "LCA-5",
         "IMPLEMENTED_RUNTIME",
@@ -161,7 +171,9 @@ def main() -> None:
     acceptance = (ROOT / "docs/LIVING-ALPHA-ACCEPTANCE.md").read_text(encoding="utf-8")
     for marker in (
         "Gate A is complete",
+        "Gate B is complete",
         "LCA-GATE-A-PROMOTION-2026-08-25.md",
+        "LCA-GATE-B-PROMOTION-2026-09-08.md",
         "lca2-gate-b-three-external-agent-population",
         "Gate C remains unproven",
         "compatibility-at-scale claim",
@@ -174,6 +186,10 @@ def main() -> None:
         fail("Gate A promotion is accepted; stale non-complete guidance remains")
     if "Gate A is complete" not in state or "Gate A is complete" not in campaign or "Gate A is complete" not in acceptance:
         fail("Gate A promotion must agree across machine state and campaign authorities")
+    if "Gate B is complete" not in state or "Gate B is complete" not in campaign or "Gate B is complete" not in acceptance:
+        fail("Gate B promotion must agree across machine state and campaign authorities")
+    if "Gate B is not complete" in state or "Gate B is not complete" in campaign or "Gate B is not complete" in acceptance:
+        fail("Gate B promotion is accepted; stale non-complete guidance remains")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
     if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:

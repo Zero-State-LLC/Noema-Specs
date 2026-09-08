@@ -64,8 +64,12 @@ def main() -> None:
             raise SystemExit(f"FAIL: Gate B traceability missing independence marker: {marker}")
     if "LCA2-GATE-B-PREPARATION.md" not in acceptance_text or "LCA2-GATE-B-PREPARATION.md" not in roadmap_text:
         raise SystemExit("FAIL: preparation packet links are missing")
-    if "  external_agent_population_gate_b:\n    state: BLOCKED\n" not in state_text:
-        raise SystemExit("FAIL: external_agent_population_gate_b is not BLOCKED")
+    if "  external_agent_population_gate_b:\n    state: LIVE_HOSTED\n" not in state_text:
+        raise SystemExit("FAIL: external_agent_population_gate_b is not LIVE_HOSTED after Gate B promotion")
+    if "Gate B is complete" not in state_text:
+        raise SystemExit("FAIL: current-state missing Gate B completion claim")
+    if "LCA-GATE-B-PROMOTION-2026-09-08.md" not in state_text:
+        raise SystemExit("FAIL: current-state missing Gate B promotion evidence link")
     if "  integrated_small_civilization_run:\n    state: BLOCKED" not in state_text:
         raise SystemExit("FAIL: Gate C integration state is not BLOCKED")
     if "REPRESENTATIVE VALIDATION COMPLETE" not in text:
@@ -76,7 +80,7 @@ def main() -> None:
         raise SystemExit("FAIL: traceability matrix contains credential-like material")
 
     print(f"OK: {len(IDS)} Gate B requirement/output rows mapped to checks and observed results")
-    print("OK: preparation/runbook links resolve and Gate B plus Gate C remain BLOCKED")
+    print("OK: preparation/runbook links resolve; Gate B LIVE_HOSTED/COMPLETE; Gate C remains BLOCKED")
     print("OK: Controller decision-context independence contract and traceability markers are complete")
     print("OK: representative-validation and credential-safety boundaries preserved")
 

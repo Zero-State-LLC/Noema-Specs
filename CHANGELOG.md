@@ -4,7 +4,9 @@
 
 ### Changed
 
-- **Current-state live Worker pin reconciled after 2026-09-07 Noema Deploy.** `specs/current-state.v1.yaml` now records OBSERVED live Worker `04ef6ecb-65b9-430e-b0fd-141a2cc7179f` (`deployed_at` `2026-09-07T22:46:20.53456Z`, source `9c256035`, pin Noema#639). Prior recorded live `3f9b0e44` / source `418d262` / 2026-09-02 is historical. `production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`). `production_specs_baseline` stays `492ccc9` (Gate A evidence anchor). Gate B remains blocked; C7 enrollment checks remain unrun; Gate C remains unproven. No contract, catalog, verb, or runtime change.
+- **Living Civilization Alpha Gate B promoted (2026-09-08).** Records accepted external-population evidence from Noema #590 PRs #650/#652/#653/#654/#655/#656/#658/#659, live Worker `963b5edf` / source `308c98de`, cohort digests, reconnect Admin ICR/bindings, and `acceptance_authority_digest`. Danny human-yes authorizes the Specs flip. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (waived; not invented). Advances campaign machine state to LCA-3 / active Gate C while keeping Gate C unproven. Reconciles live Worker pin from historical `04ef6ecb` (2026-09-07). No contract, catalog, verb, Deploy, or runtime change.
+
+- **Current-state live Worker pin reconciled after 2026-09-07 Noema Deploy (historical).** Prior Specs record for live Worker `04ef6ecb-65b9-430e-b0fd-141a2cc7179f` (`deployed_at` `2026-09-07T22:46:20.53456Z`, source `9c256035`, pin Noema#639). Superseded for live pin by Gate B promotion above (`963b5edf` / `308c98de`). `production_implements_specs` stays `81ca8c1`. `production_specs_baseline` stays `492ccc9` (Gate A evidence anchor). Gate C remains unproven. No contract, catalog, verb, or runtime change.
 
 ### Added
 

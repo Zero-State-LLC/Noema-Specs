@@ -4,13 +4,13 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
-Current state: LCA-0 and LCA-1 are complete. **Gate A is complete.** Promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) from Noema PR #587 and merged main `a6b7e4b`. LCA-2 remains blocked on canonical operator enrollment and retained evidence from at least three independently controlled external Controllers. Gate C remains unproven. Do not merge Specs #291 until those prerequisites have acceptance evidence.
+Current state: LCA-0, LCA-1, and LCA-2 are complete. **Gate A is complete.** **Gate B is complete.** Gate A promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B promotion is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence with Danny human-yes (canonical operator enrollment completed; three independently controlled external Controllers retained). Gate C remains unproven.
 
 This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. The next risk is not insufficient breadth. It is that individually tested slices have not yet been proven together in a production-like civilization run.
 
@@ -59,13 +59,13 @@ Exit requires:
 
 ### LCA-2 — External Agent Player population
 
-**Status:** BLOCKED by canonical operator enrollment and independent external-Controller evidence. Gate B candidate `lca2-gate-b-three-external-agent-population` is named, not open.
+**Status:** COMPLETE. Gate B accepted through Noema #590 evidence; see [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Recovery-receipt objects remain NOT_COMPUTABLE (waived; not invented).
 
 Use at least three independently controlled external Agent Players. Verify onboarding, orientation, reconnect, contention, and the existing action surface without private operator strategy instructions.
 
 ### LCA-3 — Existing-system civilization scenario
 
-**Status:** BLOCKED by LCA-2
+**Status:** BLOCKED by missing Gate C evidence (LCA-2/Gate B complete)
 
 Compose already implemented mastery, resource pressure, trade, construction, social memory, institutions, communication, conflict/diplomacy, and recovery into one bounded scenario. The goal is to reveal integration and balance defects, not add a new subsystem.
 
@@ -112,4 +112,4 @@ Unmapped feature work is not authorized campaign work.
 
 Non-normative future guidance; no new behavior is authorized here.
 
-Integration-edge evidence and work-admission receipts can be extended within the existing LCA milestones. Preserve completed Gate A, blocked Gate B prerequisites, implementation-plane distinctions and the frozen alpha. Promotion evidence should pin candidate commits, enrollment and independently controlled external Players before changing gate status; test reconnect, contention and recovery on that candidate. LCA-4 evidence permits a cutover decision, not deployment, and does not reopen deferred breadth.
+Integration-edge evidence and work-admission receipts can be extended within the existing LCA milestones. Preserve completed Gate A and Gate B, implementation-plane distinctions and the frozen alpha. Gate B promotion pinned enrollment and independently controlled external Players; reconnect and contention were evidenced. Recovery-receipt objects stay NOT_COMPUTABLE unless a later packet supplies them. LCA-4 evidence permits a cutover decision, not deployment, and does not reopen deferred breadth.
