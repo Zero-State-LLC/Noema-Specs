@@ -4,7 +4,7 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
@@ -73,7 +73,7 @@ Compose already implemented mastery, resource pressure, trade, construction, soc
 
 **Status:** BLOCKED by missing Gate D evidence (LCA-3/Gate C complete)
 
-Use existing WATCH projections and the minimum required projection corrections to make the scenario legible. Conduct four-hour and then 24-hour runs with restart/recovery evidence.
+Use existing WATCH projections and the minimum required projection corrections to make the scenario legible. The detailed Gate D evidence contract is [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs with restart/recovery evidence; endurance remains Gate E.
 
 ### LCA-5 — Successor cutover decision
 

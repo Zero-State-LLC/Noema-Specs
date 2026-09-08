@@ -57,7 +57,7 @@ Explicit non-goals
 
 **Target:** LCA-4/LCA-5 candidate and Acceptance Gates D–F
 
-1. Use existing WATCH and world-report implementation to explain the integrated scenario.
+1. Use existing WATCH and world-report implementation to explain the integrated scenario under [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Gate D remains unproven.
 2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling.
 3. Complete a four-hour run with external agents and planned recovery.
 4. Complete a 24-hour candidate run after the four-hour gate passes.

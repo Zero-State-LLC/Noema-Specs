@@ -14,6 +14,7 @@
 
 ### Added
 
+- **Living Civilization Alpha Gate D scenario companion (docs-only).** Adds `docs/LCA-GATE-D-SCENARIO.md` as the WATCH-legibility evidence contract: blind-review protocol, five-statement checklist, pins, and `PASS` / `FAIL` / `NOT_COMPUTABLE`. Suggested candidate `lca4-gate-d-watch-legibility`. Links from acceptance, campaign, current-state comments, SPEC-GAP A4, and the same index surfaces that name the Gate C companion. Gate C COMPLETE (#331) is a prerequisite. Optional Gate C WATCH digest may be `NOT_COMPUTABLE`. Gate D remains unproven. Milestone stays LCA-4. No COMPLETE claim, Deploy, RFC-0130, hosted STUDY, or runtime change.
 - **Thin multi-agent adapters (docs-only).** `CLAUDE.md` points only at `AGENTS.md`. `AGENTS.md` has a short Escalation rule: if CI or validation looks wrong, open a labeled defect; do not patch tests to green. `SKILLS.md` records the `## Workflows` section lock for any future `spec.md` (existing skills only; no new skills, bots, or RFCs). No Worker publish.
 - **SDLC intent surface (docs-only).** `intent/` holds README + `_TEMPLATE.md` (Problem, outcome, users/systems, constraints, open questions, verified/assumed, author/date). Next stage is `specify/spec.md`. `AGENTS.md` and `SKILLS.md` require intent-first for non-trivial RFCs and features. No invented RFC intents. No Worker publish.
 

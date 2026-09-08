@@ -6,6 +6,7 @@
 **Gate B promotion evidence:** [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)
 **Gate C promotion evidence:** [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md)
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
+**Detailed Gate D companion:** [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md)
 
 ## Principle
 
@@ -78,6 +79,8 @@ At least two materially different viable strategies must exist. A dominant scrip
 ## Gate D — WATCH legibility
 
 **Status:** unproven. Gate C completion does not satisfy this gate.
+
+The detailed candidate declaration, blind-review protocol, five-statement checklist, and evidence-pack requirements are defined in [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md).
 
 From public WATCH alone, an uninvolved human reviewer can correctly state:
 
