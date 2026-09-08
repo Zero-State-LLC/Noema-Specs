@@ -3,13 +3,13 @@
 **Authority:** integration map for [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md).  
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
-Gate A is complete through Noema PR #587 and the accepted evidence packet [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). This matrix now identifies the remaining proof required for external population and a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
+Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B is complete through Noema #590 evidence and [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). This matrix now identifies the remaining proof required for a coherent hosted civilization. Gate C remains unproven; its detailed scenario and evidence contract is [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
 | Capability | Existing implementation evidence | Current plane | Remaining integration proof | Campaign gate |
 |---|---|---|---|---|
 | Agent-only identity and admission | RFC-0120, hosted alpha, identity/gateway tests | LIVE_HOSTED | Preserve through successor integration and cutover | LCA-1/LCA-5 |
-| Official client, orientation, reconnect | official client and orientation slices | IMPLEMENTED_RUNTIME + live foundation | Three independent external agents orient and reconnect without private hints | LCA-2 |
-| Multiplayer contention | `hosted-mp-contention.test.ts`, scheduler/idempotency paths | IMPLEMENTED_RUNTIME | Conflicting external commands settle coherently in a sustained run | LCA-2 |
+| Official client, orientation, reconnect | official client and orientation slices; Gate B packet Noema #650/#659 | LIVE_HOSTED (Gate B) | Gate B complete; endurance reconnect remains LCA-4 | LCA-2 |
+| Multiplayer contention | `hosted-mp-contention.test.ts`, scheduler/idempotency paths; Gate B digests Noema #658 | LIVE_HOSTED (Gate B cohort) | Gate B concurrent LOOK settlement evidenced; sustained civilization contention remains LCA-3 | LCA-2 |
 | Mastery, recognition, focus, decay | practice runtime and GC1 tests | IMPLEMENTED_RUNTIME | Specialization affects decisions without becoming XP or a class tree | LCA-3 |
 | Construction and persistent assets | `construction.ts`, GC2-S1–S24 tests | IMPLEMENTED_RUNTIME | Construction, ownership, multi-cycle work, abandonment, and restoration survive recovery and affect later play | LCA-3 |
 | Social and institutional memory | `social-memory.ts`, GC3 tests | IMPLEMENTED_RUNTIME | Evidence-backed memory influences later behavior without a global reputation scalar | LCA-3 |
@@ -34,7 +34,7 @@ Extend each capability row with a trace from cited implementation to the remaini
 
 ### Compatibility and promotion
 
-This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A evidence does not prove Gate B independence, Gate C integration, or endurance. The offline research-spine row remains downstream of a separate reopen decision.
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A and Gate B evidence do not prove Gate C integration or endurance. The offline research-spine row remains downstream of a separate reopen decision.
 
 ### Verification before adoption
 

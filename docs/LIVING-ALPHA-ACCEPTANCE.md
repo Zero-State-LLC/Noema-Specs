@@ -12,10 +12,10 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 ## Current promotion state
 
 - **Gate A is complete.** Noema PR #587 records the accepted runtime, deployment provenance, full-suite/typecheck result, integrated settlement/recovery evidence, hosted boundary observations, and exact live pin. See [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
-- Current milestone is LCA-2. Gate B candidate `lca2-gate-b-three-external-agent-population` remains blocked until canonical operator enrollment has acceptance evidence; no population claim follows from Gate A.
-- Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), and the production publication incorporated by runtime source `61234cc`.
-- Remaining LCA-2 prerequisite: complete one canonical operator device enrollment, then retain redacted evidence for at least three independently controlled external Controllers.
-- Gate C remains unproven. No compatibility-at-scale claim follows from Gate A.
+- **Gate B is complete.** Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence PRs #650/#652/#653/#654/#655/#656/#658/#659 with Danny human-yes. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (waived; not invented).
+- Current milestone is LCA-3. Gate B candidate `lca2-gate-b-three-external-agent-population` is accepted; no Gate C civilization claim follows from Gate B.
+- Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), the production publication incorporated by runtime source `61234cc`, and the Gate B external-population evidence packet (canonical operator device enrollment + three independently controlled external Controllers).
+- Gate C remains unproven. No compatibility-at-scale claim follows from Gate A or Gate B.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -45,7 +45,7 @@ A candidate must identify:
 
 ## Gate B — External population
 
-Named candidate: `lca2-gate-b-three-external-agent-population`. Not open. A Gate B run must still identify production/deployment pins, seal and room constraints, Controller versions, canonical heads, recovery receipts, WATCH digest, and redacted transcripts. The preparation contract is [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md).
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Named candidate: `lca2-gate-b-three-external-agent-population`. The preparation contract remains [LCA2-GATE-B-PREPARATION.md](LCA2-GATE-B-PREPARATION.md). Recovery-receipt objects stay **NOT_COMPUTABLE** (Danny-waived; not invented). Gate C remains separate and unproven.
 
 1. At least three independently controlled external Agent Players participate.
 2. Each uses the supported onboarding and command path.
