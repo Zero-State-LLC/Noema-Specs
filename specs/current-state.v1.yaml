@@ -35,6 +35,8 @@ authority:
   acceptance: docs/LIVING-ALPHA-ACCEPTANCE.md
   capability_matrix: docs/CIVILIZATION-CAPABILITY-MATRIX.md
   execution_sequence: docs/EXECUTION-SEQUENCE-90-DAY.md
+  # Gate C companion (COMPLETE): docs/LCA-GATE-C-SCENARIO.md
+  # Gate D companion (unproven; no COMPLETE): docs/LCA-GATE-D-SCENARIO.md
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
