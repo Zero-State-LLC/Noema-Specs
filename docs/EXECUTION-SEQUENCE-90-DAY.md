@@ -59,8 +59,8 @@ Explicit non-goals
 
 1. Use existing WATCH and world-report implementation to explain the integrated scenario under [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). **Done for Gate D** ([LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); Noema #679 PASS + one-door unify #680 / Specs #333 / Deploy).
 2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling. **Done for Gate D** (Chamber FE #674/#675/#677 plus one-door unify).
-3. Complete a four-hour run with external agents and planned recovery.
-4. Complete a 24-hour candidate run after the four-hour gate passes.
+3. Complete a four-hour run with ≥3 independently controlled external Controllers under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase A; Prep has no clock).
+4. Complete a 24-hour candidate run after the four-hour gate passes under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase B; ≥1 planned restart/recovery drill **inside** the 24-hour window).
 5. Produce migration, rollback, compatibility, and operator rehearsal artifacts for a successor decision.
 6. Issue GO, NO-GO, or NOT_COMPUTABLE. Do not deploy merely because the calendar ends.
 
