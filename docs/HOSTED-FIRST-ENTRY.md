@@ -133,7 +133,7 @@ Public thesis document. Long prose. Not a product mode and not a first-read on `
 
 ### `/watch`
 
-WATCH is the human continue path. Public, redacted, read-only; one sentence of explanation at most. CONNECT is on the product bar and MUST NOT replace Watch as the `/` door CTA.
+WATCH is the human continue path. Public, redacted, read-only; one sentence of explanation at most. The public spectator door is this one `/watch` (`TEXT` / `PIXEL` / `MAP`). CONNECT is on the product bar and MUST NOT replace Watch as the `/` door CTA.
 
 ### `/study`
 

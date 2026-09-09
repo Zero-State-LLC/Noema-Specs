@@ -1,9 +1,9 @@
 # WATCH — Real-Time Mapping & Spectator System
 
-**Version:** v0.1.1 (Draft)  
-**Date:** 2026-08-21 (reconciled 2026-08-21 evening)  
+**Version:** v0.1.2 (Draft)  
+**Date:** 2026-08-21 (reconciled 2026-08-21 evening; one-door amend 2026-09-09)  
 **Status:** Specs-first. Implementation follows review.  
-**Kind:** Rich visual spectator projection layer (complements the lightweight theater surface).  
+**Kind:** Rich visual spectator projection layer (`MAP` mode of the public `/watch` door).  
 **Related:**
 - [WATCH.md](WATCH.md)
 - [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) (low-cognitive-load default)
@@ -15,29 +15,31 @@
 - [ECONOMY-EWM-SPEC.md](ECONOMY-EWM-SPEC.md)
 - [DEEP-TIME-MECHANICS-UPDATE.md](DEEP-TIME-MECHANICS-UPDATE.md)
 
-This document defines the **real-time mapping spectator surface** — a richer, layered live view. It is designed to be **easily expandable** over time while preserving immediate comprehension, visual pleasure, and fun for watchers. It is not a dashboard: the doctrinal exclusions of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §1 ("WATCH is not") bind every WATCH surface, this one included — the difference here is density and layering, never telemetry, scoring, or narration.
+This document defines **`MAP` mode** on the public `/watch` door — a richer, layered live view of the same world heads. It is designed to be **easily expandable** over time while preserving immediate comprehension, visual pleasure, and fun for watchers. It is not a dashboard: the doctrinal exclusions of [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §1 ("WATCH is not") bind every WATCH surface, this one included — the difference here is density and layering, never telemetry, scoring, or narration. It is not a second spectator application.
 
 The map-first composition and visual grammar of [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) bind this surface unless this document explicitly defines a stricter rule. Additional layers MUST remain world-first, deterministic, public-projection-safe, and semantically restrained.
 
 ## 1. Purpose & Boundaries
 
-WATCH Real-Time Mapping provides a visually rich, glanceable, and engaging live view of the world that goes beyond the lightweight theater mode.
+WATCH Real-Time Mapping is the `MAP` mode of the one public spectator door (`/watch`). It provides a visually rich, glanceable, and engaging live view of the same world the TEXT and PIXEL modes already show.
 
 **It is:**
-- A derived, read-only projection.
+- A derived, read-only projection. Never world truth.
 - Focused on immediate understanding + long-term engagement.
-- Built on the same canonical event + state data as other spectator surfaces.
+- Built on the same `watch-live/1.0` world heads (`world_id`, `cycle`, `sequence`, `freshness`) as TEXT and PIXEL.
 - Intentionally more visual and layered than the lightweight default.
+- Progressive enhancement: optional `watch-map/1.0` bands overlay those same heads.
 
 **It is not:**
+- A second public spectator application or a second `/watch/map` app.
 - A replacement for the lightweight spectator experience (see [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)).
 - A dense telemetry dashboard or graph-heavy monitoring product (§1 doctrine of the lightweight contract applies).
 - An admin or research analytics surface.
 - A player HUD.
 - A raw event firehose.
-- The public door's map: `/watch` keeps its own §4.B/§18 cartography; this surface lives on its own opt-in route and MUST NOT render alongside them.
+- The default cartography of `/watch`. PIXEL (Phosphor §18) stays the default first-glance map when Canvas 2D is available. `MAP` MUST NOT render beside the TEXT cartogram or the PIXEL canvas — one map at a time.
 
-The two surfaces can coexist: the lightweight version remains the public default; the real-time mapping system is an opt-in richer mode (or separate route).
+A historical `/watch/map` URL MAY redirect to `/watch` with `MAP` selected. It MUST NOT keep a separate live document or a different world head. Live dual surfaces (`/watch` and `/watch/map`) are observed runtime drift until that unify ships.
 
 ## 1.1 Privacy & Redaction (normative)
 
@@ -112,7 +114,7 @@ Non-normative future guidance; the binding privacy, motion and reconciliation ru
 
 ### 5.1 Public projection and rendering seams
 
-New layers may consume only server-filtered public snapshot data. Preserve the separate opt-in route, lightweight public default, one-map public door, deterministic server-selected events/headlines, and safe text nodes. Optional fields must remain compatible with existing `watch-map/1.0` consumers; breaking payload or layer-model changes need the major version and migration notes described in §9. A cosmetic extension cannot authorize a new source of public information.
+New layers may consume only server-filtered public snapshot data. Preserve the one `/watch` door, `MAP` as a mode of that door, lightweight public default, one-map-at-a-time, same world heads, deterministic server-selected events/headlines, and safe text nodes. Optional fields must remain compatible with existing `watch-map/1.0` consumers; breaking payload or layer-model changes need the major version and migration notes described in §9. A cosmetic extension cannot authorize a new source of public information.
 
 - Requires separate authorization for the public projection; this document does not authorize raw values or new wire fields.
 - Any public encoding must use an existing coarse, semantic role rather than a research scalar or dashboard metric.
@@ -153,7 +155,7 @@ A proposed layer should identify its public source, deterministic derivation, le
 
 ## 6.1 Motion & Refresh (normative)
 
-The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **pause control that stops the poll**, `document.hidden` skips polls, reserved heights (no layout jump on refresh), reduced-motion = instant replace. A mapping page without a pause control is a defect.
+The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **pause control that stops the poll**, `document.hidden` skips polls, reserved heights (no layout jump on refresh), reduced-motion = instant replace. `MAP` mode without a pause control is a defect. Pause is shared with TEXT and PIXEL; it is not a second poller.
 
 ## 7. Accessibility & Cognitive Load
 
@@ -174,10 +176,11 @@ The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **paus
 
 | Tension | Resolution |
 |---|---|
-| “dashboard” doctrine (§1 there forbids it) | This surface is layered density, not telemetry: no KPI grids beyond the small health panel, no charts/sparklines, no world-pressure meters, no spectator analytics. The self-description “dashboard-style” is retired. |
-| One map at a time (§4.B.1 there) | Governs the public door `/watch` (semantic list / cartogram / phosphor). This surface is a **separate opt-in route**; it never embeds beside those maps, and `/watch` MAY link to it as plain text. |
-| Cognitive-load contract (§3 there) | Binds `/watch`. This surface carries its own restraint list (§1 “It is not” + §1.1 + §6.1) rather than §3's exact widget caps. |
-| Phosphor default (§18 there) | Unchanged — the phosphor sketch remains the public door's default cartography. This surface is not the default anything. |
+| “dashboard” doctrine (§1 there forbids it) | This mode is layered density, not telemetry: no KPI grids beyond the small health panel, no charts/sparklines, no world-pressure meters, no spectator analytics. The self-description “dashboard-style” is retired. |
+| One map at a time (§4.B.1 there) | Governs the public door `/watch` (TEXT cartogram / PIXEL phosphor / MAP). `MAP` is a mode of that door; it never embeds beside TEXT or PIXEL. A historical `/watch/map` URL MAY redirect to `/watch` with MAP selected. |
+| Cognitive-load contract (§3 there) | Binds `/watch`. `MAP` carries its own restraint list (§1 “It is not” + §1.1 + §6.1) rather than §3's exact widget caps. |
+| Phosphor default (§18 there) | Unchanged — the phosphor sketch remains the public door's default cartography. `MAP` is not the default anything. |
+| Same world heads | `MAP` MUST display the same `world_id`, `cycle`, `sequence`, and `freshness` as TEXT and PIXEL. `watch-map/1.0` adds coarse bands only. A second head is a defect. |
 | Client interest scoring (SPECTATOR.md) | Banned here too; tiers/importance are server-side only. |
 | AI narration / voting / badges (§3/§14 there) | Not in v0.1; gated on future RFC + reconciliation (see §6 gates). |
 

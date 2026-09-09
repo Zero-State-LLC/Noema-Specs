@@ -2,7 +2,7 @@
 
 WATCH is the **primary human product surface** ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Spectators do not need Player identity. WATCH never mutates. It answers **what is happening, who is doing what, and why it matters** through derived, permissioned projections of canonical events.
 
-The public hosted door (`/watch`) is specified as **[WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)**: a low-cognitive-load terminal-theater window (one notable event, one public world graph, one bounded recent-events feed, optional room detail). Optional **Phosphor Cartography** is a Canvas 2D sketch of the same `watch-live/1.0` snapshot; TEXT remains complete. That upgrade is **not** a product `v1.5` pin. It MUST NOT turn WATCH into a dashboard, broadcast system, or Admin/STUDY surface.
+The public hosted door is one `/watch`, specified as **[WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)**: a low-cognitive-load terminal-theater window (one notable event, one public world graph, one bounded recent-events feed, optional room detail). Modes of that door are `TEXT`, `PIXEL`, and `MAP`. Optional **Phosphor Cartography** (`PIXEL`) is a Canvas 2D sketch of the same `watch-live/1.0` snapshot; TEXT remains complete. `MAP` is progressive enhancement of those same world heads ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)), not a second app. That upgrade is **not** a product `v1.5` pin. It MUST NOT turn WATCH into a dashboard, broadcast system, or Admin/STUDY surface. Spectator projection is never world truth.
 
 The map-first composition, diegetic terminal grammar, glyph discipline, event-map coupling, and chrome restraint for WATCH are specified by [WATCH — Visual Direction & Map-First Composition](WATCH-VISUAL-DIRECTION.md). This is a presentation contract only; existing projection, privacy, and TEXT authority remain in force.
 
@@ -30,14 +30,14 @@ History surfaces as drama, not a raw ledger: `TIMELINE`, foundings, successions,
 WATCH may show derived world age / known historical sites / surviving institutions. It MUST NOT expose administrative Story Seeds, world seeds, or undiscovered Genesis internals by default.
 
 ## Real-Time Mapping Layer
-A richer, more visual real-time spectator mapping experience is defined in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md).
+A richer, more visual real-time spectator mapping experience is `MAP` mode on the same `/watch` door: [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md).
 
 This layer is designed for expandability:
 - Modular stackable layers
 - Explicit Extension Points for new mechanics, overlays, and interaction modes
-- Separate from the lightweight low-cognitive-load default
+- Progressive enhancement of the same `watch-live/1.0` world heads, not a second public door
 
-The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. The real-time mapping system is an opt-in richer projection.
+The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. `PIXEL` stays the default cartography when Canvas 2D is available. `MAP` is an opt-in richer mode of `/watch`.
 
 ## Extension Points
 
@@ -45,6 +45,6 @@ Non-normative future guidance; no current scope or acceptance claim changes.
 
 ### Spectator projection adapters
 
-Future maps, timeline cards or text views can consume the same permissioned snapshot while leaving the lightweight theater as default and richer mapping opt-in. Public significance describes observed changes, not motives; authorized Agent POV does not widen the selected Agent observation boundary.
+Future maps, timeline cards or text views can consume the same permissioned snapshot while leaving the lightweight theater as default and richer mapping as `MAP` mode on `/watch`. Public significance describes observed changes, not motives; authorized Agent POV does not widen the selected Agent observation boundary.
 
 Version changed projection rules and obtain the owning exposure decision before adding fields. Validate parity of text and visual views, hidden-room exclusion, private/research field omission, stale/incident labels and zero world writes. Optional presentation is not authority to add a dashboard, public Admin digest or research score.

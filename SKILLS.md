@@ -17,9 +17,9 @@ Resolve authority in this order: **Accepted RFC â†’ versioned protocol/schema â†
 
 Non-trivial RFCs and features are intent-first. Start from [intent/README.md](intent/README.md). The next stage is `specify/spec.md`. Do not invent intent records for existing RFCs.
 
-This repository has no `specify/` tree or constitution template yet. Repeatable procedures are the `SKILL.*` entries below.
+The first `specify/spec.md` is the thin one-door spectator amend. Repeatable procedures remain the `SKILL.*` entries below.
 
-If a specification campaign adds `specify/spec.md`, include a `## Workflows` section that:
+If a specification campaign adds or amends `specify/spec.md`, include a `## Workflows` section that:
 
 - Names **existing** skills only. Defaults when those skills exist: `anti-slop-code`, `production-systems`, `google-developer-style`. In this repository, name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
 - Names the owner specialist.

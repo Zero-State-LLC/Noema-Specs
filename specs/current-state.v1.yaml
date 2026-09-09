@@ -36,7 +36,9 @@ authority:
   capability_matrix: docs/CIVILIZATION-CAPABILITY-MATRIX.md
   execution_sequence: docs/EXECUTION-SEQUENCE-90-DAY.md
   # Gate C companion (COMPLETE): docs/LCA-GATE-C-SCENARIO.md
-  # Gate D companion (unproven; no COMPLETE): docs/LCA-GATE-D-SCENARIO.md
+  # Gate D companion (Gate D remains unproven; runtime PASS Noema #679;
+  # Specs COMPLETE HOLD until one-door /watch unify ships; no COMPLETE):
+  # docs/LCA-GATE-D-SCENARIO.md
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
@@ -65,7 +67,9 @@ runtimes:
       probe only. /ready players census is not the Gate B population proof; retained
       Admin ICR/bindings are. Gate C COMPLETE evidence uses this same live Worker
       `2c48d671` / source `4aedef79`; see docs/LCA-GATE-C-PROMOTION-2026-09-08.md.
-      Gate D remains unproven.
+      Gate D remains unproven (runtime PASS Noema #679; Specs COMPLETE
+      HOLD until one-door /watch unify ships). This file does not flip
+      Gate D to COMPLETE.
     specs_pin_note: >-
       Live source 4aedef79 remains aligned to Specs 81ca8c1, matching Noema
       hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
@@ -75,7 +79,9 @@ runtimes:
       uses historical Worker 963b5edf / source 308c98de. hosted_live.official_client
       remains noema-client==0.1.21 while Gate B cohort OBSERVED client 0.1.22 — both
       recorded; no invented pin flip. Campaign advances to LCA-4. Gate C is complete;
-      integrated_small_civilization_run is LIVE_HOSTED. Gate D remains unproven.
+      integrated_small_civilization_run is LIVE_HOSTED. Gate D remains unproven
+      (runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch
+      unify ships). This file does not flip Gate D to COMPLETE.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).
     evidence:
@@ -133,7 +139,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D WATCH legibility, Gate E endurance, hosted STUDY, and compatibility-at-scale remain unproven.
+    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D remains unproven (runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch unify ships). This file does not flip Gate D to COMPLETE. Gate E endurance, hosted STUDY, and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -242,7 +248,7 @@ active_campaign:
   thesis: integrate and prove what is already built before authorizing more breadth
   current_milestone: LCA-4
   next_milestone: LCA-5
-  active_gate: "Gate D: WATCH legibility (unproven; Gate C complete)"
+  active_gate: "Gate D: WATCH legibility (Gate D remains unproven; runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch unify; Gate C complete)"
   completed_gates:
     - "Gate A: Integrated runtime"
     - "Gate B: External population"

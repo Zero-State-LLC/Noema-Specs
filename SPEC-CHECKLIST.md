@@ -177,6 +177,7 @@ Product pins: Chamber 0.1.x (`event-catalog/0.1`), strategic conflict additive 0
 - [x] WATCH Phosphor default: §18 PIXEL sketch is the default public-door cartography (Canvas 2D permitting); TEXT one keystroke away, complete and authoritative; §4.B.1 cartogram is the TEXT/no-canvas fallback, never alongside the canvas ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §18, §4.B.1).
 - [x] WATCH ASCII cartogram specified: TEXT-mode `<pre>` is a 2D cartogram rasterized from the same deterministic public layout as Phosphor PIXEL; bounded grid with line-list fallback; `aria-hidden` atmosphere; semantic list remains accessible authority; hidden topology never enters layout, rasterization, or fallback ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §4.B.1).
 - [x] WATCH Living Chamber motion specified: tiered event pulses per the §18.5 atlas (≤3 non-MAJOR concurrent, 1 MAJOR), `exit_active` public-move edge lighting, feed-insert settle SHOULD, MAJOR banner MUST-render; event-born motion only, no ambient loop, reduced-motion silent; no new `watch-live/1.0` fields ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §8, §18.6).
+- [x] One public spectator door: `/watch`; `TEXT` / `PIXEL` / `MAP` are modes; mapping is progressive enhancement of the same world heads, not a second app; Phosphor §18 unchanged; spectator ≠ truth retained; Gate D COMPLETE not flipped ([WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md), [WATCH-REAL-TIME-MAPPING.md](docs/WATCH-REAL-TIME-MAPPING.md), [specify/spec.md](specify/spec.md)).
 - [x] RFC-0126 Accepted: WATCH `ENTITY_UPDATE` is fail-closed. HARVEST, ATTEST, INFORMATION_CONTEST, and PRESENCE_PRESSURE do not fall through to generic public copy; unknown operations default silent; HARVEST remains one canonical `RESOURCE_TRANSFER` line. No new WATCH surface or `WR-S*` slice.
 - [x] Experience fixtures and validation coverage exist.
 - [x] Human PLAY first-screen comprehension: location, local significance, entities, routes, actions, status, activity, command.
@@ -350,8 +351,8 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 - [x] Integration with Deep Time (scars), EWM, and Semantic layers documented
 - [x] Accessibility & cognitive load requirements included
 - [x] Phased roadmap with future hooks defined
-- [x] Runtime `/watch/map` shipped (Noema `#471`). Live mapping is a spectator surface, not inhabit.
-- [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1: §1.1 privacy binds §7 verbatim + `watch-map/1.0` bands pin per Noema #488; §6.1 pause/motion; §8.1 reconciliation table; "dashboard-style" retired; WebGL/importance-scoring/AI-narration/voting struck or RFC-gated).
+- [x] Runtime `/watch/map` shipped (Noema `#471`). Historical live dual-surface. Spec now unifies mapping to `MAP` mode on `/watch` (v0.1.2). Live mapping is a spectator surface, not inhabit, and not a second app.
+- [x] Reconciled with WATCH-LIGHTWEIGHT-SPECTATOR (v0.1.1 privacy/bands; v0.1.2 one-door: `MAP` is a mode of `/watch`, same world heads, historical `/watch/map` MAY redirect; Phosphor default unchanged).
 
 ## 10-Step Plan Completion (2026-08-27)
 - [x] Step 1: GC1 authority + S9–S11 slices (multi-focus, decay credit, parameters) as design notes.

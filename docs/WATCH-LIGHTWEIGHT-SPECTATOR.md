@@ -11,7 +11,7 @@ Does not replace [WATCH.md](WATCH.md), [SPECTATOR.md](SPECTATOR.md), [SPECTATOR-
 
 Related: [EXPERIENCE.md](EXPERIENCE.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) · [OBSERVATION.md](OBSERVATION.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
-Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/live`.
+Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/live`. The public spectator door is this one `/watch`. `TEXT`, `PIXEL`, and `MAP` are modes of that door. Live `/watch/map` as a second page is runtime drift; see [the one-door amend](../specify/spec.md).
 
 ---
 
@@ -54,7 +54,17 @@ Never a writer.
 Text-first Chamber theater.
 ```
 
-Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope. The only permitted canvas on public `/watch` is optional **NOEMA Phosphor Cartography** (§18): progressive enhancement of the same `watch-live/1.0` snapshot. TEXT remains complete and authoritative.
+Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope.
+
+The public spectator door is **one `/watch`**. Modes:
+
+| Mode | Role |
+|------|------|
+| `TEXT` | Semantic HTML graph plus optional ASCII cartogram (§4.B / §4.B.1). Complete and authoritative. |
+| `PIXEL` | Optional **NOEMA Phosphor Cartography** (§18). Progressive enhancement of the same `watch-live/1.0` snapshot. Rules unchanged. |
+| `MAP` | Richer layered mapping ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)). Progressive enhancement of the **same world heads**, not a second app. |
+
+One map at a time: the TEXT cartogram, PIXEL canvas, and MAP canvas MUST NOT render together. Spectator projection remains derived and is never world truth.
 
 The composition, hierarchy, geometry, and aesthetic restraint of this surface are governed by [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md). This pointer is normative and additive; it does not duplicate or loosen this document's cognitive-load, privacy, event-window, TEXT, or Phosphor rules.
 
@@ -190,7 +200,7 @@ Mobile: drop the `<pre>` if it would require horizontal scrolling. Keep the sema
 
 The optional `<pre>` is a **two-dimensional ASCII cartogram**, not a per-site line list. It is the TEXT-mode sibling of the §18 Phosphor sketch: MUD-native, terminal-first, and spatial.
 
-**Role: fallback, not default.** The default first-glance cartography of the public door is the graphical §18 Phosphor sketch (see §18 render rules). The ASCII cartogram renders only when the spectator selects TEXT mode or the canvas is unavailable/failed. It MUST NOT render alongside the live canvas — one map at a time.
+**Role: fallback, not default.** The default first-glance cartography of the public door is the graphical §18 Phosphor sketch (see §18 render rules). The ASCII cartogram renders only when the spectator selects TEXT mode or the canvas is unavailable/failed. It MUST NOT render alongside the PIXEL canvas or the MAP canvas — one map at a time.
 
 **Shared layout (single source of spatial truth):**
 
@@ -685,7 +695,7 @@ Runtime MUST cover:
 | Runtime `public_pulses` cap 4 unstructured strings | Keep pulses; add structured `recent_events`. |
 | Admin Live topology vs WATCH graph | Admin topology stays operator-only. WATCH graph is a **public, incomplete, text-first** site sketch. |
 | GC6-S0 “WATCH empty” for contradiction | Unchanged. This upgrade MUST NOT add a contradiction pulse those slices forbid. |
-| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) vs this contract | The mapping surface is a **separate opt-in route**, never this door's map and never its default. §7 hard rules bind it verbatim (its §1.1); its per-room values are bands only (`watch-map/1.0`); §4.B.1 one-map-at-a-time governs `/watch` and the mapping page never embeds beside these maps; its Phase 2/3 items overlapping §3/§14 are gated on a future RFC plus a new row here. WebGL stays banned everywhere on public WATCH. |
+| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) vs this contract | Mapping is **`MAP` mode on this same `/watch` door**, never a second public app and never the default cartography. It is progressive enhancement of the same `watch-live/1.0` world heads; `watch-map/1.0` is optional band overlay only. §7 hard rules bind it verbatim (its §1.1); its per-room values are bands only; §4.B.1 one-map-at-a-time now includes MAP (TEXT cartogram, PIXEL canvas, and MAP canvas never together). A historical `/watch/map` URL MAY redirect here with MAP selected. Phase 2/3 items overlapping §3/§14 stay gated on a future RFC plus a new row here. WebGL stays banned everywhere on public WATCH. |
 | GC10-S2 “WATCH silent” vs Feature D residue on WATCH | Both hold. GC10-S2’s silence governs **events**: dismantle/scar creation never produces a WATCH feed row, ticker line, or headline. The Feature D carve-out ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3) governs **static residue**: the scar MAY appear as a `rooms[].traces[]` entry attached to its public room. Residue is state, not news. |
 | GC slices pinned “WATCH silent” vs consequence line | Unchanged. §4.A.1 consequences derive only from projections already public in the §4.E table; a slice pinned WATCH-silent contributes neither an event nor a consequence. |
 
@@ -748,6 +758,7 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 - **Labels stay readable.** Site names on the sketch MUST NOT be overdrawn by room glyphs, occupancy diamonds, catalog marks, route strokes, or pulses — separate the label placement from the mark zone and/or back the text with a ground-colored plate. Unreadable labels are a defect.
 - **Adjacent map key.** The sketch MUST carry a compact key beside/below the canvas — HTML text, not canvas — naming its marks in plain language: site, active site, Player occupancy, route, uncertain route, event pulse, and the MAJOR color. The header glyph legend (`#world-key`) documents the shared catalog and does not substitute for the map key. The key adds no information the sketch does not already show.
 - TEXT / PIXEL toggle, keyboard-accessible. **Default is PIXEL when Canvas 2D is available.** The graphical Phosphor sketch is the intended first-glance cartography of the public door; plain text as the default map is a presentation defect. TEXT stays one keystroke away, disables the canvas entirely, and MAY persist as a client-local preference. Canvas absence or failure falls back to TEXT (+ the §4.B.1 text cartogram). TEXT remains complete and authoritative in every mode — the semantic site list is always present and the canvas never carries unique information.
+- `MAP` is a third mode of this same `/watch` door ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)). It does not change these Phosphor rules. Selecting MAP hides the PIXEL canvas and the TEXT cartogram. Selecting PIXEL or TEXT hides the MAP canvas.
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.
 
@@ -865,9 +876,9 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 
 ## Relationship to Real-Time Mapping
 
-This lightweight upgrade is the low-cognitive-load default. A separate, more visual and layered real-time mapping system (with explicit support for future expansion) is defined in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) — reconciled with this contract by its §1.1/§6.1/§8.1 and the §15 row above.
+This lightweight upgrade is the low-cognitive-load default of the **one** public door (`/watch`). Richer layered mapping is `MAP` mode on that same door: [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md), reconciled by its §1.1/§6.1/§8.1 and the §15 row above.
 
-The two surfaces coexist; this door stays the default.
+`MAP` is progressive enhancement of the same world heads. It is not a second spectator application. Phosphor §18 stays the default cartography when Canvas 2D is available.
 
 ## Extension Points
 
