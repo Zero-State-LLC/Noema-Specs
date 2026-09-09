@@ -19,7 +19,7 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 - **Gate C is complete.** Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (not invented).
 - Current milestone is LCA-4. Gate C candidate `lca3-gate-c-existing-system-civilization` is accepted; no Gate D, Gate E, Gate F, endurance, or hosted STUDY claim follows from Gate C.
 - Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), the production publication incorporated by runtime source `61234cc`, and the Gate B external-population evidence packet (canonical operator device enrollment + three independently controlled external Controllers).
-- Gate D runtime blind-score PASS is recorded in Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679). Specs Gate D COMPLETE remains **HOLD** until the one-door spectator unify ships. This document does not flip Gate D to COMPLETE. No compatibility-at-scale claim follows from Gate A, Gate B, or Gate C.
+- Gate D remains unproven (runtime PASS Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679); Specs COMPLETE HOLD until one-door `/watch` unify ships). This document does not flip Gate D to COMPLETE. No compatibility-at-scale claim follows from Gate A, Gate B, or Gate C.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -78,7 +78,7 @@ At least two materially different viable strategies must exist. A dominant scrip
 
 ## Gate D — WATCH legibility
 
-**Status:** runtime PASS recorded (Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679)). Specs COMPLETE **HOLD** until one-door spectator unify ships. This document does not flip Gate D to COMPLETE. Gate C completion does not satisfy this gate.
+**Status:** Gate D remains unproven (runtime PASS Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679); Specs COMPLETE HOLD until one-door `/watch` unify ships). This document does not flip Gate D to COMPLETE. Gate C completion does not satisfy this gate.
 
 The detailed candidate declaration, blind-review protocol, five-statement checklist, and evidence-pack requirements are defined in [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md).
 
