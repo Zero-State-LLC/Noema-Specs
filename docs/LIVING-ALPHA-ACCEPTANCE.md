@@ -97,9 +97,9 @@ WATCH must not expose private cognition, restricted state, raw research candidat
 
 ## Gate E — Endurance
 
-**Status:** unproven. Suggested candidate: `lca4-gate-e-endurance`. The scenario contract is [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). This companion does not COMPLETE Gate E. Gate E remains unproven.
+**Status:** unproven. Suggested candidate: `lca5-gate-e-endurance` (naming ladder Gate B=`lca2` … Gate D=`lca4` → Gate E=`lca5`; Danny may later lock `lca4`). The scenario contract is [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Tracking: [Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682). This companion does not COMPLETE Gate E. Gate E remains unproven.
 
-The detailed candidate declaration, phase protocol (Phase A four-hour → Phase B planned recovery → Phase C 24-hour), evidence-pack requirements, and verdict language are defined in [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md).
+The detailed candidate declaration, phase protocol (Prep, no clock → Phase A four-hour → Phase B 24-hour with the planned recovery drill **inside** the 24-hour window), evidence-pack requirements, and verdict language are defined in [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md).
 
 1. A four-hour candidate run passes before the 24-hour run opens.
 2. The final candidate spans at least 24 continuous hours.
