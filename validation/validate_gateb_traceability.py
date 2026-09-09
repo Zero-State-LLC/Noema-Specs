@@ -76,6 +76,12 @@ def main() -> None:
         raise SystemExit("FAIL: current-state missing Gate C promotion evidence link")
     if "Gate C is complete" not in state_text:
         raise SystemExit("FAIL: current-state missing Gate C completion claim")
+    if "  watch_legibility_gate_d:\n    state: LIVE_HOSTED" not in state_text:
+        raise SystemExit("FAIL: Gate D WATCH legibility state is not LIVE_HOSTED after promotion")
+    if "LCA-GATE-D-PROMOTION-2026-09-09.md" not in state_text:
+        raise SystemExit("FAIL: current-state missing Gate D promotion evidence link")
+    if "Gate D is complete" not in state_text:
+        raise SystemExit("FAIL: current-state missing Gate D completion claim")
     if "REPRESENTATIVE VALIDATION COMPLETE" not in text:
         raise SystemExit("FAIL: matrix must identify representative, not complete external, validation")
     if "No production enrollment, deployment, or world mutation was performed" not in text:
@@ -84,7 +90,7 @@ def main() -> None:
         raise SystemExit("FAIL: traceability matrix contains credential-like material")
 
     print(f"OK: {len(IDS)} Gate B requirement/output rows mapped to checks and observed results")
-    print("OK: preparation/runbook links resolve; Gate B LIVE_HOSTED/COMPLETE; Gate C LIVE_HOSTED/COMPLETE")
+    print("OK: preparation/runbook links resolve; Gate B LIVE_HOSTED/COMPLETE; Gate C LIVE_HOSTED/COMPLETE; Gate D LIVE_HOSTED/COMPLETE")
     print("OK: Controller decision-context independence contract and traceability markers are complete")
     print("OK: representative-validation and credential-safety boundaries preserved")
 

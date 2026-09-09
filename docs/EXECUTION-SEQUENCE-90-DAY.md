@@ -53,12 +53,12 @@ Explicit non-goals
 
 ## Horizon 3 — Days 61–90: WATCH, endurance, and cutover readiness
 
-**Status:** OPEN after Gate C. Gates D, E, and F remain unproven.
+**Status:** OPEN after Gate D. Gate D is complete. Gates E and F remain unproven.
 
-**Target:** LCA-4/LCA-5 candidate and Acceptance Gates D–F
+**Target:** LCA-4/LCA-5 candidate and Acceptance Gates E–F
 
-1. Use existing WATCH and world-report implementation to explain the integrated scenario under [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Gate D runtime PASS is Noema #679; Specs COMPLETE HOLD until one-door `/watch` unify ships.
-2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling.
+1. Use existing WATCH and world-report implementation to explain the integrated scenario under [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). **Done for Gate D** ([LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); Noema #679 PASS + one-door unify #680 / Specs #333 / Deploy).
+2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling. **Done for Gate D** (Chamber FE #674/#675/#677 plus one-door unify).
 3. Complete a four-hour run with external agents and planned recovery.
 4. Complete a 24-hour candidate run after the four-hour gate passes.
 5. Produce migration, rollback, compatibility, and operator rehearsal artifacts for a successor decision.
@@ -77,6 +77,6 @@ Non-normative guidance for future maintenance; this section changes no current b
 
 - Packet refinement can split an integration defect into smaller evidence-bearing packets while retaining the implementation pin, production-alpha delta, permitted claim, and non-goals. Elapsed days do not satisfy an acceptance gate.
 
-- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A, Gate B, and Gate C completion remain recorded; additional Controller runs do not by themselves prove Gates D–F or open hosted STUDY.
+- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A, Gate B, Gate C, and Gate D completion remain recorded; additional Controller runs do not by themselves prove Gates E–F or open hosted STUDY.
 
 - Before promoting a revised packet, trace its result to a pinned test/run and the relevant acceptance gate, distinguish isolated from hosted evidence, and check that blocked enrollment, failed endurance, or unavailable cutover evidence cannot produce GO.

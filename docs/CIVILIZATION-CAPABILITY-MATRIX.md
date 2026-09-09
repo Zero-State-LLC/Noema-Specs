@@ -3,7 +3,7 @@
 **Authority:** integration map for [Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md).  
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
-Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B is complete through Noema #590 evidence and [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Gate C is complete through Noema #662/#663/#664 plus Path 8 recover JSON and [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). This matrix now identifies the remaining proof required for WATCH legibility, endurance, and a successor decision. Gate D runtime PASS is Noema #679; Specs COMPLETE remains HOLD until one-door spectator unify ships. This matrix does not flip Gate D to COMPLETE. The Gate C scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). The Gate D scenario contract is [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md).
+Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B is complete through Noema #590 evidence and [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Gate C is complete through Noema #662/#663/#664 plus Path 8 recover JSON and [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). Gate D is complete through Noema #679 plus Specs #333 / Noema #680 / Deploy 34317120696 / pin #681 and [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). This matrix now identifies the remaining proof required for endurance and a successor decision. Gate E remains unproven. The Gate C scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). The Gate D scenario contract is [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md).
 
 | Capability | Existing implementation evidence | Current plane | Remaining integration proof | Campaign gate |
 |---|---|---|---|---|
@@ -20,7 +20,7 @@ Gate A is complete through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md
 | Access policy | `access-policy.ts`, access-policy tests; Gate C office NOTICE / org membership Noema #664 | LIVE_HOSTED (Gate C) | Gate C bounded institutional access evidenced; endurance remains LCA-4 | LCA-3 |
 | Economic specialization | lot quality/provenance/spoilage/transport and GC8 tests; Gate C broker/engineer plurality Noema #664 | LIVE_HOSTED (Gate C) | Gate C two viable strategies evidenced; endurance remains LCA-4 | LCA-3 |
 | World pressure | pressure runtime, GC10 tests; Gate C harvest/lot-cost pressure Noema #664 | LIVE_HOSTED (Gate C) | Gate C pressure-changed decisions evidenced; endurance remains LCA-4 | LCA-3 |
-| WATCH and world reports | WATCH live, Phosphor, public bands, reports tests | LIVE_HOSTED foundation + IMPLEMENTED_RUNTIME depth | Uninvolved humans accurately explain major visible changes and unknowns | LCA-4 |
+| WATCH and world reports | WATCH live, Phosphor, public bands, reports tests; Gate D blind-score Noema #679; one-door unify Noema #680 | LIVE_HOSTED (Gate D) | Gate D is complete; endurance remains Gate E / LCA-4 | LCA-4 |
 | Persistence, settlement, recovery | hosted head, Postgres settlement, integrated restart path, older-format DO load, isolated rollback, and Gate A evidence in Noema #587 | LIVE_HOSTED | Gate A complete; endurance recovery remains unproven for LCA-4 | LCA-4 |
 | Offline research spine | v0.1–v0.7 acceptance and conformance | IMPLEMENTED_OFFLINE | Remains downstream; hosted reopen requires natural-play evidence and a separate decision | after LCA-5 |
 
@@ -34,7 +34,7 @@ Extend each capability row with a trace from cited implementation to the remaini
 
 ### Compatibility and promotion
 
-This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A, Gate B, and Gate C evidence do not prove Gate D WATCH legibility, Gate E endurance, or Gate F successor readiness. The offline research-spine row remains downstream of a separate reopen decision.
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A–D evidence do not prove Gate E endurance or Gate F successor readiness. The offline research-spine row remains downstream of a separate reopen decision.
 
 ### Verification before adoption
 
