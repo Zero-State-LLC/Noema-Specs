@@ -96,7 +96,7 @@ Optional extensions remain subject to existing schema, privacy, projection, and 
 
 **Public `/watch` graphics allowlist (reopen, 2026-09-09).** This row reopens the brand lock for the MAP mode stage only. It does not reopen PIXEL, PLAY, STUDY, or Admin Live. TEXT remains authority. Projection is not world truth. Canonical campaign note: [specify/watch-map-p0-gl-poi.md](../specify/watch-map-p0-gl-poi.md).
 
-Impressiveness target is a unique blend, not pure cinema and not a raw MUD dump: MUD theater (TEXT authority; withheld/unknown is drama), living-stage MAP (WebGL / Three.js for depth and event-born Direct-Camera), civilization sports (glanceable Who / Where / Consequence, no KPI or esports HUD packing), and projection honesty (the chamber is a window, never omniscient world truth). Visual grammar: [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1.
+Impressiveness target is a unique blend, not pure cinema and not a raw MUD dump: MUD theater (TEXT authority; withheld/unknown is drama), living-stage MAP (WebGL / Three.js for depth and event-born Direct-Camera), civilization sports (glanceable Who / Where / Consequence, no KPI or esports HUD packing), and projection honesty (the chamber is a window, never omniscient world truth). Feel is **legible but with edges of experimental**: Gate D five slots, camera-to-action, and TEXT stay non-negotiable; uncanny depth, odd marks, and withheld-as-aesthetic stay fringe; muddy hierarchy, illegible type, and cosplay HUD remain defects. Visual grammar: [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1.
 
 | Surface | Graphics |
 |---|---|

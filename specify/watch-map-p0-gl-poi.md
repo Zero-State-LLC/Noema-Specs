@@ -33,6 +33,8 @@ Impressiveness is a unique blend, not pure cinema and not a raw MUD dump:
 | Civilization sports | Glanceable Who / Where / Consequence. No KPI walls or esports HUD packing. |
 | Projection honesty | The chamber is a window. It never pretends to be omniscient world truth. |
 
+Feel: **legible but with edges of experimental.** Legibility is non-negotiable (Gate D five slots, camera-to-action, TEXT authority). Experimental is fringe only: uncanny depth, odd marks, withheld-as-aesthetic. Never muddy hierarchy, illegible type, or cosplay HUD.
+
 Direction: a text civilization you spectate like a match, through a chamber that never pretends to be omniscient.
 
 PIXEL stays Canvas 2D until a later explicit row. This amend does not implement FE.
@@ -99,5 +101,6 @@ A later runtime slice proves MAP stage quality against these existing contracts.
 - Anti-cosplay bans remain.
 - One-door `/watch` and spectator-is-not-truth language remain.
 - Tone docs name the unique blend (MUD theater / living-stage MAP / civilization sports / projection honesty).
+- Feel is legible with edges of experimental only; Gate D / camera-to-action / TEXT stay non-negotiable.
 - MAP P0 points at Direct-Camera / Gate D five-slot / Follow-that-teaches as product intent, not implementation.
 - `python3 validation/validate_all.py` PASSes.

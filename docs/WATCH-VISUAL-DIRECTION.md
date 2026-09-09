@@ -65,6 +65,16 @@ A text civilization you spectate like a match,
 through a chamber that never pretends to be omniscient.
 ```
 
+Feel: **legible but with edges of experimental.**
+
+| Bound | Requirement |
+|---|---|
+| Legibility (non-negotiable) | Gate D five-slot statements remain answerable. Camera tracks public action (Direct-Camera). TEXT remains authority. |
+| Experimental (edge / fringe only) | Uncanny depth, odd marks, and withheld-as-aesthetic MAY appear at the fringe. |
+| Never | Muddy hierarchy. Illegible type. Cosplay HUD. |
+
+Experimental treatment MUST NOT hide Who / Where / Consequence, invent hidden topology, or replace TEXT. It is fringe texture, not a second information hierarchy.
+
 This direction is additive to the low-cognitive-load public contract in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) and compatible with `MAP` mode in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). TEXT, PIXEL, and MAP are modes of one `/watch` door. Neither mode becomes a new source of truth.
 
 ---
@@ -627,6 +637,7 @@ A compatible WATCH implementation satisfies this specification when:
 18. Public and Admin topology remain distinct.
 19. MAP-stage WebGL / Three.js, if present, obeys [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D. Anti-cosplay bans remain.
 20. Public `/watch` reads as the unique blend in §1 (MUD theater / living-stage MAP / civilization sports / projection honesty), not as pure cinema and not as a raw MUD dump.
+21. Feel is legible with edges of experimental only: Gate D five slots, camera-to-action, and TEXT stay non-negotiable; uncanny depth, odd marks, and withheld-as-aesthetic stay fringe; muddy hierarchy, illegible type, and cosplay HUD remain defects.
 
 ---
 

@@ -61,7 +61,7 @@ Do not treat decorative graphics as a substitute for gameplay information.
 - cheesy sci-fi display fonts (stencil, chrome, orbitron-class)
 - decorative complexity that does not encode gameplay meaning
 
-WATCH remains **low-load theater** relative to PLAY ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)). That is a cognitive-load contract, not a license to make PLAY visually empty. Public `/watch` MAP MAY use WebGL / Three.js under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. That row does not authorize Orbitron-class display fonts, CRT scanline chrome, military HUD packing, ambient particle/fog loops, or KPI walls on any surface. Impressiveness is a unique blend, not pure cinema and not a raw MUD dump ([WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1).
+WATCH remains **low-load theater** relative to PLAY ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)). That is a cognitive-load contract, not a license to make PLAY visually empty. Public `/watch` MAP MAY use WebGL / Three.js under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. That row does not authorize Orbitron-class display fonts, CRT scanline chrome, military HUD packing, ambient particle/fog loops, or KPI walls on any surface. Impressiveness is a unique blend, not pure cinema and not a raw MUD dump. Feel is **legible but with edges of experimental** ([WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1).
 
 The 2026-08-14 first-entry visual voice (night ledger paper, copper accent, Fraunces display, “more air, less card stack”) is **superseded** as the player brand. See [PLAYER-BRAND.md](PLAYER-BRAND.md) § Supersession.
 
