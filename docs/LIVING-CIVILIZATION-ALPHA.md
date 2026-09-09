@@ -4,7 +4,7 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
@@ -73,7 +73,7 @@ Compose already implemented mastery, resource pressure, trade, construction, soc
 
 **Status:** Gate D is complete; Gate E endurance remains unproven
 
-WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs with restart/recovery evidence; endurance remains Gate E.
+WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs with restart/recovery evidence under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md); Gate E remains unproven.
 
 ### LCA-5 — Successor cutover decision
 
