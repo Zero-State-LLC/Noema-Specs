@@ -17,7 +17,7 @@ Resolve authority in this order: **Accepted RFC â†’ versioned protocol/schema â†
 
 Non-trivial RFCs and features are intent-first. Start from [intent/README.md](intent/README.md). The next stage is `specify/spec.md`. Do not invent intent records for existing RFCs.
 
-The first `specify/spec.md` is the thin one-door spectator amend. Repeatable procedures remain the `SKILL.*` entries below.
+The first `specify/spec.md` is the thin one-door spectator amend. The MAP WebGL brand-lock reopen is [specify/watch-map-p0-gl-poi.md](specify/watch-map-p0-gl-poi.md). Repeatable procedures remain the `SKILL.*` entries below.
 
 If a specification campaign adds or amends `specify/spec.md`, include a `## Workflows` section that:
 

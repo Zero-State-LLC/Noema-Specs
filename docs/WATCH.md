@@ -2,7 +2,7 @@
 
 WATCH is the **primary human product surface** ([RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md)). Spectators do not need Player identity. WATCH never mutates. It answers **what is happening, who is doing what, and why it matters** through derived, permissioned projections of canonical events.
 
-The public hosted door is one `/watch`, specified as **[WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)**: a low-cognitive-load terminal-theater window (one notable event, one public world graph, one bounded recent-events feed, optional room detail). Modes of that door are `TEXT`, `PIXEL`, and `MAP`. Optional **Phosphor Cartography** (`PIXEL`) is a Canvas 2D sketch of the same `watch-live/1.0` snapshot; TEXT remains complete. `MAP` is progressive enhancement of those same world heads ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)), not a second app. That upgrade is **not** a product `v1.5` pin. It MUST NOT turn WATCH into a dashboard, broadcast system, or Admin/STUDY surface. Spectator projection is never world truth.
+The public hosted door is one `/watch`, specified as **[WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md)**: a low-cognitive-load terminal-theater window (one notable event, one public world graph, one bounded recent-events feed, optional room detail). Modes of that door are `TEXT`, `PIXEL`, and `MAP`. Optional **Phosphor Cartography** (`PIXEL`) is a Canvas 2D sketch of the same `watch-live/1.0` snapshot; TEXT remains complete. `MAP` is progressive enhancement of those same world heads ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)), not a second app. MAP MAY use WebGL / Three.js (or equivalent) only under that document’s §3.3 allowlist. TEXT remains complete without GL. Public `/watch` impressiveness is a unique blend (MUD theater / living-stage MAP / civilization sports / projection honesty), not pure cinema and not a raw MUD dump. Feel is **legible but with edges of experimental** ([WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1). That upgrade is **not** a product `v1.5` pin. It MUST NOT turn WATCH into a dashboard, broadcast system, or Admin/STUDY surface. Spectator projection is never world truth.
 
 The map-first composition, diegetic terminal grammar, glyph discipline, event-map coupling, and chrome restraint for WATCH are specified by [WATCH — Visual Direction & Map-First Composition](WATCH-VISUAL-DIRECTION.md). This is a presentation contract only; existing projection, privacy, and TEXT authority remain in force.
 
@@ -37,7 +37,7 @@ This layer is designed for expandability:
 - Explicit Extension Points for new mechanics, overlays, and interaction modes
 - Progressive enhancement of the same `watch-live/1.0` world heads, not a second public door
 
-The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. `PIXEL` stays the default cartography when Canvas 2D is available. `MAP` is an opt-in richer mode of `/watch`.
+The lightweight theater surface ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)) remains the public default. `PIXEL` stays the default cartography when Canvas 2D is available. `MAP` is an opt-in richer mode of `/watch`. MAP-stage WebGL / Three.js is allowed only under that mapping document’s §3.3.
 
 ## Extension Points
 
