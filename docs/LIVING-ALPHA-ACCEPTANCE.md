@@ -5,6 +5,7 @@
 **Gate A promotion evidence:** [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md)
 **Gate B promotion evidence:** [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md)
 **Gate C promotion evidence:** [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md)
+**Gate D promotion evidence:** [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md)
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 **Detailed Gate D companion:** [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md)
 
@@ -17,9 +18,10 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 - **Gate A is complete.** Noema PR #587 records the accepted runtime, deployment provenance, full-suite/typecheck result, integrated settlement/recovery evidence, hosted boundary observations, and exact live pin. See [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md).
 - **Gate B is complete.** Accepted evidence is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence PRs #650/#652/#653/#654/#655/#656/#658/#659 with Danny human-yes. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (waived; not invented).
 - **Gate C is complete.** Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (not invented).
-- Current milestone is LCA-4. Gate C candidate `lca3-gate-c-existing-system-civilization` is accepted; no Gate D, Gate E, Gate F, endurance, or hosted STUDY claim follows from Gate C.
+- **Gate D is complete.** Accepted evidence is recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) from Noema #679 blind-score PASS plus Specs #333 / Noema #680 / Deploy 34317120696 / pin #681. HOLD is released. Named candidate: `lca4-gate-d-watch-legibility`.
+- Current milestone is LCA-4. Gate D candidate `lca4-gate-d-watch-legibility` is accepted; no Gate E endurance, Gate F, hosted STUDY, or compatibility-at-scale claim follows from Gate D.
 - Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), the production publication incorporated by runtime source `61234cc`, and the Gate B external-population evidence packet (canonical operator device enrollment + three independently controlled external Controllers).
-- Gate D remains unproven (runtime PASS Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679); Specs COMPLETE HOLD until one-door `/watch` unify ships). This document does not flip Gate D to COMPLETE. No compatibility-at-scale claim follows from Gate A, Gate B, or Gate C.
+- Gate E remains unproven. No compatibility-at-scale claim follows from Gate A, Gate B, Gate C, or Gate D.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -59,7 +61,7 @@ A candidate must identify:
 
 ## Gate C — Existing-system civilization
 
-**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). Named candidate: `lca3-gate-c-existing-system-civilization`. The scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema). Dedicated recovery-receipt objects stay **NOT_COMPUTABLE** (not invented). Gate D remains separate; Specs COMPLETE stays HOLD.
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). Named candidate: `lca3-gate-c-existing-system-civilization`. The scenario contract remains [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md). Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema). Dedicated recovery-receipt objects stay **NOT_COMPUTABLE** (not invented). Gate D is complete through a separate packet.
 
 The detailed candidate declaration, coupled-path trace, strategy-plurality test, and evidence-pack requirements are defined in [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md).
 
@@ -78,7 +80,7 @@ At least two materially different viable strategies must exist. A dominant scrip
 
 ## Gate D — WATCH legibility
 
-**Status:** Gate D remains unproven (runtime PASS Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679); Specs COMPLETE HOLD until one-door `/watch` unify ships). This document does not flip Gate D to COMPLETE. Gate C completion does not satisfy this gate.
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). Named candidate: `lca4-gate-d-watch-legibility`. The scenario contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Blind-score PASS is Noema #679; HOLD released after one-door unify Noema #680 + Specs #333 + Deploy. Gate E remains unproven.
 
 The detailed candidate declaration, blind-review protocol, five-statement checklist, and evidence-pack requirements are defined in [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md).
 
@@ -124,5 +126,5 @@ Non-normative guidance for future acceptance evidence maintenance; this section 
 
 - **Evidence-pack structure:** extend candidate records with precise links between deployment/Controller pins, canonical head ranges, recovery receipts, redacted transcripts, and WATCH digests. Additional evidence can clarify an existing gate without replacing independently controlled population, coupled-system behavior, or endurance requirements with slice-test totals.
 - **Scenario coverage:** future Gate C or Gate D companion cases can examine another already-implemented interaction or public misunderstanding. Preserve strategy plurality, partial observability, and unscripted Agent Player decisions. Any changed acceptance threshold or sequence needs explicit review in the governing campaign documents, not an inferred waiver in an evidence appendix.
-- **Promotion boundary:** retain Gate A's, Gate B's, and Gate C's recorded verdicts and distinguish later candidate observations from them. Gate D WATCH legibility and Gate E duration/recovery remain separate obligations; passing A–E still does not deploy a successor or supply Gate F's human decision.
+- **Promotion boundary:** retain Gate A's, Gate B's, Gate C's, and Gate D's recorded verdicts and distinguish later candidate observations from them. Gate E duration/recovery remains a separate obligation; passing A–E still does not deploy a successor or supply Gate F's human decision.
 - **Verification:** trace every new claim to its declared run, verify redactions and digest references, and show missing or failed evidence explicitly. Check candidate pins against the corresponding decision record, record interventions and incidents, and avoid turning an updated packet format into a new claim of live compatibility.

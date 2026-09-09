@@ -1,6 +1,6 @@
 # Living Civilization Alpha — Gate D Scenario Contract
 
-**Status:** campaign acceptance companion. Runtime blind-score PASS recorded in Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679). Specs Gate D COMPLETE remains **HOLD** until the one-door spectator unify ships. This document does not claim COMPLETE, authorize Deploy, accept RFC-0130, pass Gate E or Gate F, or open hosted STUDY.
+**Status:** campaign acceptance companion (retained). Gate D is complete per [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). This contract remains the evidence contract; it does not authorize Gate E, Gate F, hosted STUDY, Deploy, RFC-0130, or a successor deployment.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md)
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml)
@@ -124,15 +124,13 @@ This contract is the detailed companion to [Living Alpha Acceptance — Gate D](
 | `FAIL` | Any required statement is wrong, omitted, or supported only by hidden state. The capture fabricates meaning, exposes restricted material, or depends on a forbidden fill. |
 | `NOT_COMPUTABLE` | Required public capture, pins, or an uninvolved reviewer cannot be established. The optional Gate C WATCH digest is absent or unreviewable — record that item `NOT_COMPUTABLE` without inventing it. Absence of every public WATCH capture is not a pass. |
 
-A Gate D pass does not by itself pass Gate E or Gate F and does not authorize production cutover. This companion does not flip Gate D to COMPLETE.
+A Gate D pass does not by itself pass Gate E or Gate F and does not authorize production cutover. Promotion evidence lives in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md).
 
-## Specs COMPLETE HOLD
+## Specs COMPLETE (HOLD released)
 
-Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679) records a Gate D second blind-score PASS for `lca4-gate-d-watch-legibility` (Danny human-yes on the score). That is runtime evidence. It is not Specs COMPLETE.
+Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679) recorded a Gate D second blind-score PASS for `lca4-gate-d-watch-legibility` (Danny human-yes on the score). Specs [#333](https://github.com/Zero-State-LLC/Noema-Specs/pull/333) held COMPLETE until the public spectator door was one `/watch` (`TEXT` / `PIXEL` / `MAP`).
 
-Specs COMPLETE stays **HOLD** until the public spectator door is one `/watch` (`TEXT` / `PIXEL` / `MAP`; mapping is progressive enhancement of the same world heads). Live product currently still exposes `/watch` and `/watch/map` as dual surfaces.
-
-This amend does not invent a new gate. It does not flip Gate D to COMPLETE. The one-door patch is [specify/spec.md](../specify/spec.md).
+That HOLD is released. Runtime unify Noema [#680](https://github.com/Zero-State-LLC/Noema/pull/680), Deploy run 34317120696, and live Worker `592c06a4-fa8c-40f6-bec7-21cbc45689f9` are the OBSERVED completion condition. Danny human-yes Continue authorizes the flip recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). This companion remains the evidence contract; it does not pass Gate E or Gate F.
 
 ## Extension Points
 
@@ -148,7 +146,7 @@ Keep the five statements conjunctive and the reviewer uninvolved. Public WATCH r
 
 ### Compatibility and promotion
 
-Later gates may impose stricter evidence but cannot rewrite historical Gate A, Gate B, or Gate C verdicts, authorize production cutover, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate D COMPLETE claim.
+Later gates may impose stricter evidence but cannot rewrite historical Gate A, Gate B, Gate C, or Gate D verdicts, authorize production cutover, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate E or Gate F COMPLETE claim.
 
 ### Validation fixtures before adoption
 

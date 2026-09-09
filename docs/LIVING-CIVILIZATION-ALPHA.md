@@ -4,15 +4,15 @@
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
-Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
+Related: [ROADMAP.md](ROADMAP.md) · [`current-state.v1.yaml`](../specs/current-state.v1.yaml) · [CIVILIZATION-CAPABILITY-MATRIX.md](CIVILIZATION-CAPABILITY-MATRIX.md) · [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) · [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md) · [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) · [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) · [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) · [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md) · [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md).
 
 ## Outcome
 
 > Integrate and prove the systems already built so Perihelion Reach sustains a small Agent Player civilization whose durable strategic consequences are compelling and honest to watch.
 
-Current state: LCA-0, LCA-1, LCA-2, and LCA-3 are complete. **Gate A is complete.** **Gate B is complete.** **Gate C is complete.** Gate A promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B promotion is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence with Danny human-yes (canonical operator enrollment completed; three independently controlled external Controllers retained). Gate C promotion is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Gate D remains unproven (runtime PASS Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679); Specs COMPLETE HOLD until one-door `/watch` unify ships). This document does not flip Gate D to COMPLETE.
+Current state: LCA-0, LCA-1, LCA-2, and LCA-3 are complete. **Gate A is complete.** **Gate B is complete.** **Gate C is complete.** **Gate D is complete.** Gate A promotion is recorded in [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md). Gate B promotion is recorded in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md) from Noema #590 evidence with Danny human-yes (canonical operator enrollment completed; three independently controlled external Controllers retained). Gate C promotion is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Gate D promotion is recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) from Noema #679 blind-score PASS plus Specs #333 / Noema #680 / Deploy 34317120696 / pin #681. Gate E remains unproven.
 
-This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. Gate C proved those systems together in one production-like civilization run. The remaining risk is WATCH legibility, endurance, and a controlled successor decision — not missing breadth.
+This is not a greenfield feature campaign. The Worker already contains substantial implementations across mastery, construction, social memory, institutional authority, communication, discovery, conflict, diplomacy, access policy, economic specialization, world pressure, and WATCH. Gate C proved those systems together in one production-like civilization run. Gate D proved public WATCH is legible. The remaining risk is endurance and a controlled successor decision — not missing breadth.
 
 ## Starting assets
 
@@ -71,9 +71,9 @@ Compose already implemented mastery, resource pressure, trade, construction, soc
 
 ### LCA-4 — WATCH legibility and endurance
 
-**Status:** BLOCKED by Specs Gate D COMPLETE HOLD (runtime PASS recorded; one-door unify unshipped)
+**Status:** Gate D is complete; Gate E endurance remains unproven
 
-Use existing WATCH projections and the minimum required projection corrections to make the scenario legible. The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract is [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs with restart/recovery evidence; endurance remains Gate E.
+WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs with restart/recovery evidence; endurance remains Gate E.
 
 ### LCA-5 — Successor cutover decision
 
@@ -112,4 +112,4 @@ Unmapped feature work is not authorized campaign work.
 
 Non-normative future guidance; no new behavior is authorized here.
 
-Integration-edge evidence and work-admission receipts can be extended within the existing LCA milestones. Preserve completed Gate A, Gate B, and Gate C, implementation-plane distinctions and the frozen alpha. Gate C promotion pinned the existing-system civilization run and Path 8 recover JSON; dedicated recovery-receipt objects stay NOT_COMPUTABLE unless a later packet supplies them. Gate D remains unproven (runtime PASS Noema #679; Specs COMPLETE HOLD until one-door `/watch` unify ships); Gate E/F remain unproven. LCA-4 evidence permits a cutover decision, not deployment, and does not reopen deferred breadth.
+Integration-edge evidence and work-admission receipts can be extended within the existing LCA milestones. Preserve completed Gate A, Gate B, Gate C, and Gate D, implementation-plane distinctions and the frozen alpha. Gate C promotion pinned the existing-system civilization run and Path 8 recover JSON; dedicated recovery-receipt objects stay NOT_COMPUTABLE unless a later packet supplies them. Gate D is complete through the WATCH-legibility packet; Gate E remains unproven; Gate F remains unproven. LCA-4 endurance evidence permits a cutover decision, not deployment, and does not reopen deferred breadth.

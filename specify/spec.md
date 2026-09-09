@@ -1,7 +1,7 @@
 # One public spectator door (`/watch`)
 
 **Kind:** thin presentation amend. Plan and docs only in this repository.  
-**Status:** Specified. **Not** Gate D COMPLETE.  
+**Status:** Specified. One-door unify shipped. Gate D COMPLETE is recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](../docs/LCA-GATE-D-PROMOTION-2026-09-09.md), not in this amend.
 **Date:** 2026-09-09  
 **RFC:** No. No new verbs, events, protocol fields, or gates.  
 **Authority to patch:** [WATCH-LIGHTWEIGHT-SPECTATOR.md](../docs/WATCH-LIGHTWEIGHT-SPECTATOR.md), [WATCH-REAL-TIME-MAPPING.md](../docs/WATCH-REAL-TIME-MAPPING.md), and the WATCH pointers they name.  
@@ -30,10 +30,11 @@ Phosphor rules stay unchanged. Spectator projection is not world truth.
 
 | Surface | Observation |
 |---|---|
-| Live product | `/watch` and `/watch/map` are dual public pages |
+| Live product (at amend) | `/watch` and `/watch/map` were dual public pages |
 | Specs before this amend | Mapping is a separate opt-in route |
 | Gate D runtime score | PASS recorded in Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679) (Danny human-yes on the score) |
-| Specs Gate D | COMPLETE **HOLD** until this unify ships. This amend does **not** flip Gate D to COMPLETE |
+| Runtime unify | Noema [#680](https://github.com/Zero-State-LLC/Noema/pull/680) `39d4856abd857b79aedd4304987ef6d7593d000a` Deployed; live Worker `592c06a4-fa8c-40f6-bec7-21cbc45689f9` |
+| Specs Gate D | COMPLETE recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](../docs/LCA-GATE-D-PROMOTION-2026-09-09.md). This amend specified the door; it is not the promotion packet |
 
 ## Decision
 
@@ -63,11 +64,11 @@ Implement the unify in `Zero-State-LLC/Noema`. This repository does not implemen
 4. Redirect `/watch/map` to `/watch` (MAP). Do not keep a second live document.
 5. Leave Phosphor §18 behavior in place. Leave PLAY, STUDY, and Admin Live unchanged.
 6. Prove same-head identity across modes, one-map-at-a-time, hidden-topology omission, pause / reduced-motion, and “projection / not world truth.”
-7. After that unify ships, a separate Danny human-yes may flip Specs Gate D to COMPLETE. This file does not do that.
+7. After that unify shipped, a separate Danny human-yes Continue flipped Specs Gate D to COMPLETE in [LCA-GATE-D-PROMOTION-2026-09-09.md](../docs/LCA-GATE-D-PROMOTION-2026-09-09.md). This file does not Deploy and does not pass Gate E or Gate F.
 
 ## Non-goals
 
-- Gate D COMPLETE
+- Deploy, Gate E/F COMPLETE, hosted STUDY, or RFC-0130 from this amend
 - New Player verbs, events, gates, or protocol fields
 - Phosphor redesign
 - WebGL, dashboards, AI narration, or spectator analytics
@@ -79,6 +80,6 @@ Implement the unify in `Zero-State-LLC/Noema`. This repository does not implemen
 - WATCH docs name one `/watch` door and TEXT / PIXEL / MAP modes.
 - Mapping is progressive enhancement of the same world heads.
 - Phosphor §18 and spectator-is-not-truth language remain in force.
-- Campaign docs record Noema #679 PASS and Specs COMPLETE HOLD.
-- Gate D is not marked COMPLETE.
+- Campaign docs record Noema #679 PASS and the later COMPLETE promotion packet.
+- This amend remains the one-door contract; COMPLETE lives in the promotion packet.
 - `python3 validation/validate_all.py` PASSes.

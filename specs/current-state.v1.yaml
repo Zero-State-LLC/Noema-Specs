@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-09-08
+as_of: 2026-09-09
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 2c48d671-620a-43df-bb56-87438671e734
+  live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -36,63 +36,65 @@ authority:
   capability_matrix: docs/CIVILIZATION-CAPABILITY-MATRIX.md
   execution_sequence: docs/EXECUTION-SEQUENCE-90-DAY.md
   # Gate C companion (COMPLETE): docs/LCA-GATE-C-SCENARIO.md
-  # Gate D companion (Gate D remains unproven; runtime PASS Noema #679;
-  # Specs COMPLETE HOLD until one-door /watch unify ships; no COMPLETE):
-  # docs/LCA-GATE-D-SCENARIO.md
+  # Gate D companion (COMPLETE): docs/LCA-GATE-D-SCENARIO.md
+  # Gate D promotion: docs/LCA-GATE-D-PROMOTION-2026-09-09.md
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 2c48d671-620a-43df-bb56-87438671e734
-    live_deployed_at: 2026-09-08T09:03:17.074Z
-    live_source_commit: 4aedef79259262df411d28cf49d139788939a125
+    live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
+    live_deployed_at: 2026-09-09T06:00:52.404542Z
+    live_source_commit: 39d4856abd857b79aedd4304987ef6d7593d000a
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Live is 2c48d671-620a-43df-bb56-87438671e734, deployed 2026-09-08T09:03:17.074Z
-      from Noema source 4aedef79259262df411d28cf49d139788939a125 and pinned by
-      Noema#660 (merge f23c18c6). Deploy run
-      https://github.com/Zero-State-LLC/Noema/actions/runs/34207763040 SUCCESS.
+      Live is 592c06a4-fa8c-40f6-bec7-21cbc45689f9, deployed 2026-09-09T06:00:52.404542Z
+      from Noema source 39d4856abd857b79aedd4304987ef6d7593d000a and pinned by
+      Noema#681 (merge 0ff8aaadd294a5c13ff66eca402529ee5db263f1). Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/34317120696 SUCCESS.
+      Prior Specs-recorded live 2c48d671-620a-43df-bb56-87438671e734, deployed
+      2026-09-08T09:03:17.074Z from source 4aedef79259262df411d28cf49d139788939a125
+      (Noema#660; merge f23c18c6), is the Gate C COMPLETE evidence Worker and is
+      not current live. Do not rewrite that promotion.
+      Gate D blind-score PASS was scored on Worker
+      dd1ce6b0-acc7-4ea4-afef-ffb173730b99 (Noema#679); current live is the
+      one-door Worker 592c06a4. See docs/LCA-GATE-D-PROMOTION-2026-09-09.md.
       Prior Specs-recorded live 963b5edf-17ea-41f4-892f-130e278e0bb8, deployed
       2026-09-08T05:52:14.712143Z from source 308c98de4173874d8a1941818ba4392ddcc2cba6
       (Noema#649; lookup Noema#655), is the Gate B COMPLETE evidence Worker and is
       not current live. Do not rewrite that promotion.
       Prior recorded live 04ef6ecb (2026-09-07, source 9c256035, Noema#639) remains
-      historical. Probe-time /ready 2026-09-08: ACTIVE, HEALTHY, ready=true,
-      play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 17257 at
-      probe only. /ready players census is not the Gate B population proof; retained
-      Admin ICR/bindings are. Gate C COMPLETE evidence uses this same live Worker
-      `2c48d671` / source `4aedef79`; see docs/LCA-GATE-C-PROMOTION-2026-09-08.md.
-      Gate D remains unproven (runtime PASS Noema #679; Specs COMPLETE
-      HOLD until one-door /watch unify ships). This file does not flip
-      Gate D to COMPLETE.
+      historical. Probe-time /ready 2026-09-09: ACTIVE, HEALTHY, ready=true,
+      play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 17958 /
+      sequence 42176 at flip prep. /ready players census is not the Gate B
+      population proof; retained Admin ICR/bindings are. Gate D is complete.
     specs_pin_note: >-
-      Live source 4aedef79 remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git. A new worker_version_id does not imply a Specs pin
-      change. production_implements_specs stays 81ca8c1.
+      Live source 39d4856a remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git after Noema#681. A new worker_version_id does not
+      imply a Specs pin change. production_implements_specs stays 81ca8c1.
       production_specs_baseline stays 492ccc9, the Gate A promotion evidence anchor.
       Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
       uses historical Worker 963b5edf / source 308c98de. hosted_live.official_client
       remains noema-client==0.1.21 while Gate B cohort OBSERVED client 0.1.22 — both
-      recorded; no invented pin flip. Campaign advances to LCA-4. Gate C is complete;
-      integrated_small_civilization_run is LIVE_HOSTED. Gate D remains unproven
-      (runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch
-      unify ships). This file does not flip Gate D to COMPLETE.
+      recorded; no invented pin flip. Campaign stays LCA-4. Gate C is complete;
+      integrated_small_civilization_run is LIVE_HOSTED. Gate D is complete;
+      watch_legibility_gate_d is LIVE_HOSTED. Gate E remains unproven.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-08"
-      - "GET https://noema.guru/ready 2026-09-08"
-      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34207763040"
-      - "Noema PR #660: https://github.com/Zero-State-LLC/Noema/pull/660"
+      - "GET https://noema.guru/version 2026-09-09"
+      - "GET https://noema.guru/ready 2026-09-09"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34317120696"
+      - "Noema PR #681: https://github.com/Zero-State-LLC/Noema/pull/681"
       - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
+      - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
       - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
@@ -104,7 +106,7 @@ runtimes:
       - human browser PLAY is retired
       - hosted STUDY remains observational rather than the offline research spine
       - no hosted/offline digest-equivalence claim
-      - Gate C civilization run is complete; WATCH legibility, endurance, and successor cutover remain unproven
+      - Gate C civilization run is complete; Gate D is complete; endurance and successor cutover remain unproven
   advanced_worker_runtime:
     status: LIVE_HOSTED
     evidence_commit: 61234cc
@@ -139,7 +141,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D remains unproven (runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch unify ships). This file does not flip Gate D to COMPLETE. Gate E endurance, hosted STUDY, and compatibility-at-scale remain unproven.
+    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E remains unproven. Hosted STUDY and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -234,6 +236,20 @@ capabilities:
       reason=gate-c-path8-declared-restart operator_session=asess.824cfb77e446
       heads held cycle=17415 sequence=40949 ACTIVE HEALTHY after restore
     non_goals: hosted STUDY, Gate D WATCH legibility, Gate E endurance, Gate F successor decision, new mechanics, new Player verbs, and production successor deployment
+  watch_legibility_gate_d:
+    state: LIVE_HOSTED
+    claim: Gate D is complete through Noema #679 blind-score PASS plus Specs #333 / Noema #680 / Deploy 34317120696 / pin #681.
+    candidate: lca4-gate-d-watch-legibility
+    evidence:
+      - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
+      - "Noema PR #679: https://github.com/Zero-State-LLC/Noema/pull/679"
+      - "Noema-Specs PR #333: https://github.com/Zero-State-LLC/Noema-Specs/pull/333"
+      - "Noema PR #680: https://github.com/Zero-State-LLC/Noema/pull/680"
+      - "Noema PR #681: https://github.com/Zero-State-LLC/Noema/pull/681"
+      - "Noema issue #667: https://github.com/Zero-State-LLC/Noema/issues/667"
+    live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
+    heads_at_flip_prep: cycle=17958 sequence=42176 ACTIVE HEALTHY
+    non_goals: hosted STUDY, Gate E endurance, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, and production successor deployment
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
     blocker: multi-agent endurance and adapter evidence
@@ -248,12 +264,12 @@ active_campaign:
   thesis: integrate and prove what is already built before authorizing more breadth
   current_milestone: LCA-4
   next_milestone: LCA-5
-  active_gate: "Gate D: WATCH legibility (Gate D remains unproven; runtime PASS Noema #679; Specs COMPLETE HOLD until one-door /watch unify; Gate C complete)"
+  active_gate: "Gate E: Endurance (unproven; Gate D complete)"
   completed_gates:
     - "Gate A: Integrated runtime"
     - "Gate B: External population"
     - "Gate C: Existing-system civilization"
-  unproven_gates:
     - "Gate D: WATCH legibility"
+  unproven_gates:
     - "Gate E: Endurance"
     - "Gate F: Successor decision packet"
