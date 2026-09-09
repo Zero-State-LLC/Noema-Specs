@@ -66,12 +66,16 @@ Implement the unify in `Zero-State-LLC/Noema`. This repository does not implemen
 6. Prove same-head identity across modes, one-map-at-a-time, hidden-topology omission, pause / reduced-motion, and “projection / not world truth.”
 7. After that unify shipped, a separate Danny human-yes Continue flipped Specs Gate D to COMPLETE in [LCA-GATE-D-PROMOTION-2026-09-09.md](../docs/LCA-GATE-D-PROMOTION-2026-09-09.md). This file does not Deploy and does not pass Gate E or Gate F.
 
+## Later amend
+
+Public `/watch` MAP WebGL is reopened by [watch-map-p0-gl-poi.md](watch-map-p0-gl-poi.md). The WebGL bullet in Non-goals applied to this one-door amend only. PIXEL remains Canvas 2D until a later explicit row.
+
 ## Non-goals
 
 - Deploy, Gate E/F COMPLETE, hosted STUDY, or RFC-0130 from this amend
 - New Player verbs, events, gates, or protocol fields
 - Phosphor redesign
-- WebGL, dashboards, AI narration, or spectator analytics
+- WebGL on this one-door unify (MAP-stage allowlist is the later amend); dashboards, AI narration, or spectator analytics
 - Hosted STUDY, Deploy, or RFC-0130
 - Runtime code in this repository
 

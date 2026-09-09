@@ -136,7 +136,7 @@ A fact that is spatial MUST appear on the map when its public projection support
 - Use `color.surface.world` and the canonical surface tokens in [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
 - The world field SHOULD be near-black or charcoal, with enough contrast for routes, labels, glyphs, and event marks.
 - Giant decorative gradient backgrounds are prohibited.
-- A subtle grid or scanline texture MAY be used only when it improves orientation, does not reduce readability, and does not animate continuously.
+- A subtle grid or scanline texture MAY be used only when it improves orientation, does not reduce readability, and does not animate continuously. CRT scanline chrome remains banned ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3).
 - Texture is never evidence. It MUST NOT imply topology, activity, certainty, or hidden space.
 
 ### 4.2 Geometry
@@ -500,9 +500,10 @@ Safe rendering of public labels, descriptions, event lines, and other world text
 
 Preserve the existing Phosphor performance doctrine and the lightweight WATCH refresh contract:
 
-- Canvas 2D only where existing canon permits it;
-- no WebGL;
-- no third-party graphics engine;
+- Canvas 2D for PIXEL where existing canon requires it;
+- WebGL / Three.js (or equivalent) MAY render the MAP mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3;
+- no decorative WebGL unrelated to a public event or follow target;
+- no third-party graphics engine outside that MAP-stage allowlist;
 - deterministic map layout;
 - event-driven redraw;
 - no continuous idle animation;
@@ -526,7 +527,7 @@ The following reconciliation is normative for interpretation of this document an
 |---|---|
 | [WATCH.md](WATCH.md) | WATCH remains the primary human product surface and a derived public projection. This document makes the map-first visual composition explicit without changing the long-term surface catalog or public projection authority. |
 | [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) | This document clarifies how the low-cognitive-load public surface looks. It does not loosen cognitive-load limits, public redaction, deterministic headline rules, event-window limits, TEXT authority, map privacy rules, or event-tier rules. Its Phosphor atlas and render rules remain authoritative for the optional Canvas sketch. |
-| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) | The same map-first composition and visual grammar bind `MAP` mode on `/watch` unless that document explicitly defines a stricter rule. Additional layers remain opt-in, deterministic, public-projection-safe, and semantically restrained. Mapping is progressive enhancement of the same world heads, not a second app. Existing language about HUD, world health panels, gamification, heat maps, and metric overlays is not permission to drift into dashboard composition or expose research metrics. Narrow reconciliation edits identify those limits; unrelated future-roadmap text is not silently rewritten. |
+| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) | The same map-first composition and visual grammar bind `MAP` mode on `/watch` unless that document explicitly defines a stricter rule. Additional layers remain opt-in, deterministic, public-projection-safe, and semantically restrained. Mapping is progressive enhancement of the same world heads, not a second app. That document’s §3.3 allowlist is the only public-WATCH WebGL permission. Existing language about HUD, world health panels, gamification, heat maps, and metric overlays is not permission to drift into dashboard composition or expose research metrics. Narrow reconciliation edits identify those limits; unrelated future-roadmap text is not silently rewritten. |
 | [SPECTATOR.md](SPECTATOR.md) | The spectator output remains a derived, read-only, permissioned projection. High-drama events are source material for event presentation, not permission for extra widgets, scores, or private detail. |
 | [VISUAL-DESIGN.md](VISUAL-DESIGN.md) | Canonical tokens, type roles, motion rules, accessibility, responsive behavior, and the prohibition on generic SaaS, decorative CRT treatment, excessive HUD, and non-semantic animation remain authoritative. This document specializes composition for WATCH and does not create a second palette. |
 | [PLAYER-BRAND.md](PLAYER-BRAND.md) | WATCH remains a player-facing world surface with a game-first, world-native register. Research instrumentation remains underneath and must not dominate public WATCH. |
@@ -582,7 +583,7 @@ event-map coupling
 
 A visual redesign is not justification for backend churn, a new public schema, a new event catalog, a new visibility class, a new route, a new world-state field, or a change to server-derived salience. Any implementation gap that requires one of those changes is outside this document and must follow the existing change-control process.
 
-The semantic graph and existing TEXT/PIXEL relationship remain a single presentation authority. Do not implement a second map renderer with a divergent layout, a second glyph atlas, or a client-only event taxonomy.
+The semantic graph and existing TEXT/PIXEL relationship remain a single presentation authority. Do not implement a second map renderer with a divergent layout, a second glyph atlas, or a client-only event taxonomy. A MAP-stage WebGL renderer MUST consume that same public layout. It is not a second geography.
 
 ---
 
@@ -608,6 +609,7 @@ A compatible WATCH implementation satisfies this specification when:
 16. Public residue, uncertainty, selection, and follow states are rendered only from authorized projection facts.
 17. Reduced-motion mode removes pulses, interpolation, and idle animation without removing meaning.
 18. Public and Admin topology remain distinct.
+19. MAP-stage WebGL / Three.js, if present, obeys [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D. Anti-cosplay bans remain.
 
 ---
 

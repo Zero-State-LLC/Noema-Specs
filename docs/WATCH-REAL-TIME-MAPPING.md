@@ -1,7 +1,7 @@
 # WATCH — Real-Time Mapping & Spectator System
 
-**Version:** v0.1.2 (Draft)  
-**Date:** 2026-08-21 (reconciled 2026-08-21 evening; one-door amend 2026-09-09)  
+**Version:** v0.1.3 (Draft)
+**Date:** 2026-08-21 (reconciled 2026-08-21 evening; one-door amend 2026-09-09; MAP WebGL allowlist 2026-09-09)
 **Status:** Specs-first. Implementation follows review.  
 **Kind:** Rich visual spectator projection layer (`MAP` mode of the public `/watch` door).  
 **Related:**
@@ -94,9 +94,49 @@ Optional extensions remain subject to existing schema, privacy, projection, and 
 
 ### 3.3 Rendering & Animation
 
-- Primary: **Canvas 2D** (WebGL remains banned on public WATCH — lightweight §18). HTML/CSS layout (the shipped v0.1 renderer) is equally compliant; smooth interpolated movement is optional enhancement, never information.
-- UI chrome: HTML/CSS for compact controls, legend, event log, and selected-site detail (easy accessibility).
-- Animation contract: All movement and state changes use a shared easing/timing system. New visual primitives must declare their animation behavior.
+**Public `/watch` graphics allowlist (reopen, 2026-09-09).** This row reopens the brand lock for the MAP mode stage only. It does not reopen PIXEL, PLAY, STUDY, or Admin Live. TEXT remains authority. Projection is not world truth. Canonical campaign note: [specify/watch-map-p0-gl-poi.md](../specify/watch-map-p0-gl-poi.md).
+
+| Surface | Graphics |
+|---|---|
+| `TEXT` | Semantic HTML. No WebGL. |
+| `PIXEL` | Canvas 2D only ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §18). WebGL stays banned until a later explicit row. |
+| `MAP` | WebGL / Three.js (or equivalent) MAY render the MAP mode stage when every condition below holds. HTML/CSS layout remains equally compliant. Smooth interpolated movement is optional enhancement, never information. |
+
+**MAP-stage MAY when all of the following hold:**
+
+- Motion is event-born (finite, self-extinguishing; idle world is idle stage).
+- Camera targets public `room_id` / public actors only (Direct-Camera).
+- TEXT remains complete without GL. Canvas/GL never carries unique facts.
+
+**Still banned on public WATCH:**
+
+- Orbitron / sci-fi display fonts as brand voice
+- CRT scanlines
+- Military HUD packing
+- Ambient particle / fog loops
+- Dashboard KPI walls
+- Fake depth that invents or implies hidden rooms/topology
+- Decorative WebGL unrelated to a public event or follow target
+
+**Unchanged:**
+
+- Spectator ≠ world truth
+- `prefers-reduced-motion` → hard cuts / no easing
+- One map/stage at a time
+- No new Player verbs or Genesis
+- Access language only
+
+UI chrome stays HTML/CSS for compact controls, legend, event log, and selected-site detail. New visual primitives MUST declare their animation behavior. Reduced-motion MUST replace easing with hard cuts.
+
+### 3.4 MAP P0 acceptance intent (product, not implement)
+
+A later runtime slice proves MAP stage quality against existing contracts. This repository does not implement that slice.
+
+| Intent | Meaning | Existing authority |
+|---|---|---|
+| Direct-Camera | Camera targets only public `room_id` / public actors already on the snapshot. No invented rooms or hidden topology. | §3.3 allowlist; this document §1.1; lightweight §7 |
+| Gate D five-slot | A spectator can still write the five public statements from `/watch`, including MAP. | [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) five-statement checklist |
+| Follow-that-teaches | Follow remains one public Player or site; emphasis only; unrelated activity stays visible. MAP camera MAY track that follow target. | [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §4.G |
 
 ## 4. Current Scope (v0.1)
 
@@ -135,6 +175,7 @@ A proposed layer should identify its public source, deterministic derivation, le
 - Core map + glyphs + scars
 - Event river + compact public context
 - Layer toggles
+- **MAP P0 acceptance intent (product, not implement):** Direct-Camera, Gate D five-slot, and Follow-that-teaches (§3.4). This document does not implement the runtime slice.
 
 **Phase 1**
 - Narrative highlight system (deterministic, per §3.1)
@@ -183,6 +224,7 @@ The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **paus
 | Same world heads | `MAP` MUST display the same `world_id`, `cycle`, `sequence`, and `freshness` as TEXT and PIXEL. `watch-map/1.0` adds coarse bands only. A second head is a defect. |
 | Client interest scoring (SPECTATOR.md) | Banned here too; tiers/importance are server-side only. |
 | AI narration / voting / badges (§3/§14 there) | Not in v0.1; gated on future RFC + reconciliation (see §6 gates). |
+| WebGL on public WATCH | Absolute ban retired for the MAP mode stage only (§3.3 allowlist). PIXEL stays Canvas 2D until a later explicit row. Anti-cosplay bans stay. |
 
 ## 9. Versioning & Stability
 

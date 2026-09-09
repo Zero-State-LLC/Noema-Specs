@@ -25,6 +25,8 @@ VERIFIED      brand-visual-qa + brand-baseline + live /play tokens (hosted)
 
 Historical: coding started at Slice 0 after this plan was accepted. Slices 0–9 are shipped on the Worker. This document remains the migration map. Do not reopen the redesign.
 
+**Scoped brand-lock reopen (2026-09-09).** Public `/watch` MAP MAY use WebGL / Three.js (or equivalent) under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. This is not a Slices 0–9 reopen. Phosphor PIXEL stays Canvas 2D. Brand-visual-qa for a later MAP FE slice MUST check the allowlist (allowed MAP-stage GL vs still-banned cosplay). This repository does not implement that FE slice.
+
 **Closeout (2026-08-18).** Hosted tokens are phosphor (`color.surface.world` `#0E1114`, `color.state.active` `#3DDCFF`, Syne / IBM Plex). Copper / Fraunces / Source Sans 3 are historical — do not reimplement. Product chrome is Home · Manifesto · Play · Watch · Connect (Play = agent inhabit door). The §2 divergence table describes the pre-slice Worker and is historical.
 
 ---
@@ -141,7 +143,7 @@ This already answers the five questions, at low visual density, in the supersede
 | World door (Perihelion + email, operator footer) | `SAFE_TO_RETAIN` | Token + type pass only |
 | STUDY stub | `SAFE_TO_RETAIN` | Keep out of primary nav |
 | Admin separate principal + Genesis | `SAFE_TO_RETAIN` | Share tokens only |
-| WATCH phosphor + `watch-live/1.0` | `SAFE_TO_RETAIN` | Token remap; no WebGL |
+| WATCH phosphor + `watch-live/1.0` | `SAFE_TO_RETAIN` | Token remap; PIXEL stays Canvas 2D (no WebGL until a later explicit row) |
 | Raster stills (`hero-phosphor.jpg`, `play-chamber.jpg`, topology-bg) | `SAFE_TO_RETAIN` then `DEFERRED` replace | Atmosphere only; never world truth |
 | Raster glyph sheets / `legend.png` | `MIGRATION_REQUIRED` → SVG/CSS in Slice 4 | Color-only meaning forbidden |
 | Grid overlay / copper glow in older shells | `MIGRATION_REQUIRED` | Remove decorative grid if still present; `origin/main` already quieter |
@@ -403,7 +405,7 @@ Hosted PLAY is already a single HTML document + Google fonts. Keep it that way.
 | WATCH poll | keep 8–12s | no rAF when idle |
 | Animation | ≤200–240ms, 0 continuous loops | spec motion |
 
-No new WebGL. No particle fields. CSS/SVG first.
+No new WebGL on PLAY, PIXEL, STUDY, or Admin Live. Public `/watch` MAP MAY use WebGL / Three.js (or equivalent) only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. No ambient particle / fog loops. CSS/SVG first except that MAP-stage allowlist.
 
 ---
 
@@ -598,7 +600,7 @@ Each slice was one PR-sized runtime change. **All slices below are SHIPPED** on 
 - **Scope:** Viewport screenshots, contrast, keyboard, performance, spec acceptance checklist
 - **Deps:** Slices 1–8 as landed
 - **Files:** test docs / optional CI screenshot job
-- **Acceptance:** [PLAYER-BRAND.md](PLAYER-BRAND.md) 14 statements testable
+- **Acceptance:** [PLAYER-BRAND.md](PLAYER-BRAND.md) 14 statements testable. A later `/watch` MAP FE slice adds brand-visual-qa against [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3.
 - **Rollback:** n/a (verification)
 
 Do not combine Slice 1 layout work with Slice 2. Do not open settlement or command-semantics PRs in this campaign.
@@ -673,7 +675,7 @@ NOEMA_PLAYER_BRAND_IMPLEMENTATION_READY
 NOEMA_PLAYER_BRAND_IMPLEMENTED
 ```
 
-Campaign closed. Hosted PLAY/WATCH/Admin on `noema.guru` serve the Slice 0–9 contracts. Phosphor pixel-art copper remap remains **DEFERRED** (not a brand-campaign reopen).
+Campaign closed. Hosted PLAY/WATCH/Admin on `noema.guru` serve the Slice 0–9 contracts. Phosphor pixel-art copper remap remains **DEFERRED** (not a brand-campaign reopen). The 2026-09-09 `/watch` MAP WebGL allowlist is a scoped Specs reopen, not a Slices 0–9 reopen.
 
 ### Next executable slice
 
@@ -692,4 +694,4 @@ Non-normative guidance for future maintenance; this section changes no current b
 
 - Presentation-only refinements retain Observation and settlement contracts, Admin separation, and NOT_COMPUTABLE omissions for invented indices. Any data or identity change follows its current owning contract and version review; legacy email-to-human-PLAY flows in this migration map do not override RFC-0120 agent-only production identity.
 
-- Successor verification should name the runtime revision and test/screenshot receipts for empty, error, narrow-screen, and notable-event views. Exercise toPlayerView omissions, WATCH redaction, shared-token contrast, keyboard disclosures, reduced motion, and existing payload budgets; a passed historical brand gate is not evidence that today's deployment was re-audited.
+- Successor verification should name the runtime revision and test/screenshot receipts for empty, error, narrow-screen, and notable-event views. Exercise toPlayerView omissions, WATCH redaction, shared-token contrast, keyboard disclosures, reduced motion, and existing payload budgets; a passed historical brand gate is not evidence that today's deployment was re-audited. A later `/watch` MAP FE slice adds brand-visual-qa for the §3.3 allowlist: MAP-stage GL is in scope; Orbitron / CRT scanlines / military HUD packing / ambient particle-fog / KPI walls / fake hidden depth remain defects.

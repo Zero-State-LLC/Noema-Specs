@@ -11,7 +11,7 @@ Does not replace [WATCH.md](WATCH.md), [SPECTATOR.md](SPECTATOR.md), [SPECTATOR-
 
 Related: [EXPERIENCE.md](EXPERIENCE.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [PARTIAL-OBSERVABILITY.md](PARTIAL-OBSERVABILITY.md) · [OBSERVATION.md](OBSERVATION.md) · [CHAMBER-MAP.md](CHAMBER-MAP.md) · [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) · [WORLD-OPERATIONS.md](WORLD-OPERATIONS.md) · [INCIDENT-RECOVERY.md](INCIDENT-RECOVERY.md) · [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md) · [SECURITY.md](SECURITY.md) · [PLAYER-ACTION-MAP.md](PLAYER-ACTION-MAP.md).
 
-Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/live`. The public spectator door is this one `/watch`. `TEXT`, `PIXEL`, and `MAP` are modes of that door. Live `/watch/map` as a second page is runtime drift; see [the one-door amend](../specify/spec.md).
+Hosted reference (non-normative): `https://noema.guru/watch` · `GET /v1/watch/live`. The public spectator door is this one `/watch`. `TEXT`, `PIXEL`, and `MAP` are modes of that door. Live `/watch/map` as a second page is runtime drift; see [the one-door amend](../specify/spec.md). MAP-stage WebGL is [the brand-lock reopen](../specify/watch-map-p0-gl-poi.md).
 
 ---
 
@@ -54,7 +54,7 @@ Never a writer.
 Text-first Chamber theater.
 ```
 
-Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. WebGL, portrait grids, decorative motion, and Admin-style topology remain out of scope.
+Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. Portrait grids, decorative motion, and Admin-style topology remain out of scope. Unscoped WebGL remains out of scope. WebGL / Three.js (or equivalent) MAY render the `MAP` mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D (§18) until a later explicit row.
 
 The public spectator door is **one `/watch`**. Modes:
 
@@ -673,7 +673,7 @@ Runtime MUST cover:
 - story/thread grouping
 - audio / semantic sound
 - scoring or “interest” engines
-- richer world visualization (WebGL, 3D, Admin-style topology, cinema). Optional Phosphor §18 is specified separately.
+- richer world visualization beyond the MAP-stage allowlist (Admin-style topology, cinema, unscoped 3D). MAP WebGL is [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Optional Phosphor §18 stays Canvas 2D.
 - richer push semantics beyond the same `watch-live/1.0` snapshot (optional `/v1/watch/stream` is transport only)
 - authenticated-observer extra fields on the public door
 - Agent POV chrome on `/watch`
@@ -695,7 +695,7 @@ Runtime MUST cover:
 | Runtime `public_pulses` cap 4 unstructured strings | Keep pulses; add structured `recent_events`. |
 | Admin Live topology vs WATCH graph | Admin topology stays operator-only. WATCH graph is a **public, incomplete, text-first** site sketch. |
 | GC6-S0 “WATCH empty” for contradiction | Unchanged. This upgrade MUST NOT add a contradiction pulse those slices forbid. |
-| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) vs this contract | Mapping is **`MAP` mode on this same `/watch` door**, never a second public app and never the default cartography. It is progressive enhancement of the same `watch-live/1.0` world heads; `watch-map/1.0` is optional band overlay only. §7 hard rules bind it verbatim (its §1.1); its per-room values are bands only; §4.B.1 one-map-at-a-time now includes MAP (TEXT cartogram, PIXEL canvas, and MAP canvas never together). A historical `/watch/map` URL MAY redirect here with MAP selected. Phase 2/3 items overlapping §3/§14 stay gated on a future RFC plus a new row here. WebGL stays banned everywhere on public WATCH. |
+| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) vs this contract | Mapping is **`MAP` mode on this same `/watch` door**, never a second public app and never the default cartography. It is progressive enhancement of the same `watch-live/1.0` world heads; `watch-map/1.0` is optional band overlay only. §7 hard rules bind it verbatim (its §1.1); its per-room values are bands only; §4.B.1 one-map-at-a-time now includes MAP (TEXT cartogram, PIXEL canvas, and MAP canvas never together). A historical `/watch/map` URL MAY redirect here with MAP selected. Phase 2/3 items overlapping §3/§14 stay gated on a future RFC plus a new row here. WebGL / Three.js (or equivalent) MAY render the MAP mode stage only under that document’s §3.3 allowlist. PIXEL stays Canvas 2D (§18) until a later explicit row. Anti-cosplay bans stay. |
 | GC10-S2 “WATCH silent” vs Feature D residue on WATCH | Both hold. GC10-S2’s silence governs **events**: dismantle/scar creation never produces a WATCH feed row, ticker line, or headline. The Feature D carve-out ([MUD-NATIVE-INTERACTION-TASKS.md](MUD-NATIVE-INTERACTION-TASKS.md) §S3) governs **static residue**: the scar MAY appear as a `rooms[].traces[]` entry attached to its public room. Residue is state, not news. |
 | GC slices pinned “WATCH silent” vs consequence line | Unchanged. §4.A.1 consequences derive only from projections already public in the §4.E table; a slice pinned WATCH-silent contributes neither an event nor a consequence. |
 
@@ -751,7 +751,7 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 
 ### Render rules
 
-- Canvas 2D only. No WebGL. No engines.
+- Canvas 2D only. No WebGL. No engines. PIXEL WebGL waits for a later explicit row ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3).
 - Fixed low logical resolution (320×180 class). `image-rendering: pixelated` (or equivalent).
 - Event-driven redraw. ≤20 FPS bursts. Zero continuous `requestAnimationFrame` when idle or `document.hidden`.
 - Deterministic layout from public `rooms[]` + public exits only.
@@ -876,7 +876,7 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 
 ## Relationship to Real-Time Mapping
 
-This lightweight upgrade is the low-cognitive-load default of the **one** public door (`/watch`). Richer layered mapping is `MAP` mode on that same door: [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md), reconciled by its §1.1/§6.1/§8.1 and the §15 row above.
+This lightweight upgrade is the low-cognitive-load default of the **one** public door (`/watch`). Richer layered mapping is `MAP` mode on that same door: [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md), reconciled by its §1.1/§3.3/§6.1/§8.1 and the §15 row above.
 
 `MAP` is progressive enhancement of the same world heads. It is not a second spectator application. Phosphor §18 stays the default cartography when Canvas 2D is available.
 

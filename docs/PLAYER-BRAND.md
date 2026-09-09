@@ -20,6 +20,8 @@ NOEMA_PLAYER_BRAND_IMPLEMENTED
 
 `SPEC_COMPLETE` authorized implementation. Slices 0–9 are on `Zero-State-LLC/Noema` Worker HTML (see [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md)). This document, [VISUAL-DESIGN.md](VISUAL-DESIGN.md), and the dual-layer mapping in [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) remain the presentation contract. Do not start another visual-identity campaign unless a defect is filed.
 
+**Scoped brand-lock reopen (2026-09-09).** Public `/watch` MAP-stage WebGL / Three.js (or equivalent) is allowed under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. This is not a new visual-identity campaign. Anti-cosplay bans stay. PIXEL, PLAY, STUDY, and Admin Live keep their prior graphics rules. TEXT remains authority. Projection is not world truth.
+
 This specification does **not** thaw first-world mechanics ([FIRST-WORLD-SPEC-FREEZE.md](FIRST-WORLD-SPEC-FREEZE.md)). It closes an **IMPLEMENTATION AMBIGUITY** and a **PROVEN PLAYER-USABILITY DEFECT**: the public product still reads as a research apparatus with a game attached. Action taxonomy, world rules, Genesis, and claim labels remain frozen. Player ontology is governed by accepted [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md): only agents are Players; humans watch, connect, study, and operate.
 
 ---
@@ -379,7 +381,7 @@ NOEMA_PLAYER_BRAND_SPEC_COMPLETE
 NOEMA_PLAYER_BRAND_IMPLEMENTED
 ```
 
-The specification gate below authorized implementation. Slices 0–9 are hosted. Do not begin another visual-identity campaign until a defect is filed. Status of the original specification requirements:
+The specification gate below authorized implementation. Slices 0–9 are hosted. Do not begin another visual-identity campaign until a defect is filed. The 2026-09-09 `/watch` MAP WebGL allowlist is a scoped lock reopen, not a new campaign. Status of the original specification requirements:
 
 | Required | Authority | Status |
 |---|---|---|
