@@ -24,6 +24,17 @@ Reopen the brand lock so public `/watch` MAP MAY use WebGL / Three.js (or equiva
 
 TEXT remains authority. Projection is not world truth. Anti-cosplay bans stay.
 
+Impressiveness is a unique blend, not pure cinema and not a raw MUD dump:
+
+| Layer | Requirement |
+|---|---|
+| MUD theater | TEXT remains authority. Withheld or unknown public state is drama, not a fill. |
+| Living-stage MAP | WebGL / Three.js MAY add depth and event-born Direct-Camera under the allowlist. |
+| Civilization sports | Glanceable Who / Where / Consequence. No KPI walls or esports HUD packing. |
+| Projection honesty | The chamber is a window. It never pretends to be omniscient world truth. |
+
+Direction: a text civilization you spectate like a match, through a chamber that never pretends to be omniscient.
+
 PIXEL stays Canvas 2D until a later explicit row. This amend does not implement FE.
 
 ## Decision
@@ -77,7 +88,7 @@ A later runtime slice proves MAP stage quality against these existing contracts.
 - PIXEL WebGL in this amend (later explicit row only)
 - New Player verbs, events, gates, protocol fields, or Genesis
 - Deploy, Gate E/F COMPLETE, hosted STUDY, or RFC-0130
-- Dashboards, AI narration, spectator analytics, or cinema
+- Dashboards, AI narration, spectator analytics, or cinema mode (living-stage MAP is not pure cinema)
 - A second visual-identity campaign
 - Loosening Orbitron / CRT / HUD / particle / KPI / fake-depth bans
 
@@ -87,5 +98,6 @@ A later runtime slice proves MAP stage quality against these existing contracts.
 - PIXEL §18 remains Canvas 2D only.
 - Anti-cosplay bans remain.
 - One-door `/watch` and spectator-is-not-truth language remain.
+- Tone docs name the unique blend (MUD theater / living-stage MAP / civilization sports / projection honesty).
 - MAP P0 points at Direct-Camera / Gate D five-slot / Follow-that-teaches as product intent, not implementation.
 - `python3 validation/validate_all.py` PASSes.

@@ -49,6 +49,22 @@ WHAT deserves attention?
 
 WATCH MUST feel like one coherent instrument looking into an inhabited environment. It MUST NOT visually read as a SaaS analytics product, admin dashboard, monitoring dashboard, research console, generic React card layout, crypto dashboard, decorative spaceship HUD, or cyberpunk wallpaper with telemetry laid over it.
 
+Public `/watch` impressiveness is a **unique blend**. It MUST NOT read as pure cinematic spectacle or as a raw MUD dump.
+
+| Layer | Requirement |
+|---|---|
+| MUD theater | TEXT remains authority. Withheld or unknown public state is drama, not a fill. |
+| Living-stage MAP | WebGL / Three.js MAY add depth and event-born Direct-Camera only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. |
+| Civilization sports | Glanceable Who / Where / Consequence. No KPI walls or esports HUD packing. |
+| Projection honesty | The chamber is a window. It never pretends to be omniscient world truth. |
+
+Direction (not a marketing lock):
+
+```text
+A text civilization you spectate like a match,
+through a chamber that never pretends to be omniscient.
+```
+
 This direction is additive to the low-cognitive-load public contract in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) and compatible with `MAP` mode in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). TEXT, PIXEL, and MAP are modes of one `/watch` door. Neither mode becomes a new source of truth.
 
 ---
@@ -610,6 +626,7 @@ A compatible WATCH implementation satisfies this specification when:
 17. Reduced-motion mode removes pulses, interpolation, and idle animation without removing meaning.
 18. Public and Admin topology remain distinct.
 19. MAP-stage WebGL / Three.js, if present, obeys [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D. Anti-cosplay bans remain.
+20. Public `/watch` reads as the unique blend in §1 (MUD theater / living-stage MAP / civilization sports / projection honesty), not as pure cinema and not as a raw MUD dump.
 
 ---
 

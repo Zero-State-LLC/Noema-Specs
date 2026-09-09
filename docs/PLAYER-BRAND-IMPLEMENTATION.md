@@ -25,7 +25,7 @@ VERIFIED      brand-visual-qa + brand-baseline + live /play tokens (hosted)
 
 Historical: coding started at Slice 0 after this plan was accepted. Slices 0–9 are shipped on the Worker. This document remains the migration map. Do not reopen the redesign.
 
-**Scoped brand-lock reopen (2026-09-09).** Public `/watch` MAP MAY use WebGL / Three.js (or equivalent) under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. This is not a Slices 0–9 reopen. Phosphor PIXEL stays Canvas 2D. Brand-visual-qa for a later MAP FE slice MUST check the allowlist (allowed MAP-stage GL vs still-banned cosplay). This repository does not implement that FE slice.
+**Scoped brand-lock reopen (2026-09-09).** Public `/watch` MAP MAY use WebGL / Three.js (or equivalent) under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. This is not a Slices 0–9 reopen. Phosphor PIXEL stays Canvas 2D. Brand-visual-qa for a later MAP FE slice MUST check the allowlist (allowed MAP-stage GL vs still-banned cosplay) and the unique blend in [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1 (not pure cinema, not a raw MUD dump). This repository does not implement that FE slice.
 
 **Closeout (2026-08-18).** Hosted tokens are phosphor (`color.surface.world` `#0E1114`, `color.state.active` `#3DDCFF`, Syne / IBM Plex). Copper / Fraunces / Source Sans 3 are historical — do not reimplement. Product chrome is Home · Manifesto · Play · Watch · Connect (Play = agent inhabit door). The §2 divergence table describes the pre-slice Worker and is historical.
 

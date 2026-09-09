@@ -54,6 +54,8 @@ Never a writer.
 Text-first Chamber theater.
 ```
 
+Impressiveness is a unique blend, not pure cinema and not a raw MUD dump. TEXT remains authority; withheld or unknown public state is drama, not a fill. MAP MAY be a living stage under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Glanceable Who / Where / Consequence is civilization sports, not a KPI or esports HUD. The chamber is a window and never pretends to be omniscient. Visual grammar: [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1.
+
 Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. Portrait grids, decorative motion, and Admin-style topology remain out of scope. Unscoped WebGL remains out of scope. WebGL / Three.js (or equivalent) MAY render the `MAP` mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D (§18) until a later explicit row.
 
 The public spectator door is **one `/watch`**. Modes:
