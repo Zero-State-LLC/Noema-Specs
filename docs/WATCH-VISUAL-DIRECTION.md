@@ -2,7 +2,7 @@
 
 **Status:** Specified
 **Kind:** Presentation and visual-composition contract
-**Scope:** Public WATCH and compatible WATCH map surfaces
+**Scope:** Public WATCH (`/watch`) and its TEXT / PIXEL / MAP modes
 **Authority:** Additive to existing WATCH projection and privacy contracts
 **Protocol impact:** None
 **World-rule impact:** None
@@ -49,7 +49,7 @@ WHAT deserves attention?
 
 WATCH MUST feel like one coherent instrument looking into an inhabited environment. It MUST NOT visually read as a SaaS analytics product, admin dashboard, monitoring dashboard, research console, generic React card layout, crypto dashboard, decorative spaceship HUD, or cyberpunk wallpaper with telemetry laid over it.
 
-This direction is additive to the low-cognitive-load public contract in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) and compatible with the richer opt-in mapping surface in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). Neither surface becomes a new source of truth.
+This direction is additive to the low-cognitive-load public contract in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) and compatible with `MAP` mode in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). TEXT, PIXEL, and MAP are modes of one `/watch` door. Neither mode becomes a new source of truth.
 
 ---
 
@@ -526,7 +526,7 @@ The following reconciliation is normative for interpretation of this document an
 |---|---|
 | [WATCH.md](WATCH.md) | WATCH remains the primary human product surface and a derived public projection. This document makes the map-first visual composition explicit without changing the long-term surface catalog or public projection authority. |
 | [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) | This document clarifies how the low-cognitive-load public surface looks. It does not loosen cognitive-load limits, public redaction, deterministic headline rules, event-window limits, TEXT authority, map privacy rules, or event-tier rules. Its Phosphor atlas and render rules remain authoritative for the optional Canvas sketch. |
-| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) | The same map-first composition and visual grammar bind the richer mapping mode unless that document explicitly defines a stricter rule. Additional layers remain opt-in, deterministic, public-projection-safe, and semantically restrained. Existing language about HUD, world health panels, gamification, heat maps, and metric overlays is not permission to drift into dashboard composition or expose research metrics. Narrow reconciliation edits identify those limits; unrelated future-roadmap text is not silently rewritten. |
+| [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) | The same map-first composition and visual grammar bind `MAP` mode on `/watch` unless that document explicitly defines a stricter rule. Additional layers remain opt-in, deterministic, public-projection-safe, and semantically restrained. Mapping is progressive enhancement of the same world heads, not a second app. Existing language about HUD, world health panels, gamification, heat maps, and metric overlays is not permission to drift into dashboard composition or expose research metrics. Narrow reconciliation edits identify those limits; unrelated future-roadmap text is not silently rewritten. |
 | [SPECTATOR.md](SPECTATOR.md) | The spectator output remains a derived, read-only, permissioned projection. High-drama events are source material for event presentation, not permission for extra widgets, scores, or private detail. |
 | [VISUAL-DESIGN.md](VISUAL-DESIGN.md) | Canonical tokens, type roles, motion rules, accessibility, responsive behavior, and the prohibition on generic SaaS, decorative CRT treatment, excessive HUD, and non-semantic animation remain authoritative. This document specializes composition for WATCH and does not create a second palette. |
 | [PLAYER-BRAND.md](PLAYER-BRAND.md) | WATCH remains a player-facing world surface with a game-first, world-native register. Research instrumentation remains underneath and must not dominate public WATCH. |

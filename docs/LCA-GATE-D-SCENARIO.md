@@ -1,6 +1,6 @@
 # Living Civilization Alpha — Gate D Scenario Contract
 
-**Status:** campaign acceptance companion. Gate D remains unproven. This document does not claim COMPLETE, authorize Deploy, accept RFC-0130, pass Gate E or Gate F, or open hosted STUDY.
+**Status:** campaign acceptance companion. Runtime blind-score PASS recorded in Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679). Specs Gate D COMPLETE remains **HOLD** until the one-door spectator unify ships. This document does not claim COMPLETE, authorize Deploy, accept RFC-0130, pass Gate E or Gate F, or open hosted STUDY.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md)
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml)
@@ -71,7 +71,7 @@ Humans remain HumanPrincipals who watch, connect, study, authorize, or administe
 
 ## Blind-review protocol
 
-Use the public WATCH door specified by [WATCH.md](WATCH.md) and [WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md). TEXT remains complete. Optional Phosphor Cartography is progressive enhancement of the same `watch-live/1.0` snapshot. Do not substitute Admin Live, Operator Digests, STUDY, PLAY, or Agent POV that widens the public boundary.
+Use the one public WATCH door specified by [WATCH.md](WATCH.md) and [WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTWEIGHT-SPECTATOR.md): `/watch`, with `TEXT` / `PIXEL` / `MAP` as modes. TEXT remains complete. Optional Phosphor Cartography is progressive enhancement of the same `watch-live/1.0` snapshot. `MAP` is progressive enhancement of those same world heads, not a second app. Do not substitute Admin Live, Operator Digests, STUDY, PLAY, `/watch/map` as a second door, or Agent POV that widens the public boundary.
 
 1. Pin the candidate declaration. Freeze the capture window and snapshot identity.
 2. Collect a public WATCH capture for that window: notable event, public world graph, bounded recent-events feed, and any room detail the public surface already exposes after explicit interaction.
@@ -125,6 +125,14 @@ This contract is the detailed companion to [Living Alpha Acceptance — Gate D](
 | `NOT_COMPUTABLE` | Required public capture, pins, or an uninvolved reviewer cannot be established. The optional Gate C WATCH digest is absent or unreviewable — record that item `NOT_COMPUTABLE` without inventing it. Absence of every public WATCH capture is not a pass. |
 
 A Gate D pass does not by itself pass Gate E or Gate F and does not authorize production cutover. This companion does not flip Gate D to COMPLETE.
+
+## Specs COMPLETE HOLD
+
+Noema [#679](https://github.com/Zero-State-LLC/Noema/pull/679) records a Gate D second blind-score PASS for `lca4-gate-d-watch-legibility` (Danny human-yes on the score). That is runtime evidence. It is not Specs COMPLETE.
+
+Specs COMPLETE stays **HOLD** until the public spectator door is one `/watch` (`TEXT` / `PIXEL` / `MAP`; mapping is progressive enhancement of the same world heads). Live product currently still exposes `/watch` and `/watch/map` as dual surfaces.
+
+This amend does not invent a new gate. It does not flip Gate D to COMPLETE. The one-door patch is [specify/spec.md](../specify/spec.md).
 
 ## Extension Points
 

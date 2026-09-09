@@ -184,7 +184,7 @@ The hosted public door is [WATCH — Lightweight Spectator Upgrade](WATCH-LIGHTW
 The complete table, headline hold rules, and feed bound live in [WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md). Clients MUST NOT score “interest.”
 
 ## Real-Time Mapping
-The rich visual spectator mapping system is specified separately in [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). It is built as an expandable layer on top of the core spectator projection contracts.
+The rich visual spectator mapping system is `MAP` mode on the public `/watch` door: [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md). It is an expandable layer on the same world heads as TEXT and PIXEL, not a second spectator application.
 
 
 ## Extension Points
