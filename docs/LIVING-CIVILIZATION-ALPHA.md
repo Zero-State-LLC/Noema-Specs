@@ -79,7 +79,7 @@ WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-
 
 **Status:** BLOCKED by LCA-4
 
-Decide whether the integrated runtime is ready to succeed the frozen hosted alpha. The decision must name migration, rollback, seal/Genesis preservation, live-world compatibility, operator procedure, and public claims. Passing LCA-4 permits the decision; it does not force deployment.
+Decide whether the integrated runtime is ready to succeed the frozen hosted alpha. The decision must name migration, rollback, seal/Genesis preservation, live-world compatibility, operator procedure, and public claims. Passing LCA-4 permits the decision; it does not force deployment. The decision-packet evidence contract stub is [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) (candidate `lca6-gate-f-successor-decision`; `GO` / `NO-GO` / `NOT_COMPUTABLE`; frozen first world out of scope); Gate F remains unproven.
 
 ## Explicitly deferred
 

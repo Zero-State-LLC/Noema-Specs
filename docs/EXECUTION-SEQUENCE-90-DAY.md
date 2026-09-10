@@ -61,8 +61,8 @@ Explicit non-goals
 2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling. **Done for Gate D** (Chamber FE #674/#675/#677 plus one-door unify).
 3. Complete a four-hour run with ≥3 independently controlled external Controllers under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase A; Prep has no clock).
 4. Complete a 24-hour candidate run after the four-hour gate passes under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase B; ≥1 planned restart/recovery drill **inside** the 24-hour window).
-5. Produce migration, rollback, compatibility, and operator rehearsal artifacts for a successor decision.
-6. Issue GO, NO-GO, or NOT_COMPUTABLE. Do not deploy merely because the calendar ends.
+5. Produce migration, rollback, compatibility, and operator rehearsal artifacts for a successor decision under [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) (packet items 1–6; rehearsal isolated, production GET-only).
+6. Issue GO, NO-GO, or NOT_COMPUTABLE under [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) (item 7; Danny human-yes). Do not deploy merely because the calendar ends; `GO` does not itself deploy.
 
 **Non-goals:** aesthetic expansion unrelated to legibility, multi-world scale, hosted STUDY opening.
 

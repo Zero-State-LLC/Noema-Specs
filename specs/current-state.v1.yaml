@@ -39,6 +39,7 @@ authority:
   # Gate D companion (COMPLETE): docs/LCA-GATE-D-SCENARIO.md
   # Gate D promotion: docs/LCA-GATE-D-PROMOTION-2026-09-09.md
   # Gate E companion (unproven; not COMPLETE): docs/LCA-GATE-E-SCENARIO.md
+  # Gate F companion stub (unproven; not COMPLETE; no GO): docs/LCA-GATE-F-SCENARIO.md
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
