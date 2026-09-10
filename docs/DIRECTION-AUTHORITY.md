@@ -72,7 +72,7 @@ A task is authorized only if it closes the earliest unproven integration edge, e
 
 Non-normative provenance and promotion-review seams.
 
-- Extend direction packets with machine-checkable links from each plane claim to its exact implementation commit, acceptance gate, evidence artifact and unresolved blocker. A dashboard may flag conflicting statuses but cannot auto-promote them from heading presence or an old successful run.
+- Extend direction packets with machine-checkable links from each plane claim to its exact implementation commit, acceptance gate, evidence artifact and unresolved blocker (evidence-pack link structure: [LCA-EVIDENCE-PACK-STRUCTURE.md](LCA-EVIDENCE-PACK-STRUCTURE.md)). A dashboard may flag conflicting statuses but cannot auto-promote them from heading presence or an old successful run.
 - Preserve authority order and historical decisions: sequencing does not alter normative semantics, deployment does not prove research claims, and supersession points to accepted authority rather than rewriting provenance.
 - Compatibility/promotion: retain the declared vocabulary and current-state evidence boundary; any additional status vocabulary needs reviewed semantics and migration of consumers. Reject a packet that skips the earliest unproven integration edge or silently widens a freeze.
 - Verification proposal: contrast offline-only, runtime-tested and hosted-observed packets and confirm each receives only its supported plane. Mark stale or missing receipts explicitly. A readable authority chain should expose the conflicting source and effective decision, not hide them behind a generic green completion badge.

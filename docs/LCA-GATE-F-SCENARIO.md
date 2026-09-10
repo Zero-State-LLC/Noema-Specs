@@ -186,7 +186,7 @@ A complete Gate F evidence pack contains:
 - item 7 verdict with reasons and Danny human-yes;
 - intervention log for the rehearsal window.
 
-Missing evidence is not a `GO`. If a required surface is not deployed or a rehearsal cannot run, mark `NOT_COMPUTABLE` rather than substituting a unit test.
+Missing evidence is not a `GO`. If a required surface is not deployed or a rehearsal cannot run, mark `NOT_COMPUTABLE` rather than substituting a unit test. Pack layout and link rules: [LCA-EVIDENCE-PACK-STRUCTURE.md](LCA-EVIDENCE-PACK-STRUCTURE.md).
 
 ## Gate F verdict
 

@@ -185,7 +185,7 @@ A complete Gate E evidence pack contains:
 - intervention log with budget, bounds, and reasons;
 - a final `PASS`, `FAIL`, or `NOT_COMPUTABLE` verdict with reasons.
 
-Missing evidence is not a pass. If a required surface is not deployed, mark the item `NOT_COMPUTABLE` or fail the candidate rather than substituting a unit test.
+Missing evidence is not a pass. If a required surface is not deployed, mark the item `NOT_COMPUTABLE` or fail the candidate rather than substituting a unit test. Pack layout and link rules: [LCA-EVIDENCE-PACK-STRUCTURE.md](LCA-EVIDENCE-PACK-STRUCTURE.md).
 
 ## Gate E verdict
 
