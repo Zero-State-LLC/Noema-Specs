@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-09-09
+as_of: 2026-09-10
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
+  live_worker_version_id: 7188ff8a-3d58-449e-9e6b-2e0282ed9724
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -45,37 +45,44 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
-    live_deployed_at: 2026-09-09T06:00:52.404542Z
-    live_source_commit: 39d4856abd857b79aedd4304987ef6d7593d000a
+    live_worker_version_id: 7188ff8a-3d58-449e-9e6b-2e0282ed9724
+    live_deployed_at: 2026-09-10T03:03:01.056511Z
+    live_source_commit: 2c2ef843a99f89fd6b3ce984b4689ecea0f8acae
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Live is 592c06a4-fa8c-40f6-bec7-21cbc45689f9, deployed 2026-09-09T06:00:52.404542Z
-      from Noema source 39d4856abd857b79aedd4304987ef6d7593d000a and pinned by
-      Noema#681 (merge 0ff8aaadd294a5c13ff66eca402529ee5db263f1). Deploy run
-      https://github.com/Zero-State-LLC/Noema/actions/runs/34317120696 SUCCESS.
+      Current live is 7188ff8a-3d58-449e-9e6b-2e0282ed9724, deployed
+      2026-09-10T03:03:01.056511Z from Noema source
+      2c2ef843a99f89fd6b3ce984b4689ecea0f8acae (Noema#700) and pinned by
+      Noema#701 (merge 73c61d9accc44d7f83ff66f59c3b3b5b3099609c). Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/34431748283 SUCCESS.
+      Prior Specs-recorded live 592c06a4-fa8c-40f6-bec7-21cbc45689f9, deployed
+      2026-09-09T06:00:52.404542Z from source 39d4856abd857b79aedd4304987ef6d7593d000a
+      (Noema#680; pin Noema#681; merge 0ff8aaadd294a5c13ff66eca402529ee5db263f1;
+      Deploy 34317120696), is the HISTORICAL Gate D COMPLETE / Gate E Prep bind
+      Worker and is not current live. Do not rewrite that promotion.
       Prior Specs-recorded live 2c48d671-620a-43df-bb56-87438671e734, deployed
       2026-09-08T09:03:17.074Z from source 4aedef79259262df411d28cf49d139788939a125
       (Noema#660; merge f23c18c6), is the Gate C COMPLETE evidence Worker and is
       not current live. Do not rewrite that promotion.
       Gate D blind-score PASS was scored on Worker
-      dd1ce6b0-acc7-4ea4-afef-ffb173730b99 (Noema#679); current live is the
-      one-door Worker 592c06a4. See docs/LCA-GATE-D-PROMOTION-2026-09-09.md.
+      dd1ce6b0-acc7-4ea4-afef-ffb173730b99 (Noema#679); the Gate D COMPLETE /
+      Gate E Prep bind Worker remains 592c06a4. See docs/LCA-GATE-D-PROMOTION-2026-09-09.md.
       Prior Specs-recorded live 963b5edf-17ea-41f4-892f-130e278e0bb8, deployed
       2026-09-08T05:52:14.712143Z from source 308c98de4173874d8a1941818ba4392ddcc2cba6
       (Noema#649; lookup Noema#655), is the Gate B COMPLETE evidence Worker and is
       not current live. Do not rewrite that promotion.
       Prior recorded live 04ef6ecb (2026-09-07, source 9c256035, Noema#639) remains
-      historical. Probe-time /ready 2026-09-09: ACTIVE, HEALTHY, ready=true,
-      play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 17958 /
-      sequence 42176 at flip prep. /ready players census is not the Gate B
+      historical. Probe-time /ready 2026-09-10: ACTIVE, HEALTHY, ready=true,
+      play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 19352 /
+      sequence 46387. /ready players census is not the Gate B
       population proof; retained Admin ICR/bindings are. Gate D is complete.
+      Gate E remains unproven.
     specs_pin_note: >-
-      Live source 39d4856a remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git after Noema#681. A new worker_version_id does not
+      Live source 2c2ef843a99f remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git after Noema#701. A new worker_version_id does not
       imply a Specs pin change. production_implements_specs stays 81ca8c1.
       production_specs_baseline stays 492ccc9, the Gate A promotion evidence anchor.
       Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
@@ -89,10 +96,11 @@ runtimes:
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-09"
-      - "GET https://noema.guru/ready 2026-09-09"
-      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34317120696"
-      - "Noema PR #681: https://github.com/Zero-State-LLC/Noema/pull/681"
+      - "GET https://noema.guru/version 2026-09-10"
+      - "GET https://noema.guru/ready 2026-09-10"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/34431748283"
+      - "Noema PR #700: https://github.com/Zero-State-LLC/Noema/pull/700"
+      - "Noema PR #701: https://github.com/Zero-State-LLC/Noema/pull/701"
       - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
