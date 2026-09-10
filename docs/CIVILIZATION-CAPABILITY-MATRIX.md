@@ -34,7 +34,7 @@ Extend each capability row with a trace from cited implementation to the remaini
 
 ### Compatibility and promotion
 
-This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A–D evidence do not prove Gate E endurance or Gate F successor readiness. The offline research-spine row remains downstream of a separate reopen decision.
+This matrix cannot promote a gate or rebuild the world through Controller access. Human operators/reviewers retain their authorized platform roles; only agents inhabit. Gate A–D evidence do not prove Gate E endurance ([LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md)) or Gate F successor readiness ([LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) stub). The offline research-spine row remains downstream of a separate reopen decision.
 
 ### Verification before adoption
 

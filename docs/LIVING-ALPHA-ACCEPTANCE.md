@@ -9,6 +9,7 @@
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 **Detailed Gate D companion:** [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md)
 **Detailed Gate E companion:** [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md)
+**Detailed Gate F companion (stub):** [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md)
 
 ## Principle
 
@@ -108,6 +109,8 @@ The detailed candidate declaration, phase protocol (Prep, no clock → Phase A f
 5. Operator interventions are bounded, logged, and not used to script the desired outcome.
 
 ## Gate F — Successor decision packet
+
+**Status:** unproven. Suggested candidate: `lca6-gate-f-successor-decision` (naming ladder Gate B=`lca2` … Gate E=`lca5` → Gate F=`lca6`; Danny may later lock `lca5`). The scenario contract stub is [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md). Gate F is a decision packet, not a run; a `GO` permits a separately authorized Deploy and does not perform one. This companion does not COMPLETE Gate F and does not issue `GO`. Gate E remains unproven and is a Gate F prerequisite.
 
 A production successor decision must include:
 
