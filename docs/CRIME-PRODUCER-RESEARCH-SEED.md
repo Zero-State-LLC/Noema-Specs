@@ -82,3 +82,45 @@ Non-normative research and fixture-design seams; this seed does not authorize a 
 - **Retained invariants:** preserve RFC-0002's detection/consequence distinction, partial observability, pure event reduction, graduated consequences, and existing catalog scope. Only agents are Players under RFC-0120; a human platform role is not an additional witness-Player category. Restricted evidence does not become WATCH or research access permission.
 - **Compatibility/promotion:** [RFC-0129](../rfcs/RFC-0129-crime-detected-payload-reconciliation.md) already accepts optional `victim_id` and `visibility` in event-catalog/0.2, with no visibility default. A public producer record pairs `visibility: PUBLIC` with `PUBLIC_HISTORY` in both directions. That payload reconciliation does not settle detection algorithms, jurisdiction, costs, or producer activation; use [the gap register](SPEC-GAP-REGISTER-2026-08-25.md) and a separately accepted producer contract for those decisions.
 - **Proposed checks:** cover unnamed victims (no dyadic victim edge), omitted visibility (no implicit public grant), restricted records, paired public markers, and invalid one-sided public markers. Compare the same admissible public fixture across social memory, world reports, and WATCH; add replay, duplicate-report, sensor-threshold, and delayed-evidence cases only against a pinned producer rule. These are future checks, not results from this seed.
+
+## Appendix — Complementary research feed 2026-09-12 (OBSERVED / INFERRED)
+
+**Status:** Research overlay only. Does not change contracts, catalog, verbs, events, Genesis, WATCH, or producer activation.
+**Companion Notion:** https://app.notion.com/p/3d93e8ba2f5c81b7822ae7f4f8fb807f
+**Mosca ingest Notion:** https://app.notion.com/p/3d93e8ba2f5c814b8878ffe490f275c2
+
+### Sources fetched (OBSERVED)
+
+| Source | URL |
+| --- | --- |
+| Mancur Olson, *Dictatorship, Democracy, and Development*, APSR 87(3) 1993 | https://doi.org/10.2307/2938736 · PDF https://neoconomica.org/userfiles/files/olson.pdf |
+| Charles Tilly, *War Making and State Making as Organized Crime* | https://theanarchistlibrary.org/library/charles-tilly-war-making-and-state-making-as-organized-crime · DOI https://doi.org/10.1017/cbo9780511628283.008 |
+| Diego Gambetta, *The Sicilian Mafia* (HUP) + 20-years-after note | https://www.hup.harvard.edu/books/9780674807426 · https://diegogambetta.org/wp-content/uploads/2022/06/sicilian_mafia_20_years_after_publication.pdf |
+| Stafford Beer VSM / algedonic (high-level secondary) | https://en.wikipedia.org/wiki/Viable_System_Model · https://vsmg.lrc.org.uk/screen.php?page=6infsys |
+| Thomas Schelling focal points / credible commitment (secondary notes) | https://home.uchicago.edu/~rmyerson/research/stratofc_notes.pdf |
+| Mosca video captions (prior ingest) | https://youtu.be/Xk5kmFFEYQ8 |
+
+### Compact OBSERVED extracts
+
+- **Olson:** Roving bandits destroy investment incentives; a stationary bandit who monopolizes theft as taxes can lower extract rate and provide order/public goods because of encompassing interest; short tenure → confiscatory (roving-like) behavior.
+- **Tilly:** War making and state making are protection rackets with legitimacy; banditry–piracy–gangland–policing–war making form one continuum; four activities: war making, state making, protection, extraction; double-edged “protection” (shelter vs racket).
+- **Gambetta:** Mafia as private protection industry exploiting scarce trust; reputation does the work; impostors free-ride on signals; protection provision can reinforce distrust while enabling illicit markets.
+- **Beer (high-level):** System 4 = outward intelligence/adaptation; algedonic signals escalate pain/pleasure alerts when performance fails capability.
+- **Schelling (bounded):** Focal points coordinate expectations; credible threats often require staking reputation / limiting own future choices.
+
+### INFERRED overlays for existing CRIME-PRODUCER path (no mint)
+
+Tag language only — apply to existing producers / social-memory / institutional surfaces when an accepted producer exists:
+
+1. `stationary` / `roving` — horizon + encompassing interest typology.
+2. `protection_market` — private protection as contested service.
+3. `moral_buffer` / `algedonic` — spectator/Player outrage soft regulator (SIGNAL-adjacent).
+4. `s4_capture` — observation/intel ownership risk (WATCH/report consumers).
+5. `double_extract` — stacked official + extralegal costs in contested zones.
+6. `legitimation` — predation seeking charter/respectable form.
+
+### Locks (reaffirm)
+
+- No new verbs, events, `event-catalog/0.3`, Genesis, or WATCH changes from this appendix.
+- Assimilation pin stands: organized crime remains **DEFER** until the first detection loop exists ([RESEARCH-ASSIMILATION-2026-08-25-CRIME.md](RESEARCH-ASSIMILATION-2026-08-25-CRIME.md)).
+- Specs remain authority; Notion is research surface. Human-yes gates Worker publish / RFC mint.
