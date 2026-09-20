@@ -45,7 +45,7 @@ The candidate must not depend on:
 - Deploy, successor cutover, or a production publication triggered by this document alone;
 - a Gate D COMPLETE claim from this companion's existence.
 
-Four-hour and twenty-four-hour endurance remain [Gate E](LIVING-ALPHA-ACCEPTANCE.md#gate-e--endurance). A successor decision remains [Gate F](LIVING-ALPHA-ACCEPTANCE.md#gate-f--successor-decision-packet).
+Session-churn, action/cycle, and in-window Path 8 endurance remain [Gate E](LIVING-ALPHA-ACCEPTANCE.md#gate-e--endurance). A successor decision remains [Gate F](LIVING-ALPHA-ACCEPTANCE.md#gate-f--successor-decision-packet).
 
 ## Candidate declaration
 

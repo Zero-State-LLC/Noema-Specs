@@ -100,11 +100,13 @@ WATCH must not expose private cognition, restricted state, raw research candidat
 
 **Status:** unproven. Suggested candidate: `lca5-gate-e-endurance` (naming ladder Gate B=`lca2` … Gate D=`lca4` → Gate E=`lca5`; Danny may later lock `lca4`). The scenario contract is [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Tracking: [Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682). This companion does not COMPLETE Gate E. Gate E remains unproven.
 
-The detailed candidate declaration, phase protocol (Prep, no clock → Phase A four-hour → Phase B 24-hour with the planned recovery drill **inside** the 24-hour window), evidence-pack requirements, and verdict language are defined in [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md).
+The detailed candidate declaration, phase protocol (Prep, no clock → Phase A session-churn → Phase B action/cycle budget with the planned Path 8 recover drill **inside** the Phase B window), evidence-pack requirements, and verdict language are defined in [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Deep Time fit: [DEEP-TIME.md](DEEP-TIME.md) (consequential history and cycle advance, not operator clock time).
 
-1. A four-hour candidate run passes before the 24-hour run opens.
-2. The final candidate spans at least 24 continuous hours.
-3. At least one planned restart or recovery drill occurs.
+**Continuous** means settlement and identity survive the drill, and census windows are labeled honestly. It does not mean idle calendar hours. It does not mean "no restart."
+
+1. A Phase A session-churn drill passes before Phase B opens (≥3 independently controlled external Controllers for labeled census windows; ≥2 JWT remint cycles or equivalent session rebind with the Admin/device-code path; ≥1 `NOT_IN_WORLD` or equivalent presence recover).
+2. Phase B meets the action/cycle budget with at least two Agent Players (not LOOK-only): ≥8 consequential strategy-bearing Player actions and ≥4 `World.cycle` advances with ledger `sequence` advance.
+3. At least one planned Path 8 recover drill occurs inside the Phase B window. Settlement and identity survive. Path 8 uses the existing Admin recover JSON.
 4. Incidents, settlement lag, or stale projections are marked honestly.
 5. Operator interventions are bounded, logged, and not used to script the desired outcome.
 
@@ -134,5 +136,5 @@ Non-normative guidance for future acceptance evidence maintenance; this section 
 
 - **Evidence-pack structure:** extend candidate records with precise links between deployment/Controller pins, canonical head ranges, recovery receipts, redacted transcripts, and WATCH digests. The link structure and fail-closed checklist the Gate B–E packs already use are recorded in [LCA-EVIDENCE-PACK-STRUCTURE.md](LCA-EVIDENCE-PACK-STRUCTURE.md) (docs-only; promotes nothing). Additional evidence can clarify an existing gate without replacing independently controlled population, coupled-system behavior, or endurance requirements with slice-test totals.
 - **Scenario coverage:** future Gate C or Gate D companion cases can examine another already-implemented interaction or public misunderstanding. Preserve strategy plurality, partial observability, and unscripted Agent Player decisions. Any changed acceptance threshold or sequence needs explicit review in the governing campaign documents, not an inferred waiver in an evidence appendix.
-- **Promotion boundary:** retain Gate A's, Gate B's, Gate C's, and Gate D's recorded verdicts and distinguish later candidate observations from them. Gate E duration/recovery remains a separate obligation; passing A–E still does not deploy a successor or supply Gate F's human decision.
+- **Promotion boundary:** retain Gate A's, Gate B's, Gate C's, and Gate D's recorded verdicts and distinguish later candidate observations from them. Gate E session-churn, action/cycle, and in-window Path 8 recovery remain a separate obligation; passing A–E still does not deploy a successor or supply Gate F's human decision. An in-flight Gate E Specs-exception is not rewritten as `PASS`.
 - **Verification:** trace every new claim to its declared run, verify redactions and digest references, and show missing or failed evidence explicitly. Check candidate pins against the corresponding decision record, record interventions and incidents, and avoid turning an updated packet format into a new claim of live compatibility.

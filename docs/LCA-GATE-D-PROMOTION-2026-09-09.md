@@ -69,7 +69,7 @@ WATCH did not expose private cognition, restricted state, raw research candidate
 
 Gate D promotion completes WATCH legibility for LCA-4. Campaign machine state stays **LCA-4** / next **LCA-5**, with active **Gate E** endurance. That matches Gate C advancing only to the milestone that still owns the next unproven gate: Gate C completed LCA-3 and opened LCA-4 / Gate D; Gate D does not finish LCA-4 endurance, so the milestone does not become LCA-5.
 
-This packet does not pass Gate E or Gate F. It does not claim four-hour or 24-hour endurance, open hosted STUDY, accept RFC-0130, thaw deferred breadth, or authorize Deploy / successor cutover. It does not Deploy.
+This packet does not pass Gate E or Gate F. It does not claim Gate E endurance, open hosted STUDY, accept RFC-0130, thaw deferred breadth, or authorize Deploy / successor cutover. It does not Deploy.
 
 Noema [#667](https://github.com/Zero-State-LLC/Noema/issues/667) is the runtime tracking issue. Close it only after this Specs merge lands. Do not treat this packet as a Noema auto-close instruction.
 

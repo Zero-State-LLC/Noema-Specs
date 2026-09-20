@@ -50,7 +50,7 @@ graph TD
   C --> D[Integrated civilization scenario]
   D --> E[WATCH legibility]
   D --> F[Persistence and recovery]
-  E --> G[24-hour endurance evidence]
+  E --> G[Session-churn + action/cycle endurance]
   F --> G
   G --> H[Successor cutover decision]
   H --> I[Possible hosted STUDY reopen decision]
