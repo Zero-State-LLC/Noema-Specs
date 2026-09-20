@@ -31,7 +31,9 @@ The prior wall-clock Phase A abbreviate recorded as `SPECS_EXCEPTION_ABBREVIATED
 | Path 8 in-window | Admin incident+recover HTTP 200. Reason `gate-e-phase-b-path8-drill`. Danny yes Path 8 now (~04:43 PT). Settlement and identity survived (PRE heads == POST heads). |
 | Conjunctive candidate | Local pack **PASS** sealed 2026-09-20 ~04:45:30 PDT. Specs / `current-state` COMPLETE is this packet, not the verdict card. |
 | Human-yes COMPLETE | Danny merge of this draft PR |
-| Current live (unchanged) | `7188ff8a-3d58-449e-9e6b-2e0282ed9724` remains the Specs-recorded live Worker. This packet does not Deploy and does not rewrite that pin. |
+| Specs-recorded live pin | `7188ff8a-3d58-449e-9e6b-2e0282ed9724` remains the last fully pinned Specs live Worker (Noema#701). This packet does not Deploy and does not invent a source/pin-PR flip. |
+| GET `/version` after pack (OBSERVED) | Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef`, `deployed_at` `2026-09-20T07:58:52.806224Z`, world `world.perihelion-reach-3`. Matches the Gate E run pin. Source commit and pin PR from this `/version` body are **NOT_COMPUTABLE** (not invented). |
+| GET `/ready` after pack (OBSERVED) | cycle `21948` / sequence `59599` `ACTIVE` `HEALTHY`, genesis `genesis.94d0961984b2b4f8`, `players: 0` (weak census; retained divergence) |
 
 Historical Gate D COMPLETE evidence remains Worker `592c06a4-fa8c-40f6-bec7-21cbc45689f9` in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). Historical Gate C COMPLETE evidence remains Worker `2c48d671-620a-43df-bb56-87438671e734` in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md). Historical Gate B COMPLETE evidence remains Worker `963b5edf-17ea-41f4-892f-130e278e0bb8` in [LCA-GATE-B-PROMOTION-2026-09-08.md](LCA-GATE-B-PROMOTION-2026-09-08.md). Those packets are not rewritten.
 
@@ -119,7 +121,7 @@ Gate E promotion completes LCA-4 endurance. Campaign machine state advances to *
 
 This packet does not pass Gate F. It does not issue `GO` or `NO-GO`. It does not open hosted STUDY, accept RFC-0130, thaw deferred breadth, or authorize Deploy / successor cutover. Gate E COMPLETE ≠ Deploy ≠ Gate F `GO`.
 
-Current live Worker stays `7188ff8a-3d58-449e-9e6b-2e0282ed9724`. `production_implements_specs` stays `81ca8c1`. `production_specs_baseline` stays `492ccc9`. This packet does not Deploy.
+Specs-recorded live Worker stays `7188ff8a-3d58-449e-9e6b-2e0282ed9724` until a separate pin reconciliation supplies source and pin PR. GET `/version` OBSERVED the Gate E run Worker `e5603e4b…` (`deployed_at` `2026-09-20T07:58:52.806224Z`). That observation does not Deploy. `production_implements_specs` stays `81ca8c1`. `production_specs_baseline` stays `492ccc9`.
 
 Noema [#682](https://github.com/Zero-State-LLC/Noema/issues/682) is the runtime tracking issue. Close it only after this Specs merge lands. Do not treat this packet as a Noema auto-close instruction.
 
@@ -130,4 +132,4 @@ Non-normative evidence-index seams.
 - Link Phase A session-churn and Phase B action/cycle + Path 8 to Specs #343 / Noema #682 without merging Gate F, hosted STUDY, RFC-0130, or Deploy claims.
 - Keep historical Gate D Worker `592c06a4`, Gate C Worker `2c48d671`, and Gate B Worker `963b5edf` notes intact in those packets and current-state pin notes.
 - Keep `SPECS_EXCEPTION_ABBREVIATED` distinct from the session-churn Phase A PASS.
-- Verification: confirm run Worker UUID `e5603e4b…` as the evidence pin, not as a live `/version` rewrite; confirm Path 8 keys match the OBSERVED Admin response; do not invent a `specs_git` flip.
+- Verification: confirm run Worker UUID `e5603e4b…` against GET `/version`; do not invent source or pin PR from that body; do not invent a `specs_git` flip; confirm Path 8 keys match the OBSERVED Admin response.
