@@ -1,6 +1,6 @@
 # Living Civilization Alpha — Gate E Scenario Contract
 
-**Status:** campaign acceptance companion. Gate E remains unproven. This companion does not COMPLETE Gate E.
+**Status:** campaign acceptance companion (retained). Gate E is complete per [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md). This contract remains the evidence contract; it does not authorize Gate F, hosted STUDY, Deploy, RFC-0130, or a successor deployment. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md)
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml)
@@ -8,7 +8,7 @@
 **Suggested candidate:** `lca5-gate-e-endurance`
 **Tracking:** [Zero-State-LLC/Noema#682](https://github.com/Zero-State-LLC/Noema/issues/682)
 
-This document is not an executable release package, a new Game Completeness slice, or authority to deploy. It defines the evidence contract for Acceptance Gate E using systems that are already specified and implemented. Document existence is not a Gate E COMPLETE claim.
+This document is not an executable release package, a new Game Completeness slice, or authority to deploy. It defines the evidence contract for Acceptance Gate E using systems that are already specified and implemented. Promotion evidence lives in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md).
 
 Default candidate id is `lca5-gate-e-endurance`. The naming ladder is Gate B `lca2`, Gate C `lca3`, Gate D `lca4`, Gate E `lca5`. Danny may later lock `lca4` as the Gate E id; until that lock, use `lca5`.
 
@@ -247,7 +247,7 @@ Missing evidence is not a pass. If a required surface is not deployed, mark the 
 | `FAIL` | Phase A fails; Phase B opens without Phase A `PASS`; the action/cycle floors are unmet or LOOK-only; settlement/identity do not survive the drill; the planned Path 8 drill is omitted, only between windows, or scripted; marks are dishonest; a zero-Controller full window is unlabeled; or an intervention scripts the desired outcome. |
 | `NOT_COMPUTABLE` | Required pins, ≥3 External Controllers, remint/rebind, presence recover, recover JSON, heads, action/cycle tally, WATCH capture, evidence digest, or continuity evidence cannot be established. Dedicated recovery-receipt objects remain `NOT_COMPUTABLE` and are not invented. Absence of Phase A `PASS`, the in-window Path 8 drill, or the action/cycle floors is not a pass. Idle calendar hours are not a substitute measurement. |
 
-A Gate E pass does not by itself pass Gate F and does not authorize production cutover. **Gate E remains unproven.** This companion does not COMPLETE Gate E.
+A Gate E pass does not by itself pass Gate F and does not authorize production cutover. Promotion evidence lives in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md). This companion remains the evidence contract; it does not pass Gate F. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
 
 ## Migration (in-flight `lca5-gate-e-endurance` / Noema #682)
 
@@ -261,7 +261,7 @@ Candidate `lca5-gate-e-endurance` started under the former calendar 4h / 24h pro
 | Idle LOOK soak at cycle `21944` (Δ0) | Does not advance Deep Time. Does not count toward Phase B. |
 | Phase B opened without Phase A `PASS` | Remains a companion defect until Phase A is `PASS` under this contract. Do not auto-open Phase B from the exception. |
 
-This amend does not COMPLETE Gate E. It does not promote the in-flight pack. Remaining work is a Phase A session-churn `PASS`, then a Phase B action/cycle + in-window Path 8 `PASS`.
+This amend did not COMPLETE Gate E. Promotion evidence for the later session-churn Phase A PASS plus Phase B action/cycle + in-window Path 8 PASS lives in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md). The in-flight `SPECS_EXCEPTION_ABBREVIATED` wall-clock abbreviate remains a Specs-exception and is not rewritten as `PASS`.
 
 ## Extension Points
 
@@ -277,7 +277,7 @@ Keep the five acceptance criteria conjunctive. Phase B opens only after Phase A 
 
 ### Compatibility and promotion
 
-Later gates may impose stricter evidence but cannot rewrite historical Gate A, Gate B, Gate C, or Gate D verdicts, authorize production cutover, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate E or Gate F COMPLETE claim. Gate E remains unproven. An in-flight Specs-exception is not rewritten as `PASS`.
+Later gates may impose stricter evidence but cannot rewrite historical Gate A, Gate B, Gate C, Gate D, or Gate E verdicts, authorize production cutover, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate F COMPLETE claim. An in-flight Specs-exception is not rewritten as `PASS`. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
 
 ### Validation fixtures before adoption
 

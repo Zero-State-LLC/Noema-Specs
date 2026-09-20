@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-09-10
+as_of: 2026-09-20
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -38,7 +38,8 @@ authority:
   # Gate C companion (COMPLETE): docs/LCA-GATE-C-SCENARIO.md
   # Gate D companion (COMPLETE): docs/LCA-GATE-D-SCENARIO.md
   # Gate D promotion: docs/LCA-GATE-D-PROMOTION-2026-09-09.md
-  # Gate E companion (unproven; not COMPLETE): docs/LCA-GATE-E-SCENARIO.md
+  # Gate E companion (COMPLETE): docs/LCA-GATE-E-SCENARIO.md
+  # Gate E promotion: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
   # Gate F companion stub (unproven; not COMPLETE; no GO): docs/LCA-GATE-F-SCENARIO.md
 runtimes:
   production_alpha:
@@ -80,7 +81,9 @@ runtimes:
       play_blocked=false, genesis.94d0961984b2b4f8, playable=true, cycle 19352 /
       sequence 46387. /ready players census is not the Gate B
       population proof; retained Admin ICR/bindings are. Gate D is complete.
-      Gate E remains unproven.
+      Gate E is complete on run Worker e5603e4b-7565-4e4a-a8d1-85360558a8ef
+      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). That run pin is not current
+      live and is not a Deploy. Gate F remains unproven.
     specs_pin_note: >-
       Live source 2c2ef843a99f remains aligned to Specs 81ca8c1, matching Noema
       hosted_live.specs_git after Noema#701. A new worker_version_id does not
@@ -89,9 +92,12 @@ runtimes:
       Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
       uses historical Worker 963b5edf / source 308c98de. hosted_live.official_client
       remains noema-client==0.1.21 while Gate B cohort OBSERVED client 0.1.22 — both
-      recorded; no invented pin flip. Campaign stays LCA-4. Gate C is complete;
+      recorded; no invented pin flip. Gate C is complete;
       integrated_small_civilization_run is LIVE_HOSTED. Gate D is complete;
-      watch_legibility_gate_d is LIVE_HOSTED. Gate E remains unproven.
+      watch_legibility_gate_d is LIVE_HOSTED. Gate E is complete;
+      endurance_gate_e is LIVE_HOSTED. Campaign advances to LCA-5 /
+      active Gate F. Gate F remains unproven. Gate E COMPLETE is not
+      Deploy and is not Gate F GO.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).
     evidence:
@@ -105,6 +111,7 @@ runtimes:
       - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
+      - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
       - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
@@ -116,7 +123,7 @@ runtimes:
       - human browser PLAY is retired
       - hosted STUDY remains observational rather than the offline research spine
       - no hosted/offline digest-equivalence claim
-      - Gate C civilization run is complete; Gate D is complete; endurance and successor cutover remain unproven
+      - Gate C civilization run is complete; Gate D is complete; Gate E is complete; successor cutover remains unproven
   advanced_worker_runtime:
     status: LIVE_HOSTED
     evidence_commit: 61234cc
@@ -151,7 +158,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E remains unproven. Hosted STUDY and compatibility-at-scale remain unproven.
+    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E is complete (see endurance_gate_e). Hosted STUDY and compatibility-at-scale remain unproven. Gate F remains unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -260,6 +267,24 @@ capabilities:
     live_worker_version_id: 592c06a4-fa8c-40f6-bec7-21cbc45689f9
     heads_at_flip_prep: cycle=17958 sequence=42176 ACTIVE HEALTHY
     non_goals: hosted STUDY, Gate E endurance, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, and production successor deployment
+  endurance_gate_e:
+    state: LIVE_HOSTED
+    claim: Gate E is complete through Specs #343 session-churn and action/cycle evidence for candidate lca5-gate-e-endurance.
+    candidate: lca5-gate-e-endurance
+    evidence:
+      - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
+      - "Noema-Specs PR #343: https://github.com/Zero-State-LLC/Noema-Specs/pull/343"
+      - "Noema issue #682: https://github.com/Zero-State-LLC/Noema/issues/682"
+    live_worker_version_id: e5603e4b-7565-4e4a-a8d1-85360558a8ef
+    heads_at_flip_prep: cycle=21948 sequence=59599 ACTIVE HEALTHY
+    path8_recover_json: >-
+      recover_mode=restore revision=29192 head_present=true
+      reason=gate-e-phase-b-path8-drill operator_session=asess.f0081cbcde21
+      heads held cycle=21948 sequence=59599 ACTIVE HEALTHY after restore
+    waivers:
+      - "recovery_receipt_object: NOT_COMPUTABLE (not invented; existing Admin recover JSON only)"
+      - "wall_clock_phase_a_abbreviate: SPECS_EXCEPTION_ABBREVIATED is not Phase A PASS"
+    non_goals: hosted STUDY, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, Deploy, and production successor deployment
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
     blocker: multi-agent endurance and adapter evidence
@@ -272,14 +297,14 @@ active_campaign:
   id: living-civilization-alpha
   state: ACTIVE_INTEGRATION
   thesis: integrate and prove what is already built before authorizing more breadth
-  current_milestone: LCA-4
+  current_milestone: LCA-5
   next_milestone: LCA-5
-  active_gate: "Gate E: Endurance (unproven; Gate D complete)"
+  active_gate: "Gate F: Successor decision packet (unproven; Gate E complete)"
   completed_gates:
     - "Gate A: Integrated runtime"
     - "Gate B: External population"
     - "Gate C: Existing-system civilization"
     - "Gate D: WATCH legibility"
-  unproven_gates:
     - "Gate E: Endurance"
+  unproven_gates:
     - "Gate F: Successor decision packet"
