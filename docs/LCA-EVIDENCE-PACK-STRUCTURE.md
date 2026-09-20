@@ -3,7 +3,7 @@
 **Status:** docs-only hygiene companion. It changes no gate criterion, protocol field, schema, or verdict. It records the link structure the existing Gate B–E packs already use so later packs stay traceable and fail-closed.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md) § Extension Points (evidence-pack structure) · [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md) § Extension Points (machine-checkable links)
 **Companions:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) · [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md)
-**Derived from (OBSERVED):** Noema `docs/evidence/gate-b-2026-09-08/`, `gate-c-2026-09-08/`, `gate-d-2026-09-08/`, `gate-e-2026-09-09/`; Noema `docs/ISOLATED-ROLLBACK-REHEARSAL-555-EVIDENCE.json`; Specs promotion records for Gates A–D
+**Derived from (OBSERVED):** Noema `docs/evidence/gate-b-2026-09-08/`, `gate-c-2026-09-08/`, `gate-d-2026-09-08/`, `gate-e-2026-09-09/`; Noema `docs/ISOLATED-ROLLBACK-REHEARSAL-555-EVIDENCE.json`; Specs promotion records for Gates A–E
 
 Document existence promotes nothing. A pack that follows this structure is not thereby PASS.
 

@@ -53,14 +53,14 @@ Explicit non-goals
 
 ## Horizon 3 — Days 61–90: WATCH, endurance, and cutover readiness
 
-**Status:** OPEN after Gate D. Gate D is complete. Gates E and F remain unproven.
+**Status:** OPEN after Gate E. Gate E is complete. Gate F remains unproven.
 
-**Target:** LCA-4/LCA-5 candidate and Acceptance Gates E–F
+**Target:** LCA-5 candidate and Acceptance Gate F
 
 1. Use existing WATCH and world-report implementation to explain the integrated scenario under [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). **Done for Gate D** ([LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); Noema #679 PASS + one-door unify #680 / Specs #333 / Deploy).
 2. Make only projection corrections required for truthfulness, legibility, redaction, or stale-state handling. **Done for Gate D** (Chamber FE #674/#675/#677 plus one-door unify).
-3. Complete a session-churn drill with ≥3 independently controlled external Controllers under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase A; Prep has no clock; remint + presence recover; idle hours are not the pass criterion).
-4. Complete an action/cycle + in-window Path 8 candidate after Phase A passes under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase B; ≥8 consequential acts, ≥4 cycle advances, ≥2 Agent Players, not LOOK-only; ≥1 planned Path 8 recover drill **inside** the Phase B window).
+3. Complete a session-churn drill with ≥3 independently controlled external Controllers under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase A; Prep has no clock; remint + presence recover; idle hours are not the pass criterion). **Done for Gate E** ([LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); Specs #343; remint ×2, presence recover, labeled census).
+4. Complete an action/cycle + in-window Path 8 candidate after Phase A passes under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (Phase B; ≥8 consequential acts, ≥4 cycle advances, ≥2 Agent Players, not LOOK-only; ≥1 planned Path 8 recover drill **inside** the Phase B window). **Done for Gate E** (17 counting acts; cycle 21944→21948; reason `gate-e-phase-b-path8-drill`).
 5. Produce migration, rollback, compatibility, and operator rehearsal artifacts for a successor decision under [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) (packet items 1–6; rehearsal isolated, production GET-only).
 6. Issue GO, NO-GO, or NOT_COMPUTABLE under [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) (item 7; Danny human-yes). Do not deploy merely because the calendar ends; `GO` does not itself deploy.
 
@@ -77,6 +77,6 @@ Non-normative guidance for future maintenance; this section changes no current b
 
 - Packet refinement can split an integration defect into smaller evidence-bearing packets while retaining the implementation pin, production-alpha delta, permitted claim, and non-goals. Elapsed days do not satisfy an acceptance gate.
 
-- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A, Gate B, Gate C, and Gate D completion remain recorded; additional Controller runs do not by themselves prove Gates E–F or open hosted STUDY.
+- Sequencing revisions should identify the gate dependency they change and reconcile the campaign and current-state evidence. Gate A, Gate B, Gate C, Gate D, and Gate E completion remain recorded; additional Controller runs do not by themselves prove Gate F or open hosted STUDY. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
 
 - Before promoting a revised packet, trace its result to a pinned test/run and the relevant acceptance gate, distinguish isolated from hosted evidence, and check that blocked enrollment, failed endurance, or unavailable cutover evidence cannot produce GO.

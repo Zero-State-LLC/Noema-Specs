@@ -35,6 +35,29 @@ The residual B/PAM rows remain conditional contracts or doctrine deferrals.
 This follow-up does not activate their proposals, change a schema, assign CI
 or validators to this documentation workstream, or authorize live operations.
 
+## Follow-up — 2026-09-20: Living Civilization Alpha Gate E promoted
+
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) now records Gate E
+COMPLETE / `endurance_gate_e` `LIVE_HOSTED` for candidate
+`lca5-gate-e-endurance`. Evidence is
+[LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md) from
+Specs [#343](https://github.com/Zero-State-LLC/Noema-Specs/pull/343)
+(`3dacd259`) session-churn and action/cycle budgets. Phase A remint ×2,
+presence recover, labeled census. Phase B 17 counting acts, cycle
+21944→21948, in-window Path 8 reason `gate-e-phase-b-path8-drill`. Run
+Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef` is the evidence pin, not a
+live-pin flip. Campaign advances to LCA-5 / active Gate F.
+
+Deliberately unchanged: hosted STUDY stays **BLOCKED**; Gate F remains
+unproven; no Deploy from this packet; no RFC-0130; dedicated
+recovery-receipt objects remain **NOT_COMPUTABLE** (not invented). Prior
+`SPECS_EXCEPTION_ABBREVIATED` is not the Phase A PASS.
+`production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
+Live Worker stays `7188ff8a-3d58-449e-9e6b-2e0282ed9724`. Tracking
+[Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682) closes
+only after this Specs merge lands. The Gate D follow-up below remains dated
+provenance. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
+
 ## Follow-up — 2026-09-09: Living Civilization Alpha Gate D promoted
 
 [`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) now records Gate D
@@ -280,7 +303,7 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 | A2 | LCA Gate B | At least three independent external Controllers must enroll and operate Agent Players. | `RUNTIME_ONLY` | Blocks Gate B and therefore C | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Publish/deploy only by explicit runtime command; complete operator enrollment | reseed, synthetic population claim, private strategy script |
 | A3 | LCA Gate C | Existing-system civilization scenario has not passed. | `RUNTIME_ONLY` | Blocks Gate C | [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) | Execute the pinned scenario through existing surfaces | add mechanics to force a pass |
 | A4 | LCA Gate D | Gate D is complete. Blind-score PASS Noema #679; HOLD released after one-door unify Noema #680 / Specs #333 / Deploy 34317120696 / pin #681. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate D is complete; does not block Gate E | [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md), [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate E endurance is A5 | private state leak, invented motives, research UI substitution, COMPLETE by document |
-| A5 | LCA Gate E | Session-churn then action/cycle + in-window Path 8 endurance are unproven. Idle calendar hours are not the pass proxy. | `RUNTIME_ONLY` | Blocks Gate E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) | Remint, presence recover, consequential acts, cycle advance, Path 8 Admin recover JSON | outcome scripting, idle-calendar promotion, LOOK-only soak, COMPLETE by document, rewriting a Specs-exception as PASS |
+| A5 | LCA Gate E | Gate E is complete. Specs #343 session-churn + action/cycle + in-window Path 8 for `lca5-gate-e-endurance`. Prior `SPECS_EXCEPTION_ABBREVIATED` is not that PASS. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate E is complete; does not block Gate F as a pass | [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate F successor decision is A6 | outcome scripting, idle-calendar promotion, LOOK-only soak, COMPLETE by document, rewriting a Specs-exception as PASS, Deploy-as-COMPLETE |
 | A6 | LCA Gate F | Successor decision packet is incomplete. | `RUNTIME_ONLY` | Blocks cutover | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) | `GO`, `NO-GO`, or `NOT_COMPUTABLE` with migration/rollback evidence | silent frozen-alpha rewrite, force-supersession, Deploy-as-decision, COMPLETE by document |
 | A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
 | A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
@@ -292,7 +315,8 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 The following must not be reopened as generic gaps:
 
 - LCA Gate A integrated-runtime evidence closed through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md); do not reopen it as a generic SPEC GAP;
-- LCA Gate D WATCH-legibility evidence closed through [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); do not reopen it as a generic SPEC GAP; Gate E endurance remains A5;
+- LCA Gate D WATCH-legibility evidence closed through [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); do not reopen it as a generic SPEC GAP;
+- LCA Gate E endurance evidence closed through [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); do not reopen it as a generic SPEC GAP; Gate F successor decision remains A6;
 - the enrollment/connect publish-lag row closed when runtime source `61234cc` produced live Worker `01ebc196-b762-4689-a166-272e26bd73ad`; operator enrollment and external population remain separate Gate B work;
 - GC5 relay same-cycle, one-cycle delay, and unreachable bands are closed by RFC-0009 and RFC-0021;
 - GC3 S0–S7 executable social-memory gaps are closed by RFC-0007, RFC-0022, and RFC-0034–RFC-0039;
