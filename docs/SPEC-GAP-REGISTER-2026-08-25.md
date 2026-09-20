@@ -35,6 +35,24 @@ The residual B/PAM rows remain conditional contracts or doctrine deferrals.
 This follow-up does not activate their proposals, change a schema, assign CI
 or validators to this documentation workstream, or authorize live operations.
 
+## Follow-up — 2026-09-20: hosted live Worker pin reconciled to ac6813da
+
+GET `/version` OBSERVED Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5`
+(`deployed_at` `2026-09-20T20:26:54.009622Z`, world
+`world.perihelion-reach-3`). Noema already pins that Worker
+([#716](https://github.com/Zero-State-LLC/Noema/pull/716); source
+`630652e6772d4fbc340cf155a33fd628163709d9` from
+[#709](https://github.com/Zero-State-LLC/Noema/pull/709); merge
+`56583aae1a52b781a87836a258b0a4a6cede3909`).
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) hosted/live
+pin now matches. Gate E COMPLETE remains on HISTORICAL run Worker
+`e5603e4b-7565-4e4a-a8d1-85360558a8ef`; that promotion is not rewritten.
+This reconciliation is not a Deploy and is not Gate F `GO`.
+`production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
+`production_specs_baseline` stays `492ccc9`. Historical Gate B–E
+evidence Workers are not rewritten. The e5603e4b follow-up below remains
+dated provenance of that prior live pin.
+
 ## Follow-up — 2026-09-20: hosted live Worker pin reconciled to e5603e4b
 
 GET `/version` OBSERVED Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef`
