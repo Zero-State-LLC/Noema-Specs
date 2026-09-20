@@ -73,7 +73,7 @@ Compose already implemented mastery, resource pressure, trade, construction, soc
 
 **Status:** Gate D is complete; Gate E endurance remains unproven
 
-WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct four-hour and then 24-hour runs under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (candidate `lca5-gate-e-endurance`; planned recovery drill inside the 24-hour window); Gate E remains unproven.
+WATCH legibility is accepted. See [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md). The public spectator door is one `/watch`; `TEXT` / `PIXEL` / `MAP` are modes. The detailed Gate D evidence contract remains [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md). Conduct session-churn then action/cycle + in-window Path 8 under [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) (candidate `lca5-gate-e-endurance`; Deep Time is cycle/history advance, not idle calendar hours); Gate E remains unproven.
 
 ### LCA-5 — Successor cutover decision
 

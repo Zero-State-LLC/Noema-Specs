@@ -202,7 +202,7 @@ Recorded to show the structure against a real pack; no verdict is changed here.
 | pins ↔ heads | start/end receipts carry (cycle, sequence, surface, UTC, Worker) | heads at each Deploy instant `NOT_COMPUTABLE` |
 | heads ↔ receipts | `phase-b-path8.md` bracketed PRE / INCIDENT / RECOVER / POST; dual fire kept apart; remint cohorts `SUPERSEDED` in sequence | census from public surfaces `NOT_COMPUTABLE` (`controllers-watch-live-note.md`) |
 | receipts ↔ digest | — | Gate E WATCH digest not yet filed at authoring |
-| digest ↔ verdict | Phase A overall `NOT_COMPUTABLE` recorded, not upgraded by Phase B start | end score pending; Phase B opened without Phase A `PASS` is a companion condition the score must address |
+| digest ↔ verdict | Phase A overall `NOT_COMPUTABLE` recorded, not upgraded by Phase B start | end score pending; Phase B opened without Phase A `PASS` is a companion condition the score must address. In-flight abbreviated Phase A under Danny yes stays a Specs-exception; do not rewrite as `PASS` ([LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) Migration). |
 | intervention log | CONTROL_PLANE rows for #684/#686 and #688–#700; remints; recover | budget `NOT_COMPUTABLE` (not declared at Prep) |
 
 ## Explicit non-claims
