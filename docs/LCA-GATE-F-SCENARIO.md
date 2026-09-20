@@ -35,8 +35,8 @@ Live pins below are **OBSERVED at authoring**. The packet must re-pin them at de
 
 | Surface | OBSERVED at authoring (2026-09-20) |
 |---|---|
-| Live Worker | `e5603e4b-7565-4e4a-a8d1-85360558a8ef` (`/version`, deployed `2026-09-20T07:58:52.806224Z`, source `80a3d031a29f`) |
-| Pin PR | Noema [#714](https://github.com/Zero-State-LLC/Noema/pull/714) merge `4d31d42b`; Specs [#345](https://github.com/Zero-State-LLC/Noema-Specs/pull/345) |
+| Live Worker | `ac6813da-1e0a-4f0c-8566-d9346b4baed5` (`/version`, deployed `2026-09-20T20:26:54.009622Z`, source `630652e6`) |
+| Pin PR | Noema [#716](https://github.com/Zero-State-LLC/Noema/pull/716) merge `56583aae`; Specs [#347](https://github.com/Zero-State-LLC/Noema-Specs/pull/347) |
 | Live PLAY world / genesis | `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` |
 | Frozen first world (out of scope) | `world-01` / `genesis.ef578f4ffceeccd0` |
 | Gate E | COMPLETE; [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); tracking [Noema#682](https://github.com/Zero-State-LLC/Noema/issues/682) CLOSED after Specs [#344](https://github.com/Zero-State-LLC/Noema-Specs/pull/344) |
@@ -52,13 +52,13 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | Field | OBSERVED lock | Meaning |
 |---|---|---|
 | `successor_scope` | `RUNTIME_ONLY` | Same PLAY world (`world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`). New Worker lineage only. Not `WORLD_CUTOVER`. Not undeclared. |
-| Successor candidate stance | `BASELINE_HOLD` | Live Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef` is the baseline. |
-| `successor_source_commit` | `ABSENT` | Do not open an empty candidate branch. Name a commit only when a real `RUNTIME_ONLY` Worker delta exists. |
+| Successor candidate stance | `LIVE_NAMED` | Live Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5` / source `630652e6` is the named live successor after Noema #709 Deploy / pin #716. Prior baseline `e5603e4b` is HISTORICAL. |
+| `successor_source_commit` | `630652e6772d4fbc340cf155a33fd628163709d9` | Named. Not `ABSENT`. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
 | Verdict | not issued | Not `GO`. Not `NO-GO`. Not a scored packet. |
 | Deploy | not authorized | This companion does not authorize Deploy or successor cutover. |
 
-Item-1 delta and isolated A-B-A rehearsal stay blocked until a successor commit is named. Historical LCA-1 packets are pattern only. Gate F remains unproven.
+Item-1 delta is filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A rehearsal remains outstanding. Historical LCA-1 packets are pattern only. Gate F remains unproven.
 
 ## Non-goals
 
@@ -91,8 +91,8 @@ successor_scope                 # DECLARED Prep 2026-09-20: RUNTIME_ONLY
                                 # undeclared remains NOT_COMPUTABLE; do not infer
 frozen_first_world              # world-01 / genesis.ef578f4ffceeccd0 — OUT OF SCOPE, unchanged
 live_pins_at_decision           # /version, /ready, pin PR, Specs pin, official-client pin
-candidate_worker                # BASELINE_HOLD: successor_source_commit ABSENT
-                                # live Worker e5603e4b is baseline until a real RUNTIME_ONLY delta exists
+candidate_worker                # LIVE_NAMED: successor_source_commit 630652e6772d4fbc340cf155a33fd628163709d9
+                                # live Worker ac6813da / source 630652e6 is the named live successor after #709 Deploy
 production_delta                # per item, classified (see § Packet item 1)
 migration_procedure             # steps, backup bundle, verify, fresh writer fence
 rollback_procedure              # A-B-A rehearsal id, traffic split, digests
