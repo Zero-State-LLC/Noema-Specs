@@ -36,7 +36,7 @@ Live pins below are **OBSERVED at authoring**. The packet must re-pin them at de
 | Surface | OBSERVED at authoring (2026-09-20) |
 |---|---|
 | Live Worker | `e5603e4b-7565-4e4a-a8d1-85360558a8ef` (`/version`, deployed `2026-09-20T07:58:52.806224Z`, source `80a3d031a29f`) |
-| Pin PR | Noema [#714](https://github.com/Zero-State-LLC/Noema/pull/714) merge `4d31d42b`; Specs pin reconciliation (this packet) |
+| Pin PR | Noema [#714](https://github.com/Zero-State-LLC/Noema/pull/714) merge `4d31d42b`; Specs [#345](https://github.com/Zero-State-LLC/Noema-Specs/pull/345) |
 | Live PLAY world / genesis | `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` |
 | Frozen first world (out of scope) | `world-01` / `genesis.ef578f4ffceeccd0` |
 | Gate E | COMPLETE; [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); tracking [Noema#682](https://github.com/Zero-State-LLC/Noema/issues/682) |
