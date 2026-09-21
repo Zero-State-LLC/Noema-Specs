@@ -33,10 +33,10 @@ A Gate F packet may open only when all of the following are recorded:
 
 Live pins below are **OBSERVED at authoring**. The packet must re-pin them at decision time. Authoring pins are not the decision pins.
 
-| Surface | OBSERVED at authoring (2026-09-20) |
+| Surface | OBSERVED at authoring (2026-09-21) |
 |---|---|
-| Live Worker | `ac6813da-1e0a-4f0c-8566-d9346b4baed5` (`/version`, deployed `2026-09-20T20:26:54.009622Z`, source `630652e6`) |
-| Pin PR | Noema [#716](https://github.com/Zero-State-LLC/Noema/pull/716) merge `56583aae`; Specs [#347](https://github.com/Zero-State-LLC/Noema-Specs/pull/347) |
+| Live Worker | `1e52e827-695c-4386-9795-d42b175ec166` (`/version`, deployed `2026-09-21T00:57:11.486234Z`, source `65086d32`) |
+| Pin PR | Noema [#721](https://github.com/Zero-State-LLC/Noema/pull/721) merge `f61e6b88`; Specs pin reconcile (this PR) |
 | Live PLAY world / genesis | `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` |
 | Frozen first world (out of scope) | `world-01` / `genesis.ef578f4ffceeccd0` |
 | Gate E | COMPLETE; [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); tracking [Noema#682](https://github.com/Zero-State-LLC/Noema/issues/682) CLOSED after Specs [#344](https://github.com/Zero-State-LLC/Noema-Specs/pull/344) |
@@ -52,16 +52,16 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | Field | OBSERVED lock | Meaning |
 |---|---|---|
 | `successor_scope` | `RUNTIME_ONLY` | Same PLAY world (`world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`). New Worker lineage only. Not `WORLD_CUTOVER`. Not undeclared. |
-| Live stance | `LIVE_NAMED` | Live Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5` / source `630652e6` remains the named live pin after Noema #709 Deploy / pin #716. Prior baseline `e5603e4b` is HISTORICAL. Unchanged by rehearsal. |
-| Successor candidate stance | `SUCCESSOR_NAMED` | Candidate source `75d468c750aeb04490969f33d2cc13ad7e85a3a5` ([Noema #717](https://github.com/Zero-State-LLC/Noema/pull/717) sharp@0.35.4 override). **Not Deployed.** Not live. |
-| `successor_source_commit` | `75d468c750aeb04490969f33d2cc13ad7e85a3a5` | Named candidate. Live source remains `630652e6`. Not `ABSENT`. |
+| Live stance | `LIVE_NAMED` | Live Worker `1e52e827-695c-4386-9795-d42b175ec166` / source `65086d324d2c52b1efd507c9174d0950095a8049` after Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) / pin [#721](https://github.com/Zero-State-LLC/Noema/pull/721). Prior live `ac6813da` / `630652e6` is HISTORICAL. Prior baseline `e5603e4b` remains HISTORICAL Gate E run Worker. |
+| Successor candidate stance | absorbed into `LIVE_NAMED` | Prior SUCCESSOR_NAMED `75d468c7` ([Noema #717](https://github.com/Zero-State-LLC/Noema/pull/717) sharp@0.35.4) is included in live source `65086d32` (also #719 / #720). No separate undeployed candidate. |
+| `successor_source_commit` | `65086d324d2c52b1efd507c9174d0950095a8049` | LIVE_NAMED source after Deploy. Prior candidate `75d468c7` absorbed. Not `ABSENT`. |
 | Isolated A-B-A rehearsal (item 4 input) | **PASS** (r2) | Isolated Worker `noema-rollback-rehearsal-gatef-75d468c7-20260920-r2`. A/A′ `7e749359-c2e0-445a-ba4d-3ef9002bba56` · B `c847fdc7-755d-4cab-94a4-7a8f32701256`. Receipts: Noema `docs/evidence/gate-f-isolated-aba-75d468c7-20260920/` (PASS seal). Prior r1 FAIL (cold DO) and #718 `NOT_COMPUTABLE` archived in that tree. Script warm fix: [Noema #719](https://github.com/Zero-State-LLC/Noema/pull/719). Production GET-only throughout. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
-| Scoring | **DEFERRED** | Seven-item packet not scored. Item 4 rehearsal PASS is sealed; other items and item 7 verdict remain open. |
+| Scoring | **DEFERRED** | Seven-item packet not scored. Item 4 rehearsal PASS is sealed; other items and item 7 verdict remain open. Deploy ≠ GO. |
 | Verdict | not issued | Not `GO`. Not `NO-GO`. Not a scored packet. Not COMPLETE. |
-| Deploy | not authorized | This companion does not authorize Deploy or successor cutover. |
+| Deploy | **done** (runtime); not Gate F authorization | Production Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) landed live `1e52e827`. That is not Gate F `GO` and does not COMPLETE Gate F. |
 
-Item-1 delta and isolated A-B-A **PASS** (r2) are filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Historical LCA-1 packets are pattern only. **Gate F remains unproven.** This OBSERVED rehearsal seal is not Gate F COMPLETE and is not `GO`.
+Item-1 delta and isolated A-B-A **PASS** (r2) are filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin; **Gate F remains unproven.** Scoring remains **DEFERRED**. This OBSERVED rehearsal seal and the Deploy are not Gate F COMPLETE and are not `GO`.
 
 ## Non-goals
 
@@ -94,8 +94,9 @@ successor_scope                 # DECLARED Prep 2026-09-20: RUNTIME_ONLY
                                 # undeclared remains NOT_COMPUTABLE; do not infer
 frozen_first_world              # world-01 / genesis.ef578f4ffceeccd0 — OUT OF SCOPE, unchanged
 live_pins_at_decision           # /version, /ready, pin PR, Specs pin, official-client pin
-candidate_worker                # SUCCESSOR_NAMED: 75d468c750aeb04490969f33d2cc13ad7e85a3a5 (#717; not Deployed)
-                                # LIVE_NAMED remains ac6813da / source 630652e6 after #709 Deploy / #716 pin
+candidate_worker                # LIVE_NAMED: 65086d324d2c52b1efd507c9174d0950095a8049 / Worker 1e52e827
+                                # after Deploy 35549259561 / pin #721; prior SUCCESSOR_NAMED 75d468c7 absorbed
+                                # prior live ac6813da / 630652e6 is HISTORICAL
 production_delta                # per item, classified (see § Packet item 1)
 migration_procedure             # steps, backup bundle, verify, fresh writer fence
 rollback_procedure              # A-B-A rehearsal id, traffic split, digests
