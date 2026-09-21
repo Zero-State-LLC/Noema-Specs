@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 1e52e827-695c-4386-9795-d42b175ec166
+  live_worker_version_id: 4f47b1ce-6788-47bd-aaa7-16e5707ab828
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -44,7 +44,8 @@ authority:
   # Gate F promotion: docs/LCA-GATE-F-PROMOTION-2026-09-21.md
   # Gate F COMPLETE for candidate lca6-gate-f-successor-decision.
   #   Item-7 GO ISSUED 2026-09-20 ~19:20 PDT (Noema#724 / Specs#351). Items 1–6 FILLED (Noema#722/#723).
-  #   Isolated A-B-A PASS (r2) retained. Live 1e52e827 / 65086d32 (Deploy 35549259561 / pin #721).
+  #   Isolated A-B-A PASS (r2) retained. Gate F COMPLETE evidence Worker 1e52e827 / 65086d32 retained.
+  #   Current live 4f47b1ce / 1284f1ab (Deploy 35558327535 / pin #728; census #727). Gate F COMPLETE unchanged.
   #   RUNTIME_ONLY. Across-Deploy digests permanently NOT_COMPUTABLE (accepted at GO).
   #   COMPLETE ≠ Deploy ≠ GO. COMPLETE is not a second Deploy. No STUDY. No WORLD_CUTOVER.
 runtimes:
@@ -53,20 +54,29 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 1e52e827-695c-4386-9795-d42b175ec166
-    live_deployed_at: 2026-09-21T00:57:11.486234Z
-    live_source_commit: 65086d324d2c52b1efd507c9174d0950095a8049
+    live_worker_version_id: 4f47b1ce-6788-47bd-aaa7-16e5707ab828
+    live_deployed_at: 2026-09-21T03:42:13.689204Z
+    live_source_commit: 1284f1abc92a5582176d279f19f9980b4bc7976c
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
-    players_present: 0
+    players_present: 2
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Current live is 1e52e827-695c-4386-9795-d42b175ec166, deployed
-      2026-09-21T00:57:11.486234Z from Noema source
-      65086d324d2c52b1efd507c9174d0950095a8049 (includes Noema#717 sharp,
-      #719 /ready warm wait, #720 A-B-A PASS evidence) and pinned by
-      Noema#721 (merge f61e6b886c45f24fbcdc7b5686a90ffe6a807d5b). Deploy run
-      https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561 SUCCESS.
+      Current live is 4f47b1ce-6788-47bd-aaa7-16e5707ab828, deployed
+      2026-09-21T03:42:13.689204Z from Noema source
+      1284f1abc92a5582176d279f19f9980b4bc7976c (includes Noema#727 agent Players live census)
+      and pinned by Noema#728 (merge 25ec6e7c323c61b58d41be78543219ba52181c6a). Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/35558327535 SUCCESS.
+      Isolated A-B-A PASS on tip 1284f1abc92a before Deploy (receipts under
+      box receipts `/workspace/out/noema-gate-f/item-1-1284f1ab/aba-receipt/`). OBSERVED /ready.players=2
+      post-Deploy. This Specs reconciliation is not a second Deploy, not Gate F GO,
+      and does not reopen Gate F COMPLETE.
+      Prior Specs-recorded live 1e52e827-695c-4386-9795-d42b175ec166, deployed
+      2026-09-21T00:57:11.486234Z from source 65086d324d2c52b1efd507c9174d0950095a8049
+      (Deploy 35549259561; pin Noema#721; merge f61e6b886c45f24fbcdc7b5686a90ffe6a807d5b) is the HISTORICAL
+      last-full-pin and remains the Gate F COMPLETE evidence Worker
+      (docs/LCA-GATE-F-PROMOTION-2026-09-21.md). Do not rewrite that promotion or
+      move successor_decision_gate_f.live_worker_version_id.
       This Specs reconciliation is not a second Deploy and is not Gate F GO.
       Prior Specs-recorded live ac6813da-1e0a-4f0c-8566-d9346b4baed5, deployed
       2026-09-20T20:26:54.009622Z from source 630652e6772d4fbc340cf155a33fd628163709d9
@@ -114,8 +124,8 @@ runtimes:
       Gate F COMPLETE recorded. Scoring no longer deferred for COMPLETE. This pin reconciliation is not
       a second Deploy. COMPLETE is not a new Deploy.
     specs_pin_note: >-
-      Live source 65086d32 remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git after Noema#721. A new worker_version_id does not
+      Live source 1284f1ab remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git after Noema#728. A new worker_version_id does not
       imply a Specs pin change. production_implements_specs stays 81ca8c1.
       production_specs_baseline stays 492ccc9, the Gate A promotion evidence anchor.
       Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
@@ -127,7 +137,7 @@ runtimes:
       endurance_gate_e is LIVE_HOSTED. successor_decision_gate_f is LIVE_HOSTED.
       Campaign stays LCA-5 with Gate F COMPLETE (isolated A-B-A PASS
       sealed for prior SUCCESSOR_NAMED 75d468c7; item-7 GO ISSUED; COMPLETE via
-      docs/LCA-GATE-F-PROMOTION-2026-09-21.md; live now 1e52e827 / 65086d32 LIVE_NAMED).
+      docs/LCA-GATE-F-PROMOTION-2026-09-21.md; Gate F COMPLETE evidence 1e52e827 / 65086d32; current live 4f47b1ce / 1284f1ab LIVE_NAMED).
       Gate F COMPLETE is not Deploy and is not a new Deploy. GO ≠ COMPLETE ≠ Deploy.
       This pin reconciliation is not a second Deploy.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
@@ -137,9 +147,10 @@ runtimes:
       - docs/HOSTED-FIRST-ENTRY.md
       - "GET https://noema.guru/version 2026-09-21"
       - "GET https://noema.guru/ready 2026-09-21"
-      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561"
-      - "Noema PR #721: https://github.com/Zero-State-LLC/Noema/pull/721"
-      - "Noema source 65086d32 (includes #717/#719/#720)"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/35558327535"
+      - "Noema PR #728: https://github.com/Zero-State-LLC/Noema/pull/728"
+      - "Noema source 1284f1ab (includes #727 census; prior #717/#719/#720)"
+      - "Gate F COMPLETE evidence Worker 1e52e827 / source 65086d32 retained"
       - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-D-PROMOTION-2026-09-09.md

@@ -35,8 +35,8 @@ Live pins below are **OBSERVED at authoring**. The packet must re-pin them at de
 
 | Surface | OBSERVED at authoring (2026-09-21) |
 |---|---|
-| Live Worker | `1e52e827-695c-4386-9795-d42b175ec166` (`/version`, deployed `2026-09-21T00:57:11.486234Z`, source `65086d32`) |
-| Pin PR | Noema [#721](https://github.com/Zero-State-LLC/Noema/pull/721) merge `f61e6b88`; Specs pin reconcile (this PR) |
+| Live Worker | `4f47b1ce-6788-47bd-aaa7-16e5707ab828` (`/version`, deployed `2026-09-21T03:42:13.689204Z`, source `1284f1ab`; Gate F COMPLETE evidence Worker `1e52e827` / `65086d32` retained) |
+| Pin PR | Noema [#728](https://github.com/Zero-State-LLC/Noema/pull/728) merge `25ec6e7c`; Specs pin reconcile (this PR); prior Gate F pin [#721](https://github.com/Zero-State-LLC/Noema/pull/721) |
 | Live PLAY world / genesis | `world.perihelion-reach-3` / `genesis.94d0961984b2b4f8` |
 | Frozen first world (out of scope) | `world-01` / `genesis.ef578f4ffceeccd0` |
 | Gate E | COMPLETE; [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); tracking [Noema#682](https://github.com/Zero-State-LLC/Noema/issues/682) CLOSED after Specs [#344](https://github.com/Zero-State-LLC/Noema-Specs/pull/344) |
@@ -52,15 +52,15 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | Field | OBSERVED lock | Meaning |
 |---|---|---|
 | `successor_scope` | `RUNTIME_ONLY` | Same PLAY world (`world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`). New Worker lineage only. Not `WORLD_CUTOVER`. Not undeclared. |
-| Live stance | `LIVE_NAMED` | Live Worker `1e52e827-695c-4386-9795-d42b175ec166` / source `65086d324d2c52b1efd507c9174d0950095a8049` after Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) / pin [#721](https://github.com/Zero-State-LLC/Noema/pull/721). Prior live `ac6813da` / `630652e6` is HISTORICAL. Prior baseline `e5603e4b` remains HISTORICAL Gate E run Worker. |
-| Successor candidate stance | absorbed into `LIVE_NAMED` | Prior SUCCESSOR_NAMED `75d468c7` ([Noema #717](https://github.com/Zero-State-LLC/Noema/pull/717) sharp@0.35.4) is included in live source `65086d32` (also #719 / #720). No separate undeployed candidate. |
-| `successor_source_commit` | `65086d324d2c52b1efd507c9174d0950095a8049` | LIVE_NAMED source after Deploy. Prior candidate `75d468c7` absorbed. Not `ABSENT`. |
+| Live stance | `LIVE_NAMED` | Live Worker `4f47b1ce-6788-47bd-aaa7-16e5707ab828` / source `1284f1abc92a5582176d279f19f9980b4bc7976c` after Deploy [35558327535](https://github.com/Zero-State-LLC/Noema/actions/runs/35558327535) / pin [#728](https://github.com/Zero-State-LLC/Noema/pull/728) (census #727). Prior live `1e52e827` / `65086d32` is HISTORICAL last-full-pin and remains Gate F COMPLETE evidence Worker. Prior `ac6813da` / `630652e6` and baseline `e5603e4b` remain HISTORICAL. |
+| Successor candidate stance | absorbed into `LIVE_NAMED` | Prior SUCCESSOR_NAMED `75d468c7` ([Noema #717](https://github.com/Zero-State-LLC/Noema/pull/717)) and census successor `1284f1ab` ([Noema #727](https://github.com/Zero-State-LLC/Noema/pull/727)) absorbed into live. No separate undeployed candidate. |
+| `successor_source_commit` | `1284f1abc92a5582176d279f19f9980b4bc7976c` | LIVE_NAMED source after Deploy. Prior Gate F COMPLETE source `65086d32` retained as evidence. Not `ABSENT`. |
 | Isolated A-B-A rehearsal (item 4 input) | **PASS** (r2) | Isolated Worker `noema-rollback-rehearsal-gatef-75d468c7-20260920-r2`. A/A′ `7e749359-c2e0-445a-ba4d-3ef9002bba56` · B `c847fdc7-755d-4cab-94a4-7a8f32701256`. Receipts: Noema `docs/evidence/gate-f-isolated-aba-75d468c7-20260920/` (PASS seal). Prior r1 FAIL (cold DO) and #718 `NOT_COMPUTABLE` archived in that tree. Script warm fix: [Noema #719](https://github.com/Zero-State-LLC/Noema/pull/719). Production GET-only throughout. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
 | Scoring | **items 1–7 scored for verdict** (not COMPLETE) | Packet items 1–6 FILLED ([Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723)); item **7 `GO` ISSUED**. Scoring is **no longer DEFERRED for the verdict**. Gate F **COMPLETE** is recorded in [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md) (Danny merge of that Specs draft). Deploy ≠ GO ≠ COMPLETE. |
 | Verdict | **`GO` ISSUED** | Danny human-yes **2026-09-20 ~19:20 PDT**: confirm proposed residual owners **and** issue `GO`. Owners **CONFIRMED**. Across-Deploy digests permanently NOT_COMPUTABLE (accepted). Evidence: Noema `docs/evidence/gate-f-scorecard-1e52e827-20260921/ITEM-7-VERDICT-GO.md`. COMPLETE via separate promotion packet. |
 | Residual owners | **CONFIRMED** | PROPOSED → CONFIRMED on same Danny yes. Table in ITEM-7-VERDICT-GO / SCORECARD item 6. |
-| Deploy | **done** (runtime); not Gate F authorization | Production Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) landed live `1e52e827`. That was not Gate F `GO`. **`GO` does not Deploy again.** Does not COMPLETE Gate F. |
+| Deploy | **done** (runtime); not Gate F authorization | Production Deploy [35558327535](https://github.com/Zero-State-LLC/Noema/actions/runs/35558327535) landed live `4f47b1ce` (census #727) after isolated A-B-A PASS. Prior Gate F-era Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) / `1e52e827` is HISTORICAL evidence. Neither Deploy was Gate F `GO`. **`GO` does not Deploy again.** Does not reopen COMPLETE. |
 
 Items 1–6 **FILLED** (with honesty labels and NOT_COMPUTABLE gaps where earned) are sealed on [Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723), continuing [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A **PASS** (r2) remains the item-4 receipt. Item **7 `GO` ISSUED** (Danny human-yes 2026-09-20 ~19:20 PDT); residual owners **CONFIRMED**. Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin earlier; **`GO` does not Deploy again.** Per this companion, **`GO` does not alone COMPLETE Gate F** — COMPLETE needs a separate promotion / campaign record. **Gate F COMPLETE** is the Specs promotion packet (this companion alone is not COMPLETE). Hosted STUDY, WORLD_CUTOVER, and sentience claims remain forbidden.
 
@@ -95,9 +95,10 @@ successor_scope                 # DECLARED Prep 2026-09-20: RUNTIME_ONLY
                                 # undeclared remains NOT_COMPUTABLE; do not infer
 frozen_first_world              # world-01 / genesis.ef578f4ffceeccd0 — OUT OF SCOPE, unchanged
 live_pins_at_decision           # /version, /ready, pin PR, Specs pin, official-client pin
-candidate_worker                # LIVE_NAMED: 65086d324d2c52b1efd507c9174d0950095a8049 / Worker 1e52e827
-                                # after Deploy 35549259561 / pin #721; prior SUCCESSOR_NAMED 75d468c7 absorbed
-                                # prior live ac6813da / 630652e6 is HISTORICAL
+candidate_worker                # LIVE_NAMED: 1284f1abc92a5582176d279f19f9980b4bc7976c / Worker 4f47b1ce
+                                # after Deploy 35558327535 / pin #728 (census #727); prior Gate F COMPLETE
+                                # evidence Worker 1e52e827 / source 65086d32 retained; prior SUCCESSOR_NAMED
+                                # 75d468c7 absorbed; prior live ac6813da / 630652e6 HISTORICAL
 production_delta                # per item, classified (see § Packet item 1)
 migration_procedure             # steps, backup bundle, verify, fresh writer fence
 rollback_procedure              # A-B-A rehearsal id, traffic split, digests
