@@ -138,6 +138,8 @@ Non-normative guidance; no runtime, i18n, accessibility, or gate completion is c
 
 ### Downstream evidence reuse
 
+Post-COMPLETE agent-review follow-on (Where on institution pulses): [gate-d-watch-where-2026-09-20](evidence/gate-d-watch-where-2026-09-20/INDEX.md) (AGENT_REVIEW · NOT human stranger · NOT a second COMPLETE). Does not rewrite this companion's COMPLETE status.
+
 Extend Gate E endurance and Gate F successor packets by referencing the same immutable Gate D capture and the Gate C prerequisite packet. Do not replace either record.
 
 ### Preserved invariants
