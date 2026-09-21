@@ -57,11 +57,11 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | `successor_source_commit` | `65086d324d2c52b1efd507c9174d0950095a8049` | LIVE_NAMED source after Deploy. Prior candidate `75d468c7` absorbed. Not `ABSENT`. |
 | Isolated A-B-A rehearsal (item 4 input) | **PASS** (r2) | Isolated Worker `noema-rollback-rehearsal-gatef-75d468c7-20260920-r2`. A/A′ `7e749359-c2e0-445a-ba4d-3ef9002bba56` · B `c847fdc7-755d-4cab-94a4-7a8f32701256`. Receipts: Noema `docs/evidence/gate-f-isolated-aba-75d468c7-20260920/` (PASS seal). Prior r1 FAIL (cold DO) and #718 `NOT_COMPUTABLE` archived in that tree. Script warm fix: [Noema #719](https://github.com/Zero-State-LLC/Noema/pull/719). Production GET-only throughout. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
-| Scoring | **DEFERRED** | Seven-item packet not scored. Item 4 rehearsal PASS is sealed; other items and item 7 verdict remain open. Deploy ≠ GO. |
-| Verdict | not issued | Not `GO`. Not `NO-GO`. Not a scored packet. Not COMPLETE. |
+| Scoring | **items 1–6 FILLED** (not COMPLETE) | Packet items 1–6 filed for live `1e52e827` / `65086d32` in [Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) (`docs/evidence/gate-f-scorecard-1e52e827-20260921/`). Item **7 NOT ISSUED**. Scoring is **not COMPLETE**. Deploy ≠ GO. |
+| Verdict | not issued | Not `GO`. Not `NO-GO`. Item 7 unchecked. Not a scored COMPLETE packet. Not COMPLETE. |
 | Deploy | **done** (runtime); not Gate F authorization | Production Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) landed live `1e52e827`. That is not Gate F `GO` and does not COMPLETE Gate F. |
 
-Item-1 delta and isolated A-B-A **PASS** (r2) are filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin; **Gate F remains unproven.** Scoring remains **DEFERRED**. This OBSERVED rehearsal seal and the Deploy are not Gate F COMPLETE and are not `GO`.
+Items 1–6 **FILLED** (with honesty labels and NOT_COMPUTABLE gaps where earned) are sealed on [Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) merge `7dbb09b0…`, continuing [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A **PASS** (r2) remains the item-4 receipt. Item **7 is NOT ISSUED**; `GO` is unchecked. Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin; **Gate F remains unproven.** Scoring is **not COMPLETE**. This OBSERVED scorecard fill, the rehearsal seal, and the Deploy are not Gate F COMPLETE and are not `GO`.
 
 ## Non-goals
 
@@ -103,7 +103,8 @@ rollback_procedure              # A-B-A rehearsal id, traffic split, digests
 compatibility_record            # Genesis / seal / history / room bound / RFC-0120 unchanged
 rehearsal_result                # OBSERVED PASS (r2) on noema-rollback-rehearsal-gatef-75d468c7-20260920-r2
                                 # receipts in Noema docs/evidence/gate-f-isolated-aba-75d468c7-20260920/
-                                # not COMPLETE / not GO; scoring DEFERRED
+                                # items 1–6 FILLED via Noema #722 scorecard; item 7 NOT ISSUED
+                                # not COMPLETE / not GO; scoring not COMPLETE
 permitted_public_claims         # exact copy allowed after GO; exact copy forbidden
 unresolved_risks                # register rows, residual, owner
 gate_e_prerequisite             # Specs Gate E promotion record: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
