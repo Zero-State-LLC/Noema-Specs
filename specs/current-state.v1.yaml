@@ -1,5 +1,5 @@
 schema_version: noema-current-state/1.0
-as_of: 2026-09-20
+as_of: 2026-09-21
 evidence_commits:
   # Two different questions, previously collapsed into one field.
   # production_specs_baseline: the canonical Specs main commit this promotion
@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: ac6813da-1e0a-4f0c-8566-d9346b4baed5
+  live_worker_version_id: 1e52e827-695c-4386-9795-d42b175ec166
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -41,38 +41,45 @@ authority:
   # Gate E companion (COMPLETE): docs/LCA-GATE-E-SCENARIO.md
   # Gate E promotion: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
   # Gate F companion stub (unproven; not COMPLETE; no GO): docs/LCA-GATE-F-SCENARIO.md
-  # Gate F isolated A-B-A OBSERVED PASS (r2) for SUCCESSOR_NAMED 75d468c7 on
+  # Gate F isolated A-B-A OBSERVED PASS (r2) for prior SUCCESSOR_NAMED 75d468c7 on
   #   Worker noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema evidence
   #   docs/evidence/gate-f-isolated-aba-75d468c7-20260920/; tracking Noema#715).
-  #   Live remains ac6813da / 630652e6. RUNTIME_ONLY. Scoring DEFERRED.
-  #   Not Gate F COMPLETE. Not GO. Not Deploy.
+  #   Live now 1e52e827 / 65086d32 after Deploy 35549259561 / pin Noema#721
+  #   (includes #717 sharp, #719 ready-wait, #720 A-B-A PASS docs). Prior
+  #   ac6813da / 630652e6 HISTORICAL. RUNTIME_ONLY. Scoring DEFERRED.
+  #   Not Gate F COMPLETE. Not GO. This pin reconciliation is not a second Deploy.
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: ac6813da-1e0a-4f0c-8566-d9346b4baed5
-    live_deployed_at: 2026-09-20T20:26:54.009622Z
-    live_source_commit: 630652e6772d4fbc340cf155a33fd628163709d9
+    live_worker_version_id: 1e52e827-695c-4386-9795-d42b175ec166
+    live_deployed_at: 2026-09-21T00:57:11.486234Z
+    live_source_commit: 65086d324d2c52b1efd507c9174d0950095a8049
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 0
     pin_note: >-
       GET /version is the running Worker and is the only authority for this field.
-      Current live is ac6813da-1e0a-4f0c-8566-d9346b4baed5, deployed
-      2026-09-20T20:26:54.009622Z from Noema source
-      630652e6772d4fbc340cf155a33fd628163709d9 (Noema#709) and pinned by
-      Noema#716 (merge 56583aae1a52b781a87836a258b0a4a6cede3909). Deploy run
-      https://github.com/Zero-State-LLC/Noema/actions/runs/35535519732 SUCCESS.
-      This reconciliation is not a Deploy and is not Gate F GO.
+      Current live is 1e52e827-695c-4386-9795-d42b175ec166, deployed
+      2026-09-21T00:57:11.486234Z from Noema source
+      65086d324d2c52b1efd507c9174d0950095a8049 (includes Noema#717 sharp,
+      #719 /ready warm wait, #720 A-B-A PASS evidence) and pinned by
+      Noema#721 (merge f61e6b886c45f24fbcdc7b5686a90ffe6a807d5b). Deploy run
+      https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561 SUCCESS.
+      This Specs reconciliation is not a second Deploy and is not Gate F GO.
+      Prior Specs-recorded live ac6813da-1e0a-4f0c-8566-d9346b4baed5, deployed
+      2026-09-20T20:26:54.009622Z from source 630652e6772d4fbc340cf155a33fd628163709d9
+      (Noema#709; pin Noema#716; merge 56583aae1a52b781a87836a258b0a4a6cede3909;
+      Deploy 35535519732), is the HISTORICAL last-full-pin before this
+      reconciliation and is not current live.
       Prior Specs-recorded live e5603e4b-7565-4e4a-a8d1-85360558a8ef, deployed
       2026-09-20T07:58:52.806224Z from source 80a3d031a29f516222ec0c12c4f3a6f6f27140a7
       (Noema#713; pin Noema#714; merge 4d31d42bdfebdc0c171ac2e4bbbb060d5992bafa;
-      Deploy 35498255496), is the HISTORICAL last-full-pin before this
-      reconciliation and is not current live. That Worker remains the Gate E
-      COMPLETE run Worker (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Do not
-      rewrite that promotion or move endurance_gate_e.live_worker_version_id.
+      Deploy 35498255496), remains HISTORICAL and is the Gate E COMPLETE run
+      Worker (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Do not rewrite that
+      promotion or move endurance_gate_e.live_worker_version_id.
       Prior Specs-recorded live 7188ff8a-3d58-449e-9e6b-2e0282ed9724, deployed
       2026-09-10T03:03:01.056511Z from source 2c2ef843a99f89fd6b3ce984b4689ecea0f8acae
       (Noema#700; pin Noema#701; merge 73c61d9accc44d7f83ff66f59c3b3b5b3099609c;
@@ -101,14 +108,15 @@ runtimes:
       population proof; retained Admin ICR/bindings are. Gate D is complete.
       Gate E is complete on run Worker e5603e4b-7565-4e4a-a8d1-85360558a8ef
       which remains HISTORICAL and is not current live
-      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F remains unproven. Isolated A-B-A PASS (r2) for SUCCESSOR_NAMED
+      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F remains unproven. Isolated A-B-A PASS (r2) for prior SUCCESSOR_NAMED
       75d468c7 is OBSERVED on isolated Worker
       noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema#715
-      evidence seal); live pin unchanged. Not COMPLETE / not GO /
-      not Deploy. Scoring DEFERRED.
+      evidence seal); that candidate lineage is now LIVE via source 65086d32.
+      Not COMPLETE / not GO. Scoring DEFERRED. This pin reconciliation is not
+      a second Deploy.
     specs_pin_note: >-
-      Live source 630652e6 remains aligned to Specs 81ca8c1, matching Noema
-      hosted_live.specs_git after Noema#716. A new worker_version_id does not
+      Live source 65086d32 remains aligned to Specs 81ca8c1, matching Noema
+      hosted_live.specs_git after Noema#721. A new worker_version_id does not
       imply a Specs pin change. production_implements_specs stays 81ca8c1.
       production_specs_baseline stays 492ccc9, the Gate A promotion evidence anchor.
       Gate B promotion evidence remains docs/LCA-GATE-B-PROMOTION-2026-09-08.md and
@@ -119,19 +127,19 @@ runtimes:
       watch_legibility_gate_d is LIVE_HOSTED. Gate E is complete;
       endurance_gate_e is LIVE_HOSTED. Campaign stays LCA-5 /
       active Gate F. Gate F remains unproven (isolated A-B-A PASS
-      sealed for SUCCESSOR_NAMED 75d468c7; scoring DEFERRED; live
-      still ac6813da). Gate E COMPLETE is not
-      Deploy and is not Gate F GO. This pin reconciliation is not Deploy.
+      sealed for prior SUCCESSOR_NAMED 75d468c7; scoring DEFERRED; live
+      now 1e52e827 / 65086d32 LIVE_NAMED). Gate E COMPLETE is not
+      Deploy and is not Gate F GO. This pin reconciliation is not a second Deploy.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).
     evidence:
       - docs/HOSTED-ALPHA-FREEZE.md
       - docs/HOSTED-FIRST-ENTRY.md
-      - "GET https://noema.guru/version 2026-09-20"
-      - "GET https://noema.guru/ready 2026-09-20"
-      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/35535519732"
-      - "Noema PR #709: https://github.com/Zero-State-LLC/Noema/pull/709"
-      - "Noema PR #716: https://github.com/Zero-State-LLC/Noema/pull/716"
+      - "GET https://noema.guru/version 2026-09-21"
+      - "GET https://noema.guru/ready 2026-09-21"
+      - "Noema Deploy https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561"
+      - "Noema PR #721: https://github.com/Zero-State-LLC/Noema/pull/721"
+      - "Noema source 65086d32 (includes #717/#719/#720)"
       - docs/LCA-GATE-B-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
