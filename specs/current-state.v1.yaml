@@ -40,14 +40,13 @@ authority:
   # Gate D promotion: docs/LCA-GATE-D-PROMOTION-2026-09-09.md
   # Gate E companion (COMPLETE): docs/LCA-GATE-E-SCENARIO.md
   # Gate E promotion: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
-  # Gate F companion stub (unproven; not COMPLETE; no GO): docs/LCA-GATE-F-SCENARIO.md
-  # Gate F isolated A-B-A OBSERVED PASS (r2) for prior SUCCESSOR_NAMED 75d468c7 on
-  #   Worker noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema evidence
-  #   docs/evidence/gate-f-isolated-aba-75d468c7-20260920/; tracking Noema#715).
-  #   Live now 1e52e827 / 65086d32 after Deploy 35549259561 / pin Noema#721
-  #   (includes #717 sharp, #719 ready-wait, #720 A-B-A PASS docs). Prior
-  #   ac6813da / 630652e6 HISTORICAL. RUNTIME_ONLY. Scoring DEFERRED.
-  #   Not Gate F COMPLETE. Not GO. This pin reconciliation is not a second Deploy.
+  # Gate F companion (COMPLETE): docs/LCA-GATE-F-SCENARIO.md
+  # Gate F promotion: docs/LCA-GATE-F-PROMOTION-2026-09-21.md
+  # Gate F COMPLETE for candidate lca6-gate-f-successor-decision.
+  #   Item-7 GO ISSUED 2026-09-20 ~19:20 PDT (Noema#724 / Specs#351). Items 1–6 FILLED (Noema#722/#723).
+  #   Isolated A-B-A PASS (r2) retained. Live 1e52e827 / 65086d32 (Deploy 35549259561 / pin #721).
+  #   RUNTIME_ONLY. Across-Deploy digests permanently NOT_COMPUTABLE (accepted at GO).
+  #   COMPLETE ≠ Deploy ≠ GO. COMPLETE is not a second Deploy. No STUDY. No WORLD_CUTOVER.
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
@@ -108,12 +107,12 @@ runtimes:
       population proof; retained Admin ICR/bindings are. Gate D is complete.
       Gate E is complete on run Worker e5603e4b-7565-4e4a-a8d1-85360558a8ef
       which remains HISTORICAL and is not current live
-      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F remains unproven. Isolated A-B-A PASS (r2) for prior SUCCESSOR_NAMED
+      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F is complete (docs/LCA-GATE-F-PROMOTION-2026-09-21.md). Isolated A-B-A PASS (r2) for prior SUCCESSOR_NAMED
       75d468c7 is OBSERVED on isolated Worker
       noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema#715
       evidence seal); that candidate lineage is now LIVE via source 65086d32.
-      Not COMPLETE / not GO. Scoring DEFERRED. This pin reconciliation is not
-      a second Deploy.
+      Gate F COMPLETE recorded. Scoring no longer deferred for COMPLETE. This pin reconciliation is not
+      a second Deploy. COMPLETE is not a new Deploy.
     specs_pin_note: >-
       Live source 65086d32 remains aligned to Specs 81ca8c1, matching Noema
       hosted_live.specs_git after Noema#721. A new worker_version_id does not
@@ -125,11 +124,12 @@ runtimes:
       recorded; no invented pin flip. Gate C is complete;
       integrated_small_civilization_run is LIVE_HOSTED. Gate D is complete;
       watch_legibility_gate_d is LIVE_HOSTED. Gate E is complete;
-      endurance_gate_e is LIVE_HOSTED. Campaign stays LCA-5 /
-      active Gate F. Gate F remains unproven (isolated A-B-A PASS
-      sealed for prior SUCCESSOR_NAMED 75d468c7; scoring DEFERRED; live
-      now 1e52e827 / 65086d32 LIVE_NAMED). Gate E COMPLETE is not
-      Deploy and is not Gate F GO. This pin reconciliation is not a second Deploy.
+      endurance_gate_e is LIVE_HOSTED. successor_decision_gate_f is LIVE_HOSTED.
+      Campaign stays LCA-5 with Gate F COMPLETE (isolated A-B-A PASS
+      sealed for prior SUCCESSOR_NAMED 75d468c7; item-7 GO ISSUED; COMPLETE via
+      docs/LCA-GATE-F-PROMOTION-2026-09-21.md; live now 1e52e827 / 65086d32 LIVE_NAMED).
+      Gate F COMPLETE is not Deploy and is not a new Deploy. GO ≠ COMPLETE ≠ Deploy.
+      This pin reconciliation is not a second Deploy.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).
     evidence:
@@ -144,6 +144,7 @@ runtimes:
       - docs/LCA-GATE-C-PROMOTION-2026-09-08.md
       - docs/LCA-GATE-D-PROMOTION-2026-09-09.md
       - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
+      - docs/LCA-GATE-F-PROMOTION-2026-09-21.md
       - docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md
     capabilities:
       - agent-only Player admission
@@ -155,7 +156,7 @@ runtimes:
       - human browser PLAY is retired
       - hosted STUDY remains observational rather than the offline research spine
       - no hosted/offline digest-equivalence claim
-      - Gate C civilization run is complete; Gate D is complete; Gate E is complete; successor cutover remains unproven
+      - Gate C civilization run is complete; Gate D is complete; Gate E is complete; Gate F is complete; hosted STUDY and WORLD_CUTOVER remain unproven
   advanced_worker_runtime:
     status: LIVE_HOSTED
     evidence_commit: 61234cc
@@ -190,7 +191,7 @@ runtimes:
       - WATCH live projections, public social bands, Phosphor mapping, and world reports
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
-    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E is complete (see endurance_gate_e). Hosted STUDY and compatibility-at-scale remain unproven. Gate F remains unproven.
+    proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E is complete (see endurance_gate_e). Gate F is complete (see successor_decision_gate_f). Hosted STUDY and compatibility-at-scale remain unproven.
   offline_python:
     status: IMPLEMENTED_OFFLINE
     role: reference conformance, deterministic replay, and v0.1-v0.7 research spine
@@ -317,6 +318,26 @@ capabilities:
       - "recovery_receipt_object: NOT_COMPUTABLE (not invented; existing Admin recover JSON only)"
       - "wall_clock_phase_a_abbreviate: SPECS_EXCEPTION_ABBREVIATED is not Phase A PASS"
     non_goals: hosted STUDY, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, Deploy, and production successor deployment
+  successor_decision_gate_f:
+    state: LIVE_HOSTED
+    claim: Gate F is complete through the retained scorecard packet, isolated A-B-A PASS (r2), item-7 GO ISSUED, and this Specs COMPLETE promotion for candidate lca6-gate-f-successor-decision.
+    candidate: lca6-gate-f-successor-decision
+    evidence:
+      - docs/LCA-GATE-F-PROMOTION-2026-09-21.md
+      - docs/LCA-GATE-F-SCENARIO.md
+      - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
+      - "Noema PR #722: https://github.com/Zero-State-LLC/Noema/pull/722"
+      - "Noema PR #723: https://github.com/Zero-State-LLC/Noema/pull/723"
+      - "Noema PR #724: https://github.com/Zero-State-LLC/Noema/pull/724"
+      - "Noema-Specs PR #351: https://github.com/Zero-State-LLC/Noema-Specs/pull/351"
+      - "Noema issue #715: https://github.com/Zero-State-LLC/Noema/issues/715"
+    live_worker_version_id: 1e52e827-695c-4386-9795-d42b175ec166
+    live_source_commit: 65086d324d2c52b1efd507c9174d0950095a8049
+    successor_scope: RUNTIME_ONLY
+    item7_verdict: GO_ISSUED
+    waivers:
+      - "across_deploy_live_play_digests: NOT_COMPUTABLE (accepted at GO; not invented)"
+    non_goals: hosted STUDY, WORLD_CUTOVER, new Deploy, second mechanics, RFC-0130, new Player verbs, and compatibility-at-scale
   third_party_agent_compatibility_at_scale:
     state: BLOCKED
     blocker: multi-agent endurance and adapter evidence
@@ -331,12 +352,12 @@ active_campaign:
   thesis: integrate and prove what is already built before authorizing more breadth
   current_milestone: LCA-5
   next_milestone: LCA-5
-  active_gate: "Gate F: Successor decision packet (unproven; Gate E complete)"
+  active_gate: "Gate F: Successor decision packet (COMPLETE; LCA-5 closed; no further Living Alpha gate; no LCA-6)"
   completed_gates:
     - "Gate A: Integrated runtime"
     - "Gate B: External population"
     - "Gate C: Existing-system civilization"
     - "Gate D: WATCH legibility"
     - "Gate E: Endurance"
-  unproven_gates:
     - "Gate F: Successor decision packet"
+  unproven_gates: []

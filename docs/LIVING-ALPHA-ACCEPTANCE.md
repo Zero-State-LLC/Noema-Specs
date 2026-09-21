@@ -7,10 +7,11 @@
 **Gate C promotion evidence:** [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md)
 **Gate D promotion evidence:** [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md)
 **Gate E promotion evidence:** [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md)
+**Gate F promotion evidence:** [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md)
 **Detailed Gate C companion:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md)
 **Detailed Gate D companion:** [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md)
 **Detailed Gate E companion:** [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md)
-**Detailed Gate F companion (stub):** [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md)
+**Detailed Gate F companion:** [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md)
 
 ## Principle
 
@@ -23,9 +24,10 @@ Acceptance proves integration and promotion of existing work. Individual slice t
 - **Gate C is complete.** Accepted evidence is recorded in [LCA-GATE-C-PROMOTION-2026-09-08.md](LCA-GATE-C-PROMOTION-2026-09-08.md) from Noema #662/#663/#664 plus the Danny-accepted Path 8 recover JSON. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (not invented).
 - **Gate D is complete.** Accepted evidence is recorded in [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md) from Noema #679 blind-score PASS plus Specs #333 / Noema #680 / Deploy 34317120696 / pin #681. HOLD is released. Named candidate: `lca4-gate-d-watch-legibility`.
 - **Gate E is complete.** Accepted evidence is recorded in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md) from the Specs #343 session-churn and action/cycle contract plus candidate `lca5-gate-e-endurance` (Noema #682). Phase A session-churn PASS and Phase B action/cycle + in-window Path 8 PASS. Prior `SPECS_EXCEPTION_ABBREVIATED` is not that PASS. Dedicated recovery-receipt objects remain **NOT_COMPUTABLE** (not invented).
-- Current milestone is LCA-5. Gate E candidate `lca5-gate-e-endurance` is accepted; no Gate F `GO`, hosted STUDY, compatibility-at-scale, or Deploy claim follows from Gate E.
+- **Gate F is complete.** Accepted evidence is recorded in [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md) for candidate `lca6-gate-f-successor-decision`: items 1–6 FILLED (Noema #722/#723), isolated A-B-A PASS r2, item-7 `GO` ISSUED (Danny human-yes 2026-09-20 ~19:20 PDT; Noema #724 / Specs #351), residual owners CONFIRMED. Across-Deploy digests remain permanently **NOT_COMPUTABLE** (accepted at `GO`; not invented). Gate E COMPLETE is the prerequisite. `GO` ≠ COMPLETE ≠ Deploy. COMPLETE ≠ new Deploy.
+- Current milestone is LCA-5 (closed). Gate F candidate `lca6-gate-f-successor-decision` is accepted; no hosted STUDY, WORLD_CUTOVER, compatibility-at-scale, or new Deploy claim follows from Gate F COMPLETE.
 - Closed LCA-2 runtime packets include older-world Durable Object load (Noema #565), isolated rollback rehearsal (#562), pin-on-publish automation (#567), hosted connect cross-tab isolation (#563/#585), owner-email device enrollment (#561), foreground short-code approval (#570), the production publication incorporated by runtime source `61234cc`, and the Gate B external-population evidence packet (canonical operator device enrollment + three independently controlled external Controllers).
-- Gate F remains unproven. No compatibility-at-scale claim follows from Gate A, Gate B, Gate C, Gate D, or Gate E.
+- Living Alpha acceptance gates A–F are complete. No compatibility-at-scale claim follows from Gate A–F. Hosted STUDY remains blocked.
 
 Machine baseline: [`current-state.v1.yaml`](../specs/current-state.v1.yaml).
 
@@ -100,7 +102,7 @@ WATCH must not expose private cognition, restricted state, raw research candidat
 
 ## Gate E — Endurance
 
-**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md). Named candidate: `lca5-gate-e-endurance`. The scenario contract remains [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Endurance contract used for evidence: Specs [#343](https://github.com/Zero-State-LLC/Noema-Specs/pull/343) (`3dacd259`). Tracking: [Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682). Dedicated recovery-receipt objects stay **NOT_COMPUTABLE** (not invented). Gate F remains unproven. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md). Named candidate: `lca5-gate-e-endurance`. The scenario contract remains [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Endurance contract used for evidence: Specs [#343](https://github.com/Zero-State-LLC/Noema-Specs/pull/343) (`3dacd259`). Tracking: [Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682). Dedicated recovery-receipt objects stay **NOT_COMPUTABLE** (not invented). Gate F is complete through a separate packet. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
 
 The detailed candidate declaration, phase protocol (Prep, no clock → Phase A session-churn → Phase B action/cycle budget with the planned Path 8 recover drill **inside** the Phase B window), evidence-pack requirements, and verdict language are defined in [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). Deep Time fit: [DEEP-TIME.md](DEEP-TIME.md) (consequential history and cycle advance, not operator clock time).
 
@@ -114,7 +116,7 @@ The detailed candidate declaration, phase protocol (Prep, no clock → Phase A s
 
 ## Gate F — Successor decision packet
 
-**Status:** unproven. Suggested candidate: `lca6-gate-f-successor-decision` (naming ladder Gate B=`lca2` … Gate E=`lca5` → Gate F=`lca6`; Danny may later lock `lca5`). The scenario contract stub is [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md). Gate F is a decision packet, not a run; a `GO` permits a separately authorized Deploy and does not perform one. This companion does not COMPLETE Gate F and does not issue `GO`. Gate E is complete and is a Gate F prerequisite.
+**Status:** COMPLETE. Accepted evidence is recorded in [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md). Named candidate: `lca6-gate-f-successor-decision`. The scenario contract remains [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md). Tracking: [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Item-7 `GO` ISSUED (Danny human-yes 2026-09-20 ~19:20 PDT) with owners CONFIRMED; items 1–6 FILLED; isolated A-B-A PASS r2. Across-Deploy digests permanently **NOT_COMPUTABLE** (accepted; not invented). Gate E COMPLETE is the prerequisite. `GO` ≠ COMPLETE ≠ Deploy. COMPLETE ≠ new Deploy. Hosted STUDY stays blocked. WORLD_CUTOVER is not authorized. No LCA-6 is invented.
 
 A production successor decision must include:
 
@@ -138,5 +140,5 @@ Non-normative guidance for future acceptance evidence maintenance; this section 
 
 - **Evidence-pack structure:** extend candidate records with precise links between deployment/Controller pins, canonical head ranges, recovery receipts, redacted transcripts, and WATCH digests. The link structure and fail-closed checklist the Gate B–E packs already use are recorded in [LCA-EVIDENCE-PACK-STRUCTURE.md](LCA-EVIDENCE-PACK-STRUCTURE.md) (docs-only; promotes nothing). Additional evidence can clarify an existing gate without replacing independently controlled population, coupled-system behavior, or endurance requirements with slice-test totals.
 - **Scenario coverage:** future Gate C or Gate D companion cases can examine another already-implemented interaction or public misunderstanding. Preserve strategy plurality, partial observability, and unscripted Agent Player decisions. Any changed acceptance threshold or sequence needs explicit review in the governing campaign documents, not an inferred waiver in an evidence appendix.
-- **Promotion boundary:** retain Gate A's, Gate B's, Gate C's, Gate D's, and Gate E's recorded verdicts and distinguish later candidate observations from them. Passing A–E still does not deploy a successor or supply Gate F's human decision. An in-flight Gate E Specs-exception is not rewritten as `PASS`. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
+- **Promotion boundary:** retain Gate A's, Gate B's, Gate C's, Gate D's, Gate E's, and Gate F's recorded verdicts and distinguish later candidate observations from them. Passing A–F still does not open hosted STUDY, authorize WORLD_CUTOVER, or perform a new Deploy. An in-flight Gate E Specs-exception is not rewritten as `PASS`. Gate E COMPLETE is not Deploy and is not Gate F `GO`. Gate F COMPLETE is not Deploy and is not WORLD_CUTOVER.
 - **Verification:** trace every new claim to its declared run, verify redactions and digest references, and show missing or failed evidence explicitly. Check candidate pins against the corresponding decision record, record interventions and incidents, and avoid turning an updated packet format into a new claim of live compatibility.

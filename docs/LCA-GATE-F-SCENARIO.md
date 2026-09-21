@@ -1,6 +1,6 @@
-# Living Civilization Alpha — Gate F Scenario Contract (stub)
+# Living Civilization Alpha — Gate F Scenario Contract
 
-**Status:** campaign acceptance companion **stub / checklist** with OBSERVED item-7 record. Item-7 **`GO` ISSUED** (Danny human-yes 2026-09-20 ~19:20 PDT) is recorded below; **Gate F COMPLETE remains pending separately**. This companion does not COMPLETE Gate F by document existence, does not authorize Deploy, successor cutover, or a campaign flip. `GO` ≠ COMPLETE ≠ Deploy.
+**Status:** campaign acceptance companion (retained). Gate F is complete per [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md). Item-7 **`GO` ISSUED** remains recorded below. This contract remains the evidence contract; it does not authorize hosted STUDY, WORLD_CUTOVER, a new Deploy, RFC-0130, or a second mechanics campaign. `GO` ≠ COMPLETE ≠ Deploy. Gate F COMPLETE is not Deploy and is not WORLD_CUTOVER.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md) § Gate F
 **Campaign:** [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md) § LCA-5
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml)
@@ -57,12 +57,12 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | `successor_source_commit` | `65086d324d2c52b1efd507c9174d0950095a8049` | LIVE_NAMED source after Deploy. Prior candidate `75d468c7` absorbed. Not `ABSENT`. |
 | Isolated A-B-A rehearsal (item 4 input) | **PASS** (r2) | Isolated Worker `noema-rollback-rehearsal-gatef-75d468c7-20260920-r2`. A/A′ `7e749359-c2e0-445a-ba4d-3ef9002bba56` · B `c847fdc7-755d-4cab-94a4-7a8f32701256`. Receipts: Noema `docs/evidence/gate-f-isolated-aba-75d468c7-20260920/` (PASS seal). Prior r1 FAIL (cold DO) and #718 `NOT_COMPUTABLE` archived in that tree. Script warm fix: [Noema #719](https://github.com/Zero-State-LLC/Noema/pull/719). Production GET-only throughout. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
-| Scoring | **items 1–7 scored for verdict** (not COMPLETE) | Packet items 1–6 FILLED ([Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723)); item **7 `GO` ISSUED**. Scoring is **no longer DEFERRED for the verdict**. Gate F **COMPLETE** is **still pending separately** (this companion does not treat `GO` alone as COMPLETE). Deploy ≠ GO ≠ COMPLETE. |
-| Verdict | **`GO` ISSUED** | Danny human-yes **2026-09-20 ~19:20 PDT**: confirm proposed residual owners **and** issue `GO`. Owners **CONFIRMED**. Across-Deploy digests permanently NOT_COMPUTABLE (accepted). Evidence: Noema `docs/evidence/gate-f-scorecard-1e52e827-20260921/ITEM-7-VERDICT-GO.md`. **Not COMPLETE.** |
+| Scoring | **items 1–7 scored for verdict** (not COMPLETE) | Packet items 1–6 FILLED ([Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723)); item **7 `GO` ISSUED**. Scoring is **no longer DEFERRED for the verdict**. Gate F **COMPLETE** is recorded in [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md) (Danny merge of that Specs draft). Deploy ≠ GO ≠ COMPLETE. |
+| Verdict | **`GO` ISSUED** | Danny human-yes **2026-09-20 ~19:20 PDT**: confirm proposed residual owners **and** issue `GO`. Owners **CONFIRMED**. Across-Deploy digests permanently NOT_COMPUTABLE (accepted). Evidence: Noema `docs/evidence/gate-f-scorecard-1e52e827-20260921/ITEM-7-VERDICT-GO.md`. COMPLETE via separate promotion packet. |
 | Residual owners | **CONFIRMED** | PROPOSED → CONFIRMED on same Danny yes. Table in ITEM-7-VERDICT-GO / SCORECARD item 6. |
 | Deploy | **done** (runtime); not Gate F authorization | Production Deploy [35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561) landed live `1e52e827`. That was not Gate F `GO`. **`GO` does not Deploy again.** Does not COMPLETE Gate F. |
 
-Items 1–6 **FILLED** (with honesty labels and NOT_COMPUTABLE gaps where earned) are sealed on [Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723), continuing [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A **PASS** (r2) remains the item-4 receipt. Item **7 `GO` ISSUED** (Danny human-yes 2026-09-20 ~19:20 PDT); residual owners **CONFIRMED**. Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin earlier; **`GO` does not Deploy again.** Per this companion, **`GO` does not alone COMPLETE Gate F** — COMPLETE needs a separate promotion / campaign record. **Gate F COMPLETE still pending.** Hosted STUDY, WORLD_CUTOVER, and sentience claims remain forbidden.
+Items 1–6 **FILLED** (with honesty labels and NOT_COMPUTABLE gaps where earned) are sealed on [Noema #722](https://github.com/Zero-State-LLC/Noema/pull/722) / [#723](https://github.com/Zero-State-LLC/Noema/pull/723), continuing [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A **PASS** (r2) remains the item-4 receipt. Item **7 `GO` ISSUED** (Danny human-yes 2026-09-20 ~19:20 PDT); residual owners **CONFIRMED**. Historical LCA-1 packets are pattern only. Production Deploy of source `65086d32` refreshed the live pin earlier; **`GO` does not Deploy again.** Per this companion, **`GO` does not alone COMPLETE Gate F** — COMPLETE needs a separate promotion / campaign record. **Gate F COMPLETE** is the Specs promotion packet (this companion alone is not COMPLETE). Hosted STUDY, WORLD_CUTOVER, and sentience claims remain forbidden.
 
 ## Non-goals
 
@@ -221,7 +221,7 @@ Missing evidence is not a `GO`. If a required surface is not deployed or a rehea
 | `NO-GO` | Any item 1–6 shows the candidate must not succeed the live alpha: an unmitigated migration-required delta, a rehearsal FAIL, a compatibility break, a forbidden claim required to justify the successor, or an unowned risk Danny declines to carry. `NO-GO` is a valid, complete Gate F outcome; it is not a packet failure. |
 | `NOT_COMPUTABLE` | Gate E is not COMPLETE; `successor_scope` is undeclared; rehearsal, fixture, pins, digests, or dispatcher declaration cannot be established; or a residual risk has no owner. Absence of a rehearsal is not a `GO`. |
 
-A `GO` does not deploy the successor. Deploy remains a separately authorized dispatch with the existing ACK and post-deploy pin PR. When production Deploy already landed before `GO` (as with live `1e52e827`), **`GO` does not Deploy again**. **Item-7 `GO` may be ISSUED while Gate F COMPLETE remains pending** — this companion does **not** treat `GO` alone as COMPLETE / campaign flip.
+A `GO` does not deploy the successor. Deploy remains a separately authorized dispatch with the existing ACK and post-deploy pin PR. When production Deploy already landed before `GO` (as with live `1e52e827`), **`GO` does not Deploy again**. **Item-7 `GO` was ISSUED while COMPLETE was still pending** — this companion does **not** treat `GO` alone as COMPLETE; COMPLETE is the separate promotion packet.
 
 ## Extension Points
 
@@ -237,7 +237,7 @@ Keep the seven packet items conjunctive. `GO` is a permission, not a deployment.
 
 ### Compatibility and promotion
 
-Later packets may impose stricter evidence but cannot rewrite historical Gate A–E verdicts, deploy by document, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate F COMPLETE claim or a `GO`. Gate F remains unproven.
+Later packets may impose stricter evidence but cannot rewrite historical Gate A–E verdicts, deploy by document, or grant new mechanics. This document does not accept RFC-0130. Document existence is not a Gate F COMPLETE claim or a `GO`. Gate F is complete per the promotion packet.
 
 ### Validation fixtures before adoption
 

@@ -49,7 +49,7 @@ authoring pins refresh to this OBSERVED live. Prior Specs live
 `ac6813da-1e0a-4f0c-8566-d9346b4baed5` / `630652e6` is HISTORICAL
 last-full-pin. Gate E COMPLETE run Worker `e5603e4b` and other Gate B–E
 evidence Workers are not rewritten. The ac6813da follow-up below remains
-dated provenance. Gate F remains unproven; scoring DEFERRED; not GO;
+dated provenance. Gate F is complete; scoring DEFERRED; not GO;
 this follow-up is not a second Deploy.
 
 ## Follow-up — 2026-09-20: hosted live Worker pin reconciled to ac6813da
@@ -128,7 +128,7 @@ and pin [#681](https://github.com/Zero-State-LLC/Noema/pull/681)
 `592c06a4-fa8c-40f6-bec7-21cbc45689f9`. Campaign stays LCA-4 / active Gate E.
 
 Deliberately unchanged: hosted STUDY stays **BLOCKED**; Gate E remains unproven;
-Gate F remains unproven; no Deploy from this packet; no RFC-0130.
+Gate F is complete; no Deploy from this packet; no RFC-0130.
 `production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
 Tracking [Noema #667](https://github.com/Zero-State-LLC/Noema/issues/667) closes
 only after this Specs merge lands. The Gate C follow-up below remains dated
@@ -358,7 +358,7 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 | A3 | LCA Gate C | Existing-system civilization scenario has not passed. | `RUNTIME_ONLY` | Blocks Gate C | [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) | Execute the pinned scenario through existing surfaces | add mechanics to force a pass |
 | A4 | LCA Gate D | Gate D is complete. Blind-score PASS Noema #679; HOLD released after one-door unify Noema #680 / Specs #333 / Deploy 34317120696 / pin #681. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate D is complete; does not block Gate E | [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md), [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate E endurance is A5 | private state leak, invented motives, research UI substitution, COMPLETE by document |
 | A5 | LCA Gate E | Gate E is complete. Specs #343 session-churn + action/cycle + in-window Path 8 for `lca5-gate-e-endurance`. Prior `SPECS_EXCEPTION_ABBREVIATED` is not that PASS. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate E is complete; does not block Gate F as a pass | [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate F successor decision is A6 | outcome scripting, idle-calendar promotion, LOOK-only soak, COMPLETE by document, rewriting a Specs-exception as PASS, Deploy-as-COMPLETE |
-| A6 | LCA Gate F | Successor decision packet is incomplete. | `RUNTIME_ONLY` | Blocks cutover | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) | `GO`, `NO-GO`, or `NOT_COMPUTABLE` with migration/rollback evidence | silent frozen-alpha rewrite, force-supersession, Deploy-as-decision, COMPLETE by document |
+| A6 | LCA Gate F | Gate F is complete. Specs COMPLETE promotion for `lca6-gate-f-successor-decision` with items 1–6 FILLED, A-B-A PASS r2, item-7 `GO` ISSUED, owners CONFIRMED. Across-Deploy digests permanently NOT_COMPUTABLE (accepted). | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate F is complete; does not authorize WORLD_CUTOVER or STUDY | [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) | Do not reopen as a generic SPEC GAP; WORLD_CUTOVER / STUDY remain separate | silent frozen-alpha rewrite, force-supersession, Deploy-as-decision, COMPLETE by document alone, inventing digests |
 | A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
 | A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
 | A9 | Population | A clocking world without enrolled external Agent Players is not a civilization acceptance run. | `RUNTIME_ONLY` | Blocks Gates B–E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Treat population as an operations prerequisite | new rooms/content/reseed as substitute |
@@ -370,7 +370,7 @@ The following must not be reopened as generic gaps:
 
 - LCA Gate A integrated-runtime evidence closed through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md); do not reopen it as a generic SPEC GAP;
 - LCA Gate D WATCH-legibility evidence closed through [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); do not reopen it as a generic SPEC GAP;
-- LCA Gate E endurance evidence closed through [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); do not reopen it as a generic SPEC GAP; Gate F successor decision remains A6;
+- LCA Gate E endurance evidence closed through [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); LCA Gate F successor decision closed through [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md); do not reopen either as a generic SPEC GAP;
 - the enrollment/connect publish-lag row closed when runtime source `61234cc` produced live Worker `01ebc196-b762-4689-a166-272e26bd73ad`; operator enrollment and external population remain separate Gate B work;
 - GC5 relay same-cycle, one-cycle delay, and unreachable bands are closed by RFC-0009 and RFC-0021;
 - GC3 S0–S7 executable social-memory gaps are closed by RFC-0007, RFC-0022, and RFC-0034–RFC-0039;
