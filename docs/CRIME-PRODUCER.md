@@ -25,6 +25,7 @@
 **Boundaries:** Extends STRATEGIC-CONFLICT authority. Complexity doctrine. Partial observability. No new verbs/catalog.
 
 **Citations:** As above + assimilation crime section.
+- Complementary research feed 2026-09-12 (Olson / Tilly / Gambetta / VSM overlays): [CRIME-PRODUCER-RESEARCH-SEED.md](CRIME-PRODUCER-RESEARCH-SEED.md) appendix. Research overlay only.
 
 This completes the producer framing as design note alongside the bounded extension in STRATEGIC-CONFLICT.md. Ready for RFC when operator directs.
 
