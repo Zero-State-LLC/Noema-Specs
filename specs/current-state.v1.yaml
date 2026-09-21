@@ -41,6 +41,11 @@ authority:
   # Gate E companion (COMPLETE): docs/LCA-GATE-E-SCENARIO.md
   # Gate E promotion: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
   # Gate F companion stub (unproven; not COMPLETE; no GO): docs/LCA-GATE-F-SCENARIO.md
+  # Gate F isolated A-B-A OBSERVED PASS (r2) for SUCCESSOR_NAMED 75d468c7 on
+  #   Worker noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema evidence
+  #   docs/evidence/gate-f-isolated-aba-75d468c7-20260920/; tracking Noema#715).
+  #   Live remains ac6813da / 630652e6. RUNTIME_ONLY. Scoring DEFERRED.
+  #   Not Gate F COMPLETE. Not GO. Not Deploy.
 runtimes:
   production_alpha:
     status: LIVE_HOSTED
@@ -96,7 +101,11 @@ runtimes:
       population proof; retained Admin ICR/bindings are. Gate D is complete.
       Gate E is complete on run Worker e5603e4b-7565-4e4a-a8d1-85360558a8ef
       which remains HISTORICAL and is not current live
-      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F remains unproven.
+      (docs/LCA-GATE-E-PROMOTION-2026-09-20.md). Gate F remains unproven. Isolated A-B-A PASS (r2) for SUCCESSOR_NAMED
+      75d468c7 is OBSERVED on isolated Worker
+      noema-rollback-rehearsal-gatef-75d468c7-20260920-r2 (Noema#715
+      evidence seal); live pin unchanged. Not COMPLETE / not GO /
+      not Deploy. Scoring DEFERRED.
     specs_pin_note: >-
       Live source 630652e6 remains aligned to Specs 81ca8c1, matching Noema
       hosted_live.specs_git after Noema#716. A new worker_version_id does not
@@ -109,7 +118,9 @@ runtimes:
       integrated_small_civilization_run is LIVE_HOSTED. Gate D is complete;
       watch_legibility_gate_d is LIVE_HOSTED. Gate E is complete;
       endurance_gate_e is LIVE_HOSTED. Campaign stays LCA-5 /
-      active Gate F. Gate F remains unproven. Gate E COMPLETE is not
+      active Gate F. Gate F remains unproven (isolated A-B-A PASS
+      sealed for SUCCESSOR_NAMED 75d468c7; scoring DEFERRED; live
+      still ac6813da). Gate E COMPLETE is not
       Deploy and is not Gate F GO. This pin reconciliation is not Deploy.
       Dedicated recovery-receipt objects remain NOT_COMPUTABLE (not invented).
       Path 8 uses the existing Admin recover JSON (Danny-accepted; no new schema).

@@ -52,13 +52,16 @@ Recorded on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715) (OP
 | Field | OBSERVED lock | Meaning |
 |---|---|---|
 | `successor_scope` | `RUNTIME_ONLY` | Same PLAY world (`world.perihelion-reach-3` / `genesis.94d0961984b2b4f8`). New Worker lineage only. Not `WORLD_CUTOVER`. Not undeclared. |
-| Successor candidate stance | `LIVE_NAMED` | Live Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5` / source `630652e6` is the named live successor after Noema #709 Deploy / pin #716. Prior baseline `e5603e4b` is HISTORICAL. |
-| `successor_source_commit` | `630652e6772d4fbc340cf155a33fd628163709d9` | Named. Not `ABSENT`. |
+| Live stance | `LIVE_NAMED` | Live Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5` / source `630652e6` remains the named live pin after Noema #709 Deploy / pin #716. Prior baseline `e5603e4b` is HISTORICAL. Unchanged by rehearsal. |
+| Successor candidate stance | `SUCCESSOR_NAMED` | Candidate source `75d468c750aeb04490969f33d2cc13ad7e85a3a5` ([Noema #717](https://github.com/Zero-State-LLC/Noema/pull/717) sharp@0.35.4 override). **Not Deployed.** Not live. |
+| `successor_source_commit` | `75d468c750aeb04490969f33d2cc13ad7e85a3a5` | Named candidate. Live source remains `630652e6`. Not `ABSENT`. |
+| Isolated A-B-A rehearsal (item 4 input) | **PASS** (r2) | Isolated Worker `noema-rollback-rehearsal-gatef-75d468c7-20260920-r2`. A/A′ `7e749359-c2e0-445a-ba4d-3ef9002bba56` · B `c847fdc7-755d-4cab-94a4-7a8f32701256`. Receipts: Noema `docs/evidence/gate-f-isolated-aba-75d468c7-20260920/` (PASS seal). Prior r1 FAIL (cold DO) and #718 `NOT_COMPUTABLE` archived in that tree. Script warm fix: [Noema #719](https://github.com/Zero-State-LLC/Noema/pull/719). Production GET-only throughout. |
 | Candidate id | `lca6-gate-f-successor-decision` | Unchanged. Danny did not lock `lca5`. |
-| Verdict | not issued | Not `GO`. Not `NO-GO`. Not a scored packet. |
+| Scoring | **DEFERRED** | Seven-item packet not scored. Item 4 rehearsal PASS is sealed; other items and item 7 verdict remain open. |
+| Verdict | not issued | Not `GO`. Not `NO-GO`. Not a scored packet. Not COMPLETE. |
 | Deploy | not authorized | This companion does not authorize Deploy or successor cutover. |
 
-Item-1 delta is filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Isolated A-B-A rehearsal remains outstanding. Historical LCA-1 packets are pattern only. Gate F remains unproven.
+Item-1 delta and isolated A-B-A **PASS** (r2) are filed on [Noema #715](https://github.com/Zero-State-LLC/Noema/issues/715). Historical LCA-1 packets are pattern only. **Gate F remains unproven.** This OBSERVED rehearsal seal is not Gate F COMPLETE and is not `GO`.
 
 ## Non-goals
 
@@ -91,13 +94,15 @@ successor_scope                 # DECLARED Prep 2026-09-20: RUNTIME_ONLY
                                 # undeclared remains NOT_COMPUTABLE; do not infer
 frozen_first_world              # world-01 / genesis.ef578f4ffceeccd0 — OUT OF SCOPE, unchanged
 live_pins_at_decision           # /version, /ready, pin PR, Specs pin, official-client pin
-candidate_worker                # LIVE_NAMED: successor_source_commit 630652e6772d4fbc340cf155a33fd628163709d9
-                                # live Worker ac6813da / source 630652e6 is the named live successor after #709 Deploy
+candidate_worker                # SUCCESSOR_NAMED: 75d468c750aeb04490969f33d2cc13ad7e85a3a5 (#717; not Deployed)
+                                # LIVE_NAMED remains ac6813da / source 630652e6 after #709 Deploy / #716 pin
 production_delta                # per item, classified (see § Packet item 1)
 migration_procedure             # steps, backup bundle, verify, fresh writer fence
 rollback_procedure              # A-B-A rehearsal id, traffic split, digests
 compatibility_record            # Genesis / seal / history / room bound / RFC-0120 unchanged
-rehearsal_result                # isolated Worker id, receipts, PASS | FAIL | NOT_COMPUTABLE
+rehearsal_result                # OBSERVED PASS (r2) on noema-rollback-rehearsal-gatef-75d468c7-20260920-r2
+                                # receipts in Noema docs/evidence/gate-f-isolated-aba-75d468c7-20260920/
+                                # not COMPLETE / not GO; scoring DEFERRED
 permitted_public_claims         # exact copy allowed after GO; exact copy forbidden
 unresolved_risks                # register rows, residual, owner
 gate_e_prerequisite             # Specs Gate E promotion record: docs/LCA-GATE-E-PROMOTION-2026-09-20.md
