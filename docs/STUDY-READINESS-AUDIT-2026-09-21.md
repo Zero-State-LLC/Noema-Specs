@@ -152,7 +152,7 @@ From Gate F scorecard item 5 / promotion non-invention (Noema `docs/evidence/gat
 
 ## Recommended next work
 
-**Authority:** gaps in [GAPS.md](GAPS.md) only. No Deploy. No STUDY reopen. No invented pass criteria.
+**Authority:** gaps in the local audit pack only (`GAPS.md` under agent out dir `noema-study-readiness-2026-09-20/` — not a Specs tree path). No Deploy. No STUDY reopen. No invented pass criteria.
 
 ## Priority ladder
 
