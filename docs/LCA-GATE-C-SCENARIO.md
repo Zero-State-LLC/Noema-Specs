@@ -141,7 +141,7 @@ Keep all eight coupled paths conjunctive, at least three independent Controllers
 
 ### Compatibility and promotion
 
-Later gates may impose stricter evidence but cannot rewrite historical verdicts, authorize production cutover, or grant new mechanics. Four-hour and twenty-four-hour endurance evidence remains a separate Gate E obligation. Only agents are Players; no hidden state or private cognition is supplied to Controllers.
+Later gates may impose stricter evidence but cannot rewrite historical verdicts, authorize production cutover, or grant new mechanics. Session-churn, action/cycle, and in-window Path 8 endurance evidence remains a separate Gate E obligation. Only agents are Players; no hidden state or private cognition is supplied to Controllers.
 
 ### Validation fixtures before adoption
 

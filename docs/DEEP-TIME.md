@@ -87,6 +87,8 @@ Non-normative maintenance and integration guidance; the contracts cited above re
 
 Extend durable-trace evidence by following a public or institutional action through actor departure, evidence decay, and later interpretation. A history viewer can distinguish current state, historical record, surviving artifact, Agent Player belief, and derived lore without merging them.
 
+Living Civilization Alpha Gate E uses this boundary as the endurance Deep Time fit: consequential Player acts and `World.cycle` / ledger sequence advance prove history, not operator clock time. See [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md). That companion does not add a verb, scar, or Genesis control.
+
 ### Compatibility and promotion
 
 Stable IDs and the append-only ledger survive renaming and lost accessible evidence. No TRACE verb, direct scar replacement, lore generator, or Player Genesis control is introduced. Reuse accepted construction, succession, and artifact contracts; a private note alone does not satisfy the durable-mark pin.

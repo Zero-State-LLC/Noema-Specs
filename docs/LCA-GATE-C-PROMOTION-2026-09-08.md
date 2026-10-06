@@ -64,7 +64,7 @@ At least two viable strategies were observed under the same pins: Strategy A (LU
 
 ## Promotion boundary
 
-Gate C promotion completes LCA-3 existing-system civilization. Campaign machine state advances to **LCA-4** / active **Gate D**. It does not pass Gate D, Gate E, or Gate F. It does not claim endurance (four-hour or 24-hour), open hosted STUDY, thaw deferred breadth, or authorize Deploy / successor cutover.
+Gate C promotion completes LCA-3 existing-system civilization. Campaign machine state advances to **LCA-4** / active **Gate D**. It does not pass Gate D, Gate E, or Gate F. It does not claim Gate E endurance, open hosted STUDY, thaw deferred breadth, or authorize Deploy / successor cutover.
 
 Noema [#661](https://github.com/Zero-State-LLC/Noema/issues/661) is the runtime tracking issue. Close it only after this Specs merge lands. Do not treat this packet as a Noema auto-close instruction.
 

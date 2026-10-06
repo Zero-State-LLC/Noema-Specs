@@ -35,6 +35,121 @@ The residual B/PAM rows remain conditional contracts or doctrine deferrals.
 This follow-up does not activate their proposals, change a schema, assign CI
 or validators to this documentation workstream, or authorize live operations.
 
+## Follow-up — 2026-09-21: hosted live Worker pin reconciled to 86978241
+
+GET `/version` OBSERVED Worker `86978241-3983-4075-b289-fa28f9e75c46`
+(`deployed_at` `2026-09-21T04:16:15.925274Z`, world
+`world.perihelion-reach-3`, source
+`565ccc1595c89f992110808401e147b7692b2735`). Noema Deploy
+[35560276552](https://github.com/Zero-State-LLC/Noema/actions/runs/35560276552)
+SUCCESS; pin Noema [#730](https://github.com/Zero-State-LLC/Noema/pull/730)
+merge `90094dde9c86ccfea72018daf91019ebda81ed06`. Source lineage includes
+Noema #729 (Gate D Where on institution pulses). Danny authorized Deploy
+Where fix now (skip A-B-A). OBSERVED `/ready.world.players=3` post-Deploy.
+Specs `production_alpha.live_*` refresh to this OBSERVED live.
+`successor_decision_gate_f.live_*` remains Gate F COMPLETE evidence
+Worker `1e52e827` / `65086d32` (not rewritten). Prior Specs live
+`4f47b1ce` / `1284f1ab` is HISTORICAL. Gate E COMPLETE run Worker
+`e5603e4b` and other Gate B–E evidence Workers are not rewritten. Gate F
+COMPLETE retained. Pin-only Specs reconcile; not a second Deploy; not GO;
+does not reopen COMPLETE.
+
+## Follow-up — 2026-09-21: hosted live Worker pin reconciled to 4f47b1ce
+
+GET `/version` OBSERVED Worker `4f47b1ce-6788-47bd-aaa7-16e5707ab828`
+(`deployed_at` `2026-09-21T03:42:13.689204Z`, world
+`world.perihelion-reach-3`, source
+`1284f1abc92a5582176d279f19f9980b4bc7976c`). Noema Deploy
+[35558327535](https://github.com/Zero-State-LLC/Noema/actions/runs/35558327535)
+SUCCESS; pin Noema [#728](https://github.com/Zero-State-LLC/Noema/pull/728)
+merge `25ec6e7c323c61b58d41be78543219ba52181c6a`. Source lineage includes
+Noema #727 (agent Players live census). Isolated A-B-A PASS on tip
+`1284f1ab` before Deploy. OBSERVED `/ready.players=2` post-Deploy.
+Specs `production_alpha.live_*` refresh to this OBSERVED live.
+`successor_decision_gate_f.live_*` remains Gate F COMPLETE evidence
+Worker `1e52e827` / `65086d32` (not rewritten). Prior Specs live
+`1e52e827` / `65086d32` is HISTORICAL last-full-pin. Gate E COMPLETE
+run Worker `e5603e4b` and other Gate B–E evidence Workers are not
+rewritten. Gate F COMPLETE retained. Pin-only Specs reconcile; not a
+second Deploy; not GO; does not reopen COMPLETE.
+
+## Follow-up — 2026-09-21: hosted live Worker pin reconciled to 1e52e827
+
+GET `/version` OBSERVED Worker `1e52e827-695c-4386-9795-d42b175ec166`
+(`deployed_at` `2026-09-21T00:57:11.486234Z`, world
+`world.perihelion-reach-3`, source
+`65086d324d2c52b1efd507c9174d0950095a8049`). Noema Deploy
+[35549259561](https://github.com/Zero-State-LLC/Noema/actions/runs/35549259561)
+SUCCESS; pin Noema [#721](https://github.com/Zero-State-LLC/Noema/pull/721)
+merge `f61e6b886c45f24fbcdc7b5686a90ffe6a807d5b`. Source lineage includes
+Noema #717 / #719 / #720. Specs `production_alpha.live_*` and Gate F
+authoring pins refresh to this OBSERVED live. Prior Specs live
+`ac6813da-1e0a-4f0c-8566-d9346b4baed5` / `630652e6` is HISTORICAL
+last-full-pin. Gate E COMPLETE run Worker `e5603e4b` and other Gate B–E
+evidence Workers are not rewritten. The ac6813da follow-up below remains
+dated provenance. Gate F is complete; scoring DEFERRED; not GO;
+this follow-up is not a second Deploy.
+
+## Follow-up — 2026-09-20: hosted live Worker pin reconciled to ac6813da
+
+GET `/version` OBSERVED Worker `ac6813da-1e0a-4f0c-8566-d9346b4baed5`
+(`deployed_at` `2026-09-20T20:26:54.009622Z`, world
+`world.perihelion-reach-3`). Noema already pins that Worker
+([#716](https://github.com/Zero-State-LLC/Noema/pull/716); source
+`630652e6772d4fbc340cf155a33fd628163709d9` from
+[#709](https://github.com/Zero-State-LLC/Noema/pull/709); merge
+`56583aae1a52b781a87836a258b0a4a6cede3909`).
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) hosted/live
+pin now matches. Gate E COMPLETE remains on HISTORICAL run Worker
+`e5603e4b-7565-4e4a-a8d1-85360558a8ef`; that promotion is not rewritten.
+This reconciliation is not a Deploy and is not Gate F `GO`.
+`production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
+`production_specs_baseline` stays `492ccc9`. Historical Gate B–E
+evidence Workers are not rewritten. The e5603e4b follow-up below remains
+dated provenance of that prior live pin.
+
+## Follow-up — 2026-09-20: hosted live Worker pin reconciled to e5603e4b
+
+GET `/version` OBSERVED Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef`
+(`deployed_at` `2026-09-20T07:58:52.806224Z`, world
+`world.perihelion-reach-3`). Noema already pins that Worker
+([#714](https://github.com/Zero-State-LLC/Noema/pull/714); source
+`80a3d031a29f516222ec0c12c4f3a6f6f27140a7` from
+[#713](https://github.com/Zero-State-LLC/Noema/pull/713); merge
+`4d31d42bdfebdc0c171ac2e4bbbb060d5992bafa`).
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) hosted/live
+pin now matches. This Worker is also the Gate E COMPLETE run Worker;
+Gate E promotion ([#344](https://github.com/Zero-State-LLC/Noema-Specs/pull/344))
+left the hosted pin on `7188ff8a` intentionally. This reconciliation is
+not a Deploy and is not Gate F `GO`.
+`production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
+`production_specs_baseline` stays `492ccc9`. Historical Gate B–E
+evidence Workers are not rewritten. The Gate E follow-up below remains
+dated provenance of that packet's hosted-pin hold.
+
+## Follow-up — 2026-09-20: Living Civilization Alpha Gate E promoted
+
+[`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) now records Gate E
+COMPLETE / `endurance_gate_e` `LIVE_HOSTED` for candidate
+`lca5-gate-e-endurance`. Evidence is
+[LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md) from
+Specs [#343](https://github.com/Zero-State-LLC/Noema-Specs/pull/343)
+(`3dacd259`) session-churn and action/cycle budgets. Phase A remint ×2,
+presence recover, labeled census. Phase B 17 counting acts, cycle
+21944→21948, in-window Path 8 reason `gate-e-phase-b-path8-drill`. Run
+Worker `e5603e4b-7565-4e4a-a8d1-85360558a8ef` is the evidence pin, not a
+live-pin flip. Campaign advances to LCA-5 / active Gate F.
+
+Deliberately unchanged: hosted STUDY stays **BLOCKED**; Gate F remains
+unproven; no Deploy from this packet; no RFC-0130; dedicated
+recovery-receipt objects remain **NOT_COMPUTABLE** (not invented). Prior
+`SPECS_EXCEPTION_ABBREVIATED` is not the Phase A PASS.
+`production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
+Live Worker stays `7188ff8a-3d58-449e-9e6b-2e0282ed9724`. Tracking
+[Noema #682](https://github.com/Zero-State-LLC/Noema/issues/682) closes
+only after this Specs merge lands. The Gate D follow-up below remains dated
+provenance. Gate E COMPLETE is not Deploy and is not Gate F `GO`.
+
 ## Follow-up — 2026-09-09: Living Civilization Alpha Gate D promoted
 
 [`specs/current-state.v1.yaml`](../specs/current-state.v1.yaml) now records Gate D
@@ -51,7 +166,7 @@ and pin [#681](https://github.com/Zero-State-LLC/Noema/pull/681)
 `592c06a4-fa8c-40f6-bec7-21cbc45689f9`. Campaign stays LCA-4 / active Gate E.
 
 Deliberately unchanged: hosted STUDY stays **BLOCKED**; Gate E remains unproven;
-Gate F remains unproven; no Deploy from this packet; no RFC-0130.
+Gate F is complete; no Deploy from this packet; no RFC-0130.
 `production_implements_specs` stays `81ca8c1` (`hosted_live.specs_git`).
 Tracking [Noema #667](https://github.com/Zero-State-LLC/Noema/issues/667) closes
 only after this Specs merge lands. The Gate C follow-up below remains dated
@@ -280,8 +395,8 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 | A2 | LCA Gate B | At least three independent external Controllers must enroll and operate Agent Players. | `RUNTIME_ONLY` | Blocks Gate B and therefore C | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | Publish/deploy only by explicit runtime command; complete operator enrollment | reseed, synthetic population claim, private strategy script |
 | A3 | LCA Gate C | Existing-system civilization scenario has not passed. | `RUNTIME_ONLY` | Blocks Gate C | [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) | Execute the pinned scenario through existing surfaces | add mechanics to force a pass |
 | A4 | LCA Gate D | Gate D is complete. Blind-score PASS Noema #679; HOLD released after one-door unify Noema #680 / Specs #333 / Deploy 34317120696 / pin #681. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate D is complete; does not block Gate E | [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md), [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate E endurance is A5 | private state leak, invented motives, research UI substitution, COMPLETE by document |
-| A5 | LCA Gate E | Four-hour then twenty-four-hour endurance and recovery are unproven. | `RUNTIME_ONLY` | Blocks Gate E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) | Planned restart, absence, incident and recovery receipts | outcome scripting, calendar-based promotion, COMPLETE by document |
-| A6 | LCA Gate F | Successor decision packet is incomplete. | `RUNTIME_ONLY` | Blocks cutover | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) | `GO`, `NO-GO`, or `NOT_COMPUTABLE` with migration/rollback evidence | silent frozen-alpha rewrite, force-supersession, Deploy-as-decision, COMPLETE by document |
+| A5 | LCA Gate E | Gate E is complete. Specs #343 session-churn + action/cycle + in-window Path 8 for `lca5-gate-e-endurance`. Prior `SPECS_EXCEPTION_ABBREVIATED` is not that PASS. | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate E is complete; does not block Gate F as a pass | [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) | Do not reopen as a generic SPEC GAP; Gate F successor decision is A6 | outcome scripting, idle-calendar promotion, LOOK-only soak, COMPLETE by document, rewriting a Specs-exception as PASS, Deploy-as-COMPLETE |
+| A6 | LCA Gate F | Gate F is complete. Specs COMPLETE promotion for `lca6-gate-f-successor-decision` with items 1–6 FILLED, A-B-A PASS r2, item-7 `GO` ISSUED, owners CONFIRMED. Across-Deploy digests permanently NOT_COMPUTABLE (accepted). | `RUNTIME_ONLY` (closed by campaign acceptance) | No — Gate F is complete; does not authorize WORLD_CUTOVER or STUDY | [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md) | Do not reopen as a generic SPEC GAP; WORLD_CUTOVER / STUDY remain separate | silent frozen-alpha rewrite, force-supersession, Deploy-as-decision, COMPLETE by document alone, inventing digests |
 | A7 | Hosted STUDY | Production research spine remains downstream of natural play. | `DEFERRED_DOCTRINE` | Blocks hosted STUDY claims after LCA-5 | [LIVING-CIVILIZATION-ALPHA.md](LIVING-CIVILIZATION-ALPHA.md) | Separate reopen decision after LCA-5 | early capability claims, Player-visible research objectives |
 | A8 | Claim discipline | Offline and hosted digest equivalence remains an explicit non-claim. | `DEFERRED_DOCTRINE` | Blocks equivalence claim | [`current-state.v1.yaml`](../specs/current-state.v1.yaml) | `NOT_COMPUTABLE`; isolated-world conformance | claim by analogy or partial digest |
 | A9 | Population | A clocking world without enrolled external Agent Players is not a civilization acceptance run. | `RUNTIME_ONLY` | Blocks Gates B–E | [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md) | Treat population as an operations prerequisite | new rooms/content/reseed as substitute |
@@ -292,7 +407,8 @@ These rows are not SPEC GAPs. They remain campaign acceptance, runtime, operatio
 The following must not be reopened as generic gaps:
 
 - LCA Gate A integrated-runtime evidence closed through Noema PR #587 and [LCA-GATE-A-PROMOTION-2026-08-25.md](LCA-GATE-A-PROMOTION-2026-08-25.md); do not reopen it as a generic SPEC GAP;
-- LCA Gate D WATCH-legibility evidence closed through [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); do not reopen it as a generic SPEC GAP; Gate E endurance remains A5;
+- LCA Gate D WATCH-legibility evidence closed through [LCA-GATE-D-PROMOTION-2026-09-09.md](LCA-GATE-D-PROMOTION-2026-09-09.md); do not reopen it as a generic SPEC GAP;
+- LCA Gate E endurance evidence closed through [LCA-GATE-E-PROMOTION-2026-09-20.md](LCA-GATE-E-PROMOTION-2026-09-20.md); LCA Gate F successor decision closed through [LCA-GATE-F-PROMOTION-2026-09-21.md](LCA-GATE-F-PROMOTION-2026-09-21.md); do not reopen either as a generic SPEC GAP;
 - the enrollment/connect publish-lag row closed when runtime source `61234cc` produced live Worker `01ebc196-b762-4689-a166-272e26bd73ad`; operator enrollment and external population remain separate Gate B work;
 - GC5 relay same-cycle, one-cycle delay, and unreachable bands are closed by RFC-0009 and RFC-0021;
 - GC3 S0–S7 executable social-memory gaps are closed by RFC-0007, RFC-0022, and RFC-0034–RFC-0039;

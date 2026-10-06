@@ -3,7 +3,7 @@
 **Status:** docs-only hygiene companion. It changes no gate criterion, protocol field, schema, or verdict. It records the link structure the existing Gate B–E packs already use so later packs stay traceable and fail-closed.
 **Authority:** [Living Civilization Alpha Acceptance](LIVING-ALPHA-ACCEPTANCE.md) § Extension Points (evidence-pack structure) · [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md) § Extension Points (machine-checkable links)
 **Companions:** [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md) · [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md) · [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) · [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md)
-**Derived from (OBSERVED):** Noema `docs/evidence/gate-b-2026-09-08/`, `gate-c-2026-09-08/`, `gate-d-2026-09-08/`, `gate-e-2026-09-09/`; Noema `docs/ISOLATED-ROLLBACK-REHEARSAL-555-EVIDENCE.json`; Specs promotion records for Gates A–D
+**Derived from (OBSERVED):** Noema `docs/evidence/gate-b-2026-09-08/`, `gate-c-2026-09-08/`, `gate-d-2026-09-08/`, `gate-e-2026-09-09/`; Noema `docs/ISOLATED-ROLLBACK-REHEARSAL-555-EVIDENCE.json`; Specs promotion records for Gates A–E
 
 Document existence promotes nothing. A pack that follows this structure is not thereby PASS.
 
@@ -202,7 +202,7 @@ Recorded to show the structure against a real pack; no verdict is changed here.
 | pins ↔ heads | start/end receipts carry (cycle, sequence, surface, UTC, Worker) | heads at each Deploy instant `NOT_COMPUTABLE` |
 | heads ↔ receipts | `phase-b-path8.md` bracketed PRE / INCIDENT / RECOVER / POST; dual fire kept apart; remint cohorts `SUPERSEDED` in sequence | census from public surfaces `NOT_COMPUTABLE` (`controllers-watch-live-note.md`) |
 | receipts ↔ digest | — | Gate E WATCH digest not yet filed at authoring |
-| digest ↔ verdict | Phase A overall `NOT_COMPUTABLE` recorded, not upgraded by Phase B start | end score pending; Phase B opened without Phase A `PASS` is a companion condition the score must address |
+| digest ↔ verdict | Phase A overall `NOT_COMPUTABLE` recorded, not upgraded by Phase B start | end score pending; Phase B opened without Phase A `PASS` is a companion condition the score must address. In-flight abbreviated Phase A under Danny yes stays a Specs-exception; do not rewrite as `PASS` ([LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md) Migration). |
 | intervention log | CONTROL_PLANE rows for #684/#686 and #688–#700; remints; recover | budget `NOT_COMPUTABLE` (not declared at Prep) |
 
 ## Explicit non-claims

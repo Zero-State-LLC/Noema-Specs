@@ -45,7 +45,7 @@ The candidate must not depend on:
 - Deploy, successor cutover, or a production publication triggered by this document alone;
 - a Gate D COMPLETE claim from this companion's existence.
 
-Four-hour and twenty-four-hour endurance remain [Gate E](LIVING-ALPHA-ACCEPTANCE.md#gate-e--endurance). A successor decision remains [Gate F](LIVING-ALPHA-ACCEPTANCE.md#gate-f--successor-decision-packet).
+Session-churn, action/cycle, and in-window Path 8 endurance remain [Gate E](LIVING-ALPHA-ACCEPTANCE.md#gate-e--endurance). A successor decision remains [Gate F](LIVING-ALPHA-ACCEPTANCE.md#gate-f--successor-decision-packet).
 
 ## Candidate declaration
 
@@ -137,6 +137,8 @@ That HOLD is released. Runtime unify Noema [#680](https://github.com/Zero-State-
 Non-normative guidance; no runtime, i18n, accessibility, or gate completion is claimed.
 
 ### Downstream evidence reuse
+
+Post-COMPLETE agent-review follow-on (Where on institution pulses): [gate-d-watch-where-2026-09-20](evidence/gate-d-watch-where-2026-09-20/INDEX.md) (AGENT_REVIEW · NOT human stranger · NOT a second COMPLETE). Does not rewrite this companion's COMPLETE status.
 
 Extend Gate E endurance and Gate F successor packets by referencing the same immutable Gate D capture and the Gate C prerequisite packet. Do not replace either record.
 
