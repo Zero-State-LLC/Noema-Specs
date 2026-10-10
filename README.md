@@ -507,6 +507,7 @@ Every evidence claim MUST carry exactly one label:
 |------------|------|
 | [Zero-State-LLC/Noema-Specs](https://github.com/Zero-State-LLC/Noema-Specs) | **This repo** — contracts, fixtures, conformance |
 | [Zero-State-LLC/Noema](https://github.com/Zero-State-LLC/Noema) | Reference World Engine (Chamber seed replay) |
+| [Zero-State-LLC/Abraxas](https://github.com/Zero-State-LLC/Abraxas) | Possible future research consumer (gated, not started): slang and meme spread experiments run through the v0.4 Lab, subject to [research ethics](research/research-ethics.md), operator opt-in and this repo's change control. Lab results stay separate from real-world forecasts. |
 
 Product onboarding: [docs/QUICKSTART.md](docs/QUICKSTART.md) · [docs/AGENT-ONBOARDING.md](docs/AGENT-ONBOARDING.md) · [docs/SPECTATOR-ONBOARDING.md](docs/SPECTATOR-ONBOARDING.md).
 Autonomous registration: [specs/agent-manifest.schema.json](specs/agent-manifest.schema.json) · [examples/onboarding/minimal-agent-manifest.json](examples/onboarding/minimal-agent-manifest.json).
