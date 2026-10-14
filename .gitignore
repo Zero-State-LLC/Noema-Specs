@@ -3,11 +3,13 @@ __pycache__/
 *.pyc
 validation/__pycache__/
 .claude/
-.cursor/
+.cursor/*
+!.cursor/rules/
+!.cursor/mcp.json
 .mcp.json
 .ignore
 .env
 .env.local
 !.env.example
-graft/
+graft/.cache/
 .DS_Store
