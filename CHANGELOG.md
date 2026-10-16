@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **WATCH fluid mode decisions locked (Danny, 2026-10-15; docs-only).** [watch-fluid-modes.md](specify/watch-fluid-modes.md): mode-selection motion APPROVED as spectator-initiated PIXEL↔MAP only, ≤ 400 ms, existing camera ease, TEXT hard cut, no motion on load/refresh/stream, View Transitions optional crossfade with cut fallback; event-born MAP depth SELECTED as transient pulse-bound elevation per §18.6, trace-derived depth deferred to a separate row. FWM-05/FWM-11 tightened. Matching rows in [WATCH-LIGHTWEIGHT-SPECTATOR.md](docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §8 and §18.6. No version change; no runtime, Deploy, or protocol change.
+
 ### Added
 
 - **Gate D WATCH Where agent-review evidence (docs-only; NOT COMPLETE; NOT human stranger).** Adds [docs/evidence/gate-d-watch-where-2026-09-20/](docs/evidence/gate-d-watch-where-2026-09-20/) recording SHADOW **HOLD→PASS** after [Noema #729](https://github.com/Zero-State-LLC/Noema/pull/729) (Where on institution pulses) on live Worker `86978241-3983-4075-b289-fa28f9e75c46` / source `565ccc15…`. OBSERVED: institution repair pulse Consequence ≠ headline **and** Where=`room.civic-exchange` (capture `/workspace/out/noema-gate-d/capture-2026-09-20-2120/`; prior HOLD `capture-2026-09-20-2055/`). Label everywhere: **AGENT_REVIEW · NOT human stranger · NOT Specs Gate D COMPLETE**. Historical Gate D COMPLETE ([LCA-GATE-D-PROMOTION-2026-09-09.md](docs/LCA-GATE-D-PROMOTION-2026-09-09.md)) not rewritten. STUDY stays **BLOCKED**. No Deploy from this PR. No flip of `study_hosted` / `hosted_study_pipeline`. One-line pointer from [LCA-GATE-D-SCENARIO.md](docs/LCA-GATE-D-SCENARIO.md) Extension Points only.

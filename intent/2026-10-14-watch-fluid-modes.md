@@ -43,6 +43,9 @@ No Controller, Player action, World Engine, STUDY, or Admin contract changes are
 
 ## Open questions
 
+DECIDED (Danny, 2026-10-15): the first two questions below are resolved in [watch-fluid-modes.md](../specify/watch-fluid-modes.md) (≤ 400 ms spectator-initiated PIXEL↔MAP motion; transient pulse-bound MAP depth, trace-derived depth deferred).
+
+
 - Does the maintainer approve a bounded transition triggered by mode selection in addition to existing world-event motion?
 - Which event-born MAP depth treatment can meet the existing no-unique-information rule without introducing counters, scoring, or an unauthorized history projection?
 - NOT_COMPUTABLE: human legibility acceptance for the proposed presentation. It requires a reviewed public capture; prototype appearance and automated tests do not establish it.
