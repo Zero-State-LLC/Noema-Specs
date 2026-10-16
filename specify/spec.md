@@ -70,6 +70,8 @@ Implement the unify in `Zero-State-LLC/Noema`. This repository does not implemen
 
 Public `/watch` MAP WebGL is reopened by [watch-map-p0-gl-poi.md](watch-map-p0-gl-poi.md). The WebGL bullet in Non-goals applied to this one-door amend only. PIXEL remains Canvas 2D until a later explicit row.
 
+The [fluid mode-transition proposal](watch-fluid-modes.md) is a separate **draft for review**, supported by its [intent record](../intent/2026-10-14-watch-fluid-modes.md). It proposes bounded mode-selection motion and records the review boundary for event-born MAP depth. It does not replace this one-door contract, approve a new glyph atlas, or authorize runtime implementation or deployment.
+
 ## Non-goals
 
 - Deploy, Gate E/F COMPLETE, hosted STUDY, or RFC-0130 from this amend
