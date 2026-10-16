@@ -511,6 +511,7 @@ Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is s
 | Headline change | A newly selected NOTABLE or MAJOR headline MAY flash its tier mark once (≤ 400 ms); no loop |
 | Old events quieter | Visual fade only; no deletion flash |
 | MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe. When a MAJOR headline triggers the banner it MUST actually render — banner chrome that is permanently `display:none` is a defect |
+| Mode selection | Spectator-initiated PIXEL↔MAP only: ≤ 400 ms, existing camera ease, no delay to input/focus/ARIA; TEXT hard cut; never on load/refresh/stream (Danny, 2026-10-15; [watch-fluid-modes.md](../specify/watch-fluid-modes.md)) |
 | `prefers-reduced-motion` | Instant replace; no brightness pulse; no banner animation |
 | Pause | Existing pause control remains; poll MUST stop |
 | Background tabs | `document.hidden` MUST skip polls |
@@ -862,6 +863,7 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 - At most one MAJOR treatment at a time across banner + pulse.
 - TEXT remains complete and authoritative; a spectator who never opens PIXEL misses nothing factual.
 - Budgets in §18.5 are unchanged.
+- Sole non-event motion exception (Danny, 2026-10-15): a spectator-initiated PIXEL↔MAP mode selection MAY interpolate ≤ 400 ms per [watch-fluid-modes.md](../specify/watch-fluid-modes.md); TEXT is a hard cut; never on load, refresh, or stream update; zero rAF afterwards; none under reduced motion.
 
 ### Tests
 
