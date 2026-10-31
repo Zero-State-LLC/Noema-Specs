@@ -1,6 +1,6 @@
 # Perihelion Reach — Living Civilization Alpha
 
-**Status:** ACTIVE INTEGRATION CAMPAIGN  
+**Status:** CLOSED CAMPAIGN. Gates A–F COMPLETE; superseded for near-term sequencing by [Population and Study Readiness](POPULATION-AND-STUDY-READINESS.md) (#361). History below is retained unchanged.  
 **Owns:** near-term sequencing and integrated product evidence  
 **Does not own:** Player ontology, action semantics, Genesis, claim policy, or frozen world truth
 
