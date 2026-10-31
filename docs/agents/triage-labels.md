@@ -14,10 +14,6 @@ When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the 
 
 Edit the "Label in our tracker" column to match whatever vocabulary you actually use.
 
-Of these, only `wontfix` exists on GitHub today. Create the other four before the first `/triage` run:
-
-```bash
-gh label create needs-triage && gh label create needs-info && gh label create ready-for-agent && gh label create ready-for-human
-```
+All five labels exist on GitHub.
 
 Triage labels are orthogonal to the existing `type:*`, `priority:*`, and `from-spec` labels. Keep applying those too.
