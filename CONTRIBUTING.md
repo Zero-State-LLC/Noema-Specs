@@ -37,6 +37,7 @@ Contributions are limited to authorized Zero State contributors and agents unles
 
 - **Where it lives:** `graft/` is committed (`graft/INDEX.md` is the entry point). `graft/.cache/` stays local and gitignored.
 - **Coverage:** Graft indexes code only, which here means the `validation/*.py` scripts (including the RFC-0126 watch-exposure check). **The Markdown specs are not indexed.** The watch specs live in `docs/WATCH.md`, `docs/WATCH-*.md`, `docs/GC3-S2-WATCH-PUBLIC.md`, `specify/watch-map-p0-gl-poi.md`, `rfcs/RFC-0126-watch-entity-update-exposure.md`, and `docs/evidence/gate-d-watch-where-2026-09-20/`. The runtime watch surface (Ruffian-L's area) is indexed in Zero-State-LLC/Noema under `workers/noema/src/watch*.ts` and `operator-watch.ts`.
-- **Refresh (Node 22.12+):** `npm i -g @nanonets/graft`, then `graft build`, then commit the updated `graft/`. Opt out of telemetry with `graft telemetry disable`.
-- **Check:** `graft check` fails if `graft/` is out of date with the code.
+- **Refresh (Node 22.12+):** `npm i -g @nanonets/graft@0.26.0`, then `GRAFT_NO_GITIGNORE=1 graft build`, then commit the updated `graft/`. Without `GRAFT_NO_GITIGNORE=1`, graft appends `/graft/` to `.gitignore`; validation fails if that line lands. Opt out of telemetry with `graft telemetry disable`.
+- **CI:** the `build` job runs `graft build --check` pinned to the same version, so a stale index fails the PR.
+- **Check:** `graft check` (or `graft build --check`) fails if `graft/` is out of date with the code.
 - **Agent wiring:** Cursor: `.cursor/rules/graft.mdc` and `.cursor/mcp.json` (`graft mcp`). Claude Code: run `graft init --no-global --agents claude` locally (`.claude/` and `.mcp.json` are gitignored here). AGENTS.md has a Graft section too.

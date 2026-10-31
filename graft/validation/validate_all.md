@@ -38,249 +38,250 @@
 - check_learn_v07 · function · L2456-L2610 — def check_learn_v07(Draft202012Validator) -> None
 - canonical_digest · function · L2460-L2462 — def canonical_digest(value: object) -> str
 - check_experience_layer · function · L2613-L2713 — def check_experience_layer(Draft202012Validator) -> None
-- check_glossary · function · L2720-L2748 — def check_glossary() -> None
-- check_skills_workflows · function · L2751-L2782 — def check_skills_workflows() -> None
-- rebuild_gc1_s0 · function · L2784-L2873 — def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict
-- credit · function · L2793-L2803 — def credit(track_id: str, event_id: str, unit: str, recognition_unit: str | None = None) -> None
-- payload_player · function · L2805-L2810 — def payload_player(payload: dict) -> str | None
-- check_gc1_s0 · function · L2876-L2937 — def check_gc1_s0(Draft202012Validator) -> None
-- check_gc1_s1 · function · L2940-L2980 — def check_gc1_s1(Draft202012Validator) -> None
-- evaluate_gc1_s2 · function · L2983-L2989 — def evaluate_gc1_s2(attempt: dict, catalog: dict) -> dict
-- check_gc1_s2 · function · L2992-L3021 — def check_gc1_s2(Draft202012Validator) -> None
-- evaluate_gc1_s3 · function · L3024-L3033 — def evaluate_gc1_s3(attempt: dict, catalog: dict) -> dict
-- check_gc1_s3 · function · L3036-L3081 — def check_gc1_s3(Draft202012Validator) -> None
-- evaluate_gc1_s4 · function · L3084-L3099 — def evaluate_gc1_s4(attempt: dict, catalog: dict) -> dict
-- check_gc1_s4 · function · L3102-L3134 — def check_gc1_s4(Draft202012Validator) -> None
-- evaluate_gc1_s5 · function · L3137-L3146 — def evaluate_gc1_s5(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc1_s5 · function · L3149-L3185 — def check_gc1_s5(Draft202012Validator) -> None
-- evaluate_gc1_s6 · function · L3191-L3224 — def evaluate_gc1_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
-- check_gc1_s6 · function · L3227-L3271 — def check_gc1_s6(Draft202012Validator) -> None
-- evaluate_gc1_s7 · function · L3274-L3291 — def evaluate_gc1_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
-- check_gc1_s7 · function · L3294-L3335 — def check_gc1_s7(Draft202012Validator) -> None
-- evaluate_gc1_s8 · function · L3338-L3358 — def evaluate_gc1_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None, int | None, str | None]
-- check_gc1_s8 · function · L3361-L3403 — def check_gc1_s8(Draft202012Validator) -> None
-- evaluate_hosted_mp_s0 · function · L3406-L3421 — def evaluate_hosted_mp_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_hosted_mp_s0 · function · L3424-L3466 — def check_hosted_mp_s0(Draft202012Validator) -> None
-- evaluate_gc2_s0 · function · L3469-L3504 — def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc2_s0 · function · L3507-L3548 — def check_gc2_s0(Draft202012Validator) -> None
-- evaluate_gc2_s1 · function · L3551-L3562 — def evaluate_gc2_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s1 · function · L3565-L3599 — def check_gc2_s1(Draft202012Validator) -> None
-- evaluate_gc2_s2 · function · L3602-L3609 — def evaluate_gc2_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s2 · function · L3612-L3646 — def check_gc2_s2(Draft202012Validator) -> None
-- evaluate_gc2_s3 · function · L3649-L3658 — def evaluate_gc2_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s3 · function · L3661-L3695 — def check_gc2_s3(Draft202012Validator) -> None
-- evaluate_gc2_s4 · function · L3698-L3707 — def evaluate_gc2_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s4 · function · L3710-L3744 — def check_gc2_s4(Draft202012Validator) -> None
-- evaluate_gc2_s5 · function · L3747-L3761 — def evaluate_gc2_s5(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s5 · function · L3764-L3799 — def check_gc2_s5(Draft202012Validator) -> None
-- evaluate_gc2_s6 · function · L3802-L3812 — def evaluate_gc2_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
-- check_gc2_s6 · function · L3815-L3860 — def check_gc2_s6(Draft202012Validator) -> None
-- evaluate_gc2_s7 · function · L3863-L3876 — def evaluate_gc2_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
-- check_gc2_s7 · function · L3879-L3914 — def check_gc2_s7(Draft202012Validator) -> None
-- evaluate_gc2_s8 · function · L3917-L3928 — def evaluate_gc2_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc2_s8 · function · L3931-L3966 — def check_gc2_s8(Draft202012Validator) -> None
-- evaluate_gc2_s9 · function · L3969-L3985 — def evaluate_gc2_s9(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s9 · function · L3988-L4028 — def check_gc2_s9(Draft202012Validator) -> None
-- evaluate_gc2_s10 · function · L4031-L4043 — def evaluate_gc2_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s10 · function · L4046-L4082 — def check_gc2_s10(Draft202012Validator) -> None
-- evaluate_gc2_s11 · function · L4085-L4095 — def evaluate_gc2_s11(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s11 · function · L4098-L4136 — def check_gc2_s11(Draft202012Validator) -> None
-- evaluate_gc2_s12 · function · L4139-L4146 — def evaluate_gc2_s12(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s12 · function · L4149-L4185 — def check_gc2_s12(Draft202012Validator) -> None
-- evaluate_gc2_s13 · function · L4188-L4214 — def evaluate_gc2_s13(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s13 · function · L4217-L4266 — def check_gc2_s13(Draft202012Validator) -> None
-- evaluate_gc2_s14 · function · L4269-L4286 — def evaluate_gc2_s14(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s14 · function · L4289-L4329 — def check_gc2_s14(Draft202012Validator) -> None
-- evaluate_gc2_s15 · function · L4332-L4349 — def evaluate_gc2_s15(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s15 · function · L4352-L4398 — def check_gc2_s15(Draft202012Validator) -> None
-- evaluate_gc2_s16 · function · L4401-L4418 — def evaluate_gc2_s16(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s16 · function · L4421-L4461 — def check_gc2_s16(Draft202012Validator) -> None
-- evaluate_gc2_s17 · function · L4464-L4484 — def evaluate_gc2_s17(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s17 · function · L4487-L4537 — def check_gc2_s17(Draft202012Validator) -> None
-- evaluate_gc2_s18 · function · L4540-L4560 — def evaluate_gc2_s18(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s18 · function · L4563-L4613 — def check_gc2_s18(Draft202012Validator) -> None
-- evaluate_gc2_s19 · function · L4616-L4636 — def evaluate_gc2_s19(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s19 · function · L4639-L4692 — def check_gc2_s19(Draft202012Validator) -> None
-- evaluate_gc2_s20 · function · L4695-L4707 — def evaluate_gc2_s20(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s20 · function · L4710-L4748 — def check_gc2_s20(Draft202012Validator) -> None
-- evaluate_gc2_s21 · function · L4751-L4763 — def evaluate_gc2_s21(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s21 · function · L4766-L4804 — def check_gc2_s21(Draft202012Validator) -> None
-- evaluate_gc2_s22 · function · L4807-L4819 — def evaluate_gc2_s22(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s22 · function · L4822-L4860 — def check_gc2_s22(Draft202012Validator) -> None
-- evaluate_gc2_s23 · function · L4863-L4875 — def evaluate_gc2_s23(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s23 · function · L4878-L4916 — def check_gc2_s23(Draft202012Validator) -> None
-- evaluate_gc2_s24 · function · L4919-L4934 — def evaluate_gc2_s24(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc2_s24 · function · L4937-L4982 — def check_gc2_s24(Draft202012Validator) -> None
-- evaluate_wr_s0 · function · L4985-L4992 — def evaluate_wr_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_wr_s0 · function · L4995-L5037 — def check_wr_s0(Draft202012Validator) -> None
-- evaluate_gc2_thaw_play · function · L5040-L5048 — def evaluate_gc2_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]
-- check_gc2_thaw_play · function · L5051-L5080 — def check_gc2_thaw_play(Draft202012Validator) -> None
-- evaluate_wr_s1 · function · L5083-L5089 — def evaluate_wr_s1(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s1 · function · L5092-L5123 — def check_wr_s1(Draft202012Validator) -> None
-- evaluate_wr_s2 · function · L5126-L5132 — def evaluate_wr_s2(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s2 · function · L5135-L5166 — def check_wr_s2(Draft202012Validator) -> None
-- evaluate_wr_s3 · function · L5169-L5175 — def evaluate_wr_s3(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s3 · function · L5178-L5209 — def check_wr_s3(Draft202012Validator) -> None
-- evaluate_wr_s4 · function · L5212-L5218 — def evaluate_wr_s4(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s4 · function · L5221-L5252 — def check_wr_s4(Draft202012Validator) -> None
-- evaluate_wr_s5 · function · L5255-L5261 — def evaluate_wr_s5(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s5 · function · L5264-L5295 — def check_wr_s5(Draft202012Validator) -> None
-- evaluate_wr_s6 · function · L5298-L5304 — def evaluate_wr_s6(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
-- check_wr_s6 · function · L5307-L5338 — def check_wr_s6(Draft202012Validator) -> None
-- rebuild_gc3_s0 · function · L5342-L5395 — def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict
-- check_gc3_s0 · function · L5398-L5433 — def check_gc3_s0(Draft202012Validator) -> None
-- rebuild_gc3_s1 · function · L5436-L5492 — def rebuild_gc3_s1(fixture: dict, catalog: dict) -> dict
-- check_gc3_s1 · function · L5495-L5530 — def check_gc3_s1(Draft202012Validator) -> None
-- _gc3_attest_contradictions · function · L5533-L5562 — def _gc3_attest_contradictions(events: list) -> list[tuple[str, str]]
-- rebuild_gc3_s2 · function · L5565-L5609 — def rebuild_gc3_s2(fixture: dict, catalog: dict) -> dict
-- check_gc3_s2 · function · L5612-L5641 — def check_gc3_s2(Draft202012Validator) -> None
-- rebuild_gc3_s3 · function · L5644-L5709 — def rebuild_gc3_s3(fixture: dict, catalog: dict) -> dict
-- emit · function · L5690-L5696 — def emit(other: str, template: str) -> None
-- check_gc3_s3 · function · L5712-L5741 — def check_gc3_s3(Draft202012Validator) -> None
-- rebuild_gc3_s4 · function · L5744-L5794 — def rebuild_gc3_s4(fixture: dict, catalog: dict) -> dict
-- check_gc3_s4 · function · L5797-L5819 — def check_gc3_s4(Draft202012Validator) -> None
-- evaluate_gc3_s5 · function · L5822-L5828 — def evaluate_gc3_s5(attempt: dict, catalog: dict) -> dict
-- check_gc3_s5 · function · L5831-L5857 — def check_gc3_s5(Draft202012Validator) -> None
-- rebuild_gc3_s6 · function · L5860-L5895 — def rebuild_gc3_s6(fixture: dict, catalog: dict) -> dict
-- check_gc3_s6 · function · L5898-L5935 — def check_gc3_s6(Draft202012Validator) -> None
-- evaluate_gc3_s7 · function · L5938-L5951 — def evaluate_gc3_s7(attempt: dict, catalog: dict) -> dict
-- check_gc3_s7 · function · L5954-L5978 — def check_gc3_s7(Draft202012Validator) -> None
-- evaluate_gc4_s0 · function · L5981-L6014 — def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc4_s0 · function · L6017-L6059 — def check_gc4_s0(Draft202012Validator) -> None
-- evaluate_gc4_s1 · function · L6062-L6130 — def evaluate_gc4_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc4_s1 · function · L6133-L6183 — def check_gc4_s1(Draft202012Validator) -> None
-- evaluate_gc4_s2 · function · L6186-L6215 — def evaluate_gc4_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc4_s2 · function · L6218-L6273 — def check_gc4_s2(Draft202012Validator) -> None
-- evaluate_gc4_s3 · function · L6276-L6316 — def evaluate_gc4_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc4_s3 · function · L6319-L6372 — def check_gc4_s3(Draft202012Validator) -> None
-- evaluate_gc4_s4 · function · L6375-L6440 — def evaluate_gc4_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc4_s4 · function · L6443-L6509 — def check_gc4_s4(Draft202012Validator) -> None
-- evaluate_gc4_s5 · function · L6512-L6522 — def evaluate_gc4_s5(attempt: dict) -> tuple[str, str | None, bool]
-- check_gc4_s5 · function · L6525-L6559 — def check_gc4_s5(Draft202012Validator) -> None
-- evaluate_gc4_s6 · function · L6562-L6570 — def evaluate_gc4_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- evaluate_gc4_s8 · function · L6573-L6615 — def evaluate_gc4_s8(attempt: dict) -> tuple[str, str | None]
-- check_gc4_s8 · function · L6618-L6683 — def check_gc4_s8(Draft202012Validator) -> None
-- check_gc4_s6 · function · L6686-L6722 — def check_gc4_s6(Draft202012Validator) -> None
-- evaluate_gc4_s7 · function · L6725-L6733 — def evaluate_gc4_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc4_s7 · function · L6736-L6773 — def check_gc4_s7(Draft202012Validator) -> None
-- evaluate_gc5_s0 · function · L6776-L6796 — def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc5_s0 · function · L6799-L6856 — def check_gc5_s0(Draft202012Validator) -> None
-- evaluate_gc5_s1 · function · L6859-L6884 — def evaluate_gc5_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
-- check_gc5_s1 · function · L6887-L6931 — def check_gc5_s1(Draft202012Validator) -> None
-- evaluate_gc5_s2 · function · L6934-L7001 — def evaluate_gc5_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc5_s2 · function · L7004-L7081 — def check_gc5_s2(Draft202012Validator) -> None
-- evaluate_gc5_s3 · function · L7084-L7089 — def evaluate_gc5_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s3 · function · L7092-L7125 — def check_gc5_s3(Draft202012Validator) -> None
-- evaluate_gc5_s4 · function · L7128-L7133 — def evaluate_gc5_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s4 · function · L7136-L7169 — def check_gc5_s4(Draft202012Validator) -> None
-- evaluate_gc5_s5 · function · L7172-L7177 — def evaluate_gc5_s5(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s5 · function · L7180-L7217 — def check_gc5_s5(Draft202012Validator) -> None
-- evaluate_gc5_s6 · function · L7220-L7227 — def evaluate_gc5_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s6 · function · L7230-L7268 — def check_gc5_s6(Draft202012Validator) -> None
-- evaluate_gc5_s7 · function · L7271-L7278 — def evaluate_gc5_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s7 · function · L7281-L7318 — def check_gc5_s7(Draft202012Validator) -> None
-- evaluate_gc5_s8 · function · L7321-L7326 — def evaluate_gc5_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s8 · function · L7329-L7362 — def check_gc5_s8(Draft202012Validator) -> None
-- evaluate_gc5_s9 · function · L7365-L7371 — def evaluate_gc5_s9(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s9 · function · L7374-L7410 — def check_gc5_s9(Draft202012Validator) -> None
-- evaluate_gc5_s10 · function · L7413-L7424 — def evaluate_gc5_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s10 · function · L7427-L7463 — def check_gc5_s10(Draft202012Validator) -> None
-- evaluate_gc5_s11 · function · L7466-L7472 — def evaluate_gc5_s11(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s11 · function · L7475-L7511 — def check_gc5_s11(Draft202012Validator) -> None
-- evaluate_gc5_s12 · function · L7514-L7520 — def evaluate_gc5_s12(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s12 · function · L7523-L7565 — def check_gc5_s12(Draft202012Validator) -> None
-- evaluate_gc5_s13 · function · L7568-L7574 — def evaluate_gc5_s13(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc5_s13 · function · L7577-L7619 — def check_gc5_s13(Draft202012Validator) -> None
-- rebuild_gc6_s0 · function · L7622-L7661 — def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict
-- check_gc6_s0 · function · L7664-L7743 — def check_gc6_s0(Draft202012Validator) -> None
-- evaluate_gc6_s1 · function · L7746-L7792 — def evaluate_gc6_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
-- check_gc6_s1 · function · L7795-L7847 — def check_gc6_s1(Draft202012Validator) -> None
-- evaluate_gc7_s0 · function · L7850-L7874 — def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc7_s0 · function · L7877-L7920 — def check_gc7_s0(Draft202012Validator) -> None
-- evaluate_gc7_s1 · function · L7923-L7948 — def evaluate_gc7_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc7_s1 · function · L7951-L8005 — def check_gc7_s1(Draft202012Validator) -> None
-- evaluate_gc7_s2 · function · L8008-L8021 — def evaluate_gc7_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc7_s2 · function · L8024-L8058 — def check_gc7_s2(Draft202012Validator) -> None
-- evaluate_gc7_s3 · function · L8061-L8073 — def evaluate_gc7_s3(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_gc7_s3 · function · L8076-L8118 — def check_gc7_s3(Draft202012Validator) -> None
-- evaluate_gc7_thaw_play · function · L8121-L8129 — def evaluate_gc7_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]
-- check_gc7_thaw_play · function · L8132-L8168 — def check_gc7_thaw_play(Draft202012Validator) -> None
-- evaluate_diplomacy_s0 · function · L8171-L8181 — def evaluate_diplomacy_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_diplomacy_s0 · function · L8184-L8217 — def check_diplomacy_s0(Draft202012Validator) -> None
-- evaluate_diplomacy_s1 · function · L8220-L8231 — def evaluate_diplomacy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_diplomacy_s1 · function · L8234-L8267 — def check_diplomacy_s1(Draft202012Validator) -> None
-- evaluate_diplomacy_s2 · function · L8270-L8284 — def evaluate_diplomacy_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_diplomacy_s2 · function · L8287-L8321 — def check_diplomacy_s2(Draft202012Validator) -> None
-- evaluate_access_policy_s0 · function · L8324-L8337 — def evaluate_access_policy_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_access_policy_s0 · function · L8340-L8375 — def check_access_policy_s0(Draft202012Validator) -> None
-- evaluate_access_policy_s1 · function · L8378-L8391 — def evaluate_access_policy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_access_policy_s1 · function · L8394-L8429 — def check_access_policy_s1(Draft202012Validator) -> None
-- evaluate_access_policy_s2 · function · L8432-L8447 — def evaluate_access_policy_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
-- check_access_policy_s2 · function · L8450-L8487 — def check_access_policy_s2(Draft202012Validator) -> None
-- evaluate_access_policy_s3 · function · L8490-L8495 — def evaluate_access_policy_s3(attempt: dict, catalog: dict) -> tuple[str, bool | None, bool | None]
-- check_access_policy_s3 · function · L8498-L8529 — def check_access_policy_s3(Draft202012Validator) -> None
-- _orient_blob · function · L8544-L8555 — def _orient_blob(attempt: dict) -> str
-- room_has_strain · function · L8558-L8569 — def room_has_strain(obs: dict) -> bool
-- evaluate_agent_orientation_s0 · function · L8572-L8593 — def evaluate_agent_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_agent_orientation_s0 · function · L8596-L8636 — def check_agent_orientation_s0(Draft202012Validator) -> None
-- evaluate_agent_orientation_s1 · function · L8639-L8663 — def evaluate_agent_orientation_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_agent_orientation_s1 · function · L8666-L8704 — def check_agent_orientation_s1(Draft202012Validator) -> None
-- evaluate_agent_orientation_s2 · function · L8707-L8716 — def evaluate_agent_orientation_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_agent_orientation_s2 · function · L8719-L8755 — def check_agent_orientation_s2(Draft202012Validator) -> None
-- evaluate_human_orientation_s0 · function · L8758-L8767 — def evaluate_human_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_human_orientation_s0 · function · L8770-L8806 — def check_human_orientation_s0(Draft202012Validator) -> None
-- evaluate_agent_harness · function · L8812-L8863 — def evaluate_agent_harness(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_agent_harness · function · L8866-L8927 — def check_agent_harness(Draft202012Validator) -> None
-- evaluate_sealed_prompt_text · function · L8933-L8938 — def evaluate_sealed_prompt_text(text: str) -> tuple[str, str | None]
-- evaluate_sealed_attach · function · L8941-L8958 — def evaluate_sealed_attach(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_sealed_live_attach · function · L8961-L9010 — def check_sealed_live_attach(Draft202012Validator) -> None
-- evaluate_official_agent_client · function · L9022-L9061 — def evaluate_official_agent_client(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_official_agent_client · function · L9064-L9115 — def check_official_agent_client(Draft202012Validator) -> None
-- evaluate_gc8_s0 · function · L9118-L9143 — def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc8_s0 · function · L9146-L9202 — def check_gc8_s0(Draft202012Validator) -> None
-- evaluate_gc8_s1 · function · L9205-L9221 — def evaluate_gc8_s1(attempt: dict, catalog: dict) -> dict
-- check_gc8_s1 · function · L9224-L9256 — def check_gc8_s1(Draft202012Validator) -> None
-- evaluate_gc8_s2 · function · L9259-L9268 — def evaluate_gc8_s2(attempt: dict, catalog: dict) -> dict
-- check_gc8_s2 · function · L9271-L9301 — def check_gc8_s2(Draft202012Validator) -> None
-- evaluate_gc8_s3 · function · L9304-L9311 — def evaluate_gc8_s3(attempt: dict, catalog: dict) -> dict
-- check_gc8_s3 · function · L9314-L9345 — def check_gc8_s3(Draft202012Validator) -> None
-- evaluate_gc8_s4 · function · L9348-L9354 — def evaluate_gc8_s4(attempt: dict, catalog: dict) -> dict
-- check_gc8_s4 · function · L9357-L9388 — def check_gc8_s4(Draft202012Validator) -> None
-- evaluate_lockout_wait · function · L9391-L9400 — def evaluate_lockout_wait(attempt: dict, catalog: dict) -> dict
-- check_rfc_0117 · function · L9403-L9424 — def check_rfc_0117(Draft202012Validator) -> None
-- evaluate_gc8_s6 · function · L9427-L9446 — def evaluate_gc8_s6(attempt: dict, catalog: dict) -> dict
-- check_gc8_s6 · function · L9449-L9482 — def check_gc8_s6(Draft202012Validator) -> None
-- evaluate_gc8_s7 · function · L9485-L9502 — def evaluate_gc8_s7(attempt: dict, catalog: dict) -> dict
-- check_gc8_s7 · function · L9505-L9536 — def check_gc8_s7(Draft202012Validator) -> None
-- _gc9_is_repair_update · function · L9539-L9550 — def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool
-- rebuild_gc9_s0 · function · L9553-L9590 — def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict
-- check_gc9_s0 · function · L9593-L9641 — def check_gc9_s0(Draft202012Validator) -> None
-- _gc9_s1_is_repair · function · L9644-L9652 — def _gc9_s1_is_repair(ev: dict, entity_id: str) -> bool
-- rebuild_gc9_s1 · function · L9655-L9757 — def rebuild_gc9_s1(fixture: dict, catalog: dict) -> dict
-- check_gc9_s1 · function · L9760-L9809 — def check_gc9_s1(Draft202012Validator) -> None
-- _gc9_s2_repairs · function · L9812-L9829 — def _gc9_s2_repairs(fixture: dict) -> list[dict]
-- rebuild_gc9_s2 · function · L9832-L9915 — def rebuild_gc9_s2(fixture: dict, s1_catalog: dict, s2_catalog: dict) -> dict
-- check_gc9_s2 · function · L9918-L9990 — def check_gc9_s2(Draft202012Validator) -> None
-- evaluate_gc10_s0 · function · L9993-L10040 — def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc10_s0 · function · L10043-L10083 — def check_gc10_s0(Draft202012Validator) -> None
-- evaluate_gc10_s1 · function · L10086-L10200 — def evaluate_gc10_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc10_s1 · function · L10203-L10280 — def check_gc10_s1(Draft202012Validator) -> None
-- evaluate_gc10_s2 · function · L10283-L10293 — def evaluate_gc10_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
-- check_gc10_s2 · function · L10296-L10330 — def check_gc10_s2(Draft202012Validator) -> None
-- check_adr007_atomic_rooms · function · L10333-L10379 — def check_adr007_atomic_rooms(Draft202012Validator) -> None
-- check_adr008_replay · function · L10382-L10409 — def check_adr008_replay() -> None
-- evaluate_agent_only_player_identity · function · L10432-L10470 — def evaluate_agent_only_player_identity(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_rfc_0120 · function · L10473-L10515 — def check_rfc_0120(Draft202012Validator) -> None
-- check_conformance_case_substance · function · L10518-L10632 — def check_conformance_case_substance() -> None
-- ratchet_error · function · L10577-L10585 — def ratchet_error(suite: str, ids: set[str]) -> str | None
-- check_conformance_requirement_refs · function · L10635-L10708 — def check_conformance_requirement_refs() -> None
-- heading_anchors · function · L10655-L10662 — def heading_anchors(text: str) -> set
-- numbered_items · function · L10664-L10665 — def numbered_items(text: str) -> set
-- genesis_items · function · L10667-L10668 — def genesis_items(text: str) -> set
-- check_rfc_0121 · function · L10711-L10729 — def check_rfc_0121() -> None
-- check_rfc_0126_watch_entity_update_exposure · function · L10732-L10767 — def check_rfc_0126_watch_entity_update_exposure() -> None
-- check_rfc_0127 · function · L10770-L10849 — def check_rfc_0127(Draft202012Validator) -> None
-- check_rfc_0129 · function · L10852-L11101 — def check_rfc_0129(Draft202012Validator) -> None
-- as_rebuild_event · function · L11024-L11031 — def as_rebuild_event(event: dict) -> dict
-- check_rfc_0128 · function · L11104-L11218 — def check_rfc_0128(Draft202012Validator) -> None
-- main · function · L11221-L11371 — def main() -> None
+- check_graft_tracked · function · L2716-L2722 — def check_graft_tracked() -> None
+- check_glossary · function · L2729-L2757 — def check_glossary() -> None
+- check_skills_workflows · function · L2760-L2791 — def check_skills_workflows() -> None
+- rebuild_gc1_s0 · function · L2793-L2882 — def rebuild_gc1_s0(fixture: dict, catalog: dict) -> dict
+- credit · function · L2802-L2812 — def credit(track_id: str, event_id: str, unit: str, recognition_unit: str | None = None) -> None
+- payload_player · function · L2814-L2819 — def payload_player(payload: dict) -> str | None
+- check_gc1_s0 · function · L2885-L2946 — def check_gc1_s0(Draft202012Validator) -> None
+- check_gc1_s1 · function · L2949-L2989 — def check_gc1_s1(Draft202012Validator) -> None
+- evaluate_gc1_s2 · function · L2992-L2998 — def evaluate_gc1_s2(attempt: dict, catalog: dict) -> dict
+- check_gc1_s2 · function · L3001-L3030 — def check_gc1_s2(Draft202012Validator) -> None
+- evaluate_gc1_s3 · function · L3033-L3042 — def evaluate_gc1_s3(attempt: dict, catalog: dict) -> dict
+- check_gc1_s3 · function · L3045-L3090 — def check_gc1_s3(Draft202012Validator) -> None
+- evaluate_gc1_s4 · function · L3093-L3108 — def evaluate_gc1_s4(attempt: dict, catalog: dict) -> dict
+- check_gc1_s4 · function · L3111-L3143 — def check_gc1_s4(Draft202012Validator) -> None
+- evaluate_gc1_s5 · function · L3146-L3155 — def evaluate_gc1_s5(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc1_s5 · function · L3158-L3194 — def check_gc1_s5(Draft202012Validator) -> None
+- evaluate_gc1_s6 · function · L3200-L3233 — def evaluate_gc1_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
+- check_gc1_s6 · function · L3236-L3280 — def check_gc1_s6(Draft202012Validator) -> None
+- evaluate_gc1_s7 · function · L3283-L3300 — def evaluate_gc1_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
+- check_gc1_s7 · function · L3303-L3344 — def check_gc1_s7(Draft202012Validator) -> None
+- evaluate_gc1_s8 · function · L3347-L3367 — def evaluate_gc1_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None, int | None, str | None]
+- check_gc1_s8 · function · L3370-L3412 — def check_gc1_s8(Draft202012Validator) -> None
+- evaluate_hosted_mp_s0 · function · L3415-L3430 — def evaluate_hosted_mp_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_hosted_mp_s0 · function · L3433-L3475 — def check_hosted_mp_s0(Draft202012Validator) -> None
+- evaluate_gc2_s0 · function · L3478-L3513 — def evaluate_gc2_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc2_s0 · function · L3516-L3557 — def check_gc2_s0(Draft202012Validator) -> None
+- evaluate_gc2_s1 · function · L3560-L3571 — def evaluate_gc2_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s1 · function · L3574-L3608 — def check_gc2_s1(Draft202012Validator) -> None
+- evaluate_gc2_s2 · function · L3611-L3618 — def evaluate_gc2_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s2 · function · L3621-L3655 — def check_gc2_s2(Draft202012Validator) -> None
+- evaluate_gc2_s3 · function · L3658-L3667 — def evaluate_gc2_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s3 · function · L3670-L3704 — def check_gc2_s3(Draft202012Validator) -> None
+- evaluate_gc2_s4 · function · L3707-L3716 — def evaluate_gc2_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s4 · function · L3719-L3753 — def check_gc2_s4(Draft202012Validator) -> None
+- evaluate_gc2_s5 · function · L3756-L3770 — def evaluate_gc2_s5(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s5 · function · L3773-L3808 — def check_gc2_s5(Draft202012Validator) -> None
+- evaluate_gc2_s6 · function · L3811-L3821 — def evaluate_gc2_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
+- check_gc2_s6 · function · L3824-L3869 — def check_gc2_s6(Draft202012Validator) -> None
+- evaluate_gc2_s7 · function · L3872-L3885 — def evaluate_gc2_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
+- check_gc2_s7 · function · L3888-L3923 — def check_gc2_s7(Draft202012Validator) -> None
+- evaluate_gc2_s8 · function · L3926-L3937 — def evaluate_gc2_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc2_s8 · function · L3940-L3975 — def check_gc2_s8(Draft202012Validator) -> None
+- evaluate_gc2_s9 · function · L3978-L3994 — def evaluate_gc2_s9(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s9 · function · L3997-L4037 — def check_gc2_s9(Draft202012Validator) -> None
+- evaluate_gc2_s10 · function · L4040-L4052 — def evaluate_gc2_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s10 · function · L4055-L4091 — def check_gc2_s10(Draft202012Validator) -> None
+- evaluate_gc2_s11 · function · L4094-L4104 — def evaluate_gc2_s11(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s11 · function · L4107-L4145 — def check_gc2_s11(Draft202012Validator) -> None
+- evaluate_gc2_s12 · function · L4148-L4155 — def evaluate_gc2_s12(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s12 · function · L4158-L4194 — def check_gc2_s12(Draft202012Validator) -> None
+- evaluate_gc2_s13 · function · L4197-L4223 — def evaluate_gc2_s13(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s13 · function · L4226-L4275 — def check_gc2_s13(Draft202012Validator) -> None
+- evaluate_gc2_s14 · function · L4278-L4295 — def evaluate_gc2_s14(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s14 · function · L4298-L4338 — def check_gc2_s14(Draft202012Validator) -> None
+- evaluate_gc2_s15 · function · L4341-L4358 — def evaluate_gc2_s15(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s15 · function · L4361-L4407 — def check_gc2_s15(Draft202012Validator) -> None
+- evaluate_gc2_s16 · function · L4410-L4427 — def evaluate_gc2_s16(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s16 · function · L4430-L4470 — def check_gc2_s16(Draft202012Validator) -> None
+- evaluate_gc2_s17 · function · L4473-L4493 — def evaluate_gc2_s17(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s17 · function · L4496-L4546 — def check_gc2_s17(Draft202012Validator) -> None
+- evaluate_gc2_s18 · function · L4549-L4569 — def evaluate_gc2_s18(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s18 · function · L4572-L4622 — def check_gc2_s18(Draft202012Validator) -> None
+- evaluate_gc2_s19 · function · L4625-L4645 — def evaluate_gc2_s19(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s19 · function · L4648-L4701 — def check_gc2_s19(Draft202012Validator) -> None
+- evaluate_gc2_s20 · function · L4704-L4716 — def evaluate_gc2_s20(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s20 · function · L4719-L4757 — def check_gc2_s20(Draft202012Validator) -> None
+- evaluate_gc2_s21 · function · L4760-L4772 — def evaluate_gc2_s21(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s21 · function · L4775-L4813 — def check_gc2_s21(Draft202012Validator) -> None
+- evaluate_gc2_s22 · function · L4816-L4828 — def evaluate_gc2_s22(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s22 · function · L4831-L4869 — def check_gc2_s22(Draft202012Validator) -> None
+- evaluate_gc2_s23 · function · L4872-L4884 — def evaluate_gc2_s23(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s23 · function · L4887-L4925 — def check_gc2_s23(Draft202012Validator) -> None
+- evaluate_gc2_s24 · function · L4928-L4943 — def evaluate_gc2_s24(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc2_s24 · function · L4946-L4991 — def check_gc2_s24(Draft202012Validator) -> None
+- evaluate_wr_s0 · function · L4994-L5001 — def evaluate_wr_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_wr_s0 · function · L5004-L5046 — def check_wr_s0(Draft202012Validator) -> None
+- evaluate_gc2_thaw_play · function · L5049-L5057 — def evaluate_gc2_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]
+- check_gc2_thaw_play · function · L5060-L5089 — def check_gc2_thaw_play(Draft202012Validator) -> None
+- evaluate_wr_s1 · function · L5092-L5098 — def evaluate_wr_s1(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s1 · function · L5101-L5132 — def check_wr_s1(Draft202012Validator) -> None
+- evaluate_wr_s2 · function · L5135-L5141 — def evaluate_wr_s2(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s2 · function · L5144-L5175 — def check_wr_s2(Draft202012Validator) -> None
+- evaluate_wr_s3 · function · L5178-L5184 — def evaluate_wr_s3(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s3 · function · L5187-L5218 — def check_wr_s3(Draft202012Validator) -> None
+- evaluate_wr_s4 · function · L5221-L5227 — def evaluate_wr_s4(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s4 · function · L5230-L5261 — def check_wr_s4(Draft202012Validator) -> None
+- evaluate_wr_s5 · function · L5264-L5270 — def evaluate_wr_s5(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s5 · function · L5273-L5304 — def check_wr_s5(Draft202012Validator) -> None
+- evaluate_wr_s6 · function · L5307-L5313 — def evaluate_wr_s6(attempt: dict, catalog: dict) -> tuple[str, int | None, int | None]
+- check_wr_s6 · function · L5316-L5347 — def check_wr_s6(Draft202012Validator) -> None
+- rebuild_gc3_s0 · function · L5351-L5404 — def rebuild_gc3_s0(fixture: dict, catalog: dict) -> dict
+- check_gc3_s0 · function · L5407-L5442 — def check_gc3_s0(Draft202012Validator) -> None
+- rebuild_gc3_s1 · function · L5445-L5501 — def rebuild_gc3_s1(fixture: dict, catalog: dict) -> dict
+- check_gc3_s1 · function · L5504-L5539 — def check_gc3_s1(Draft202012Validator) -> None
+- _gc3_attest_contradictions · function · L5542-L5571 — def _gc3_attest_contradictions(events: list) -> list[tuple[str, str]]
+- rebuild_gc3_s2 · function · L5574-L5618 — def rebuild_gc3_s2(fixture: dict, catalog: dict) -> dict
+- check_gc3_s2 · function · L5621-L5650 — def check_gc3_s2(Draft202012Validator) -> None
+- rebuild_gc3_s3 · function · L5653-L5718 — def rebuild_gc3_s3(fixture: dict, catalog: dict) -> dict
+- emit · function · L5699-L5705 — def emit(other: str, template: str) -> None
+- check_gc3_s3 · function · L5721-L5750 — def check_gc3_s3(Draft202012Validator) -> None
+- rebuild_gc3_s4 · function · L5753-L5803 — def rebuild_gc3_s4(fixture: dict, catalog: dict) -> dict
+- check_gc3_s4 · function · L5806-L5828 — def check_gc3_s4(Draft202012Validator) -> None
+- evaluate_gc3_s5 · function · L5831-L5837 — def evaluate_gc3_s5(attempt: dict, catalog: dict) -> dict
+- check_gc3_s5 · function · L5840-L5866 — def check_gc3_s5(Draft202012Validator) -> None
+- rebuild_gc3_s6 · function · L5869-L5904 — def rebuild_gc3_s6(fixture: dict, catalog: dict) -> dict
+- check_gc3_s6 · function · L5907-L5944 — def check_gc3_s6(Draft202012Validator) -> None
+- evaluate_gc3_s7 · function · L5947-L5960 — def evaluate_gc3_s7(attempt: dict, catalog: dict) -> dict
+- check_gc3_s7 · function · L5963-L5987 — def check_gc3_s7(Draft202012Validator) -> None
+- evaluate_gc4_s0 · function · L5990-L6023 — def evaluate_gc4_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc4_s0 · function · L6026-L6068 — def check_gc4_s0(Draft202012Validator) -> None
+- evaluate_gc4_s1 · function · L6071-L6139 — def evaluate_gc4_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc4_s1 · function · L6142-L6192 — def check_gc4_s1(Draft202012Validator) -> None
+- evaluate_gc4_s2 · function · L6195-L6224 — def evaluate_gc4_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc4_s2 · function · L6227-L6282 — def check_gc4_s2(Draft202012Validator) -> None
+- evaluate_gc4_s3 · function · L6285-L6325 — def evaluate_gc4_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc4_s3 · function · L6328-L6381 — def check_gc4_s3(Draft202012Validator) -> None
+- evaluate_gc4_s4 · function · L6384-L6449 — def evaluate_gc4_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc4_s4 · function · L6452-L6518 — def check_gc4_s4(Draft202012Validator) -> None
+- evaluate_gc4_s5 · function · L6521-L6531 — def evaluate_gc4_s5(attempt: dict) -> tuple[str, str | None, bool]
+- check_gc4_s5 · function · L6534-L6568 — def check_gc4_s5(Draft202012Validator) -> None
+- evaluate_gc4_s6 · function · L6571-L6579 — def evaluate_gc4_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- evaluate_gc4_s8 · function · L6582-L6624 — def evaluate_gc4_s8(attempt: dict) -> tuple[str, str | None]
+- check_gc4_s8 · function · L6627-L6692 — def check_gc4_s8(Draft202012Validator) -> None
+- check_gc4_s6 · function · L6695-L6731 — def check_gc4_s6(Draft202012Validator) -> None
+- evaluate_gc4_s7 · function · L6734-L6742 — def evaluate_gc4_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc4_s7 · function · L6745-L6782 — def check_gc4_s7(Draft202012Validator) -> None
+- evaluate_gc5_s0 · function · L6785-L6805 — def evaluate_gc5_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc5_s0 · function · L6808-L6865 — def check_gc5_s0(Draft202012Validator) -> None
+- evaluate_gc5_s1 · function · L6868-L6893 — def evaluate_gc5_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
+- check_gc5_s1 · function · L6896-L6940 — def check_gc5_s1(Draft202012Validator) -> None
+- evaluate_gc5_s2 · function · L6943-L7010 — def evaluate_gc5_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc5_s2 · function · L7013-L7090 — def check_gc5_s2(Draft202012Validator) -> None
+- evaluate_gc5_s3 · function · L7093-L7098 — def evaluate_gc5_s3(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s3 · function · L7101-L7134 — def check_gc5_s3(Draft202012Validator) -> None
+- evaluate_gc5_s4 · function · L7137-L7142 — def evaluate_gc5_s4(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s4 · function · L7145-L7178 — def check_gc5_s4(Draft202012Validator) -> None
+- evaluate_gc5_s5 · function · L7181-L7186 — def evaluate_gc5_s5(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s5 · function · L7189-L7226 — def check_gc5_s5(Draft202012Validator) -> None
+- evaluate_gc5_s6 · function · L7229-L7236 — def evaluate_gc5_s6(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s6 · function · L7239-L7277 — def check_gc5_s6(Draft202012Validator) -> None
+- evaluate_gc5_s7 · function · L7280-L7287 — def evaluate_gc5_s7(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s7 · function · L7290-L7327 — def check_gc5_s7(Draft202012Validator) -> None
+- evaluate_gc5_s8 · function · L7330-L7335 — def evaluate_gc5_s8(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s8 · function · L7338-L7371 — def check_gc5_s8(Draft202012Validator) -> None
+- evaluate_gc5_s9 · function · L7374-L7380 — def evaluate_gc5_s9(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s9 · function · L7383-L7419 — def check_gc5_s9(Draft202012Validator) -> None
+- evaluate_gc5_s10 · function · L7422-L7433 — def evaluate_gc5_s10(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s10 · function · L7436-L7472 — def check_gc5_s10(Draft202012Validator) -> None
+- evaluate_gc5_s11 · function · L7475-L7481 — def evaluate_gc5_s11(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s11 · function · L7484-L7520 — def check_gc5_s11(Draft202012Validator) -> None
+- evaluate_gc5_s12 · function · L7523-L7529 — def evaluate_gc5_s12(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s12 · function · L7532-L7574 — def check_gc5_s12(Draft202012Validator) -> None
+- evaluate_gc5_s13 · function · L7577-L7583 — def evaluate_gc5_s13(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc5_s13 · function · L7586-L7628 — def check_gc5_s13(Draft202012Validator) -> None
+- rebuild_gc6_s0 · function · L7631-L7670 — def rebuild_gc6_s0(fixture: dict, catalog: dict) -> dict
+- check_gc6_s0 · function · L7673-L7752 — def check_gc6_s0(Draft202012Validator) -> None
+- evaluate_gc6_s1 · function · L7755-L7801 — def evaluate_gc6_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, str | None]
+- check_gc6_s1 · function · L7804-L7856 — def check_gc6_s1(Draft202012Validator) -> None
+- evaluate_gc7_s0 · function · L7859-L7883 — def evaluate_gc7_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc7_s0 · function · L7886-L7929 — def check_gc7_s0(Draft202012Validator) -> None
+- evaluate_gc7_s1 · function · L7932-L7957 — def evaluate_gc7_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc7_s1 · function · L7960-L8014 — def check_gc7_s1(Draft202012Validator) -> None
+- evaluate_gc7_s2 · function · L8017-L8030 — def evaluate_gc7_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc7_s2 · function · L8033-L8067 — def check_gc7_s2(Draft202012Validator) -> None
+- evaluate_gc7_s3 · function · L8070-L8082 — def evaluate_gc7_s3(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_gc7_s3 · function · L8085-L8127 — def check_gc7_s3(Draft202012Validator) -> None
+- evaluate_gc7_thaw_play · function · L8130-L8138 — def evaluate_gc7_thaw_play(attempt: dict, catalog: dict) -> tuple[str, bool | None]
+- check_gc7_thaw_play · function · L8141-L8177 — def check_gc7_thaw_play(Draft202012Validator) -> None
+- evaluate_diplomacy_s0 · function · L8180-L8190 — def evaluate_diplomacy_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_diplomacy_s0 · function · L8193-L8226 — def check_diplomacy_s0(Draft202012Validator) -> None
+- evaluate_diplomacy_s1 · function · L8229-L8240 — def evaluate_diplomacy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_diplomacy_s1 · function · L8243-L8276 — def check_diplomacy_s1(Draft202012Validator) -> None
+- evaluate_diplomacy_s2 · function · L8279-L8293 — def evaluate_diplomacy_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_diplomacy_s2 · function · L8296-L8330 — def check_diplomacy_s2(Draft202012Validator) -> None
+- evaluate_access_policy_s0 · function · L8333-L8346 — def evaluate_access_policy_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_access_policy_s0 · function · L8349-L8384 — def check_access_policy_s0(Draft202012Validator) -> None
+- evaluate_access_policy_s1 · function · L8387-L8400 — def evaluate_access_policy_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_access_policy_s1 · function · L8403-L8438 — def check_access_policy_s1(Draft202012Validator) -> None
+- evaluate_access_policy_s2 · function · L8441-L8456 — def evaluate_access_policy_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool | None]
+- check_access_policy_s2 · function · L8459-L8496 — def check_access_policy_s2(Draft202012Validator) -> None
+- evaluate_access_policy_s3 · function · L8499-L8504 — def evaluate_access_policy_s3(attempt: dict, catalog: dict) -> tuple[str, bool | None, bool | None]
+- check_access_policy_s3 · function · L8507-L8538 — def check_access_policy_s3(Draft202012Validator) -> None
+- _orient_blob · function · L8553-L8564 — def _orient_blob(attempt: dict) -> str
+- room_has_strain · function · L8567-L8578 — def room_has_strain(obs: dict) -> bool
+- evaluate_agent_orientation_s0 · function · L8581-L8602 — def evaluate_agent_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_agent_orientation_s0 · function · L8605-L8645 — def check_agent_orientation_s0(Draft202012Validator) -> None
+- evaluate_agent_orientation_s1 · function · L8648-L8672 — def evaluate_agent_orientation_s1(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_agent_orientation_s1 · function · L8675-L8713 — def check_agent_orientation_s1(Draft202012Validator) -> None
+- evaluate_agent_orientation_s2 · function · L8716-L8725 — def evaluate_agent_orientation_s2(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_agent_orientation_s2 · function · L8728-L8764 — def check_agent_orientation_s2(Draft202012Validator) -> None
+- evaluate_human_orientation_s0 · function · L8767-L8776 — def evaluate_human_orientation_s0(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_human_orientation_s0 · function · L8779-L8815 — def check_human_orientation_s0(Draft202012Validator) -> None
+- evaluate_agent_harness · function · L8821-L8872 — def evaluate_agent_harness(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_agent_harness · function · L8875-L8936 — def check_agent_harness(Draft202012Validator) -> None
+- evaluate_sealed_prompt_text · function · L8942-L8947 — def evaluate_sealed_prompt_text(text: str) -> tuple[str, str | None]
+- evaluate_sealed_attach · function · L8950-L8967 — def evaluate_sealed_attach(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_sealed_live_attach · function · L8970-L9019 — def check_sealed_live_attach(Draft202012Validator) -> None
+- evaluate_official_agent_client · function · L9031-L9070 — def evaluate_official_agent_client(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_official_agent_client · function · L9073-L9124 — def check_official_agent_client(Draft202012Validator) -> None
+- evaluate_gc8_s0 · function · L9127-L9152 — def evaluate_gc8_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc8_s0 · function · L9155-L9211 — def check_gc8_s0(Draft202012Validator) -> None
+- evaluate_gc8_s1 · function · L9214-L9230 — def evaluate_gc8_s1(attempt: dict, catalog: dict) -> dict
+- check_gc8_s1 · function · L9233-L9265 — def check_gc8_s1(Draft202012Validator) -> None
+- evaluate_gc8_s2 · function · L9268-L9277 — def evaluate_gc8_s2(attempt: dict, catalog: dict) -> dict
+- check_gc8_s2 · function · L9280-L9310 — def check_gc8_s2(Draft202012Validator) -> None
+- evaluate_gc8_s3 · function · L9313-L9320 — def evaluate_gc8_s3(attempt: dict, catalog: dict) -> dict
+- check_gc8_s3 · function · L9323-L9354 — def check_gc8_s3(Draft202012Validator) -> None
+- evaluate_gc8_s4 · function · L9357-L9363 — def evaluate_gc8_s4(attempt: dict, catalog: dict) -> dict
+- check_gc8_s4 · function · L9366-L9397 — def check_gc8_s4(Draft202012Validator) -> None
+- evaluate_lockout_wait · function · L9400-L9409 — def evaluate_lockout_wait(attempt: dict, catalog: dict) -> dict
+- check_rfc_0117 · function · L9412-L9433 — def check_rfc_0117(Draft202012Validator) -> None
+- evaluate_gc8_s6 · function · L9436-L9455 — def evaluate_gc8_s6(attempt: dict, catalog: dict) -> dict
+- check_gc8_s6 · function · L9458-L9491 — def check_gc8_s6(Draft202012Validator) -> None
+- evaluate_gc8_s7 · function · L9494-L9511 — def evaluate_gc8_s7(attempt: dict, catalog: dict) -> dict
+- check_gc8_s7 · function · L9514-L9545 — def check_gc8_s7(Draft202012Validator) -> None
+- _gc9_is_repair_update · function · L9548-L9559 — def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool
+- rebuild_gc9_s0 · function · L9562-L9599 — def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict
+- check_gc9_s0 · function · L9602-L9650 — def check_gc9_s0(Draft202012Validator) -> None
+- _gc9_s1_is_repair · function · L9653-L9661 — def _gc9_s1_is_repair(ev: dict, entity_id: str) -> bool
+- rebuild_gc9_s1 · function · L9664-L9766 — def rebuild_gc9_s1(fixture: dict, catalog: dict) -> dict
+- check_gc9_s1 · function · L9769-L9818 — def check_gc9_s1(Draft202012Validator) -> None
+- _gc9_s2_repairs · function · L9821-L9838 — def _gc9_s2_repairs(fixture: dict) -> list[dict]
+- rebuild_gc9_s2 · function · L9841-L9924 — def rebuild_gc9_s2(fixture: dict, s1_catalog: dict, s2_catalog: dict) -> dict
+- check_gc9_s2 · function · L9927-L9999 — def check_gc9_s2(Draft202012Validator) -> None
+- evaluate_gc10_s0 · function · L10002-L10049 — def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc10_s0 · function · L10052-L10092 — def check_gc10_s0(Draft202012Validator) -> None
+- evaluate_gc10_s1 · function · L10095-L10209 — def evaluate_gc10_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc10_s1 · function · L10212-L10289 — def check_gc10_s1(Draft202012Validator) -> None
+- evaluate_gc10_s2 · function · L10292-L10302 — def evaluate_gc10_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
+- check_gc10_s2 · function · L10305-L10339 — def check_gc10_s2(Draft202012Validator) -> None
+- check_adr007_atomic_rooms · function · L10342-L10388 — def check_adr007_atomic_rooms(Draft202012Validator) -> None
+- check_adr008_replay · function · L10391-L10418 — def check_adr008_replay() -> None
+- evaluate_agent_only_player_identity · function · L10441-L10479 — def evaluate_agent_only_player_identity(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_rfc_0120 · function · L10482-L10524 — def check_rfc_0120(Draft202012Validator) -> None
+- check_conformance_case_substance · function · L10527-L10641 — def check_conformance_case_substance() -> None
+- ratchet_error · function · L10586-L10594 — def ratchet_error(suite: str, ids: set[str]) -> str | None
+- check_conformance_requirement_refs · function · L10644-L10717 — def check_conformance_requirement_refs() -> None
+- heading_anchors · function · L10664-L10671 — def heading_anchors(text: str) -> set
+- numbered_items · function · L10673-L10674 — def numbered_items(text: str) -> set
+- genesis_items · function · L10676-L10677 — def genesis_items(text: str) -> set
+- check_rfc_0121 · function · L10720-L10738 — def check_rfc_0121() -> None
+- check_rfc_0126_watch_entity_update_exposure · function · L10741-L10776 — def check_rfc_0126_watch_entity_update_exposure() -> None
+- check_rfc_0127 · function · L10779-L10858 — def check_rfc_0127(Draft202012Validator) -> None
+- check_rfc_0129 · function · L10861-L11110 — def check_rfc_0129(Draft202012Validator) -> None
+- as_rebuild_event · function · L11033-L11040 — def as_rebuild_event(event: dict) -> dict
+- check_rfc_0128 · function · L11113-L11227 — def check_rfc_0128(Draft202012Validator) -> None
+- main · function · L11230-L11381 — def main() -> None

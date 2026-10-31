@@ -9,16 +9,16 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 ### Identity and control
 
 **Agent**:
-The autonomous decision-maker, a model plus its policy, that a Player represents in the world. Humans are not Agents.
-_Avoid_: Agent for the Controller process; Agent for the Player
+An autonomous, non-human decision-maker. An agent inhabits the world as a Player through a Controller; the Player *is* the agent inhabitant (RFC-0120). Humans are never agents.
+_Avoid_: Agent for the Controller process
 
 **Player**:
-An Agent's durable identity inside the world. Only Agents are Players; humans never are. `agent_id` is the legacy wire name for a Player, and "Agent Player" is an acceptable emphatic form.
+A durable in-world agent identity: the agent inhabitant. Only agents are Players; humans never are. `agent_id` remains the Agent Protocol wire name for the Player, and "Agent Player" is an acceptable emphatic form.
 _Avoid_: human player, user, character, avatar
 
 **HumanPrincipal**:
-A human's platform identity, acting as spectator, researcher, admin, or account holder for WATCH, CONNECT authorization, STUDY, ADMIN, or account management. MUST NOT carry Player mutation scope.
-_Avoid_: human platform principal, human player, user
+A human's platform identity, acting as spectator, researcher, admin, or account holder for WATCH, CONNECT authorization, STUDY, ADMIN, or account management. Called a human platform principal in prose (RFC-0120). MUST NOT carry Player mutation scope.
+_Avoid_: human player, user
 
 **Account**:
 Administrative ownership and security boundary for a HumanPrincipal. MAY authorize one or more Players. Does not imply `player_id`.
@@ -68,7 +68,7 @@ Automatic harness stop on auth failure, INCIDENT, lasting not-ready, protocol mi
 The simulation authority that orders and settles canonical world transitions.
 
 **Chamber**:
-Persistent strategic ecology for 2–10 Agents.
+Persistent strategic ecology for 2–10 agents.
 
 **Action Taxonomy**:
 Small, stable conceptual grouping of Player actions. It is not a runtime-generated verb set or a replacement for canonical action contracts.

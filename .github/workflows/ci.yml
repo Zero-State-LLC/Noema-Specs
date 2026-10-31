@@ -19,3 +19,10 @@ jobs:
     # Freshness is metadata-only here, not a live availability or gate-promotion check.
     - name: Validate specifications, direction, offline freshness, and Gate B traceability
       run: bash validation/run.sh
+    # The committed graft/ index must match validation/*.py. Pinned to the version that built it (#366).
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.12'
+    - name: Check the committed graft index is fresh
+      run: npx -y @nanonets/graft@0.26.0 build --check
