@@ -33,7 +33,7 @@ class ValidationEntrypointTests(unittest.TestCase):
             prefix="noema-entrypoint-", dir=os.environ.get("JCODE_SCRATCH_DIR")
         )
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name) / "specs with spaces"
+        self.root = Path(temporary.name).resolve() / "specs with spaces"
         (self.root / "validation").mkdir(parents=True)
         shutil.copy2(ROOT / "validation/run.sh", self.root / "validation/run.sh")
         shutil.copy2(
