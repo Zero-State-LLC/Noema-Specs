@@ -4,5 +4,15 @@
 - MarkdownLinkValidationTests · class · L25-L63 — class MarkdownLinkValidationTests(unittest.TestCase)
 - test_reports_source_target_and_resolved_path · method · L26-L39 — def test_reports_source_target_and_resolved_path(self) -> None
 - test_ignores_external_anchor_and_outside_root_targets · method · L41-L63 — def test_ignores_external_anchor_and_outside_root_targets(self) -> None
-- DependencySmokeTests · class · L66-L69 — class DependencySmokeTests(unittest.TestCase)
-- test_dependency_preflight_returns_validator_when_installed · method · L67-L69 — def test_dependency_preflight_returns_validator_when_installed(self) -> None
+- GlossaryValidationTests · class · L66-L117 — class GlossaryValidationTests(unittest.TestCase)
+- run_check · method · L74-L85 — def run_check(self, text: str)
+- assert_fails_with · method · L87-L91 — def assert_fails_with(self, text: str, *fragments: str) -> None
+- test_well_formed_glossary_passes · method · L93-L94 — def test_well_formed_glossary_passes(self) -> None
+- test_missing_definition_fails · method · L96-L98 — def test_missing_definition_fails(self) -> None
+- test_duplicate_term_fails · method · L100-L102 — def test_duplicate_term_fails(self) -> None
+- test_implementation_token_fails · method · L104-L106 — def test_implementation_token_fails(self) -> None
+- test_version_tag_fails · method · L108-L110 — def test_version_tag_fails(self) -> None
+- test_avoid_line_is_not_a_definition · method · L112-L114 — def test_avoid_line_is_not_a_definition(self) -> None
+- test_missing_language_section_fails · method · L116-L117 — def test_missing_language_section_fails(self) -> None
+- DependencySmokeTests · class · L120-L123 — class DependencySmokeTests(unittest.TestCase)
+- test_dependency_preflight_returns_validator_when_installed · method · L121-L123 — def test_dependency_preflight_returns_validator_when_installed(self) -> None

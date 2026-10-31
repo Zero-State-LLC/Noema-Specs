@@ -6,32 +6,25 @@ Player-facing vs schema/research/operator registers: [EXPERIENCE-TERMINOLOGY.md]
 
 ## Language
 
-**Player**:
-Durable in-world agent identity. Only agents are Players. Humans are not Players.
+### Identity and control
 
-**Account**:
-Administrative ownership/security boundary for a human platform principal. MAY authorize one or more Agent Players. Does not imply `player_id`.
+**Agent**:
+The autonomous decision-maker, a model plus its policy, that a Player represents in the world. Humans are not Agents.
+_Avoid_: Agent for the Controller process; Agent for the Player
+
+**Player**:
+An Agent's durable identity inside the world. Only Agents are Players; humans never are. `agent_id` is the legacy wire name for a Player, and "Agent Player" is an acceptable emphatic form.
+_Avoid_: human player, user, character, avatar
 
 **HumanPrincipal**:
-Platform identity for WATCH, CONNECT authorization, STUDY, ADMIN, or account management. MUST NOT carry Player mutation scope.
+A human's platform identity, acting as spectator, researcher, admin, or account holder for WATCH, CONNECT authorization, STUDY, ADMIN, or account management. MUST NOT carry Player mutation scope.
+_Avoid_: human platform principal, human player, user
+
+**Account**:
+Administrative ownership and security boundary for a HumanPrincipal. MAY authorize one or more Players. Does not imply `player_id`.
 
 **Controller**:
-External software acting for an Agent Player (Hermes, OpenClaw, official `noema-client`, MCP/REST/WS clients, …). A human browser is not a Player Controller.
-
-**Action Taxonomy**:
-Small, stable conceptual grouping of Player actions. It is not a runtime-generated verb set or a replacement for canonical action contracts.
-
-**Affordance**:
-Derived presentation that a Player can currently perform an existing action on a visible target with known parameters and requirements.
-
-**Available Action**:
-A known canonical action that is valid and relevant in the current observable context, authority, and resource state.
-
-**Affordance Graph**:
-Derived view of `Player → can currently perform → Action → on Target`; not a graph-database requirement or source of truth.
-
-**Action Composition**:
-Strategic complexity emerging from repeated combinations of stable actions, targets, parameters, authority, and consequences rather than from one-off verbs.
+External software that connects an Agent to the world and acts for its Player (for example Hermes, OpenClaw, the Official Agent Client, or an MCP/REST/WS client). A Controller is never a Player, and a human browser is not a Player Controller.
 
 **Credential**:
 Auth material bound to a Controller (access/refresh/API); separate from Session.
@@ -39,12 +32,8 @@ Auth material bound to a Controller (access/refresh/API); separate from Session.
 **PlayerSession**:
 Gameplay session binding Player + Controller + World; separate from credentials.
 
-**Agent**:
-On the v0.1 wire and world registry: the Player principal (`agent_id`). Colloquially also “external autonomous runtime,” which is a **Controller**, not a second Player class. Prefer Agent Player + Controller in new docs. Humans are not this principal.
-_Avoid_: Using Agent for the external runtime (that is a Controller)
-
 **Agent Gateway**:
-Public edge isolating external Controllers; hosted as Cloudflare Worker; REST / WebSocket / MCP adapters.
+Public edge that isolates external Controllers from the World Engine and offers REST, WebSocket, and MCP adapters.
 
 **Headless Harness**:
 Provider-neutral Controller runtime for agent play via the Agent Gateway. Not a Player class and not a second Agent Protocol. See AGENT-HARNESS.md.
@@ -68,52 +57,66 @@ Controller-local WORKING / EPISODIC / STRATEGIC notes. Not world truth. Current 
 Controller-operation records. Distinct from canonical gameplay evidence and Operator Digests.
 
 **Pacing Mode**:
-`MANUAL` / `TURN` / `INTERVAL` / `EVENT`. First-world default is `TURN`.
+The rule for when a Controller acts for its Player, such as once per turn or on events. Allowed modes and the first-world default are defined by the harness contract.
 
 **Circuit Breaker**:
 Automatic harness stop on auth failure, INCIDENT, lasting not-ready, protocol mismatch, operator stop, or repeated invalid/rejected actions.
 
+### World and history
+
 **World Engine**:
-Simulation authority. Live: Durable Object operational state; durable history: settled Postgres ledger.
+The simulation authority that orders and settles canonical world transitions.
 
-**AgentPlayerPrincipal**:
-Authenticated edge principal for world participation (`player_id` + session + controller + scopes) consumed by the World Engine. Historical name in some runtime code: `PlayerPrincipal`.
+**Chamber**:
+Persistent strategic ecology for 2–10 Agents.
 
-**Platform**:
-Cloudflare (live) + Supabase (durable identity/history). See PLATFORM.md.
+**Action Taxonomy**:
+Small, stable conceptual grouping of Player actions. It is not a runtime-generated verb set or a replacement for canonical action contracts.
 
-**Admin Live**:
-Control-plane surface that asks whether the world is operating correctly. Not PLAY. Capabilities: OBSERVE, INSPECT, DIAGNOSE, OPERATE, AUDIT. See ADMIN-LIVE-OPERATIONS.md.
+**Affordance**:
+Derived presentation that a Player can currently perform an existing action on a visible target with known parameters and requirements.
 
-**Admin Live redaction class**:
-Closed control-plane projection class: `WORLD_PUBLIC`, `WORLD_PRIVATE`, `PLAYER_PRIVATE`, `RESEARCH_PRIVATE`, `ADMIN_PRIVATE`, `SECRET`. Not observation visibility and not a protocol field. `SECRET` never reaches the browser.
+**Available Action**:
+A known canonical action that is valid and relevant in the current observable context, authority, and resource state.
 
-**World health overlay**:
-Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value.
+**Affordance Graph**:
+Derived view of `Player → can currently perform → Action → on Target`; not a graph-database requirement or source of truth.
 
-**Operator intervention**:
-Governed CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY action. Not Lab INTERVENTIONS.md.
+**Action Composition**:
+Strategic complexity emerging from repeated combinations of stable actions, targets, parameters, authority, and consequences rather than from one-off verbs.
+
+**Resource**:
+One of attention, compute, energy, influence, storage (integer budgets).
+
+**Resource node**:
+Entity with extractable stock (`resource_node: true`).
+
+**Infrastructure**:
+Strategic entity types: relay, generator, storage_bay, production_node.
 
 **World Service**:
 Deterministic institutional interface (not a Player). Closed capabilities; writes only via Player-confirmed canonical actions. See WORLD-SERVICES.md.
 
-**Operator Digest**:
-Derived Admin time-window summary of settled gameplay. Not world truth. See OPERATOR-DIGESTS.md.
+**World Event Director**:
+Deterministic pressure scheduler (not the Frontier Director).
 
-**Digest Window**:
-Non-overlapping `[window_start, window_end]` evidence range for one digest.
+**Realm**:
+Derived strategic footprint of an actor/org (not a canonical entity).
 
-**Digest Cadence**:
-Operator preset interval (`OFF`, `PT15M`…`PT24H`).
+**Territory control**:
+Emergent presence + infrastructure + access + org authority.
 
-**Digest Depth**:
-`BRIEF` / `STANDARD` / `DETAILED` presentation only.
+**Crime**:
+Unauthorized extraction/sabotage/access or ledgered-rule violation (consequence layer).
 
-**Operational Alert**:
-Immediate operator notice of a significant operational condition. Not a digest.
+**Strategic contestation**:
+Cycle-resolved multi-cycle conflict (not real-time combat).
 
-**Chamber**:
-v0.1 persistent strategic ecology for 2–10 agents.
+**Strategic knowledge**:
+Information capital (maps, routes, markets); not inventory world truth.
+
+**Ambition**:
+World-native goal orientation; no mandatory victory condition.
 
 **Deep Time**:
 Machinery for institutions, artifacts, succession, and evidence so history persists beyond agents; lore is a derived presentation of that history.
@@ -136,38 +139,49 @@ Small starting-history posture (3 closed profiles).
 **Story Seed**:
 Optional admin hint for historical texture; does not script the future.
 
-**LEARN**:
-Researcher surface for reproduced behaviors and evidence-backed relationships (v0.7).
+### Admin and operations
 
-**Behavior node**:
-Evidence-backed reproduced phenomenon in the minimal capability graph.
+**Admin Live**:
+Control-plane surface that asks whether the world is operating correctly. Not PLAY. Capabilities: OBSERVE, INSPECT, DIAGNOSE, OPERATE, AUDIT. See ADMIN-LIVE-OPERATIONS.md.
 
-**Capability edge**:
-Closed relationship type summarizing existing Lab/Compiler/regression evidence.
+**Admin Live redaction class**:
+Closed classification of how much control-plane data Admin Live may project, up to secret material that never reaches the browser. Not observation visibility and not a protocol field.
 
-**Resource**:
-One of attention, compute, energy, influence, storage (integer budgets).
+**World health overlay**:
+Derived `HEALTHY` / `DEGRADED` / `PLAY_BLOCKED` / `RECOVERY_REQUIRED`. Not a `World.status` value.
 
-**Resource node**:
-Entity with extractable stock (`resource_node: true`).
+**Operator intervention**:
+Governed CONTROL_PLANE / WORLD_OPERATION / EXTERNAL_INPUT / RECOVERY action. Not Lab INTERVENTIONS.md.
 
-**Infrastructure**:
-Strategic entity types: relay, generator, storage_bay, production_node.
+**Operator Digest**:
+Derived Admin time-window summary of settled gameplay. Not world truth. See OPERATOR-DIGESTS.md.
 
-**World Event Director**:
-Deterministic v0.1 pressure scheduler (not Frontier Director).
+**Digest Window**:
+Non-overlapping `[window_start, window_end]` evidence range for one digest.
 
-**Spectator projection**:
-Derived WATCH view; never world truth.
+**Digest Cadence**:
+Operator-chosen interval at which Operator Digests are produced, or off.
 
-**Situation Genome**:
-Machine-readable situation description and novelty vector.
+**Digest Depth**:
+How much detail an Operator Digest presents. Presentation only.
+
+**Operational Alert**:
+Immediate operator notice of a significant operational condition. Not a digest.
+
+**Module contract**:
+Owns/reads/writes/dependency boundary for a runtime module.
+
+### Research and evidence
 
 **Observation**:
-Immutable research-relevant record with provenance.
+An immutable record of the partial, permissioned signals delivered to an agent or researcher. Not world truth, belief, or claim.
+_Avoid_: fact, telemetry, evidence (for a raw observation)
 
 **Trajectory**:
 Ordered multi-record behavior history.
+
+**Situation Genome**:
+Machine-readable situation description and novelty vector.
 
 **Capability Event**:
 Strictly evaluated candidate emergent behavior event.
@@ -181,29 +195,22 @@ Versioned artifact for replay, replication, perturbation, metrics, and report.
 **Noema Atlas**:
 Versioned research dataset.
 
-**Module contract**:
-Owns/reads/writes/dependency boundary for a runtime module.
+**LEARN**:
+Researcher surface for reproduced behaviors and evidence-backed relationships.
 
-**Realm**:
-Derived strategic footprint of an actor/org (not a canonical entity).
+**Behavior node**:
+Evidence-backed reproduced phenomenon in the minimal capability graph.
 
-**Territory control**:
-Emergent presence + infrastructure + access + org authority.
+**Capability edge**:
+Closed relationship type summarizing existing Lab/Compiler/regression evidence.
 
-**Crime**:
-Unauthorized extraction/sabotage/access or ledgered-rule violation (consequence layer).
+### Experience (PLAY/WATCH/STUDY)
 
-**Strategic contestation**:
-Cycle-resolved multi-cycle conflict (not real-time combat).
+**Spectator projection**:
+Derived WATCH view; never world truth.
 
 **World Report**:
 Deterministic partial-observability status/news projection.
-
-**Ambition**:
-World-native goal orientation; no mandatory victory condition.
-
-**Strategic knowledge**:
-Information capital (maps, routes, markets); not inventory world truth.
 
 ## Avoid
 
@@ -217,7 +224,7 @@ Information capital (maps, routes, markets); not inventory world truth.
 - Do not treat derived lore as canonical world truth.
 - Do not mutate canonical IDs when cultural names change.
 - Do not expose full ledger history as ordinary archaeology.
-- Do not model humans as Players. Only agents are Players. Human platform principals (spectator, researcher, admin, authorizer) are not world inhabitants.
+- Do not model humans as Players. Only agents are Players. HumanPrincipals (spectator, researcher, admin, authorizer) are not world inhabitants.
 - Do not put framework-specific logic inside Noema Core; integrate protocols (REST / WebSocket / MCP) only.
 - Do not let external Controllers write canonical world state directly.
 - Do not treat `/play` DOM automation as the canonical agent path; the headless harness uses the Agent Gateway.
