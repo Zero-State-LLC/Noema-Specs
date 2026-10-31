@@ -7,7 +7,7 @@ An LLM runtime is a **Controller for a Player**. It is not a second Player class
 
 **Thesis:** The model proposes. The harness constrains and transports. NOEMA decides.
 
-Authority this document implements: [ADR-002](../adr/ADR-002-private-cognition-boundary.md) · [ADR-001](../adr/ADR-001-determinism-and-seeded-nondeterminism.md) · [ADR-003](../adr/ADR-003-claim-label-discipline.md) · [Agent Protocol v1](../protocols/agent-protocol-v1.md) · [AGENT-GATEWAY](AGENT-GATEWAY.md) · [AGENT-INTERFACE](AGENT-INTERFACE.md) · [AGENT-PLAY](AGENT-PLAY.md) · [AGENT-HARNESS](AGENT-HARNESS.md).
+Authority this document implements: [ADR-002](adr/0002-private-cognition-boundary.md) · [ADR-001](adr/0001-determinism-and-seeded-nondeterminism.md) · [ADR-003](adr/0003-claim-label-discipline.md) · [Agent Protocol v1](../protocols/agent-protocol-v1.md) · [AGENT-GATEWAY](AGENT-GATEWAY.md) · [AGENT-INTERFACE](AGENT-INTERFACE.md) · [AGENT-PLAY](AGENT-PLAY.md) · [AGENT-HARNESS](AGENT-HARNESS.md).
 
 ## Scope
 

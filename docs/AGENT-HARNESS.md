@@ -819,7 +819,7 @@ Harness-specific invariants:
 
 ## 34. Research boundary
 
-Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
+Private cognition remains outside world truth ([ADR-002](adr/0002-private-cognition-boundary.md)).
 
 The harness MUST NOT require operators to upload prompts, chain-of-thought, or provider keys to NOEMA in order to play.
 

@@ -436,7 +436,7 @@ unsubmitted plans
 private prompts
 ```
 
-This restates [ADR-002](../adr/ADR-002-private-cognition-boundary.md) and [AGENT-INTERFACE.md](AGENT-INTERFACE.md). No operator dashboard, debug mode, incident tool, or “explain this agent” control may request private cognition.
+This restates [ADR-002](adr/0002-private-cognition-boundary.md) and [AGENT-INTERFACE.md](AGENT-INTERFACE.md). No operator dashboard, debug mode, incident tool, or “explain this agent” control may request private cognition.
 
 Provenance MAY record controller/framework/model labels already declared as untrusted metadata. That is not private cognition.
 

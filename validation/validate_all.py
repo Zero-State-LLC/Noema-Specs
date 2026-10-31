@@ -502,15 +502,15 @@ def check_required_structure() -> None:
         + [
             "rfcs/README.md",
             "rfcs/RFC-0000-template.md",
-            "adr/README.md",
-            "adr/ADR-001-determinism-and-seeded-nondeterminism.md",
-            "adr/ADR-002-private-cognition-boundary.md",
-            "adr/ADR-003-claim-label-discipline.md",
-            "adr/ADR-004-world-truth-isolation.md",
-            "adr/ADR-005-v01-equivalence-boundary.md",
-            "adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md",
-            "adr/ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md",
-            "adr/ADR-008-replay-conformance-and-deterministic-hardening.md",
+            "docs/adr/README.md",
+            "docs/adr/0001-determinism-and-seeded-nondeterminism.md",
+            "docs/adr/0002-private-cognition-boundary.md",
+            "docs/adr/0003-claim-label-discipline.md",
+            "docs/adr/0004-world-truth-isolation.md",
+            "docs/adr/0005-v01-equivalence-boundary.md",
+            "docs/adr/0006-world-bound-exit-visibility-and-location-discovery.md",
+            "docs/adr/0007-atomic-rooms-intra-room-depth-and-seed-ownership.md",
+            "docs/adr/0008-replay-conformance-and-deterministic-hardening.md",
             "validation/validate_all.py",
         ]
     )
@@ -10295,7 +10295,7 @@ def check_gc10_s2(Draft202012Validator) -> None:
 
 
 def check_adr007_atomic_rooms(Draft202012Validator) -> None:
-    adr = (ROOT / "adr" / "ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md").read_text(
+    adr = (ROOT / "docs" / "adr" / "0007-atomic-rooms-intra-room-depth-and-seed-ownership.md").read_text(
         encoding="utf-8"
     )
     if "Atomic Rooms" not in adr or "allows_substructure" not in adr:
@@ -10344,7 +10344,7 @@ def check_adr007_atomic_rooms(Draft202012Validator) -> None:
 
 
 def check_adr008_replay() -> None:
-    adr = (ROOT / "adr" / "ADR-008-replay-conformance-and-deterministic-hardening.md").read_text(
+    adr = (ROOT / "docs" / "adr" / "0008-replay-conformance-and-deterministic-hardening.md").read_text(
         encoding="utf-8"
     )
     status = adr.split("## Status", 1)[-1][:200]

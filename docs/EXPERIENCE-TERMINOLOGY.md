@@ -2,7 +2,7 @@
 
 **Authority.** Dual semantic mapping: how internal, research, operator, player, and lore registers relate. Presentation and translation only. Does not rename protocols, schemas, audit fields, or claim labels.
 
-Related: [PLAYER-BRAND.md](PLAYER-BRAND.md) · [TERMINOLOGY.md](TERMINOLOGY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
+Related: [PLAYER-BRAND.md](PLAYER-BRAND.md) · [GLOSSARY.md](../GLOSSARY.md) · [EXPERIENCE.md](EXPERIENCE.md) · [VISUAL-DESIGN.md](VISUAL-DESIGN.md).
 
 Use the register-appropriate phrase. Reveal the precise internal phrase in advanced, operator, or technical documentation.
 

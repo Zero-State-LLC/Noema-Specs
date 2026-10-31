@@ -8,7 +8,7 @@
 **No `AGENT_PLAYER`. No new Player verbs.**
 
 Intended spec number: **RFC-0115** (next after accepted RFC-0114).  
-Authority this design extends: [ADR-002](../../../adr/ADR-002-private-cognition-boundary.md) · [AGENT-ORIENTATION-S0](../../AGENT-ORIENTATION-S0.md) · [AGENT-ORIENTATION-S2](../../AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS](../../AGENT-HARNESS.md) · [LLM-AGENT-INTEGRATION](../../LLM-AGENT-INTEGRATION.md) · [RFC-0111](../../../rfcs/RFC-0111-agent-harness.md) · [RFC-0114](../../../rfcs/RFC-0114-llm-controller-adapter.md).
+Authority this design extends: [ADR-002](../../adr/0002-private-cognition-boundary.md) · [AGENT-ORIENTATION-S0](../../AGENT-ORIENTATION-S0.md) · [AGENT-ORIENTATION-S2](../../AGENT-ORIENTATION-S2.md) · [AGENT-HARNESS](../../AGENT-HARNESS.md) · [LLM-AGENT-INTEGRATION](../../LLM-AGENT-INTEGRATION.md) · [RFC-0111](../../../rfcs/RFC-0111-agent-harness.md) · [RFC-0114](../../../rfcs/RFC-0114-llm-controller-adapter.md).
 
 ## Problem
 

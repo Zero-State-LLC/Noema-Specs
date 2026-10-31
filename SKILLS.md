@@ -5,6 +5,8 @@ Skills are repeatable workflows. They do not create new authority.
 | File | Responsibility |
 |---|---|
 | [CONTEXT.md](CONTEXT.md) | NOEMA purpose, authority, and non-negotiable invariants |
+| [GLOSSARY.md](GLOSSARY.md) | canonical domain vocabulary |
+| [docs/agents/](docs/agents/domain.md) | configuration read by the Pocock engineering skills |
 | [AGENTS.md](AGENTS.md) | behavioral constraints for agents in this repository |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | contribution policy and normative requirement language |
 | [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) | completion and checking requirements |
@@ -21,7 +23,7 @@ The first `specify/spec.md` is the thin one-door spectator amend. The MAP WebGL 
 
 If a specification campaign adds or amends `specify/spec.md`, include a `## Workflows` section that:
 
-- Names **existing** skills only. Defaults when those skills exist: `anti-slop-code`, `production-systems`, `google-developer-style`. In this repository, name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
+- Names **existing** skills only. Defaults when those skills are installed: `grill-with-docs` (alignment and glossary), `to-spec` and `to-tickets` (publishing to the issue tracker), `code-review` (review against `CONTRIBUTING.md` and the spec), and `google-developer-style` (prose). In this repository, also name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
 - Names the owner specialist.
 - Names any existing GitHub Action to reuse or add under `.github/workflows/`.
 - Does not invent an RFC.
@@ -29,7 +31,7 @@ If a specification campaign adds or amends `specify/spec.md`, include a `## Work
 ## SKILL.ORIENT
 **Use when** Starting any substantive task.
 **Inputs** Requested change and repository state.
-**Authority to read** `CONTEXT.md`, `AGENTS.md`, `docs/TERMINOLOGY.md`, `docs/PLAYER-BRAND.md` when the change is player-facing, affected docs/RFCs/schemas, `docs/ROADMAP.md`.
+**Authority to read** `CONTEXT.md`, `AGENTS.md`, `GLOSSARY.md`, `docs/PLAYER-BRAND.md` when the change is player-facing, affected docs/RFCs/schemas, `docs/ROADMAP.md`.
 **Procedure**
 1. Read `CONTEXT.md`, `AGENTS.md`, affected terminology, and `git status`.
 2. Identify the roadmap milestone, affected version domains, and canonical authority hierarchy.

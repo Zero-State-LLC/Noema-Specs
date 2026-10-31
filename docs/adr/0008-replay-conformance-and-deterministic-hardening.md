@@ -6,9 +6,9 @@ Accepted
 
 Date: 2026-08-18
 
-Related docs: [WORLD-ENGINE.md](../docs/WORLD-ENGINE.md), [SCHEDULER.md](../docs/SCHEDULER.md), [AGENT-DETERMINISM.md](../docs/AGENT-DETERMINISM.md), [EVENT-CATALOG.md](../docs/EVENT-CATALOG.md), [REPLAY.md](../docs/REPLAY.md), [protocols/replay-protocol-v1.md](../protocols/replay-protocol-v1.md)
+Related docs: [WORLD-ENGINE.md](../WORLD-ENGINE.md), [SCHEDULER.md](../SCHEDULER.md), [AGENT-DETERMINISM.md](../AGENT-DETERMINISM.md), [EVENT-CATALOG.md](../EVENT-CATALOG.md), [REPLAY.md](../REPLAY.md), [protocols/replay-protocol-v1.md](../../protocols/replay-protocol-v1.md)
 
-Also binds: [ADR-001](ADR-001-determinism-and-seeded-nondeterminism.md), [ADR-002](ADR-002-private-cognition-boundary.md), [ADR-005](ADR-005-v01-equivalence-boundary.md), [ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md), [ADR-007](ADR-007-atomic-rooms-intra-room-depth-and-seed-ownership.md).
+Also binds: [ADR-001](0001-determinism-and-seeded-nondeterminism.md), [ADR-002](0002-private-cognition-boundary.md), [ADR-005](0005-v01-equivalence-boundary.md), [ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md), [ADR-007](0007-atomic-rooms-intra-room-depth-and-seed-ownership.md).
 
 This ADR does not open new verbs, new event types, or Genesis reseed. It does not weaken ADR-001.
 

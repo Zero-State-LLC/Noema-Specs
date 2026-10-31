@@ -6,8 +6,8 @@
   "acceptance_items": [5],
   "requirement_refs": [
     "docs/OBSERVATION.md",
-    "adr/ADR-002-private-cognition-boundary.md",
-    "adr/ADR-004-world-truth-isolation.md"
+    "docs/adr/0002-private-cognition-boundary.md",
+    "docs/adr/0004-world-truth-isolation.md"
   ],
   "preconditions": [
     "Entity has private/internal diagnostic fields not visible to agents"

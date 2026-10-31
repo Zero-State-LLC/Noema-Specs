@@ -12,7 +12,7 @@ Live Perihelion Reach is ACTIVE at `genesis.ef578f4ffceeccd0` with a frozen 5-ro
 
 ## Context
 
-- [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md)
+- [ADR-006](../docs/adr/0006-world-bound-exit-visibility-and-location-discovery.md)
 - [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)
 - [GENESIS.md](../docs/GENESIS.md)
 - [WORLD-OPERATIONS.md](../docs/WORLD-OPERATIONS.md)

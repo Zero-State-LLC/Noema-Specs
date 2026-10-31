@@ -16,7 +16,7 @@ RFC-0034 is already **GC3-S2 WATCH public descriptor bands**. This adapter is RF
 
 NOEMA does not gain a new mind. An LLM is a Controller. The model proposes `{action, target_id, arguments}`. The harness validates and transports. The World Engine decides.
 
-Private cognition stays outside the gateway ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)). Hosted ACT remains `POST /v1/command` (or isolated `/v1/operator/test-world/command`).
+Private cognition stays outside the gateway ([ADR-002](../docs/adr/0002-private-cognition-boundary.md)). Hosted ACT remains `POST /v1/command` (or isolated `/v1/operator/test-world/command`).
 
 Normative document: [LLM-AGENT-INTEGRATION.md](../docs/LLM-AGENT-INTEGRATION.md).
 

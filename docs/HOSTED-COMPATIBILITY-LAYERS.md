@@ -3,7 +3,7 @@
 **Authority.** How to read Specs pins against the hosted Stage 0 runtime.  
 **Not** a new world rule, verb, or Genesis change.
 
-Related: [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md) · runtime `spec-compat.json`.
+Related: [SPEC-FREEZE-CORE-LOOP.md](SPEC-FREEZE-CORE-LOOP.md) · [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [ADR-008](adr/0008-replay-conformance-and-deterministic-hardening.md) · runtime `spec-compat.json`.
 
 ---
 
@@ -53,7 +53,7 @@ Changing the live room set requires a new Genesis / `world_version`, not an ad-h
 
 That successor is RFC-0121: `world.perihelion-reach-2`, not an edit of `genesis.ef578f4ffceeccd0`.
 
-See [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing, [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md), and the runtime closeout in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.
+See [ADR-006](adr/0006-world-bound-exit-visibility-and-location-discovery.md) landing, [HOSTED-ALPHA-FREEZE.md](HOSTED-ALPHA-FREEZE.md), and the runtime closeout in Zero-State-LLC/Noema `docs/PRODUCTION-CONFORMANCE-CLOSEOUT.md`.
 
 ## Extension Points
 

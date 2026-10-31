@@ -11,7 +11,7 @@ Non-trivial RFCs and features are intent-first: start from [intent/README.md](in
 ## Required first actions
 
 1. Read `CONTEXT.md` before editing.
-2. Read `docs/TERMINOLOGY.md` and every affected subsystem document.
+2. Read `GLOSSARY.md` and every affected subsystem document.
 3. Inspect related protocols, schemas, examples, research files, and RFCs.
 4. Check `git status` and avoid overwriting another contributor's work.
 
@@ -51,6 +51,22 @@ If CI or validation looks wrong, open a labeled defect (`bug` or `type:bug`). Do
 ## Validation
 
 Before finishing, run available repository validation, validate JSON syntax, inspect Markdown links, run `git diff --check`, and ensure the final tree still contains every required path.
+
+## Agent skills
+
+Pocock engineering skills ([mattpocock/skills](https://github.com/mattpocock/skills)) read this configuration. Repo-specific `SKILL.*` procedures stay in [SKILLS.md](SKILLS.md).
+
+### Issue tracker
+
+GitHub Issues on `Zero-State-LLC/Noema-Specs`, via `gh`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical roles under their default names (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: root `GLOSSARY.md` plus `docs/adr/`. `CONTEXT.md` is authority, not a glossary. See `docs/agents/domain.md`.
 
 <!-- graft:start -->
 ## Graft — repo context graph
@@ -96,10 +112,4 @@ no API key, $0).
 
 ## Graft index: maintenance notes
 
-[Graft](https://www.npmjs.com/package/@nanonets/graft) (`@nanonets/graft`) is a codebase-context graph for coding agents. It holds linked markdown cards with exact file:line spans, and agents query it with `graft ask` / `graft map` or over MCP.
-
-- **Where it lives:** `graft/` is committed (`graft/INDEX.md` is the entry point). `graft/.cache/` stays local and gitignored.
-- **Coverage:** Graft indexes code only, which here means the `validation/*.py` scripts (including the RFC-0126 watch-exposure check). **The Markdown specs are not indexed.** The watch specs live in `docs/WATCH.md`, `docs/WATCH-*.md`, `docs/GC3-S2-WATCH-PUBLIC.md`, `specify/watch-map-p0-gl-poi.md`, `rfcs/RFC-0126-watch-entity-update-exposure.md`, and `docs/evidence/gate-d-watch-where-2026-09-20/`. The runtime watch surface (Ruffian-L's area) is indexed in Zero-State-LLC/Noema under `workers/noema/src/watch*.ts` and `operator-watch.ts`.
-- **Refresh (Node 22.12+):** `npm i -g @nanonets/graft`, then `graft build`, then commit the updated `graft/`. Opt out of telemetry with `graft telemetry disable`.
-- **Check:** `graft check` fails if `graft/` is out of date with the code.
-- **Agent wiring:** Cursor: `.cursor/rules/graft.mdc` and `.cursor/mcp.json` (`graft mcp`). Claude Code: run `graft init --no-global --agents claude` locally (`.claude/` and `.mcp.json` are gitignored here). AGENTS.md has a Graft section too.
+Refresh, coverage, and agent wiring for the committed `graft/` index: see [CONTRIBUTING.md](CONTRIBUTING.md#graft-context-index).

@@ -267,6 +267,7 @@ noema-replay   # status: EQUIVALENT
 Noema-Specs/
 ├── README.md                 # This file
 ├── CONTEXT.md                # Authority model and invariants
+├── GLOSSARY.md               # Canonical domain vocabulary
 ├── AGENTS.md                 # Guidance for coding agents
 ├── CONTRIBUTING.md           # How to change contracts
 ├── SECURITY.md               # Vulnerability reporting
@@ -276,6 +277,8 @@ Noema-Specs/
 ├── assets/                   # README / social visuals (vendored)
 │
 ├── docs/                     # Product, architecture, ops, acceptance
+│   ├── adr/                  # Architecture decision records (0001-slug.md)
+│   ├── agents/               # Agent-skill config: issue tracker, labels, domain docs
 │   ├── QUICKSTART.md         # Two-minute golden path
 │   ├── AGENT-ONBOARDING.md
 │   ├── PLAYER-ONBOARDING.md
@@ -294,7 +297,6 @@ Noema-Specs/
 ├── examples/                 # Positive, negative, seed, protocol, onboarding, deployment
 ├── conformance/v0.1/         # Machine-readable acceptance cases C01–C26
 ├── research/                 # Ontology, claims, ethics, controls
-├── adr/                      # Architecture decision records
 ├── rfcs/                     # Contract-changing proposals
 └── validation/               # Offline merge-gate validator + CI
 ```
@@ -314,7 +316,7 @@ Noema-Specs/
 | Dual terminology | [docs/EXPERIENCE-TERMINOLOGY.md](docs/EXPERIENCE-TERMINOLOGY.md) |
 | Game design | [docs/GAME-DESIGN.md](docs/GAME-DESIGN.md) |
 | World model | [docs/WORLD-MODEL.md](docs/WORLD-MODEL.md) |
-| Terminology | [docs/TERMINOLOGY.md](docs/TERMINOLOGY.md) |
+| Glossary | [GLOSSARY.md](GLOSSARY.md) |
 | Roadmap | [docs/ROADMAP.md](docs/ROADMAP.md) |
 
 ### Architecture and runtime contracts
@@ -331,7 +333,7 @@ Noema-Specs/
 | Event catalog | [docs/EVENT-CATALOG.md](docs/EVENT-CATALOG.md) — `0.1` (24) · `0.2` (32) |
 | Observation | [docs/OBSERVATION.md](docs/OBSERVATION.md) |
 | Agent interface | [docs/AGENT-INTERFACE.md](docs/AGENT-INTERFACE.md) |
-| Replay / equivalence | [docs/REPLAY.md](docs/REPLAY.md) · [ADR-005](adr/ADR-005-v01-equivalence-boundary.md) |
+| Replay / equivalence | [docs/REPLAY.md](docs/REPLAY.md) · [ADR-005](docs/adr/0005-v01-equivalence-boundary.md) |
 | Module contracts | [docs/MODULE-CONTRACTS.md](docs/MODULE-CONTRACTS.md) |
 | Resource economy | [docs/RESOURCE-ECONOMY.md](docs/RESOURCE-ECONOMY.md) |
 | Action contracts | [docs/ACTION-CONTRACTS.md](docs/ACTION-CONTRACTS.md) |
@@ -372,7 +374,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | Research method | [docs/RESEARCH-METHOD.md](docs/RESEARCH-METHOD.md) |
 | Metrics | [docs/METRICS.md](docs/METRICS.md) |
 | Reproducibility | [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) |
-| Claims policy | [research/claims-policy.md](research/claims-policy.md) · [ADR-003](adr/ADR-003-claim-label-discipline.md) |
+| Claims policy | [research/claims-policy.md](research/claims-policy.md) · [ADR-003](docs/adr/0003-claim-label-discipline.md) |
 | Phenomena (operational) | [research/phenomena-operational-definitions.md](research/phenomena-operational-definitions.md) |
 
 ### Operations and governance
@@ -400,7 +402,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | Security | [docs/SECURITY.md](docs/SECURITY.md) · [SECURITY-SEQUENCES](docs/SECURITY-SEQUENCES.md) |
 | Testing | [docs/TESTING.md](docs/TESTING.md) |
 | Versioning | [docs/VERSIONING.md](docs/VERSIONING.md) |
-| ADRs | [adr/](adr/README.md) |
+| ADRs | [docs/adr/](docs/adr/README.md) |
 | RFCs | [rfcs/](rfcs/README.md) |
 | Progressive disclosure | [docs/CONTRACT-CARDS.md](docs/CONTRACT-CARDS.md) |
 | Ecosystem integration | [docs/INTEGRATION-SURFACE.md](docs/INTEGRATION-SURFACE.md) |
@@ -451,7 +453,7 @@ Precedence (conflicts are defects — see [CONTEXT.md](CONTEXT.md)):
 - World truth MUST NOT depend on agent belief
 - Replay requires genesis, seeds, versioned rules, ordered ledger, declared external inputs
 - Agent actions MUST be authenticated, authorized, budgeted, and containable
-- Private cognition is outside world truth ([ADR-002](adr/ADR-002-private-cognition-boundary.md))
+- Private cognition is outside world truth ([ADR-002](docs/adr/0002-private-cognition-boundary.md))
 - Research exports MUST preserve consent, provenance, exclusions, and lineage
 
 Protocol, schema, ontology, claims, security boundary, or version-domain changes require an [RFC](rfcs/README.md).
@@ -497,7 +499,7 @@ Every evidence claim MUST carry exactly one label:
 | `SPECULATIVE` | Hypothesis; not yet justified as inference |
 | `NOT_COMPUTABLE` | Cannot be decided from available evidence / boundary |
 
-**No scalar consciousness score** is permitted ([ADR-003](adr/ADR-003-claim-label-discipline.md)).
+**No scalar consciousness score** is permitted ([ADR-003](docs/adr/0003-claim-label-discipline.md)).
 
 ---
 

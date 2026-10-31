@@ -42,7 +42,7 @@ RFC-0120 identity; the published seal; the live room bound. These are carried by
 `hosted_live`, not by this document's status line.
 
 
-Related: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [ADR-006](../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md).
+Related: [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md) · [HOSTED-COMPATIBILITY-LAYERS.md](HOSTED-COMPATIBILITY-LAYERS.md) · [OFFICIAL-AGENT-CLIENT.md](OFFICIAL-AGENT-CLIENT.md) · [ADR-006](adr/0006-world-bound-exit-visibility-and-location-discovery.md).
 
 The official external client (`scrimshawlife-ctrl/noema-client`) is an accepted distribution clarification. It does not thaw admission, seal, Genesis, verbs, or the live room bound.
 

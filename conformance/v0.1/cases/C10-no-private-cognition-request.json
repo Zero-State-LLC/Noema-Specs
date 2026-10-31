@@ -5,7 +5,7 @@
   "title": "World Engine, Observatory, and operator surfaces cannot request private cognition",
   "acceptance_items": [10],
   "requirement_refs": [
-    "adr/ADR-002-private-cognition-boundary.md",
+    "docs/adr/0002-private-cognition-boundary.md",
     "docs/WORLD-ENGINE.md",
     "docs/OBSERVATORY.md"
   ],

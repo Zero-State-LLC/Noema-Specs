@@ -5,7 +5,7 @@
 **Kind:** presentation, terminology, UX identity, and information-architecture contract.  
 **Not** a protocol, schema, ontology, Genesis, world-rule, or research-method change. No RFC.
 
-Does not replace [VISION.md](VISION.md), [EXPERIENCE.md](EXPERIENCE.md), [PLAY.md](PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md), [TERMINOLOGY.md](TERMINOLOGY.md), or [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md). Those documents remain authoritative for their prior scopes. This document owns **how the public product presents**.
+Does not replace [VISION.md](VISION.md), [EXPERIENCE.md](EXPERIENCE.md), [PLAY.md](PLAY.md), [HUMAN-PLAY.md](HUMAN-PLAY.md), [HOSTED-FIRST-ENTRY.md](HOSTED-FIRST-ENTRY.md), [GLOSSARY.md](../GLOSSARY.md), or [ADMIN-LIVE-OPERATIONS.md](ADMIN-LIVE-OPERATIONS.md). Those documents remain authoritative for their prior scopes. This document owns **how the public product presents**.
 
 Related: [VISUAL-DESIGN.md](VISUAL-DESIGN.md) · [EXPERIENCE-TERMINOLOGY.md](EXPERIENCE-TERMINOLOGY.md) · [PLAYER-BRAND-IMPLEMENTATION.md](PLAYER-BRAND-IMPLEMENTATION.md) · [PLAYER-ONBOARDING.md](PLAYER-ONBOARDING.md) · [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md) · [GAME-DESIGN.md](GAME-DESIGN.md).
 

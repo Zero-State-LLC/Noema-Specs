@@ -1,4 +1,4 @@
 # validation/validate_direction.py
 
-- fail · function · L62-L63 — def fail(message: str) -> None
-- main · function · L66-L297 — def main() -> None
+- fail · function · L63-L64 — def fail(message: str) -> None
+- main · function · L67-L298 — def main() -> None
