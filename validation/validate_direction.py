@@ -174,6 +174,11 @@ def main() -> None:
     prior = {c.get("id"): c for c in parsed.get("completed_campaigns") or []}.get("living-civilization-alpha")
     if not prior or len(prior.get("completed_gates") or []) != 6:
         fail("living-civilization-alpha must be recorded in completed_campaigns with Gates A-F")
+    psr1_contract = (ROOT / str(active_campaign.get("gate_contracts", {}).get("PSR-1", ""))).read_text(encoding="utf-8")
+    if "TO LOCK" in psr1_contract:
+        fail("PSR-1 criteria are locked (#381); its scenario contract must not contain TO LOCK")
+    if "prerequisites open" not in str(active_campaign.get("active_gate") or ""):
+        fail("PSR-1 active_gate must name its open prerequisites until they close (#381)")
     if parsed.get("capabilities", {}).get("spark_orin_nvidia_stack", {}).get("state") != "SPECULATIVE":
         fail("spec 014 Spark/Orin stack must be SPECULATIVE (no implementation authority)")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
