@@ -126,8 +126,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "f703ffe45b7bea9eef7de2c9a529e6e3823176dd3d26df1512768f0c0dd2c273",
-      "chars": 4496,
+      "body_hash": "fa281850fa6618dd99297bb5a4f705dd1f481a7cea92a0c28d8931c230b84261",
+      "chars": 4506,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -170,7 +170,7 @@
       "signature": "class ValidationEntrypointTests(unittest.TestCase)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "c53b921f0e2a0cf41245668290f9614e145a81755fae3058a2cae4292c0cec2c",
+      "body_hash": "a0ba6c53af162b89aec283937375ea126eb07ad21ee55e749a3c5cd180f263ee",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -199,7 +199,7 @@
       "signature": "def setUp(self) -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "85c6c011b5cd55ce2ee0ca01333bae01c1eb83e8362247c9382dcf829aa766d3",
+      "body_hash": "b95af3852313c315dcba3d3ee4c4e57761bdb5e59df04a17e8ccf0520551f8fd",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
