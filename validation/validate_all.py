@@ -2713,6 +2713,15 @@ def check_experience_layer(Draft202012Validator) -> None:
     ok("Experience layer: deterministic intents, progressive fixtures, safe disclosure, and error mappings")
 
 
+def check_graft_tracked() -> None:
+    """graft/ is committed; `graft build` appends /graft/ to .gitignore unless GRAFT_NO_GITIGNORE is set."""
+    lines = {line.strip() for line in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()}
+    ignored = sorted(lines & {"/graft/", "graft/", "graft", "/graft"})
+    if ignored:
+        fail(f".gitignore ignores the committed graft/ index ({', '.join(ignored)}); remove it and rebuild with GRAFT_NO_GITIGNORE=1")
+    ok(".gitignore keeps the committed graft/ index tracked")
+
+
 GLOSSARY_BANNED_TOKENS = ("Cloudflare", "Durable Object", "Supabase", "Postgres", "Worker")
 GLOSSARY_VERSION_TAG = re.compile(r"\bv\d+\.\d+\b")
 
@@ -11242,6 +11251,7 @@ def main() -> None:
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
     check_glossary()
+    check_graft_tracked()
     check_architecture_hardening()
     check_reducer_registry()
     check_rfc_0016()

@@ -14,5 +14,9 @@
 - test_version_tag_fails · method · L108-L110 — def test_version_tag_fails(self) -> None
 - test_avoid_line_is_not_a_definition · method · L112-L114 — def test_avoid_line_is_not_a_definition(self) -> None
 - test_missing_language_section_fails · method · L116-L117 — def test_missing_language_section_fails(self) -> None
-- DependencySmokeTests · class · L120-L123 — class DependencySmokeTests(unittest.TestCase)
-- test_dependency_preflight_returns_validator_when_installed · method · L121-L123 — def test_dependency_preflight_returns_validator_when_installed(self) -> None
+- GraftTrackedTests · class · L120-L142 — class GraftTrackedTests(unittest.TestCase)
+- run_check · method · L121-L132 — def run_check(self, gitignore: str)
+- test_cache_only_ignore_passes · method · L134-L135 — def test_cache_only_ignore_passes(self) -> None
+- test_ignoring_whole_graft_dir_fails · method · L137-L142 — def test_ignoring_whole_graft_dir_fails(self) -> None
+- DependencySmokeTests · class · L145-L148 — class DependencySmokeTests(unittest.TestCase)
+- test_dependency_preflight_returns_validator_when_installed · method · L146-L148 — def test_dependency_preflight_returns_validator_when_installed(self) -> None

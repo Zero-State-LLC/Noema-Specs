@@ -117,6 +117,31 @@ class GlossaryValidationTests(unittest.TestCase):
         self.assert_fails_with("# NOEMA\n\nNo terms.\n", "## Language")
 
 
+class GraftTrackedTests(unittest.TestCase):
+    def run_check(self, gitignore: str):
+        validator = load_validator()
+        with tempfile.TemporaryDirectory() as raw_root:
+            root = Path(raw_root)
+            (root / ".gitignore").write_text(gitignore, encoding="utf-8")
+            validator.ROOT = root
+            with patch.object(validator, "fail", side_effect=SystemExit(1)) as fail:
+                try:
+                    validator.check_graft_tracked()
+                except SystemExit:
+                    pass
+            return fail
+
+    def test_cache_only_ignore_passes(self) -> None:
+        self.run_check(".venv/\ngraft/.cache/\n").assert_not_called()
+
+    def test_ignoring_whole_graft_dir_fails(self) -> None:
+        for line in ("/graft/", "graft/", "graft", "/graft"):
+            with self.subTest(line=line):
+                fail = self.run_check(f"graft/.cache/\n# note\n{line}\n")
+                fail.assert_called_once()
+                self.assertIn("GRAFT_NO_GITIGNORE", fail.call_args.args[0])
+
+
 class DependencySmokeTests(unittest.TestCase):
     def test_dependency_preflight_returns_validator_when_installed(self) -> None:
         validator = load_validator()
