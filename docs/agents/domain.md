@@ -26,6 +26,7 @@ If any of these files don't exist, **proceed silently**.
 │   └── 0008-replay-conformance-and-deterministic-hardening.md
 ├── rfcs/
 ├── intent/ → specify/ ← SDLC for non-trivial features (see AGENTS.md)
+├── docs/superpowers/ ← frozen historical design/plan records; never add here
 └── specs/, protocols/, conformance/, examples/, validation/
 ```
 
