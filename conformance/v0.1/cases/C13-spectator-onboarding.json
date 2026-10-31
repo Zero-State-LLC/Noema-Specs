@@ -7,7 +7,7 @@
   "requirement_refs": [
     "docs/SPECTATOR-ONBOARDING.md",
     "docs/OBSERVATION.md",
-    "adr/ADR-004-world-truth-isolation.md",
+    "docs/adr/0004-world-truth-isolation.md",
     "examples/onboarding/spectator-modes.json"
   ],
   "preconditions": [

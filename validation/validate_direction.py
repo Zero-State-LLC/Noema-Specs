@@ -47,6 +47,7 @@ FORBIDDEN_LIVE_GUIDANCE = [
 ]
 
 ONTOLOGY_AUTHORITY_FILES = [
+    "GLOSSARY.md",
     "docs/TERMINOLOGY.md",
     "docs/AGENT-INTERFACE.md",
     "docs/ARCHITECTURE.md",

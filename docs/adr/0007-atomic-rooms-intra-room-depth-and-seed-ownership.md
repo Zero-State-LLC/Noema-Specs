@@ -6,9 +6,9 @@ Accepted
 
 Date: 2026-08-18
 
-Related docs: [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md), [GEOGRAPHY.md](../docs/GEOGRAPHY.md), [WORLD-MODEL.md](../docs/WORLD-MODEL.md), [PARTIAL-OBSERVABILITY.md](../docs/PARTIAL-OBSERVABILITY.md), [COMMAND-DISCOVERY.md](../docs/COMMAND-DISCOVERY.md), [ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md), [WATCH-LIGHTWEIGHT-SPECTATOR.md](../docs/WATCH-LIGHTWEIGHT-SPECTATOR.md), [PLAYER-ACTION-MAP.md](../docs/PLAYER-ACTION-MAP.md), [examples/chamber-world/world-seed.json](../examples/chamber-world/world-seed.json)
+Related docs: [CHAMBER-MAP.md](../CHAMBER-MAP.md), [GEOGRAPHY.md](../GEOGRAPHY.md), [WORLD-MODEL.md](../WORLD-MODEL.md), [PARTIAL-OBSERVABILITY.md](../PARTIAL-OBSERVABILITY.md), [COMMAND-DISCOVERY.md](../COMMAND-DISCOVERY.md), [ACTION-CONTRACTS.md](../ACTION-CONTRACTS.md), [WATCH-LIGHTWEIGHT-SPECTATOR.md](../WATCH-LIGHTWEIGHT-SPECTATOR.md), [PLAYER-ACTION-MAP.md](../PLAYER-ACTION-MAP.md), [examples/chamber-world/world-seed.json](../../examples/chamber-world/world-seed.json)
 
-Also binds: [ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md), [ADR-001](ADR-001-determinism-and-seeded-nondeterminism.md), [ADR-002](ADR-002-private-cognition-boundary.md), [EXPLORATION.md](../docs/EXPLORATION.md), [OBSERVATION.md](../docs/OBSERVATION.md).
+Also binds: [ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md), [ADR-001](0001-determinism-and-seeded-nondeterminism.md), [ADR-002](0002-private-cognition-boundary.md), [EXPLORATION.md](../EXPLORATION.md), [OBSERVATION.md](../OBSERVATION.md).
 
 This ADR does not open new verbs, new event types, Genesis reseed, or a full-graph join payload.
 
@@ -18,11 +18,11 @@ NOEMA v0.1 Chamber is a finite graph of strategically distinct rooms. Visual map
 
 Current canon already states:
 
-- Chamber-world / isolated hosted product seed is exactly 10 rooms; Chamber family band is 8–15. Live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated map ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md) landing, [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)).
-- Rooms are not decorative; each must have a strategic reason ([GEOGRAPHY.md](../docs/GEOGRAPHY.md)).
-- Movement is exit-based ([ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md) `MOVE`).
-- Agents discover via structured observations and `AVAILABLE_ACTIONS` ([COMMAND-DISCOVERY.md](../docs/COMMAND-DISCOVERY.md)).
-- Hidden exits are omitted, not labeled, and are revealed locally ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md)).
+- Chamber-world / isolated hosted product seed is exactly 10 rooms; Chamber family band is 8–15. Live Perihelion `genesis.ef578f4ffceeccd0` keeps its activated map ([ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md) landing, [CHAMBER-MAP.md](../CHAMBER-MAP.md)).
+- Rooms are not decorative; each must have a strategic reason ([GEOGRAPHY.md](../GEOGRAPHY.md)).
+- Movement is exit-based ([ACTION-CONTRACTS.md](../ACTION-CONTRACTS.md) `MOVE`).
+- Agents discover via structured observations and `AVAILABLE_ACTIONS` ([COMMAND-DISCOVERY.md](../COMMAND-DISCOVERY.md)).
+- Hidden exits are omitted, not labeled, and are revealed locally ([ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md)).
 
 Ambiguity remains around:
 
@@ -55,7 +55,7 @@ Exploration inside a room is limited to:
 | `INSPECT` | Deeper observation of a co-located entity (or the room itself if allowed) |
 | Live state | Resource levels, infrastructure condition, pressure, presence, scars |
 | Social / records | `MESSAGE`, boards, artifacts already present or brought in |
-| Exit discovery | Revelation of previously hidden or conditional exits that **leave** the room ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md) §C) |
+| Exit discovery | Revelation of previously hidden or conditional exits that **leave** the room ([ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md) §C) |
 
 Novelty across cycles comes from state change and progressive revelation of what is already co-located, not from new internal geography.
 
@@ -132,7 +132,7 @@ Forbidden without a later RFC:
 2. chamber-world and conformance seeds that validate against that schema MUST pass.
 3. Action reducers for `MOVE` and `INSPECT` reject non-room / non-entity targets. Runtime follow-on; no new verbs.
 4. Observation `content.location` remains `additionalProperties: false`. Nested room or area identifiers fail the schema.
-5. [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md) and [GEOGRAPHY.md](../docs/GEOGRAPHY.md) point here.
+5. [CHAMBER-MAP.md](../CHAMBER-MAP.md) and [GEOGRAPHY.md](../GEOGRAPHY.md) point here.
 
 Minimal conformance tests:
 
@@ -148,13 +148,13 @@ Minimal conformance tests:
 |-------------|--------------|
 | Continuous / tile-based rooms | Breaks text-first MUD model, complicates agents, destroys simple map projection |
 | Sub-rooms as first-class objects without exits | Hidden second graph; observation and WATCH become ambiguous |
-| Full graph given to every Player on join | Destroys exploration and asymmetric information ([ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md)) |
+| Full graph given to every Player on join | Destroys exploration and asymmetric information ([ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md)) |
 | LLM-authored interiors at runtime | Non-deterministic geography; breaks replay and seed authority |
 | Decorative rooms for atmosphere | Violates “rooms are not decorative”; dilutes strategic density |
 
 ## Relation to prior decisions
 
-This ADR is complementary to [ADR-006](ADR-006-world-bound-exit-visibility-and-location-discovery.md):
+This ADR is complementary to [ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md):
 
 - ADR-006 freezes **how many** rooms and **how exits are revealed**.
 - This ADR freezes **what a room is** and **how Players explore inside one**.

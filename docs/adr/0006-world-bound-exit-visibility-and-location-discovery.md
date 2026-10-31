@@ -6,13 +6,13 @@ Accepted
 
 Date: 2026-08-18
 
-Related docs: [CHAMBER-MAP.md](../docs/CHAMBER-MAP.md), [WORLD-MODEL.md](../docs/WORLD-MODEL.md), [PARTIAL-OBSERVABILITY.md](../docs/PARTIAL-OBSERVABILITY.md), [COMMAND-DISCOVERY.md](../docs/COMMAND-DISCOVERY.md), [WATCH-LIGHTWEIGHT-SPECTATOR.md](../docs/WATCH-LIGHTWEIGHT-SPECTATOR.md), [GEOGRAPHY.md](../docs/GEOGRAPHY.md), [PLAYER-ACTION-MAP.md](../docs/PLAYER-ACTION-MAP.md)
+Related docs: [CHAMBER-MAP.md](../CHAMBER-MAP.md), [WORLD-MODEL.md](../WORLD-MODEL.md), [PARTIAL-OBSERVABILITY.md](../PARTIAL-OBSERVABILITY.md), [COMMAND-DISCOVERY.md](../COMMAND-DISCOVERY.md), [WATCH-LIGHTWEIGHT-SPECTATOR.md](../WATCH-LIGHTWEIGHT-SPECTATOR.md), [GEOGRAPHY.md](../GEOGRAPHY.md), [PLAYER-ACTION-MAP.md](../PLAYER-ACTION-MAP.md)
 
-Also binds: [EXPLORATION.md](../docs/EXPLORATION.md), [OBSERVATION.md](../docs/OBSERVATION.md), [ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md) `MOVE` / `INSPECT` / `LOOK` / `MESSAGE`, [AGENT-PLAY.md](../docs/AGENT-PLAY.md), [ADR-001](ADR-001-determinism-and-seeded-nondeterminism.md), [ADR-002](ADR-002-private-cognition-boundary.md), [ADR-005](ADR-005-v01-equivalence-boundary.md).
+Also binds: [EXPLORATION.md](../EXPLORATION.md), [OBSERVATION.md](../OBSERVATION.md), [ACTION-CONTRACTS.md](../ACTION-CONTRACTS.md) `MOVE` / `INSPECT` / `LOOK` / `MESSAGE`, [AGENT-PLAY.md](../AGENT-PLAY.md), [ADR-001](0001-determinism-and-seeded-nondeterminism.md), [ADR-002](0002-private-cognition-boundary.md), [ADR-005](0005-v01-equivalence-boundary.md).
 
 This ADR does not open new verbs, new event types, Genesis reseed, or a full-graph join payload.
 
-**Landing (2026-08-18).** Live Perihelion Reach `genesis.ef578f4ffceeccd0` is already ACTIVE. Its authored room set is frozen identity, not a live edit target. The **exactly 10 rooms** bound applies to the chamber-world product seed, isolated hosted fixtures, and any **new** hosted `world_version`. It does not require reseeding the activated world. See [HOSTED-COMPATIBILITY-LAYERS.md](../docs/HOSTED-COMPATIBILITY-LAYERS.md).
+**Landing (2026-08-18).** Live Perihelion Reach `genesis.ef578f4ffceeccd0` is already ACTIVE. Its authored room set is frozen identity, not a live edit target. The **exactly 10 rooms** bound applies to the chamber-world product seed, isolated hosted fixtures, and any **new** hosted `world_version`. It does not require reseeding the activated world. See [HOSTED-COMPATIBILITY-LAYERS.md](../HOSTED-COMPATIBILITY-LAYERS.md).
 
 ## Context
 
@@ -20,16 +20,16 @@ WATCH Phosphor and the public ASCII hybrid map are derived projections of a fini
 
 Already decided:
 
-- Chamber product map is the 10-room `examples/chamber-world/` seed; the authored Chamber band is 8–15 strategically distinct rooms ([CHAMBER-MAP.md](../docs/CHAMBER-MAP.md)).
+- Chamber product map is the 10-room `examples/chamber-world/` seed; the authored Chamber band is 8–15 strategically distinct rooms ([CHAMBER-MAP.md](../CHAMBER-MAP.md)).
 - ADR-005 reducer fixtures remain the 4-room `examples/v01-seed/` world. That fixture is not a play world.
-- Observation is permissioned and observer-relative. Hidden fields are absent, not labeled as hidden ([PARTIAL-OBSERVABILITY.md](../docs/PARTIAL-OBSERVABILITY.md), [OBSERVATION.md](../docs/OBSERVATION.md)).
-- A command or control MUST NOT reveal hidden exits ([PLAYER-ACTION-MAP.md](../docs/PLAYER-ACTION-MAP.md)). Disabled controls that name a hidden fact are a leak.
-- Agents discover through protocol negotiation, capability advertisement, `AVAILABLE_ACTIONS`, and structured observations. They MUST NOT parse human command grammar or receive a thesis / full verb dictionary on first `OBSERVE` ([COMMAND-DISCOVERY.md](../docs/COMMAND-DISCOVERY.md)).
-- WATCH MUST omit hidden rooms, hidden exits, and unpublished topology ([WATCH-LIGHTWEIGHT-SPECTATOR.md](../docs/WATCH-LIGHTWEIGHT-SPECTATOR.md)).
-- `MOVE` requires the actor at `from_room_id`, exit OPEN, conditions satisfied ([ACTION-CONTRACTS.md](../docs/ACTION-CONTRACTS.md)).
-- `ACCESS_POLICY` DENY/CLEAR restricts a public EXIT. It is not a geography rewrite and MUST NOT create or publish rooms ([ACCESS-POLICY-S0.md](../docs/ACCESS-POLICY-S0.md)).
-- Exploration has no automatic map fill ([EXPLORATION.md](../docs/EXPLORATION.md)). Knowledge is not a frictionless inventory stack ([STRATEGIC-KNOWLEDGE.md](../docs/STRATEGIC-KNOWLEDGE.md)).
-- World reducers stay deterministic under seed, version, config, prior state, and ordered ledger ([ADR-001](ADR-001-determinism-and-seeded-nondeterminism.md)). Private cognition stays off the wire ([ADR-002](ADR-002-private-cognition-boundary.md)).
+- Observation is permissioned and observer-relative. Hidden fields are absent, not labeled as hidden ([PARTIAL-OBSERVABILITY.md](../PARTIAL-OBSERVABILITY.md), [OBSERVATION.md](../OBSERVATION.md)).
+- A command or control MUST NOT reveal hidden exits ([PLAYER-ACTION-MAP.md](../PLAYER-ACTION-MAP.md)). Disabled controls that name a hidden fact are a leak.
+- Agents discover through protocol negotiation, capability advertisement, `AVAILABLE_ACTIONS`, and structured observations. They MUST NOT parse human command grammar or receive a thesis / full verb dictionary on first `OBSERVE` ([COMMAND-DISCOVERY.md](../COMMAND-DISCOVERY.md)).
+- WATCH MUST omit hidden rooms, hidden exits, and unpublished topology ([WATCH-LIGHTWEIGHT-SPECTATOR.md](../WATCH-LIGHTWEIGHT-SPECTATOR.md)).
+- `MOVE` requires the actor at `from_room_id`, exit OPEN, conditions satisfied ([ACTION-CONTRACTS.md](../ACTION-CONTRACTS.md)).
+- `ACCESS_POLICY` DENY/CLEAR restricts a public EXIT. It is not a geography rewrite and MUST NOT create or publish rooms ([ACCESS-POLICY-S0.md](../ACCESS-POLICY-S0.md)).
+- Exploration has no automatic map fill ([EXPLORATION.md](../EXPLORATION.md)). Knowledge is not a frictionless inventory stack ([STRATEGIC-KNOWLEDGE.md](../STRATEGIC-KNOWLEDGE.md)).
+- World reducers stay deterministic under seed, version, config, prior state, and ordered ledger ([ADR-001](0001-determinism-and-seeded-nondeterminism.md)). Private cognition stays off the wire ([ADR-002](0002-private-cognition-boundary.md)).
 
 Still ambiguous, and therefore frozen here:
 
@@ -136,7 +136,7 @@ WATCH projection:
 
 - Include an edge iff canonical class is `public` (or public-facing `conditional` under §B) **and** both endpoint rooms are public.
 - PIXEL / ASCII hybrid use that same edge set. Dashed / unknown Phosphor marks MUST NOT be used to imply a hidden exit.
-- Client MUST NOT infer hidden topology from 404s, `MOVE_REJECTED`, or missing rooms ([WATCH-LIGHTWEIGHT-SPECTATOR.md](../docs/WATCH-LIGHTWEIGHT-SPECTATOR.md) §6–7).
+- Client MUST NOT infer hidden topology from 404s, `MOVE_REJECTED`, or missing rooms ([WATCH-LIGHTWEIGHT-SPECTATOR.md](../WATCH-LIGHTWEIGHT-SPECTATOR.md) §6–7).
 
 Minimal tests (fail if this ADR is violated):
 
@@ -150,7 +150,7 @@ Minimal tests (fail if this ADR is violated):
 
 **Infinite / procedural geography.** Rejected. It destroys a frozen spectator map, breaks 8–15 Chamber doctrine, and makes first-world evidence incomparable across runs. Expansion remains Genesis / world-revision.
 
-**Full graph given to every Player on join.** Rejected. It collapses [EXPLORATION.md](../docs/EXPLORATION.md), contradicts first-`OBSERVE` withhold, and makes `AVAILABLE_ACTIONS` a global verb dump. Join remains local.
+**Full graph given to every Player on join.** Rejected. It collapses [EXPLORATION.md](../EXPLORATION.md), contradicts first-`OBSERVE` withhold, and makes `AVAILABLE_ACTIONS` a global verb dump. Join remains local.
 
 **Always-public exits.** Rejected. Hidden and conditional routes are the authored exploration surface. WATCH safety is achieved by filtering, not by publishing every edge.
 

@@ -46,7 +46,7 @@ Affected authority:
 - [AUTH-AND-IDENTITY.md](../docs/AUTH-AND-IDENTITY.md)
 - [PLATFORM.md](../docs/PLATFORM.md)
 - [ARCHITECTURE.md](../docs/ARCHITECTURE.md)
-- [TERMINOLOGY.md](../docs/TERMINOLOGY.md)
+- [GLOSSARY.md](../GLOSSARY.md)
 - [DATA-MODEL.md](../docs/DATA-MODEL.md)
 - [SECURITY.md](../docs/SECURITY.md)
 - [PLAY.md](../docs/PLAY.md) · [HUMAN-PLAY.md](../docs/HUMAN-PLAY.md) · [AGENT-PLAY.md](../docs/AGENT-PLAY.md)

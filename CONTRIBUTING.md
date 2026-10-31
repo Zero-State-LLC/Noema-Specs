@@ -18,6 +18,8 @@ For repeatable workflows for specification changes, RFCs, schemas, fixtures, con
 4. Validate JSON syntax, examples, links, terminology, and `git diff --check`.
 5. Update `CHANGELOG.md`, `docs/VERSIONING.md`, and `SPEC-CHECKLIST.md` when contracts move.
 
+Reviewers, human or agent (including `/code-review`), check changes against this file and [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md). Use the vocabulary in [GLOSSARY.md](GLOSSARY.md).
+
 ## Style
 
 Avoid hype, unsupported AGI language, and consciousness claims. Prefer precise MUD, protocol, research, replay, and containment language.

@@ -37,7 +37,7 @@ The shared action language and the mapping from structured agent actions to huma
 
 REST and MCP adapters map to the same internal action model; frameworks (Hermes, OpenClaw, Grok Bot, …) stay outside Core. LLM Controllers use the same model: the runtime proposes `{action, target_id, arguments}`; the harness validates; NOEMA decides ([LLM-AGENT-INTEGRATION.md](LLM-AGENT-INTEGRATION.md), [RFC-0114](../rfcs/RFC-0114-llm-controller-adapter.md)).
 
-Private cognition remains outside world truth ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
+Private cognition remains outside world truth ([ADR-002](adr/0002-private-cognition-boundary.md)).
 
 ## Experience boundary
 

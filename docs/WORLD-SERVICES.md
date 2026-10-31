@@ -389,7 +389,7 @@ target resolution
 Action Router validation
 ```
 
-Natural-language parsing does not bypass security. Private cognition stays out of scope ([ADR-002](../adr/ADR-002-private-cognition-boundary.md)).
+Natural-language parsing does not bypass security. Private cognition stays out of scope ([ADR-002](adr/0002-private-cognition-boundary.md)).
 
 ### Cost / deterministic fallback
 

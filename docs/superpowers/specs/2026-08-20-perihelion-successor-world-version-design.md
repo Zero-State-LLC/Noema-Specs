@@ -8,7 +8,7 @@
 **Admin ≠ Player.** RFC-0120 remains law: only agents are Players.
 
 Intended spec number: **RFC-0121** (next after accepted RFC-0120).  
-Authority this design extends: [ADR-006](../../../adr/ADR-006-world-bound-exit-visibility-and-location-discovery.md) · [CHAMBER-MAP.md](../../CHAMBER-MAP.md) · [GENESIS.md](../../GENESIS.md) · [WORLD-OPERATIONS.md](../../WORLD-OPERATIONS.md) · [RFC-0120](../../../rfcs/RFC-0120-agent-only-player-identity.md).  
+Authority this design extends: [ADR-006](../../adr/0006-world-bound-exit-visibility-and-location-discovery.md) · [CHAMBER-MAP.md](../../CHAMBER-MAP.md) · [GENESIS.md](../../GENESIS.md) · [WORLD-OPERATIONS.md](../../WORLD-OPERATIONS.md) · [RFC-0120](../../../rfcs/RFC-0120-agent-only-player-identity.md).  
 Runtime companions (not this file): Worker `workers/noema/src/genesis.ts`, `world-do.ts`, `index.ts` Admin genesis routes, `test-world.ts`, `command-world.ts`.
 
 ## Problem

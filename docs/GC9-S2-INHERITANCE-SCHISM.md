@@ -58,7 +58,7 @@ the GC9-S1 pulse precedent.
 
 Repairs are ordered by `(cycle, sequence, event_id)`. The originator set is the
 first three distinct actors in that order. There is no random tie-break and no
-implicit stream, per [ADR-008](../adr/ADR-008-replay-conformance-and-deterministic-hardening.md).
+implicit stream, per [ADR-008](adr/0008-replay-conformance-and-deterministic-hardening.md).
 
 ## Fixtures
 
