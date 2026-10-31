@@ -1,6 +1,6 @@
 # Population and Study Readiness — Gate PSR-2 Scenario Contract (hosted STUDY evidence readiness)
 
-**Status:** evidence contract for an unproven Gate. **BLOCKED** until PSR-1 is COMPLETE and every `TO LOCK` / `TO NAME` value below is locked by Danny human-yes. Not a runbook, not a COMPLETE claim, not a STUDY reopen, and not authority to deploy.
+**Status:** evidence contract for an unproven Gate. Window, K, and N **locked** (#381; Danny human-yes on merge, 2026-10-31). **BLOCKED** until PSR-1 is COMPLETE and the research and ethics steward is named (the only open criteria decision). Not a runbook, not a COMPLETE claim, not a STUDY reopen, and not authority to deploy.
 **Campaign:** [Population and Study Readiness](POPULATION-AND-STUDY-READINESS.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml) (`hosted_study_pipeline: BLOCKED`, `surfaces.study_hosted: BLOCKED`)
 **Decision issues:** [#362](https://github.com/Zero-State-LLC/Noema-Specs/issues/362) (gate definition) · spec [#379](https://github.com/Zero-State-LLC/Noema-Specs/issues/379)
@@ -12,7 +12,7 @@ PSR-2 proves that hosted STUDY is **ready to host**: real natural play exists, i
 ## Prerequisites
 
 - **PSR-1 COMPLETE.** Its population is what produces natural play.
-- Every `TO LOCK` and `TO NAME` value below is locked.
+- The research and ethics steward below is named (still **TO NAME**; no candidate as of 2026-10-31). Every other value is locked.
 - The research and ethics steward has accepted the role and signed the consent and opt-in basis for the third-party Players in the window.
 
 ## Natural-play window
@@ -22,15 +22,17 @@ PSR-2 proves that hosted STUDY is **ready to host**: real natural play exists, i
 | Timing | Separate from, and after, the PSR-1 run. PSR-1's deliberate interventions (remints, Path 8) never count as natural play. |
 | Independence | Meets the strongest [Gate B independence tier](LCA2-GATE-B-PREPARATION.md#evidence-tiers): independently operated Controllers, distinct decision contexts, no shared planner. |
 | Interventions | None that script the outcome; any such intervention fails the window ([Gate E rule](LCA-GATE-E-SCENARIO.md)). Bounded, logged operator actions are allowed and marked. |
-| Window length | **TO LOCK** |
+| Window length | **Δcycle ≥24** (Deep Time progress, not hours). During it, **≥3** independently operated Players each make consequential acts, and **≥2** are present at the same moment in at least one labeled census window. Locked 2026-10-31 (#381). |
 
 ## Evidence floors
 
 | Evidence | Floor |
 |---|---|
-| Research-eligible Observations from the window | **K = TO LOCK**, each with `consent_basis`, provenance, and `exclusions` intact and `research_eligible: true` ([OBSERVATION.md](OBSERVATION.md); eligibility is not proof of a claim) |
-| Offline candidate dossiers (Frontier/Observatory) built from the window | **N = TO LOCK** (≥1) |
+| Research-eligible Observations from the window | **K: ≥20 per participating Player and ≥60 in total** (locked 2026-10-31, #381), each with `consent_basis`, provenance, and `exclusions` intact and `research_eligible: true` ([OBSERVATION.md](OBSERVATION.md); eligibility is not proof of a claim) |
+| Offline candidate dossiers (Frontier/Observatory) built from the window | **N = 1** (locked 2026-10-31, #381). A window that yields no candidate fails PSR-2; the bar is not lowered. |
 | Dry-run reproducibility bundle | 1, from the window, validating against the existing reproducibility-bundle schema |
+
+Observations outside the consent basis don't count toward K, and the eligibility ledger shows them as excluded, not dropped.
 
 These close audit gaps **G1** (natural multi-agent population) and **G2** (evidence-readiness receipt). Gaps **G5–G9** (hosted NOTICE/Lab routes, hosted isolation, offline↔hosted equivalence, Deploy) stay **out of scope** and are carried to the separate hosting RFC.
 
