@@ -29,7 +29,7 @@ Hosted STUDY needs production-like natural play. A sustained multi-agent populat
 
 | Gate | Milestone | Closes | Scenario contract | Criteria owner | State |
 |---|---|---|---|---|---|
-| **PSR-1: Compatibility at scale** | PSR-1 | `third_party_agent_compatibility_at_scale` | [PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md](PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md) | [#363](https://github.com/Zero-State-LLC/Noema-Specs/issues/363) | Active; criteria locked (#381); BLOCKED on prerequisite: third-party enrollment (#383); client pin resolved (#382) |
+| **PSR-1: Compatibility at scale** | PSR-1 | `third_party_agent_compatibility_at_scale` | [PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md](PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md) | [#363](https://github.com/Zero-State-LLC/Noema-Specs/issues/363) | Active; criteria locked (#381); BLOCKED on prerequisite: enrollment receipts for 2 outside operators (#383; device-code + Admin-session approval); client pin resolved (#382) |
 | **PSR-2: Hosted STUDY evidence readiness** | PSR-2 | `hosted_study_pipeline` | [PSR-2-STUDY-READINESS-SCENARIO.md](PSR-2-STUDY-READINESS-SCENARIO.md) | [#362](https://github.com/Zero-State-LLC/Noema-Specs/issues/362) | Unproven; window, K, and N locked (#381); waits for PSR-1 and a named research and ethics steward |
 
 Milestone ids `PSR-1` and `PSR-2` are confirmed. They deliberately do not extend Living Alpha's `LCA-*` numbering.
