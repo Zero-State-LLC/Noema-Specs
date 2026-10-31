@@ -58,6 +58,9 @@ runtimes:
     live_worker_version_id: 86978241-3983-4075-b289-fa28f9e75c46
     live_deployed_at: 2026-09-21T04:16:15.925274Z
     live_source_commit: 565ccc1595c89f992110808401e147b7692b2735
+    # OBSERVED 2026-10-31 (#382): Noema spec-compat.json hosted_live.official_client on main
+    # and at live source 565ccc15; guarded by Noema client-pin.test.ts.
+    official_client_pin: noema-client==0.1.21
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 3
@@ -373,7 +376,8 @@ active_campaign:
   supersedes: living-civilization-alpha
   current_milestone: PSR-1
   next_milestone: PSR-2
-  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: prerequisites open (client pin #382, third-party enrollment #383); criteria locked #381)"
+  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: prerequisites open (third-party enrollment #383); criteria locked #381; client pin resolved #382)"
+  psr1_client_version: noema-client==0.1.21
   gate_contracts:
     PSR-1: docs/PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md
     PSR-2: docs/PSR-2-STUDY-READINESS-SCENARIO.md
