@@ -373,7 +373,10 @@ active_campaign:
   supersedes: living-civilization-alpha
   current_milestone: PSR-1
   next_milestone: PSR-2
-  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED on criteria decision #363)"
+  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: criteria TO LOCK in its scenario contract, #363)"
+  gate_contracts:
+    PSR-1: docs/PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md
+    PSR-2: docs/PSR-2-STUDY-READINESS-SCENARIO.md
   completed_gates: []
   unproven_gates:
     - "Gate PSR-1: compatibility-at-scale (#363)"

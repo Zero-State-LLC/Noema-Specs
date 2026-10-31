@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 335,
-    "edgeCount": 1112,
+    "nodeCount": 346,
+    "edgeCount": 1140,
     "languages": [
       "python"
     ],
@@ -330,12 +330,12 @@
       "name": "test_validate_direction.py",
       "kind": "file",
       "path": "validation/test_validate_direction.py",
-      "span": "L1-L65",
+      "span": "L1-L118",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "a90f7bc39216b365d95a51014d722fa2ae78c3fb8e80acdc8eb0a028314e4b96",
-      "chars": 2331,
+      "body_hash": "2e105f66be06504ad29094c2a98ae1a6f9547f36a980678f2e9295821362c967",
+      "chars": 4969,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -345,7 +345,7 @@
       "name": "CampaignInvariantTests",
       "kind": "class",
       "path": "validation/test_validate_direction.py",
-      "span": "L23-L60",
+      "span": "L24-L61",
       "signature": "class CampaignInvariantTests(unittest.TestCase)",
       "exported": true,
       "origin": "ast",
@@ -359,7 +359,7 @@
       "name": "assert_fails_with",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L34-L39",
+      "span": "L35-L40",
       "signature": "def assert_fails_with(self, campaign, *fragments: str) -> None",
       "exported": true,
       "origin": "ast",
@@ -374,7 +374,7 @@
       "name": "campaign",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L24-L32",
+      "span": "L25-L33",
       "signature": "def campaign(self, **fields)",
       "exported": true,
       "origin": "ast",
@@ -389,7 +389,7 @@
       "name": "test_active_campaign_whose_active_gate_is_complete_fails",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L48-L52",
+      "span": "L49-L53",
       "signature": "def test_active_campaign_whose_active_gate_is_complete_fails(self) -> None",
       "exported": true,
       "origin": "ast",
@@ -404,7 +404,7 @@
       "name": "test_active_campaign_with_open_gate_passes",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L41-L42",
+      "span": "L42-L43",
       "signature": "def test_active_campaign_with_open_gate_passes(self) -> None",
       "exported": true,
       "origin": "ast",
@@ -419,7 +419,7 @@
       "name": "test_active_campaign_without_unproven_gates_fails",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L44-L46",
+      "span": "L45-L47",
       "signature": "def test_active_campaign_without_unproven_gates_fails(self) -> None: # The #361 state: ACTIVE_INTEGRATION with nothing left to prove.",
       "exported": true,
       "origin": "ast",
@@ -434,7 +434,7 @@
       "name": "test_paused_campaign_listing_unproven_gates_fails",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L59-L60",
+      "span": "L60-L61",
       "signature": "def test_paused_campaign_listing_unproven_gates_fails(self) -> None",
       "exported": true,
       "origin": "ast",
@@ -449,7 +449,7 @@
       "name": "test_paused_campaign_without_unproven_gates_passes",
       "kind": "method",
       "path": "validation/test_validate_direction.py",
-      "span": "L54-L57",
+      "span": "L55-L58",
       "signature": "def test_paused_campaign_without_unproven_gates_passes(self) -> None",
       "exported": true,
       "origin": "ast",
@@ -460,11 +460,160 @@
       "owner": "CampaignInvariantTests"
     },
     {
+      "id": "validation/test_validate_direction.py#GateContractTests",
+      "name": "GateContractTests",
+      "kind": "class",
+      "path": "validation/test_validate_direction.py",
+      "span": "L64-L113",
+      "signature": "class GateContractTests(unittest.TestCase)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "043714c689ff506f2aa09fb2d5754c8b38543178be6b0c4b07791c1f08456c16",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "name": "assert_fails_with",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L88-L92",
+      "signature": "def assert_fails_with(self, *fragments, **kwargs) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "874621d8fe6224e996542a0f13b9f8746ce258212c140239ecf89083fb82cab8",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "name": "campaign",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L68-L76",
+      "signature": "def campaign(self, active_gate=\"Gate PSR-1: compatibility-at-scale (BLOCKED on criteria)\", **contracts)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "567d72b8a37d9c409141593e15858b87b3f2902346db48170e59f82779dda3f6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "name": "run_check",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L78-L86",
+      "signature": "def run_check(self, campaign, psr1=UNLOCKED, psr2=UNLOCKED, linked=(\"docs/PSR-1.md\", \"docs/PSR-2.md\"))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ea90b3e7b9cb6d4002862e9e932c5f5f32e51aef5f29e7bc68efd9d06b1da9ff",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_blocked_gates_with_linked_contracts_pass",
+      "name": "test_blocked_gates_with_linked_contracts_pass",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L94-L95",
+      "signature": "def test_blocked_gates_with_linked_contracts_pass(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "46b42ed71ad145653e0b85537fbd51247609706d1c7f4e40f4236a9944edfa2c",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_contract_not_linked_from_campaign_doc_fails",
+      "name": "test_contract_not_linked_from_campaign_doc_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L100-L101",
+      "signature": "def test_contract_not_linked_from_campaign_doc_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "1957e97299036861f673b713f492dbdb33e0988b40277218c114821fceae97d2",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_fully_locked_passes",
+      "name": "test_unblocked_active_gate_fully_locked_passes",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L111-L113",
+      "signature": "def test_unblocked_active_gate_fully_locked_passes(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f143a82b704f8fe70bd4c7f68b45205e2fac7d772e9e24f8c45d8b0c057a004b",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_lock_fails",
+      "name": "test_unblocked_active_gate_with_to_lock_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L103-L105",
+      "signature": "def test_unblocked_active_gate_with_to_lock_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "fa3f59718b768406579cc7fda2fa47d4072e3d5b2bf9e8ca56e9d74ff671733e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_name_fails",
+      "name": "test_unblocked_active_gate_with_to_name_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L107-L109",
+      "signature": "def test_unblocked_active_gate_with_to_name_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "0090954ec553cc0e7dee6e8755021a87004b60a0df40a07e55cbb64912d78853",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#GateContractTests.test_unproven_gate_without_contract_fails",
+      "name": "test_unproven_gate_without_contract_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L97-L98",
+      "signature": "def test_unproven_gate_without_contract_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "37d4fd2b6bc16da9d64c051d0102e1e60ce7686ad68f5231339e582749b80205",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "GateContractTests"
+    },
+    {
       "id": "validation/test_validate_direction.py#load_validator",
       "name": "load_validator",
       "kind": "function",
       "path": "validation/test_validate_direction.py",
-      "span": "L14-L20",
+      "span": "L15-L21",
       "signature": "def load_validator()",
       "exported": true,
       "origin": "ast",
@@ -4601,12 +4750,12 @@
       "name": "validate_direction.py",
       "kind": "file",
       "path": "validation/validate_direction.py",
-      "span": "L1-L329",
+      "span": "L1-L360",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "d68a900fb9f9d663dc16c320ac4886bf33221cba4e2409a787aa02547213365f",
-      "chars": 16890,
+      "body_hash": "8623beb5a62a80d8fd4fe02a12cf339a0d26d1e17327ae225c45004dfd7e75c1",
+      "chars": 18290,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4621,6 +4770,20 @@
       "exported": true,
       "origin": "ast",
       "body_hash": "4b612512a82ee26f8a4c4f4dc27fb294871c373b5340cc4a0065f8f2089c0879",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/validate_direction.py#check_gate_contracts",
+      "name": "check_gate_contracts",
+      "kind": "function",
+      "path": "validation/validate_direction.py",
+      "span": "L85-L104",
+      "signature": "def check_gate_contracts(campaign: dict, root: Path, campaign_doc: str) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "34112b126aead7d8450d40f0aef38c9b9ff55489b6f7f8eb390d7ef2f6cbd175",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4644,11 +4807,11 @@
       "name": "main",
       "kind": "function",
       "path": "validation/validate_direction.py",
-      "span": "L81-L324",
+      "span": "L107-L355",
       "signature": "def main() -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "cc03b6011f716926fd6269b2ed8c1e888a9d614560cd869c9ac158d34cc680cd",
+      "body_hash": "8237591eb12ef474370139ad5ef8d767530427f8e07f89356bfc325f5b760cc8",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4989,6 +5152,12 @@
     },
     {
       "source": "validation/test_validate_direction.py",
+      "target": "validation/test_validate_direction.py#GateContractTests",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
       "target": "validation/test_validate_direction.py#load_validator",
       "relation": "contains",
       "confidence": "extracted"
@@ -5002,6 +5171,12 @@
     {
       "source": "validation/test_validate_direction.py",
       "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "tempfile",
       "relation": "imports",
       "confidence": "extracted"
     },
@@ -5116,6 +5291,144 @@
     {
       "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_without_unproven_gates_passes",
       "target": "validation/test_validate_direction.py#load_validator",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_blocked_gates_with_linked_contracts_pass",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_contract_not_linked_from_campaign_doc_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_fully_locked_passes",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_lock_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_name_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests",
+      "target": "validation/test_validate_direction.py#GateContractTests.test_unproven_gate_without_contract_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "target": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "target": "validation/test_validate_direction.py#load_validator",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_blocked_gates_with_linked_contracts_pass",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_blocked_gates_with_linked_contracts_pass",
+      "target": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_contract_not_linked_from_campaign_doc_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_contract_not_linked_from_campaign_doc_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_fully_locked_passes",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_fully_locked_passes",
+      "target": "validation/test_validate_direction.py#GateContractTests.run_check",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_lock_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_lock_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_name_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unblocked_active_gate_with_to_name_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unproven_gate_without_contract_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#GateContractTests.test_unproven_gate_without_contract_fails",
+      "target": "validation/test_validate_direction.py#GateContractTests.campaign",
       "relation": "calls",
       "confidence": "extracted"
     },
@@ -11277,6 +11590,12 @@
     },
     {
       "source": "validation/validate_direction.py",
+      "target": "validation/validate_direction.py#check_gate_contracts",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_direction.py",
       "target": "validation/validate_direction.py#fail",
       "relation": "contains",
       "confidence": "extracted"
@@ -11312,8 +11631,20 @@
       "confidence": "extracted"
     },
     {
+      "source": "validation/validate_direction.py#check_gate_contracts",
+      "target": "validation/validate_direction.py#fail",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
       "source": "validation/validate_direction.py#main",
       "target": "validation/validate_direction.py#check_campaign_invariant",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_direction.py#main",
+      "target": "validation/validate_direction.py#check_gate_contracts",
       "relation": "calls",
       "confidence": "extracted"
     },

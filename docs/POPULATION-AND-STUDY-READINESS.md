@@ -27,14 +27,14 @@ Hosted STUDY needs production-like natural play. A sustained multi-agent populat
 
 ## Gates
 
-| Gate | Milestone | Closes | Criteria owner | State at opening |
-|---|---|---|---|---|
-| **PSR-1: Compatibility at scale** | PSR-1 | `third_party_agent_compatibility_at_scale` | [#363](https://github.com/Zero-State-LLC/Noema-Specs/issues/363) | Active; BLOCKED on #363's criteria decision |
-| **PSR-2: Hosted STUDY evidence readiness** | PSR-2 | `hosted_study_pipeline` | [#362](https://github.com/Zero-State-LLC/Noema-Specs/issues/362) | Unproven; waits for PSR-1 |
+| Gate | Milestone | Closes | Scenario contract | Criteria owner | State |
+|---|---|---|---|---|---|
+| **PSR-1: Compatibility at scale** | PSR-1 | `third_party_agent_compatibility_at_scale` | [PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md](PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md) | [#363](https://github.com/Zero-State-LLC/Noema-Specs/issues/363) | Active; BLOCKED until its `TO LOCK` values are locked |
+| **PSR-2: Hosted STUDY evidence readiness** | PSR-2 | `hosted_study_pipeline` | [PSR-2-STUDY-READINESS-SCENARIO.md](PSR-2-STUDY-READINESS-SCENARIO.md) | [#362](https://github.com/Zero-State-LLC/Noema-Specs/issues/362) | Unproven; waits for PSR-1 and its own `TO LOCK` / `TO NAME` values |
 
 Milestone ids `PSR-1` and `PSR-2` are confirmed. They deliberately do not extend Living Alpha's `LCA-*` numbering.
 
-**Criteria are not defined here.** Each Gate's acceptance thresholds (for PSR-1: adapters covered, cohort size, duration, receipts; for PSR-2: acceptance criteria, evidence pack, owner) are human decisions owned by its issue. Until that issue records them, the Gate is BLOCKED, and no evidence run may start against invented criteria. Gates may reuse the Gate B (external population) and Gate E (endurance) evidence shapes where they fit.
+**Criteria live in each scenario contract (#379).** Values without evidence are written `TO LOCK` (or `TO NAME` for an owner). The direction validator keeps a Gate BLOCKED while its contract still contains them. Each Gate's acceptance thresholds (for PSR-1: adapters covered, cohort size, duration, receipts; for PSR-2: acceptance criteria, evidence pack, owner) are human decisions owned by its issue. Until that issue records them, the Gate is BLOCKED, and no evidence run may start against invented criteria. Gates may reuse the Gate B (external population) and Gate E (endurance) evidence shapes where they fit.
 
 ## Exit criteria
 
