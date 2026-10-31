@@ -20,6 +20,7 @@ REQUIRED = [
     "docs/LCA-GATE-F-PROMOTION-2026-09-21.md",
     "docs/EXECUTION-SEQUENCE-90-DAY.md",
     "docs/DIRECTION-AUTHORITY.md",
+    "docs/POPULATION-AND-STUDY-READINESS.md",
     "specs/current-state.v1.yaml",
 ]
 STATUSES = {
@@ -62,6 +63,19 @@ ONTOLOGY_AUTHORITY_FILES = [
 
 def fail(message: str) -> None:
     raise SystemExit(f"FAIL: {message}")
+
+
+def check_campaign_invariant(campaign: dict) -> None:
+    """An active Campaign must still have something to prove; any other state lists nothing (#361)."""
+    name = campaign.get("id") or "<unnamed campaign>"
+    unproven = campaign.get("unproven_gates") or []
+    if campaign.get("state") == "ACTIVE_INTEGRATION":
+        if not unproven:
+            fail(f"campaign {name} is ACTIVE_INTEGRATION but lists no unproven_gates")
+        if "COMPLETE" in str(campaign.get("active_gate") or ""):
+            fail(f"campaign {name} is ACTIVE_INTEGRATION but its active_gate is already COMPLETE")
+    elif unproven:
+        fail(f"campaign {name} is {campaign.get('state')} but still lists unproven_gates")
 
 
 def main() -> None:
@@ -120,8 +134,17 @@ def main() -> None:
         fail("Gate B external population must be LIVE_HOSTED after promotion")
     if "Gate B is complete" not in str(gate_b.get("claim") or ""):
         fail("Gate B claim must record completion")
-    if parsed.get("active_campaign", {}).get("state") != "ACTIVE_INTEGRATION":
-        fail("Living Civilization Alpha campaign must remain ACTIVE_INTEGRATION")
+    active_campaign = parsed.get("active_campaign", {})
+    check_campaign_invariant(active_campaign)
+    if active_campaign.get("id") != "population-and-study-readiness":
+        fail("active campaign must be population-and-study-readiness after the #361 direction packet")
+    if active_campaign.get("supersedes") != "living-civilization-alpha":
+        fail("active campaign must record that it supersedes living-civilization-alpha")
+    prior = {c.get("id"): c for c in parsed.get("completed_campaigns") or []}.get("living-civilization-alpha")
+    if not prior or len(prior.get("completed_gates") or []) != 6:
+        fail("living-civilization-alpha must be recorded in completed_campaigns with Gates A-F")
+    if parsed.get("capabilities", {}).get("spark_orin_nvidia_stack", {}).get("state") != "SPECULATIVE":
+        fail("spec 014 Spark/Orin stack must be SPECULATIVE (no implementation authority)")
     implemented = parsed.get("runtimes", {}).get("advanced_worker_runtime", {}).get("implemented_systems")
     if not isinstance(implemented, list) or len(implemented) < 10:
         fail("advanced Worker implementation inventory is incomplete")
@@ -136,7 +159,7 @@ def main() -> None:
         "Noema PR #551",
         "Noema PR #552",
         "Noema PR #587",
-        "current_milestone: LCA-5",
+        "current_milestone: PSR-1",
         "Gate A is complete",
         "Gate B is complete",
         "Gate C is complete",
@@ -271,15 +294,18 @@ def main() -> None:
         fail("Gate F promotion is accepted; stale unproven guidance remains")
     if "Gate F is not complete" in state or "Gate F is not complete" in campaign or "Gate F is not complete" in acceptance:
         fail("Gate F promotion is accepted; stale non-complete guidance remains")
-    if parsed.get("active_campaign", {}).get("current_milestone") != "LCA-5":
-        fail("campaign current_milestone must remain LCA-5 after Gate F promotion (successor decision finished LCA-5; no LCA-6)")
-    if parsed.get("active_campaign", {}).get("next_milestone") != "LCA-5":
-        fail("campaign next_milestone remains LCA-5 after Gate F promotion; no LCA-6 is invented")
-    active_gate = str(parsed.get("active_campaign", {}).get("active_gate") or "")
-    if "Gate F" not in active_gate or "COMPLETE" not in active_gate:
-        fail("campaign active_gate must record Gate F COMPLETE after Gate F promotion")
-    if "unproven" in active_gate.lower():
-        fail("campaign active_gate must not still say Gate F unproven after Gate F promotion")
+    # Living Alpha closed at LCA-5 without an LCA-6; the next Campaign uses its own milestone ids.
+    if prior.get("final_milestone") != "LCA-5":
+        fail("living-civilization-alpha must close at LCA-5 (no LCA-6)")
+    if str(active_campaign.get("current_milestone", "")).startswith("LCA-"):
+        fail("the next campaign must not extend Living Alpha milestone numbering (no LCA-6)")
+    if "compatibility-at-scale" not in str(active_campaign.get("active_gate") or "").lower():
+        fail("first active gate must be compatibility-at-scale (#363) per the #361 direction packet")
+    roadmap = (ROOT / "docs/ROADMAP.md").read_text(encoding="utf-8")
+    if "POPULATION-AND-STUDY-READINESS.md" not in roadmap:
+        fail("ROADMAP current direction must point at the next campaign")
+    if "no further Living Alpha gate" in str(active_campaign):
+        fail("active campaign must not carry the superseded 'no further Living Alpha gate' guidance")
     if "in-flight Noema #561" in campaign or "in-flight Noema #561" in acceptance:
         fail("Noema #561 is merged; do not call it in-flight")
     if "noema-client #24 remains open" in campaign or "noema-client #24 remains open" in acceptance:

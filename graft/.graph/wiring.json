@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 324,
-    "edgeCount": 1086,
+    "nodeCount": 335,
+    "edgeCount": 1112,
     "languages": [
       "python"
     ],
@@ -324,6 +324,154 @@
       "summary": null,
       "crux": null,
       "owner": "MarkdownLinkValidationTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py",
+      "name": "test_validate_direction.py",
+      "kind": "file",
+      "path": "validation/test_validate_direction.py",
+      "span": "L1-L65",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a90f7bc39216b365d95a51014d722fa2ae78c3fb8e80acdc8eb0a028314e4b96",
+      "chars": 2331,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "name": "CampaignInvariantTests",
+      "kind": "class",
+      "path": "validation/test_validate_direction.py",
+      "span": "L23-L60",
+      "signature": "class CampaignInvariantTests(unittest.TestCase)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "0aca3079ba95a57558160cb5c8fd35d0255616b5e076e170495a76547c4aad7a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "name": "assert_fails_with",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L34-L39",
+      "signature": "def assert_fails_with(self, campaign, *fragments: str) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "d78b19d250c837d5ef681e61c68af9bbee6a9a40ed65d3e75bcbbd0e33ab0031",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "name": "campaign",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L24-L32",
+      "signature": "def campaign(self, **fields)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ce069c1966420bc236a5ddc71d6c294f5c40c31cd1eb3c5f8774689cc6d2a914",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_whose_active_gate_is_complete_fails",
+      "name": "test_active_campaign_whose_active_gate_is_complete_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L48-L52",
+      "signature": "def test_active_campaign_whose_active_gate_is_complete_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "14fca25b910472911114855a8bc24c63d61af2cbe36ac7767eb8d8ce8519da7c",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_with_open_gate_passes",
+      "name": "test_active_campaign_with_open_gate_passes",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L41-L42",
+      "signature": "def test_active_campaign_with_open_gate_passes(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c49525581a626c277f106ad573334c01adc0958568f01929a7392612bfe5f7c9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_without_unproven_gates_fails",
+      "name": "test_active_campaign_without_unproven_gates_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L44-L46",
+      "signature": "def test_active_campaign_without_unproven_gates_fails(self) -> None: # The #361 state: ACTIVE_INTEGRATION with nothing left to prove.",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4e69b74cc147082cb19ce6847109708d7fd1f6b0807cd44756e3d18467d12fb6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_listing_unproven_gates_fails",
+      "name": "test_paused_campaign_listing_unproven_gates_fails",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L59-L60",
+      "signature": "def test_paused_campaign_listing_unproven_gates_fails(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "91c79c3f5079c38d48065efb6b7472ea6423b346326f3fc5e8f00b487151f2d7",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_without_unproven_gates_passes",
+      "name": "test_paused_campaign_without_unproven_gates_passes",
+      "kind": "method",
+      "path": "validation/test_validate_direction.py",
+      "span": "L54-L57",
+      "signature": "def test_paused_campaign_without_unproven_gates_passes(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "48387285ba2b535a4cc01f0c7caa96d9505e9d25edd06f739390927792e1b573",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "CampaignInvariantTests"
+    },
+    {
+      "id": "validation/test_validate_direction.py#load_validator",
+      "name": "load_validator",
+      "kind": "function",
+      "path": "validation/test_validate_direction.py",
+      "span": "L14-L20",
+      "signature": "def load_validator()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "850d45c3ddce0c1068664a2768839b7efdfe4a12c9241f37aa7a50f1e6ddaafa",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
     },
     {
       "id": "validation/test_validation_entrypoint.py",
@@ -4453,12 +4601,26 @@
       "name": "validate_direction.py",
       "kind": "file",
       "path": "validation/validate_direction.py",
-      "span": "L1-L303",
+      "span": "L1-L329",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "a7db7a909d48360b4f444a14b778eac0230103677c43cfe7291ac7f7b693bb2e",
-      "chars": 15197,
+      "body_hash": "d68a900fb9f9d663dc16c320ac4886bf33221cba4e2409a787aa02547213365f",
+      "chars": 16890,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/validate_direction.py#check_campaign_invariant",
+      "name": "check_campaign_invariant",
+      "kind": "function",
+      "path": "validation/validate_direction.py",
+      "span": "L68-L78",
+      "signature": "def check_campaign_invariant(campaign: dict) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4b612512a82ee26f8a4c4f4dc27fb294871c373b5340cc4a0065f8f2089c0879",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4468,7 +4630,7 @@
       "name": "fail",
       "kind": "function",
       "path": "validation/validate_direction.py",
-      "span": "L63-L64",
+      "span": "L64-L65",
       "signature": "def fail(message: str) -> None",
       "exported": true,
       "origin": "ast",
@@ -4482,11 +4644,11 @@
       "name": "main",
       "kind": "function",
       "path": "validation/validate_direction.py",
-      "span": "L67-L298",
+      "span": "L81-L324",
       "signature": "def main() -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "84ee62eab819eb3ce2ea288da5f8d0100efc682ed4eb4ad1033c423bc297523c",
+      "body_hash": "cc03b6011f716926fd6269b2ed8c1e888a9d614560cd869c9ac158d34cc680cd",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4816,6 +4978,144 @@
     {
       "source": "validation/test_validate_all.py#MarkdownLinkValidationTests.test_reports_source_target_and_resolved_path",
       "target": "validation/test_validate_all.py#load_validator",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "validation/test_validate_direction.py#load_validator",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "importlib.util",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py",
+      "target": "unittest",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_whose_active_gate_is_complete_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_with_open_gate_passes",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_without_unproven_gates_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_listing_unproven_gates_fails",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_without_unproven_gates_passes",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "target": "validation/test_validate_direction.py#load_validator",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_whose_active_gate_is_complete_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_whose_active_gate_is_complete_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_with_open_gate_passes",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_with_open_gate_passes",
+      "target": "validation/test_validate_direction.py#load_validator",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_without_unproven_gates_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_active_campaign_without_unproven_gates_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_listing_unproven_gates_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.assert_fails_with",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_listing_unproven_gates_fails",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_without_unproven_gates_passes",
+      "target": "validation/test_validate_direction.py#CampaignInvariantTests.campaign",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validate_direction.py#CampaignInvariantTests.test_paused_campaign_without_unproven_gates_passes",
+      "target": "validation/test_validate_direction.py#load_validator",
       "relation": "calls",
       "confidence": "extracted"
     },
@@ -10971,6 +11271,12 @@
     },
     {
       "source": "validation/validate_direction.py",
+      "target": "validation/validate_direction.py#check_campaign_invariant",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_direction.py",
       "target": "validation/validate_direction.py#fail",
       "relation": "contains",
       "confidence": "extracted"
@@ -10997,6 +11303,18 @@
       "source": "validation/validate_direction.py",
       "target": "yaml",
       "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_direction.py#check_campaign_invariant",
+      "target": "validation/validate_direction.py#fail",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_direction.py#main",
+      "target": "validation/validate_direction.py#check_campaign_invariant",
+      "relation": "calls",
       "confidence": "extracted"
     },
     {

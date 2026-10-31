@@ -1,5 +1,9 @@
 # Spec: Spark + Orin Nano NVIDIA Physical AI Integration Path
 
+**Status:** SPECULATIVE: direction without implementation authority ([current-state](../current-state.v1.yaml) `spark_orin_nvidia_stack`). A local or offline research topology; it does not change the hosted Platform in [CONTEXT.md](../../CONTEXT.md) and is not part of the active Campaign ([Population and Study Readiness](../../docs/POPULATION-AND-STUDY-READINESS.md)).
+
+**SPEC DEFECT (open, if promoted):** "Spark runs the Noema chamber as the sole writer of WorldState" conflicts with the Platform authority (Durable Objects own live serialization; Postgres owns the durable canonical record). Resolve before any promotion.
+
 ## Overview
 
 Noema agents inhabit a world whose canonical state runs on one DGX Spark while agent inference and local reasoning run on one Orin Nano. The path integrates the NVIDIA Physical AI stack (optional Omniverse twin, Cosmos models) for generative observations and Inception evidence without violating single-writer invariants.

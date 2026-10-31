@@ -204,6 +204,18 @@ Evidence-backed reproduced phenomenon in the minimal capability graph.
 **Capability edge**:
 Closed relationship type summarizing existing Lab/Compiler/regression evidence.
 
+### Direction
+
+**Campaign**:
+A bounded, gated program of authorized work toward one outcome. Exactly one Campaign is active at a time.
+
+**Gate**:
+An evidence-backed acceptance decision within a Campaign, completed only by a promotion packet with a human-yes. A Gate is not a run or a Deploy.
+
+**Successor decision**:
+The Gate F decision on which production runtime lineage succeeds the live one, and with what scope. It is not the next Campaign.
+_Avoid_: successor (for a Campaign)
+
 ### Experience (PLAY/WATCH/STUDY)
 
 **Spectator projection**:

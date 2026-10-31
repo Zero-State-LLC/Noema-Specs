@@ -2,7 +2,9 @@
 
 ## Current direction — integrate what is already built
 
-The authoritative near-term campaign is [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md). It starts from the substantial implementation already present in the advanced Worker runtime and focuses on integration, external-agent operation, endurance, WATCH legibility, and a controlled successor decision for the frozen hosted alpha.
+The authoritative near-term Campaign is [Population and Study Readiness](POPULATION-AND-STUDY-READINESS.md) (#361). It closes the two remaining BLOCKED integration edges in evidence order: compatibility-at-scale (Gate PSR-1, criteria on #363), then hosted STUDY evidence readiness (Gate PSR-2, criteria on #362). It adds no breadth and no production delta at opening.
+
+The prior Campaign, [Perihelion Reach — Living Civilization Alpha](LIVING-CIVILIZATION-ALPHA.md), is closed with Gates A–F COMPLETE. It integrated the advanced Worker runtime, external-agent operation, endurance, WATCH legibility, and the Gate F successor decision for the frozen hosted alpha.
 
 Current implementation-plane status is machine-readable in [`current-state.v1.yaml`](../specs/current-state.v1.yaml). Promotion and terminology are governed by [DIRECTION-AUTHORITY.md](DIRECTION-AUTHORITY.md). Acceptance and sequencing are [LIVING-ALPHA-ACCEPTANCE.md](LIVING-ALPHA-ACCEPTANCE.md), [LCA2 Gate B preparation](LCA2-GATE-B-PREPARATION.md), [LCA-GATE-C-SCENARIO.md](LCA-GATE-C-SCENARIO.md), [LCA-GATE-D-SCENARIO.md](LCA-GATE-D-SCENARIO.md), [LCA-GATE-E-SCENARIO.md](LCA-GATE-E-SCENARIO.md), [LCA-GATE-F-SCENARIO.md](LCA-GATE-F-SCENARIO.md), and [EXECUTION-SEQUENCE-90-DAY.md](EXECUTION-SEQUENCE-90-DAY.md). Residual contract truth is tracked without thawing freezes in [SPEC-GAP-REGISTER-2026-08-25.md](SPEC-GAP-REGISTER-2026-08-25.md).
 
