@@ -364,8 +364,8 @@ capabilities:
     spec: specs/014-spark-orin-nvidia-stack/spec.md
     scope: local or offline research topology; does not change the hosted Platform
     note: "SPEC DEFECT if promoted: 'Spark is the sole writer of WorldState' conflicts with CONTEXT.md Platform (Durable Objects live, Postgres durable)"
-# Direction packet for #361 (spec #377). Danny's merge is the human-yes.
-# Campaign id and PSR-* milestone ids are proposed; Danny may rename at merge.
+# Direction packet for #361 (spec #377). Human-yes: owner confirmation and merge of #378, 2026-10-31.
+# Campaign id and PSR-* milestone ids confirmed at merge.
 active_campaign:
   id: population-and-study-readiness
   state: ACTIVE_INTEGRATION
