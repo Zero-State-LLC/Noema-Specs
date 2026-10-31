@@ -376,7 +376,7 @@ active_campaign:
   supersedes: living-civilization-alpha
   current_milestone: PSR-1
   next_milestone: PSR-2
-  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: prerequisites open (third-party enrollment #383); criteria locked #381; client pin resolved #382)"
+  active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: prerequisites open (third-party enrollment receipts #383; route device-code + Admin-session approval; 2 outside operators); criteria locked #381; client pin resolved #382)"
   psr1_client_version: noema-client==0.1.21
   gate_contracts:
     PSR-1: docs/PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md
