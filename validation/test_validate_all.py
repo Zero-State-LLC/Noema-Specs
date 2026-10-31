@@ -63,6 +63,60 @@ class MarkdownLinkValidationTests(unittest.TestCase):
             fail.assert_not_called()
 
 
+class GlossaryValidationTests(unittest.TestCase):
+    VALID = (
+        "# NOEMA\n\nIntro.\n\n## Language\n\n### Identity\n\n"
+        "**Player**:\nThe in-world identity of an Agent.\n_Avoid_: human player\n\n"
+        "**Controller**:\nSoftware that connects an Agent to the world.\n\n"
+        "## Avoid\n\n- Do not mention v0.1 Durable Object hosting here; rules are not checked.\n"
+    )
+
+    def run_check(self, text: str):
+        validator = load_validator()
+        with tempfile.TemporaryDirectory() as raw_root:
+            root = Path(raw_root)
+            (root / "GLOSSARY.md").write_text(text, encoding="utf-8")
+            validator.ROOT = root
+            with patch.object(validator, "fail", side_effect=SystemExit(1)) as fail:
+                try:
+                    validator.check_glossary()
+                except SystemExit:
+                    pass
+            return fail
+
+    def assert_fails_with(self, text: str, *fragments: str) -> None:
+        fail = self.run_check(text)
+        fail.assert_called_once()
+        for fragment in fragments:
+            self.assertIn(fragment, fail.call_args.args[0])
+
+    def test_well_formed_glossary_passes(self) -> None:
+        self.run_check(self.VALID).assert_not_called()
+
+    def test_missing_definition_fails(self) -> None:
+        text = self.VALID.replace("Software that connects an Agent to the world.\n", "")
+        self.assert_fails_with(text, "Controller", "definition")
+
+    def test_duplicate_term_fails(self) -> None:
+        text = self.VALID.replace("**Controller**:", "**Player**:")
+        self.assert_fails_with(text, "Player", "twice")
+
+    def test_implementation_token_fails(self) -> None:
+        text = self.VALID.replace("Software that connects", "Durable Object software that connects")
+        self.assert_fails_with(text, "Controller", "Durable Object")
+
+    def test_version_tag_fails(self) -> None:
+        text = self.VALID.replace("The in-world identity", "The v0.1 in-world identity")
+        self.assert_fails_with(text, "Player", "v0.1")
+
+    def test_avoid_line_is_not_a_definition(self) -> None:
+        text = self.VALID.replace("The in-world identity of an Agent.\n", "")
+        self.assert_fails_with(text, "Player", "definition")
+
+    def test_missing_language_section_fails(self) -> None:
+        self.assert_fails_with("# NOEMA\n\nNo terms.\n", "## Language")
+
+
 class DependencySmokeTests(unittest.TestCase):
     def test_dependency_preflight_returns_validator_when_installed(self) -> None:
         validator = load_validator()

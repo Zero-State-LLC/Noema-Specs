@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_ROOT = [
     "README.md",
     "CONTEXT.md",
+    "GLOSSARY.md",
     "AGENTS.md",
     "SKILLS.md",
     "CONTRIBUTING.md",
@@ -2710,6 +2711,41 @@ def check_experience_layer(Draft202012Validator) -> None:
         if token not in readme:
             fail("README lacks clear PLAY/WATCH/STUDY entry points")
     ok("Experience layer: deterministic intents, progressive fixtures, safe disclosure, and error mappings")
+
+
+GLOSSARY_BANNED_TOKENS = ("Cloudflare", "Durable Object", "Supabase", "Postgres", "Worker")
+GLOSSARY_VERSION_TAG = re.compile(r"\bv\d+\.\d+\b")
+
+
+def check_glossary() -> None:
+    """Keep GLOSSARY.md a strict glossary: one definition per term, no implementation detail."""
+    text = (ROOT / "GLOSSARY.md").read_text(encoding="utf-8")
+    if "\n## Language\n" not in f"\n{text}":
+        fail("GLOSSARY.md lacks a ## Language section")
+    language = f"\n{text}".split("\n## Language\n", 1)[1].split("\n## ", 1)[0]
+    term_re = re.compile(r"^\*\*(.+?)\*\*:\s*$")
+    seen: set[str] = set()
+    lines = language.splitlines()
+    for index, line in enumerate(lines):
+        match = term_re.match(line)
+        if not match:
+            continue
+        term = match.group(1)
+        if term in seen:
+            fail(f"GLOSSARY.md defines {term!r} twice")
+        seen.add(term)
+        definition = lines[index + 1].strip() if index + 1 < len(lines) else ""
+        if not definition or definition.startswith(("_Avoid_", "**", "#")):
+            fail(f"GLOSSARY.md term {term!r} lacks a definition line")
+        for token in GLOSSARY_BANNED_TOKENS:
+            if token in definition:
+                fail(f"GLOSSARY.md term {term!r} names implementation detail {token!r}")
+        version = GLOSSARY_VERSION_TAG.search(definition)
+        if version:
+            fail(f"GLOSSARY.md term {term!r} carries version tag {version.group(0)!r}")
+    if not seen:
+        fail("GLOSSARY.md ## Language section defines no terms")
+    ok(f"GLOSSARY.md: {len(seen)} terms, one definition each, no implementation detail")
 
 
 def check_skills_workflows() -> None:
@@ -11205,6 +11241,7 @@ def main() -> None:
     check_learn_v07(Draft202012Validator)
     check_experience_layer(Draft202012Validator)
     check_skills_workflows()
+    check_glossary()
     check_architecture_hardening()
     check_reducer_registry()
     check_rfc_0016()
