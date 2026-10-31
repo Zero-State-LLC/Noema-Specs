@@ -177,6 +177,11 @@ def main() -> None:
     psr1_contract = (ROOT / str(active_campaign.get("gate_contracts", {}).get("PSR-1", ""))).read_text(encoding="utf-8")
     if "TO LOCK" in psr1_contract:
         fail("PSR-1 criteria are locked (#381); its scenario contract must not contain TO LOCK")
+    production_pin = parsed.get("runtimes", {}).get("production_alpha", {}).get("official_client_pin")
+    if not re.fullmatch(r"noema-client==\d+\.\d+\.\d+", str(production_pin or "")):
+        fail("runtimes.production_alpha.official_client_pin must record the shipped noema-client pin")
+    if active_campaign.get("psr1_client_version") != production_pin:
+        fail("PSR-1 runs on the shipped official-client pin (#382); psr1_client_version must equal it")
     if "prerequisites open" not in str(active_campaign.get("active_gate") or ""):
         fail("PSR-1 active_gate must name its open prerequisites until they close (#381)")
     if parsed.get("capabilities", {}).get("spark_orin_nvidia_stack", {}).get("state") != "SPECULATIVE":

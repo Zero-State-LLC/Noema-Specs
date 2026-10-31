@@ -1,6 +1,6 @@
 # Population and Study Readiness — Gate PSR-1 Scenario Contract (compatibility-at-scale)
 
-**Status:** evidence contract for the active Gate. Criteria **locked** (#381; Danny human-yes on merge, 2026-10-31). **BLOCKED on prerequisites:** official-client pin reconcile and a third-party enrollment path (see [Prerequisites](#prerequisites)). Not a runbook, not a COMPLETE claim, and not authority to deploy.
+**Status:** evidence contract for the active Gate. Criteria **locked** (#381; Danny human-yes on merge, 2026-10-31). **BLOCKED on prerequisite:** a third-party enrollment path (the client pin is resolved, #382) (see [Prerequisites](#prerequisites)). Not a runbook, not a COMPLETE claim, and not authority to deploy.
 **Campaign:** [Population and Study Readiness](POPULATION-AND-STUDY-READINESS.md)
 **Machine baseline:** [`current-state.v1.yaml`](../specs/current-state.v1.yaml) (`third_party_agent_compatibility_at_scale: BLOCKED`)
 **Decision issues:** [#363](https://github.com/Zero-State-LLC/Noema-Specs/issues/363) (thresholds) · spec [#379](https://github.com/Zero-State-LLC/Noema-Specs/issues/379)
@@ -23,7 +23,7 @@ These facts are OBSERVED in the retained packets:
 A PSR-1 candidate may begin only when all of these are recorded:
 
 - the criteria in this contract are locked (done in #381), and the Campaign record no longer marks PSR-1 BLOCKED;
-- the official-client pin is reconciled. `hosted_live.official_client` records `noema-client==0.1.21`, while Gate B OBSERVED 0.1.22. Record the version the run will use; do not invent a flip ([#382](https://github.com/Zero-State-LLC/Noema-Specs/issues/382));
+- **Resolved (#382):** the run uses the **shipped pin `noema-client==0.1.21`**. That is Noema `spec-compat.json` `hosted_live.official_client` on `main` and at the live source, OBSERVED 2026-10-31. It is also what outside operators are told to install. Every first-party Controller runs the pinned version. Any off-pin version (as Gate B's 0.1.22 was) is a **marked deviation** in the per-Controller row, never silently accepted. Advancing the pin (for example to v0.1.23) is optional Noema work under its client-pin evidence process, not a PSR-1 prerequisite;
 - the run targets the **live production pin** recorded in the current-state record, not an isolated Worker;
 - the non-first-party Controller's operator has an authorized enrollment path. Gate F residual #4 recorded that production device enrollment was never completed; if that is still true, it is a prerequisite defect to close, not a waiver ([#383](https://github.com/Zero-State-LLC/Noema-Specs/issues/383));
 - planned operator actions, external inputs, remint and Path 8 drills, and the intervention budget are declared during Prep.
