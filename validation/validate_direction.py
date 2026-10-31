@@ -78,6 +78,32 @@ def check_campaign_invariant(campaign: dict) -> None:
         fail(f"campaign {name} is {campaign.get('state')} but still lists unproven_gates")
 
 
+GATE_ID = re.compile(r"\bPSR-\d+\b")
+UNLOCKED_MARKERS = ("TO LOCK", "TO NAME")
+
+
+def check_gate_contracts(campaign: dict, root: Path, campaign_doc: str) -> None:
+    """Every unproven Gate has a linked scenario contract; an unblocked active Gate has no unlocked values (#379)."""
+    contracts = campaign.get("gate_contracts") or {}
+    for gate in campaign.get("unproven_gates") or []:
+        match = GATE_ID.search(str(gate))
+        if not match:
+            continue
+        gate_id = match.group(0)
+        rel = contracts.get(gate_id)
+        if not rel or not (root / rel).is_file():
+            fail(f"Gate {gate_id} has no scenario contract in active_campaign.gate_contracts")
+        if Path(rel).name not in campaign_doc:
+            fail(f"Gate {gate_id} scenario contract {rel} is not linked from the campaign document")
+    active_gate = str(campaign.get("active_gate") or "")
+    match = GATE_ID.search(active_gate)
+    if match and "BLOCKED" not in active_gate:
+        text = (root / contracts[match.group(0)]).read_text(encoding="utf-8")
+        for marker in UNLOCKED_MARKERS:
+            if marker in text:
+                fail(f"active Gate {match.group(0)} is no longer BLOCKED but its contract still says {marker}")
+
+
 def main() -> None:
     for rel in REQUIRED:
         if not (ROOT / rel).is_file():
@@ -136,6 +162,11 @@ def main() -> None:
         fail("Gate B claim must record completion")
     active_campaign = parsed.get("active_campaign", {})
     check_campaign_invariant(active_campaign)
+    check_gate_contracts(
+        active_campaign,
+        ROOT,
+        (ROOT / "docs/POPULATION-AND-STUDY-READINESS.md").read_text(encoding="utf-8"),
+    )
     if active_campaign.get("id") != "population-and-study-readiness":
         fail("active campaign must be population-and-study-readiness after the #361 direction packet")
     if active_campaign.get("supersedes") != "living-civilization-alpha":

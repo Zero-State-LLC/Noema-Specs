@@ -1,11 +1,21 @@
 # validation/test_validate_direction.py
 
-- load_validator · function · L14-L20 — def load_validator()
-- CampaignInvariantTests · class · L23-L60 — class CampaignInvariantTests(unittest.TestCase)
-- campaign · method · L24-L32 — def campaign(self, **fields)
-- assert_fails_with · method · L34-L39 — def assert_fails_with(self, campaign, *fragments: str) -> None
-- test_active_campaign_with_open_gate_passes · method · L41-L42 — def test_active_campaign_with_open_gate_passes(self) -> None
-- test_active_campaign_without_unproven_gates_fails · method · L44-L46 — def test_active_campaign_without_unproven_gates_fails(self) -> None: # The #361 state: ACTIVE_INTEGRATION with nothing left to prove.
-- test_active_campaign_whose_active_gate_is_complete_fails · method · L48-L52 — def test_active_campaign_whose_active_gate_is_complete_fails(self) -> None
-- test_paused_campaign_without_unproven_gates_passes · method · L54-L57 — def test_paused_campaign_without_unproven_gates_passes(self) -> None
-- test_paused_campaign_listing_unproven_gates_fails · method · L59-L60 — def test_paused_campaign_listing_unproven_gates_fails(self) -> None
+- load_validator · function · L15-L21 — def load_validator()
+- CampaignInvariantTests · class · L24-L61 — class CampaignInvariantTests(unittest.TestCase)
+- campaign · method · L25-L33 — def campaign(self, **fields)
+- assert_fails_with · method · L35-L40 — def assert_fails_with(self, campaign, *fragments: str) -> None
+- test_active_campaign_with_open_gate_passes · method · L42-L43 — def test_active_campaign_with_open_gate_passes(self) -> None
+- test_active_campaign_without_unproven_gates_fails · method · L45-L47 — def test_active_campaign_without_unproven_gates_fails(self) -> None: # The #361 state: ACTIVE_INTEGRATION with nothing left to prove.
+- test_active_campaign_whose_active_gate_is_complete_fails · method · L49-L53 — def test_active_campaign_whose_active_gate_is_complete_fails(self) -> None
+- test_paused_campaign_without_unproven_gates_passes · method · L55-L58 — def test_paused_campaign_without_unproven_gates_passes(self) -> None
+- test_paused_campaign_listing_unproven_gates_fails · method · L60-L61 — def test_paused_campaign_listing_unproven_gates_fails(self) -> None
+- GateContractTests · class · L64-L113 — class GateContractTests(unittest.TestCase)
+- campaign · method · L68-L76 — def campaign(self, active_gate="Gate PSR-1: compatibility-at-scale (BLOCKED on criteria)", **contracts)
+- run_check · method · L78-L86 — def run_check(self, campaign, psr1=UNLOCKED, psr2=UNLOCKED, linked=("docs/PSR-1.md", "docs/PSR-2.md"))
+- assert_fails_with · method · L88-L92 — def assert_fails_with(self, *fragments, **kwargs) -> None
+- test_blocked_gates_with_linked_contracts_pass · method · L94-L95 — def test_blocked_gates_with_linked_contracts_pass(self) -> None
+- test_unproven_gate_without_contract_fails · method · L97-L98 — def test_unproven_gate_without_contract_fails(self) -> None
+- test_contract_not_linked_from_campaign_doc_fails · method · L100-L101 — def test_contract_not_linked_from_campaign_doc_fails(self) -> None
+- test_unblocked_active_gate_with_to_lock_fails · method · L103-L105 — def test_unblocked_active_gate_with_to_lock_fails(self) -> None
+- test_unblocked_active_gate_with_to_name_fails · method · L107-L109 — def test_unblocked_active_gate_with_to_name_fails(self) -> None
+- test_unblocked_active_gate_fully_locked_passes · method · L111-L113 — def test_unblocked_active_gate_fully_locked_passes(self) -> None
