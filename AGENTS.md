@@ -100,6 +100,6 @@ This section is my standing authorization. Do not ask me to approve anything lis
 - Turn off a check or protection to get a merge through.
 
 ### Where things are
-- Keys: 1Password. Never ask for a pasted key; if you cannot find one, ask where it is stored and record the vault name here. Variable names are listed in `.env.example`.
+- Keys: never in the tree, chat or logs. CI secrets are GitHub Actions secrets; local values live in gitignored `.dev.vars` or `.env`. Variable names are listed in `.env.example`. If a value is missing, ask where it is stored; never ask for a paste.
 - Board: GitHub Issues on `Zero-State-LLC/Noema-Specs`. Live plan: `docs/ROADMAP.md`. Facts: `FACTS.md`. Hand-offs: `docs/handoff/NEXT.md`.
 - Hosting: no deploy target identified (no `wrangler` config and no deploy workflow; CI workflows are `ci.yml`, `codeql.yml`, `project-collaboration.yml`).
