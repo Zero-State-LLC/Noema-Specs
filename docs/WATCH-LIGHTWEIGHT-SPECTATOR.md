@@ -56,7 +56,7 @@ Text-first Chamber theater.
 
 Impressiveness is a unique blend, not pure cinema and not a raw MUD dump. TEXT remains authority; withheld or unknown public state is drama, not a fill. MAP MAY be a living stage under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Glanceable Who / Where / Consequence is civilization sports, not a KPI or esports HUD. The chamber is a window and never pretends to be omniscient. Feel is **legible but with edges of experimental**: Gate D five slots, camera-to-action, and TEXT stay non-negotiable; uncanny depth, odd marks, and withheld-as-aesthetic stay fringe; muddy hierarchy, illegible type, and cosplay HUD remain defects. Visual grammar: [WATCH-VISUAL-DIRECTION.md](WATCH-VISUAL-DIRECTION.md) §1.
 
-Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. Portrait grids, decorative motion, and Admin-style topology remain out of scope. Unscoped WebGL remains out of scope. WebGL / Three.js (or equivalent) MAY render the `MAP` mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D (§18) until a later explicit row.
+Preserve the text-first doctrine ([EXPERIENCE.md](EXPERIENCE.md), [MUD-DESIGN-CANON.md](MUD-DESIGN-CANON.md)). WATCH stays low-load relative to PLAY; that is not a mandate for empty PLAY ([PLAYER-BRAND.md](PLAYER-BRAND.md)). Small functional graphics MAY be used only when they improve glance comprehension. Portrait grids, decorative motion, and Admin-style topology remain out of scope. Unscoped WebGL remains out of scope. WebGL / Three.js (or equivalent) MAY render the `MAP` mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. PIXEL stays Canvas 2D (§18) until a later explicit row. **Amend (2026-11-10, [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md)):** when the runtime ships it, the public Chamber stage replaces the `MAP` mode stage under the same §3.3 conditions, and public `/watch` no longer mounts PIXEL. Admin Watch keeps Phosphor.
 
 The public spectator door is **one `/watch`**. Modes:
 
@@ -511,7 +511,7 @@ Existing architecture: bounded HTTP poll of `GET /v1/watch/live`. **Polling is s
 | Headline change | A newly selected NOTABLE or MAJOR headline MAY flash its tier mark once (≤ 400 ms); no loop |
 | Old events quieter | Visual fade only; no deletion flash |
 | MAJOR | Temporary banner ≤ 2 intervals; no loop, no strobe. When a MAJOR headline triggers the banner it MUST actually render — banner chrome that is permanently `display:none` is a defect |
-| Mode selection | Spectator-initiated PIXEL↔MAP only: ≤ 400 ms, existing camera ease, no delay to input/focus/ARIA; TEXT hard cut; never on load/refresh/stream (Danny, 2026-10-15; [watch-fluid-modes.md](../specify/watch-fluid-modes.md)) |
+| Mode selection | Spectator-initiated PIXEL↔MAP only: ≤ 400 ms, existing camera ease, no delay to input/focus/ARIA; TEXT hard cut; never on load/refresh/stream (Danny, 2026-10-15; [watch-fluid-modes.md](../specify/watch-fluid-modes.md)). Superseded when the Chamber stage ships: no mode selection remains, and the camera rules are in [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) D4 |
 | `prefers-reduced-motion` | Instant replace; no brightness pulse; no banner animation |
 | Pause | Existing pause control remains; poll MUST stop |
 | Background tabs | `document.hidden` MUST skip polls |
@@ -676,7 +676,7 @@ Runtime MUST cover:
 - story/thread grouping
 - audio / semantic sound
 - scoring or “interest” engines
-- richer world visualization beyond the MAP-stage allowlist (Admin-style topology, cinema, unscoped 3D). MAP WebGL is [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Optional Phosphor §18 stays Canvas 2D.
+- richer world visualization beyond the MAP-stage allowlist, which becomes the Chamber-stage allowlist under [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) (Admin-style topology, cinema, unscoped 3D). MAP WebGL is [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Optional Phosphor §18 stays Canvas 2D.
 - richer push semantics beyond the same `watch-live/1.0` snapshot (optional `/v1/watch/stream` is transport only)
 - authenticated-observer extra fields on the public door
 - Agent POV chrome on `/watch`
@@ -761,6 +761,7 @@ Palette: `color.surface.world` ground; `color.state.active` / `color.state.warni
 - **Labels stay readable.** Site names on the sketch MUST NOT be overdrawn by room glyphs, occupancy diamonds, catalog marks, route strokes, or pulses — separate the label placement from the mark zone and/or back the text with a ground-colored plate. Unreadable labels are a defect.
 - **Adjacent map key.** The sketch MUST carry a compact key beside/below the canvas — HTML text, not canvas — naming its marks in plain language: site, active site, Player occupancy, route, uncertain route, event pulse, and the MAJOR color. The header glyph legend (`#world-key`) documents the shared catalog and does not substitute for the map key. The key adds no information the sketch does not already show.
 - TEXT / PIXEL toggle, keyboard-accessible. **Default is PIXEL when Canvas 2D is available.** The graphical Phosphor sketch is the intended first-glance cartography of the public door; plain text as the default map is a presentation defect. TEXT stays one keystroke away, disables the canvas entirely, and MAY persist as a client-local preference. Canvas absence or failure falls back to TEXT (+ the §4.B.1 text cartogram). TEXT remains complete and authoritative in every mode — the semantic site list is always present and the canvas never carries unique information.
+- **Amend (2026-11-10, [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) D1 to D3):** when the Chamber stage ships, it is the default on public `/watch`, and PIXEL is not mounted there. The TEXT plus cartogram fallback above becomes the stage's failure and Low noise path. Old `?mode=` links resolve per D3.
 - `MAP` is a third mode of this same `/watch` door ([WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md)). It does not change these Phosphor rules. Selecting MAP hides the PIXEL canvas and the TEXT cartogram. Selecting PIXEL or TEXT hides the MAP canvas.
 - `prefers-reduced-motion` → no pulses, no interpolation, snap positions.
 - Failure / no-canvas / TEXT → pure text. Semantic graph always present.

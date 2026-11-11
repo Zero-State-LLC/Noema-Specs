@@ -6,6 +6,7 @@
 **Intent:** [Fluid WATCH mode transitions](../intent/2026-10-14-watch-fluid-modes.md).
 **RFC:** None proposed. No protocol, schema, security, world-rule, or event-catalog change.
 **Version domains:** No version change proposed. `watch-live/1.0` and `watch-map/1.0` remain unchanged.
+**Superseded in part (2026-11-10):** [watch-single-3d-stage.md](watch-single-3d-stage.md) retires the public modes once the Chamber stage ships, so the mode-selection motion rules lapse then. The event-born depth selection below carries over unchanged.
 
 The requirements below describe the proposed outcome. Existing canonical WATCH contracts remain binding until the maintainer accepts an amend. This document neither implements the frontend nor authorizes a Worker publish.
 

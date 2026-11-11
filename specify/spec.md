@@ -49,6 +49,15 @@ Phosphor rules stay unchanged. Spectator projection is not world truth.
 
 3. Keep one map at a time. The TEXT cartogram, PIXEL canvas, and MAP canvas MUST NOT render together.
 4. Keep `PIXEL` as the default first-glance cartography when Canvas 2D is available. `MAP` is opt-in enhancement. `TEXT` stays one keystroke away and remains complete.
+
+   **Amended 2026-11-10 ([watch-single-3d-stage.md](watch-single-3d-stage.md), accepted by the owner).** Items 2 to 4 and 6 change when the runtime ships the Chamber stage:
+
+   - One WebGL2 Chamber stage becomes the default graphical view, beside the always-present semantic graph.
+   - PIXEL and MAP retire as public modes.
+   - `?mode=` values and `/watch/map` resolve per D3.
+   - Stage failure and Low noise render the semantic graph plus the text cartogram.
+
+   Until the stage ships, items 2 to 4 stand.
 5. Treat `GET /v1/watch/map` (`watch-map/1.0`) as an optional band payload, not a second spectator app. MAP mode MUST show the same `world_id`, `cycle`, `sequence`, and `freshness` as `GET /v1/watch/live`.
 6. A historical `/watch/map` URL MAY redirect to `/watch` with MAP selected. It MUST NOT remain a second public application with a separate world head.
 7. Do not change Phosphor glyph, motion, privacy, or TEXT-authority rules.
