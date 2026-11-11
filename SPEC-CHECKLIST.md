@@ -419,7 +419,7 @@ Artifact-creation checks in this section record historical design-note, micro-no
 - [x] Spec Completion Contract prerequisites micro-notes for all phases (GC1-3/4-7/8-10). Evidence: [GC1–3](docs/SPEC-COMPLETION-GC1-3-SEED.md), [GC4–7](docs/SPEC-COMPLETION-GC4-7-SEED.md), [GC8–10](docs/SPEC-COMPLETION-GC8-10-SEED.md).
 - Next batch: full cross-refs + verification.
 
-- [ ] SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC).
+- [x] SPEC-COMPLETION-FIXTURES-SEED.md (positive/negative fixtures per GC). Evidence: [per-GC fixture inventory](docs/SPEC-COMPLETION-FIXTURES-INVENTORY.md): 83 packs and 458 fixtures; every GC1–GC10 has positive and negative fixtures executed by `validation/validate_all.py` against Accepted RFCs. Specs fixture and validator evidence only; no runtime, hosted or gate claim (#388).
 - [x] SPEC-COMPLETION-PROJECTIONS-SEED.md (PLAY/WATCH/research boundaries). Evidence: [projection seed](docs/SPEC-COMPLETION-PROJECTIONS-SEED.md).
 - [x] ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md (consolidated A–J evidence/gaps). Evidence: [consolidated design-note pass](docs/ACCEPTANCE-MATRIX-EVIDENCE-PASS-SEED.md).
 
