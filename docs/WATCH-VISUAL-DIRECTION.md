@@ -527,9 +527,9 @@ Safe rendering of public labels, descriptions, event lines, and other world text
 Preserve the existing Phosphor performance doctrine and the lightweight WATCH refresh contract:
 
 - Canvas 2D for PIXEL where existing canon requires it;
-- WebGL / Three.js (or equivalent) MAY render the MAP mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3;
+- WebGL / Three.js (or equivalent) MAY render the MAP mode stage only under [WATCH-REAL-TIME-MAPPING.md](WATCH-REAL-TIME-MAPPING.md) §3.3. Once the runtime ships it, the same applies to the Chamber stage that replaces it ([watch-single-3d-stage.md](../specify/watch-single-3d-stage.md));
 - no decorative WebGL unrelated to a public event or follow target;
-- no third-party graphics engine outside that MAP-stage allowlist;
+- no third-party graphics engine outside that MAP-stage / Chamber-stage allowlist;
 - deterministic map layout;
 - event-driven redraw;
 - no continuous idle animation;

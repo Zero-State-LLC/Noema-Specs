@@ -4,6 +4,14 @@
 
 ### Changed
 
+- **WATCH Chamber stage amend accepted (owner, 2026-11-10; presentation only; effective when the runtime ships it).** [watch-single-3d-stage.md](specify/watch-single-3d-stage.md) replaces the public TEXT / PIXEL / MAP rail on `/watch` with one WebGL2 Chamber stage beside the always-present semantic site list ([intent](intent/2026-11-10-watch-single-3d-stage.md)). Decisions:
+  - D1: the stage is the default.
+  - D2: no second graphical renderer. Failure and Low noise render the list plus the text cartogram, and Admin Watch keeps Phosphor.
+  - D3: `?mode=` and `/watch/map` links keep resolving.
+  - D4: bounded orbit, zoom and pan with no damping, a Reset view control, and event-born Direct-Camera within the NOTABLE pulse lifetime.
+  - D5: one chunk at or under 160 KiB gzip; the measured probe is 142,802 B.
+
+  Amend notes in WATCH-LIGHTWEIGHT-SPECTATOR, WATCH-REAL-TIME-MAPPING, WATCH-VISUAL-DIRECTION, `specify/spec.md` and `watch-fluid-modes.md` keep the shipped rail conformant until then. No protocol, schema or version change: `watch-live/1.0` and `watch-map/1.0` are unchanged.
 - **PSR-1 enrollment route chosen (#383; record only; no auth change).** Outside operators enroll through the existing device-code flow with Admin-session approval (as Gate B, `approver_amr=admin_session`). Credentials go directly to the operator's runtime; out-of-band Admin token minting is not this route (it would need an RFC). Two outside operators are available, which meets the ≥2 non-first-party floor with no slack. PSR-1 stays BLOCKED until each has a retained non-secret enrollment receipt.
 - **PSR-1 client pin resolved (#382; record change only).** OBSERVED: Noema `spec-compat.json` ships `noema-client==0.1.21` on `main` and at live source `565ccc15`. The Specs record was already correct. The off-pin item was Gate B's 0.1.22 cohort. PSR-1 runs on the shipped pin, and off-pin versions are marked deviations; advancing the pin is optional Noema work. Recorded as `runtimes.production_alpha.official_client_pin` and `active_campaign.psr1_client_version`. `validate_direction.py` asserts they agree. PSR-1 stays BLOCKED on third-party enrollment (#383).
 - **PSR-1 and PSR-2 criteria locked (#381; evidence-contract change only; Danny human-yes on merge).** PSR-1 cohort = 6 concurrent Controllers with ≥2 on each integration path. PSR-2 window = Δcycle ≥24 with ≥3 acting independent Players and ≥2 present at the same moment; K ≥20 research-eligible Observations per participating Player and ≥60 in total; N = 1 dossier. The research and ethics steward stays TO NAME. PSR-1 stays BLOCKED on prerequisites: client-pin reconcile (#382) and third-party enrollment (#383). `validate_direction.py` asserts the PSR-1 contract has no TO LOCK and that its active Gate names the open prerequisites.

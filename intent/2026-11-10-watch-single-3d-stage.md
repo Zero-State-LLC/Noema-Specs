@@ -2,7 +2,7 @@
 
 **Status:** `draft`
 
-**Next stage:** `specify/spec.md` patch, drafted as a new `specify/watch-single-3d-stage.md` amend.
+**Next stage:** [specify/watch-single-3d-stage.md](../specify/watch-single-3d-stage.md), accepted by the owner on 2026-11-10.
 
 **Author:** scrimshawlife-ctrl (drafted with Claude Code)
 
@@ -88,7 +88,7 @@ No Controller, Player action, World Engine, STUDY, or projection contract change
   - KPI walls;
   - decorative WebGL;
   - more than one MAJOR treatment at a time.
-- Camera and transition moves last at most 400 ms, start only from the spectator or an event, and never run on load or refresh.
+- Direct-Camera eases stay within the §18.6 NOTABLE pulse lifetime, which is 560 ms in the runtime today. They start only from the spectator or an event, and never run on load or refresh. With no modes left, the 400 ms mode-transition rule has nothing to govern.
 - Hidden rooms, exits, entities and players are never drawn. Ids never appear on screen. Missing data stays absent.
 - Persistent, cumulative or trace-derived depth stays out of scope, per the 2026-10-15 selection, unless it is reviewed separately.
 - Keyboard and touch:
@@ -117,6 +117,9 @@ No Controller, Player action, World Engine, STUDY, or projection contract change
 - Runtime repo inventory `docs/WATCH-VISUAL-MAP.md`, and the privacy notice entry for the `noema.watch.mode` local key.
 
 ## Open questions
+
+All five were researched and resolved on 2026-11-10 under the owner's delegation. See [Decisions D1-D5](../specify/watch-single-3d-stage.md#decisions). The originals are kept below for traceability.
+
 
 1. Is the 3D stage the only graphical view, and the default? The owner's direction says yes; it needs this amend accepted.
 2. What happens without WebGL2? Recommended: the semantic list plus text cartogram only, because it is already compliant and keeps one renderer. The alternative is to keep Canvas 2D PIXEL as a second renderer.

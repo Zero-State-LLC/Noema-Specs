@@ -37,7 +37,7 @@ WATCH Real-Time Mapping is the `MAP` mode of the one public spectator door (`/wa
 - An admin or research analytics surface.
 - A player HUD.
 - A raw event firehose.
-- The default cartography of `/watch`. PIXEL (Phosphor §18) stays the default first-glance map when Canvas 2D is available. `MAP` MUST NOT render beside the TEXT cartogram or the PIXEL canvas — one map at a time.
+- The default cartography of `/watch`. PIXEL (Phosphor §18) stays the default first-glance map when Canvas 2D is available. `MAP` MUST NOT render beside the TEXT cartogram or the PIXEL canvas — one map at a time. **Amended 2026-11-10 ([watch-single-3d-stage.md](../specify/watch-single-3d-stage.md)):** when the runtime ships it, the single Chamber stage is the default cartography of `/watch`. The TEXT cartogram still never renders beside it.
 
 A historical `/watch/map` URL MAY redirect to `/watch` with `MAP` selected. It MUST NOT keep a separate live document or a different world head. Live dual surfaces (`/watch` and `/watch/map`) are observed runtime drift until that unify ships.
 
@@ -103,6 +103,7 @@ Impressiveness target is a unique blend, not pure cinema and not a raw MUD dump:
 | `TEXT` | Semantic HTML. No WebGL. |
 | `PIXEL` | Canvas 2D only ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md) §18). WebGL stays banned until a later explicit row. |
 | `MAP` | WebGL / Three.js (or equivalent) MAY render the MAP mode stage when every condition below holds. HTML/CSS layout remains equally compliant. Smooth interpolated movement is optional enhancement, never information. |
+| Chamber stage | Once the runtime ships it, WebGL2 / Three.js renders the single public stage under every condition below, plus [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) WS3-01 to WS3-12. It replaces the `PIXEL` and `MAP` rows for public `/watch`. PIXEL stays Canvas 2D for Admin Watch. |
 
 **MAP-stage MAY when all of the following hold:**
 
@@ -222,7 +223,7 @@ The lightweight contract's §8 rules apply: bounded polling (8–12 s), a **paus
 | “dashboard” doctrine (§1 there forbids it) | This mode is layered density, not telemetry: no KPI grids beyond the small health panel, no charts/sparklines, no world-pressure meters, no spectator analytics. The self-description “dashboard-style” is retired. |
 | One map at a time (§4.B.1 there) | Governs the public door `/watch` (TEXT cartogram / PIXEL phosphor / MAP). `MAP` is a mode of that door; it never embeds beside TEXT or PIXEL. A historical `/watch/map` URL MAY redirect to `/watch` with MAP selected. |
 | Cognitive-load contract (§3 there) | Binds `/watch`. `MAP` carries its own restraint list (§1 “It is not” + §1.1 + §6.1) rather than §3's exact widget caps. |
-| Phosphor default (§18 there) | Unchanged — the phosphor sketch remains the public door's default cartography. `MAP` is not the default anything. |
+| Phosphor default (§18 there) | Unchanged — the phosphor sketch remains the public door's default cartography. `MAP` is not the default anything. **Amended 2026-11-10:** when the Chamber stage ships, it is the default and Phosphor leaves public `/watch` ([watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) D1, D2). |
 | Same world heads | `MAP` MUST display the same `world_id`, `cycle`, `sequence`, and `freshness` as TEXT and PIXEL. `watch-map/1.0` adds coarse bands only. A second head is a defect. |
 | Client interest scoring (SPECTATOR.md) | Banned here too; tiers/importance are server-side only. |
 | AI narration / voting / badges (§3/§14 there) | Not in v0.1; gated on future RFC + reconciliation (see §6 gates). |
