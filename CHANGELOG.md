@@ -4,6 +4,7 @@
 
 ### Changed
 
+- **WATCH Chamber stage D3 amended at implementation (2026-11-11; presentation only).** [watch-single-3d-stage.md](specify/watch-single-3d-stage.md) D3: the public view is per visit. `/watch` no longer reads or writes `noema.watch.mode`. Low noise is the lasting text-only preference, because no rail remains to leave a stored text view. Admin Watch keeps its TEXT / PIXEL choice in that key. Shipped in Noema #872, live Worker `0d17cab5`.
 - **WATCH Chamber stage amend accepted (owner, 2026-11-10; presentation only; effective when the runtime ships it).** [watch-single-3d-stage.md](specify/watch-single-3d-stage.md) replaces the public TEXT / PIXEL / MAP rail on `/watch` with one WebGL2 Chamber stage beside the always-present semantic site list ([intent](intent/2026-11-10-watch-single-3d-stage.md)). Decisions:
   - D1: the stage is the default.
   - D2: no second graphical renderer. Failure and Low noise render the list plus the text cartogram, and Admin Watch keeps Phosphor.

@@ -54,14 +54,20 @@ Evidence:
 
 ### D3. Old mode links keep working
 
-**SELECTED.** `parseWatchMode` keeps accepting `text|pixel|map|3d` from query, hash and the `noema.watch.mode` local key:
+**SELECTED.** `parseWatchMode` keeps accepting `text|pixel|map|3d` from the query and the hash:
 
 | Value | Result |
 |---|---|
 | `text` | List only, stage unmounted. Same view as Low noise. |
 | `pixel`, `map`, `3d` | The stage. |
 
-`/watch/map` keeps its redirect to `/watch`. The local key keeps only the `text` preference.
+`/watch/map` keeps its redirect to `/watch`.
+
+**Amended at implementation (2026-11-11, Noema #872).** The view is per visit. Public `/watch` neither reads nor writes the `noema.watch.mode` local key:
+
+- With the rail retired, a stored `text` view would leave the visitor no control to return to the stage, so the lasting text-only preference is Low noise, which has its own toggle.
+- Admin Watch keeps its TEXT / PIXEL choice in that key (D2), so public `/watch` leaves it untouched.
+- `?mode=text` stays in the URL so the text view can be shared.
 
 Evidence: about 20 evidence records and runbooks in the runtime repo link `?mode=` URLs, including the Gate D packet and the 733 hosted-evidence docs. So does `scripts/acceptance-733.mjs`. Those URLs must keep reproducing.
 
