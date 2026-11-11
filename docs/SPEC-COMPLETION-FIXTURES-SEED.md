@@ -9,6 +9,8 @@
 **GC3:** Dyadic trade + betrayal fixtures (RFC-0007 + S1–S7).
 **GC4–10:** To be detailed in later slices; current seeds provide starting positive/negative cases (e.g., COI, pressure, custom inheritance).
 
+**Inventory (2026-11-11):** [SPEC-COMPLETION-FIXTURES-INVENTORY.md](SPEC-COMPLETION-FIXTURES-INVENTORY.md) lists the executed positive and negative fixtures for every GC1–GC10, with authority and gaps. Specs fixture and validator evidence only.
+
 **Boundaries:** Notes only. Ties to acceptance matrix and machine inventory. Cites GAME-COMPLETENESS-PLAN.md section 11 + matrix A–J + prior seeds/PR #305 + main.
 
 Smallest unit for fixtures element.
