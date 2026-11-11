@@ -88,7 +88,7 @@ No Controller, Player action, World Engine, STUDY, or projection contract change
   - KPI walls;
   - decorative WebGL;
   - more than one MAJOR treatment at a time.
-- Direct-Camera eases stay within the §18.6 NOTABLE pulse lifetime, which is 560 ms in the runtime today. They start only from the spectator or an event, and never run on load or refresh. With no modes left, the 400 ms mode-transition rule has nothing to govern.
+- Direct-Camera eases stay within the §18.6 NOTABLE pulse lifetime, which is 560 ms in the runtime today. They start only from the spectator or a newly observed event, never from loading the page, a refresh, or an update that only repeats state the window has already applied. With no modes left, the 400 ms mode-transition rule has nothing to govern.
 - Hidden rooms, exits, entities and players are never drawn. Ids never appear on screen. Missing data stays absent.
 - Persistent, cumulative or trace-derived depth stays out of scope, per the 2026-10-15 selection, unless it is reviewed separately.
 - Keyboard and touch:

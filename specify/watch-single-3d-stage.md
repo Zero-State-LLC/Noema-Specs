@@ -76,7 +76,7 @@ Evidence: about 20 evidence records and runbooks in the runtime repo link `?mode
   - pan, with the target clamped to the layout radius;
   - keyboard: arrow keys pan, Shift plus arrow keys orbit.
   - A visible "Reset view" control restores the default framing.
-- **Direct-Camera** targets only public `room_id` and public actors already on the snapshot. It eases within the NOTABLE pulse lifetime: §18.6 tiers, 560 ms in the runtime today (`watch-phosphor.ts`). It runs on Follow, on selection, or on a MAJOR event. It never runs on load, refresh or stream update, and is instant under reduced motion.
+- **Direct-Camera** targets only public `room_id` and public actors already on the snapshot. It eases within the NOTABLE pulse lifetime: §18.6 tiers, 560 ms in the runtime today (`watch-phosphor.ts`). It runs on Follow, on selection, or on a newly observed MAJOR event: one whose sequence is newer than the last event this window has already applied. Polled snapshots and stream updates are where such events arrive, so an update that carries one may trigger the move. Loading the page, a manual refresh, or an update that only repeats state the window has already applied never moves the camera. The move is instant under reduced motion.
 - **Spectator movement suspends automatic moves** until the next selection, Follow, or Reset.
 
 Evidence: the bundled Three.js 0.186 `OrbitControls` provides polar and distance bounds, `maxTargetRadius`, and `listenToKeyEvents` with Shift-arrow rotation. Disabling damping keeps the "idle world is idle stage" rule (MAPPING §3.3).
@@ -123,7 +123,7 @@ Evidence: a tree-shaken esbuild probe of the stage's Three.js surface measured 1
 | WS3-A1 | On one public snapshot, stage and list show the same world head, sites, routes, handles and Recently feed. |
 | WS3-A2 | No WebGL2, forced context loss, a blocked chunk and Low noise each leave the list and the text cartogram complete, with no uncaught error. |
 | WS3-A3 | `?mode=text`, `?mode=pixel`, `?mode=map`, `?mode=3d`, `#text` and `/watch/map` resolve per D3. |
-| WS3-A4 | Reduced motion and an idle world show no frame loop about 400 ms after the last input or event. A hidden tab draws nothing. |
+| WS3-A4 | With normal motion, no frame loop remains once the longest active pulse or camera ease has expired. MAJOR is the longest §18.6 tier, under about 1 s. With reduced motion, a new event or selection draws one frame and starts no loop. An idle world with no new event or input runs no loop at all. A hidden tab draws nothing. |
 | WS3-A5 | Every site name renders at full length and readable at 1440×900 and 375×812, with no overdraw by marks. |
 | WS3-A6 | The stage chunk is at or under 160 KiB gzip. The WATCH HTML is under 180 KiB gzip. |
 | WS3-A7 | Hidden-room, hidden-exit, hidden-entity and silent-operation fixtures stay absent from the stage. |
