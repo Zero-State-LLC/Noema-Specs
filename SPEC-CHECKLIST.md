@@ -358,7 +358,7 @@ Cross-cutting gates from [docs/NOTION-RECONCILIATION-2026-08-13.md](docs/NOTION-
 
 ## 10-Step Plan Completion (2026-08-27)
 
-Artifact-creation checks in this section record historical design-note, micro-note, or proposal creation only. They do not mean accepted requirements, closed B-gaps, complete conformance, or runtime proof. Thin inventories and proposed fixture outlines remain inputs, not exercised acceptance evidence; the separate RFC-0128 Review and verification tasks remain open. The incomplete per-GC fixture inventory remains unchecked and is tracked in [#388](https://github.com/Zero-State-LLC/Noema-Specs/issues/388).
+Artifact-creation checks in this section record historical design-note, micro-note, or proposal creation only. They do not mean accepted requirements, closed B-gaps, complete conformance, or runtime proof. Thin inventories and proposed fixture outlines remain inputs, not exercised acceptance evidence; the separate RFC-0128 Review and verification tasks remain open. The per-GC fixture inventory was completed in [#394](https://github.com/Zero-State-LLC/Noema-Specs/pull/394), resolving [#388](https://github.com/Zero-State-LLC/Noema-Specs/issues/388); its checked row below records Specs fixture and validator evidence only, not runtime, hosted or gate acceptance.
 
 - [x] Step 1: GC1 authority + S9–S11 slices (multi-focus, decay credit, parameters) as design notes.
 - [x] Step 2: GC2 authority extension.

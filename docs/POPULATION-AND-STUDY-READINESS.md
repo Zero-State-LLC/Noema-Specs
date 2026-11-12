@@ -39,7 +39,7 @@ Milestone ids `PSR-1` and `PSR-2` are confirmed. They deliberately do not extend
 ## Exit criteria
 
 - **PSR-1 COMPLETE** when a promotion packet satisfies the criteria recorded on #363, with Danny human-yes. Only then may `third_party_agent_compatibility_at_scale` leave BLOCKED.
-- **PSR-2 COMPLETE** when a promotion packet satisfies the gate defined on #362, with Danny human-yes. Only then may `hosted_study_pipeline` and the `study_hosted` surface leave BLOCKED.
+- **PSR-2 COMPLETE** when a promotion packet satisfies the gate defined on #362, with Danny human-yes. Then `hosted_study_pipeline` moves **BLOCKED → NEXT**. The `surfaces.study_hosted` surface **stays BLOCKED** until a separate hosting RFC defines hosted research routes and their isolation, as specified in the [PSR-2 scenario Exit](PSR-2-STUDY-READINESS-SCENARIO.md#exit). PSR-2 completion does not authorize hosting STUDY.
 - **Campaign closes** when both Gates are COMPLETE, or by an explicit superseding direction packet.
 
 ## Direction metadata
