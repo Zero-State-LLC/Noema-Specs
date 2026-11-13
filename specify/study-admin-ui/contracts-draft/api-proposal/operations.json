@@ -291,6 +291,64 @@
         "D08",
         "D09"
       ]
+    },
+    {
+      "operation_id": "invitation.reissue",
+      "source_lines": [
+        45,
+        70,
+        76,
+        88,
+        101,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "old_state",
+        "new_invitation_id",
+        "new_deadlines",
+        "credential_digest",
+        "version",
+        "delivery_state"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "superseded_invitation_id",
+        "new_invitation_id",
+        "scope",
+        "state",
+        "version",
+        "expires_at",
+        "delivery_state"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.reissue management authorization; validate authoritative target state and identity/scope before mutation.",
+      "success": "Atomically supersede the eligible pending invitation and create a distinct pending invitation; no moment admits both old and new redemption credentials. New issuance and delivery state are separate.",
+      "refusal": "No authority, invalid state, stale target or unavailable/ambiguous store cannot silently keep two redeemable links or widen the capability. Never describe an email-provider acknowledgement as recipient delivery.",
+      "replay": "Recover the same new invitation for the same recorded operation; no further credential rotation or lifetime extension. Resending the same pending credential is a separate delivery contract and is not implemented here.",
+      "version_rule": "Bind the superseded target version and resulting invitation version in one qualified transaction; new validity must follow reviewed policy, not request replay time.",
+      "future_cases": [
+        "SA-05",
+        "SA-07",
+        "SA-13",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
     }
   ]
 }
