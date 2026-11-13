@@ -52,7 +52,7 @@ An invitation targets an existing stable HumanPrincipal identifier or a protecte
 
 ### 3. Logical records and partitioning
 
-The following are logical requirements, not SQL migrations or published JSON schemas. Exact field types, limits, enums and serialization belong in the acceptance packet.
+The following are logical requirements, not SQL migrations or adopted JSON schemas. The isolated records-only [draft shape companion](../specify/study-admin-ui/contracts-draft/README.md) proposes selected machine shapes and synthetic examples, without canonical registration or runtime integration. Exact complete wire/API contracts, adopted limits and qualification still belong in the acceptance packet.
 
 | Proposed record | Required meaning and constraints |
 |---|---|
@@ -181,9 +181,15 @@ These are required future cases, not tests executed by this document:
 
 Use the explicitly confirmed mounted Worker request/auth seam with injected identity and durable-adapter dependencies, then controlled real-browser workflows against that boundary. Existing [test seams](../specify/study-admin-ui/SOURCE-NOTES.md#testing-seams--discovered-not-executed) guide the harness; helper/HTML tests are supplemental. No live provider or production service is required or authorized by the test proposal. Backend-specific isolated qualification needs its own applicable scope.
 
+### Isolated records-only shape companion
+
+The [draft packet](../specify/study-admin-ui/contracts-draft/README.md) contains a local-only schema, synthetic case index/examples and opt-in offline checker. Its purpose is to test proposed field shapes, closed vocabularies, canonical Account/world spelling, exact rejection predicates and explicit limitations. It is not an HTTP/API/request DTO, signed credential verifier, identity/account proof, current grant lookup, transition engine or persistent store. Native CI does not automatically execute that checker; published local receipts and unchanged input identities must be kept separate from ordinary CI.
+
+Passing shape checks cannot prove correct authority, scope relationships, chronology/expiry, consent, atomicity/replay, revocation or the output fence. Shape-valid different-world and reversed-chronology controls make that limitation explicit rather than disguising invalid runtime records as allowed behavior. Proposed fixture bounds, field names and custom UTC-second format are not adopted security defaults. The agreed eventual mounted Worker plus controlled browser seam remains required, not replaced by shape fixtures.
+
 ### Acceptance blockers and next work
 
-1. Machine-readable identity, management authorization, invitation/grant/session and redacted projection contracts, exact strict bounds/enums/error/idempotency semantics, version registration and linked positive/negative fixtures. No new schema is installed by this Draft.
+1. Complete and review machine-readable identity, management authorization, invitation/grant/session and redacted projection contracts, exact strict bounds/enums/error/idempotency semantics, version registration and linked positive/negative fixtures. The isolated proposed record-shape companion is partial preparation only: request/response routes, error/idempotency/version contracts, adopted policy and runtime qualification remain incomplete. No canonical schema is installed or registered by the companion.
 2. Attributable identity-provider integration and account/contact-recovery binding, plus explicit registry configuration/bootstrap authority and issuer-chain review. A shared token alone is insufficient.
 3. Durable adapter selection and isolated evidence of atomicity, recovery, revocation/output linearization and backup freshness; resource permissions remain separate.
 4. Reviewed lifetime values, retention, rate/response/timing limits, delivery method and browser/redirect security. Proposed values are not adopted defaults.

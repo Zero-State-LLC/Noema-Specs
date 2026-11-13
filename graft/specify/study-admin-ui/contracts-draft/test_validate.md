@@ -1,0 +1,15 @@
+# specify/study-admin-ui/contracts-draft/test_validate.py
+
+- DraftCheckerCliTests · class · L17-L120 — class DraftCheckerCliTests(unittest.TestCase)
+- setUp · method · L18-L26 — def setUp(self)
+- read_json · method · L28-L29 — def read_json(self, name)
+- write_json · method · L31-L32 — def write_json(self, name, value)
+- invoke · method · L34-L42 — def invoke(self)
+- test_complete_packet_matches_its_indexed_shape_expectations · method · L44-L54 — def test_complete_packet_matches_its_indexed_shape_expectations(self)
+- test_missing_example_is_an_inventory_failure_not_a_partial_pass · method · L56-L62 — def test_missing_example_is_an_inventory_failure_not_a_partial_pass(self)
+- test_duplicate_json_key_is_refused_without_echoing_record_values · method · L64-L69 — def test_duplicate_json_key_is_refused_without_echoing_record_values(self)
+- test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution · method · L71-L80 — def test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution(self)
+- test_wrong_negative_failure_predicate_cannot_hide_behind_any_error · method · L82-L92 — def test_wrong_negative_failure_predicate_cannot_hide_behind_any_error(self)
+- test_calendar_assertion_detects_a_disabled_format_checker · method · L94-L101 — def test_calendar_assertion_detects_a_disabled_format_checker(self)
+- test_capability_assertions_detect_a_widened_schema · method · L103-L109 — def test_capability_assertions_detect_a_widened_schema(self)
+- test_symlinked_packet_input_is_refused · method · L111-L120 — def test_symlinked_packet_input_is_refused(self)

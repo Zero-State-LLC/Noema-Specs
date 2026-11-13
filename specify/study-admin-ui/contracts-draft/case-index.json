@@ -1,0 +1,644 @@
+{
+  "status": "isolated_draft_proposal",
+  "schema_status": "not_accepted_not_registered",
+  "cases": [
+    {
+      "id": "DS-001",
+      "schema_def": "IdentityBinding",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-002",
+      "schema_def": "IdentityBinding",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-003",
+      "schema_def": "StudyScope",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-004",
+      "schema_def": "StudyScope",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-005",
+      "schema_def": "ManagementAuthorization",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-006",
+      "schema_def": "ManagementAuthorization",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-007",
+      "schema_def": "Invitation",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-008",
+      "schema_def": "Invitation",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-009",
+      "schema_def": "Grant",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-010",
+      "schema_def": "Grant",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-011",
+      "schema_def": "StudyAccessClaims",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-012",
+      "schema_def": "StudyAccessClaims",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-013",
+      "schema_def": "AuditTransition",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-014",
+      "schema_def": "AuditTransition",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-015",
+      "schema_def": "StewardDesignation",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-016",
+      "schema_def": "StewardDesignation",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-017",
+      "schema_def": "ReadinessProjection",
+      "purpose": "synthetic baseline shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-018",
+      "schema_def": "ReadinessProjection",
+      "purpose": "closed record rejects additional properties",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-019",
+      "schema_def": "Grant",
+      "purpose": "reject elevated capability",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "capabilities"
+        ]
+      }
+    },
+    {
+      "id": "DS-020",
+      "schema_def": "Grant",
+      "purpose": "reject duplicate/widened capability",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "capabilities"
+        ]
+      }
+    },
+    {
+      "id": "DS-021",
+      "schema_def": "Grant",
+      "purpose": "reject unknown state",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "enum",
+        "instance_path": [
+          "state"
+        ]
+      }
+    },
+    {
+      "id": "DS-022",
+      "schema_def": "Grant",
+      "purpose": "reject zero version",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "minimum",
+        "instance_path": [
+          "authorization_version"
+        ]
+      }
+    },
+    {
+      "id": "DS-023",
+      "schema_def": "Grant",
+      "purpose": "reject boolean version",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "type",
+        "instance_path": [
+          "authorization_version"
+        ]
+      }
+    },
+    {
+      "id": "DS-024",
+      "schema_def": "Grant",
+      "purpose": "reject empty world scope",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "scope",
+          "world_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-025",
+      "schema_def": "Grant",
+      "purpose": "reject wildcard world scope",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "scope",
+          "world_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-026",
+      "schema_def": "Grant",
+      "purpose": "reject whitespace scope",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": [
+          "scope",
+          "study_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-027",
+      "schema_def": "Grant",
+      "purpose": "reject missing world scope",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "required",
+        "instance_path": [
+          "scope"
+        ]
+      }
+    },
+    {
+      "id": "DS-028",
+      "schema_def": "Invitation",
+      "purpose": "accepted invitation bound principal shape",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-029",
+      "schema_def": "Invitation",
+      "purpose": "accepted invitation requires principal binding field",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "required",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-030",
+      "schema_def": "Invitation",
+      "purpose": "pending invitation cannot claim accepted binding",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-031",
+      "schema_def": "Invitation",
+      "purpose": "opaque contact reference alternative",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-032",
+      "schema_def": "Invitation",
+      "purpose": "reject mixed recipient alternatives",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "oneOf",
+        "instance_path": [
+          "recipient"
+        ]
+      }
+    },
+    {
+      "id": "DS-033",
+      "schema_def": "Invitation",
+      "purpose": "reject malformed digest representation",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "credential_digest",
+          "digest"
+        ]
+      }
+    },
+    {
+      "id": "DS-034",
+      "schema_def": "Grant",
+      "purpose": "reject impossible calendar date",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "format",
+        "instance_path": [
+          "expires_at"
+        ]
+      }
+    },
+    {
+      "id": "DS-035",
+      "schema_def": "Grant",
+      "purpose": "reject noncanonical instant spelling",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "expires_at"
+        ]
+      }
+    },
+    {
+      "id": "DS-036",
+      "schema_def": "Grant",
+      "purpose": "reject noncanonical UTC suffix",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "expires_at"
+        ]
+      }
+    },
+    {
+      "id": "DS-037",
+      "schema_def": "StudyAccessClaims",
+      "purpose": "reject Admin audience in draft study claims shape",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "aud"
+        ]
+      }
+    },
+    {
+      "id": "DS-038",
+      "schema_def": "StudyAccessClaims",
+      "purpose": "reject Admin credential type",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "typ"
+        ]
+      }
+    },
+    {
+      "id": "DS-039",
+      "schema_def": "IdentityBinding",
+      "purpose": "reject Player kind in human binding shape",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "principal_kind"
+        ]
+      }
+    },
+    {
+      "id": "DS-040",
+      "schema_def": "ManagementAuthorization",
+      "purpose": "reject execution management operation",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "enum",
+        "instance_path": [
+          "operations",
+          0
+        ]
+      }
+    },
+    {
+      "id": "DS-041",
+      "schema_def": "ManagementAuthorization",
+      "purpose": "reject repeated management operations",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "uniqueItems",
+        "instance_path": [
+          "operations"
+        ]
+      }
+    },
+    {
+      "id": "DS-042",
+      "schema_def": "StewardDesignation",
+      "purpose": "accepted duty reference shape only",
+      "expected_shape_valid": true,
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-043",
+      "schema_def": "StewardDesignation",
+      "purpose": "accepted responsibility requires duty reference field",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "required",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-044",
+      "schema_def": "ReadinessProjection",
+      "purpose": "reject undeclared participant projection field",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-045",
+      "schema_def": "ReadinessProjection",
+      "purpose": "reject implied run authority marker",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "operational_authority"
+        ]
+      }
+    },
+    {
+      "id": "DS-046",
+      "schema_def": "ReadinessProjection",
+      "purpose": "reject canonical-promotion vocabulary",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "enum",
+        "instance_path": [
+          "prerequisites",
+          0,
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "DS-047",
+      "schema_def": "ReadinessProjection",
+      "purpose": "reject draft proposal row bound overflow",
+      "expected_shape_valid": false,
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "maxItems",
+        "instance_path": [
+          "prerequisites"
+        ]
+      }
+    },
+    {
+      "id": "DS-048",
+      "schema_def": "Grant",
+      "purpose": "LIMITATION: different world spelling remains shape-valid; no cross-record authorization proof",
+      "expected_shape_valid": true,
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-049",
+      "schema_def": "Grant",
+      "purpose": "LIMITATION: reversed validity remains shape-valid; chronology needs a separate contract check",
+      "expected_shape_valid": true,
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-050",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "canonical legacy world spelling accepted",
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-051",
+      "schema_def": "Grant",
+      "expected_shape_valid": false,
+      "purpose": "reject malformed canonical world spelling",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "scope",
+          "world_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-052",
+      "schema_def": "ManagementAuthorization",
+      "expected_shape_valid": false,
+      "purpose": "reject operator label as canonical Account spelling",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "admin_account_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-053",
+      "schema_def": "ManagementAuthorization",
+      "expected_shape_valid": false,
+      "purpose": "reject trailing newline despite canonical regex end-anchor behavior",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": [
+          "admin_account_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-054",
+      "schema_def": "Grant",
+      "expected_shape_valid": false,
+      "purpose": "reject draft opaque reference newline",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": [
+          "scope",
+          "study_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-055",
+      "schema_def": "Grant",
+      "expected_shape_valid": false,
+      "purpose": "reject draft opaque reference NUL",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": [
+          "scope",
+          "study_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-056",
+      "schema_def": "Grant",
+      "expected_shape_valid": false,
+      "purpose": "reject draft opaque reference tab",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "not",
+        "instance_path": [
+          "scope",
+          "study_id"
+        ]
+      }
+    }
+  ]
+}

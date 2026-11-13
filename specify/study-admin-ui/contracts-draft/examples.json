@@ -1,0 +1,1137 @@
+{
+  "status": "synthetic_no_live_data",
+  "examples": {
+    "DS-001": {
+      "record_type": "identity_binding",
+      "principal_kind": "HumanPrincipal",
+      "principal_id": "principal.fixture-reader",
+      "account_id": "acct.fixture-reader",
+      "external_auth_subject": "subject.fixture-reader",
+      "binding_proof_ref": "proof.fixture-only",
+      "observed_at": "2030-01-01T00:00:00Z"
+    },
+    "DS-002": {
+      "record_type": "identity_binding",
+      "principal_kind": "HumanPrincipal",
+      "principal_id": "principal.fixture-reader",
+      "account_id": "acct.fixture-reader",
+      "external_auth_subject": "subject.fixture-reader",
+      "binding_proof_ref": "proof.fixture-only",
+      "observed_at": "2030-01-01T00:00:00Z",
+      "unexpected_field": true
+    },
+    "DS-003": {
+      "record_type": "study_scope",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "record_state": "draft",
+      "policy_version": "policy.fixture-proposal",
+      "registry_decision_ref": "decision.fixture-not-authority"
+    },
+    "DS-004": {
+      "record_type": "study_scope",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "record_state": "draft",
+      "policy_version": "policy.fixture-proposal",
+      "registry_decision_ref": "decision.fixture-not-authority",
+      "unexpected_field": true
+    },
+    "DS-005": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "acct.fixture-admin",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "invitation.create",
+        "grant.revoke"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-006": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "acct.fixture-admin",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "invitation.create",
+        "grant.revoke"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1,
+      "unexpected_field": true
+    },
+    "DS-007": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted"
+    },
+    "DS-008": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted",
+      "unexpected_field": true
+    },
+    "DS-009": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-010": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1,
+      "unexpected_field": true
+    },
+    "DS-011": {
+      "record_type": "study_access_claims_shape",
+      "typ": "study-access-draft",
+      "aud": "noema.study.setup",
+      "iss": "issuer.fixture-only",
+      "sub": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "grant_id": "grant.fixture-one",
+      "grant_version": 1,
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "iat": 1893456000,
+      "exp": 1893456900
+    },
+    "DS-012": {
+      "record_type": "study_access_claims_shape",
+      "typ": "study-access-draft",
+      "aud": "noema.study.setup",
+      "iss": "issuer.fixture-only",
+      "sub": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "grant_id": "grant.fixture-one",
+      "grant_version": 1,
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "iat": 1893456000,
+      "exp": 1893456900,
+      "unexpected_field": true
+    },
+    "DS-013": {
+      "record_type": "audit_transition",
+      "audit_id": "audit.fixture-one",
+      "operation_id": "operation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operation": "invitation.accept",
+      "actor": {
+        "account_id": "acct.fixture-reader"
+      },
+      "target_ref": "invitation.fixture-one",
+      "observed_at": "2030-01-01T00:00:00Z",
+      "outcome": "recorded",
+      "prior_version": 1,
+      "new_version": 2
+    },
+    "DS-014": {
+      "record_type": "audit_transition",
+      "audit_id": "audit.fixture-one",
+      "operation_id": "operation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operation": "invitation.accept",
+      "actor": {
+        "account_id": "acct.fixture-reader"
+      },
+      "target_ref": "invitation.fixture-one",
+      "observed_at": "2030-01-01T00:00:00Z",
+      "outcome": "recorded",
+      "prior_version": 1,
+      "new_version": 2,
+      "unexpected_field": true
+    },
+    "DS-015": {
+      "record_type": "steward_designation",
+      "designation_id": "designation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "designated_principal_id": "principal.fixture-steward",
+      "designating_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "responsibility_state": "pending"
+    },
+    "DS-016": {
+      "record_type": "steward_designation",
+      "designation_id": "designation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "designated_principal_id": "principal.fixture-steward",
+      "designating_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "responsibility_state": "pending",
+      "unexpected_field": true
+    },
+    "DS-017": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        }
+      ],
+      "operational_authority": "not_conferred"
+    },
+    "DS-018": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        }
+      ],
+      "operational_authority": "not_conferred",
+      "unexpected_field": true
+    },
+    "DS-019": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read",
+        "admin.manage"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-020": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read",
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-021": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "unknown",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-022": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 0
+    },
+    "DS-023": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": true
+    },
+    "DS-024": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": ""
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-025": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "*"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-026": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "has space",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-027": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-028": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "accepted",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted",
+      "bound_principal_id": "principal.fixture-reader"
+    },
+    "DS-029": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "accepted",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted"
+    },
+    "DS-030": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted",
+      "bound_principal_id": "principal.fixture-reader"
+    },
+    "DS-031": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "contact_binding",
+        "contact_binding_ref": "contact.fixture-only"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted"
+    },
+    "DS-032": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "contact_binding",
+        "contact_binding_ref": "contact.fixture-only",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted"
+    },
+    "DS-033": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "not-a-digest"
+      },
+      "delivery_state": "not_attempted"
+    },
+    "DS-034": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-02-30T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-035": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-1-2T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-036": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00+00:00",
+      "authorization_version": 1
+    },
+    "DS-037": {
+      "record_type": "study_access_claims_shape",
+      "typ": "study-access-draft",
+      "aud": "noema.world.admin",
+      "iss": "issuer.fixture-only",
+      "sub": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "grant_id": "grant.fixture-one",
+      "grant_version": 1,
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "iat": 1893456000,
+      "exp": 1893456900
+    },
+    "DS-038": {
+      "record_type": "study_access_claims_shape",
+      "typ": "admin-access",
+      "aud": "noema.study.setup",
+      "iss": "issuer.fixture-only",
+      "sub": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "grant_id": "grant.fixture-one",
+      "grant_version": 1,
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "iat": 1893456000,
+      "exp": 1893456900
+    },
+    "DS-039": {
+      "record_type": "identity_binding",
+      "principal_kind": "Player",
+      "principal_id": "principal.fixture-reader",
+      "account_id": "acct.fixture-reader",
+      "external_auth_subject": "subject.fixture-reader",
+      "binding_proof_ref": "proof.fixture-only",
+      "observed_at": "2030-01-01T00:00:00Z"
+    },
+    "DS-040": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "acct.fixture-admin",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "study.run"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-041": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "acct.fixture-admin",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "invitation.create",
+        "invitation.create"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-042": {
+      "record_type": "steward_designation",
+      "designation_id": "designation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "designated_principal_id": "principal.fixture-steward",
+      "designating_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "responsibility_state": "accepted",
+      "duty_acceptance_ref": "duty.fixture-only"
+    },
+    "DS-043": {
+      "record_type": "steward_designation",
+      "designation_id": "designation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "designated_principal_id": "principal.fixture-steward",
+      "designating_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "responsibility_state": "accepted"
+    },
+    "DS-044": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        }
+      ],
+      "operational_authority": "not_conferred",
+      "participant_records": []
+    },
+    "DS-045": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        }
+      ],
+      "operational_authority": "run"
+    },
+    "DS-046": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "complete"
+        }
+      ],
+      "operational_authority": "not_conferred"
+    },
+    "DS-047": {
+      "record_type": "readiness_projection",
+      "view": "redacted_setup_readiness",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "as_of": "2030-01-01T00:00:00Z",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "steward_status": "unassigned",
+      "prerequisites": [
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        },
+        {
+          "criterion_ref": "criterion.fixture-consent",
+          "status": "missing"
+        }
+      ],
+      "operational_authority": "not_conferred"
+    },
+    "DS-048": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-other"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-049": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2029-01-01T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-050": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world-42"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-051": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture.bad"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-052": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "op.token",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "invitation.create",
+        "grant.revoke"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-053": {
+      "record_type": "management_authorization",
+      "management_authorization_id": "management.fixture-one",
+      "admin_account_id": "acct.fixture-admin\n",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "operations": [
+        "invitation.create",
+        "grant.revoke"
+      ],
+      "configuration_decision_ref": "decision.fixture-not-authority",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-054": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture\n",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-055": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.\u0000fixture",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    },
+    "DS-056": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.\tfixture",
+        "world_id": "world.fixture-one"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-02T00:00:00Z",
+      "authorization_version": 1
+    }
+  }
+}
