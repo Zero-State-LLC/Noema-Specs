@@ -495,6 +495,51 @@
         "D08",
         "D09"
       ]
+    },
+    {
+      "operation_id": "audit.read",
+      "source_lines": [
+        39,
+        63,
+        66,
+        105,
+        115,
+        143
+      ],
+      "request_candidates": [
+        "scope",
+        "cursor"
+      ],
+      "server_derived": [
+        "verified_account",
+        "current_audit_read_authorization",
+        "scope_bound_cursor",
+        "redaction_policy"
+      ],
+      "response_candidates": [
+        "redacted_entries",
+        "next_cursor"
+      ],
+      "admission": "Separately authorized attributable Admin with exact audit.read authority; ordinary study.setup.read, steward designation or a generic Admin label is insufficient.",
+      "success": "Return a bounded purpose-specific protected audit projection, never raw AuditTransition serialization. Omit raw credentials/digests, protected contact material, private content and unknown target existence.",
+      "refusal": "Wrong scope/principal/cursor, unavailable authority or unqualified response bounds discloses no entries/counts/other-scope results. Cursor construction, permitted fields and timing limits remain review decisions.",
+      "replay": "Each page/retry rechecks current authority, scope, redaction and retention. A cursor is not authority; cross-scope replay is refused without recovering another page.",
+      "version_rule": "Cursor binding to actor/scope/policy/snapshot and finite page/response/retention limits remain unresolved. No default page size or audit-version maximum is adopted.",
+      "future_cases": [
+        "SA-03",
+        "SA-06",
+        "SA-14"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
     }
   ]
 }
