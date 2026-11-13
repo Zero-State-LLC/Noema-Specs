@@ -397,6 +397,57 @@
         "D08",
         "D09"
       ]
+    },
+    {
+      "operation_id": "grant.revoke",
+      "source_lines": [
+        45,
+        74,
+        76,
+        88,
+        92,
+        103
+      ],
+      "request_candidates": [
+        "scope",
+        "grant_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "current_authorization_version",
+        "resulting_grant_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "grant_id",
+        "grant_state",
+        "authorization_version"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact grant.revoke management authorization; read the authoritative exact-scope target.",
+      "success": "Conditionally mark the grant revoked with a monotonic authorization-version change and linked witness. Later protected requests and qualified output boundaries deny the revoked version; prior invitation history is retained.",
+      "refusal": "Wrong authority/scope, stale transition or unavailable/ambiguous store cannot report confirmed revocation. No history deletion, new grant or credential issuance is allowed.",
+      "replay": "Recover the existing revocation result after current authorization/state checks; never reactivate or increment repeatedly merely because the request was retried.",
+      "version_rule": "Version/conflict representation, transaction boundary, queued output treatment and revocation/output linearization require qualified contracts; a second lookup alone is not proof.",
+      "future_cases": [
+        "SA-05",
+        "SA-07",
+        "SA-08",
+        "SA-09",
+        "SA-12",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
     }
   ]
 }
