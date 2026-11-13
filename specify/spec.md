@@ -102,3 +102,5 @@ The [fluid mode-transition proposal](watch-fluid-modes.md) is a separate **draft
 ## Separate proposed study administration design
 
 The [invitation-scoped study UI proposal](study-admin-ui/spec.md), supported by its [intent](../intent/2026-11-13-study-admin-surfaces.md), records Admin-issued study/world grants, a read-only study-role baseline and later steward assignment. It is not an Accepted security/hosting RFC, a change to this WATCH contract, or authority for runtime work, invitations, research execution, export or deployment.
+
+Study security-contract ownership and the explicitly confirmed design inputs are maintained in the owning [UI proposal and Workflows](study-admin-ui/spec.md#workflows); [RFC-0131](../rfcs/RFC-0131-study-access-control-plane.md) remains Draft. These links do not change this WATCH amend or its owner.

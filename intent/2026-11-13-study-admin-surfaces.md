@@ -16,7 +16,7 @@ The operator needs study-preparation UI, later Admin-interface steward assignmen
 
 ## Proposed outcome
 
-**INFERRED design:** reviewable preparatory workspaces, identity-bound invitations, explicit acceptance, study/world-scoped read-only access, revocation/audit and later steward designation plus separate duty acceptance. The proposed test seams are mounted Worker request/auth tests and controlled browser workflows. These are the operator-selected conservative design baseline, not implemented behavior. New auth/persistence/security contracts remain RFC work.
+**INFERRED design:** reviewable preparatory workspaces, identity-bound invitations, explicit acceptance, study/world-scoped read-only access, revocation/audit and later steward designation plus separate duty acceptance. The proposed test seams are mounted Worker request/auth tests and controlled browser workflows. The operator explicitly confirmed both design choices on 2026-11-13 UTC through the structured confirmation form; the earlier attribution to a bare continuation was too strong. This later explicit answer is the decision record, not implemented behavior. New auth/persistence/security contracts remain RFC work.
 
 ## Affected users / systems
 
@@ -24,7 +24,7 @@ Existing Admin control-plane principals; invited study HumanPrincipals; later de
 
 ## Constraints / non-goals
 
-No runtime implementation in Specs. No global Admin escalation, adding invitees to the Admin allowlist, transitive study-role invitations, implicit participant consent, recruitment, enrollment, research execution/export, PSR promotion, hosted STUDY enablement, production deploy, new resources, settings changes or bypass. Missing stewardship permits preparation, not dependent research. Preserve PSR-1/steward-consent prerequisites and locked PSR-2 floors. Any new identity/role/schema/persistence/hosting/export boundary requires the governing RFC/security process before implementation. No RFC number or normative schema is invented here.
+No runtime implementation in Specs. No global Admin escalation, adding invitees to the Admin allowlist, transitive study-role invitations, implicit participant consent, recruitment, enrollment, research execution/export, PSR promotion, hosted STUDY enablement, production deploy, new resources, settings changes or bypass. Missing stewardship permits preparation, not dependent research. Preserve PSR-1/steward-consent prerequisites and locked PSR-2 floors. Any new identity/role/schema/persistence/hosting/export boundary requires the governing RFC/security process before implementation. The linked [RFC-0131 Draft](../rfcs/RFC-0131-study-access-control-plane.md) proposes the security contract; it is not Accepted and creates no schema or execution authority.
 
 ## Open questions
 

@@ -32,7 +32,7 @@ RFC-0113 keeps its own wording, which gates on hosted *tests* rather than hostin
 ## Index
 
 Every RFC in this directory, in number order. The heading previously read "Active
-drafts", which was never accurate — one entry is a draft and the rest are Accepted.
+drafts", which was inaccurate. The index now distinguishes Draft, Review and Accepted contracts; publication is not adoption.
 `RFC-0000` is the template and is deliberately absent.
 
 | RFC | Status | Topic |
@@ -166,6 +166,8 @@ drafts", which was never accurate — one entry is a draft and the rest are Acce
 | [RFC-0127](RFC-0127-trade-cancelled-catalog.md) | **Accepted** | Catalog `TRADE_CANCELLED` on `event-catalog/0.2` (32 types); Chamber 0.1 stays 24 |
 | [RFC-0128](RFC-0128-player-tempo-and-cycle-admission.md) | **Review** | Server-authoritative Player tempo and cycle admission; runtime implementation remains separate |
 | [RFC-0129](RFC-0129-crime-detected-payload-reconciliation.md) | **Accepted** | Optional `victim_id` + `visibility` on `CRIME_DETECTED` 0.2; no default; co-extensive with `PUBLIC_HISTORY`; closes `B7a`; no producer, no `event-catalog/0.3` |
+
+| [RFC-0131](RFC-0131-study-access-control-plane.md) | **Draft** | Admin-invited read-only study/world preparation access; security/machine-contract/durable-adapter acceptance pending; no implementation or hosting authority |
 
 ## Required review lenses
 
