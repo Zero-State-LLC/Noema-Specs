@@ -64,3 +64,7 @@ No invitation credential, JWT signature, provider identity proof, API handler, c
 ## Publication boundary
 
 Placement and existing identifier constraints were audited against Specs `1ed3f68aa277b83fb193802c411545dc1aa8c272` and reconciled; this remains a proposed, unaccepted records-only packet. Native validation parses `specs/` and `examples/`, not this isolated area: ordinary CI does not run this opt-in checker or certify its cases. Any future CI adoption needs its own reviewed scope. The [Draft RFC](../../../rfcs/RFC-0131-study-access-control-plane.md) retains all incomplete contract/security and eventual mounted/browser qualification gates. Any repository publication must stay under the isolated draft area, preserve canonical schema/protocol/version/acceptance surfaces, pass actual local validation and independent review, and obtain its own current-head CI/code-owner gate. PR398's admin review exception is consumed and cannot be reused.
+
+## Draft operation preparation
+
+The [operation-preparation catalogue](api-proposal/README.md) records proposed logical inputs/outputs, admission, refusal, replay and version obligations. It is not a wire schema or runtime interface and is not checked by the record-shape validator; unresolved decisions and full machine/API/security qualification remain gated.

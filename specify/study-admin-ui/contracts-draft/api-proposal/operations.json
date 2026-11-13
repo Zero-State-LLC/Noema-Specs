@@ -1,0 +1,74 @@
+{
+  "catalogue_kind": "rfc0131_operation_preparation",
+  "status": "Draft",
+  "source_baseline": "5edbea51931521139159e07a2cebcf2763fb32f9",
+  "source_rfc": "rfcs/RFC-0131-study-access-control-plane.md",
+  "wire_ready": false,
+  "runtime_authorized": false,
+  "namespace_registered": false,
+  "common": {
+    "requested_scope_is_authority": false,
+    "credential_in_query_allowed": false,
+    "state_changing_get_allowed": false,
+    "raw_record_serialization_allowed": false,
+    "methods_paths_codes_bounds": "UNRESOLVED",
+    "proposed_version_domain": "study-access/0.1",
+    "ordinary_capability": "study.setup.read",
+    "forbidden_client_authority": [
+      "issuer_account_id",
+      "admin_account_id",
+      "management_authorization_ref",
+      "bound_principal_id",
+      "authorization_version",
+      "state",
+      "capabilities",
+      "credential_digest",
+      "responsibility_state",
+      "duty_acceptance_ref"
+    ],
+    "proof_boundary": "Catalogue consistency only; no authentication, authorization, transition, privacy, durability, browser or acceptance proof."
+  },
+  "open_decisions": {
+    "D01": {
+      "status": "UNRESOLVED",
+      "question": "Reserve exact route/method/secret-proof carrier only after runtime collision and privacy review; RFC0131 currently reserves none."
+    },
+    "D02": {
+      "status": "UNRESOLVED",
+      "question": "Verify provider-to-Account/intended-contact recovery and attributable issuer chain; specify registry bootstrap/configuration/recovery authority."
+    },
+    "D03": {
+      "status": "UNRESOLVED",
+      "question": "Define actual request/response schemas, exact allowed fields, identifier syntax, protected projection and cursor bindings; record shapes are not DTOs."
+    },
+    "D04": {
+      "status": "UNRESOLVED",
+      "question": "Review exact HTTP statuses/error codes, non-enumerating bodies/timing, abuse/rate/response limits and audit amplification bounds."
+    },
+    "D05": {
+      "status": "UNRESOLVED",
+      "question": "Specify idempotency-key carrier/representation/retention, actor-operation-scope-payload binding, changed-payload refusal and compare-and-set/version conflicts."
+    },
+    "D06": {
+      "status": "UNRESOLVED",
+      "question": "Adopt finite lifetimes/retention and browser/delivery/redirect protections separately; RFC values and record bounds remain proposals."
+    },
+    "D07": {
+      "status": "UNRESOLVED",
+      "question": "Qualify a canonical-control-plane durable adapter, atomic transitions, ambiguous-commit recovery, backup freshness and output-fence linearization; select no new provider here."
+    },
+    "D08": {
+      "status": "UNRESOLVED",
+      "question": "Review study-access/0.1 registration, wire-version negotiation/refusal, credential typing/audience and numeric representations including audit versions."
+    },
+    "D09": {
+      "status": "UNRESOLVED",
+      "question": "Record compatibility/data/research/security/migration/validation/rollback decisions and separate publication approval from RFC acceptance/runtime authority."
+    },
+    "D10": {
+      "status": "UNRESOLVED",
+      "question": "Bind the grant expiry offered before acceptance to invitation/request/response and durable transition; current Invitation shape alone does not encode the full offer."
+    }
+  },
+  "operations": []
+}
