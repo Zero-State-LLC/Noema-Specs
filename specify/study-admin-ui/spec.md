@@ -1,6 +1,6 @@
 # Study administration UI — invitation-scoped access
 
-**Status: proposed design for review.** The operator selected the recommended read-only study-role baseline and mounted-request plus controlled-browser test seams by directing continuation after those recommendations. This records the design to review, not an Accepted RFC, existing API/schema, implemented UI, deployment, invitation or study-run authority. New identity, role, persistence and security contracts require the applicable RFC/security process before implementation. Requirements below describe the proposed future feature; they do not amend current protocols or authorize acceptance promotion.
+**Status: proposed design for review.** The operator explicitly confirmed the read-only study-role baseline and mounted-request plus controlled-browser test seams on 2026-11-13 UTC in a structured confirmation form. Earlier attribution to a bare continuation was too strong; the later explicit answer is the decision record. This records the design to review, not an Accepted RFC, existing API/schema, implemented UI, deployment, invitation or study-run authority. New identity, role, persistence and security contracts require the applicable RFC/security process before implementation. Requirements below describe the proposed future feature; they do not amend current protocols or authorize acceptance promotion.
 
 **Intent:** [Invitation-scoped study administration](../../intent/2026-11-13-study-admin-surfaces.md)  
 **Source baseline:** runtime `3267d4267ea3e62be7d6342763065d4b67a0deda`; Specs `d84264c7f416989fe4148bcbbbe294dacda2dce9`.  
@@ -239,7 +239,7 @@ The canonical PSR-2 scenario separates PSR-1 completion, named/accepting steward
 
 ### Selected baseline and remaining RFC work
 
-- **STUDY-ROLE-BASELINE — selected for this proposal:** invited study users inspect only authorized redacted setup/readiness within their study/world. Existing Admins manage invitations/configuration and later steward designation. No transitive invitation, draft-edit, run or export capability is added to the baseline role.
-- **STUDY-TEST-SEAM — selected for this proposal:** mounted Worker request/auth tests plus controlled real-browser workflows, with injected non-production identity and persistence dependencies.
+- **STUDY-ROLE-BASELINE — explicitly confirmed 2026-11-13 UTC:** invited study users inspect only authorized redacted setup/readiness within their study/world. Existing Admins manage invitations/configuration and later steward designation. No transitive invitation, draft-edit, run or export capability is added to the baseline role.
+- **STUDY-TEST-SEAM — explicitly confirmed 2026-11-13 UTC:** mounted Worker request/auth tests plus controlled real-browser workflows, with injected non-production identity and persistence dependencies.
 - Precise finite lifetimes, wire/session contracts, role names, persistence/versioning, invitation delivery and required RFC acceptance remain design/security work before runtime implementation; do not fill them by treating this proposal as an Accepted contract.
 - The proposal preserves every locked PSR floor and hosting/consent/owner gate. Existing generic roles and Admin capabilities do not supply a per-study grant. This is not a Q6 release, a study launch or a deployment grant.

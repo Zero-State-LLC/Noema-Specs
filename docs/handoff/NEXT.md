@@ -1,6 +1,17 @@
+# Current work — study-access Draft RFC (2026-11-13 UTC)
+
+- Prior design PR397 merged at c6425f2ec453e27b295e8cee96a90f916807c8ea; candidate/merge trees equal and main CI43364948777 passed. Its head-bound admin exception is consumed; it was not eligible code-owner approval or RFC acceptance.
+- The operator explicitly answered the role and test-seam questions on 2026-11-13 UTC: read-only redacted assigned-study/world setup/readiness, and mounted Worker authorization plus controlled browser workflows with injected identity/persistence. Earlier attribution to a bare continuation is corrected across this packet. Admin-only invitations and later Admin steward designation remain unchanged; duty acceptance/consent remain separate.
+- [RFC-0131](../../rfcs/RFC-0131-study-access-control-plane.md) is **Draft**, not Accepted or implemented. It proposes attributable issuer identity, exact Admin management authority, identity-bound finite invitations/grants, closed read-only capability, atomic lifecycle/revocation and browser/output boundaries. No backend/provider is selected or provisioned.
+- Before acceptance: add machine-readable claims/records/projection/strict limits/fixtures, qualify identity and configuration authority, durable transaction/recovery/output fences, finite lifetimes/retention/abuse and browser delivery; record security and other required reviews. Publication checks/reviews do not discharge those blockers. The Draft's proposed values and names are not adopted defaults.
+- No runtime, schema installation, live identity/invitation, role mutation, enrollment, research/export, hosting, resource, billing, deployment or migration authority. Runtime882 held,851draft,777frozen/source0 and733OPEN; RFC0128 boxes and all PSR/steward/consent/hosting gates unchanged. Neither397nor881bypass applies to this change.
+- This docs change needs its own exact-head validation, independent technical review, required CI and eligible code-owner approval. Next work order is review/reconcile the Draft and its acceptance blockers, not implement the feature or update broad readiness.
+
+--- Historical handoff follows ---
+
 # Next
 
-## Current slice — study administration UI design (2026-11-13)
+## Historical design publication — study administration UI (2026-11-13)
 
 - [Intent](../../intent/2026-11-13-study-admin-surfaces.md) and [UI specification](../../specify/study-admin-ui/spec.md) record the requested Admin-invited, study/world-scoped access and later Admin-interface steward assignment. Initial study role is read-only redacted setup/readiness; existing Admins manage invitations/configuration. No transitive invitation, Player/Controller, global Admin, run or export authority is granted.
 - Mounted Worker request/auth plus controlled real-browser workflows are the proposed acceptance seams. Source audit is read-only; no new feature tests or deployment is claimed. Separate [security-RFC scope](../../specify/study-admin-ui/SECURITY-RFC-OUTLINE.md) remains required before implementation.

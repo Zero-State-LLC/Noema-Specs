@@ -1,6 +1,6 @@
 # Proposed RFC scope — invitation-scoped study control plane
 
-**Status: outline only. No RFC number, approval, implemented API or run authority is claimed.** This supplements the intent/spec draft and must not be mistaken for a published hosting RFC.
+**Status: outline linked to [RFC-0131 Draft](../../rfcs/RFC-0131-study-access-control-plane.md). No accepted contract, implemented API or run authority is claimed.** The Draft makes the logical security proposal concrete while keeping machine contracts, durable qualification and security review as acceptance blockers. It is not the separate hosted-research-routes/isolation RFC.
 
 ## Decisions the RFC must make precise
 
@@ -17,7 +17,7 @@
 
 ## Phase boundaries
 
-- **Design phase:** confirm capability/test-seam choices; canonicalize intent, Workflows/spec and RFC/security design. No feature implementation is implied.
+- **Design phase:** capability/test-seam choices were explicitly confirmed on 2026-11-13 UTC; reconcile intent/Workflows/spec and review the Draft RFC/security proposal without promoting acceptance. No feature implementation is implied.
 - **Future authorized implementation:** build and verify server authorization/persistence first, then Admin invitation/membership UI, invitee workspace and later steward acceptance UI. An authorization-free visual scaffold is not the secured deliverable.
 - **Excluded from this feature:** data collection, participant enrollment, natural-play windows, research execution/exports, PSR promotion, hosting enablement, production deploy, new infrastructure or billing changes. Those require their own contracts and authority.
 
