@@ -349,6 +349,54 @@
         "D09",
         "D10"
       ]
+    },
+    {
+      "operation_id": "invitation.revoke",
+      "source_lines": [
+        45,
+        70,
+        74,
+        76,
+        101
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "current_version",
+        "resulting_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "version"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.revoke management authorization for this study/world.",
+      "success": "Conditionally revoke an eligible pending invitation so it cannot be redeemed; create no grant and preserve terminal history.",
+      "refusal": "Wrong scope/identity or unavailable authority/store has no unauthorized transition. Revoking an already consumed invitation is not grant revocation; response/no-op classification for terminal targets stays unresolved.",
+      "replay": "Recover the same authorized operation without extra transitions, token issuance or reactivation; current target state and response entitlement still apply.",
+      "version_rule": "A stale invitation version cannot overwrite acceptance, reissue or revocation. Accepted grant state must remain independent of consumed invitation history.",
+      "future_cases": [
+        "SA-04",
+        "SA-07",
+        "SA-14",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
     }
   ]
 }
