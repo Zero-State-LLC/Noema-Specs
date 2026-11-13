@@ -124,6 +124,66 @@
         "D08",
         "D09"
       ]
+    },
+    {
+      "operation_id": "invitation.create",
+      "source_lines": [
+        39,
+        45,
+        51,
+        61,
+        70,
+        101,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "recipient"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "invitation_id",
+        "capabilities",
+        "issued_at",
+        "expires_at",
+        "state",
+        "version",
+        "credential_digest",
+        "delivery_state"
+      ],
+      "response_candidates": [
+        "invitation_id",
+        "scope",
+        "state",
+        "version",
+        "expires_at",
+        "delivery_state"
+      ],
+      "admission": "Existing Admin admission AND an attributable verified Account AND current exact invitation.create management authorization. A shared or mailbox-derived label and a client-selected issuer are insufficient.",
+      "success": "Conditionally persist one pending invitation for the requested verified identity binding and fixed study.setup.read capability. Persistence and delivery status are distinct; never return a raw invitation record or credential digest.",
+      "refusal": "Ordinary study membership cannot issue. Missing Account mapping/configuration authority, wrong scope or unqualified recipient/expiry policy denies issuance with no invitation or grant. No live sending is part of this proposal.",
+      "replay": "Bind a client operation key to verified actor, operation, exact scope and request semantics; same semantics recover one recorded operation, changed semantics refuse without another invitation or send. Key representation/retention remain undecided.",
+      "version_rule": "Server owns initial invitation version and later transitions. Finite invitation and offered grant validity must be explicitly bound; the current record shape lacks the complete offered-grant-expiry contract.",
+      "future_cases": [
+        "SA-03",
+        "SA-06",
+        "SA-10",
+        "SA-13",
+        "SA-14"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
     }
   ]
 }
