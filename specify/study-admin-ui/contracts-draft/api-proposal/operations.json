@@ -184,6 +184,66 @@
         "D09",
         "D10"
       ]
+    },
+    {
+      "operation_id": "invitation.accept",
+      "source_lines": [
+        51,
+        72,
+        74,
+        80,
+        102,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id",
+        "redemption_proof_carrier_unresolved"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "bound_principal_id",
+        "current_issuer_authority",
+        "grant_id",
+        "grant_version",
+        "grant_expiry",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "grant_id",
+        "grant_state",
+        "grant_version",
+        "grant_expiry"
+      ],
+      "admission": "Reviewed intended-identity proof and current pending invitation, exact immutable scope/capability, valid deadline, still-valid issuer management authorization and authoritative store. Proof carrier/lookup order require a separate wire/privacy decision.",
+      "success": "One atomic conditional operation consumes the invitation, binds a principal if necessary, creates at most one read-only grant and links its audit witness. Success must not be emitted before durable acknowledgement.",
+      "refusal": "Forwarded/wrong-identity, expired, declined, revoked, superseded or wrong-scope requests create no grant and reveal no protected target; ambiguous persistence is not success or permission to create again.",
+      "replay": "Same authorized principal may recover the existing operation only after current grant/state/scope checks; a revoked or expired result is truthful inactive status, never duplication, widening, lifetime extension or reactivation.",
+      "version_rule": "Consume only the authoritative pending version. Compare-and-set/transaction representation and offered grant-expiry binding are unresolved, not supplied by a client authority/version field.",
+      "future_cases": [
+        "SA-04",
+        "SA-05",
+        "SA-06",
+        "SA-07",
+        "SA-09",
+        "SA-13",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
     }
   ]
 }
