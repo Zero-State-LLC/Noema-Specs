@@ -1,5 +1,16 @@
 # Next
 
+## Current slice — study administration UI design (2026-11-13)
+
+- [Intent](../../intent/2026-11-13-study-admin-surfaces.md) and [UI specification](../../specify/study-admin-ui/spec.md) record the requested Admin-invited, study/world-scoped access and later Admin-interface steward assignment. Initial study role is read-only redacted setup/readiness; existing Admins manage invitations/configuration. No transitive invitation, Player/Controller, global Admin, run or export authority is granted.
+- Mounted Worker request/auth plus controlled real-browser workflows are the proposed acceptance seams. Source audit is read-only; no new feature tests or deployment is claimed. Separate [security-RFC scope](../../specify/study-admin-ui/SECURITY-RFC-OUTLINE.md) remains required before implementation.
+- This is reviewable design publication only. Next work is identity/security and STUDY contract review, followed by a properly reviewed RFC with concrete claims/storage/lifetime/persistence contracts. No runtime, live invitations, study, migration, resource, billing or production work is authorized.
+- Keep RFC-0128 boxes unchanged; PSR-1 enrollment, named/accepting steward and separate hosting RFC gates remain. User permits later steward assignment, not a default nominee or premature research window. Runtime882 remains held;851draft,777source0 and733OPEN. The consumed881bypass does not apply here.
+- This design packet needs its own technical reviews, required CI and eligible code-owner approval. Do not infer implementation acceptance from a docs merge.
+
+## Earlier evidence and separately gated work
+
+
 The current hand-off: latest review verdict and the next work order. Whoever finishes a slice or a review overwrites this file. Read it at the start of a session.
 
 ## Latest slice (2026-11-11): reconcile landed evidence and unchanged gates
@@ -8,7 +19,7 @@ The current hand-off: latest review verdict and the next work order. Whoever fin
 - **WATCH D3 per-visit note:** [#393](https://github.com/Zero-State-LLC/Noema-Specs/pull/393) is merged at `69353da2079adece6cae5dbc7f1d800fc7d07c7b`, not waiting for review. Its adopted scope is unchanged.
 - **PSR-2 summary:** [the campaign exit](../POPULATION-AND-STUDY-READINESS.md#exit-criteria) now repeats the existing [scenario Exit](../PSR-2-STUDY-READINESS-SCENARIO.md#exit): only after the complete evidence pack and Danny human-yes may `hosted_study_pipeline` move BLOCKED → NEXT. `surfaces.study_hosted` stays BLOCKED pending its separate hosting RFC. No gate has been promoted or hosting authorized.
 
-**Review state:** this documentation reconciliation still requires its own review and CI before landing. No checkbox, RFC status, machine-state, schema, fixture, validator or runtime change is included.
+**Historical delivery state:** this reconciliation subsequently merged in Specs395 at d84264c7f416989fe4148bcbbbe294dacda2dce9 after exact-head Prabu approval; actual main CI43312232616 passed. No checkbox, RFC status, machine-state, schema, fixture, validator or runtime change was included.
 
 ## Next work order
 
