@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 346,
-    "edgeCount": 1140,
+    "nodeCount": 368,
+    "edgeCount": 1199,
     "languages": [
       "python"
     ],
@@ -15,6 +15,328 @@
     ]
   },
   "nodes": [
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "name": "test_validate.py",
+      "kind": "file",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L1-L125",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "899691ceee6c7b197fb795824b91f27d2e3a5b39b38aaa2c66f455ebc6f77e49",
+      "chars": 5867,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "name": "DraftCheckerCliTests",
+      "kind": "class",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L17-L120",
+      "signature": "class DraftCheckerCliTests(unittest.TestCase)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "aa528e06fa96554486fb42fdfadd257df2a0a5fc516e02ee7e029b46018ad8df",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "name": "invoke",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L34-L42",
+      "signature": "def invoke(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f98b668cf9e0e1175ebd5086ead1c4b32eef351c8e816865b65427519d376c74",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "name": "read_json",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L28-L29",
+      "signature": "def read_json(self, name)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "b7af463d11f8b9165874b12d15ea64aba224c4ac404d97d5a43f833de772fe86",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.setUp",
+      "name": "setUp",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L18-L26",
+      "signature": "def setUp(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3ca2916f7ff9fd2010f306de90679eeee2a0d5450f00d8c70e8ba0e3f25a1ac9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_calendar_assertion_detects_a_disabled_format_checker",
+      "name": "test_calendar_assertion_detects_a_disabled_format_checker",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L94-L101",
+      "signature": "def test_calendar_assertion_detects_a_disabled_format_checker(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "58a8b18d822c956837949c86e97d1fce989a8c7ce0c7720e8b3dbc2030f835c5",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_capability_assertions_detect_a_widened_schema",
+      "name": "test_capability_assertions_detect_a_widened_schema",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L103-L109",
+      "signature": "def test_capability_assertions_detect_a_widened_schema(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "88d9dbc053d4fc774066b1bd41d9f1e5b98ca4018a4f81e30a5b03f8d931a6e7",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_complete_packet_matches_its_indexed_shape_expectations",
+      "name": "test_complete_packet_matches_its_indexed_shape_expectations",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L44-L54",
+      "signature": "def test_complete_packet_matches_its_indexed_shape_expectations(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ae1596aeb913a12be0d88582742cae13d785d30289cc2e73a89e0c5fc039f8c3",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_duplicate_json_key_is_refused_without_echoing_record_values",
+      "name": "test_duplicate_json_key_is_refused_without_echoing_record_values",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L64-L69",
+      "signature": "def test_duplicate_json_key_is_refused_without_echoing_record_values(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "7bc922c8611052bf983ecb17e02c6f982584a586602009a36177bdc029c7cf3d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "name": "test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L56-L62",
+      "signature": "def test_missing_example_is_an_inventory_failure_not_a_partial_pass(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c2a23acb79706cf32fe0de348e4c375c6311f733b2ed746c603a6abaaba9b9c0",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "name": "test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L71-L80",
+      "signature": "def test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "82a5cb6dc3052ea48e3d70332a19f613f6a48b21119211fdbdc77aafb78d63f5",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_symlinked_packet_input_is_refused",
+      "name": "test_symlinked_packet_input_is_refused",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L111-L120",
+      "signature": "def test_symlinked_packet_input_is_refused(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c15daf838b43c5d13729b79f6d1e30dd9232c794b2ff110955bb464fff5b1c29",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "name": "test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L82-L92",
+      "signature": "def test_wrong_negative_failure_predicate_cannot_hide_behind_any_error(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "fef93db70185d0e106cbdb2cbf0dd8d4669235485024506f3a1dbce18a9c15da",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "name": "write_json",
+      "kind": "method",
+      "path": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "span": "L31-L32",
+      "signature": "def write_json(self, name, value)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f0992c2145a9da6cb095dd72178ab7f04ce2105ab909aef6addfb3b808be8212",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "DraftCheckerCliTests"
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py",
+      "name": "validate.py",
+      "kind": "file",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L1-L157",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a9c6817077c2972e09ec7800144702a96ecc72322f8f9c24fc6629fe62bf3181",
+      "chars": 6947,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#check_local_refs",
+      "name": "check_local_refs",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L39-L47",
+      "signature": "def check_local_refs(value)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "292e74eae5a6fa82b7271bb71af6d3c9a1fbbf2649a73a1d8c9e1e0239cd9b38",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#draft_utc_second",
+      "name": "draft_utc_second",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L61-L70",
+      "signature": "def draft_utc_second(value)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "6a11887b6dfeec76114c58844435a7c28be546312e549090aa0bda9101e2838a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#load_packet_file",
+      "name": "load_packet_file",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L32-L36",
+      "signature": "def load_packet_file(name)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8a276870473191bd4b90ad1862c2b016fe914209bdae1a5703867512f2814d71",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#main",
+      "name": "main",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L135-L152",
+      "signature": "def main()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2ec8e966e7ee62d1728fe65178103065e03b7c9859ef33b90a1c546ad3c69c4d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#refuse_external_resource",
+      "name": "refuse_external_resource",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L53-L54",
+      "signature": "def refuse_external_resource(uri)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "fc4a4be8994c210e786bb1f705ea14478bbeb9fe3c5ab24ca6e363eb91cf254d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#run",
+      "name": "run",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L73-L132",
+      "signature": "def run()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "6f59936ceec5d4eabf43ada93aeeca15836c15d394fb39b7f6fdd7631daeb978",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "specify/study-admin-ui/contracts-draft/validate.py#unique_object",
+      "name": "unique_object",
+      "kind": "function",
+      "path": "specify/study-admin-ui/contracts-draft/validate.py",
+      "span": "L23-L29",
+      "signature": "def unique_object(pairs)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8cb2f7b2b63f40abd9cbf28bf963b676bbce7f1136f45745114573733f937adb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
     {
       "id": "validation/test_validate_all.py",
       "name": "test_validate_all.py",
@@ -4904,6 +5226,360 @@
     }
   ],
   "edges": [
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "shutil",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "subprocess",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "tempfile",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py",
+      "target": "unittest",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.setUp",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_calendar_assertion_detects_a_disabled_format_checker",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_capability_assertions_detect_a_widened_schema",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_complete_packet_matches_its_indexed_shape_expectations",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_duplicate_json_key_is_refused_without_echoing_record_values",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_symlinked_packet_input_is_refused",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_calendar_assertion_detects_a_disabled_format_checker",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_capability_assertions_detect_a_widened_schema",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_capability_assertions_detect_a_widened_schema",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_capability_assertions_detect_a_widened_schema",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_complete_packet_matches_its_indexed_shape_expectations",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_duplicate_json_key_is_refused_without_echoing_record_values",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_missing_example_is_an_inventory_failure_not_a_partial_pass",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_nonlocal_static_and_dynamic_refs_are_filtered_before_resolution",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_symlinked_packet_input_is_refused",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.invoke",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.read_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.test_wrong_negative_failure_predicate_cannot_hide_behind_any_error",
+      "target": "specify/study-admin-ui/contracts-draft/test_validate.py#DraftCheckerCliTests.write_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#main",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#check_local_refs",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#draft_utc_second",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#load_packet_file",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#main",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#refuse_external_resource",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#run",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#unique_object",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "argparse",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "collections",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "datetime",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "jsonschema",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "re",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "referencing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "referencing.exceptions",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py#check_local_refs",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#check_local_refs",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py#main",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#run",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py#run",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#check_local_refs",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "specify/study-admin-ui/contracts-draft/validate.py#run",
+      "target": "specify/study-admin-ui/contracts-draft/validate.py#load_packet_file",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
     {
       "source": "validation/test_validate_all.py",
       "target": "validation/test_validate_all.py#DependencySmokeTests",

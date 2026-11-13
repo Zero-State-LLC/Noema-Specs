@@ -1,3 +1,14 @@
+# Current slice — isolated Draft RFC0131 record shapes
+
+- Previous Draft RFC publication398 is merged at1ed3f68aa277b83fb193802c411545dc1aa8c272, mainCI43383655192SUCCESS; its admin exception is consumed. RFC0131 remains Draft, not Accepted or implemented.
+- Current bounded continuation is the [records-only draft packet](../../specify/study-admin-ui/contracts-draft/README.md): proposed schema, synthetic index/examples and opt-in offline validator. It is outside canonical schema/protocol/version/fixture registration and native validator/workflow discovery. Any generated Graft metadata only indexes this new checker; it does not adopt security semantics.
+- Exact settled role remains read-only redacted assigned-study/world setup/readiness, with Admin-only invitations/later Admin stewardship and separate duty acceptance/consent. Future mounted Worker authorization plus controlled browser acceptance remains the user-confirmed seam. Schema conformance is a separate artifact check, not a substitute.
+- Existing Account/world patterns are reused; new identifiers/record fields/bounds remain draft proposals. Shape checks cannot prove real Account mapping, registry/bootstrap authority, current entitlements, chronology/expiry, identity/scope relationships, consent, durability/atomicity/replay/revocation/output fence or delivery/privacy behavior. None of these acceptance gaps is marked complete.
+- Next: review and validate the isolated packet at its exact candidate; keep native CI coverage separate because it does not execute this opt-in checker. Publication needs its own independent technical review/current-headCI/eligible approval. No prior bypass carries forward. Then scope remaining full API/error/idempotency/identity/policy/durable/security work separately; do not implement the feature from a Draft.
+- No runtime, live auth/invites/role, provider/resource, data/migration, enrollment/research/export, hosting/deployment or PSR promotion.882held/851draft/777source0/733OPEN and all consent/steward/hosting/Q6 gates remain. No named steward or new coding partner assignment.
+
+--- Prior design snapshots are historical ---
+
 # Current work — study-access Draft RFC (2026-11-13 UTC)
 
 - Prior design PR397 merged at c6425f2ec453e27b295e8cee96a90f916807c8ea; candidate/merge trees equal and main CI43364948777 passed. Its head-bound admin exception is consumed; it was not eligible code-owner approval or RFC acceptance.

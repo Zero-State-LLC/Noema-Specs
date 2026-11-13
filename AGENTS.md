@@ -71,7 +71,7 @@ Single-context: root `GLOSSARY.md` plus `docs/adr/`. `CONTEXT.md` is authority, 
 <!-- graft:start -->
 ## Graft — repo context graph
 
-`graft/` indexes the code (`validation/*.py`), not the Markdown specs. Start with `graft map`; ask with `graft ask "<question>" --source`; use `graft grep "<literal>"` for every occurrence and `graft callers <symbol>` for call edges. Entry point: `graft/INDEX.md`. Rebuild with `GRAFT_NO_GITIGNORE=1 graft build` after editing validators. See [CONTRIBUTING.md](CONTRIBUTING.md#graft-context-index).
+`graft/` indexes Python validation tooling (`validation/*.py` and opt-in draft validation tooling under `specify/study-admin-ui/contracts-draft/`), not the Markdown specs. Start with `graft map`; ask with `graft ask "<question>" --source`; use `graft grep "<literal>"` for every occurrence and `graft callers <symbol>` for call edges. Entry point: `graft/INDEX.md`. Rebuild with `GRAFT_NO_GITIGNORE=1 graft build` after editing validators. See [CONTRIBUTING.md](CONTRIBUTING.md#graft-context-index).
 <!-- graft:end -->
 
 ## Standing grant
