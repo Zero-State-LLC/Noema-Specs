@@ -448,6 +448,53 @@
         "D08",
         "D09"
       ]
+    },
+    {
+      "operation_id": "steward.designate",
+      "source_lines": [
+        39,
+        41,
+        64,
+        104,
+        119
+      ],
+      "request_candidates": [
+        "scope",
+        "designated_principal_id"
+      ],
+      "server_derived": [
+        "designating_account_id",
+        "management_authorization_ref",
+        "designation_id",
+        "responsibility_state"
+      ],
+      "response_candidates": [
+        "designation_id",
+        "scope",
+        "designated_principal_id",
+        "responsibility_state"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact steward.designate management authorization. Independent legitimate Admin authority is preserved; no invented two-Admin rule.",
+      "success": "Create a pending designation only for the selected verified-scope identity. Unassigned remains a valid setup state. Identity eligibility and replacement/history semantics require the reviewed binding contract.",
+      "refusal": "An ordinary study-role grant cannot self-designate, accept another person’s duties or obtain run/export/global Admin authority. A request cannot set responsibility_state=accepted or supply duty_acceptance_ref as authority.",
+      "replay": "Same recorded designation operation must not duplicate designation, confer a grant or record acceptance. Current authorization and scope are rechecked.",
+      "version_rule": "Designation conflict/replacement/version representation is unresolved. Duty acceptance, consent sign-off and research release remain independent records and decisions.",
+      "future_cases": [
+        "SA-03",
+        "SA-10",
+        "SA-11",
+        "SA-12"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
     }
   ]
 }
