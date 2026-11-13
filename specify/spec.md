@@ -98,3 +98,7 @@ The [fluid mode-transition proposal](watch-fluid-modes.md) is a separate **draft
 - Campaign docs record Noema #679 PASS and the later COMPLETE promotion packet.
 - This amend remains the one-door contract; COMPLETE lives in the promotion packet.
 - `python3 validation/validate_all.py` PASSes.
+
+## Separate proposed study administration design
+
+The [invitation-scoped study UI proposal](study-admin-ui/spec.md), supported by its [intent](../intent/2026-11-13-study-admin-surfaces.md), records Admin-issued study/world grants, a read-only study-role baseline and later steward assignment. It is not an Accepted security/hosting RFC, a change to this WATCH contract, or authority for runtime work, invitations, research execution, export or deployment.

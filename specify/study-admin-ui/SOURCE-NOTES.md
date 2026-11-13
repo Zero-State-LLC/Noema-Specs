@@ -1,0 +1,45 @@
+# Study administration UI — source and contract notes
+
+## Evidence tier and pins
+
+OBSERVED here means inspected committed source/documents, not deployed behavior or an executed product test.
+
+- Runtime: `3267d4267ea3e62be7d6342763065d4b67a0deda`, clean full verification checkout.
+- Specs: `d84264c7f416989fe4148bcbbbe294dacda2dce9`, clean full verification checkout.
+- Two bounded read-only audits were completed; the coordinator additionally checked cached graph cards, exact Admin verifier/public routes, a mounted refusal test and canonical security/SDLC sections. Primary sources are cited below. No production or product-test execution is claimed.
+
+## Current facts that constrain implementation
+
+1. **OBSERVED: public Study is not administration.** Mounted `GET /study` returns `studyHtml`; the page describes public observation and says lab capture is not hosted. [Router](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/index.ts#L282-L284), [page](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/study.ts#L1-L19). Keep this existing public behavior distinct from any future authenticated workspace.
+2. **OBSERVED: page delivery is not the Admin security gate.** Admin HTML routes are served before API authorization. [Router](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/index.ts#L298-L307). The actual verifier checks signed Admin token type, role and scope, with `resolveAdmin` requiring a bearer. [Verifier](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/admin-auth.ts#L107-L141).
+3. **OBSERVED: current Admin authentication confers Admin, not per-study access.** The audited magic-link consumer checks the Admin allowlist before minting an Admin access token. The principal has no study binding. The console stores/sends a bearer; no cookie session was established by the targeted source scan. See [mint](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/admin-auth.ts#L55-L83), [consumer](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/admin-auth.ts#L298-L353), [principal](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/types.ts#L47-L55), and [console transport](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/admin.ts#L658-L703). Do not add study invitees to the Admin allowlist.
+4. **OBSERVED within the inspected router: no mounted study-admin/invite handler was established.** The bounded route audit identified public Study, not a study invitation/grant API. This is not a global absence claim across all repositories, branches or production deployments. A new route/grant/session is a design obligation, not a working feature.
+5. **OBSERVED: generic researcher and Controller enrollment are not study membership.** Human/control-plane and Player principals remain distinct. Existing enrollment approval mints a Player Controller token and cannot be reused as researcher admission. [Human/Player types](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/types.ts#L62-L101), [Controller issuance](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/src/enrollment.ts#L272-L314), [canonical identity boundary](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/AUTH-AND-IDENTITY.md#L143-L149).
+
+## Canonical obligations, not optional UI polish
+
+- **World partition:** every relevant request, record, cache, job and output has verified world lineage; authorization precedes access, and identical identifiers across worlds must not collide or disclose protected existence. [SECURITY world isolation](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/SECURITY.md#L72-L78).
+- **Independent consent operations:** capture, retention, analysis, publication and export require independent authorization under the most restrictive effective policy. Recheck before processing/output; withdrawn, missing, expired or unverifiable consent fails closed. Exclusions/lineage and deletion/tombstone obligations remain. [Consent gating](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/SECURITY.md#L92-L100).
+- **Research receipts:** applicable isolated research/export profiles require signed scope-bound evidence receipts; invalid/missing receipts cannot be downgraded to unsigned output. This UI feature supplies no export authority. [Receipt contract](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/SECURITY.md#L108-L112).
+- **Steward appointment is not acceptance or consent.** PSR-1 completion, named stewardship, explicit duty acceptance and signed consent/opt-in basis remain separate prerequisites. The locked natural-play/evidence floors are unchanged. [PSR-2 prerequisites and duties](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/PSR-2-STUDY-READINESS-SCENARIO.md#L12-L49).
+- **Hosting remains blocked.** Even an actual PSR-2 promotion plus Danny human-yes affects only pipeline readiness. Hosted STUDY remains BLOCKED pending its own RFC. [Exit and RFC boundary](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/docs/PSR-2-STUDY-READINESS-SCENARIO.md#L57-L67).
+- **Intent/RFC dependency:** this is a new authorization/security boundary and proposed finer partition, not routine docs hygiene. Follow intent, Workflows/spec, RFC/security review, then implementation planning. [Specs SDLC](https://github.com/Zero-State-LLC/Noema-Specs/blob/d84264c7f416989fe4148bcbbbe294dacda2dce9/AGENTS.md#L9-L45).
+
+## Testing seams — discovered, not executed
+
+**Primary recommendation:** mounted exported Worker `fetch(Request, Env)` with controlled identity-provider and persistence seams, then controlled real-browser UI acceptance against that boundary.
+
+- Mounted Admin overview rejects anonymous and non-Admin principal material without returning protected content: [settle-head tests](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/test/settle-head.test.ts#L375-L390).
+- Admin session/provider route admission and throttling patterns: [provider-management tests](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/test/provider-management.test.ts#L76-L154).
+- Scope refusal before object lookup: [frozen-world allowlist tests](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/test/admin-frozen-world-allowlist.test.ts#L62-L104).
+- Identity-provider injection and generated login HTML are useful supplemental seams, not proof of a mounted study route: [email-login tests](https://github.com/Zero-State-LLC/Noema/blob/3267d4267ea3e62be7d6342763065d4b67a0deda/workers/noema/test/admin-email-login.test.ts#L430-L573).
+
+No existing test was run during this audit. No new UI/API/role was built, no live identity service was used and no provider state was inspected.
+
+## Parent qualifications and unresolved design choices
+
+- **SETTLED by user:** defer steward nomination; later Admin-interface assignment; study role must be scoped and Admin-invitation gated.
+- **SELECTED FOR THIS PROPOSAL:** initial study role sees only authorized redacted setup/readiness. Existing Admins manage invitations/access and later designation. No transitive invitations or study-admin delegator role is silently accepted from an auditor's alternative proposal.
+- **SELECTED FOR THIS PROPOSAL:** mounted request tests plus real-browser workflows as the highest practical initial seam; helper/HTML tests are supplemental.
+- **UNVERIFIED/design work:** exact session/grant wire contracts, finite lifetime values, storage/versioning mechanism, invitation delivery, role names and future hosting support. These belong to the RFC/security design; no existing schema is inferred.
+- **AUTHORITY unchanged:** #882 remains held, #851 draft, #777 frozen/source0, #733 OPEN. No previous bypass is reused.
