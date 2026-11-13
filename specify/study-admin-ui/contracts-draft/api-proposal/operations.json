@@ -70,5 +70,60 @@
       "question": "Bind the grant expiry offered before acceptance to invitation/request/response and durable transition; current Invitation shape alone does not encode the full offer."
     }
   },
-  "operations": []
+  "operations": [
+    {
+      "operation_id": "setup.read",
+      "source_lines": [
+        33,
+        37,
+        66,
+        100,
+        182
+      ],
+      "request_candidates": [
+        "scope"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "current_grant",
+        "grant_version",
+        "projection_policy",
+        "as_of"
+      ],
+      "response_candidates": [
+        "view",
+        "scope",
+        "as_of",
+        "capabilities",
+        "steward_status",
+        "prerequisites",
+        "operational_authority"
+      ],
+      "admission": "Verified HumanPrincipal, current active exact study/world grant, study.setup.read and current projection policy; authenticate and authorize before protected existence or partition lookup.",
+      "success": "Return an explicitly allowlisted readiness projection, not the full study or grant record; operational_authority remains not_conferred. A missing-consent indicator may disclose only an already-authorized non-sensitive prerequisite status.",
+      "refusal": "Wrong identity/scope, revoked or expired grant, unavailable/stale authority, or failed output fence yields no protected projection. Contacts, roster, audit, private bodies and hidden-study existence remain excluded.",
+      "replay": "A read retry rechecks current authority and consent; neither cached projection nor retained signed claims override revocation.",
+      "version_rule": "Read current grant authorization_version and current projection policy at use and output time; response/version binding remains undecided.",
+      "future_cases": [
+        "SA-01",
+        "SA-02",
+        "SA-03",
+        "SA-08",
+        "SA-09",
+        "SA-10",
+        "SA-12",
+        "SA-15"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    }
+  ]
 }
