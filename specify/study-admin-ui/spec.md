@@ -77,16 +77,20 @@ Source-supported facts and exact test seams are recorded in `SOURCE-NOTES.md`, w
 - Use the existing `grill-with-docs`, `to-spec` and `code-review` flows for operator alignment, reviewable design publication and independent standards/spec checks.
 - Apply repository `SKILL.ORIENT`, `SKILL.RFC`, `SKILL.SPEC_CHANGE` and `SKILL.VALIDATE` as applicable; these process names confer no implementation authority.
 - Owner specialist: the existing NOEMA identity/security and STUDY contract maintainers; Danny retains the existing criteria/human-yes role. No research-and-ethics nominee is invented.
-- Reuse the existing CI workflow for native validation and committed graph freshness. No workflow, bot, new RFC number or gate is invented.
+- Reuse the existing CI workflow for native validation and committed graph freshness. The linked RFC-0131 is a Draft under the existing RFC process; no workflow, bot or acceptance gate is added.
+
+### New study-management authority boundary
+
+Throughout this proposal, Admin invitation, reissue/revocation, configuration and steward-designation actions require **existing valid Admin admission plus an attributable authenticated Account and explicit server-controlled authorization for the exact study, world and operation**. A generic Admin label, shared/legacy operator identity, client-supplied issuer or membership is insufficient. The registry's configuration/bootstrap authority and Account binding remain acceptance prerequisites in [RFC-0131](../../rfcs/RFC-0131-study-access-control-plane.md); this UI does not authorize anyone to bootstrap them. The additional boundary applies to these new study-management operations, not unchanged legacy Admin operations. An independently authorized Admin can act through this boundary without an invented two-Admin requirement.
 
 ### Proposed feature workflows
 
-1. **Prepare:** an existing authorized Admin configures draft study scope metadata. An unassigned steward is valid; this does not start a window or enable hosted research. Study/world identifiers are established server-side, not accepted as authority from a form.
-2. **Invite:** the Admin selects one study/world scope, identity and explicit baseline capability set, reviews the exclusions and finite expiry, then issues the invitation. Persisted invitation state and transport delivery status are reported separately. Sending a link activates no grant.
+1. **Prepare:** an Admin satisfying the new study-management boundary configures draft metadata for an existing server-authorized study/world scope. An unassigned steward is valid; this does not start a window or enable hosted research. Study/world identifiers are established server-side, not accepted as authority from a form.
+2. **Invite:** the attributable Admin with exact invitation-management authorization selects one study/world scope, identity and the closed read-only capability set, reviews the exclusions and finite expiry, then issues the invitation. Persisted invitation state and transport delivery status are reported separately. Sending a link activates no grant.
 3. **Accept or decline:** the invitee completes suitable identity verification, sees the scope/capabilities and accepts or declines. The server atomically checks intended identity, current inviter authority, scope, expiry, revocation and one-use state. Acceptance creates one restricted grant; all invalid cases create none.
 4. **Use the workspace:** each protected request rechecks current grant, study/world scope, action and relevant data policy. Study users see only their permitted setup/readiness view. A generic researcher label, Controller token or UI link does not supply this authority.
-5. **Assign stewardship later:** the Admin designates an appropriately invited identity. Role designation, ordinary invitation acceptance, acceptance of stewardship duties and consent/opt-in sign-off remain separate. Steward-dependent research remains blocked while its prerequisites are incomplete.
-6. **Revoke or change access:** the Admin explicitly revokes the grant or proposes a replacement. The next protected read/write is denied after revocation; queued or long-running work must recheck before accessing protected material or producing a protected destination. No silent upgrade or stale-form reactivation.
+5. **Assign stewardship later:** the Admin with exact designation-management authorization designates an appropriately invited identity. Role designation, ordinary invitation acceptance, acceptance of stewardship duties and consent/opt-in sign-off remain separate. Steward-dependent research remains blocked while its prerequisites are incomplete.
+6. **Revoke or change access:** the Admin with exact revocation/reissue authorization explicitly revokes the grant or proposes a replacement. The next protected read/write is denied after revocation; queued or long-running work must recheck before accessing protected material or producing a protected destination. No silent upgrade or stale-form reactivation.
 7. **Handle failures:** the UI distinguishes authorization failure, stale version, expired invitation, unknown delivery and unavailable dependency without leaking another study or claiming an ambiguous write succeeded. The operator reads back the exact affected object before retrying a potentially completed change.
 
 ## UI Surfaces
@@ -103,9 +107,9 @@ The selected design baseline grants metadata/readiness inspection only. Editing 
 
 ### 3. Invite dialog
 
-An Admin selects the existing study scope, verified invitee identity and the least permitted capability set. Show a plain-language access summary, expiry and explicit exclusions before confirmation. The server derives the issuer and authority from the authenticated session; the client cannot choose an issuer or grant capabilities the issuer lacks.
+An attributable Admin satisfying the new study-management boundary selects the existing authorized study/world scope, verified invitee identity and the closed read-only capability set. Show a plain-language access summary, expiry and explicit exclusions before confirmation. The server derives the issuer and authority from the authenticated session; the client cannot choose an issuer or grant capabilities the issuer lacks.
 
-No public sign-up, self-issued invitation by a non-Admin, wildcard study access or global-role upgrade. Only an independently authorized Admin may issue a grant; a study user cannot manufacture that authority. Preserve existing legitimate Admin powers, including any independently permitted deliberate self-designation, rather than inventing a two-Admin requirement. Do not add study invitees to the global Admin mailbox allowlist to make sign-in work.
+No public sign-up, self-issued invitation by a non-Admin, wildcard study access or global-role upgrade. Only an attributable Admin with exact invitation-management authorization may issue a grant; a study user cannot manufacture that authority. Preserve existing legitimate Admin powers, including any independently permitted deliberate self-designation, rather than inventing a two-Admin requirement. Do not add study invitees to the global Admin mailbox allowlist to make sign-in work.
 
 ### 4. Invitation acceptance
 
@@ -115,15 +119,15 @@ Invitation credentials are secrets: keep them out of analytics, logs, public URL
 
 ### 5. Access management
 
-Show pending invitations and active/revoked grants as distinct objects. Allow authorized Admins to revoke access and view a redacted audit trail. Avoid client-side optimistic success for access changes: confirm persisted server state before showing completion. Conflicts and ambiguous failures require readback, not blind reissue.
+Show pending invitations and active/revoked grants as distinct objects. Require exact operation-specific management authorization for attributable Admins to revoke access or view a redacted audit trail. Avoid client-side optimistic success for access changes: confirm persisted server state before showing completion. Conflicts and ambiguous failures require readback, not blind reissue.
 
 ### 6. Steward setup
 
-Display Unassigned as a legitimate preparatory state. Later, an Admin can invite or select an appropriately scoped identity and designate the role. Display Assigned / acceptance pending separately from Accepted. Show the responsibilities and the applicable gate impact. No default steward and no assumption that Bob, Prabu, an Admin or a study user accepted the role by participating elsewhere.
+Display Unassigned as a legitimate preparatory state. Later, an attributable Admin with the exact invitation/designation management authorizations can invite or select an appropriately scoped identity and designate the role. Display Assigned / acceptance pending separately from Accepted. Show the responsibilities and the applicable gate impact. No default steward and no assumption that Bob, Prabu, an Admin or a study user accepted the role by participating elsewhere.
 
 ### 7. Readiness and evidence
 
-Show criterion-level evidence references and unmet prerequisites without upgrading canonical states. Distinguish operator-entered assertions, verified evidence and accountable-owner disposition. Missing prerequisites disable dependent operations server-side; a tooltip or disabled button alone is insufficient. Hosting, export and run actions remain unavailable unless separately specified and authorized.
+Show criterion-level evidence references and unmet prerequisites without upgrading canonical states. An authorized, allowlisted redacted indicator may report a missing or unverified prerequisite without exposing participant identities, protected research content or hidden existence. Missing consent never authorizes research-derived content or sensitive exclusion details. Distinguish operator-entered assertions, verified evidence and accountable-owner disposition. Missing prerequisites disable dependent operations server-side; a tooltip or disabled button alone is insufficient. Hosting, export and run actions remain unavailable unless separately specified and authorized.
 
 ## Implementation Decisions
 
@@ -172,12 +176,12 @@ Show criterion-level evidence references and unmet prerequisites without upgradi
 
 | Action | Existing Admin | Invited study role | Designated steward |
 |---|---|---|---|
-| Issue/revoke an invitation | Allowed within existing Admin authority and target study | Denied | Denied unless independently an authorized Admin |
+| Issue/revoke an invitation | Valid Admin admission, attributable Account and exact study/world/operation management authorization | Denied | Denied unless independently an authorized Admin |
 | Grant global Admin | Not part of this feature | Denied | Denied |
 | View scoped redacted setup/readiness | Explicit authorized scope/capability required | Active matching grant required | Active matching grant required |
 | View another study | Separate authorization required | Denied without separate grant | Denied without separate grant |
-| Change study configuration | Separate explicit capability | Not granted by baseline role | Not granted by designation alone |
-| Designate a steward | Authorized Admin | Denied | Designation alone supplies no Admin authority |
+| Change study configuration | Attributable Admin and exact configuration-management authorization | Not granted by baseline role | Not granted by designation alone |
+| Designate a steward | Attributable Admin and exact designation-management authorization | Denied | Designation alone supplies no Admin authority |
 | Accept steward duties | Cannot accept on another identity's behalf | Only if personally designated | Explicit personal acceptance required |
 | Mark participant consent or enrollment satisfied | Not implied by Admin/invitation | Denied by baseline role | Not implied by acceptance |
 | Start research, promote gates or enable hosting | Separate contractual authority; not part of this feature | Denied by baseline role | Denied by designation alone |
@@ -231,7 +235,7 @@ The canonical PSR-2 scenario separates PSR-1 completion, named/accepting steward
 
 ### Delivery and review sequence
 
-1. Review the selected read-only baseline and mounted-plus-browser testing seam below; keep all other execution holds unchanged.
+1. Record the explicitly confirmed read-only baseline and mounted-plus-browser testing seam below; review only the remaining proposed contracts and keep all execution holds unchanged.
 2. Reconcile the proposed intent and Workflows into canonical Specs with appropriate security/hosting RFC dependencies. A new finer study partition, grant/persistence or identity boundary is not docs-only hygiene exempt from RFC review.
 3. Define the security-reviewed identity/session contract, invite/grant storage and transactional/versioning guarantees. Do not choose a storage provider or migration merely to complete a UI draft.
 4. Only under a separate implementation work order, build scope/authorization and negative cases first, then the Admin invite/membership UI and invitee workspace, then steward designation/acceptance. No UI-only scaffold may be reported as secured while its server gates are absent.
@@ -239,7 +243,7 @@ The canonical PSR-2 scenario separates PSR-1 completion, named/accepting steward
 
 ### Selected baseline and remaining RFC work
 
-- **STUDY-ROLE-BASELINE — explicitly confirmed 2026-11-13 UTC:** invited study users inspect only authorized redacted setup/readiness within their study/world. Existing Admins manage invitations/configuration and later steward designation. No transitive invitation, draft-edit, run or export capability is added to the baseline role.
+- **STUDY-ROLE-BASELINE — explicitly confirmed 2026-11-13 UTC:** invited study users inspect only authorized redacted setup/readiness within their study/world. Existing Admins manage invitations/configuration and later steward designation only through the exact attributable-Account and study/world/operation management boundary above. No transitive invitation, draft-edit, run or export capability is added to the baseline role.
 - **STUDY-TEST-SEAM — explicitly confirmed 2026-11-13 UTC:** mounted Worker request/auth tests plus controlled real-browser workflows, with injected non-production identity and persistence dependencies.
 - Precise finite lifetimes, wire/session contracts, role names, persistence/versioning, invitation delivery and required RFC acceptance remain design/security work before runtime implementation; do not fill them by treating this proposal as an Accepted contract.
 - The proposal preserves every locked PSR floor and hosting/consent/owner gate. Existing generic roles and Admin capabilities do not supply a per-study grant. This is not a Q6 release, a study launch or a deployment grant.
