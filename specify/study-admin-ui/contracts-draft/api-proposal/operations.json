@@ -244,6 +244,53 @@
         "D09",
         "D10"
       ]
+    },
+    {
+      "operation_id": "invitation.decline",
+      "source_lines": [
+        70,
+        72,
+        102,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id",
+        "redemption_proof_carrier_unresolved"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "current_invitation_version",
+        "resulting_invitation_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "version"
+      ],
+      "admission": "Verified intended HumanPrincipal plus the current valid pending invitation in exact scope; a scanner GET or link possession alone is not a personal decision.",
+      "success": "Conditionally move the pending invitation to declined with linked outcome; create no grant and record no participant consent, stewardship acceptance or enrollment.",
+      "refusal": "Wrong identity/scope or nonpending/expired invitation cannot become an accepted grant. Response status and historical-decline recovery remain subject to the non-enumerating error contract.",
+      "replay": "Same-operation recovery must not produce a new transition/grant; current authorization and disclosure are rechecked. Different semantics under the same key are refused.",
+      "version_rule": "Only the current pending version may transition; decline/accept/revoke races require a single qualified outcome.",
+      "future_cases": [
+        "SA-04",
+        "SA-07",
+        "SA-13"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
     }
   ]
 }
