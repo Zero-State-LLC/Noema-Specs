@@ -2,9 +2,12 @@
 
 **Status: Draft — proposed security contract; not accepted or implemented.**
 
-**Date:** 2026-11-13  
-**Intent:** [invitation-scoped study administration](../intent/2026-11-13-study-admin-surfaces.md)  
-**Design:** [study administration UI](../specify/study-admin-ui/spec.md)  
+**Date:** 2026-11-13
+
+**Intent:** [invitation-scoped study administration](../intent/2026-11-13-study-admin-surfaces.md)
+
+**Design:** [study administration UI](../specify/study-admin-ui/spec.md)
+
 **Tracking:** [Specs issue396](https://github.com/Zero-State-LLC/Noema-Specs/issues/396)
 
 This document proposes requirements for review. MUST/SHOULD below describe the proposed contract, not present runtime behavior or adoption. Merging this Draft would publish a proposal only. Acceptance is blocked on the machine contracts, durable-adapter qualification, identity integration and recorded security review listed below. No production, resource, invitation, role, enrollment, study, migration or implementation work is authorized here. This is not the separate hosted-research-routes/isolation RFC.
