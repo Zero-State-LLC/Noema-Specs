@@ -65,6 +65,33 @@
         "keyword": "additionalProperties",
         "instance_path": []
       }
+    },
+    {
+      "id": "DS-107",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Inherited closed read-only capability remains closed; no new authority.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "capabilities"
+        ]
+      }
+    },
+    {
+      "id": "DS-108",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Wildcard spelling violates inherited world shape; not cross-record authorization proof.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "scope",
+          "world_id"
+        ]
+      }
     }
   ]
 }
