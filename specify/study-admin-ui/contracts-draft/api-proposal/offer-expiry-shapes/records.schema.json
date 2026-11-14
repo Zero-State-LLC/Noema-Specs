@@ -1,0 +1,683 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:noema:draft:rfc-0131:offered-expiry:proposal-1",
+  "$comment": "ISOLATED DRAFT ONLY: shapes of hypothetical server-owned records/claims, not request DTOs, identity/authentication, state-machine or privacy proof. No canonical schema registration or adopted security defaults.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Invitation"
+    },
+    {
+      "$ref": "#/$defs/Grant"
+    }
+  ],
+  "$defs": {
+    "OpaqueRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "not": {
+        "pattern": "[\\s\\u0000-\\u001f\\u007f*]"
+      }
+    },
+    "UtcInstant": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "format": "noema-draft-utc-second"
+    },
+    "Scope": {
+      "type": "object",
+      "properties": {
+        "study_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "world_id": {
+          "$ref": "#/$defs/WorldId"
+        }
+      },
+      "required": [
+        "study_id",
+        "world_id"
+      ],
+      "additionalProperties": false
+    },
+    "ReadOnlyCapability": {
+      "const": [
+        "study.setup.read"
+      ]
+    },
+    "IdentityBinding": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "identity_binding"
+        },
+        "principal_kind": {
+          "const": "HumanPrincipal"
+        },
+        "principal_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "account_id": {
+          "$ref": "#/$defs/AccountId"
+        },
+        "external_auth_subject": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "binding_proof_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "observed_at": {
+          "$ref": "#/$defs/UtcInstant"
+        }
+      },
+      "required": [
+        "record_type",
+        "principal_kind",
+        "principal_id",
+        "account_id",
+        "external_auth_subject",
+        "binding_proof_ref",
+        "observed_at"
+      ],
+      "additionalProperties": false
+    },
+    "StudyScope": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "study_scope"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "record_state": {
+          "enum": [
+            "draft",
+            "archived"
+          ]
+        },
+        "policy_version": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "registry_decision_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        }
+      },
+      "required": [
+        "record_type",
+        "scope",
+        "record_state",
+        "policy_version",
+        "registry_decision_ref"
+      ],
+      "additionalProperties": false
+    },
+    "ManagementAuthorization": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "management_authorization"
+        },
+        "management_authorization_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "admin_account_id": {
+          "$ref": "#/$defs/AccountId"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "invitation.create",
+              "invitation.reissue",
+              "invitation.revoke",
+              "grant.revoke",
+              "configuration.update",
+              "steward.designate",
+              "audit.read"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 7,
+          "uniqueItems": true
+        },
+        "configuration_decision_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "issued_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "expires_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "authorization_version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "record_type",
+        "management_authorization_id",
+        "admin_account_id",
+        "scope",
+        "operations",
+        "configuration_decision_ref",
+        "issued_at",
+        "expires_at",
+        "authorization_version"
+      ],
+      "additionalProperties": false
+    },
+    "Invitation": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "invitation"
+        },
+        "invitation_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "recipient": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "principal"
+                },
+                "principal_id": {
+                  "$ref": "#/$defs/OpaqueRef"
+                }
+              },
+              "required": [
+                "kind",
+                "principal_id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "contact_binding"
+                },
+                "contact_binding_ref": {
+                  "$ref": "#/$defs/OpaqueRef"
+                }
+              },
+              "required": [
+                "kind",
+                "contact_binding_ref"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "capabilities": {
+          "$ref": "#/$defs/ReadOnlyCapability"
+        },
+        "issuer_account_id": {
+          "$ref": "#/$defs/AccountId"
+        },
+        "management_authorization_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "issued_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "expires_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "state": {
+          "enum": [
+            "pending",
+            "accepted",
+            "declined",
+            "expired",
+            "revoked",
+            "superseded"
+          ]
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "credential_digest": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "const": "sha256"
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "algorithm",
+            "digest"
+          ],
+          "additionalProperties": false
+        },
+        "delivery_state": {
+          "enum": [
+            "not_attempted",
+            "provider_acknowledged",
+            "failed",
+            "unknown"
+          ]
+        },
+        "bound_principal_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "offered_grant_expires_at": {
+          "$ref": "#/$defs/UtcInstant"
+        }
+      },
+      "required": [
+        "record_type",
+        "invitation_id",
+        "scope",
+        "recipient",
+        "capabilities",
+        "issuer_account_id",
+        "management_authorization_ref",
+        "issued_at",
+        "expires_at",
+        "state",
+        "version",
+        "credential_digest",
+        "delivery_state",
+        "offered_grant_expires_at"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "accepted"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "bound_principal_id"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "bound_principal_id"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Grant": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "grant"
+        },
+        "grant_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "principal_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "invitation_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "capabilities": {
+          "$ref": "#/$defs/ReadOnlyCapability"
+        },
+        "state": {
+          "enum": [
+            "active",
+            "revoked"
+          ]
+        },
+        "issued_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "expires_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "authorization_version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "record_type",
+        "grant_id",
+        "principal_id",
+        "scope",
+        "invitation_id",
+        "capabilities",
+        "state",
+        "issued_at",
+        "expires_at",
+        "authorization_version"
+      ],
+      "additionalProperties": false
+    },
+    "StudyAccessClaims": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "study_access_claims_shape"
+        },
+        "typ": {
+          "const": "study-access-draft"
+        },
+        "aud": {
+          "const": "noema.study.setup"
+        },
+        "iss": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "sub": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "grant_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "grant_version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "capabilities": {
+          "$ref": "#/$defs/ReadOnlyCapability"
+        },
+        "iat": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "exp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "record_type",
+        "typ",
+        "aud",
+        "iss",
+        "sub",
+        "scope",
+        "grant_id",
+        "grant_version",
+        "capabilities",
+        "iat",
+        "exp"
+      ],
+      "additionalProperties": false
+    },
+    "AuditTransition": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "audit_transition"
+        },
+        "audit_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "operation_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "operation": {
+          "enum": [
+            "invitation.create",
+            "invitation.reissue",
+            "invitation.revoke",
+            "grant.revoke",
+            "configuration.update",
+            "steward.designate",
+            "audit.read",
+            "invitation.accept",
+            "invitation.decline",
+            "setup.read"
+          ]
+        },
+        "actor": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "$ref": "#/$defs/AccountId"
+                }
+              },
+              "required": [
+                "account_id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "refusal_category": {
+                  "enum": [
+                    "unauthenticated",
+                    "wrong_identity",
+                    "wrong_scope",
+                    "expired",
+                    "unavailable"
+                  ]
+                }
+              },
+              "required": [
+                "refusal_category"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "target_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "observed_at": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "outcome": {
+          "enum": [
+            "recorded",
+            "denied",
+            "indeterminate"
+          ]
+        },
+        "prior_version": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "new_version": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      },
+      "required": [
+        "record_type",
+        "audit_id",
+        "operation_id",
+        "scope",
+        "operation",
+        "actor",
+        "target_ref",
+        "observed_at",
+        "outcome",
+        "prior_version",
+        "new_version"
+      ],
+      "additionalProperties": false
+    },
+    "StewardDesignation": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "steward_designation"
+        },
+        "designation_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "designated_principal_id": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "designating_account_id": {
+          "$ref": "#/$defs/AccountId"
+        },
+        "management_authorization_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        },
+        "responsibility_state": {
+          "enum": [
+            "pending",
+            "accepted",
+            "withdrawn"
+          ]
+        },
+        "duty_acceptance_ref": {
+          "$ref": "#/$defs/OpaqueRef"
+        }
+      },
+      "required": [
+        "record_type",
+        "designation_id",
+        "scope",
+        "designated_principal_id",
+        "designating_account_id",
+        "management_authorization_ref",
+        "responsibility_state"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "responsibility_state": {
+                "const": "accepted"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "duty_acceptance_ref"
+            ]
+          }
+        }
+      ]
+    },
+    "ReadinessProjection": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "readiness_projection"
+        },
+        "view": {
+          "const": "redacted_setup_readiness"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "as_of": {
+          "$ref": "#/$defs/UtcInstant"
+        },
+        "capabilities": {
+          "$ref": "#/$defs/ReadOnlyCapability"
+        },
+        "steward_status": {
+          "enum": [
+            "unassigned",
+            "pending",
+            "accepted",
+            "withdrawn"
+          ]
+        },
+        "prerequisites": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterion_ref": {
+                "$ref": "#/$defs/OpaqueRef"
+              },
+              "status": {
+                "enum": [
+                  "missing",
+                  "not_verified",
+                  "recorded"
+                ]
+              }
+            },
+            "required": [
+              "criterion_ref",
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "operational_authority": {
+          "const": "not_conferred"
+        }
+      },
+      "required": [
+        "record_type",
+        "view",
+        "scope",
+        "as_of",
+        "capabilities",
+        "steward_status",
+        "prerequisites",
+        "operational_authority"
+      ],
+      "additionalProperties": false
+    },
+    "WorldId": {
+      "type": "string",
+      "pattern": "^(world\\.[A-Za-z0-9_-]+|world-[0-9]+)$",
+      "not": {
+        "pattern": "[\\s\\u0000-\\u001f\\u007f*]"
+      }
+    },
+    "AccountId": {
+      "type": "string",
+      "pattern": "^acct\\.[A-Za-z0-9_.-]+$",
+      "not": {
+        "pattern": "[\\s\\u0000-\\u001f\\u007f*]"
+      }
+    }
+  }
+}

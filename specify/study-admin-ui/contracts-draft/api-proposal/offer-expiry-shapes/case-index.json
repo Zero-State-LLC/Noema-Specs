@@ -1,0 +1,22 @@
+{
+  "status": "isolated_draft_proposal",
+  "schema_status": "not_accepted_not_registered",
+  "cases": [
+    {
+      "id": "DS-101",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "Hypothetical pending invitation carrying the proposed offered deadline; not issuance or authority.",
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-102",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "Hypothetical server-owned grant shape, not proof that a transition or access occurred.",
+      "tier": "shape_conformance",
+      "expected_failure": null
+    }
+  ]
+}
