@@ -1,0 +1,51 @@
+{
+  "status": "draft_not_accepted_not_registered_no_runtime",
+  "source_base": "644f90203c0acebd3835f719cbc27ee5c97d9562",
+  "source_hashes": {
+    "specify/study-admin-ui/contracts-draft/records.schema.json": "f5dc972aea9e1b957d89cab6906086cfd4916b65908dd4e2adb9fa126a45d335",
+    "specify/study-admin-ui/contracts-draft/examples.json": "966400c05cba8c375d37a9139c6f4bcb94378920ea2c3970a19b7fd2bc3b845c",
+    "specify/study-admin-ui/contracts-draft/case-index.json": "460d97a5baaee5ab44b667ac7f5b121fe1eb6d86b831e00b8fb8808dfd9afda5",
+    "specify/study-admin-ui/contracts-draft/validate.py": "a9c6817077c2972e09ec7800144702a96ecc72322f8f9c24fc6629fe62bf3181",
+    "specify/study-admin-ui/contracts-draft/test_validate.py": "899691ceee6c7b197fb795824b91f27d2e3a5b39b38aaa2c66f455ebc6f77e49",
+    "specs/id-rules.v01.json": "9e710632336a348ff899a41e9d1b45ef848425ff2ef99b7b5b81b1448fb19d2a",
+    "specify/study-admin-ui/contracts-draft/api-proposal/OFFER-EXPIRY-DESIGN.md": "dbae6910dd1df0c7e4081b49b6d6c20ad23e8b3c696e6e995d65143f68072075",
+    "specify/study-admin-ui/contracts-draft/api-proposal/operations.json": "95573a5ed8f89c9266d34f6f6a0abe40c92ff8362cb97b7f155b34670a358fcd"
+  },
+  "source_example_cases": [
+    "DS-007",
+    "DS-009"
+  ],
+  "derived_schema_id": "urn:noema:draft:rfc-0131:offered-expiry:proposal-1",
+  "selected_records": [
+    "Invitation",
+    "Grant"
+  ],
+  "added_field": "offered_grant_expires_at",
+  "added_field_ref": "#/$defs/UtcInstant",
+  "added_field_required": true,
+  "full_planned_case_ids": [
+    "DS-101",
+    "DS-102",
+    "DS-103",
+    "DS-104",
+    "DS-105",
+    "DS-106",
+    "DS-107",
+    "DS-108",
+    "DS-109",
+    "DS-110",
+    "DS-111",
+    "DS-112",
+    "DS-113",
+    "DS-114",
+    "DS-115",
+    "DS-116"
+  ],
+  "full_planned_pair_ids": [
+    "DL-PAIR-01",
+    "DL-PAIR-02",
+    "DL-PAIR-03",
+    "DL-PAIR-04"
+  ],
+  "wire_or_policy_adopted": false
+}

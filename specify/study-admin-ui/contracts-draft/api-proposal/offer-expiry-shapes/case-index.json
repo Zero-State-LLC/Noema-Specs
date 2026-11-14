@@ -1,0 +1,161 @@
+{
+  "status": "isolated_draft_proposal",
+  "schema_status": "not_accepted_not_registered",
+  "cases": [
+    {
+      "id": "DS-101",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "Hypothetical pending invitation carrying the proposed offered deadline; not issuance or authority.",
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-102",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "Hypothetical server-owned grant shape, not proof that a transition or access occurred.",
+      "tier": "shape_conformance",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-103",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Required proposed offered deadline omitted.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "required",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-104",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Proposed offered deadline must use the inherited string shape.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "type",
+        "instance_path": [
+          "offered_grant_expires_at"
+        ]
+      }
+    },
+    {
+      "id": "DS-105",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Impossible calendar date rejected by unchanged inherited custom format runner.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "format",
+        "instance_path": [
+          "offered_grant_expires_at"
+        ]
+      }
+    },
+    {
+      "id": "DS-106",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Unrecognized alternate deadline field cannot enter the closed record.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "additionalProperties",
+        "instance_path": []
+      }
+    },
+    {
+      "id": "DS-107",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Inherited closed read-only capability remains closed; no new authority.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "const",
+        "instance_path": [
+          "capabilities"
+        ]
+      }
+    },
+    {
+      "id": "DS-108",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Wildcard spelling violates inherited world shape; not cross-record authorization proof.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "pattern",
+        "instance_path": [
+          "scope",
+          "world_id"
+        ]
+      }
+    },
+    {
+      "id": "DS-109",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION later-record-time: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-110",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION later-record-time: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-111",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION different-expiry: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-112",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION different-expiry: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-113",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION expiry-before-recorded-issue: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-114",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION expiry-before-recorded-issue: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-115",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION different-world: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-116",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION different-world: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    }
+  ]
+}

@@ -13,3 +13,7 @@ Before acceptance, resolve route/identity/bootstrap/schema/error/idempotency/ver
 ## Offered grant deadline — selected Draft representation
 
 The [D10 design note](OFFER-EXPIRY-DESIGN.md) records the operator-selected Draft representation A: a fixed server-owned offered grant deadline on the invitation. It changes no schema or lifetime value and remains unaccepted/unimplemented. D10 stays UNRESOLVED for full contract/qualification; future tests and ordinary CI are not behavior or security proof.
+
+## Isolated D10 shape proposal
+
+The [offered-expiry shape packet](offer-expiry-shapes/README.md) tests hypothetical selected-A record shapes only. Existing records, catalogue and canonical registration are unchanged; matching fixture pairs or recorded dates do not prove identity, live acceptance, policy, clocks, persistence or the output fence. All D01-D10 remain unresolved for full qualification.
