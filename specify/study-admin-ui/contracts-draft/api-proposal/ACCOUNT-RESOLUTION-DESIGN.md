@@ -2,6 +2,9 @@
 
 **Status: Draft design only; unaccepted, unregistered and unimplemented.** The operator explicitly selected **existing uniquely qualified Account link only; missing or ambiguous linkage refuses** for the initial **study-management issuer path**. Unavailable required identity/link state also fails closed under the owning Draft RFC. This selects a proposed boundary, not an Account record, lookup implementation, onboarding flow, accepted policy or runtime permission. Full D02 and D01–D10 remain UNRESOLVED for qualification.
 
+
+**Later selected Draft refinement:** the [issuer/target logical contract](ISSUER-TARGET-CONTRACT.md) selects a same-fresh-existing-Admin-authentication-event derivative with no extra global Admin grant, and existing stable HumanPrincipal targets first/contact-only deferred. Its event witness and concrete protocol remain unqualified. Earlier source pins and open implementation/qualification statements below retain their historical scope; canonical Human onboarding is unchanged, while the initial invitation mode is now explicitly narrowed. No runtime/live authority follows.
+
 ## Problem Statement
 
 The [Account/configuration design](IDENTITY-AUTHORITY-DESIGN.md) separates Account attribution, same-actor Admin admission, exact management authorization and owner-approved out-of-band registry configuration. It does not establish the actual Account join. An optional claim, one fetched row or a reusable function name is not evidence of a current uniquely qualified authoritative Account.

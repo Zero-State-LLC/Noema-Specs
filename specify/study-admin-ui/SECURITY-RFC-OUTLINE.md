@@ -2,6 +2,10 @@
 
 **Status: outline linked to [RFC-0131 Draft](../../rfcs/RFC-0131-study-access-control-plane.md). No accepted contract, implemented API or run authority is claimed.** The Draft makes the logical security proposal concrete while keeping machine contracts, durable qualification and security review as acceptance blockers. It is not the separate hosted-research-routes/isolation RFC.
 
+## Selected initial issuer/target scope
+
+The later explicitly selected [logical contract](contracts-draft/api-proposal/ISSUER-TARGET-CONTRACT.md) requires a one-fresh-existing-Admin-event derivative/no extra global Admin grant and existing stable HumanPrincipal targets after separate canonical Human onboarding; contact-only targets remain deferred and MUST refuse. The event/Account/target/currentness proof is still unqualified; no role/provider/schema/runtime action or acceptance follows.
+
 ## Decisions the RFC must make precise
 
 1. **Identity and admission:** define the authenticated HumanPrincipal boundary used by invitees, verification of intended identity and how study-specific credentials are issued without passing the global Admin gate or minting Player/Controller authority. Preserve existing legitimate Admin rights through their own boundary.
