@@ -124,6 +124,34 @@
       },
       "delivery_state": "not_attempted",
       "offered_grant_expires_at": "2030-02-30T08:00:00Z"
+    },
+    "DS-106": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-01T04:00:00Z",
+      "state": "pending",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted",
+      "offered_grant_expires_at": "2030-01-01T08:00:00Z",
+      "grant_expires_at": "2030-01-01T08:00:00Z"
     }
   }
 }
