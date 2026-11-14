@@ -1,4 +1,18 @@
 {
   "status": "synthetic_diagnostic_not_authority",
-  "pairs": []
+  "pairs": [
+    {
+      "id": "DL-PAIR-01",
+      "invitation_case": "DS-109",
+      "grant_case": "DS-110",
+      "tier": "shape_limitation_control",
+      "expected": {
+        "expiry_equal": true,
+        "scope_equal": true,
+        "invitation_ref_equal": true,
+        "principal_ref_equal": true,
+        "recorded_issue_order": "before"
+      }
+    }
+  ]
 }

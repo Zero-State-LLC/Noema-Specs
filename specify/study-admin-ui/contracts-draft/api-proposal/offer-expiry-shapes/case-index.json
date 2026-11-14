@@ -92,6 +92,22 @@
           "world_id"
         ]
       }
+    },
+    {
+      "id": "DS-109",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION later-record-time: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-110",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION later-record-time: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
     }
   ]
 }
