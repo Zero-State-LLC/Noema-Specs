@@ -17,6 +17,17 @@
       "purpose": "Hypothetical server-owned grant shape, not proof that a transition or access occurred.",
       "tier": "shape_conformance",
       "expected_failure": null
+    },
+    {
+      "id": "DS-103",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Required proposed offered deadline omitted.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "required",
+        "instance_path": []
+      }
     }
   ]
 }
