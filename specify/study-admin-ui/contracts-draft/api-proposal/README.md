@@ -25,3 +25,7 @@ The [D03 projection design note](SETUP-PROJECTION-DESIGN.md) traces the existing
 ## Account binding and management configuration — selected Draft boundary
 
 The [D02 identity/authority design note](IDENTITY-AUTHORITY-DESIGN.md) records the operator-selected initial model: owner-authorized out-of-band registry setup, changes and recovery, with no registry-configuration UI capability in this phase. It separates Account attribution, same-actor Admin admission and exact management authorization; it appoints nobody and applies no configuration. Full D02 and all D01–D10 qualification remain unresolved; schemas/catalogue/fixtures and runtime are unchanged.
+
+## Existing Account resolution — selected Draft boundary
+
+The [Account-resolution design](ACCOUNT-RESOLUTION-DESIGN.md) records the selected initial study-management issuer rule: an existing uniquely qualified eligible Account link only; missing/ambiguous or unavailable linkage refuses without implicit provisioning. It distinguishes the combined offline Account/Player/Controller producer from a qualified hosted Account-only resolver. General human onboarding, invitee contact recovery, concrete Account/Admin binding and full D02 qualification remain separate; no schema/runtime or live authority changes.
