@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml"><img src="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/spec-validation.yml/badge.svg" alt="Spec Validation" /></a>
+  <a href="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/ci.yml"><img src="https://github.com/Zero-State-LLC/Noema-Specs/actions/workflows/ci.yml/badge.svg" alt="Spec Validation" /></a>
   <a href="https://github.com/Zero-State-LLC/Noema-Specs/releases"><img src="https://img.shields.io/github/v/release/Zero-State-LLC/Noema-Specs?include_prereleases" alt="Release" /></a>
 </p>
 
@@ -387,6 +387,7 @@ Key state schemas: [world-seed](specs/world-seed.schema.json) · [world-state](s
 | World Services | [docs/WORLD-SERVICES.md](docs/WORLD-SERVICES.md) |
 | Operator Digests | [docs/OPERATOR-DIGESTS.md](docs/OPERATOR-DIGESTS.md) |
 | Admin Live | [docs/ADMIN-LIVE-OPERATIONS.md](docs/ADMIN-LIVE-OPERATIONS.md) |
+| Study administration — Draft preparation only | [UI proposal](specify/study-admin-ui/spec.md) · [Draft RFC-0131](rfcs/RFC-0131-study-access-control-plane.md) · [publication status and remaining gates](docs/ROADMAP.md#study-administration-draft-preparation) |
 | World operations | [docs/WORLD-OPERATIONS.md](docs/WORLD-OPERATIONS.md) |
 | Player lifecycle | [docs/PLAYER-LIFECYCLE.md](docs/PLAYER-LIFECYCLE.md) |
 | Player onboarding | [docs/PLAYER-ONBOARDING.md](docs/PLAYER-ONBOARDING.md) |
