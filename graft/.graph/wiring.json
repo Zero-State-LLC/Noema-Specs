@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 368,
-    "edgeCount": 1199,
+    "nodeCount": 370,
+    "edgeCount": 1205,
     "languages": [
       "python"
     ],
@@ -949,12 +949,12 @@
       "name": "test_validation_entrypoint.py",
       "kind": "file",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L1-L113",
+      "span": "L1-L132",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "fa281850fa6618dd99297bb5a4f705dd1f481a7cea92a0c28d8931c230b84261",
-      "chars": 4506,
+      "body_hash": "731ce3a421dbbd7ffecc4cd09290e97c0401f5077532c6efc9df44b046bd7ac8",
+      "chars": 5546,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -964,7 +964,7 @@
       "name": "CIWorkflowTests",
       "kind": "class",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L93-L108",
+      "span": "L112-L127",
       "signature": "class CIWorkflowTests(unittest.TestCase)",
       "exported": true,
       "origin": "ast",
@@ -978,7 +978,7 @@
       "name": "test_ci_runs_required_entrypoint_on_push_and_pull_request",
       "kind": "method",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L94-L108",
+      "span": "L113-L127",
       "signature": "def test_ci_runs_required_entrypoint_on_push_and_pull_request(self) -> None: # BaseLoader preserves GitHub's `on` key rather than YAML 1.1's boolean.",
       "exported": true,
       "origin": "ast",
@@ -993,11 +993,11 @@
       "name": "ValidationEntrypointTests",
       "kind": "class",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L30-L90",
+      "span": "L31-L109",
       "signature": "class ValidationEntrypointTests(unittest.TestCase)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a0ba6c53af162b89aec283937375ea126eb07ad21ee55e749a3c5cd180f263ee",
+      "body_hash": "573f35516e146bfd765ed1ae62e832c60b7d23d4cd1e0045bb1dcdd6d4a3d84a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1007,7 +1007,7 @@
       "name": "run_entrypoint",
       "kind": "method",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L62-L76",
+      "span": "L72-L86",
       "signature": "def run_entrypoint(self, failure: list[str] | None = None)",
       "exported": true,
       "origin": "ast",
@@ -1022,11 +1022,11 @@
       "name": "setUp",
       "kind": "method",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L31-L60",
+      "span": "L32-L51",
       "signature": "def setUp(self) -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "b95af3852313c315dcba3d3ee4c4e57761bdb5e59df04a17e8ccf0520551f8fd",
+      "body_hash": "7d917c78d91c907e895ceb69a5705549afe4e9694587fae84657d9abd452e996",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -1037,7 +1037,7 @@
       "name": "test_preserves_each_failure_and_stops_before_later_checks",
       "kind": "method",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L84-L90",
+      "span": "L103-L109",
       "signature": "def test_preserves_each_failure_and_stops_before_later_checks(self) -> None",
       "exported": true,
       "origin": "ast",
@@ -1052,11 +1052,41 @@
       "name": "test_runs_all_checks_from_repository_root",
       "kind": "method",
       "path": "validation/test_validation_entrypoint.py",
-      "span": "L78-L82",
+      "span": "L97-L101",
       "signature": "def test_runs_all_checks_from_repository_root(self) -> None",
       "exported": true,
       "origin": "ast",
       "body_hash": "4a20803923f30828dfdd5f2c11635012a21af41b161c3d0cef60e094319fd858",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "ValidationEntrypointTests"
+    },
+    {
+      "id": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_runs_checks_when_host_interpreter_path_contains_spaces",
+      "name": "test_runs_checks_when_host_interpreter_path_contains_spaces",
+      "kind": "method",
+      "path": "validation/test_validation_entrypoint.py",
+      "span": "L88-L95",
+      "signature": "def test_runs_checks_when_host_interpreter_path_contains_spaces(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "43df349c78c27087363a45c5d3a6f2825d9d9656f8927fbc2e54226a0a842588",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "ValidationEntrypointTests"
+    },
+    {
+      "id": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.write_recording_interpreter",
+      "name": "write_recording_interpreter",
+      "kind": "method",
+      "path": "validation/test_validation_entrypoint.py",
+      "span": "L53-L70",
+      "signature": "def write_recording_interpreter(self, host_interpreter: Path) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a72b4ec62af13e2f9a15aeac6dc02b5a8afa536e7a02845a857fe33408dfe142",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -6140,6 +6170,12 @@
     },
     {
       "source": "validation/test_validation_entrypoint.py",
+      "target": "shlex",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validation_entrypoint.py",
       "target": "shutil",
       "relation": "imports",
       "confidence": "extracted"
@@ -6205,6 +6241,24 @@
       "confidence": "extracted"
     },
     {
+      "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests",
+      "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_runs_checks_when_host_interpreter_path_contains_spaces",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests",
+      "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.write_recording_interpreter",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.setUp",
+      "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.write_recording_interpreter",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
       "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_preserves_each_failure_and_stops_before_later_checks",
       "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.run_entrypoint",
       "relation": "calls",
@@ -6213,6 +6267,18 @@
     {
       "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_runs_all_checks_from_repository_root",
       "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.run_entrypoint",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_runs_checks_when_host_interpreter_path_contains_spaces",
+      "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.run_entrypoint",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.test_runs_checks_when_host_interpreter_path_contains_spaces",
+      "target": "validation/test_validation_entrypoint.py#ValidationEntrypointTests.write_recording_interpreter",
       "relation": "calls",
       "confidence": "extracted"
     },

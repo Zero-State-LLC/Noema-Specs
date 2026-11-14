@@ -8,6 +8,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import shlex
 import shutil
 import subprocess
 import sys
@@ -42,22 +43,31 @@ class ValidationEntrypointTests(unittest.TestCase):
         )
         self.venv = self.root / "test venv"
         (self.venv / "bin").mkdir(parents=True)
-        interpreter = self.venv / "bin/python"
-        interpreter.write_text(
-            f"#!{sys.executable}\n"
-            "import json, os, sys\n"
-            "with open(os.environ['CALL_LOG'], 'a') as log:\n"
-            "    log.write(json.dumps({'args': sys.argv[1:], 'cwd': os.getcwd()}) + '\\n')\n"
-            "if sys.argv[1:] == json.loads(os.environ.get('FAIL_COMMAND', '[]')):\n"
-            "    sys.exit(37)\n",
-            encoding="utf-8",
-        )
-        interpreter.chmod(0o755)
+        self.write_recording_interpreter(Path(sys.executable))
         self.log = self.root / "calls.jsonl"
         self.install = [
             "-m", "pip", "install", "--disable-pip-version-check", "-q",
             "-r", str(self.root / "validation/requirements-validation.txt"),
         ]
+
+    def write_recording_interpreter(self, host_interpreter: Path) -> None:
+        interpreter = self.venv / "bin/python"
+        recording_code = (
+            "import json, os, sys\n"
+            "with open(os.environ['CALL_LOG'], 'a') as log:\n"
+            "    log.write(json.dumps({'args': sys.argv[1:], 'cwd': os.getcwd()}) + '\\n')\n"
+            "if sys.argv[1:] == json.loads(os.environ.get('FAIL_COMMAND', '[]')):\n"
+            "    sys.exit(37)\n"
+        )
+        # A shebang cannot quote a host interpreter path containing spaces.
+        # The entrypoint is Bash: its ENOEXEC shell fallback lets us quote
+        # the interpreter and recording code without kernel shebang dispatch.
+        interpreter.write_text(
+            f"exec {shlex.quote(str(host_interpreter))} -c {shlex.quote(recording_code)}"
+            ' "$@"\n',
+            encoding="utf-8",
+        )
+        interpreter.chmod(0o755)
 
     def run_entrypoint(self, failure: list[str] | None = None):
         self.log.unlink(missing_ok=True)
@@ -74,6 +84,15 @@ class ValidationEntrypointTests(unittest.TestCase):
         )
         calls = [json.loads(line) for line in self.log.read_text().splitlines()]
         return result, calls
+
+    def test_runs_checks_when_host_interpreter_path_contains_spaces(self) -> None:
+        host_interpreter = self.root.parent / "host interpreter with spaces"
+        host_interpreter.symlink_to(sys.executable)
+        self.write_recording_interpreter(host_interpreter)
+        result, calls = self.run_entrypoint()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual([call["args"] for call in calls], [self.install, *CHECKS])
+        self.assertTrue(all(call["cwd"] == str(self.root) for call in calls[1:]))
 
     def test_runs_all_checks_from_repository_root(self) -> None:
         result, calls = self.run_entrypoint()

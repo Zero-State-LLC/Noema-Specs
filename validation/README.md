@@ -7,14 +7,24 @@ This directory provides the merge-gate validation for NOEMA-Specs.
 From the repository root:
 
 ```bash
-pip install -r validation/requirements-validation.txt
-python validation/validate_all.py
-python validation/validate_direction.py
-python validation/validate_freshness.py --offline
-python validation/validate_freshness.py  # live noema.guru comparison
+bash validation/run.sh
 ```
 
-Both commands MUST exit 0. The main validator reports `PASS`; the direction validator confirms that planning remains implementation-aware and status-disciplined.
+The shared local/CI entrypoint installs the declared validation dependencies, runs the native unit tests, then runs the main validator, direction validator, offline freshness checker, and Gate B traceability checker. Every required check MUST exit 0; failures stop the entrypoint before later checks.
+
+An already-qualified environment can be selected explicitly:
+
+```bash
+NOEMA_VALIDATION_VENV="/path/to/qualified/.venv" bash validation/run.sh
+```
+
+The default freshness check is metadata-only and offline. A separate live comparison can be requested explicitly with `python validation/validate_freshness.py`; it is not part of the default merge gate.
+
+## Entrypoint recording fixture
+
+`test_validation_entrypoint.py` exercises the real Bash entrypoint against a temporary recording interpreter. It preserves the install/check order, repository-root working directory for checks, exact injected exit status 37, no later checks after each failure, and the existing 30-second subprocess bound.
+
+The recorder is executable shell text without a shebang. It uses [Bash's documented executable-format fallback](https://www.gnu.org/software/bash/manual/html_node/Command-Search-and-Execution.html) to invoke the real interpreter with `shlex.quote` and forward arguments with `"$@"`. This avoids putting an unquotable interpreter path in a kernel shebang and avoids the observed macOS shebang-startup stall. A regression exercises a host interpreter path containing spaces, in addition to the already-spaced fixture repository and virtual-environment paths. This is a test-double repair, not a change to the validation commands or CI policy.
 
 ## What is checked
 
