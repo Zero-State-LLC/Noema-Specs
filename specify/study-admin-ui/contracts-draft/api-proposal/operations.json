@@ -1,0 +1,545 @@
+{
+  "catalogue_kind": "rfc0131_operation_preparation",
+  "status": "Draft",
+  "source_baseline": "5edbea51931521139159e07a2cebcf2763fb32f9",
+  "source_rfc": "rfcs/RFC-0131-study-access-control-plane.md",
+  "wire_ready": false,
+  "runtime_authorized": false,
+  "namespace_registered": false,
+  "common": {
+    "requested_scope_is_authority": false,
+    "credential_in_query_allowed": false,
+    "state_changing_get_allowed": false,
+    "raw_record_serialization_allowed": false,
+    "methods_paths_codes_bounds": "UNRESOLVED",
+    "proposed_version_domain": "study-access/0.1",
+    "ordinary_capability": "study.setup.read",
+    "forbidden_client_authority": [
+      "issuer_account_id",
+      "admin_account_id",
+      "management_authorization_ref",
+      "bound_principal_id",
+      "authorization_version",
+      "state",
+      "capabilities",
+      "credential_digest",
+      "responsibility_state",
+      "duty_acceptance_ref"
+    ],
+    "proof_boundary": "Catalogue consistency only; no authentication, authorization, transition, privacy, durability, browser or acceptance proof."
+  },
+  "open_decisions": {
+    "D01": {
+      "status": "UNRESOLVED",
+      "question": "Reserve exact route/method/secret-proof carrier only after runtime collision and privacy review; RFC0131 currently reserves none."
+    },
+    "D02": {
+      "status": "UNRESOLVED",
+      "question": "Verify provider-to-Account/intended-contact recovery and attributable issuer chain; specify registry bootstrap/configuration/recovery authority."
+    },
+    "D03": {
+      "status": "UNRESOLVED",
+      "question": "Define actual request/response schemas, exact allowed fields, identifier syntax, protected projection and cursor bindings; record shapes are not DTOs."
+    },
+    "D04": {
+      "status": "UNRESOLVED",
+      "question": "Review exact HTTP statuses/error codes, non-enumerating bodies/timing, abuse/rate/response limits and audit amplification bounds."
+    },
+    "D05": {
+      "status": "UNRESOLVED",
+      "question": "Specify idempotency-key carrier/representation/retention, actor-operation-scope-payload binding, changed-payload refusal and compare-and-set/version conflicts."
+    },
+    "D06": {
+      "status": "UNRESOLVED",
+      "question": "Adopt finite lifetimes/retention and browser/delivery/redirect protections separately; RFC values and record bounds remain proposals."
+    },
+    "D07": {
+      "status": "UNRESOLVED",
+      "question": "Qualify a canonical-control-plane durable adapter, atomic transitions, ambiguous-commit recovery, backup freshness and output-fence linearization; select no new provider here."
+    },
+    "D08": {
+      "status": "UNRESOLVED",
+      "question": "Review study-access/0.1 registration, wire-version negotiation/refusal, credential typing/audience and numeric representations including audit versions."
+    },
+    "D09": {
+      "status": "UNRESOLVED",
+      "question": "Record compatibility/data/research/security/migration/validation/rollback decisions and separate publication approval from RFC acceptance/runtime authority."
+    },
+    "D10": {
+      "status": "UNRESOLVED",
+      "question": "Bind the grant expiry offered before acceptance to invitation/request/response and durable transition; current Invitation shape alone does not encode the full offer."
+    }
+  },
+  "operations": [
+    {
+      "operation_id": "setup.read",
+      "source_lines": [
+        33,
+        37,
+        66,
+        100,
+        182
+      ],
+      "request_candidates": [
+        "scope"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "current_grant",
+        "grant_version",
+        "projection_policy",
+        "as_of"
+      ],
+      "response_candidates": [
+        "view",
+        "scope",
+        "as_of",
+        "capabilities",
+        "steward_status",
+        "prerequisites",
+        "operational_authority"
+      ],
+      "admission": "Verified HumanPrincipal, current active exact study/world grant, study.setup.read and current projection policy; authenticate and authorize before protected existence or partition lookup.",
+      "success": "Return an explicitly allowlisted readiness projection, not the full study or grant record; operational_authority remains not_conferred. A missing-consent indicator may disclose only an already-authorized non-sensitive prerequisite status.",
+      "refusal": "Wrong identity/scope, revoked or expired grant, unavailable/stale authority, or failed output fence yields no protected projection. Contacts, roster, audit, private bodies and hidden-study existence remain excluded.",
+      "replay": "A read retry rechecks current authority and consent; neither cached projection nor retained signed claims override revocation.",
+      "version_rule": "Read current grant authorization_version and current projection policy at use and output time; response/version binding remains undecided.",
+      "future_cases": [
+        "SA-01",
+        "SA-02",
+        "SA-03",
+        "SA-08",
+        "SA-09",
+        "SA-10",
+        "SA-12",
+        "SA-15"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    },
+    {
+      "operation_id": "invitation.create",
+      "source_lines": [
+        39,
+        45,
+        51,
+        61,
+        70,
+        101,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "recipient"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "invitation_id",
+        "capabilities",
+        "issued_at",
+        "expires_at",
+        "state",
+        "version",
+        "credential_digest",
+        "delivery_state"
+      ],
+      "response_candidates": [
+        "invitation_id",
+        "scope",
+        "state",
+        "version",
+        "expires_at",
+        "delivery_state"
+      ],
+      "admission": "Existing Admin admission AND an attributable verified Account AND current exact invitation.create management authorization. A shared or mailbox-derived label and a client-selected issuer are insufficient.",
+      "success": "Conditionally persist one pending invitation for the requested verified identity binding and fixed study.setup.read capability. Persistence and delivery status are distinct; never return a raw invitation record or credential digest.",
+      "refusal": "Ordinary study membership cannot issue. Missing Account mapping/configuration authority, wrong scope or unqualified recipient/expiry policy denies issuance with no invitation or grant. No live sending is part of this proposal.",
+      "replay": "Bind a client operation key to verified actor, operation, exact scope and request semantics; same semantics recover one recorded operation, changed semantics refuse without another invitation or send. Key representation/retention remain undecided.",
+      "version_rule": "Server owns initial invitation version and later transitions. Finite invitation and offered grant validity must be explicitly bound; the current record shape lacks the complete offered-grant-expiry contract.",
+      "future_cases": [
+        "SA-03",
+        "SA-06",
+        "SA-10",
+        "SA-13",
+        "SA-14"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
+    },
+    {
+      "operation_id": "invitation.accept",
+      "source_lines": [
+        51,
+        72,
+        74,
+        80,
+        102,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id",
+        "redemption_proof_carrier_unresolved"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "bound_principal_id",
+        "current_issuer_authority",
+        "grant_id",
+        "grant_version",
+        "grant_expiry",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "grant_id",
+        "grant_state",
+        "grant_version",
+        "grant_expiry"
+      ],
+      "admission": "Reviewed intended-identity proof and current pending invitation, exact immutable scope/capability, valid deadline, still-valid issuer management authorization and authoritative store. Proof carrier/lookup order require a separate wire/privacy decision.",
+      "success": "One atomic conditional operation consumes the invitation, binds a principal if necessary, creates at most one read-only grant and links its audit witness. Success must not be emitted before durable acknowledgement.",
+      "refusal": "Forwarded/wrong-identity, expired, declined, revoked, superseded or wrong-scope requests create no grant and reveal no protected target; ambiguous persistence is not success or permission to create again.",
+      "replay": "Same authorized principal may recover the existing operation only after current grant/state/scope checks; a revoked or expired result is truthful inactive status, never duplication, widening, lifetime extension or reactivation.",
+      "version_rule": "Consume only the authoritative pending version. Compare-and-set/transaction representation and offered grant-expiry binding are unresolved, not supplied by a client authority/version field.",
+      "future_cases": [
+        "SA-04",
+        "SA-05",
+        "SA-06",
+        "SA-07",
+        "SA-09",
+        "SA-13",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
+    },
+    {
+      "operation_id": "invitation.decline",
+      "source_lines": [
+        70,
+        72,
+        102,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id",
+        "redemption_proof_carrier_unresolved"
+      ],
+      "server_derived": [
+        "verified_subject",
+        "current_invitation_version",
+        "resulting_invitation_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "version"
+      ],
+      "admission": "Verified intended HumanPrincipal plus the current valid pending invitation in exact scope; a scanner GET or link possession alone is not a personal decision.",
+      "success": "Conditionally move the pending invitation to declined with linked outcome; create no grant and record no participant consent, stewardship acceptance or enrollment.",
+      "refusal": "Wrong identity/scope or nonpending/expired invitation cannot become an accepted grant. Response status and historical-decline recovery remain subject to the non-enumerating error contract.",
+      "replay": "Same-operation recovery must not produce a new transition/grant; current authorization and disclosure are rechecked. Different semantics under the same key are refused.",
+      "version_rule": "Only the current pending version may transition; decline/accept/revoke races require a single qualified outcome.",
+      "future_cases": [
+        "SA-04",
+        "SA-07",
+        "SA-13"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    },
+    {
+      "operation_id": "invitation.reissue",
+      "source_lines": [
+        45,
+        70,
+        76,
+        88,
+        101,
+        113
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "old_state",
+        "new_invitation_id",
+        "new_deadlines",
+        "credential_digest",
+        "version",
+        "delivery_state"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "superseded_invitation_id",
+        "new_invitation_id",
+        "scope",
+        "state",
+        "version",
+        "expires_at",
+        "delivery_state"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.reissue management authorization; validate authoritative target state and identity/scope before mutation.",
+      "success": "Atomically supersede the eligible pending invitation and create a distinct pending invitation; no moment admits both old and new redemption credentials. New issuance and delivery state are separate.",
+      "refusal": "No authority, invalid state, stale target or unavailable/ambiguous store cannot silently keep two redeemable links or widen the capability. Never describe an email-provider acknowledgement as recipient delivery.",
+      "replay": "Recover the same new invitation for the same recorded operation; no further credential rotation or lifetime extension. Resending the same pending credential is a separate delivery contract and is not implemented here.",
+      "version_rule": "Bind the superseded target version and resulting invitation version in one qualified transaction; new validity must follow reviewed policy, not request replay time.",
+      "future_cases": [
+        "SA-05",
+        "SA-07",
+        "SA-13",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ]
+    },
+    {
+      "operation_id": "invitation.revoke",
+      "source_lines": [
+        45,
+        70,
+        74,
+        76,
+        101
+      ],
+      "request_candidates": [
+        "scope",
+        "invitation_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "current_version",
+        "resulting_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "invitation_id",
+        "invitation_state",
+        "version"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.revoke management authorization for this study/world.",
+      "success": "Conditionally revoke an eligible pending invitation so it cannot be redeemed; create no grant and preserve terminal history.",
+      "refusal": "Wrong scope/identity or unavailable authority/store has no unauthorized transition. Revoking an already consumed invitation is not grant revocation; response/no-op classification for terminal targets stays unresolved.",
+      "replay": "Recover the same authorized operation without extra transitions, token issuance or reactivation; current target state and response entitlement still apply.",
+      "version_rule": "A stale invitation version cannot overwrite acceptance, reissue or revocation. Accepted grant state must remain independent of consumed invitation history.",
+      "future_cases": [
+        "SA-04",
+        "SA-07",
+        "SA-14",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    },
+    {
+      "operation_id": "grant.revoke",
+      "source_lines": [
+        45,
+        74,
+        76,
+        88,
+        92,
+        103
+      ],
+      "request_candidates": [
+        "scope",
+        "grant_id"
+      ],
+      "server_derived": [
+        "issuer_account_id",
+        "management_authorization_ref",
+        "current_authorization_version",
+        "resulting_grant_state",
+        "audit_link"
+      ],
+      "response_candidates": [
+        "operation_ref",
+        "grant_id",
+        "grant_state",
+        "authorization_version"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact grant.revoke management authorization; read the authoritative exact-scope target.",
+      "success": "Conditionally mark the grant revoked with a monotonic authorization-version change and linked witness. Later protected requests and qualified output boundaries deny the revoked version; prior invitation history is retained.",
+      "refusal": "Wrong authority/scope, stale transition or unavailable/ambiguous store cannot report confirmed revocation. No history deletion, new grant or credential issuance is allowed.",
+      "replay": "Recover the existing revocation result after current authorization/state checks; never reactivate or increment repeatedly merely because the request was retried.",
+      "version_rule": "Version/conflict representation, transaction boundary, queued output treatment and revocation/output linearization require qualified contracts; a second lookup alone is not proof.",
+      "future_cases": [
+        "SA-05",
+        "SA-07",
+        "SA-08",
+        "SA-09",
+        "SA-12",
+        "SA-16"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    },
+    {
+      "operation_id": "steward.designate",
+      "source_lines": [
+        39,
+        41,
+        64,
+        104,
+        119
+      ],
+      "request_candidates": [
+        "scope",
+        "designated_principal_id"
+      ],
+      "server_derived": [
+        "designating_account_id",
+        "management_authorization_ref",
+        "designation_id",
+        "responsibility_state"
+      ],
+      "response_candidates": [
+        "designation_id",
+        "scope",
+        "designated_principal_id",
+        "responsibility_state"
+      ],
+      "admission": "Existing Admin admission, attributable verified Account and current exact steward.designate management authorization. Independent legitimate Admin authority is preserved; no invented two-Admin rule.",
+      "success": "Create a pending designation only for the selected verified-scope identity. Unassigned remains a valid setup state. Identity eligibility and replacement/history semantics require the reviewed binding contract.",
+      "refusal": "An ordinary study-role grant cannot self-designate, accept another person’s duties or obtain run/export/global Admin authority. A request cannot set responsibility_state=accepted or supply duty_acceptance_ref as authority.",
+      "replay": "Same recorded designation operation must not duplicate designation, confer a grant or record acceptance. Current authorization and scope are rechecked.",
+      "version_rule": "Designation conflict/replacement/version representation is unresolved. Duty acceptance, consent sign-off and research release remain independent records and decisions.",
+      "future_cases": [
+        "SA-03",
+        "SA-10",
+        "SA-11",
+        "SA-12"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    },
+    {
+      "operation_id": "audit.read",
+      "source_lines": [
+        39,
+        63,
+        66,
+        105,
+        115,
+        143
+      ],
+      "request_candidates": [
+        "scope",
+        "cursor"
+      ],
+      "server_derived": [
+        "verified_account",
+        "current_audit_read_authorization",
+        "scope_bound_cursor",
+        "redaction_policy"
+      ],
+      "response_candidates": [
+        "redacted_entries",
+        "next_cursor"
+      ],
+      "admission": "Separately authorized attributable Admin with exact audit.read authority; ordinary study.setup.read, steward designation or a generic Admin label is insufficient.",
+      "success": "Return a bounded purpose-specific protected audit projection, never raw AuditTransition serialization. Omit raw credentials/digests, protected contact material, private content and unknown target existence.",
+      "refusal": "Wrong scope/principal/cursor, unavailable authority or unqualified response bounds discloses no entries/counts/other-scope results. Cursor construction, permitted fields and timing limits remain review decisions.",
+      "replay": "Each page/retry rechecks current authority, scope, redaction and retention. A cursor is not authority; cross-scope replay is refused without recovering another page.",
+      "version_rule": "Cursor binding to actor/scope/policy/snapshot and finite page/response/retention limits remain unresolved. No default page size or audit-version maximum is adopted.",
+      "future_cases": [
+        "SA-03",
+        "SA-06",
+        "SA-14"
+      ],
+      "decision_refs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    }
+  ]
+}
