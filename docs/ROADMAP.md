@@ -22,7 +22,7 @@ The version roadmap below remains the architecture and research sequence. It doe
 |---|---|---|
 | Isolated record-shape proposal | [PR #399](https://github.com/Zero-State-LLC/Noema-Specs/pull/399) | Draft structural packet; no canonical registration or behavior qualification |
 | Preparation handoff | [PR #400](https://github.com/Zero-State-LLC/Noema-Specs/pull/400) | Documentation publication only |
-| Ten-operation candidate catalogue | [PR #401](https://github.com/Zero-State-LLC/Noema-Specs/pull/401) | Draft operation preparation, not adopted routes or authorization |
+| Nine-operation candidate catalogue | [PR #401](https://github.com/Zero-State-LLC/Noema-Specs/pull/401) | Draft operation preparation, not adopted routes or authorization |
 | D10 offered-expiry representation | [PR #402](https://github.com/Zero-State-LLC/Noema-Specs/pull/402) | Selected A: fixed server-owned offered deadline on Invitation, for the Draft only; no lifetime policy |
 | D10 isolated offered-expiry shapes | [PR #403](https://github.com/Zero-State-LLC/Noema-Specs/pull/403) | Separate structural proposal, not clock/replay/transaction or privacy proof |
 | D03 setup/readiness disclosure design | [PR #404](https://github.com/Zero-State-LLC/Noema-Specs/pull/404) | Seven response candidates traced to source/disclosure obligations; record-only `record_type` wire treatment undecided; eight future observations, not executed authorization/privacy/browser tests |
