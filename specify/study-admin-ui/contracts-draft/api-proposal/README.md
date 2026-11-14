@@ -21,3 +21,7 @@ The [offered-expiry shape packet](offer-expiry-shapes/README.md) tests hypotheti
 ## Setup/readiness disclosure — Draft design
 
 The [D03 projection design note](SETUP-PROJECTION-DESIGN.md) traces the existing seven candidate response fields to qualified value sources and disclosure obligations. It is not a DTO, a selected criterion registry, an implemented projector or privacy qualification; the record-only discriminator and all wire/policy/identity/durable decisions remain gated. Existing schemas/catalogue/fixtures and D10 proposals are unchanged. D03 remains UNRESOLVED for full contract and qualification.
+
+## Account binding and management configuration — selected Draft boundary
+
+The [D02 identity/authority design note](IDENTITY-AUTHORITY-DESIGN.md) records the operator-selected initial model: owner-authorized out-of-band registry setup, changes and recovery, with no registry-configuration UI capability in this phase. It separates Account attribution, same-actor Admin admission and exact management authorization; it appoints nobody and applies no configuration. Full D02 and all D01–D10 qualification remain unresolved; schemas/catalogue/fixtures and runtime are unchanged.
