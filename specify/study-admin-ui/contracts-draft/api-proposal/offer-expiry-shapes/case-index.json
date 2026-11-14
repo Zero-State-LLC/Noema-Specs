@@ -41,6 +41,19 @@
           "offered_grant_expires_at"
         ]
       }
+    },
+    {
+      "id": "DS-105",
+      "schema_def": "Invitation",
+      "expected_shape_valid": false,
+      "purpose": "Impossible calendar date rejected by unchanged inherited custom format runner.",
+      "tier": "shape_conformance",
+      "expected_failure": {
+        "keyword": "format",
+        "instance_path": [
+          "offered_grant_expires_at"
+        ]
+      }
     }
   ]
 }
