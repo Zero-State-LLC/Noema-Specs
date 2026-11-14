@@ -342,6 +342,51 @@
       "issued_at": "2030-01-01T09:00:00Z",
       "expires_at": "2030-01-01T08:00:00Z",
       "authorization_version": 1
+    },
+    "DS-115": {
+      "record_type": "invitation",
+      "invitation_id": "invitation.fixture-one",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-one"
+      },
+      "recipient": {
+        "kind": "principal",
+        "principal_id": "principal.fixture-reader"
+      },
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "issuer_account_id": "acct.fixture-admin",
+      "management_authorization_ref": "management.fixture-one",
+      "issued_at": "2030-01-01T00:00:00Z",
+      "expires_at": "2030-01-01T04:00:00Z",
+      "state": "accepted",
+      "version": 1,
+      "credential_digest": {
+        "algorithm": "sha256",
+        "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "delivery_state": "not_attempted",
+      "offered_grant_expires_at": "2030-01-01T08:00:00Z",
+      "bound_principal_id": "principal.fixture-reader"
+    },
+    "DS-116": {
+      "record_type": "grant",
+      "grant_id": "grant.fixture-one",
+      "principal_id": "principal.fixture-reader",
+      "scope": {
+        "study_id": "study.fixture-one",
+        "world_id": "world.fixture-other"
+      },
+      "invitation_id": "invitation.fixture-one",
+      "capabilities": [
+        "study.setup.read"
+      ],
+      "state": "active",
+      "issued_at": "2030-01-01T02:00:00Z",
+      "expires_at": "2030-01-01T08:00:00Z",
+      "authorization_version": 1
     }
   }
 }
