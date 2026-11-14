@@ -2,7 +2,7 @@
 
 ## Verified predecessor and selected follow-up
 
-[PR #407](https://github.com/Zero-State-LLC/Noema-Specs/pull/407) landed as `5bf759a90035b748b4199aa6a7b0f95eb87ca02b`; [main-push CI 43592879488](https://github.com/Zero-State-LLC/Noema-Specs/actions/runs/43592879488) succeeded at the literal merge checkout. This is the verified predecessor baseline, not a moving docs-tip pin. [Roadmap](../ROADMAP.md#study-administration-draft-preparation) records the nine merged predecessor publications #399–#407, not runtime acceptance.
+[PR #408](https://github.com/Zero-State-LLC/Noema-Specs/pull/408) landed as `204eabc74afc2553a10d3a3ad09093cca03269a0`; [main-push CI 43597122215](https://github.com/Zero-State-LLC/Noema-Specs/actions/runs/43597122215) succeeded at the literal merge checkout. This is the verified predecessor baseline, not a moving docs-tip pin. [Roadmap](../ROADMAP.md#study-administration-draft-preparation) records the ten merged predecessor publications #399–#408, not runtime acceptance.
 
 The selected [D02 configuration model](../../specify/study-admin-ui/contracts-draft/api-proposal/IDENTITY-AUTHORITY-DESIGN.md) is owner-authorized out-of-band registry seed/changes/recovery, with no registry-configuration UI yet. The selected [Account-resolution Draft](../../specify/study-admin-ui/contracts-draft/api-proposal/ACCOUNT-RESOLUTION-DESIGN.md) requires an existing uniquely qualified eligible Account link for the initial study-management issuer path; missing/ambiguous/unavailable linkage refuses without implicit provisioning. Do not re-ask either model or treat selection as adoption or live authority.
 
@@ -10,11 +10,13 @@ The source audit found maintained offline Account prior art, but its combined bi
 
 The selected [same-actor Draft](../../specify/study-admin-ui/contracts-draft/api-proposal/SAME-ACTOR-BINDING-DESIGN.md) adds one server-established relation between verified identity, the qualified existing Account and the SAME actor's existing valid Admin admission before new management relies on it. Unbound/shared legacy contexts and independently paired credentials refuse this new boundary; existing legitimate Admin, isolated Player-plus-Admin and device approval remain unchanged. No concrete credential/DTO/transport, retroactive legacy binding, runtime producer or installed authority is claimed. Do not re-ask this selected model.
 
+The selected [carrier Draft](../../specify/study-admin-ui/contracts-draft/api-proposal/BINDING-CARRIER-DESIGN.md) uses a server-side binding record and opaque credential/reference with required authoritative revalidation per management request. It does not install machine fields, adopt transport/crypto/lifetime/adapter/session policy or alter the separate read-only study credential. The earlier form timeout stays historical; the later explicit “do as recommended” selects this Draft model. Do not re-ask the carrier choice or infer runtime/acceptance/new bypass authority.
+
 ## Authority and actual tracking
 
 Use [GitHub Project 18](https://github.com/orgs/Zero-State-LLC/projects/18), not a duplicate local board. [Parent #396](https://github.com/Zero-State-LLC/Noema-Specs/issues/396) remains **OPEN / In Progress / not runtime-ready**; [RFC-0131](../../rfcs/RFC-0131-study-access-control-plane.md) remains **Draft / unaccepted / unimplemented**. The predecessor publication cards being Done does not qualify current feature acceptance or assign runtime work. Current candidate/merge/check/review state belongs to its own live PR and issue396; an armed auto-merge request is not landing.
 
-All prior once-per-occurrence exceptions, including #407, are consumed; no bypass carries to the next publication. Apply normal current-head protected checks and eligible review/auto-merge unless a new explicit scoped exception is granted. Static technical PASS/native CI is not submitted approval, formal security acceptance or behavior qualification. Prior observers/review completions are consumed; delayed notices must not restart or repeat work.
+All prior once-per-occurrence exceptions, including #408, are consumed; no bypass carries to the next publication. Apply normal current-head protected checks and eligible review/auto-merge unless a new explicit scoped exception is granted. Static technical PASS/native CI is not submitted approval, formal security acceptance or behavior qualification. Prior observers/review completions are consumed; delayed notices must not restart or repeat work.
 
 ## Remaining gated frontier
 
@@ -24,4 +26,4 @@ No Account/Player/Controller/PlayerSession creation, credentials, role/configura
 
 ## History
 
-This substantive same-actor follow-up also retires genuine stale predecessor status; it is not a docs-only pin chase. The [exact predecessor handoff](https://github.com/Zero-State-LLC/Noema-Specs/blob/5bf759a90035b748b4199aa6a7b0f95eb87ca02b/docs/handoff/NEXT.md) is immutable history. Its old pending actions are not requests to repeat merges, exceptions or watches. Do not open another PR merely because a documentation merge advances main.
+This substantive carrier-design follow-up also retires genuine stale predecessor status; it is not a docs-only pin chase. The [exact predecessor handoff](https://github.com/Zero-State-LLC/Noema-Specs/blob/204eabc74afc2553a10d3a3ad09093cca03269a0/docs/handoff/NEXT.md) is immutable history. Its old pending actions are not requests to repeat merges, exceptions or watches. Do not open another PR merely because a documentation merge advances main.
