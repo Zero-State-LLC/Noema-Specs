@@ -14,6 +14,25 @@ Near-term rule:
 
 The version roadmap below remains the architecture and research sequence. It does not outrank the active integration campaign for near-term implementation order.
 
+### Study administration Draft preparation
+
+[Issue #396](https://github.com/Zero-State-LLC/Noema-Specs/issues/396) remains **OPEN / In Progress / not runtime-ready**. [RFC-0131](../rfcs/RFC-0131-study-access-control-plane.md) remains **Draft, unaccepted and unimplemented**. This bounded preparation does not outrank the active integration campaign above.
+
+| Published preparation | Verified landing | What is complete — not runtime acceptance |
+|---|---|---|
+| Isolated record-shape proposal | [PR #399](https://github.com/Zero-State-LLC/Noema-Specs/pull/399) | Draft structural packet; no canonical registration or behavior qualification |
+| Preparation handoff | [PR #400](https://github.com/Zero-State-LLC/Noema-Specs/pull/400) | Documentation publication only |
+| Nine-operation candidate catalogue | [PR #401](https://github.com/Zero-State-LLC/Noema-Specs/pull/401) | Draft operation preparation, not adopted routes or authorization |
+| D10 offered-expiry representation | [PR #402](https://github.com/Zero-State-LLC/Noema-Specs/pull/402) | Selected A: fixed server-owned offered deadline on Invitation, for the Draft only; no lifetime policy |
+| D10 isolated offered-expiry shapes | [PR #403](https://github.com/Zero-State-LLC/Noema-Specs/pull/403) | Separate structural proposal, not clock/replay/transaction or privacy proof |
+| D03 setup/readiness disclosure design | [PR #404](https://github.com/Zero-State-LLC/Noema-Specs/pull/404) | Seven response candidates traced to source/disclosure obligations; record-only `record_type` wire treatment undecided; eight future observations, not executed authorization/privacy/browser tests |
+
+The preparation cutoff is PR #404 merge [`500a760e549585ab84340b90953432c555ad126a`](https://github.com/Zero-State-LLC/Noema-Specs/commit/500a760e549585ab84340b90953432c555ad126a), not the tip of a later documentation-only PR. [Main-push CI 43578677882](https://github.com/Zero-State-LLC/Noema-Specs/actions/runs/43578677882) succeeded at that literal merge checkout; native checks are not opt-in shape-packet execution or hosted security acceptance. Earlier scoped review exceptions are consumed, not eligible submitted approval or reusable grants.
+
+All D01–D10 remain unresolved for **full contract/qualification**. Before runtime readiness, separately settle wire/identity/authority, value sources and safe references, configuration/bootstrap ownership, policy/bounds/error behavior, durable adapter/clock/replay/transactions/output fencing, and recorded security review. The selected eventual evidence seam remains mounted Worker authorization tests plus controlled browser workflows with injected identity and persistence; that choice is not evidence that those workflows ran. No runtime-ready partner assignment follows from publication.
+
+The actual kanban is [GitHub Project 18](https://github.com/orgs/Zero-State-LLC/projects/18), keyed by the linked Issues/PRs. The six bounded publication cards are Done; parent #396 stays In Progress and OPEN. Their status does not promote hosted STUDY readiness, acceptance checklists or `specs/current-state.v1.yaml`. No parallel `KANBAN.md` is maintained. [Current handoff](handoff/NEXT.md) points to the owning proposals and preserves the remaining gates.
+
 ## v0.1 — The Chamber
 
 Persistent strategic ecology (2–10 Players): rooms, movement, observations, structured actions, messaging, exact resource economy, production/harvest/repair, infrastructure, organizations, trade, deterministic scheduler, World Event Director pressure, spectator projections, event ledger, snapshots, world seed, deterministic replay.

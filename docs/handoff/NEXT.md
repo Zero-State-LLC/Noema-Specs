@@ -1,19 +1,25 @@
-# Current handoff — RFC-0131 operation preparation
+# Current handoff — Study administration Draft preparation
 
-## Candidate cutoff
+## Verified preparation cutoff
 
-This branch adds a [Draft operation-preparation catalogue](../../specify/study-admin-ui/contracts-draft/api-proposal/README.md): shared proposal boundaries plus nine logical operation capsules. It does not reserve methods/paths/error codes, register schemas, implement handlers or close acceptance. All D01-D10 decisions are UNRESOLVED. Publication/review/CI status belongs in the PR and issue ledger, not an invented future merge receipt.
+[PR #404](https://github.com/Zero-State-LLC/Noema-Specs/pull/404) landed as `500a760e549585ab84340b90953432c555ad126a`; [main-push CI 43578677882](https://github.com/Zero-State-LLC/Noema-Specs/actions/runs/43578677882) succeeded at the literal merge checkout. This pins the latest bounded preparation, not the tip of a later docs-only PR. Candidate checks, static technical reviews, submitted GitHub approval, scoped review exceptions, tree identity and main CI remain distinct evidence.
 
-Issue #396 remains OPEN/InProgress and not runtime-ready. RFC0131 remains Draft, unaccepted and unimplemented. The catalogue needs its own actual independent reviews, current-head CI and eligible approval; prior399/400exceptions are consumed and do not carry over.
+[Roadmap publication table](../ROADMAP.md#study-administration-draft-preparation) records merged PRs #399–#404. The [candidate operation catalogue](../../specify/study-admin-ui/contracts-draft/api-proposal/README.md), [D10 representation](../../specify/study-admin-ui/contracts-draft/api-proposal/OFFER-EXPIRY-DESIGN.md), [D10 isolated shapes](../../specify/study-admin-ui/contracts-draft/api-proposal/offer-expiry-shapes/README.md) and [D03 disclosure design](../../specify/study-admin-ui/contracts-draft/api-proposal/SETUP-PROJECTION-DESIGN.md) are Draft preparation, not adopted contracts or runtime implementation. D03 distinguishes seven response candidates from the record-only `record_type`; wire treatment is undecided and its eight observations are future qualification work.
 
-## Next gate
+## Tracking and authority
 
-Resolve the named route/identity/bootstrap/schema/error/idempotency/version/policy/durable/output-fence decisions through the owning review process before machine/API adoption. The offered-grant-expiry binding requires an explicit record/request/response decision; the existing Invitation shape alone does not complete it. No configured limit, provider, contact recovery, registry owner or transaction boundary is selected here. Then scope actual schemas/fixtures and later implementation separately.
+Use [GitHub Project 18](https://github.com/orgs/Zero-State-LLC/projects/18), not a duplicate local board. The six merged publication cards are Done. [Parent #396](https://github.com/Zero-State-LLC/Noema-Specs/issues/396) remains **OPEN / In Progress / not runtime-ready**; [RFC-0131](../../rfcs/RFC-0131-study-access-control-plane.md) remains **Draft / unaccepted / unimplemented**. Do not assign runtime work or upgrade acceptance/current-state records from these publications.
 
-Confirmed feature scope stays Admin-issued identity-bound exact study/world read-only redacted setup/readiness; later Admin stewardship, personal duty acceptance, consent and PSR/hosting remain independent. Mounted Worker authorization plus controlled browser workflows with injected identity/persistence is settled and unexecuted; catalogue consistency is not that evidence.
+All prior once-per-occurrence review exceptions, including #403 and #404, are consumed. Static technical PASS is not submitted eligible approval or formal security acceptance. Any new PR uses normal protected checks/review/auto-merge; a new bypass needs its own explicit grant. The finite #404 observer stopped, and its terminal completion was consumed after independent merge/main-CI verification. Delayed notification does not restart it or repeat publication.
 
-Preserve #882 hold / #851 draft / #777 frozen-source0 / #733 OPEN, RFC0128 unchecked acceptance tasks and Q6/PSR/enrollment/consent/steward/hosting gates. No live invitations/accounts/roles/auth/providers/resources/data/migration/deployment/research/export/hosting or acceptance promotion. No coding partner or named steward is assigned.
+## Remaining preparation and gates
 
-## History on demand
+All D01–D10 remain unresolved for full contract/qualification. Separately settle wire/Account binding/exact management authority, field sources and safe references, configuration/bootstrap ownership, lifetimes/bounds/errors, durable adapter/clock/replay/transactions/output fencing, and recorded security review before implementation readiness. Structural validity is not disclosure permission. Preserve independently legitimate Admin authority and the authorized non-sensitive missing-indicator exception.
 
-[Previous handoff at the verified docs merge](https://github.com/Zero-State-LLC/Noema-Specs/blob/5edbea51931521139159e07a2cebcf2763fb32f9/docs/handoff/NEXT.md) preserves399/400 lineage and older fixture/WATCH/RFC0128 history. Product-artifact #399 remains 34127bd3a989a4ee585cbcc0b590ff42d8d51ac8; docs #400 is 5edbea51931521139159e07a2cebcf2763fb32f9. Their publication/merge evidence is historical, not proof for this new catalogue.
+Do not re-ask the settled baseline: Admin-invited least-privileged exact study/world read-only setup/readiness; D10 A fixed server-owned offered deadline for the Draft only; eventual mounted Worker authorization tests plus controlled-browser workflows with injected identity and persistence. These are design choices, not executed behavior, privacy, browser or hosted acceptance. Study membership, Controller enrollment, steward designation/duties, participant consent, research authorization and export approval remain separate; steward designation may be added later through the Admin interface.
+
+No live invitation/account/role/auth/provider/resource/data/migration/deployment/enrollment/research/export/hosting change is authorized by this documentation refresh. Preserve the existing #882/Q6, #851, frozen #777/source-0, #733, RFC-0128, PSR, consent, steward and hosting holds; do not touch `noema-733-c9`. The runtime implementation owner is `Zero-State-LLC/Noema`, not this specs repository. Refresh live source, ownership and governing gates before selecting another bounded batch.
+
+## History
+
+This replaces the obsolete pending-PR #401 handoff rather than appending another competing current status. The [exact predecessor at the preparation cutoff](https://github.com/Zero-State-LLC/Noema-Specs/blob/500a760e549585ab84340b90953432c555ad126a/docs/handoff/NEXT.md) remains immutable history. Its old pending actions are retired; they are not a request to repeat a merge, review, bypass or CI watch. No serial documentation PR is required merely because a docs merge advances main.
