@@ -26,6 +26,19 @@
         "principal_ref_equal": true,
         "recorded_issue_order": "before"
       }
+    },
+    {
+      "id": "DL-PAIR-03",
+      "invitation_case": "DS-113",
+      "grant_case": "DS-114",
+      "tier": "shape_limitation_control",
+      "expected": {
+        "expiry_equal": true,
+        "scope_equal": true,
+        "invitation_ref_equal": true,
+        "principal_ref_equal": true,
+        "recorded_issue_order": "after"
+      }
     }
   ]
 }

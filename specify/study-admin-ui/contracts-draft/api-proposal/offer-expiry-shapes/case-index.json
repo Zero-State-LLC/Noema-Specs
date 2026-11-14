@@ -124,6 +124,22 @@
       "purpose": "LIMITATION different-expiry: fabricated active record; shape validity is not permitted active access or lifecycle success.",
       "tier": "shape_limitation_control",
       "expected_failure": null
+    },
+    {
+      "id": "DS-113",
+      "schema_def": "Invitation",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION expiry-before-recorded-issue: fabricated related record; shape validity does not establish a live offer/identity/transition.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
+    },
+    {
+      "id": "DS-114",
+      "schema_def": "Grant",
+      "expected_shape_valid": true,
+      "purpose": "LIMITATION expiry-before-recorded-issue: fabricated active record; shape validity is not permitted active access or lifecycle success.",
+      "tier": "shape_limitation_control",
+      "expected_failure": null
     }
   ]
 }
