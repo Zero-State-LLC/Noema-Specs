@@ -29,3 +29,7 @@ The [D02 identity/authority design note](IDENTITY-AUTHORITY-DESIGN.md) records t
 ## Existing Account resolution — selected Draft boundary
 
 The [Account-resolution design](ACCOUNT-RESOLUTION-DESIGN.md) records the selected initial study-management issuer rule: an existing uniquely qualified eligible Account link only; missing/ambiguous or unavailable linkage refuses without implicit provisioning. It distinguishes the combined offline Account/Player/Controller producer from a qualified hosted Account-only resolver. General human onboarding, invitee contact recovery, concrete Account/Admin binding and full D02 qualification remain separate; no schema/runtime or live authority changes.
+
+## Same-actor Admin and Account binding — selected Draft model
+
+The [same-actor design](SAME-ACTOR-BINDING-DESIGN.md) records one server-established binding of verified identity, the qualified existing Account and that actor's valid Admin admission for the initial study-management issuer. Unbound/shared legacy contexts and independently paired credentials refuse new management; existing Admin and isolated Player-plus-Admin/device-approval behavior is unchanged. No credential/DTO/transport/producer implementation, live authority or formal acceptance is installed. Existing Account and out-of-band registry selections remain; complete D02 qualification is still unresolved.
