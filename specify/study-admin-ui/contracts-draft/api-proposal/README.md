@@ -17,3 +17,7 @@ The [D10 design note](OFFER-EXPIRY-DESIGN.md) records the operator-selected Draf
 ## Isolated D10 shape proposal
 
 The [offered-expiry shape packet](offer-expiry-shapes/README.md) tests hypothetical selected-A record shapes only. Existing records, catalogue and canonical registration are unchanged; matching fixture pairs or recorded dates do not prove identity, live acceptance, policy, clocks, persistence or the output fence. All D01-D10 remain unresolved for full qualification.
+
+## Setup/readiness disclosure — Draft design
+
+The [D03 projection design note](SETUP-PROJECTION-DESIGN.md) traces the existing seven candidate response fields to qualified value sources and disclosure obligations. It is not a DTO, a selected criterion registry, an implemented projector or privacy qualification; the record-only discriminator and all wire/policy/identity/durable decisions remain gated. Existing schemas/catalogue/fixtures and D10 proposals are unchanged. D03 remains UNRESOLVED for full contract and qualification.
