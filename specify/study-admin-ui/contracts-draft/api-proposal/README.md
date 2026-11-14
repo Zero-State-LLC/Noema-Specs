@@ -33,3 +33,7 @@ The [Account-resolution design](ACCOUNT-RESOLUTION-DESIGN.md) records the select
 ## Same-actor Admin and Account binding — selected Draft model
 
 The [same-actor design](SAME-ACTOR-BINDING-DESIGN.md) records one server-established binding of verified identity, the qualified existing Account and that actor's valid Admin admission for the initial study-management issuer. Unbound/shared legacy contexts and independently paired credentials refuse new management; existing Admin and isolated Player-plus-Admin/device-approval behavior is unchanged. No credential/DTO/transport/producer implementation, live authority or formal acceptance is installed. Existing Account and out-of-band registry selections remain; complete D02 qualification is still unresolved.
+
+## Management-binding carrier — selected Draft model
+
+The [carrier design](BINDING-CARRIER-DESIGN.md) selects a server-side binding record with a server-issued opaque credential/reference and authoritative revalidation per management request. It preserves the same-actor/existing-Account/independent exact-management boundary, canonical control-plane ownership and fail-closed required state. It installs no schema, credential protocol, adapter or live session and does not change the separate read-only study credential. Wire/crypto/policy/recovery/output/security qualification and full D02 remain unresolved.
