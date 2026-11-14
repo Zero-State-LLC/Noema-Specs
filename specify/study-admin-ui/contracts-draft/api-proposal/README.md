@@ -37,3 +37,8 @@ The [same-actor design](SAME-ACTOR-BINDING-DESIGN.md) records one server-establi
 ## Management-binding carrier — selected Draft model
 
 The [carrier design](BINDING-CARRIER-DESIGN.md) selects a server-side binding record with a server-issued opaque credential/reference and authoritative revalidation per management request. It preserves the same-actor/existing-Account/independent exact-management boundary, canonical control-plane ownership and fail-closed required state. It installs no schema, credential protocol, adapter or live session and does not change the separate read-only study credential. Wire/crypto/policy/recovery/output/security qualification and full D02 remain unresolved.
+
+
+## Identity qualification — consolidated Draft preparation
+
+The [identity qualification plan](IDENTITY-QUALIFICATION-PLAN.md) consolidates thirteen document-local obligation/evidence rows from pinned issuer/Account, invitee/contact and currentness/test-seam audits. It preserves all four selected D02 models and separates choice, contract, implementation and evidence gaps. It adopts no stable-principal-only invitation stage, new contact policy, credential protocol or runtime action; the management-issuer existing-Account rule is not extended to invitees. Every row is future/unexecuted; all D01–D10 remain UNRESOLVED and RFC-0131 stays Draft.
