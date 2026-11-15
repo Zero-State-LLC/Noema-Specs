@@ -2,6 +2,9 @@
 
 **Status: Draft design only; unaccepted, unregistered and unimplemented.** The operator explicitly selected **owner-authorized out-of-band configuration only; no registry-configuration UI yet**, for this Draft. This chooses the initial proposed authority boundary, not a real owner/Account, installed registry, accepted policy, runtime mechanism or implementation/deployment grant. D02 and all D01–D10 remain UNRESOLVED for full contract and qualification.
 
+
+**Later selected initial-scope refinement:** the [issuer/target logical contract](ISSUER-TARGET-CONTRACT.md) now fixes a derivative of one fresh existing Admin-authentication event/no extra global Admin grant and existing stable HumanPrincipal targets after prior canonical Human onboarding; contact-only targeting stays deferred. This does not change the selected out-of-band registry/no-UI model, appoint its real configuring actor, or qualify its lifecycle. Earlier source pins remain historical; future contact-target assertions do not enable that unsupported initial path.
+
 ## Problem Statement
 
 The [owning Draft RFC](../../../../rfcs/RFC-0131-study-access-control-plane.md), §§1–2 and acceptance blocker2, requires an attributable Account plus existing Admin admission and exact management authorization. A signed Admin bearer, mailbox-derived operator label, fresh session or optional Account-shaped field is not by itself that complete chain. The bootstrap/configuration path MUST NOT derive its own initial authority from the registry it is creating.
@@ -70,7 +73,7 @@ Use the selected mounted Worker request/auth boundary with injected identity/per
 - **D02-08 — No request-driven bootstrap**: Client request fields, the edited study record, invitation acceptance and ordinary study grants cannot install or widen configuration authority; owner selection is not a deployment grant.
 - **D02-09 — Configuration retry and revocation**: Replay/conflict/current-authority changes cannot duplicate, widen or resurrect configuration or management rights; require qualified durable recovery/output boundaries.
 - **D02-10 — Recovery retains terminal truth**: Rollback/restore/recovery cannot reinstate revoked authority or accept an older version as current; recovery actor and scope require their own reviewed authority.
-- **D02-11 — Intended contact remains separate**: Verified-contact acceptance and later reassignment/recovery cannot transfer an accepted grant to another Account or mint Admin/configuration authority.
+- **D02-11 — Intended identity/recovery remains separate**: Stable-principal contact changes/recovery MUST NOT transfer an accepted grant or mint Admin/configuration authority. Initial contact-only targets MUST refuse; any future verified-contact acceptance/reassignment mode remains deferred until its own reviewed proof and atomic binding contract exists.
 - **D02-12 — Privacy and evidence tier**: No operator label, Account/contact linkage or audit detail is exposed merely because the binding is valid; positive/refusal outputs and browser display obey their actual disclosure policy. Design assertions are not runtime passes.
 
 Positive, refusal and retained-state observations MUST link to the same qualified actor/scope/version and preserve complete response/audit privacy. Helper/HTML/shape checks are supplemental. No new mounted, browser, provider or production probe is authorized by this note.
