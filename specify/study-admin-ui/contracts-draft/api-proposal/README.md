@@ -47,3 +47,8 @@ The [identity qualification plan](IDENTITY-QUALIFICATION-PLAN.md) consolidates t
 ## Concrete issuer and target contract — later explicit Draft selections
 
 The [logical contract](ISSUER-TARGET-CONTRACT.md) binds the producer to one fresh existing Admin-authentication event, without extra global Admin issuance, and restricts the initial proposed invitation flow to existing stable HumanPrincipals after separate canonical Human onboarding. Contact-only targets are deferred and MUST refuse this initial boundary. The RFC, UI workflows, catalogue meaning and qualification inventory are reconciled; machine/wire/event/target/recovery/durable/security qualification and all D01–D10 unresolved statuses remain. Catalogue source-baseline/line pins retain their original inspection cohort; current selected logical semantics are stated here and in the linked contract, not falsely claimed as old runtime behavior.
+
+
+## Authentication-event witness evidence — source only
+
+The [pinned source research](../../SOURCE-NOTES.md#authentication-event-witness-source-research) checks the actual provider route/response and Noema projection against the selected issuer contract. A public-version-bound code-grant/verifier mismatch and missing retained event linkage remain qualification gaps, not deployed-failure or security-acceptance claims. No new producer/target vote, auth policy, wire/schema or implementation action follows.

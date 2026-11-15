@@ -31,6 +31,8 @@ Specs source baseline `a0619af764b2793bed22a6ffd8fdf2d472eacfa1`; runtime `5ed96
 
 [Canonical ownership](../../../../docs/AUTH-AND-IDENTITY.md#planned-compatibility) remains Supabase Auth human proof, Noema Postgres Account/session/scopes and World DO live game transitions. Actual configuring-actor proof/bootstrap/change/recovery remains an independent out-of-band registry contract; the fresh-event derivative MUST NOT appoint that authority.
 
+The later [authentication-event witness source research](../../SOURCE-NOTES.md#authentication-event-witness-source-research) independently compares the pinned provider/runtime routes and returned evidence. It records a code-grant/verifier source mismatch, HTTP200/type/schema-presence limits and valid-session versus fresh-event separation. This is source evidence for the existing qualification gates, not a changed login flow, newly selected factor/confirmation/freshness/crypto policy, live failure or qualified witness.
+
 ## Future qualification — local predicates, NOT executed cases
 
 The acceptance packet MUST exercise the real mounted Worker producer → authoritative state → protected consumer with controlled non-production identity/persistence, then controlled browser and applicable real-adapter/output tests. The following document-local rows are not registered test IDs or executed SA coverage.
