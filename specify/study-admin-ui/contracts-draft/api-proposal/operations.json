@@ -35,7 +35,7 @@
     },
     "D02": {
       "status": "UNRESOLVED",
-      "question": "Verify provider-to-Account/intended-contact recovery and attributable issuer chain; specify registry bootstrap/configuration/recovery authority."
+      "question": "Selected Draft: same-fresh-existing-Admin-event derivative/no extra global Admin grant, and existing stable HumanPrincipal targets first with prior canonical Human onboarding/contact-only deferred. Qualify event/provider-to-issuer-Account chain, stable target/recovery and independent registry bootstrap/change/recovery authority; full D02 remains unresolved."
     },
     "D03": {
       "status": "UNRESOLVED",
@@ -160,9 +160,9 @@
         "expires_at",
         "delivery_state"
       ],
-      "admission": "Existing Admin admission AND an attributable verified Account AND current exact invitation.create management authorization. A shared or mailbox-derived label and a client-selected issuer are insufficient.",
-      "success": "Conditionally persist one pending invitation for the requested verified identity binding and fixed study.setup.read capability. Persistence and delivery status are distinct; never return a raw invitation record or credential digest.",
-      "refusal": "Ordinary study membership cannot issue. Missing Account mapping/configuration authority, wrong scope or unqualified recipient/expiry policy denies issuance with no invitation or grant. No live sending is part of this proposal.",
+      "admission": "Existing Admin admission AND an attributable verified Account AND current exact invitation.create management authorization. A shared or mailbox-derived label and a client-selected issuer are insufficient. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
+      "success": "Conditionally persist one pending invitation for the already established intended stable HumanPrincipal and fixed study.setup.read capability. Persistence and delivery status are distinct; never return a raw invitation record or credential digest.",
+      "refusal": "Ordinary study membership cannot issue. Missing Account mapping/configuration authority, wrong scope or unqualified recipient/expiry policy denies issuance with no invitation or grant. No live sending is part of this proposal. Contact-only, unresolved or ambiguous targets MUST refuse without send, invitation credential, placeholder authority or onboarding.",
       "replay": "Bind a client operation key to verified actor, operation, exact scope and request semantics; same semantics recover one recorded operation, changed semantics refuse without another invitation or send. Key representation/retention remain undecided.",
       "version_rule": "Server owns initial invitation version and later transitions. Finite invitation and offered grant validity must be explicitly bound; the current record shape lacks the complete offered-grant-expiry contract.",
       "future_cases": [
@@ -218,8 +218,8 @@
         "grant_version",
         "grant_expiry"
       ],
-      "admission": "Reviewed intended-identity proof and current pending invitation, exact immutable scope/capability, valid deadline, still-valid issuer management authorization and authoritative store. Proof carrier/lookup order require a separate wire/privacy decision.",
-      "success": "One atomic conditional operation consumes the invitation, binds a principal if necessary, creates at most one read-only grant and links its audit witness. Success must not be emitted before durable acknowledgement.",
+      "admission": "Reviewed intended-identity proof and current pending invitation, exact immutable scope/capability, valid deadline, still-valid issuer management authorization and authoritative store. Proof carrier/lookup order require a separate wire/privacy decision. Initial mode MUST prove the exact intended already-established HumanPrincipal; issuer-specific Admin/eligible-Account predicates MUST NOT be imposed on the recipient.",
+      "success": "One atomic conditional operation consumes the invitation, confirms the already-bound intended existing principal without onboarding or contact-target resolution, creates at most one read-only grant and links its audit witness. Success must not be emitted before durable acknowledgement.",
       "refusal": "Forwarded/wrong-identity, expired, declined, revoked, superseded or wrong-scope requests create no grant and reveal no protected target; ambiguous persistence is not success or permission to create again.",
       "replay": "Same authorized principal may recover the existing operation only after current grant/state/scope checks; a revoked or expired result is truthful inactive status, never duplication, widening, lifetime extension or reactivation.",
       "version_rule": "Consume only the authoritative pending version. Compare-and-set/transaction representation and offered grant-expiry binding are unresolved, not supplied by a client authority/version field.",
@@ -326,8 +326,8 @@
         "expires_at",
         "delivery_state"
       ],
-      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.reissue management authorization; validate authoritative target state and identity/scope before mutation.",
-      "success": "Atomically supersede the eligible pending invitation and create a distinct pending invitation; no moment admits both old and new redemption credentials. New issuance and delivery state are separate.",
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.reissue management authorization; validate authoritative target state and identity/scope before mutation. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
+      "success": "Atomically supersede the eligible pending invitation and create a distinct pending invitation; no moment admits both old and new redemption credentials. New issuance and delivery state are separate. The target MUST remain the intended existing stable HumanPrincipal; contact-only target substitution MUST refuse.",
       "refusal": "No authority, invalid state, stale target or unavailable/ambiguous store cannot silently keep two redeemable links or widen the capability. Never describe an email-provider acknowledgement as recipient delivery.",
       "replay": "Recover the same new invitation for the same recorded operation; no further credential rotation or lifetime extension. Resending the same pending credential is a separate delivery contract and is not implemented here.",
       "version_rule": "Bind the superseded target version and resulting invitation version in one qualified transaction; new validity must follow reviewed policy, not request replay time.",
@@ -376,7 +376,7 @@
         "invitation_state",
         "version"
       ],
-      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.revoke management authorization for this study/world.",
+      "admission": "Existing Admin admission, attributable verified Account and current exact invitation.revoke management authorization for this study/world. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
       "success": "Conditionally revoke an eligible pending invitation so it cannot be redeemed; create no grant and preserve terminal history.",
       "refusal": "Wrong scope/identity or unavailable authority/store has no unauthorized transition. Revoking an already consumed invitation is not grant revocation; response/no-op classification for terminal targets stays unresolved.",
       "replay": "Recover the same authorized operation without extra transitions, token issuance or reactivation; current target state and response entitlement still apply.",
@@ -425,7 +425,7 @@
         "grant_state",
         "authorization_version"
       ],
-      "admission": "Existing Admin admission, attributable verified Account and current exact grant.revoke management authorization; read the authoritative exact-scope target.",
+      "admission": "Existing Admin admission, attributable verified Account and current exact grant.revoke management authorization; read the authoritative exact-scope target. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
       "success": "Conditionally mark the grant revoked with a monotonic authorization-version change and linked witness. Later protected requests and qualified output boundaries deny the revoked version; prior invitation history is retained.",
       "refusal": "Wrong authority/scope, stale transition or unavailable/ambiguous store cannot report confirmed revocation. No history deletion, new grant or credential issuance is allowed.",
       "replay": "Recover the existing revocation result after current authorization/state checks; never reactivate or increment repeatedly merely because the request was retried.",
@@ -474,9 +474,9 @@
         "designated_principal_id",
         "responsibility_state"
       ],
-      "admission": "Existing Admin admission, attributable verified Account and current exact steward.designate management authorization. Independent legitimate Admin authority is preserved; no invented two-Admin rule.",
+      "admission": "Existing Admin admission, attributable verified Account and current exact steward.designate management authorization. Independent legitimate Admin authority is preserved; no invented two-Admin rule. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
       "success": "Create a pending designation only for the selected verified-scope identity. Unassigned remains a valid setup state. Identity eligibility and replacement/history semantics require the reviewed binding contract.",
-      "refusal": "An ordinary study-role grant cannot self-designate, accept another person’s duties or obtain run/export/global Admin authority. A request cannot set responsibility_state=accepted or supply duty_acceptance_ref as authority.",
+      "refusal": "An ordinary study-role grant cannot self-designate, accept another person\u2019s duties or obtain run/export/global Admin authority. A request cannot set responsibility_state=accepted or supply duty_acceptance_ref as authority.",
       "replay": "Same recorded designation operation must not duplicate designation, confer a grant or record acceptance. Current authorization and scope are rechecked.",
       "version_rule": "Designation conflict/replacement/version representation is unresolved. Duty acceptance, consent sign-off and research release remain independent records and decisions.",
       "future_cases": [
@@ -520,7 +520,7 @@
         "redacted_entries",
         "next_cursor"
       ],
-      "admission": "Separately authorized attributable Admin with exact audit.read authority; ordinary study.setup.read, steward designation or a generic Admin label is insufficient.",
+      "admission": "Separately authorized attributable Admin with exact audit.read authority; ordinary study.setup.read, steward designation or a generic Admin label is insufficient. Selected Draft management binding MUST derive from one fresh existing Admin-authentication event and qualified existing issuer Account, with no extra global Admin grant; independent credentials are insufficient.",
       "success": "Return a bounded purpose-specific protected audit projection, never raw AuditTransition serialization. Omit raw credentials/digests, protected contact material, private content and unknown target existence.",
       "refusal": "Wrong scope/principal/cursor, unavailable authority or unqualified response bounds discloses no entries/counts/other-scope results. Cursor construction, permitted fields and timing limits remain review decisions.",
       "replay": "Each page/retry rechecks current authority, scope, redaction and retention. A cursor is not authority; cross-scope replay is refused without recovering another page.",

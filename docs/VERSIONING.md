@@ -44,6 +44,10 @@
 - Public WATCH live snapshot (presentation): `watch-live/1.0` ([WATCH-LIGHTWEIGHT-SPECTATOR.md](WATCH-LIGHTWEIGHT-SPECTATOR.md)). Not a product version. Does not bump `spectator-projection/1.0`. Optional Phosphor Cartography (`PIXEL`) and optional `watch-map/1.0` bands (`MAP`) use the same public `/watch` door and the same world heads; they are not separate product versions.
 - Player tempo candidate: `player-tempo/1.0` ([RFC-0128](../rfcs/RFC-0128-player-tempo-and-cycle-admission.md), **Review**). This is not a live runtime pin until the RFC is Accepted, the runtime-manifest contract is updated, and an implementation passes PT01–PT16.
 
+## RFC-0131 Draft-only disposition
+
+The [issuer/target logical contract](../specify/study-admin-ui/contracts-draft/api-proposal/ISSUER-TARGET-CONTRACT.md) refines proposed normative issuer and initial target behavior under [RFC-0131](../rfcs/RFC-0131-study-access-control-plane.md), which remains **Draft / unaccepted / unimplemented**. This is a proposed contract change, not merely presentation hygiene. It registers **no new version domain** and changes no existing product, world, protocol, catalog, schema or runtime pin. The catalogue’s `study-access/0.1` remains an **unregistered proposal**, not a released or compatible runtime version; D08/full D01–D10 qualification remains unresolved. Actual wire/schema/version negotiation and any required version/migration review MUST be completed under the RFC process before their acceptance; this disposition MUST NOT be used as registration, compatibility clearance or implementation authority.
+
 ## Runtime pinning
 
 Running instances MUST expose a [runtime manifest](../specs/runtime-manifest.schema.json) binding product, spec, world rules, protocol, catalog, seed digest, configuration digest, cycle, ledger head, and snapshot head. Application upgrades MUST NOT silently change world semantics; incompatible rules require explicit migration or a new `world_version`. See [DEPLOYMENT.md](DEPLOYMENT.md) and [OPERATIONS.md](OPERATIONS.md).

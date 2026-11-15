@@ -30,7 +30,7 @@ Preparatory UI can show Draft or Blocked states. It must not expose operative re
 2. As an Admin, I want each invitation bound to one explicit study scope so that access cannot silently extend to other studies or worlds.
 3. As an Admin, I want to invite a specific authenticated identity so that possession of a forwarded link alone does not grant access.
 4. As an Admin, I want a capability summary before issuing an invitation so that I can see exactly what access I am granting.
-5. As an Admin, I want pending invitations listed with status and expiry so that I can manage unfinished onboarding without exposing invitation secrets.
+5. As an Admin, I want pending invitations listed with status and expiry so that I can manage unfinished invitation acceptance without exposing invitation secrets.
 6. As an Admin, I want to revoke a pending invitation so that it can no longer be accepted.
 7. As an Admin, I want reissuing an invitation to invalidate the old credential so that two usable links cannot remain active accidentally.
 8. As an Admin, I want to revoke an active membership so that future protected requests stop being authorized.
@@ -70,6 +70,10 @@ The existing human `researcher` label is not a per-study grant. Existing Control
 
 Source-supported facts and exact test seams are recorded in `SOURCE-NOTES.md`, with pinned primary citations. These are source observations at the pinned commits, not production probes or executed tests.
 
+## Selected issuer and target contract — Draft only
+
+The operator separately selected the [issuer/target logical contract](contracts-draft/api-proposal/ISSUER-TARGET-CONTRACT.md): a controlled derivative of one fresh existing Admin-authentication event, no extra global Admin grant, and existing stable HumanPrincipal targets first with prior canonical Human onboarding and contact-only targets deferred. These later answers, not earlier continuation or audit advice, select the initial proposed behavior. Four prior models remain settled; all D01–D10 full qualification remains unresolved. No implementation/live authority follows.
+
 ## Workflows
 
 ### Delivery workflow and accountable review
@@ -86,8 +90,8 @@ Throughout this proposal, Admin invitation, reissue/revocation, configuration an
 ### Proposed feature workflows
 
 1. **Prepare:** an Admin satisfying the new study-management boundary configures draft metadata for an existing server-authorized study/world scope. An unassigned steward is valid; this does not start a window or enable hosted research. Study/world identifiers are established server-side, not accepted as authority from a form.
-2. **Invite:** the attributable Admin with exact invitation-management authorization selects one study/world scope, identity and the closed read-only capability set, reviews the exclusions and finite expiry, then issues the invitation. Persisted invitation state and transport delivery status are reported separately. Sending a link activates no grant.
-3. **Accept or decline:** the invitee completes suitable identity verification, sees the scope/capabilities and accepts or declines. The server atomically checks intended identity, current inviter authority, scope, expiry, revocation and one-use state. Acceptance creates one restricted grant; all invalid cases create none.
+2. **Invite:** the attributable Admin with exact invitation-management authorization MUST select one study/world scope, an already established stable HumanPrincipal and the closed read-only capability set, reviews the exclusions and finite expiry, then issues the invitation. Persisted invitation state and transport delivery status are reported separately. Sending a link activates no grant.
+3. **Accept or decline:** the invitee MUST prove the exact intended already-established HumanPrincipal; the study invitation MUST NOT perform Human onboarding. After that proof, the invitee sees the scope/capabilities and accepts or declines. The server atomically checks intended identity, current inviter authority, scope, expiry, revocation and one-use state. Acceptance creates one restricted grant; all invalid cases create none.
 4. **Use the workspace:** each protected request rechecks current grant, study/world scope, action and relevant data policy. Study users see only their permitted setup/readiness view. A generic researcher label, Controller token or UI link does not supply this authority.
 5. **Assign stewardship later:** the Admin with exact designation-management authorization designates an appropriately invited identity. Role designation, ordinary invitation acceptance, acceptance of stewardship duties and consent/opt-in sign-off remain separate. Steward-dependent research remains blocked while its prerequisites are incomplete.
 6. **Revoke or change access:** the Admin with exact revocation/reissue authorization explicitly revokes the grant or proposes a replacement. The next protected read/write is denied after revocation; queued or long-running work must recheck before accessing protected material or producing a protected destination. No silent upgrade or stale-form reactivation.
@@ -107,7 +111,7 @@ The selected design baseline grants metadata/readiness inspection only. Editing 
 
 ### 3. Invite dialog
 
-An attributable Admin satisfying the new study-management boundary selects the existing authorized study/world scope, verified invitee identity and the closed read-only capability set. Show a plain-language access summary, expiry and explicit exclusions before confirmation. The server derives the issuer and authority from the authenticated session; the client cannot choose an issuer or grant capabilities the issuer lacks.
+An attributable Admin satisfying the new study-management boundary selects the existing authorized study/world scope, an already established stable HumanPrincipal and the closed read-only capability set. Contact-only/unresolved targets MUST refuse issuance; canonical Human onboarding MUST precede targeting and MUST NOT run inside the invitation flow. Show a plain-language access summary, expiry and explicit exclusions before confirmation. The server derives the issuer and authority from the authenticated session; the client cannot choose an issuer or grant capabilities the issuer lacks.
 
 No public sign-up, self-issued invitation by a non-Admin, wildcard study access or global-role upgrade. Only an attributable Admin with exact invitation-management authorization may issue a grant; a study user cannot manufacture that authority. Preserve existing legitimate Admin powers, including any independently permitted deliberate self-designation, rather than inventing a two-Admin requirement. Do not add study invitees to the global Admin mailbox allowlist to make sign-in work.
 
@@ -133,6 +137,7 @@ Show criterion-level evidence references and unmet prerequisites without upgradi
 
 ### Authority and role model
 
+- The selected management derivative MUST retain provider-principal and valid Admin provenance from the SAME fresh existing Admin-authentication event; it MUST NOT pair independent credentials, issue extra global Admin credentials or add allowlist members. Ordinary legacy Admin success and derivative failure MUST remain distinct. The exact proof/freshness/currentness protocol remains gated.
 - Separate authentication from authorization. Reuse a proven identity-verification primitive if compatible, not an existing global-Admin authorization shortcut.
 - Use the canonical HumanPrincipal/control-plane identity boundary for invited study access; a human `researcher` label alone is insufficient. Controller tokens cannot be converted into study access or vice versa. New claims, session type, scope and persistence are proposed contracts requiring RFC/security review, not fields already present in the current Admin principal.
 - Preserve the existing Admin bearer flow. Do not describe cookie sessions as already supported. Prefer its established explicit bearer-request pattern for the initial proposed study-specific session where security review finds it suitable, but issue no global Admin token to a study invitee. A cookie alternative would be a separately specified security design with HttpOnly/Secure/SameSite, CSRF and redirect tests, not a cosmetic UI change.
@@ -217,6 +222,8 @@ Required behavior matrix:
 18. Network interruption, ambiguous persistence, expired sessions, unavailable dependencies and stale edits produce truthful recoverable states without broadening access.
 19. Keyboard/dialog/focus and responsive workflows pass applicable UI checks, with real-platform obligations reported separately.
 20. Legacy Admin-only routes and existing Player/Controller admission invariants retain their prior behavior.
+21. The same-event derivative MUST refuse spliced principals, missing/ambiguous issuer links and unqualified event provenance without extra global Admin/onboarding effects; legitimate normal Admin authentication MAY independently succeed.
+22. Contact-only/unresolved targets MUST refuse issuance without send/credential/grant/onboarding; intended existing ordinary HumanPrincipals MUST NOT inherit issuer-specific Admin/Account-eligibility requirements.
 
 These are proposed acceptance tests, not executed passes. No full-suite blast-radius measurement is claimed: no implementation/default/shared-contract patch has been applied. Any such patch requires a complete isolated probe after the implementation scope is authorized, preserving failures and reporting affected test groups.
 
@@ -245,5 +252,6 @@ The canonical PSR-2 scenario separates PSR-1 completion, named/accepting steward
 
 - **STUDY-ROLE-BASELINE — explicitly confirmed 2026-11-13 UTC:** invited study users inspect only authorized redacted setup/readiness within their study/world. Existing Admins manage invitations/configuration and later steward designation only through the exact attributable-Account and study/world/operation management boundary above. No transitive invitation, draft-edit, run or export capability is added to the baseline role.
 - **STUDY-TEST-SEAM — explicitly confirmed 2026-11-13 UTC:** mounted Worker request/auth tests plus controlled real-browser workflows, with injected non-production identity and persistence dependencies.
+- **ISSUER/TARGET — later explicit structured confirmation:** one fresh existing Admin-auth event derivative, no extra global Admin grant; existing stable HumanPrincipals first, prior canonical Human onboarding, contact-only targets deferred. See the logical contract; full qualification remains unresolved.
 - Precise finite lifetimes, wire/session contracts, role names, persistence/versioning, invitation delivery and required RFC acceptance remain design/security work before runtime implementation; do not fill them by treating this proposal as an Accepted contract.
 - The proposal preserves every locked PSR floor and hosting/consent/owner gate. Existing generic roles and Admin capabilities do not supply a per-study grant. This is not a Q6 release, a study launch or a deployment grant.

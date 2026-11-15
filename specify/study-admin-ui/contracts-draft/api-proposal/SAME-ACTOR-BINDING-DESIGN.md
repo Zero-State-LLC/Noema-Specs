@@ -2,6 +2,9 @@
 
 **Status: selected Draft design only; unaccepted, unregistered and unimplemented.** The operator explicitly selected **one server-established binding of verified identity, existing Account and that actor's valid Admin admission; reject unbound or independently paired credentials**, for the initial study-management issuer path. This selects an admission model, not accepted security policy, an existing qualified producer, installed authority or runtime implementation. Full D02 and all D01–D10 remain UNRESOLVED for contract and qualification.
 
+
+**Later selected Draft refinement:** the [issuer/target logical contract](ISSUER-TARGET-CONTRACT.md) selects a same-fresh-existing-Admin-authentication-event derivative with no extra global Admin grant, and existing stable HumanPrincipal targets first/contact-only deferred. Its event witness and concrete protocol remain unqualified. Earlier source pins and open implementation/qualification statements below retain their historical scope; canonical Human onboarding is unchanged, while the initial invitation mode is now explicitly narrowed. No runtime/live authority follows.
+
 ## Problem Statement
 
 The [owning Draft RFC](../../../../rfcs/RFC-0131-study-access-control-plane.md), §§1–2, requires attributable Account identity, existing valid Admin admission and exact current management authorization for the same acting context. Two independently valid credentials do not prove that relation. The [existing-Account selection](ACCOUNT-RESOLUTION-DESIGN.md) and [out-of-band registry selection](IDENTITY-AUTHORITY-DESIGN.md) remain settled, but neither supplies a qualified same-actor producer.
@@ -14,7 +17,7 @@ Before NEW study-management operations rely on it, a controlled server-side prod
 
 This context is a logical proof obligation, not a newly registered record, DTO, JWT claim, endpoint, session format or login UI. The producer's mechanism, retention, transport, replay protection, lifetime, binding version and currentness checks remain to be specified, reviewed and qualified. Existing signed material is not retroactively made attributable by this design. No generic human role, Account claim or study membership can mint Admin admission.
 
-The initial Account rule is unchanged: existing uniquely qualified eligible link only; missing/ambiguous/unavailable refuses without implicit provisioning or relinking. General canonical Account-only human onboarding and intended-invitee/contact acceptance/recovery remain separate and unchanged. Account attribution is not proof of one natural person. Matching Account values alone need not distinguish actors under future organizational/shared-account arrangements; qualify the actual verified principal context and same-actor relation rather than assume Account equality proves them.
+The initial Account rule is unchanged: existing uniquely qualified eligible link only; missing/ambiguous/unavailable refuses without implicit provisioning or relinking. General canonical Account-only human onboarding remains separate and unchanged. Initial invitation targets now follow the later selected stable-HumanPrincipal-first scope; contact-only targeting is deferred, not implemented or qualified. Account attribution is not proof of one natural person. Matching Account values alone need not distinguish actors under future organizational/shared-account arrangements; qualify the actual verified principal context and same-actor relation rather than assume Account equality proves them.
 
 ## User Stories
 
