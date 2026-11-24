@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 386,
-    "edgeCount": 1226,
+    "nodeCount": 389,
+    "edgeCount": 1238,
     "languages": [
       "python"
     ],
@@ -404,6 +404,49 @@
       "exported": true,
       "origin": "ast",
       "body_hash": "b3666470d6a68c361df9657e9eddc8a5c5602b7e4c5261c6e12dd77dabab0311",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/check_psr1_readiness.py",
+      "name": "check_psr1_readiness.py",
+      "kind": "file",
+      "path": "tools/check_psr1_readiness.py",
+      "span": "L1-L57",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "9d98b860a19e022c96f40d845d45e0d23bd41403d1a1f9c96ba9564493ecd04b",
+      "chars": 1986,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/check_psr1_readiness.py#check_receipt_file",
+      "name": "check_receipt_file",
+      "kind": "function",
+      "path": "tools/check_psr1_readiness.py",
+      "span": "L18-L26",
+      "signature": "def check_receipt_file(kind: str, path: Path) -> list[str]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "1dddd9288863d4a77f4710501d8d27ee31d4f30e17c2a367e0ab973ac070420e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/check_psr1_readiness.py#main",
+      "name": "main",
+      "kind": "function",
+      "path": "tools/check_psr1_readiness.py",
+      "span": "L29-L52",
+      "signature": "def main(argv: list[str] | None = None) -> int",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e71af49c206d7708632e7a8c88765bc40807ad2ae58814ad9d3fe86c83594854",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -5894,6 +5937,78 @@
       "target": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
       "relation": "calls",
       "confidence": "inferred"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "tools/check_psr1_readiness.py#main",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "tools/check_psr1_readiness.py#check_receipt_file",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "tools/check_psr1_readiness.py#main",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "argparse",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py",
+      "target": "validate_locked_contracts",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py#check_receipt_file",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_cohort_summary",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py#check_receipt_file",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_enrollment_receipt",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py#check_receipt_file",
+      "target": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tools/check_psr1_readiness.py#main",
+      "target": "tools/check_psr1_readiness.py#check_receipt_file",
+      "relation": "calls",
+      "confidence": "extracted"
     },
     {
       "source": "tools/validate_locked_contracts.py",
