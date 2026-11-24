@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 380,
-    "edgeCount": 1219,
+    "nodeCount": 386,
+    "edgeCount": 1226,
     "languages": [
       "python"
     ],
@@ -478,6 +478,95 @@
       "summary_state": "pending",
       "summary": null,
       "crux": null
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py",
+      "name": "test_locked_contracts_suite.py",
+      "kind": "file",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L1-L22",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "715c6c7994ff39bb63a4a5ec69f992de836e4e53177c650965fd2e32acdde7b2",
+      "chars": 626,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "name": "LockedContractsSuiteTest",
+      "kind": "class",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L6-L17",
+      "signature": "class LockedContractsSuiteTest(unittest.TestCase)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ab11b848ad0a2d37e47b0c3b183c92b1cee01745f511fa09f859ce1aeb9e4a7d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_psr1_cohort_summary",
+      "name": "test_psr1_cohort_summary",
+      "kind": "method",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L10-L11",
+      "signature": "def test_psr1_cohort_summary(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e49771b651df48d371c8cf17e24e58b0c729b908a890e23d7324481b1db82df3",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "LockedContractsSuiteTest"
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_psr1_enrollment_receipt",
+      "name": "test_psr1_enrollment_receipt",
+      "kind": "method",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L7-L8",
+      "signature": "def test_psr1_enrollment_receipt(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "71179844447ee1af79700433563dbbb059add244fbabe37a3272cd46477c31b0",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "LockedContractsSuiteTest"
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_rfc0131_invite_request",
+      "name": "test_rfc0131_invite_request",
+      "kind": "method",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L16-L17",
+      "signature": "def test_rfc0131_invite_request(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "50935feb26700d4c38bbb637e814f5a6e13821af6645e0c1b3c51c2eecbf1b04",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "LockedContractsSuiteTest"
+    },
+    {
+      "id": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_study_promotion_receipt",
+      "name": "test_study_promotion_receipt",
+      "kind": "method",
+      "path": "validation/test_locked_contracts_suite.py",
+      "span": "L13-L14",
+      "signature": "def test_study_promotion_receipt(self) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4104124a13fa1daeff6230d7ef25312edc44312b749bf01b359eecc4d4caad56",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "LockedContractsSuiteTest"
     },
     {
       "id": "validation/test_validate_all.py",
@@ -5834,6 +5923,48 @@
       "source": "tools/validate_locked_contracts.py",
       "target": "typing",
       "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py",
+      "target": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py",
+      "target": "tests",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py",
+      "target": "unittest",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "target": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_psr1_cohort_summary",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "target": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_psr1_enrollment_receipt",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "target": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_rfc0131_invite_request",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest",
+      "target": "validation/test_locked_contracts_suite.py#LockedContractsSuiteTest.test_study_promotion_receipt",
+      "relation": "contains",
       "confidence": "extracted"
     },
     {
