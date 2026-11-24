@@ -17,3 +17,4 @@ cd "$ROOT"
 "$VENV_DIR/bin/python" validation/validate_direction.py
 "$VENV_DIR/bin/python" validation/validate_freshness.py --offline
 "$VENV_DIR/bin/python" validation/validate_gateb_traceability.py
+PYTHONPATH="$ROOT" "$VENV_DIR/bin/python" -c "import tests.test_locked_contracts as t; t.test_psr1_enrollment_receipt_valid_and_invalid(); t.test_psr1_cohort_summary_valid_and_invalid(); t.test_study_promotion_receipt_valid_and_invalid(); t.test_rfc0131_invite_request_valid_and_invalid()"

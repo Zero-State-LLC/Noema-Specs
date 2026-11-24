@@ -55,12 +55,12 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 86978241-3983-4075-b289-fa28f9e75c46
-    live_deployed_at: 2026-09-21T04:16:15.925274Z
-    live_source_commit: 565ccc1595c89f992110808401e147b7692b2735
-    # OBSERVED 2026-10-31 (#382): Noema spec-compat.json hosted_live.official_client on main
-    # and at live source 565ccc15; guarded by Noema client-pin.test.ts.
-    official_client_pin: noema-client==0.1.21
+    live_worker_version_id: 42a45e7e-8e0f-4461-8ec6-b09a03805360
+    live_deployed_at: 2026-11-24T05:20:42.262675Z
+    live_source_commit: 6b2a91ea76c5de159cd5cfb98d2963b74e887a89
+    # OBSERVED 2026-11-24 (#418): Noema spec-compat.json hosted_live.official_client on main
+    # pinned by Noema#895 and Noema#896; guarded by Noema client-pin.test.ts.
+    official_client_pin: noema-client==0.1.24
     # Retained readiness observation, not an enrollment or independent-Agent census.
     # See docs/evidence/P0-BASELINE-RECONCILIATION-2026-09-07.md.
     players_present: 3
@@ -377,7 +377,7 @@ active_campaign:
   current_milestone: PSR-1
   next_milestone: PSR-2
   active_gate: "Gate PSR-1: compatibility-at-scale (BLOCKED: prerequisites open (third-party enrollment receipts #383; route device-code + Admin-session approval; 2 outside operators); criteria locked #381; client pin resolved #382)"
-  psr1_client_version: noema-client==0.1.21
+  psr1_client_version: noema-client==0.1.24
   gate_contracts:
     PSR-1: docs/PSR-1-COMPATIBILITY-AT-SCALE-SCENARIO.md
     PSR-2: docs/PSR-2-STUDY-READINESS-SCENARIO.md
