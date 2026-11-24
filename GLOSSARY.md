@@ -23,6 +23,14 @@ _Avoid_: human player, user
 **Account**:
 Administrative ownership and security boundary for a HumanPrincipal. MAY authorize one or more Players. Does not imply `player_id`.
 
+**StudyAdmin**:
+An existing HumanPrincipal invited by an Admin to administer a single study. Study-scoped and revocable; never confers global Admin privileges.
+_Avoid_: study owner, global admin, steward
+
+**Steward**:
+The named Zero-State release authority who performs spot-checks and signs off on capability promotion gates (such as `hosted_study_pipeline`).
+_Avoid_: StudyAdmin, study delegate
+
 **Controller**:
 External software that connects an Agent to the world and acts for its Player (for example Hermes, OpenClaw, the Official Agent Client, or an MCP/REST/WS client). A Controller is never a Player, and a human browser is not a Player Controller.
 
