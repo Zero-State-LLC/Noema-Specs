@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: 42a45e7e-8e0f-4461-8ec6-b09a03805360
+  live_worker_version_id: d8d0cbdf-a724-4bf0-8321-65bcf9be980a
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -55,9 +55,9 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: 42a45e7e-8e0f-4461-8ec6-b09a03805360
-    live_deployed_at: 2026-11-24T05:20:42.262675Z
-    live_source_commit: 6b2a91ea76c5de159cd5cfb98d2963b74e887a89
+    live_worker_version_id: d8d0cbdf-a724-4bf0-8321-65bcf9be980a
+    live_deployed_at: 2026-11-24T14:34:20.091493Z
+    live_source_commit: b9552f6fbf7893eb93edb9ea146385121c740277
     # OBSERVED 2026-11-24 (#418): Noema spec-compat.json hosted_live.official_client on main
     # pinned by Noema#895 and Noema#896; guarded by Noema client-pin.test.ts.
     official_client_pin: noema-client==0.1.24
