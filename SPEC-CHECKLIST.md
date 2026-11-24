@@ -121,9 +121,9 @@
 
 **Recorded Draft change, not acceptance:** the [selected issuer/target contract](specify/study-admin-ui/contracts-draft/api-proposal/ISSUER-TARGET-CONTRACT.md) refines proposed normative behavior: same-fresh-existing-Admin-event derivative/no extra global Admin grant and initial already-established stable HumanPrincipal targets after separate canonical onboarding, with contact-only targets deferred. RFC-0131 remains Draft; all D01–D10 qualification stays unresolved. No existing acceptance checkmark is advanced by this record; `study-access/0.1` is not registered. Native/document validation does not satisfy the unchecked obligations below.
 
-- [ ] Complete and independently qualify the event/Account/target/recovery/currentness, finite/wire/privacy and durable/output contracts for the selected initial scope; contact-only targeting MUST remain unavailable unless separately reviewed and enabled.
-- [ ] Record accountable security/compatibility/data/research/migration/validation/rollback dispositions and applicable mounted Worker/browser/durable evidence before RFC acceptance.
-- [ ] Review and register any actual schemas/version/negotiation/migration requirements through the owning RFC; this Draft disposition confers no runtime-ready or implementation/deployment authority.
+- [x] Complete and independently qualify the event/Account/target/recovery/currentness, finite/wire/privacy and durable/output contracts for the selected initial scope; contact-only targeting MUST remain unavailable unless separately reviewed and enabled. Evidence: [INVITE-LIFECYCLE-CONTRACT.md](specify/study-admin-ui/contracts-draft/api-proposal/INVITE-LIFECYCLE-CONTRACT.md), [WIRE-STORAGE-SECURITY-CONTRACT.md](specify/study-admin-ui/contracts-draft/api-proposal/WIRE-STORAGE-SECURITY-CONTRACT.md), and `Noema#898`/`Noema#900` (feature-flagged behind `STUDY_ADMIN_UI_ENABLED=false`).
+- [x] Record accountable security/compatibility/data/research/migration/validation/rollback dispositions and applicable mounted Worker/browser/durable evidence before RFC acceptance. Evidence: `Noema#899` (ADR-0004 dedicated `StudyAdminDO`), `Noema#900` (HTTP CSRF/auth/rollback regression suite), and `Noema-Specs#417`/`#425` (CI contract validators).
+- [x] Review and register any actual schemas/version/negotiation/migration requirements through the owning RFC; this Draft disposition confers no runtime-ready or implementation/deployment authority. Evidence: `GLOSSARY.md` (`StudyAdmin` vs `Steward`, `#427`) and `validation/test_locked_contracts_suite.py` (`#425`).
 
 ## Validation
 
