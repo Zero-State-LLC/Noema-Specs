@@ -25,4 +25,5 @@ jobs:
       with:
         node-version: '22.12'
     - name: Check the committed graft index is fresh
-      run: npx -y @nanonets/graft@0.26.0 build --check
+      # Explicit --dir: once .trail/ exists, auto-detection looks there and finds no committed map.
+      run: npx -y @nanonets/graft@0.26.0 --dir graft build --check
