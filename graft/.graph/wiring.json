@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 370,
-    "edgeCount": 1205,
+    "nodeCount": 380,
+    "edgeCount": 1219,
     "languages": [
       "python"
     ],
@@ -333,6 +333,148 @@
       "exported": true,
       "origin": "ast",
       "body_hash": "8cb2f7b2b63f40abd9cbf28bf963b676bbce7f1136f45745114573733f937adb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_locked_contracts.py",
+      "name": "test_locked_contracts.py",
+      "kind": "file",
+      "path": "tests/test_locked_contracts.py",
+      "span": "L1-L66",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4fa8a5ec0200cb182548c8035ee6b95b246e7e1d2de867d31cf30c8e858a4a77",
+      "chars": 2613,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_locked_contracts.py#test_psr1_cohort_summary_valid_and_invalid",
+      "name": "test_psr1_cohort_summary_valid_and_invalid",
+      "kind": "function",
+      "path": "tests/test_locked_contracts.py",
+      "span": "L27-L40",
+      "signature": "def test_psr1_cohort_summary_valid_and_invalid() -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "7e3df27f3f6d49f296c9257b4b7f2b1bf33d2336318a324fd32e02fc81d108df",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_locked_contracts.py#test_psr1_enrollment_receipt_valid_and_invalid",
+      "name": "test_psr1_enrollment_receipt_valid_and_invalid",
+      "kind": "function",
+      "path": "tests/test_locked_contracts.py",
+      "span": "L9-L24",
+      "signature": "def test_psr1_enrollment_receipt_valid_and_invalid() -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "b7665921a42156ccdcd0b3a6c321c83c8ecebf62a6692aeb531f9e0c9f2c2dca",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_locked_contracts.py#test_rfc0131_invite_request_valid_and_invalid",
+      "name": "test_rfc0131_invite_request_valid_and_invalid",
+      "kind": "function",
+      "path": "tests/test_locked_contracts.py",
+      "span": "L62-L65",
+      "signature": "def test_rfc0131_invite_request_valid_and_invalid() -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "25ef5d8ab13f90a474aa0e479072ee1354a5380fcb1be896af6449d6a58dcc6e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_locked_contracts.py#test_study_promotion_receipt_valid_and_invalid",
+      "name": "test_study_promotion_receipt_valid_and_invalid",
+      "kind": "function",
+      "path": "tests/test_locked_contracts.py",
+      "span": "L43-L59",
+      "signature": "def test_study_promotion_receipt_valid_and_invalid() -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "b3666470d6a68c361df9657e9eddc8a5c5602b7e4c5261c6e12dd77dabab0311",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/validate_locked_contracts.py",
+      "name": "validate_locked_contracts.py",
+      "kind": "file",
+      "path": "tools/validate_locked_contracts.py",
+      "span": "L1-L78",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8aa01f5c7fb36fa7ec198535c6d52a773e965aca8be550eb697ed7d230f27b4b",
+      "chars": 3576,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/validate_locked_contracts.py#validate_psr1_cohort_summary",
+      "name": "validate_psr1_cohort_summary",
+      "kind": "function",
+      "path": "tools/validate_locked_contracts.py",
+      "span": "L27-L46",
+      "signature": "def validate_psr1_cohort_summary(doc: dict[str, Any]) -> list[str]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f295fe0d80bae8f355e5ca085cb7bed365a6a6c30e05b61d4a1f110c1ea1d16a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/validate_locked_contracts.py#validate_psr1_enrollment_receipt",
+      "name": "validate_psr1_enrollment_receipt",
+      "kind": "function",
+      "path": "tools/validate_locked_contracts.py",
+      "span": "L9-L24",
+      "signature": "def validate_psr1_enrollment_receipt(doc: dict[str, Any]) -> list[str]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3d3aaa68090bbfd698ddbd0c7f61187236ed0842138a7491aa49703894d10d7e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/validate_locked_contracts.py#validate_rfc0131_invite_request",
+      "name": "validate_rfc0131_invite_request",
+      "kind": "function",
+      "path": "tools/validate_locked_contracts.py",
+      "span": "L67-L77",
+      "signature": "def validate_rfc0131_invite_request(doc: dict[str, Any]) -> list[str]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "03dae7d17bec3e147c5ca6fed433fe185b86da18740d389492d4f8811e97584a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
+      "name": "validate_study_promotion_receipt",
+      "kind": "function",
+      "path": "tools/validate_locked_contracts.py",
+      "span": "L49-L64",
+      "signature": "def validate_study_promotion_receipt(doc: dict[str, Any]) -> list[str]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4265844426061e1da549c214a0183f2e6ce320ed64fd3283506eaa5b1bd8bf41",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -5608,6 +5750,90 @@
       "source": "specify/study-admin-ui/contracts-draft/validate.py#run",
       "target": "specify/study-admin-ui/contracts-draft/validate.py#load_packet_file",
       "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py",
+      "target": "tests/test_locked_contracts.py#test_psr1_cohort_summary_valid_and_invalid",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py",
+      "target": "tests/test_locked_contracts.py#test_psr1_enrollment_receipt_valid_and_invalid",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py",
+      "target": "tests/test_locked_contracts.py#test_rfc0131_invite_request_valid_and_invalid",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py",
+      "target": "tests/test_locked_contracts.py#test_study_promotion_receipt_valid_and_invalid",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py",
+      "target": "tools.validate_locked_contracts",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_locked_contracts.py#test_psr1_cohort_summary_valid_and_invalid",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_cohort_summary",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_locked_contracts.py#test_psr1_enrollment_receipt_valid_and_invalid",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_enrollment_receipt",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_locked_contracts.py#test_rfc0131_invite_request_valid_and_invalid",
+      "target": "tools/validate_locked_contracts.py#validate_rfc0131_invite_request",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_locked_contracts.py#test_study_promotion_receipt_valid_and_invalid",
+      "target": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tools/validate_locked_contracts.py",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_cohort_summary",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/validate_locked_contracts.py",
+      "target": "tools/validate_locked_contracts.py#validate_psr1_enrollment_receipt",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/validate_locked_contracts.py",
+      "target": "tools/validate_locked_contracts.py#validate_rfc0131_invite_request",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/validate_locked_contracts.py",
+      "target": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/validate_locked_contracts.py",
+      "target": "typing",
+      "relation": "imports",
       "confidence": "extracted"
     },
     {
