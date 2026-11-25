@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: f5233592-3479-4382-b684-05ca0bb28e7d
+  live_worker_version_id: e72e4abd-8e93-4435-b630-ea748144eab2
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -55,9 +55,9 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: f5233592-3479-4382-b684-05ca0bb28e7d
-    live_deployed_at: 2026-11-25T03:56:28.721658Z
-    live_source_commit: 754f153ea353a01a4050d98d9b79ca789693f4b0
+    live_worker_version_id: e72e4abd-8e93-4435-b630-ea748144eab2
+    live_deployed_at: 2026-11-25T04:40:55.682902Z
+    live_source_commit: 97400ca7a63cba7d0b50e665a985c2923aaf6de7
     # OBSERVED 2026-11-24 (#418): Noema spec-compat.json hosted_live.official_client on main
     # pinned by Noema#895 and Noema#896; guarded by Noema client-pin.test.ts.
     official_client_pin: noema-client==0.1.24
@@ -314,7 +314,7 @@ capabilities:
       - "Noema PR #680: https://github.com/Zero-State-LLC/Noema/pull/680"
       - "Noema PR #681: https://github.com/Zero-State-LLC/Noema/pull/681"
       - "Noema issue #667: https://github.com/Zero-State-LLC/Noema/issues/667"
-    live_worker_version_id: f5233592-3479-4382-b684-05ca0bb28e7d
+    live_worker_version_id: e72e4abd-8e93-4435-b630-ea748144eab2
     heads_at_flip_prep: cycle=17958 sequence=42176 ACTIVE HEALTHY
     non_goals: hosted STUDY, Gate E endurance, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, and production successor deployment
   endurance_gate_e:
@@ -325,7 +325,7 @@ capabilities:
       - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
       - "Noema-Specs PR #343: https://github.com/Zero-State-LLC/Noema-Specs/pull/343"
       - "Noema issue #682: https://github.com/Zero-State-LLC/Noema/issues/682"
-    live_worker_version_id: f5233592-3479-4382-b684-05ca0bb28e7d
+    live_worker_version_id: e72e4abd-8e93-4435-b630-ea748144eab2
     heads_at_flip_prep: cycle=21948 sequence=59599 ACTIVE HEALTHY
     path8_recover_json: >-
       recover_mode=restore revision=29192 head_present=true
@@ -348,8 +348,8 @@ capabilities:
       - "Noema PR #724: https://github.com/Zero-State-LLC/Noema/pull/724"
       - "Noema-Specs PR #351: https://github.com/Zero-State-LLC/Noema-Specs/pull/351"
       - "Noema issue #715: https://github.com/Zero-State-LLC/Noema/issues/715"
-    live_worker_version_id: f5233592-3479-4382-b684-05ca0bb28e7d
-    live_source_commit: 754f153ea353a01a4050d98d9b79ca789693f4b0
+    live_worker_version_id: e72e4abd-8e93-4435-b630-ea748144eab2
+    live_source_commit: 97400ca7a63cba7d0b50e665a985c2923aaf6de7
     successor_scope: RUNTIME_ONLY
     item7_verdict: GO_ISSUED
     waivers:
