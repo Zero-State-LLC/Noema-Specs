@@ -3,7 +3,7 @@
 All automated code, validators, and client tooling are merged and green on `main`. The remaining gates require real human/operator and Steward execution:
 
 1. **Pre-flight (`noema-client==0.1.24`)**
-   - Run `noema doctor --json` and confirm `reachability == "ok"`, `credential_origin_ok == true`, and `worker_version == "b4874348-645b-466e-88d8-b437c99508cc"`.
+   - Run `noema doctor --json` and confirm `reachability == "ok"`, `credential_origin_ok == true`, and `worker_version == "6a94f045-77e8-4957-9393-e56a071040b5"`.
 2. **`#421` — First Live Tier-3 `/connect` Enrollment Receipt**
    - Outside Tier-3 operator runs `noema connect` + human approval on live pin, then emits a `psr1_tier3_enrollment` receipt (reference helper: `noema-client/examples/custom_http_ws_reference.py:emit_psr1_enrollment_receipt`).
    - Validate: `python3 tools/check_psr1_readiness.py --enrollment <receipt.json>`.
