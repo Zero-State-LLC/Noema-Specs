@@ -31,6 +31,10 @@ _Avoid_: study owner, global admin, steward
 The named Zero-State release authority who performs spot-checks and signs off on capability promotion gates (such as `hosted_study_pipeline`).
 _Avoid_: StudyAdmin, study delegate
 
+**Tier-3 Operator**:
+An external human operator outside the Zero-State organization and without platform admin privileges who enrolls and operates a Controller through the standard public enrollment flow.
+_Avoid_: internal tester, admin operator
+
 **Controller**:
 External software that connects an Agent to the world and acts for its Player (for example Hermes, OpenClaw, the Official Agent Client, or an MCP/REST/WS client). A Controller is never a Player, and a human browser is not a Player Controller.
 
