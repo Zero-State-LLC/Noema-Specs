@@ -11,5 +11,10 @@
   "lockout_storage": 0,
   "rest_energy": 2,
   "rest_storage": 1,
-  "watch_lockout": false
+  "watch_lockout": false,
+  "empty_hold_storage": 16,
+  "empty_hold_below_energy": 2,
+  "amendments": [
+    "2026-11-25 Noema#907: empty hold rests to rest_energy when energy < empty_hold_below_energy; storage unchanged"
+  ]
 }
