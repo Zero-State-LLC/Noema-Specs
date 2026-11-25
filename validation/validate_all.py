@@ -9406,6 +9406,11 @@ def evaluate_lockout_wait(attempt: dict, catalog: dict) -> dict:
             "storage": int(catalog["rest_storage"]),
             "restored": True,
         }
+    # Amendment 1 (Noema#907): empty hold rests below the threshold; storage unchanged.
+    empty = catalog.get("empty_hold_storage")
+    below = catalog.get("empty_hold_below_energy")
+    if empty is not None and below is not None and storage == int(empty) and energy < int(below):
+        return {"energy": int(catalog["rest_energy"]), "storage": storage, "restored": True}
     return {"energy": energy, "storage": storage, "restored": False}
 
 
@@ -9430,6 +9435,16 @@ def check_rfc_0117(Draft202012Validator) -> None:
     held = evaluate_lockout_wait({"energy": 0, "storage": 5}, catalog)
     if held["restored"] or held["energy"] != 0 or held["storage"] != 5:
         fail(f"non-lockout WAIT must not rest: got {held}")
+    for e in (0, 1):
+        got = evaluate_lockout_wait({"energy": e, "storage": 16}, catalog)
+        if got != {"energy": 2, "storage": 16, "restored": True}:
+            fail(f"RFC-0117 amendment 1: empty hold at energy {e} must rest to 2, got {got}")
+    if evaluate_lockout_wait({"energy": 2, "storage": 16}, catalog)["restored"]:
+        fail("RFC-0117 amendment 1 must not rest at energy >= 2 (no passive regen)")
+    if evaluate_lockout_wait({"energy": 1, "storage": 8}, catalog)["restored"]:
+        fail("RFC-0117 amendment 1 must not rest while carrying cargo")
+    if "Amendment 1" not in rfc:
+        fail("RFC-0117 must document Amendment 1 (empty hold)")
     ok("RFC-0117 lockout WAIT rest: catalog, energy 2 / storage 1, no new verbs")
 
 

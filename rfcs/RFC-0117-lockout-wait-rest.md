@@ -26,6 +26,13 @@ When a Player successfully WAITs and, after that WAIT's cycle-commit side effect
 - Does not grant energy or storage when only one of the two is zero.
 - PLAY MAY say `If you have no energy and no free storage, wait.` WATCH does not.
 
+### Amendment 1 (2026-11-25, Noema#907): empty hold
+
+When a Player successfully WAITs with an **empty hold** (`storage == 16`, nothing carried) and `energy < 2`, set `energy` to **2**. `storage` is unchanged. Without this, energy 0 + empty hold is a permanent lock (cargo fuel needs cargo), and so is energy 1 + empty hold: every MOVE lands at 1, and HARVEST needs 2.
+
+- Still one-shot per WAIT. Still not passive regen: it never raises energy to 2 or above, and never applies while carrying cargo (RFC-0119 cargo fuel covers that).
+- Engine: `applyLockoutRest` (Noema PRs #910, #911, plus the energy-1 follow-up).
+
 Catalog: [`economy-catalog.lockout-wait.json`](../specs/economy-catalog.lockout-wait.json).
 
 ## Alternatives rejected
