@@ -57,7 +57,7 @@ runtimes:
     required_endpoints: [/ready, /version]
     live_worker_version_id: ccef63d9-f03e-4ad3-b634-aa71b47d0e2a
     live_deployed_at: 2026-11-25T03:11:18.424673Z
-    live_source_commit: a6be687ef9b77d7e82e6b9b1fca281dcaebd4fc0
+    live_source_commit: 4f64524e0878e8044aac78b93ad853ceca23985f
     # OBSERVED 2026-11-24 (#418): Noema spec-compat.json hosted_live.official_client on main
     # pinned by Noema#895 and Noema#896; guarded by Noema client-pin.test.ts.
     official_client_pin: noema-client==0.1.24
