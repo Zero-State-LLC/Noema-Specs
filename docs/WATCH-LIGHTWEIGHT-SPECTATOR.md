@@ -137,14 +137,17 @@ Rules:
 **Selection (deterministic):**
 
 1. Consider the server-derived `recent_events` window (newest first, max 16 candidates).
-2. If `freshness` is `incident`, treat a synthetic world-status item as MAJOR: “World incident — projection is stale.”
-3. If `freshness` is `maintenance`, treat as NOTABLE: “World is in maintenance.”
+2. If `freshness` is `incident`, treat a synthetic world-status item as MAJOR: “World incident — projection is stale.” The synthetic status headline is not replaced by a concrete deed or an ambient pulse.
+3. If `freshness` is `maintenance`, treat as NOTABLE: “World is in maintenance.” The synthetic status headline is not replaced by a concrete deed or an ambient pulse. A MAJOR candidate in the same window still outranks it.
 4. Rank candidates by presentation tier `MAJOR` > `NOTABLE` > `NORMAL`, then by descending `sequence`.
-5. **Hold:** keep the current headline unless:
+5. **Deed priority (ADR-0012):** when the top-ranked candidate is an actor-less ambient pulse (no `actor_label`, no `room_id`, no `consequence`, and `projection_id` is not `world_status`), prefer a concrete actor-attributed deed in the same window (`actor_label` and `room_id` both present: `REPAIR`, `RESTORE`, `BUILD`, `HARVEST`, `MOVE`, `ORG_OFFICE_*`, `CONTEST`, and other public actor-attributed deeds). MAJOR still outranks deeds. The synthetic incident and maintenance headlines in steps 2–3 are not ambient pulses and are not replaced by this rule.
+6. **Hold:** keep the current headline unless:
    - a strictly higher-tier candidate arrives, or
    - the current headline’s source `sequence` is older than 8 newer public sequences, or
    - the current headline is no longer in the candidate window.
-6. Fallback when the window is empty: “The Chamber is quiet.” If `players_present > 0`, append the public count as a secondary line, not a fake event.
+
+   An actor-less ambient pulse (as defined in step 5) is not a strictly higher-tier reason to release a held concrete deed. MAJOR and other non-ambient higher-tier events still release the hold. When the hold is released, apply the same deed-priority preference to the replacement.
+7. Fallback when the window is empty: “The Chamber is quiet.” If `players_present > 0`, append the public count as a secondary line, not a fake event.
 
 No scoring engine. No AI director.
 
@@ -354,7 +357,9 @@ Recently:  up to 3 recent_events whose actor_label matches
 
 No portraits, stats, classes, levels, meters, dossiers, controller/provider/model metadata, or private memory. Agents are Players, not model demos.
 
-**State:** client-local only — `localStorage` (reference key `noema.watch.follow`), or session memory. No account, no server mutation, no ledger event, no new backend state, no analytics. Follow MUST NOT add identity-plane requests; it matches against identifiers already on the public snapshot (`actor_label`, `room_id`, `public_player_labels`).
+**State:** client-local only — `localStorage` (reference key `noema.watch.follow`), or session memory. No account, no server mutation, no ledger event, no new backend state, no analytics. Follow MUST NOT add identity-plane requests; it matches against identifiers already on the public snapshot (`actor_label`, `room_id`, `public_player_labels`, and `agents[].label` when present).
+
+`/watch` MAY render a clickable **Live Agents** panel that lists current public agents from `agents[]` (§6) so a spectator can focus or follow one of them on the 3D Chamber stage. That panel is a presentation of the current snapshot roster, not a second identity plane and not retained last-known data. A handle that is no longer in `agents[]` or `rooms[].public_player_labels` is not currently visible, matching the rule above.
 
 ---
 
@@ -459,10 +464,20 @@ Hosted evidence today (`GET /v1/watch/live`): `world_id`, `cycle`, `sequence`, `
 | `recent_events[].actor_label` | **new** / redaction-sensitive | public handle of the acting Player, exactly the `rooms[].public_player_labels[]` rule; **omitted** (never `"A player"`) when the actor is not publicly named. Enables client-local Follow (§4.G) without identity-plane lookups |
 | `recent_events[].consequence` | **new** | optional short public consequence string (§4.A.1); server-derived, band-only, no integers/amounts; omitted when unprovable |
 | `rooms[].traces[]` | **existing** (runtime-shipped; field contract pinned here) | up to **3** public traces `{ kind, text, visibility: "public" }`; families limited to Feature D public residue (**scar**, **construction** = repair plate / unfinished work); `notice` family, inbox, private LOOK/MESSAGE never appear; no `source_state_ref`, entity ids, or player ids on the wire |
-| `notable_event` | **derivable** | selected headline object or `null` |
+| `notable_event` | **derivable** | selected headline object or `null`; selection follows §4.A including deed priority and synthetic status headlines |
+| `agents[]` | **new** / redaction-sensitive / additive on `watch-live/1.0` | current-snapshot public roster of live agents in public rooms. Authorized by [ADR-0012](adr/0012-watch-live-agent-activity-and-deed-priority.md). Empty array when none. This is an additive field: the envelope pin remains `watch-live/1.0`; no version bump. Clients MUST ignore it if absent. |
+| `agents[].label` | **new** / redaction-sensitive | public handle; same rule as `rooms[].public_player_labels[]`. Smoke / `op.*` / `operator.*` / mint handles are omitted from the roster entirely, never rewritten as `"A player"` |
+| `agents[].room_id` | **new** | public room the agent currently occupies in this snapshot |
+| `agents[].room_name` | **new** | public name of that room |
+| `agents[].office` | optional / redaction-sensitive | public seated office title when one is publicly projected in this snapshot; omitted or `null` when the agent holds no public office. MUST NOT invent an office from private org state |
+| `agents[].last_action` | optional | short public line of that agent's latest public projected action in the current candidate window (the §4.A max-16 window), **before** display truncation of `recent_events` (the 5–8 visible cap and the movement cap). `null` when the window has no public action for this label. MUST use only public phrasing already allowed on `recent_events[].line` |
+| `agents[].last_action_at` | optional | display clock of that latest action; MUST NOT imply ledger time authority; `null` when `last_action` is `null` |
+| `agents[].active` | **new** | `true` when the agent is a live public occupant in this snapshot. The roster lists only current public occupants, so shipped rows are `true`. Departed agents are dropped, not marked inactive |
 | `source_event_ids` | optional | for audit; MUST NOT expand hidden payloads |
 
-**Redaction-sensitive:** player labels, room membership, exits, entity lists. Server MUST apply public filters before JSON leaves the Worker.
+**Redaction-sensitive:** player labels, room membership, exits, entity lists, and `agents[]`. Server MUST apply public filters before JSON leaves the Worker.
+
+`agents[]` is a current-snapshot roster only, matching §4.G's prohibition on retained last-known data beyond the current snapshot. An agent who is not a live public occupant of a public room in this snapshot MUST NOT appear, and the server MUST NOT keep their previous `last_action` / `last_action_at` / `office` on the wire after they leave public visibility. `last_action` is derived from the current public candidate window before `recent_events` display truncation, so an agent's latest public deed is not lost solely because the visible feed dropped it under the movement cap or the 5–8 event limit. Private inventory, private trades, credentials, and operator secrets remain excluded.
 
 Client MUST NOT reconstruct hidden topology by combining 404s, error strings, or missing rooms.
 
@@ -587,7 +602,7 @@ Runtime work belongs in `Zero-State-LLC/Noema`. This repository does not impleme
 | | |
 |--|--|
 | Inputs | Live world + existing public filters |
-| Outputs | `watch-live/1.0` fields in §6 (`recent_events`, per-room counts/labels, public-only exits) |
+| Outputs | `watch-live/1.0` fields in §6 (`recent_events`, per-room counts/labels, public-only exits, additive `agents[]` roster) |
 | Surfaces | `GET /v1/watch/live` (or equivalent) |
 | Tests | Hidden rooms/exits/players absent; labels redacted; schema/shape |
 | Privacy | Server-side filter only |
@@ -654,6 +669,8 @@ Runtime MUST cover:
 - keyboard room inspection
 - consequence line: band-only (`ok`/`degraded`/`failed`), never condition integers, amounts, or counts; absent when unprovable; server-derived
 - `actor_label`: public handles only; smoke/operator/mint handles omitted (never emitted as `"A player"` in the field); never a Controller/auth/Admin id
+- `agents[]`: only current public occupants with a public handle; smoke/operator/mint handles absent; `office` omitted or null when none is public; `last_action` taken from the pre-truncation candidate window (a third MOVE is still that agent's latest action); an agent who leaves public visibility disappears entirely (no retained last action). Additive on `watch-live/1.0` with no pin bump
+- headline deed priority: a concrete actor-attributed NORMAL deed outranks an actor-less ambient NOTABLE pulse; the same preference applies when a held deed would otherwise be replaced by that pulse; synthetic `maintenance` / `incident` world-status headlines are not replaced by a deed; MAJOR still outranks deeds
 - traces on WATCH: scar / repair plate / unfinished work only; notice family, inbox, private LOOK/MESSAGE absent; residue visible only after originator `LEAVE_WORLD`; no ids on the wire
 - Follow: client-local only; no server request carries follow state; feed/headline/graph content identical with and without follow (emphasis only); followed-subject-absent state; survives refresh via localStorage; CLEAR works by keyboard
 - Player summary: derived only from the current snapshot window (≤3 recent actions); no provider/controller/model metadata
