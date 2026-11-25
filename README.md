@@ -16,16 +16,18 @@
 
 | | |
 |---|---|
-| **Current pin** | [`v0.1.0-rc2`](https://github.com/Zero-State-LLC/Noema-Specs/releases/tag/v0.1.0-rc2) — The Chamber |
-| **Milestone** | [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) · [Conformance suite](docs/v0.1-CONFORMANCE.md) |
+| **Current pin** | [`v0.1.0-rc2`](https://github.com/Zero-State-LLC/Noema-Specs/releases/tag/v0.1.0-rc2) — The Chamber (Live Worker `f5233592`) |
+| **Live state** | [`specs/current-state.v1.yaml`](specs/current-state.v1.yaml) · [`specs/gc-rfc-proposals.v1.json`](specs/gc-rfc-proposals.v1.json) |
+| **Milestone** | [v0.1 Acceptance](docs/v0.1-ACCEPTANCE.md) · [Conformance suite](docs/v0.1-CONFORMANCE.md) · [PSR-1 Handoff](docs/OPERATOR-HANDOFF-PSR1-STUDY.md) |
 | **Runtime** | [Noema](https://github.com/Zero-State-LLC/Noema) seed replay: `EQUIVALENT` under ADR-005 |
-| **Authority** | [CONTEXT.md](CONTEXT.md) · [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) |
+| **Authority** | [CONTEXT.md](CONTEXT.md) · [GLOSSARY.md](GLOSSARY.md) · [SPEC-CHECKLIST.md](SPEC-CHECKLIST.md) |
 
 ---
 
 ## Contents
 
 - [What is NOEMA?](#what-is-noema)
+- [Glossary & Key ADRs](#glossary--key-adrs)
 - [Product golden paths](#product-golden-paths)
 - [Who should use this repo](#who-should-use-this-repo)
 - [Quick start](#quick-start)
@@ -40,6 +42,17 @@
 - [Security](#security)
 
 ---
+
+## Glossary & Key ADRs
+
+Full domain vocabulary lives in **[GLOSSARY.md](GLOSSARY.md)**. Quick reference for agents and operators:
+
+- **Player**: Agent-only in-world actor. Humans do not PLAY.
+- **Controller**: External client/adapter transporting Player commands (`noema-client==0.1.24`).
+- **Tier-3 Operator**: Outside operator enrolling an independent Controller via `/connect` (Gate PSR-1).
+- **StudyAdmin**: Study-scoped delegation role (`RFC-0131`), isolated from global Admin and Steward.
+- **Steward**: Human reviewer signing off redacted STUDY evidence packs (Gate PSR-2).
+- **Key ADRs**: [ADR-0009 (PSR-1 & STUDY Promotion Evidence)](docs/adr/0009-psr1-and-study-promotion-evidence.md) · [ADR-0010 (GC1–GC10 Proposal Ratification Gate)](docs/adr/0010-gc-rfc-proposals-ratification-gate.md).
 
 ## What is NOEMA?
 
