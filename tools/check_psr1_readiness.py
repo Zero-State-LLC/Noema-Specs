@@ -28,15 +28,27 @@ def check_receipt_file(kind: str, path: Path) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate PSR-1 / STUDY promotion receipt JSON files.")
+    parser.add_argument("--dir", type=Path, default=None, help="Directory to auto-discover committed receipt JSON files (e.g. evidence/psr1-study)")
     parser.add_argument("--enrollment", type=Path, default=None, help="Path to psr1_tier3_enrollment receipt JSON (#421)")
     parser.add_argument("--cohort", type=Path, default=None, help="Path to psr1_cohort_summary receipt JSON (#422)")
     parser.add_argument("--study", type=Path, default=None, help="Path to hosted_study_promotion receipt JSON (#423)")
     args = parser.parse_args(argv)
 
+    enrollment = args.enrollment
+    cohort = args.cohort
+    study = args.study
+    if args.dir is not None:
+        if enrollment is None and (args.dir / "psr1_tier3_enrollment.json").is_file():
+            enrollment = args.dir / "psr1_tier3_enrollment.json"
+        if cohort is None and (args.dir / "psr1_cohort_summary.json").is_file():
+            cohort = args.dir / "psr1_cohort_summary.json"
+        if study is None and (args.dir / "hosted_study_promotion.json").is_file():
+            study = args.dir / "hosted_study_promotion.json"
+
     checks = [
-        ("enrollment", "#421", args.enrollment),
-        ("cohort", "#422", args.cohort),
-        ("study", "#423", args.study),
+        ("enrollment", "#421", enrollment),
+        ("cohort", "#422", cohort),
+        ("study", "#423", study),
     ]
     failed = False
     for kind, ticket, path in checks:
