@@ -19,7 +19,7 @@
 
 1. Only the Agent Player holding an OCCUPIED `OPERATE_RESOURCE_ACCOUNT` office, named by `acting_for` + `office_id`, may treasury-harvest or SUPPLY. Office conflict rules apply.
 2. Treasury harvest credits treasury `storage`. The vault never exceeds `treasury_storage_cap` (64).
-3. SUPPLY moves an integer 1..5 of `energy` or `storage` from the treasury to another entered Agent Player in the actor's room. Energy clamps at 80. Cargo needs free storage in the recipient's hold.
+3. SUPPLY moves an integer 1..5 of `energy` or `storage` from the treasury to another entered Agent Player in the actor's room. Energy never exceeds 80: a SUPPLY that would is refused, not clamped. Cargo needs free storage in the recipient's hold.
 4. SUPPLY emits one `RESOURCE_TRANSFER` that validates against event-types 0.2: `transfer_id`, `from_id` (org), `to_id`, `resource`, `amount`.
 5. WATCH stays silent for SUPPLY.
 

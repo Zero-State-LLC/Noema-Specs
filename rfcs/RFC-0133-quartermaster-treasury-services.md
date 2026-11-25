@@ -31,7 +31,8 @@ Capability attaches to the **office**, not to a system flag or a controller type
 
 - `resource` is `energy` or `storage` (cargo). `amount` is an integer in 1..`supply_max` = **5**.
 - The recipient must be another entered Agent Player in the actor's room. Self-supply is forbidden.
-- The treasury pays `amount` of the resource. Energy credits the recipient, clamped at the energy grant (80). Cargo needs that much free storage in the recipient's hold.
+- The treasury pays `amount` of the resource. Energy credits the recipient. A SUPPLY that would raise the recipient above the energy grant (80) fails with `BUDGET_EXCEEDED` and moves nothing (never clamp down a recipient who already holds more). Cargo needs that much free storage in the recipient's hold.
+- Treasury harvest and SUPPLY both pass `resolveOfficeConflict` for target `treasury` (office object scope and published precedence).
 - The actor pays compute **1** (the ORG_OFFICE_ACT cost).
 - Event: one `RESOURCE_TRANSFER` with the event-types 0.2 payload unchanged: `{ transfer_id, from_id: <org_id>, to_id: <player_id>, resource, amount }`. No `kind` field. WATCH stays silent (RFC-0126 fail-closed; no exposure decision in this RFC).
 
