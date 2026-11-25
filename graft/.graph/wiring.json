@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 389,
-    "edgeCount": 1238,
+    "nodeCount": 392,
+    "edgeCount": 1247,
     "languages": [
       "python"
     ],
@@ -447,6 +447,49 @@
       "exported": true,
       "origin": "ast",
       "body_hash": "540fb2f096c3ca13c98ab7742e863b550c625d3231d5159f7f30c38674e497b9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/steward_spot_check.py",
+      "name": "steward_spot_check.py",
+      "kind": "file",
+      "path": "tools/steward_spot_check.py",
+      "span": "L1-L61",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2b60a7a3d45b2fdb9b99e6b9b56836e9f3db706b4201b0b768e586dbee0b2045",
+      "chars": 2201,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/steward_spot_check.py#main",
+      "name": "main",
+      "kind": "function",
+      "path": "tools/steward_spot_check.py",
+      "span": "L49-L56",
+      "signature": "def main(argv: list[str] | None = None) -> int",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "804527003e07da097b547b06c52ce65425681c1d83f2c55d0ca460b176a1f56c",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/steward_spot_check.py#sample_steward_artifacts",
+      "name": "sample_steward_artifacts",
+      "kind": "function",
+      "path": "tools/steward_spot_check.py",
+      "span": "L13-L46",
+      "signature": "def sample_steward_artifacts(pack_dir: Path, seed: int = 42) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "53897a61a881f1aa9703c439b955d2d199bbb4b9c2c17da9dafe041c2529150d",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -6007,6 +6050,60 @@
     {
       "source": "tools/check_psr1_readiness.py#main",
       "target": "tools/check_psr1_readiness.py#check_receipt_file",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "tools/steward_spot_check.py#main",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "tools/steward_spot_check.py#main",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "tools/steward_spot_check.py#sample_steward_artifacts",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "argparse",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "random",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/steward_spot_check.py#main",
+      "target": "tools/steward_spot_check.py#sample_steward_artifacts",
       "relation": "calls",
       "confidence": "extracted"
     },
