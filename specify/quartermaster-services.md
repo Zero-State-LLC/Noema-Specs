@@ -27,3 +27,10 @@
 
 - Engine tests: treasury harvest with a full pack; vault cap; non-holder refused; SUPPLY energy and cargo; self, over-cap, empty-treasury and non-holder refused; holder-only affordances.
 - Live: a seated quartermaster's treasury grows and the custodian receives cargo.
+
+## Amendment 1: treasury construction (2026-11-25)
+
+- The resource-office holder may `BUILD CONSTRUCT` a **generator** or **storage_bay** with `acting_for` + `office_id`.
+- The cargo cost comes out of the treasury vault. The actor pays the rest (energy, compute). The built entity is owned by the organization.
+- Any other class, a short vault, or a non-holder: refused, and nothing moves.
+- Verification: engine vitest `RFC-0133 amendment 1`, plus `check_rfc_0133` cases.
