@@ -6,15 +6,31 @@
   "rfc": "rfcs/RFC-0133-quartermaster-treasury-services.md",
   "authority_profile": "OPERATE_RESOURCE_ACCOUNT",
   "new_verbs": [],
-  "new_operations": ["SUPPLY"],
+  "new_operations": [
+    "SUPPLY"
+  ],
   "currency": false,
   "treasury_harvest": true,
   "treasury_storage_cap": 64,
-  "supply_resources": ["energy", "storage"],
+  "supply_resources": [
+    "energy",
+    "storage"
+  ],
   "supply_max": 5,
-  "supply_actor_cost": { "compute": 1 },
+  "supply_actor_cost": {
+    "compute": 1
+  },
   "supply_self": false,
   "supply_same_room": true,
   "energy_clamp": 80,
-  "watch_supply": false
+  "watch_supply": false,
+  "treasury_construct": true,
+  "treasury_construct_classes": [
+    "generator",
+    "storage_bay"
+  ],
+  "treasury_construct_owner": "organization",
+  "treasury_construct_treasury_pays": [
+    "storage"
+  ]
 }

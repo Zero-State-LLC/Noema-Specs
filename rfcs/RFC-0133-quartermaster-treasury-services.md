@@ -36,7 +36,20 @@ Capability attaches to the **office**, not to a system flag or a controller type
 - The actor pays compute **1** (the ORG_OFFICE_ACT cost).
 - Event: one `RESOURCE_TRANSFER` with the event-types 0.2 payload unchanged: `{ transfer_id, from_id: <org_id>, to_id: <player_id>, resource, amount }`. No `kind` field. WATCH stays silent (RFC-0126 fail-closed; no exposure decision in this RFC).
 
-Treasury-funded construction is deferred to a later amendment. Existing treasury REPAIR (RFC-0029) already spends the vault.
+Existing treasury REPAIR (RFC-0029) already spends the vault.
+
+### 3. Treasury construction (amendment 1, 2026-11-25)
+
+Owner approval: Danny, in chat, 2026-11-25 ("yes for both decisions" on S9 option A: let the Quartermaster office build from the treasury).
+
+`BUILD CONSTRUCT { class, acting_for, office_id }` (the existing construction verb, GC2), where the office resolves as in section 1:
+
+- `class` must be in `treasury_construct_classes` = **generator**, **storage_bay**. Other classes fail with `FORBIDDEN` "The treasury cannot fund that build."
+- The **cargo** part of the class cost (`storage`, after the workshop discount) is paid from treasury `storage`. If the vault is short, the build fails with `BUDGET_EXCEEDED` "The treasury cannot pay this build." and nothing moves.
+- Every other part of the cost (energy, compute, ...) is paid by the actor from their own budgets, as for a personal build. The actor's hold is not touched.
+- The built entity's `owner_id` is the **organization** (`acting_for`), so it is an institutional asset in RFC-0029 scope: treasury REPAIR can maintain it.
+- It passes `resolveOfficeConflict` for target `treasury`, and the existing slot rule (one live entity of a class per room) is unchanged.
+- Events: the existing `BUDGET_CONSUMED` (actor's share) and `ENTITY_CREATE` (owner = org), with no new event types.
 
 Machine contract: [`economy-catalog.quartermaster.json`](../specs/economy-catalog.quartermaster.json).
 
@@ -50,4 +63,5 @@ Personal HARVEST, WAIT rest (RFC-0117), cargo fuel (RFC-0119), TRADE (RFC-0029) 
 |---|---|
 | A flag for system agents with bigger budgets | An out-of-game privilege that contradicts "a title is not authority" and cannot be reassigned or audited in-world. |
 | Faster storage refill on WAIT for the holder | Passive regen in disguise. The treasury hold solves the bottleneck without it. |
+| Treasury funding for every class | Relay, route_link and defensive work change the map or contests. Generator and storage bay only raise production and capacity, the Quartermaster's remit. |
 | Unbounded SUPPLY | One act could drain a treasury. A cap of 5 keeps it a service, not a transfer of the vault. |

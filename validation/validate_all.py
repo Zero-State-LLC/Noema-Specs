@@ -9483,6 +9483,16 @@ def evaluate_quartermaster_supply(attempt: dict, catalog: dict) -> dict:
     return {"ok": True, "code": None}
 
 
+def evaluate_quartermaster_construct(attempt: dict, catalog: dict) -> dict:
+    if not attempt.get("holds_office"):
+        return {"ok": False, "code": "FORBIDDEN"}
+    if attempt.get("class") not in catalog.get("treasury_construct_classes", []):
+        return {"ok": False, "code": "FORBIDDEN"}
+    if int(attempt.get("treasury") or 0) < int(attempt.get("cargo") or 0):
+        return {"ok": False, "code": "BUDGET_EXCEEDED"}
+    return {"ok": True, "owner": catalog.get("treasury_construct_owner")}
+
+
 def check_rfc_0133() -> None:
     catalog = load_json(ROOT / "specs" / "economy-catalog.quartermaster.json")
     rfc = (ROOT / "rfcs" / "RFC-0133-quartermaster-treasury-services.md").read_text(encoding="utf-8")
@@ -9528,6 +9538,19 @@ def check_rfc_0133() -> None:
         fail("RFC-0133 SUPPLY payload must validate against event-types 0.2 RESOURCE_TRANSFER")
     if '"kind"' in rfc or "kind:" in rfc:
         fail("RFC-0133 must not add a kind field to RESOURCE_TRANSFER")
+    # Amendment 1: treasury construction, generator/storage_bay only, cargo from the vault, owned by the org.
+    if (not catalog.get("treasury_construct") or catalog.get("treasury_construct_classes") != ["generator", "storage_bay"]
+            or catalog.get("treasury_construct_owner") != "organization"
+            or catalog.get("treasury_construct_treasury_pays") != ["storage"]):
+        fail("RFC-0133 amendment 1 pins treasury CONSTRUCT to generator/storage_bay, vault cargo, org-owned")
+    cbase = {"holds_office": True, "class": "generator", "cargo": 5, "treasury": 10}
+    for patch, want in [({}, True), ({"holds_office": False}, False), ({"class": "relay"}, False),
+                        ({"class": "storage_bay", "cargo": 6}, True), ({"treasury": 4}, False)]:
+        got = evaluate_quartermaster_construct({**cbase, **patch}, catalog)
+        if got["ok"] != want:
+            fail(f"RFC-0133 CONSTRUCT {patch}: got {got}")
+    if "### 3. Treasury construction (amendment 1" not in rfc:
+        fail("RFC-0133 must carry amendment 1 (treasury construction)")
     if "human or agent" in rfc:
         fail("RFC-0133 grants office capability to Agent Players only")
     ok("RFC-0133 quartermaster: treasury harvest, SUPPLY cap 5, office-gated, WATCH silent")

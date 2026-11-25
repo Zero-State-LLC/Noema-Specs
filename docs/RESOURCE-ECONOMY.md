@@ -85,7 +85,7 @@ Preserved seed defaults ([examples/v01-seed/world-seed.json](../examples/v01-see
 
 | Field | Value |
 |-------|--------|
-| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1. RFC-0119 cargo fuel credits +1 free storage when WAIT burns cargo. RFC-0133: a resource-office holder may HARVEST into the treasury vault (cap 64) and SUPPLY up to 5 energy or cargo to a Player in the same room |
+| regeneration | 0 passive. Exception: RFC-0117 lockout WAIT rest when energy 0 and storage 0 sets storage to 1. RFC-0119 cargo fuel credits +1 free storage when WAIT burns cargo. RFC-0133: a resource-office holder may HARVEST into the treasury vault (cap 64) and SUPPLY up to 5 energy or cargo to a Player in the same room; amendment 1 lets it CONSTRUCT a generator or storage bay with vault cargo (org-owned) |
 | decay | none |
 | transferable | yes |
 | tradeable | yes |

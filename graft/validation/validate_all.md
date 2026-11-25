@@ -251,41 +251,42 @@
 - check_rfc_0117 · function · L9417-L9448 — def check_rfc_0117(Draft202012Validator) -> None
 - _find_key · function · L9451-L9464 — def _find_key(obj, key)
 - evaluate_quartermaster_supply · function · L9467-L9483 — def evaluate_quartermaster_supply(attempt: dict, catalog: dict) -> dict
-- check_rfc_0133 · function · L9486-L9533 — def check_rfc_0133() -> None
-- evaluate_gc8_s6 · function · L9536-L9555 — def evaluate_gc8_s6(attempt: dict, catalog: dict) -> dict
-- check_gc8_s6 · function · L9558-L9591 — def check_gc8_s6(Draft202012Validator) -> None
-- evaluate_gc8_s7 · function · L9594-L9611 — def evaluate_gc8_s7(attempt: dict, catalog: dict) -> dict
-- check_gc8_s7 · function · L9614-L9645 — def check_gc8_s7(Draft202012Validator) -> None
-- _gc9_is_repair_update · function · L9648-L9659 — def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool
-- rebuild_gc9_s0 · function · L9662-L9699 — def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict
-- check_gc9_s0 · function · L9702-L9750 — def check_gc9_s0(Draft202012Validator) -> None
-- _gc9_s1_is_repair · function · L9753-L9761 — def _gc9_s1_is_repair(ev: dict, entity_id: str) -> bool
-- rebuild_gc9_s1 · function · L9764-L9866 — def rebuild_gc9_s1(fixture: dict, catalog: dict) -> dict
-- check_gc9_s1 · function · L9869-L9918 — def check_gc9_s1(Draft202012Validator) -> None
-- _gc9_s2_repairs · function · L9921-L9938 — def _gc9_s2_repairs(fixture: dict) -> list[dict]
-- rebuild_gc9_s2 · function · L9941-L10024 — def rebuild_gc9_s2(fixture: dict, s1_catalog: dict, s2_catalog: dict) -> dict
-- check_gc9_s2 · function · L10027-L10099 — def check_gc9_s2(Draft202012Validator) -> None
-- evaluate_gc10_s0 · function · L10102-L10149 — def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
-- check_gc10_s0 · function · L10152-L10192 — def check_gc10_s0(Draft202012Validator) -> None
-- evaluate_gc10_s1 · function · L10195-L10309 — def evaluate_gc10_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
-- check_gc10_s1 · function · L10312-L10389 — def check_gc10_s1(Draft202012Validator) -> None
-- evaluate_gc10_s2 · function · L10392-L10402 — def evaluate_gc10_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
-- check_gc10_s2 · function · L10405-L10439 — def check_gc10_s2(Draft202012Validator) -> None
-- check_adr007_atomic_rooms · function · L10442-L10488 — def check_adr007_atomic_rooms(Draft202012Validator) -> None
-- check_adr008_replay · function · L10491-L10518 — def check_adr008_replay() -> None
-- evaluate_agent_only_player_identity · function · L10541-L10579 — def evaluate_agent_only_player_identity(attempt: dict, catalog: dict) -> tuple[str, str | None]
-- check_rfc_0120 · function · L10582-L10624 — def check_rfc_0120(Draft202012Validator) -> None
-- check_conformance_case_substance · function · L10627-L10741 — def check_conformance_case_substance() -> None
-- ratchet_error · function · L10686-L10694 — def ratchet_error(suite: str, ids: set[str]) -> str | None
-- check_conformance_requirement_refs · function · L10744-L10817 — def check_conformance_requirement_refs() -> None
-- heading_anchors · function · L10764-L10771 — def heading_anchors(text: str) -> set
-- numbered_items · function · L10773-L10774 — def numbered_items(text: str) -> set
-- genesis_items · function · L10776-L10777 — def genesis_items(text: str) -> set
-- check_rfc_0121 · function · L10820-L10838 — def check_rfc_0121() -> None
-- check_rfc_0126_watch_entity_update_exposure · function · L10841-L10876 — def check_rfc_0126_watch_entity_update_exposure() -> None
-- check_rfc_0132_watch_entity_update_exposure_decisions · function · L10879-L10914 — def check_rfc_0132_watch_entity_update_exposure_decisions() -> None
-- check_rfc_0127 · function · L10916-L10995 — def check_rfc_0127(Draft202012Validator) -> None
-- check_rfc_0129 · function · L10998-L11247 — def check_rfc_0129(Draft202012Validator) -> None
-- as_rebuild_event · function · L11170-L11177 — def as_rebuild_event(event: dict) -> dict
-- check_rfc_0128 · function · L11250-L11364 — def check_rfc_0128(Draft202012Validator) -> None
-- main · function · L11367-L11520 — def main() -> None
+- evaluate_quartermaster_construct · function · L9486-L9493 — def evaluate_quartermaster_construct(attempt: dict, catalog: dict) -> dict
+- check_rfc_0133 · function · L9496-L9556 — def check_rfc_0133() -> None
+- evaluate_gc8_s6 · function · L9559-L9578 — def evaluate_gc8_s6(attempt: dict, catalog: dict) -> dict
+- check_gc8_s6 · function · L9581-L9614 — def check_gc8_s6(Draft202012Validator) -> None
+- evaluate_gc8_s7 · function · L9617-L9634 — def evaluate_gc8_s7(attempt: dict, catalog: dict) -> dict
+- check_gc8_s7 · function · L9637-L9668 — def check_gc8_s7(Draft202012Validator) -> None
+- _gc9_is_repair_update · function · L9671-L9682 — def _gc9_is_repair_update(ev: dict, catalog: dict, entity_id: str) -> bool
+- rebuild_gc9_s0 · function · L9685-L9722 — def rebuild_gc9_s0(fixture: dict, catalog: dict) -> dict
+- check_gc9_s0 · function · L9725-L9773 — def check_gc9_s0(Draft202012Validator) -> None
+- _gc9_s1_is_repair · function · L9776-L9784 — def _gc9_s1_is_repair(ev: dict, entity_id: str) -> bool
+- rebuild_gc9_s1 · function · L9787-L9889 — def rebuild_gc9_s1(fixture: dict, catalog: dict) -> dict
+- check_gc9_s1 · function · L9892-L9941 — def check_gc9_s1(Draft202012Validator) -> None
+- _gc9_s2_repairs · function · L9944-L9961 — def _gc9_s2_repairs(fixture: dict) -> list[dict]
+- rebuild_gc9_s2 · function · L9964-L10047 — def rebuild_gc9_s2(fixture: dict, s1_catalog: dict, s2_catalog: dict) -> dict
+- check_gc9_s2 · function · L10050-L10122 — def check_gc9_s2(Draft202012Validator) -> None
+- evaluate_gc10_s0 · function · L10125-L10172 — def evaluate_gc10_s0(attempt: dict, catalog: dict) -> tuple[str, str | None, int | None]
+- check_gc10_s0 · function · L10175-L10215 — def check_gc10_s0(Draft202012Validator) -> None
+- evaluate_gc10_s1 · function · L10218-L10332 — def evaluate_gc10_s1(attempt: dict, catalog: dict) -> tuple[str, str | None, dict]
+- check_gc10_s1 · function · L10335-L10412 — def check_gc10_s1(Draft202012Validator) -> None
+- evaluate_gc10_s2 · function · L10415-L10425 — def evaluate_gc10_s2(attempt: dict, catalog: dict) -> tuple[str, str | None, bool]
+- check_gc10_s2 · function · L10428-L10462 — def check_gc10_s2(Draft202012Validator) -> None
+- check_adr007_atomic_rooms · function · L10465-L10511 — def check_adr007_atomic_rooms(Draft202012Validator) -> None
+- check_adr008_replay · function · L10514-L10541 — def check_adr008_replay() -> None
+- evaluate_agent_only_player_identity · function · L10564-L10602 — def evaluate_agent_only_player_identity(attempt: dict, catalog: dict) -> tuple[str, str | None]
+- check_rfc_0120 · function · L10605-L10647 — def check_rfc_0120(Draft202012Validator) -> None
+- check_conformance_case_substance · function · L10650-L10764 — def check_conformance_case_substance() -> None
+- ratchet_error · function · L10709-L10717 — def ratchet_error(suite: str, ids: set[str]) -> str | None
+- check_conformance_requirement_refs · function · L10767-L10840 — def check_conformance_requirement_refs() -> None
+- heading_anchors · function · L10787-L10794 — def heading_anchors(text: str) -> set
+- numbered_items · function · L10796-L10797 — def numbered_items(text: str) -> set
+- genesis_items · function · L10799-L10800 — def genesis_items(text: str) -> set
+- check_rfc_0121 · function · L10843-L10861 — def check_rfc_0121() -> None
+- check_rfc_0126_watch_entity_update_exposure · function · L10864-L10899 — def check_rfc_0126_watch_entity_update_exposure() -> None
+- check_rfc_0132_watch_entity_update_exposure_decisions · function · L10902-L10937 — def check_rfc_0132_watch_entity_update_exposure_decisions() -> None
+- check_rfc_0127 · function · L10939-L11018 — def check_rfc_0127(Draft202012Validator) -> None
+- check_rfc_0129 · function · L11021-L11270 — def check_rfc_0129(Draft202012Validator) -> None
+- as_rebuild_event · function · L11193-L11200 — def as_rebuild_event(event: dict) -> dict
+- check_rfc_0128 · function · L11273-L11387 — def check_rfc_0128(Draft202012Validator) -> None
+- main · function · L11390-L11543 — def main() -> None
