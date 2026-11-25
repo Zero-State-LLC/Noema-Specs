@@ -13,7 +13,7 @@ evidence_commits:
   production_specs_baseline: 492ccc9
   production_implements_specs: 81ca8c1
   production_successor_runtime: 61234cc
-  live_worker_version_id: ca151afa-86c3-4cae-b6d4-3b08f0754650
+  live_worker_version_id: 082417d8-1f4f-4356-a419-8a1ee6977ae5
   advanced_worker_runtime: 61234cc
   lca1_delta_report: f6ce6d2
   lca1_integrated_acceptance: a6b7e4b
@@ -55,9 +55,9 @@ runtimes:
     world: world.perihelion-reach-3
     genesis_id: genesis.94d0961984b2b4f8
     required_endpoints: [/ready, /version]
-    live_worker_version_id: ca151afa-86c3-4cae-b6d4-3b08f0754650
-    live_deployed_at: 2026-11-25T05:05:32.738287Z
-    live_source_commit: f8535c862804bcce9989382d1b59ed16b54426a5
+    live_worker_version_id: 082417d8-1f4f-4356-a419-8a1ee6977ae5
+    live_deployed_at: 2026-11-25T09:35:48.628426Z
+    live_source_commit: a2bdfae5370dc206a2992086f22c4a5fc66fe795
     # OBSERVED 2026-11-24 (#418): Noema spec-compat.json hosted_live.official_client on main
     # pinned by Noema#895 and Noema#896; guarded by Noema client-pin.test.ts.
     official_client_pin: noema-client==0.1.24
@@ -204,7 +204,7 @@ runtimes:
       - strategic conflict extensions and information contests
       - diplomacy, agreements, and access policy
       - economic lot quality, provenance, spoilage, and transport pressure
-      - WATCH live projections, public social bands, single 3D Chamber stage (+ TEXT fallback; Canvas 2D Phosphor deprecated on public /watch), and world reports
+      - WATCH live projections, public social bands, planetary frontier 3D Chamber stage (terrain, settlement architecture, animated per-agent pawns, Live Agents bar, deed-first narrative; Canvas 2D Phosphor deprecated on public /watch), and world reports
       - StudyAdminDO (RFC-0131) with Cloudflare Access RS256 JWKS verification, dual JSON/form POST handling, durable accept-attempt throttling, and paginated CSV-safe audit export
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
@@ -314,7 +314,7 @@ capabilities:
       - "Noema PR #680: https://github.com/Zero-State-LLC/Noema/pull/680"
       - "Noema PR #681: https://github.com/Zero-State-LLC/Noema/pull/681"
       - "Noema issue #667: https://github.com/Zero-State-LLC/Noema/issues/667"
-    live_worker_version_id: ca151afa-86c3-4cae-b6d4-3b08f0754650
+    live_worker_version_id: 082417d8-1f4f-4356-a419-8a1ee6977ae5
     heads_at_flip_prep: cycle=17958 sequence=42176 ACTIVE HEALTHY
     non_goals: hosted STUDY, Gate E endurance, Gate F successor decision, RFC-0130, new mechanics, new Player verbs, and production successor deployment
   endurance_gate_e:
@@ -325,7 +325,7 @@ capabilities:
       - docs/LCA-GATE-E-PROMOTION-2026-09-20.md
       - "Noema-Specs PR #343: https://github.com/Zero-State-LLC/Noema-Specs/pull/343"
       - "Noema issue #682: https://github.com/Zero-State-LLC/Noema/issues/682"
-    live_worker_version_id: ca151afa-86c3-4cae-b6d4-3b08f0754650
+    live_worker_version_id: 082417d8-1f4f-4356-a419-8a1ee6977ae5
     heads_at_flip_prep: cycle=21948 sequence=59599 ACTIVE HEALTHY
     path8_recover_json: >-
       recover_mode=restore revision=29192 head_present=true
@@ -348,8 +348,8 @@ capabilities:
       - "Noema PR #724: https://github.com/Zero-State-LLC/Noema/pull/724"
       - "Noema-Specs PR #351: https://github.com/Zero-State-LLC/Noema-Specs/pull/351"
       - "Noema issue #715: https://github.com/Zero-State-LLC/Noema/issues/715"
-    live_worker_version_id: ca151afa-86c3-4cae-b6d4-3b08f0754650
-    live_source_commit: f8535c862804bcce9989382d1b59ed16b54426a5
+    live_worker_version_id: 082417d8-1f4f-4356-a419-8a1ee6977ae5
+    live_source_commit: a2bdfae5370dc206a2992086f22c4a5fc66fe795
     successor_scope: RUNTIME_ONLY
     item7_verdict: GO_ISSUED
     waivers:
