@@ -52,7 +52,7 @@ Full domain vocabulary lives in **[GLOSSARY.md](GLOSSARY.md)**. Quick reference 
 - **Tier-3 Operator**: Outside operator enrolling an independent Controller via `/connect` (Gate PSR-1).
 - **StudyAdmin**: Study-scoped delegation role (`RFC-0131`), isolated from global Admin and Steward.
 - **Steward**: Human reviewer signing off redacted STUDY evidence packs (Gate PSR-2).
-- **Key ADRs**: [ADR-0009 (PSR-1 & STUDY Promotion Evidence)](docs/adr/0009-psr1-and-study-promotion-evidence.md) · [ADR-0010 (GC1–GC10 Proposal Ratification Gate)](docs/adr/0010-gc-rfc-proposals-ratification-gate.md) · [ADR-0011 (Whitepaper Parity)](docs/adr/0011-whitepaper-parity-and-edition-governance.md).
+- **Key ADRs**: [ADR-0009 (PSR-1 & STUDY Promotion Evidence)](docs/adr/0009-psr1-and-study-promotion-evidence.md) · [ADR-0010 (GC1–GC10 Proposal Ratification Gate)](docs/adr/0010-gc-rfc-proposals-ratification-gate.md) · [ADR-0011 (Whitepaper Parity)](docs/adr/0011-whitepaper-parity-and-edition-governance.md) · [ADR-0012 (WATCH Live Agent Activity)](docs/adr/0012-watch-live-agent-activity-and-deed-priority.md).
 
 ## What is NOEMA?
 
