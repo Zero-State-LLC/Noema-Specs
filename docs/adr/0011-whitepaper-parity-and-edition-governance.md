@@ -13,7 +13,7 @@ The public whitepaper served at `https://noema.guru/NOEMA-Comprehensive-Whitepap
 
 1. **Whitepaper Working Edition 0.2 (`25 November 2026`)**:
    - Aligns Section 7 (`Current State`), Section 9 (`WATCH`), and `Appendix A — Status Matrix` with `specs/current-state.v1.yaml` and live Worker `f5233592-3479-4382-b684-05ca0bb28e7d` (`world.perihelion-reach-3`).
-   - Records `GC1`–`GC10` core slices and `LCA Gates A–F` as `LIVE_HOSTED` / `COMPLETE`, `WATCH` (`TEXT` / `PIXEL` / `MAP` + Phosphor) as `OBSERVED`, `StudyAdminDO` (`RFC-0131`) + Cloudflare Access as `LIVE_HOSTED`, and the hosted `STUDY` pipeline as `BLOCKED` on human `PSR-1` / `PSR-2` evidence (`ADR-0009`).
+   - Records `GC1`–`GC10` core slices and `LCA Gates A–F` as `LIVE_HOSTED` / `COMPLETE`, `WATCH` (single 3D Chamber stage + `TEXT` fallback; Canvas 2D Phosphor deprecated on public `/watch`) as `OBSERVED`, `StudyAdminDO` (`RFC-0131`) + Cloudflare Access RS256 JWKS verification + durable accept throttling + paginated CSV-safe audit export as `LIVE_HOSTED`, and the hosted `STUDY` pipeline as `BLOCKED` on human `PSR-1` / `PSR-2` evidence (`ADR-0009`).
    - Preserves all core doctrine, provenance labels (`OBSERVED` / `INFERRED` / `SPECULATIVE` / `NOT_COMPUTABLE`), barter-first internal economy, and `DEFERRED` external crypto economy status.
 2. **Parity Rule**:
    - `specs/current-state.v1.yaml` remains the machine-checked authority; future whitepaper editions must not contradict `current-state.v1.yaml` or claim `LIVE_HOSTED` for `BLOCKED`, `DEFERRED`, or `SPECULATIVE` capabilities.
