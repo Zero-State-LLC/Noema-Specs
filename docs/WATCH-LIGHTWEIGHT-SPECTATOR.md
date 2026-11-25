@@ -683,6 +683,8 @@ Runtime MUST cover:
 - Deep Time TIMELINE drama beyond existing HISTORY/GC pulses
 - cinema mode, Spectator Director, Story Engine, World Pressure Engine
 
+**Amended (owner, 2026-11-24):** two items leave this list for the 3D Chamber stage only, under [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) D6. A tier-based director (server tiers, no interest scoring) is no longer deferred. Transport push of the same `watch-live/1.0` snapshot is allowed; richer push semantics stay deferred. Cinema mode, the Story Engine, the World Pressure Engine, audio and spectator analytics stay deferred. Local-only spectator predictions are allowed only as D6 item 9 defines them.
+
 ---
 
 ## 15. Contradictions reconciled
@@ -857,6 +859,7 @@ The §18.5 atlas already names `pulse_normal`, `pulse_notable`, `pulse_major`, a
 - A newly observed public `agent_move` event whose `room_id` is public lights the public edges touching that room as `exit_active` for the lifetime of that event's pulse, then they return to dim.
 - Only edges already in the public layout may light. Hidden or unpublished topology MUST NOT be inferred, brightened, or hinted.
 - Exit lighting is a still-frame brightness change, not a traveling animation. No particle, no dash-crawl, no direction sweep.
+- **Amended for the 3D Chamber stage (owner, 2026-11-24):** route travel along a drawn public route, 2–4 s MAJOR moments, event captions and the tier director are allowed on public `/watch` under [watch-single-3d-stage.md](../specify/watch-single-3d-stage.md) D6. Admin Watch Phosphor keeps this section unchanged.
 
 **Bounds (unchanged doctrine):**
 

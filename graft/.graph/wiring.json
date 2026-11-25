@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 394,
-    "edgeCount": 1252,
+    "nodeCount": 395,
+    "edgeCount": 1257,
     "languages": [
       "python"
     ],
@@ -1443,12 +1443,12 @@
       "name": "validate_all.py",
       "kind": "file",
       "path": "validation/validate_all.py",
-      "span": "L1-L11403",
+      "span": "L1-L11441",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "534198e8a3dc44fd10b6fcb83fd410039522b297722cdeff42203982e5c6a563",
-      "chars": 566997,
+      "body_hash": "72bae9bd3549782fe5793e6411ca61848f871cf874a28258de51f72497608fd0",
+      "chars": 569324,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3502,7 +3502,7 @@
       "name": "check_rfc_0127",
       "kind": "function",
       "path": "validation/validate_all.py",
-      "span": "L10794-L10873",
+      "span": "L10831-L10910",
       "signature": "def check_rfc_0127(Draft202012Validator) -> None",
       "exported": true,
       "origin": "ast",
@@ -3516,7 +3516,7 @@
       "name": "check_rfc_0128",
       "kind": "function",
       "path": "validation/validate_all.py",
-      "span": "L11128-L11242",
+      "span": "L11165-L11279",
       "signature": "def check_rfc_0128(Draft202012Validator) -> None",
       "exported": true,
       "origin": "ast",
@@ -3530,7 +3530,7 @@
       "name": "check_rfc_0129",
       "kind": "function",
       "path": "validation/validate_all.py",
-      "span": "L10876-L11125",
+      "span": "L10913-L11162",
       "signature": "def check_rfc_0129(Draft202012Validator) -> None",
       "exported": true,
       "origin": "ast",
@@ -3544,11 +3544,25 @@
       "name": "as_rebuild_event",
       "kind": "function",
       "path": "validation/validate_all.py",
-      "span": "L11048-L11055",
+      "span": "L11085-L11092",
       "signature": "def as_rebuild_event(event: dict) -> dict",
       "exported": true,
       "origin": "ast",
       "body_hash": "f2f999f81828fbecea37346919bd6fc9cd8a971c7203109e0195335042f621c6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
+      "name": "check_rfc_0132_watch_entity_update_exposure_decisions",
+      "kind": "function",
+      "path": "validation/validate_all.py",
+      "span": "L10794-L10829",
+      "signature": "def check_rfc_0132_watch_entity_update_exposure_decisions() -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "deca4ada3ed7dc46346aa6d3286880413ce1f21d134327e3d52dcbf9a6ac3eb4",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -5182,11 +5196,11 @@
       "name": "main",
       "kind": "function",
       "path": "validation/validate_all.py",
-      "span": "L11245-L11396",
+      "span": "L11282-L11434",
       "signature": "def main() -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a30ca88183846634925eef1343c811eeffe5f6342f3fa7f2aadc8e796641e45b",
+      "body_hash": "b83aba6eb3aed5d2135ac76cd3b81cb1a43540ec26d134a41da87d8fc122a3c9",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -7741,6 +7755,12 @@
     {
       "source": "validation/validate_all.py",
       "target": "validation/validate_all.py#check_rfc_0129",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_all.py",
+      "target": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
       "relation": "contains",
       "confidence": "extracted"
     },
@@ -11687,6 +11707,24 @@
       "confidence": "extracted"
     },
     {
+      "source": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
+      "target": "validation/validate_all.py#fail",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
+      "target": "validation/validate_all.py#load_json",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
+      "target": "validation/validate_all.py#ok",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
       "source": "validation/validate_all.py#check_schema_validated_fixtures",
       "target": "validation/validate_all.py#fail",
       "relation": "calls",
@@ -12787,6 +12825,12 @@
     {
       "source": "validation/validate_all.py#main",
       "target": "validation/validate_all.py#check_rfc_0129",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "validation/validate_all.py#main",
+      "target": "validation/validate_all.py#check_rfc_0132_watch_entity_update_exposure_decisions",
       "relation": "calls",
       "confidence": "extracted"
     },
