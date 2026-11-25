@@ -10791,6 +10791,43 @@ def check_rfc_0126_watch_entity_update_exposure() -> None:
     ok("RFC-0126 WATCH ENTITY_UPDATE exposure: explicit allowlist, unknown silent, HARVEST single source")
 
 
+def check_rfc_0132_watch_entity_update_exposure_decisions() -> None:
+    catalog = load_json(ROOT / "specs" / "watch-entity-update-exposure-decisions.rfc-0132.json")
+    authority = ROOT / str(catalog.get("authority", ""))
+    if not authority.exists():
+        fail("RFC-0132 exposure decision authority is missing")
+    rfc = authority.read_text(encoding="utf-8")
+    if "**Accepted**" not in rfc.split("## Status", 1)[-1].split("##", 1)[0]:
+        fail("RFC-0132 must be Accepted")
+    base = load_json(ROOT / str(catalog.get("extends", "")))
+    base_ops = set(base.get("silent_operations") or []) | set((base.get("explicit_operation_projections") or {}).keys())
+    opened = catalog.get("opened_operations") or {}
+    closed = set(catalog.get("closed_operations") or [])
+    if set(opened) != {"RESTORE", "VEST", "PROMOTE"}:
+        fail(f"RFC-0132 opened operation set drifted: {sorted(opened)}")
+    if closed != {"SHARE", "CONNECT", "CONSENT", "CONSENSUS", "RULE"}:
+        fail(f"RFC-0132 closed operation set drifted: {sorted(closed)}")
+    if set(opened) & closed:
+        fail("RFC-0132 opened and closed operation sets overlap")
+    if (set(opened) | closed) & base_ops:
+        fail("RFC-0132 must not redecide RFC-0126 operations")
+    allowed_projections = {"production", "organization"}
+    for op, row in opened.items():
+        if row.get("projection_id") not in allowed_projections:
+            fail(f"RFC-0132 {op} must use an existing projection id")
+        if "<site>" not in str(row.get("line", "")):
+            fail(f"RFC-0132 {op} line must be located at a public site")
+    if "organization" not in (opened.get("VEST", {}).get("withhold") or []):
+        fail("RFC-0132 VEST must withhold the organization")
+    if catalog.get("default_watch_projection") is not None or catalog.get("unknown_operation_watch_projection") is not None:
+        fail("RFC-0132 must keep unknown ENTITY_UPDATE operations silent")
+    if not catalog.get("require_public_site"):
+        fail("RFC-0132 opened operations must require a public site")
+    for key in ("new_events", "new_projection_ids", "new_watch_surfaces"):
+        if catalog.get(key):
+            fail(f"RFC-0132 must not add {key}")
+    ok("RFC-0132 WATCH ENTITY_UPDATE exposure decisions")
+
 def check_rfc_0127(Draft202012Validator) -> None:
     """RFC-0127: TRADE_CANCELLED on event-catalog/0.2 only."""
     rfc = (ROOT / "rfcs" / "RFC-0127-trade-cancelled-catalog.md").read_text(
@@ -11384,6 +11421,7 @@ def main() -> None:
     check_conformance_requirement_refs()
     check_conformance_case_substance()
     check_rfc_0126_watch_entity_update_exposure()
+    check_rfc_0132_watch_entity_update_exposure_decisions()
     check_rfc_0127(Draft202012Validator)
     check_rfc_0129(Draft202012Validator)
     check_rfc_0128(Draft202012Validator)

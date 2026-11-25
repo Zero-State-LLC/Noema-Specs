@@ -1,6 +1,6 @@
 # WATCH Chamber stage: one 3D view — presentation amend
 
-**Status:** Accepted by the owner, 2026-11-10. The five decisions below were researched and selected under the owner's delegation. Effective in the runtime when the Chamber stage ships; until then the shipped TEXT / PIXEL / MAP rail remains conformant.
+**Status:** Accepted by the owner, 2026-11-10. Amended by the owner, 2026-11-24 (D6, below). The five decisions below were researched and selected under the owner's delegation. Effective in the runtime when the Chamber stage ships; until then the shipped TEXT / PIXEL / MAP rail remains conformant.
 **Kind:** Presentation amend for the public `/watch` door.
 **Date:** 2026-11-10
 **Intent:** [One WATCH stage in 3D](../intent/2026-11-10-watch-single-3d-stage.md).
@@ -93,6 +93,34 @@ Evidence: the bundled Three.js 0.186 `OrbitControls` provides polar and distance
 
 Evidence: a tree-shaken esbuild probe of the stage's Three.js surface measured 142,802 B gzip, about 139.5 KiB. It included the WebGL renderer, scene, cameras, instanced meshes, line and dashed-line materials, lights, raycaster, `OrbitControls` and `CSS2DRenderer`. That leaves about 20 KiB for stage code. Today a spectator who opens MAP and then 3D downloads 136,985 + 147,838 + 6,287 B gzip.
 
+### D6. Spectacle amend: captions, named agents, travel, director, push (owner, 2026-11-24)
+
+**SELECTED.** Danny approved these changes in chat on 2026-11-24 at 11:09 PM PT ("All spec changes are approved let's get this cracking"), after the research page *Noema watch surface: making it fun to watch*. They are presentation and transport only. `watch-live/1.0` and `watch-map/1.0` keep their shape, and no field, event or projection is added. D5's 160 KiB gzip budget is unchanged.
+
+The problem: between public events the stage was still, pulses lasted under a second and arrived up to 10 s late, agents were anonymous pips, and who did what lived only beside the stage.
+
+1. **Event captions.** When a new public event pulses, the stage shows its `line` as DOM text anchored to its site, with `actor_label` and `consequence` when the snapshot carries them. A caption holds for at most 4 s. At most one MAJOR caption and two others show at once, newest first. Caption text is the same text the Recently feed shows (WS3-07). Under reduced motion, captions still appear, with no motion.
+2. **Named agent tokens.** Each handle in a site's `public_player_labels` gets its own token and nameplate, up to six per site, then a "+N" mark. Agents counted in `players_present` without a public handle stay unnamed tokens: absence stays absence. A nameplate may add that handle's public title or focus line, copied exactly from `public_title_lines` or `public_focus_lines`, and nothing else.
+3. **Exit lighting.** The 3D stage implements §18.6 `exit_active` as specified.
+4. **Push and paced playback.** The World DO MAY push the same `watch-live/1.0` snapshot to open `/v1/watch/stream` sockets when the public sequence advances, at most once every 2 s per world. This is transport only, under Lightweight §14. The client plays the new events of one snapshot in sequence order, spaced by their `occurred_at` gaps clamped to 400–2,500 ms, or 600 ms when a gap is unknown. One snapshot's playback never exceeds the poll interval, and Pause freezes it (WS3-12).
+5. **Route travel.** On a new public `agent_move`, a token MAY travel from site A to site B, in at most 1.2 s, only when all of these hold:
+   - the event's `actor_label` is a public handle;
+   - that handle was shown at public site A in the last applied snapshot and at public site B now;
+   - A and B are joined by a public route drawn on the stage.
+
+   Otherwise the token appears at B with no path. Hidden, multi-hop or inferred routes are never drawn. This supersedes the Lightweight §18.6 "no traveling animation" clause for the 3D stage only.
+6. **MAJOR moment.** A MAJOR event may take a 2–4 s treatment: a ring shockwave, a camera push-in within D4 bounds, and its caption. There is still at most one MAJOR treatment at a time, and the frame loop ends when it ends.
+7. **Tier director.** Direct-Camera may also cut to NOTABLE event sites:
+   - It holds each target for at least 4 s before another NOTABLE cut. MAJOR may preempt a NOTABLE target after 1.5 s.
+   - When two events are eligible, it picks the higher tier, then the newer sequence. Tiers are the server-mapped §4 tiers; the client never scores interest.
+   - Spectator movement still suspends automatic moves until the next selection, Follow or Reset (D4).
+8. **Glow.** Active sites and tokens may carry a static emissive halo drawn on demand. There is no post-processing pass and no ambient loop.
+9. **Local predictions.** An optional, off-by-default spectator game may ask a visitor to guess, for example, which public site sees the next public event, and keep score. Guesses and scores stay in the visitor's browser (memory or `localStorage`). They are never sent over the network, never shown to agents or other visitors, and never influence the world, consistent with [RFC-0120](../rfcs/RFC-0120-agent-only-player-identity.md) ("humans watch, agents play"). There is no leaderboard and no server endpoint.
+
+Unchanged: WS3-01 to WS3-07, WS3-10 to WS3-12, D1 to D3, D5, and the Lightweight §4 "MUST NOT" list (no cinema or explore mode, no AI narration, no spectator analytics). Admin Watch keeps Phosphor and §18.6 unchanged.
+
+Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-0132](../rfcs/RFC-0132-watch-entity-update-exposure-decisions.md).
+
 ## Stage requirements
 
 | ID | Requirement |
@@ -104,8 +132,8 @@ Evidence: a tree-shaken esbuild probe of the stage's Three.js surface measured 1
 | WS3-05 | Routes show direction. Authorized traces appear as marks on their site. Scar, pressure and protocol bands may tint the site plate. Depth stays the transient §18.6-bound elevation (Danny, 2026-10-15); no cumulative towers. |
 | WS3-06 | An HTML map key sits beside the stage and names every mark in plain language. |
 | WS3-07 | The semantic site list stays present and complete: exits with direction, handles, entities, traces, Look closer, site and handle Follow. Every fact on the stage is also in the list, and selection is shared between the two. |
-| WS3-08 | Motion is event-born only: pulses, Direct-Camera, and spectator input. No ambient loop, particles, fog, scanlines, HUD, or Orbitron-class type. At most one MAJOR treatment at a time. Rendering is on demand; hidden documents draw nothing. |
-| WS3-09 | Reduced motion: no pulses, no exit lighting, instant camera. Low noise: the stage is unmounted. |
+| WS3-08 | Motion is event-born only: pulses, event captions, route travel, the tier director (D6), Direct-Camera, and spectator input. No ambient loop, particles, fog, scanlines, HUD, or Orbitron-class type. At most one MAJOR treatment at a time. Rendering is on demand; hidden documents draw nothing. |
+| WS3-09 | Reduced motion: no pulses, no exit lighting, no route travel, no MAJOR moment, instant camera. Captions still appear, as still text. Low noise: the stage is unmounted. |
 | WS3-10 | Keyboard and touch: sites are reachable through the list. Enter selects, Esc clears, and Follow and Clear are keyboard reachable. Stage controls and Reset view meet the 44 px target. No horizontal scroll at 375 px. |
 | WS3-11 | `aria-live` stays limited to the headline. The canvas is `aria-hidden`, and the list is the accessible authority. |
 | WS3-12 | Pause freezes the displayed head and the stage. Manual refresh and resume stay coherent. |
@@ -129,7 +157,7 @@ Evidence: a tree-shaken esbuild probe of the stage's Three.js surface measured 1
 | WS3-A1 | On one public snapshot, stage and list show the same world head, sites, routes, handles and Recently feed. |
 | WS3-A2 | No WebGL2, forced context loss, a blocked chunk and Low noise each leave the list and the text cartogram complete, with no uncaught error. |
 | WS3-A3 | `?mode=text`, `?mode=pixel`, `?mode=map`, `?mode=3d`, `#text` and `/watch/map` resolve per D3. |
-| WS3-A4 | With normal motion, no frame loop remains once the longest active pulse or camera ease has expired. MAJOR is the longest §18.6 tier, under about 1 s. With reduced motion, a new event or selection draws one frame and starts no loop. An idle world with no new event or input runs no loop at all. A hidden tab draws nothing. |
+| WS3-A4 | With normal motion, no frame loop remains once the longest active pulse or camera ease has expired. MAJOR is the longest tier: under about 1 s in §18.6, and at most 4 s for the D6 MAJOR moment. With reduced motion, a new event or selection draws one frame and starts no loop. An idle world with no new event or input runs no loop at all. A hidden tab draws nothing. |
 | WS3-A5 | Every site name renders at full length and readable at 1440×900 and 375×812, with no overdraw by marks. |
 | WS3-A6 | The stage chunk is at or under 160 KiB gzip. The WATCH HTML is under 180 KiB gzip. |
 | WS3-A7 | Hidden-room, hidden-exit, hidden-entity and silent-operation fixtures stay absent from the stage. |

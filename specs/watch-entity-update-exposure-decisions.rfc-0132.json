@@ -1,0 +1,21 @@
+{
+  "schema_version": "watch-entity-update-exposure-decisions/rfc-0132",
+  "catalog_id": "watch-entity-update-exposure-decisions/rfc-0132",
+  "authority": "rfcs/RFC-0132-watch-entity-update-exposure-decisions.md",
+  "extends": "specs/watch-entity-update-exposure.rfc-0126.json",
+  "watch_live_pin": "watch-live/1.0",
+  "event_type": "ENTITY_UPDATE",
+  "owner_approval": "Danny, chat, 2026-11-24T23:09:00-08:00",
+  "opened_operations": {
+    "RESTORE": { "projection_id": "production", "line": "A ruin was restored at <site>" },
+    "VEST": { "projection_id": "organization", "line": "An asset at <site> passed into institutional hands", "withhold": ["organization"] },
+    "PROMOTE": { "projection_id": "production", "line": "Construction finished at <site>", "in_progress_silent": true }
+  },
+  "closed_operations": ["SHARE", "CONNECT", "CONSENT", "CONSENSUS", "RULE"],
+  "default_watch_projection": null,
+  "unknown_operation_watch_projection": null,
+  "require_public_site": true,
+  "new_events": [],
+  "new_projection_ids": [],
+  "new_watch_surfaces": []
+}
