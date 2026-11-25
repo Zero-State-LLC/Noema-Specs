@@ -9448,6 +9448,22 @@ def check_rfc_0117(Draft202012Validator) -> None:
     ok("RFC-0117 lockout WAIT rest: catalog, energy 2 / storage 1, no new verbs")
 
 
+def _find_key(obj, key):
+    if isinstance(obj, dict):
+        if key in obj:
+            return obj[key]
+        for v in obj.values():
+            got = _find_key(v, key)
+            if got is not None:
+                return got
+    if isinstance(obj, list):
+        for v in obj:
+            got = _find_key(v, key)
+            if got is not None:
+                return got
+    return None
+
+
 def evaluate_quartermaster_supply(attempt: dict, catalog: dict) -> dict:
     """RFC-0133 SUPPLY admission: office holder, same room, not self, 1..supply_max, treasury covers."""
     if not attempt.get("holds_office"):
@@ -9458,9 +9474,10 @@ def evaluate_quartermaster_supply(attempt: dict, catalog: dict) -> dict:
         return {"ok": False, "code": "FORBIDDEN"}
     if attempt.get("resource") not in catalog["supply_resources"]:
         return {"ok": False, "code": "INVALID_REQUEST"}
-    amount = int(attempt.get("amount") or 0)
-    if amount < 1 or amount > int(catalog["supply_max"]):
+    raw = attempt.get("amount")
+    if type(raw) is not int or raw < 1 or raw > int(catalog["supply_max"]):
         return {"ok": False, "code": "INVALID_REQUEST"}
+    amount = raw
     if int(attempt.get("treasury") or 0) < amount:
         return {"ok": False, "code": "BUDGET_EXCEEDED"}
     return {"ok": True, "code": None}
@@ -9486,6 +9503,10 @@ def check_rfc_0133() -> None:
         ({"resource": "influence"}, False),
         ({"amount": 6}, False),
         ({"amount": 0}, False),
+        ({"amount": 1.5}, False),
+        ({"amount": 5.9}, False),
+        ({"amount": True}, False),
+        ({"amount": "3"}, False),
         ({"treasury": 2}, False),
         ({"resource": "storage", "amount": 5}, True),
     ]
@@ -9496,6 +9517,19 @@ def check_rfc_0133() -> None:
     economy = (ROOT / "docs" / "RESOURCE-ECONOMY.md").read_text(encoding="utf-8")
     if "RFC-0133" not in economy:
         fail("RESOURCE-ECONOMY.md must name RFC-0133")
+    for path in ("intent/2026-11-25-quartermaster-services.md", "specify/quartermaster-services.md"):
+        if not (ROOT / path).exists():
+            fail(f"RFC-0133 must have its intent-first record: {path}")
+    # The SUPPLY event reuses RESOURCE_TRANSFER unchanged; the RFC's payload must validate against 0.2.
+    events = load_json(ROOT / "specs" / "event-types.0.2.json")
+    payload = _find_key(events, "RESOURCE_TRANSFER_payload")
+    sample = {"transfer_id": "xfer.1", "from_id": "org.c", "to_id": "player.b", "resource": "storage", "amount": 3}
+    if payload is None or set(payload.get("required", [])) - set(sample) or set(sample) - set(payload.get("properties", {})):
+        fail("RFC-0133 SUPPLY payload must validate against event-types 0.2 RESOURCE_TRANSFER")
+    if '"kind"' in rfc or "kind:" in rfc:
+        fail("RFC-0133 must not add a kind field to RESOURCE_TRANSFER")
+    if "human or agent" in rfc:
+        fail("RFC-0133 grants office capability to Agent Players only")
     ok("RFC-0133 quartermaster: treasury harvest, SUPPLY cap 5, office-gated, WATCH silent")
 
 
