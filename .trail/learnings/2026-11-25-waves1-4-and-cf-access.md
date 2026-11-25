@@ -1,0 +1,7 @@
+# 2026-11-25 — Waves 1–4, Energy Deadlock #907, and Cloudflare Access Admin Login
+
+- **Live Worker**: `6a94f045-77e8-4957-9393-e56a071040b5` (`2026-11-25T01:47:01Z`, source `a2d3c19`, `world.perihelion-reach-3`), pinned in both `Noema/spec-compat.json` and `Noema-Specs/specs/current-state.v1.yaml`; `noema-client` `worker-contract-drift` green.
+- **Energy Deadlock (`Noema#907` — closed)**: Extended `applyLockoutRest` using `occupiedHold(freeStorage) === 0` so zero-energy empty-hold Players recover `+2` energy on `WAIT` while partial holds still defer to `applyCargoFuel`.
+- **Cloudflare Access Admin Login**: Created `Noema Admin` Zero Trust app (`43358ac3-cbeb-4839-9f60-044940eb5f72`) on `noema.guru/admin` & `noema.guru/api/admin` allowing `scrimshawlife@gmail.com`, `prabu.openclaw@gmail.com`, and `zer0state@zer0state.com`; configured `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD`, and `ADMIN_ALLOWLIST_EMAILS` on `noema-gateway` with in-Worker RS256 JWKS verification (`cf-access.ts`).
+- **Waves 1–4 code-actionable items**: Shipped `framework_adapter_reference.py` (`noema-client`), `aggregate_psr1_cohort.py` + `export_study_pack.py` + Wave 3 `StudyAdmin` UI/expiry/throttling/export-ready + Wave 4 R4 S0/S4/S7 regressions (`Noema`), and `steward_spot_check.py` + ADR-0009 + `evidence/psr1-study/` CI auto-validation (`Noema-Specs`).
+- **Next**: Human-gated `#421`–`#423` receipts in `evidence/psr1-study/` (Wave 5 `RFC-PROPOSAL-GC1..GC10` stays gated behind PSR-1 & PSR-2 per `active_campaign.thesis`).
