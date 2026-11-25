@@ -280,8 +280,9 @@
 - genesis_items · function · L10691-L10692 — def genesis_items(text: str) -> set
 - check_rfc_0121 · function · L10735-L10753 — def check_rfc_0121() -> None
 - check_rfc_0126_watch_entity_update_exposure · function · L10756-L10791 — def check_rfc_0126_watch_entity_update_exposure() -> None
-- check_rfc_0127 · function · L10794-L10873 — def check_rfc_0127(Draft202012Validator) -> None
-- check_rfc_0129 · function · L10876-L11125 — def check_rfc_0129(Draft202012Validator) -> None
-- as_rebuild_event · function · L11048-L11055 — def as_rebuild_event(event: dict) -> dict
-- check_rfc_0128 · function · L11128-L11242 — def check_rfc_0128(Draft202012Validator) -> None
-- main · function · L11245-L11396 — def main() -> None
+- check_rfc_0132_watch_entity_update_exposure_decisions · function · L10794-L10829 — def check_rfc_0132_watch_entity_update_exposure_decisions() -> None
+- check_rfc_0127 · function · L10831-L10910 — def check_rfc_0127(Draft202012Validator) -> None
+- check_rfc_0129 · function · L10913-L11162 — def check_rfc_0129(Draft202012Validator) -> None
+- as_rebuild_event · function · L11085-L11092 — def as_rebuild_event(event: dict) -> dict
+- check_rfc_0128 · function · L11165-L11279 — def check_rfc_0128(Draft202012Validator) -> None
+- main · function · L11282-L11434 — def main() -> None
