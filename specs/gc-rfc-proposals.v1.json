@@ -72,7 +72,8 @@
       "gap_id": "B7d",
       "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md",
       "seed_doc": "docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md",
-      "status": "draft"
+      "status": "superseded",
+      "superseded_by": "rfcs/RFC-0129-crime-detected-payload-reconciliation.md"
     },
     {
       "id": "GC7-CRIME-REHABILITATION",
@@ -104,6 +105,14 @@
       "gap_id": "B10",
       "path": "rfcs/RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md",
       "seed_doc": "docs/GC10-WED-CLASS-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "CRIME-PRODUCER-COMPLETION",
+      "gc": "GC7",
+      "gap_id": "CRIME_DETECTED",
+      "path": "rfcs/RFC-PROPOSAL-CRIME-PRODUCER-COMPLETION.md",
+      "seed_doc": "docs/EVENT-CATALOG-AUDIT.md",
       "status": "draft"
     }
   ]

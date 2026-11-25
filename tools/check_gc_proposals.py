@@ -45,7 +45,7 @@ def main() -> int:
 
     disk_paths = {
         str(p.relative_to(root))
-        for p in sorted((root / "rfcs").glob("RFC-PROPOSAL-GC*.md"))
+        for p in sorted((root / "rfcs").glob("RFC-PROPOSAL-*.md"))
     }
     unregistered = sorted(disk_paths - registered_paths)
     for rel in unregistered:

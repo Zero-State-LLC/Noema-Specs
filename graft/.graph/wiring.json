@@ -417,8 +417,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "5510bb2454db9d40f76af1b9d79e02fa91fd4907434e98e00d89cd2a14eeae6a",
-      "chars": 2113,
+      "body_hash": "c998c41993b655cd8d7375766343a5ae91ece4272ca5f584b12d0232c2a5616c",
+      "chars": 2111,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -432,7 +432,7 @@
       "signature": "def main() -> int",
       "exported": true,
       "origin": "ast",
-      "body_hash": "b3b04d189af13be499b0d7939ff63a3bd2ff125d99da0e046279a768fa2fc753",
+      "body_hash": "77bb25f6e5d222854c03dbcc43066f16e0cfdca227f574b3bd5ee15014bf8260",
       "summary_state": "pending",
       "summary": null,
       "crux": null
