@@ -7,7 +7,7 @@
   "event_type": "ENTITY_UPDATE",
   "owner_approval": "Danny, chat, 2026-11-24T23:09:00-08:00",
   "opened_operations": {
-    "RESTORE": { "projection_id": "production", "line": "A ruin was restored at <site>" },
+    "RESTORE": { "projection_id": "production", "line": "An abandoned asset was restored at <site>" },
     "VEST": { "projection_id": "organization", "line": "An asset at <site> passed into institutional hands", "withhold": ["organization"] },
     "PROMOTE": { "projection_id": "production", "line": "Construction finished at <site>", "in_progress_silent": true }
   },
