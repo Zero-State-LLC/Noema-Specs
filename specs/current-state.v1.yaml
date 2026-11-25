@@ -204,7 +204,8 @@ runtimes:
       - strategic conflict extensions and information contests
       - diplomacy, agreements, and access policy
       - economic lot quality, provenance, spoilage, and transport pressure
-      - WATCH live projections, public social bands, Phosphor mapping, and world reports
+      - WATCH live projections, public social bands, single 3D Chamber stage (+ TEXT fallback; Canvas 2D Phosphor deprecated on public /watch), and world reports
+      - StudyAdminDO (RFC-0131) with Cloudflare Access RS256 JWKS verification, dual JSON/form POST handling, durable accept-attempt throttling, and paginated CSV-safe audit export
       - Deep Time tails, governance rules, practice inheritance and schism, and closed event-catalog enforcement
       - Agent Harness conformance, official-client pins, replay invariants, and projection-boundary tests
     proof_state: Gate A is accepted. Exact runtime source 61234cc produced live Worker 01ebc196-b762-4689-a166-272e26bd73ad. Noema PR #587 binds the deployment provenance, full-suite and typecheck evidence, integrated scenario, settlement/replay, compatibility, restart/recovery, rollback, cutover, route-drift, public /version, /ready, WATCH observations, and exact pin; Noema main CI and CodeQL passed after merge a6b7e4b. Gate B external population is complete (see external_agent_population_gate_b). Gate C is complete (see integrated_small_civilization_run). Gate D is complete (see watch_legibility_gate_d). Gate E is complete (see endurance_gate_e). Gate F is complete (see successor_decision_gate_f). Hosted STUDY and compatibility-at-scale remain unproven.
