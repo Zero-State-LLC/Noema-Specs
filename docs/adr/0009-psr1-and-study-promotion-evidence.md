@@ -12,6 +12,8 @@ Promoting `third_party_agent_compatibility_at_scale` (PSR-1) and `hosted_study_p
 2. **Contiguous Live Cohort Window (`#422`)**: The `>=6` Controller, `Δcycle >= 24`, two-style (`framework-adapter` + `custom-http-ws`) endurance cohort runs on live `world.perihelion-reach-3` in one contiguous `24+` cycle window. Clean individual Controller reconnects are permitted provided `>=6` Controllers meet `>=20` actions each (`>=60` total) with `0` protocol regressions.
 3. **Fail-Closed Redaction & Cohort Harvesting (`#423`)**: The `#423` natural-play evidence pack is harvested directly from the `#422` cohort window. Any `validate_study_privacy_redaction.py` failure blocks promotion until the exporter is fixed and the pack is re-exported; hand-editing archives is prohibited.
 4. **Steward Separation & Git Receipt Custody**: The `Steward` signing off `#423` must be strictly distinct from the `#421` `Tier-3 Operator` and from any `StudyAdmin`. All three redacted, PII-free receipts (`psr1_tier3_enrollment`, `psr1_cohort_summary`, `hosted_study_promotion`) are committed under `evidence/psr1-study/` so CI validates them continuously.
+5. **Single Pinned Worker Version (`#422`)**: Production Worker deploys are frozen during the `Δcycle >= 24` cohort window so all cohort evidence certifies a single `worker_version_id`.
+6. **Steward Spot-Check Minimum (`#423`)**: After `validate_study_privacy_redaction.py` exits `0`, the `Steward` inspects at least `3` random artifacts (at least one Player message, one Observation, and one metadata/receipt header) and records the spot-check in `hosted_study_promotion`.
 
 ## Consequences
 - External enrollment and Steward independence are auditable in git history.
