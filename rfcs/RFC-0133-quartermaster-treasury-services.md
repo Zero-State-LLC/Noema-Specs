@@ -42,7 +42,7 @@ Existing treasury REPAIR (RFC-0029) already spends the vault.
 
 Owner approval: Danny, in chat, 2026-11-25 ("yes for both decisions" on S9 option A: let the Quartermaster office build from the treasury).
 
-`COMMIT CONSTRUCT { class, acting_for, office_id }`, where the office resolves as in section 1:
+`BUILD CONSTRUCT { class, acting_for, office_id }` (the existing construction verb, GC2), where the office resolves as in section 1:
 
 - `class` must be in `treasury_construct_classes` = **generator**, **storage_bay**. Other classes fail with `FORBIDDEN` "The treasury cannot fund that build."
 - The **cargo** part of the class cost (`storage`, after the workshop discount) is paid from treasury `storage`. If the vault is short, the build fails with `BUDGET_EXCEEDED` "The treasury cannot pay this build." and nothing moves.
