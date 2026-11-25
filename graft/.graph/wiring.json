@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 392,
-    "edgeCount": 1247,
+    "nodeCount": 394,
+    "edgeCount": 1252,
     "languages": [
       "python"
     ],
@@ -404,6 +404,35 @@
       "exported": true,
       "origin": "ast",
       "body_hash": "b3666470d6a68c361df9657e9eddc8a5c5602b7e4c5261c6e12dd77dabab0311",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/check_gc_proposals.py",
+      "name": "check_gc_proposals.py",
+      "kind": "file",
+      "path": "tools/check_gc_proposals.py",
+      "span": "L1-L65",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "5510bb2454db9d40f76af1b9d79e02fa91fd4907434e98e00d89cd2a14eeae6a",
+      "chars": 2113,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tools/check_gc_proposals.py#main",
+      "name": "main",
+      "kind": "function",
+      "path": "tools/check_gc_proposals.py",
+      "span": "L13-L60",
+      "signature": "def main() -> int",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "b3b04d189af13be499b0d7939ff63a3bd2ff125d99da0e046279a768fa2fc753",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -5980,6 +6009,36 @@
       "target": "tools/validate_locked_contracts.py#validate_study_promotion_receipt",
       "relation": "calls",
       "confidence": "inferred"
+    },
+    {
+      "source": "tools/check_gc_proposals.py",
+      "target": "tools/check_gc_proposals.py#main",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_gc_proposals.py",
+      "target": "tools/check_gc_proposals.py#main",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_gc_proposals.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_gc_proposals.py",
+      "target": "pathlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tools/check_gc_proposals.py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "extracted"
     },
     {
       "source": "tools/check_psr1_readiness.py",
