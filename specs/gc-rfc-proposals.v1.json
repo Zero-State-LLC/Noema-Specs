@@ -1,0 +1,110 @@
+{
+  "schema_version": "gc-rfc-proposals/1.0",
+  "ratification_adr": "docs/adr/0010-gc-rfc-proposals-ratification-gate.md",
+  "proposals": [
+    {
+      "id": "GC1-FAILED-ATTEMPTS-WEIGHTS",
+      "gc": "GC1",
+      "gap_id": "B1a",
+      "path": "rfcs/RFC-PROPOSAL-GC1-FAILED-ATTEMPTS-WEIGHTS.md",
+      "seed_doc": "docs/GC1-FAILED-ATTEMPTS-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC1-FULL-MASTERY-EXTENSION",
+      "gc": "GC1",
+      "gap_id": "B1b",
+      "path": "rfcs/RFC-PROPOSAL-GC1-FULL-MASTERY-EXTENSION.md",
+      "seed_doc": "docs/GC1-MULTI-FOCUS-MAGNITUDES-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC2-CONSTRUCTION-QUANTITIES",
+      "gc": "GC2",
+      "gap_id": "B2a",
+      "path": "rfcs/RFC-PROPOSAL-GC2-CONSTRUCTION-QUANTITIES.md",
+      "seed_doc": "docs/GC2-CONSTRUCTION-QUANTITIES-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC2-OWNER-STEWARD",
+      "gc": "GC2",
+      "gap_id": "B2b",
+      "path": "rfcs/RFC-PROPOSAL-GC2-OWNER-STEWARD.md",
+      "seed_doc": "docs/GC2-OWNER-STEWARD-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC4-BROADER-COI",
+      "gc": "GC4",
+      "gap_id": "B4",
+      "path": "rfcs/RFC-PROPOSAL-GC4-BROADER-COI.md",
+      "seed_doc": "docs/GC4-BROADER-COI-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC7-CRIME-DETECTION-SANCTION",
+      "gc": "GC7",
+      "gap_id": "B7a",
+      "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-DETECTION-SANCTION.md",
+      "seed_doc": "docs/GC7-CRIME-DETECTION-SANCTION-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC7-CRIME-ENFORCEMENT",
+      "gc": "GC7",
+      "gap_id": "B7b",
+      "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-ENFORCEMENT.md",
+      "seed_doc": "docs/GC7-CRIME-ENFORCEMENT-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC7-CRIME-EVIDENCE-ALGORITHM",
+      "gc": "GC7",
+      "gap_id": "B7c",
+      "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-EVIDENCE-ALGORITHM.md",
+      "seed_doc": "docs/GC7-CRIME-EVIDENCE-ALGORITHM-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION",
+      "gc": "GC7",
+      "gap_id": "B7d",
+      "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-PAYLOAD-VICTIM-RECONCILIATION.md",
+      "seed_doc": "docs/GC7-CRIME-PAYLOAD-VICTIM-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC7-CRIME-REHABILITATION",
+      "gc": "GC7",
+      "gap_id": "B7e",
+      "path": "rfcs/RFC-PROPOSAL-GC7-CRIME-REHABILITATION.md",
+      "seed_doc": "docs/GC4-CRIME-EXPULSION-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC8-LOT-GRADE-RESIDUALS",
+      "gc": "GC8",
+      "gap_id": "B8a",
+      "path": "rfcs/RFC-PROPOSAL-GC8-LOT-GRADE-RESIDUALS.md",
+      "seed_doc": "docs/GC8-LOT-GRADE-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC9-THRESHOLD-TRANSMISSION",
+      "gc": "GC9",
+      "gap_id": "B9",
+      "path": "rfcs/RFC-PROPOSAL-GC9-THRESHOLD-TRANSMISSION.md",
+      "seed_doc": "docs/GC9-THRESHOLD-SEED.md",
+      "status": "draft"
+    },
+    {
+      "id": "GC10-WED-CLASS-SCAR",
+      "gc": "GC10",
+      "gap_id": "B10",
+      "path": "rfcs/RFC-PROPOSAL-GC10-WED-CLASS-SCAR.md",
+      "seed_doc": "docs/GC10-WED-CLASS-SEED.md",
+      "status": "draft"
+    }
+  ]
+}
