@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC2 Construction Quantities and Material Tables (B2a)
 
-**Status:** Minimal draft proposal. Bounded. Design/research only. No contract, catalog, verb, or exposure change.
+**Status:** Superseded by [RFC-0139](RFC-0139-regional-lots-and-portable-items.md), [RFC-0140](RFC-0140-storefronts-barter-and-supersession.md), and [RFC-0144](RFC-0144-multi-focus-artificer-stewardship-and-org-join.md). Retained for historical framing.
 
 **Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B2a (PARTIALLY_CLOSED / OPEN_SPEC residual in GC2).
 

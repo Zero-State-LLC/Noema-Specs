@@ -11,7 +11,10 @@
 - MUD command protocol: `mud-command/v1`
 - Event schema: `event-schema/v1`
 - Event catalog: `event-catalog/0.1` (24 types), `event-catalog/0.2` (32 types; RFC-0002 + RFC-0127; `CRIME_DETECTED` payload amendment RFC-0129)
-- Contest rules: `contest-rules/0.2.0`
+- Contest rules: `contest-rules/0.2.0` (live runtime pin), `contest-rules/0.2.1` (Accepted specification via [RFC-0139](../rfcs/RFC-0139-regional-lots-and-portable-items.md); additive equipment millipoint rules, not a live runtime pin until deployed)
+- Items catalog: `items-catalog/0.1` ([`items-catalog.0.1.json`](../specs/items-catalog.0.1.json), Accepted specification via [RFC-0139](../rfcs/RFC-0139-regional-lots-and-portable-items.md); not yet a live runtime pin)
+- Shop catalog: `shop-catalog/0.1` ([`shop-catalog.0.1.json`](../specs/shop-catalog.0.1.json), Accepted specification via [RFC-0140](../rfcs/RFC-0140-storefronts-barter-and-supersession.md); not yet a live runtime pin)
+- Crime enforcement catalog: `crime-enforcement-catalog/0.1` ([`crime-enforcement-catalog.0.1.json`](../specs/crime-enforcement-catalog.0.1.json), Accepted specification via [RFC-0143](../rfcs/RFC-0143-crime-producer-and-accountable-enforcement.md); not yet a live runtime pin)
 - Agreement rules: `agreement-rules/0.2.0`
 - Replay protocol: `replay-protocol/v1`
 - Situation genome: `situation-genome/0.2` (legacy samples may use `1.0`)

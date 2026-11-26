@@ -168,6 +168,19 @@ drafts", which was inaccurate. The index now distinguishes Draft, Review and Acc
 | [RFC-0129](RFC-0129-crime-detected-payload-reconciliation.md) | **Accepted** | Optional `victim_id` + `visibility` on `CRIME_DETECTED` 0.2; no default; co-extensive with `PUBLIC_HISTORY`; closes `B7a`; no producer, no `event-catalog/0.3` |
 
 | [RFC-0131](RFC-0131-study-access-control-plane.md) | **Draft** | Admin-invited read-only study/world preparation access; security/machine-contract/durable-adapter acceptance pending; no implementation or hosting authority |
+| [RFC-0132](RFC-0132-watch-entity-update-exposure-decisions.md) | **Accepted** | Explicit WATCH `ENTITY_UPDATE` exposure decisions (`RESTORE`, `VEST`, `PROMOTE` open; others silent) |
+| [RFC-0133](RFC-0133-quartermaster-treasury-services.md) | **Accepted** | Quartermaster treasury harvest, `COMMIT.SUPPLY`, and amendment 1 treasury `CONSTRUCT` (`generator`, `storage_bay`) |
+| [RFC-0134](RFC-0134-watch-room-view-and-resident-visibility.md) | **Accepted** | Full-screen 3D Place View and resident public activity visibility on `/watch` |
+| [RFC-0135](RFC-0135-perihelion-orbital-pressure-waves.md) | **Accepted** | Recurring 60-cycle Perihelion orbital pressure waves past cycle 20 |
+| [RFC-0136](RFC-0136-generator-recharge-and-deeptime-watch-projection.md) | **Accepted** | Generator-powered `RECHARGE` verb and band-redacted Deep Time / Culture projection on `watch-live/1.0` |
+| [RFC-0137](RFC-0137-deeptime-interventions-and-joint-construction.md) | **Accepted** | Deep Time interventions (`COMMEMORATE`, `REMEDIATE`) and collaborative `BUILD_CONTRIBUTE` |
+| [RFC-0138](RFC-0138-ws06-civic-contracts-and-mastery-tracks.md) | **Accepted** | Escrowed WS06 civic contracts and `archivist` / `herald` mastery tracks |
+| [RFC-0139](RFC-0139-regional-lots-and-portable-items.md) | **Accepted** | Regional material sub-lots (`FERROUS_ORE`, `SILICA_CELL`, `SALVAGE_COMPOSITE`), 3 lot grades, 3 equip slots, and 12-item tool/weapon/rig/battery catalog (`items-catalog/0.1`, `contest-rules/0.2.1`) |
+| [RFC-0140](RFC-0140-storefronts-barter-and-supersession.md) | **Accepted** | Constructible `barter_stall` storefronts, standing full-reserve `ShopListing`s, atomic `TRADE` `fulfill`, `WS01` local clearing tape, and `WS02` `SUPERSEDED` rules (`shop-catalog/0.1`) |
+| [RFC-0141](RFC-0141-orin-system-fleet-and-client-v02-contracts.md) | **Accepted** | `Noema-Orin` 6-unit resident fleet loadouts, planner-only shop pricing, `RsiRatchet` bounds, and `noema-client` `v0.2.0` action/policy synchronization |
+| [RFC-0142](RFC-0142-ewm-integer-conversions-and-affordance-unlocks.md) | **Accepted** | Integer EWM `COMMIT.CONVERT` synthesis, `Observation.unlocked_affordances`, and removal of float `P3_*` / server `BeliefState` stubs |
+| [RFC-0143](RFC-0143-crime-producer-and-accountable-enforcement.md) | **Accepted** | Deterministic seeded `CRIME_DETECTED` producer, forensic `COMMIT.INVESTIGATE`, accountable office `COMMIT.SANCTION`, and `3 / 5 / 8` severity-scaled rehabilitation (`crime-enforcement-catalog/0.1`) |
+| [RFC-0144](RFC-0144-multi-focus-artificer-stewardship-and-org-join.md) | **Accepted** | Multi-focus cap `2`, `track.artificer.01`, `creator_id`/`steward_id` split, `COMMIT.ORG_JOIN`, `DELIVER_LOT`/`CRAFT_ITEM` contracts, and band-redacted market/equipment WATCH |
 
 ## Required review lenses
 

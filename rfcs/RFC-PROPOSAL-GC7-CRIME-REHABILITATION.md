@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC7 Crime Rehabilitation Severity and Restitution Alignment (B7e)
 
-**Status:** Minimal draft proposal, **two premises corrected 2026-08-31**. Bounded. Design/research only. No contract, catalog, verb, or exposure change.
+**Status:** Superseded by [RFC-0143](RFC-0143-crime-producer-and-accountable-enforcement.md) (retaining the two 2026-08-31 premise corrections below).
 
 **Correction.** Two of the four bullets below rest on a misreading that originated in the `B7e` register row, not in this note — the row has been corrected at source. Recorded here so the proposal is not reviewed on a false basis:
 

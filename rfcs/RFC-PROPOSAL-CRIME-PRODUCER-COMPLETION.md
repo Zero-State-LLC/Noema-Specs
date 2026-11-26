@@ -1,6 +1,6 @@
 # RFC Proposal: RFC-0002 Crime Producer Completion (Draft Skeleton)
 
-**Status:** Proposal skeleton. Not Accepted. Design input only.
+**Status:** Superseded by [RFC-0143](RFC-0143-crime-producer-and-accountable-enforcement.md). Retained for historical framing.
 
 **Authorizing (for proposal):** [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](../docs/POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md) · [CRIME-PRODUCER-RESEARCH-SEED.md](../docs/CRIME-PRODUCER-RESEARCH-SEED.md) · [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](../docs/RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) · RFC-0002 (Accepted) · STRATEGIC-CONFLICT.md.
 

@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC7 Crime Detection Evidence Algorithm (B7b)
 
-**Status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
+**Status:** Superseded by [RFC-0143](RFC-0143-crime-producer-and-accountable-enforcement.md). Retained for historical framing.
 
 **Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B7b (OPEN_SPEC in GC7 crime).
 

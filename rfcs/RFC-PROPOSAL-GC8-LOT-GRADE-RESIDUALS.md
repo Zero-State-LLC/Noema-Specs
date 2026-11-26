@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC8 Lot Grade Residuals (B8a)
 
-**Status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
+**Status:** Superseded by [RFC-0139](RFC-0139-regional-lots-and-portable-items.md). Retained for historical framing.
 
 **Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B8a (PARTIALLY_CLOSED in GC8 economy).
 
