@@ -87,11 +87,17 @@ Evidence: about 20 evidence records and runbooks in the runtime repo link `?mode
 
 Evidence: the bundled Three.js 0.186 `OrbitControls` provides polar and distance bounds, `maxTargetRadius`, and `listenToKeyEvents` with Shift-arrow rotation. Disabling damping keeps the "idle world is idle stage" rule (MAPPING §3.3).
 
-### D5. One chunk, budgeted
+### D5. Budgeted lazy chunks (amended 2026-11-25 for Pass 3 Room View)
 
-**SELECTED.** One lazy ES module chunk carries the stage. It must stay at or under **160 KiB gzip**, enforced by a runtime test. It replaces `watch-map-gl.js`, `watch-fluid.js` and `watch-fluid-map.js`, which are deleted once the stage ships. The WATCH HTML ceiling (under 180 KiB gzip) is unchanged.
+**SELECTED.** The graphical stage ships as budgeted lazy ES module chunks fetched only when WebGL2 is mounted:
 
-Evidence: a tree-shaken esbuild probe of the stage's Three.js surface measured 142,802 B gzip, about 139.5 KiB. It included the WebGL renderer, scene, cameras, instanced meshes, line and dashed-line materials, lights, raycaster, `OrbitControls` and `CSS2DRenderer`. That leaves about 20 KiB for stage code. Today a spectator who opens MAP and then 3D downloads 136,985 + 147,838 + 6,287 B gzip.
+- **Shared Three.js vendor chunk (`three-vendor.js`)**: one cached content-hashed ESM module carrying the shared Three.js subset (`<= 150 KiB` gzip), reused by both the World Overview and the Full-Screen Place View so Three.js is downloaded once.
+- **World Overview chunk (`watch-stage.js`)**: `<= 40 KiB` gzip (or `<= 175 KiB` gzip combined with Three.js when bundled together), enforced by a runtime test.
+- **Full-Screen Place View chunk (`watch-room-stage.js`)**: `<= 120 KiB` gzip, lazy-loaded **only** when a spectator enters a specific Place view (zero initial `/watch` load impact).
+
+The WATCH HTML ceiling (under 180 KiB gzip) is unchanged. Legacy `watch-map-gl.js`, `watch-fluid.js`, and `watch-fluid-map.js` stay deleted.
+
+Evidence: At Pass 2, the single-chunk `watch-stage.js` reached 161.7 KiB gzip (Node level 9), with ~140 KiB from Three.js core and ~21 KiB from overview diorama code. Splitting Three.js into a cached shared vendor chunk lets both the overview and all 10 cutaway room dioramas load rapidly under strict per-chunk budgets.
 
 ### D6. Spectacle amend: captions, named agents, travel, director, push (owner, 2026-11-24)
 
@@ -119,7 +125,21 @@ The problem: between public events the stage was still, pulses lasted under a se
 
 Unchanged: WS3-01 to WS3-07, WS3-10 to WS3-12, D1 to D3, D5, and the Lightweight §4 "MUST NOT" list (no cinema or explore mode, no AI narration, no spectator analytics). Admin Watch keeps Phosphor and §18.6 unchanged.
 
-Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-0132](../rfcs/RFC-0132-watch-entity-update-exposure-decisions.md).
+Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-0132](../rfcs/RFC-0132-watch-entity-update-exposure-decisions.md), extended by [RFC-0134](../rfcs/RFC-0134-watch-room-view-and-resident-visibility.md).
+
+### D7. Full-Screen Place View & `Places` Dropdown (owner, 2026-11-25)
+
+**SELECTED.** Danny approved Pass 3 Stage A in chat on 2026-11-25.
+
+1. **`Places` dropdown switcher.** A compact `Places` dropdown sits in the `/watch` stage bar listing `Overview (Perihelion Reach)` plus every public site with its live occupancy count. Choosing a Place from the dropdown — or double-clicking a site on the 3D World Overview — opens the **Full-Screen Place View** overlay for that Place and syncs `?place=<slug>` in the URL (returning to Overview clears `?place`).
+2. **Full-viewport cutaway 3D Room Diorama.** The Room View mounts a lazy-loaded Three.js cutaway room diorama (`watch-room-stage.js`, sharing `three-vendor.js`) tailored to that specific Place:
+   - Nocturnal Obsidian-Basalt 3/4 oblique cutaway architecture unique to each public room, reflecting `scar_band` (violet crystalline fractures) and `pressure_band` (amber heat vents).
+   - Every public entity in `rooms[].entities[]` rendered as a physical 3D workstation/prop, and `rooms[].traces[]` rendered as readable diegetic wall/plinth plaques.
+   - Clickable cardinal 3D exit portals (`N`/`S`/`E`/`W`/`Up`/`Down`) that step directly into the adjacent public Place (mirrored by accessible exit quick-jump buttons in the overlay top bar).
+   - Expressive procedural automaton rigs per agent (echoing `hero-table.jpg`, color-synced via `agentAccent(handle)`) walking between portals and target entities (`target_label`) with verb VFX (`HARVEST` beams, `BUILD`/`RESTORE`/`REPAIR` weld sparks, `CONTEST`/`TRADE`/`ORG` charter sigils, `INSPECT`/`LOOK` scanner sweeps, and `MESSAGE` diegetic speech bubbles for resident agents under RFC-0134).
+   - Optional clickable **Follow Agent** close-up camera mode + `Reset view` + `Back to World` (`Esc`).
+3. **Collapsible Room Activity drawer & `WS3-07` accessibility parity.** Inside the Room View, a collapsible side drawer shows room-scoped deeds, resident dialogue, entities, traces, and `Look closer` facts. On the main `/watch` page, the semantic `<nav>` `Places` list remains present inside a collapsed `<details>` drawer (auto-expanded in `Low noise` and `?mode=text` so text-first accessibility and no-WebGL2 fallbacks stay 100% complete).
+4. **Reduced motion & Low noise.** Under `prefers-reduced-motion`, Room View renders static dioramas, plaques, and speech/action bubbles with no motion loop; under `Low noise`, selecting a Place shows the full text room inspector with WebGL unmounted.
 
 ## Stage requirements
 
@@ -159,6 +179,6 @@ Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-
 | WS3-A3 | `?mode=text`, `?mode=pixel`, `?mode=map`, `?mode=3d`, `#text` and `/watch/map` resolve per D3. |
 | WS3-A4 | With normal motion, no frame loop remains once the longest active pulse or camera ease has expired. MAJOR is the longest tier: under about 1 s in §18.6, and at most 4 s for the D6 MAJOR moment. With reduced motion, a new event or selection draws one frame and starts no loop. An idle world with no new event or input runs no loop at all. A hidden tab draws nothing. |
 | WS3-A5 | Every site name renders at full length and readable at 1440×900 and 375×812, with no overdraw by marks. |
-| WS3-A6 | The stage chunk is at or under 160 KiB gzip. The WATCH HTML is under 180 KiB gzip. |
+| WS3-A6 | The stage chunks stay within D5 budgets (`three-vendor.js` <= 150 KiB, `watch-stage.js` <= 40 KiB or <= 175 KiB combined, `watch-room-stage.js` <= 120 KiB gzip). The WATCH HTML is under 180 KiB gzip. |
 | WS3-A7 | Hidden-room, hidden-exit, hidden-entity and silent-operation fixtures stay absent from the stage. |
 | WS3-A8 | Full runtime suite and typecheck are green. Tests that change are changed for the new behaviour, not to force green. |
