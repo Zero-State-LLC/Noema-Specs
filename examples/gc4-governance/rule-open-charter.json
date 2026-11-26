@@ -1,0 +1,31 @@
+{
+  "rule_id": "rule.civic-exchange.open-charter",
+  "org_id": "org.civic-exchange",
+  "published": true,
+  "decision": {
+    "offices": [
+      "office.civic-exchange.founder"
+    ],
+    "quorum": 1
+  },
+  "appointment": {
+    "mechanism": "DESIGNATED"
+  },
+  "jurisdiction": {
+    "rooms": [
+      "room.civic-exchange"
+    ]
+  },
+  "enforcement": {
+    "operation": "ORG_JOIN"
+  },
+  "failure": {
+    "on_vacancy": "REFUSE",
+    "on_deadlock": "REFUSE",
+    "on_expiry": "LAPSE"
+  },
+  "evidence": {
+    "record": "PUBLIC_NOTICE"
+  },
+  "admission_mode": "OPEN_CHARTER"
+}

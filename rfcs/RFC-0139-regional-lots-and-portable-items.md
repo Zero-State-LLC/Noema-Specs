@@ -24,7 +24,7 @@ Machine contract: [`items-catalog.0.1.json`](../specs/items-catalog.0.1.json).
    - `SALVAGE_COMPOSITE`: `room.outer-works`, `room.storage-district`, `room.frontier-gate`, `room.civic-exchange`, plus any `DISMANTLE` or `SCRAP_ITEM` salvage. `SALVAGE_COMPOSITE` may substitute for missing `FERROUS_ORE` or `SILICA_CELL` in generic `REPAIR`/`CONSTRUCT` at `+1` extra unit, never in specialized `CRAFT` recipes.
 3. **Closed Lot Grades (`WORN` | `SOUND` | `REFINED`):**
    - `WORN`: harvested when node `condition < 50`; spoils `1` unit/cycle in personal pack (`0` spoilage while stored inside an operational `storage_bay` or `barter_stall` with `condition >= 50`); crafted items start at `condition = 70`.
-   - `SOUND`: harvested when `50 <= condition < 85`, or upgraded from `WORN` via `stabilizer_kit`; never spoils; crafted items start at `condition = 100`.
+   - `SOUND`: harvested when `condition >= 50` (including `condition >= 85` whenever the harvester does not equip a `plasma_cutter`), or upgraded from `WORN` via `stabilizer_kit`; never spoils; crafted items start at `condition = 100`.
    - `REFINED`: produced via `COMMIT` `operation: "REFINE"` (`2 SOUND -> 1 REFINED` of same archetype at a ready `workshop`, cost `{ energy: 2, compute: 1 }`), or harvested at `condition >= 85` while equipping `plasma_cutter`; reduces `CONSTRUCT`/`UPGRADE` cargo cost by `1` (min `1`); items crafted solely from `REFINED` lots receive `quality: "TEMPERED"` (`condition = 120`, `max_condition = 120`).
 
 ### 2. Portable Item Entities & Equipment Slots (`event-catalog/0.2` Compatible)

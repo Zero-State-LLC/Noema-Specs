@@ -148,6 +148,13 @@
           ]
         }
       }
+    },
+    "admission_mode": {
+      "enum": [
+        "INVITE_ONLY",
+        "OPEN_CHARTER"
+      ],
+      "description": "Optional additive charter admission mode (RFC-0144). Omitted or INVITE_ONLY requires explicit invite or ORG_MEMBER_ADD; OPEN_CHARTER permits COMMIT.ORG_JOIN for non-danger actors."
     }
   }
 }

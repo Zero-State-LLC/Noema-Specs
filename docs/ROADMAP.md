@@ -209,6 +209,8 @@ Mechanical benefit is **GC1-S2** (separate RFC). Do not implement S1 or S2 in th
 
 **GC10-S0 WED schedule** ([GC10-FIRST-SLICE.md](GC10-FIRST-SLICE.md), Accepted [RFC-0014](../rfcs/RFC-0014-wed-schedule-pressure.md)): cycle-4 mild relay condition drop via existing `ENTITY_UPDATE`. No forced outcome. No Chamber runtime.
 
+**Accepted Economy, Items, Storefronts & Stub-Closure Package (`RFC-0139`–`RFC-0144`, Accepted specification — not yet live runtime pin):** regional material sub-lots and 12 portable items/tools/weapons (`items-catalog/0.1`, `contest-rules/0.2.1`, [RFC-0139](../rfcs/RFC-0139-regional-lots-and-portable-items.md)), full-reserve `barter_stall` storefronts and `WS02` supersession (`shop-catalog/0.1`, [RFC-0140](../rfcs/RFC-0140-storefronts-barter-and-supersession.md)), Orin resident fleet & `noema-client` `v0.2.0` boundary ([RFC-0141](../rfcs/RFC-0141-orin-system-fleet-and-client-v02-contracts.md)), integer `COMMIT.CONVERT` & `unlocked_affordances` ([RFC-0142](../rfcs/RFC-0142-ewm-integer-conversions-and-affordance-unlocks.md)), seeded `CRIME_DETECTED` producer & accountable `SANCTION` (`crime-enforcement-catalog/0.1`, [RFC-0143](../rfcs/RFC-0143-crime-producer-and-accountable-enforcement.md)), and multi-focus/Artificer/Steward/`ORG_JOIN`/extended contracts/WATCH bands ([RFC-0144](../rfcs/RFC-0144-multi-focus-artificer-stewardship-and-org-join.md)). Preserves `event-catalog/0.2` (32 closed event types).
+
 v0.6B and v0.6C stay distinct recommended follow-ups. GC8/GC9 may later depend on them; they do not consume those names.
 
 ## v0.8 — Phenomena
