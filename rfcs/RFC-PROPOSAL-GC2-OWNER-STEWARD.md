@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC2 Owner vs Steward Split (B2b)
 
-**Status:** Minimal draft proposal. Bounded. Design/research only. No contract, catalog, verb, or exposure change.
+**Status:** Superseded by [RFC-0144](RFC-0144-multi-focus-artificer-stewardship-and-org-join.md). Retained for historical framing.
 
 **Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B2b (OPEN_SPEC in GC2).
 

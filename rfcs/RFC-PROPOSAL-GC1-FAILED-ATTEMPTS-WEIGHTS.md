@@ -1,6 +1,6 @@
 # RFC-PROPOSAL: GC1 Failed-but-Legal Practice Attempt Weights (B1a)
 
-**Status:** Minimal draft proposal. Derived from design note. Inputs only until accepted.
+**Status:** Superseded by [RFC-0144](RFC-0144-multi-focus-artificer-stewardship-and-org-join.md). Retained for historical framing.
 
 **Parent gap:** SPEC-GAP-REGISTER-2026-08-25 B1a (OPEN_SPEC in GC1 mastery).
 

@@ -1,6 +1,6 @@
 # RFC Proposal: GC1 Full Mastery & Specialization Surface (Draft Skeleton)
 
-**Status:** Proposal skeleton. Not Accepted. Design input only.
+**Status:** Superseded by [RFC-0138](RFC-0138-ws06-civic-contracts-and-mastery-tracks.md) and [RFC-0144](RFC-0144-multi-focus-artificer-stewardship-and-org-join.md). Retained for historical framing.
 
 **Authorizing (for proposal):** [POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md](../docs/POST-RESEARCH-ASSIMILATION-NEXT-10-STEPS-PLAN.md) · [MASTERY-SPECIALIZATION-RESEARCH-SEED.md](../docs/MASTERY-SPECIALIZATION-RESEARCH-SEED.md) · [RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md](../docs/RESEARCH-ASSIMILATION-2026-08-27-ARXIV-DISTILLATIONS-GC-GAPS.md) · GAME-COMPLETENESS-PLAN GC1.
 
