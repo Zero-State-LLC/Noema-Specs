@@ -153,6 +153,15 @@ def validate_procedures(procs: dict[str, Any]) -> list[str]:
         for ref in re.findall(r"SKILL\.[A-Z_]+", json.dumps(s)):
             if ref not in skills:
                 errs.append(f"{name}: refers to unknown procedure {ref}")
+    for v in procs.get("vendored", []):
+        lock = json.loads((ROOT / v["lock"]).read_text(encoding="utf-8")).get("skills", {})
+        dirs = {p.parent.name for p in (ROOT / v["dir"]).glob("*/SKILL.md")}
+        for name in sorted(set(lock) - dirs):
+            errs.append(f"{v['dir']}: {name} is in {v['lock']} but not installed")
+        for name in sorted(dirs - set(lock)):
+            errs.append(f"{v['dir']}: {name} is installed but not pinned in {v['lock']}")
+    for mirror in procs.get("mirrors", []):
+        errs += _mirror_errors(procs, mirror)
     t = procs.get("triage")
     if t:
         labels = set(t["states"])
@@ -171,6 +180,39 @@ def validate_procedures(procs: dict[str, Any]) -> list[str]:
             errs.append(f"{path.relative_to(ROOT)}: no agent-machine:{name} block")
         elif cur != block.strip("\n") + "\n":
             errs.append(f"{path.relative_to(ROOT)}: {name} block is out of date: run `python3 .agents/docs.py render --write`")
+    return errs
+
+
+def section(text: str, heading: str | None) -> str | None:
+    if heading is None:
+        return text
+    m = re.search(rf"^{re.escape(heading)}\s*$", text, re.M)
+    if not m:
+        return None
+    rest = text[m.end():]
+    nxt = re.search(r"^## ", rest, re.M)
+    return rest[: nxt.start()] if nxt else rest
+
+
+def _mirror_errors(procs: dict[str, Any], mirror: dict[str, Any]) -> list[str]:
+    """A hand-written doc (for example a skill shipped to players) must stay aligned with machine data."""
+    path = ROOT / mirror["file"]
+    where_ = f"{mirror['file']}{' ' + mirror['section'] if mirror.get('section') else ''}"
+    body = section(path.read_text(encoding="utf-8"), mirror.get("section")) if path.is_file() else None
+    if body is None:
+        return [f"{where_}: missing (mirror of .agents/procedures.json)"]
+    src = procs
+    for part in (mirror.get("steps") or mirror.get("mentions")).split("."):
+        src = src[part]
+    errs = []
+    if mirror.get("steps"):
+        got = [re.sub(r"^\d+\.\s+", "", ln).strip() for ln in body.splitlines() if re.match(r"^\d+\.\s", ln)]
+        if got != list(src):
+            errs.append(f"{where_}: numbered steps {got} != {mirror['steps']} {list(src)}")
+    else:
+        for token in src:
+            if token.lower() not in body.lower():
+                errs.append(f"{where_}: does not mention {token!r} ({mirror['mentions']})")
     return errs
 
 
@@ -208,6 +250,8 @@ def _load_run() -> dict[str, Any] | None:
 
 
 def where(procs: dict[str, Any]) -> str:
+    if not procs.get("skills"):
+        return "This repo defines no runnable procedures in .agents/procedures.json."
     run = _load_run()
     if not run:
         return "No procedure running. Start one: `python3 .agents/docs.py run SKILL.ORIENT`."
@@ -286,6 +330,13 @@ def normalize(raw: str | None, kind: dict[str, Any]) -> str | None:
     return best[1] if best else None
 
 
+def entries(kind: dict[str, Any], text: str | None = None) -> dict[str, str]:
+    """For kinds that live as headed entries in one file: id -> raw status."""
+    e = kind["entries"]
+    text = (ROOT / e["file"]).read_text(encoding="utf-8") if text is None else text
+    return {m.group("id"): m.group("status").strip() for m in re.finditer(e["heading"], text, re.M)}
+
+
 def documents(kind: dict[str, Any]) -> dict[str, Path]:
     files = sorted(ROOT.glob(kind["files"]))
     return {p.name: p for p in files if not any(fnmatch.fnmatch(str(p.relative_to(ROOT)), x) for x in kind.get("exclude", []))}
@@ -306,6 +357,9 @@ def forward(kind: dict[str, Any], old: str, new: str) -> bool:
 def lifecycle_violations(lc: dict[str, Any], since: str | None = None) -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
     for kid, kind in lc.get("kinds", {}).items():
+        if "entries" in kind:
+            out += _entry_violations(kid, kind, since)
+            continue
         docs = documents(kind)
         index = index_rows(kind)
         for fname, path in docs.items():
@@ -313,6 +367,8 @@ def lifecycle_violations(lc: dict[str, Any], since: str | None = None) -> list[d
             ref = f"{kid}:{fname}"
             if raw is None and fname in index:  # the index alone may carry the status (e.g. RFC-0001)
                 raw = index[fname]
+            if raw is None and kind.get("default"):  # format says a bare record is in this state
+                raw = kind["default"]
             state = normalize(raw, kind)
             if raw is None:
                 out.append({"key": f"{ref}:no_status", "detail": "no status in the file or its index"})
@@ -342,13 +398,42 @@ def lifecycle_violations(lc: dict[str, Any], since: str | None = None) -> list[d
     return out
 
 
+def _entry_violations(kid: str, kind: dict[str, Any], since: str | None) -> list[dict[str, str]]:
+    out: list[dict[str, str]] = []
+    rel = kind["entries"]["file"]
+    now = entries(kind)
+    old: dict[str, str] = {}
+    if since:
+        prev = subprocess.run(["git", "show", f"{since}:{rel}"], cwd=ROOT, capture_output=True, text=True)
+        old = entries(kind, prev.stdout) if prev.returncode == 0 else {}
+    for eid, raw in now.items():
+        state = normalize(raw, kind)
+        if state is None:
+            out.append({"key": f"{kid}:{eid}:unknown_status", "detail": f"{rel}: status {raw!r} is not a {kind['title']} state ({', '.join(kind['states'])})"})
+        elif eid in old:
+            before = normalize(old[eid], kind)
+            if before and not forward(kind, before, state):
+                out.append({"key": f"{kid}:{eid}:backward:{before}->{state}", "detail": f"{before} → {state} is not a forward move ({kind['declared']})"})
+    for eid in old:
+        if eid not in now:
+            out.append({"key": f"{kid}:{eid}:removed", "detail": f"{rel}: entry removed; record a new status instead"})
+    return out
+
+
 def report(lc: dict[str, Any]) -> str:
     lines = []
     for kid, kind in lc.get("kinds", {}).items():
+        if "entries" in kind:
+            counts_e: dict[str, int] = {}
+            for raw in entries(kind).values():
+                st = normalize(raw, kind) or "(unrecognized)"
+                counts_e[st] = counts_e.get(st, 0) + 1
+            lines.append(f"{kind['title']}: " + ", ".join(f"{s} {n}" for s, n in counts_e.items()) + f"   [{kind['declared']}]")
+            continue
         counts: dict[str, int] = {}
         index = index_rows(kind)
         for fname, path in documents(kind).items():
-            raw = status_text(path.read_text(encoding="utf-8"), kind["status"]) or index.get(fname)
+            raw = status_text(path.read_text(encoding="utf-8"), kind["status"]) or index.get(fname) or kind.get("default")
             st = normalize(raw, kind) or "(unrecognized)"
             counts[st] = counts.get(st, 0) + 1
         order = kind["states"] + ["(unrecognized)"]
@@ -406,7 +491,8 @@ def main(argv: list[str]) -> int:
                 print(f"docs-machine: {e}", file=sys.stderr)
             if not errs:
                 n = len(_read(BASELINE).get("known", []))
-                print(f"docs-machine ok: {len(procs.get('skills', {}))} procedures, lifecycles legal ({n} known defects baselined)")
+                vend = sum(len(json.loads((ROOT / v["lock"]).read_text()).get("skills", {})) for v in procs.get("vendored", []))
+                print(f"docs-machine ok: {len(procs.get('skills', {}))} procedures, {vend} vendored pinned, lifecycles legal ({n} known defects baselined)")
             return 1 if errs else 0
         if argv[0] == "render":
             for path, name, block in blocks(procs):
