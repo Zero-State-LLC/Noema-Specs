@@ -104,3 +104,17 @@ class RunbooksAndChecklists(unittest.TestCase):
     def test_checklist_items(self) -> None:
         items = D.checklist_items("- [x] Done thing.\n - [ ] Open thing.\n- not an item\n")
         self.assertEqual(items, {"Done thing.": True, "Open thing.": False})
+
+
+class CrossLinks(unittest.TestCase):
+    def test_accepted_spec_needs_an_accepted_intent(self) -> None:
+        lc = json.loads(D.LIFECYCLES.read_text())
+        spec = lc["kinds"]["spec"]
+        self.assertEqual(D.normalize("Draft for review. Not implementation authority.", spec), "draft")
+        self.assertEqual(D.normalize("proposed design for review.", spec), "draft")
+        self.assertEqual(D.normalize("Specified. Does not implement FE.", spec), "specified")
+        field = spec["requires"][0]["field"]
+        import re
+        self.assertEqual(re.search(field, "**Intent:** [One stage](../intent/2026-11-10-x.md).", re.M).group(1), "2026-11-10-x.md")
+        self.assertEqual(re.search(field, "Intent: [x](../intent/2026-11-26-y.md). Spec: …", re.M).group(1), "2026-11-26-y.md")
+        self.assertIsNone(re.search(field, "supported by its [intent record](../intent/2026-10-14-z.md).", re.M))
