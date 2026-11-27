@@ -1,6 +1,6 @@
 # WATCH Chamber stage: one 3D view — presentation amend
 
-**Status:** Accepted by the owner, 2026-11-10. Amended by the owner, 2026-11-24 (D6, below). The five decisions below were researched and selected under the owner's delegation. Effective in the runtime when the Chamber stage ships; until then the shipped TEXT / PIXEL / MAP rail remains conformant.
+**Status:** Accepted by the owner, 2026-11-10. Amended by the owner, 2026-11-24 (D6, below), 2026-11-25 (D7), and 2026-11-27 (D8 / WS3-08 ambient diorama craft). The five decisions below were researched and selected under the owner's delegation. Effective in the runtime when the Chamber stage ships; until then the shipped TEXT / PIXEL / MAP rail remains conformant.
 **Kind:** Presentation amend for the public `/watch` door.
 **Date:** 2026-11-10
 **Intent:** [One WATCH stage in 3D](../intent/2026-11-10-watch-single-3d-stage.md).
@@ -141,6 +141,15 @@ Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-
 3. **Collapsible Room Activity drawer & `WS3-07` accessibility parity.** Inside the Room View, a collapsible side drawer shows room-scoped deeds, resident dialogue, entities, traces, and `Look closer` facts. On the main `/watch` page, the semantic `<nav>` `Places` list remains present inside a collapsed `<details>` drawer (auto-expanded in `Low noise` and `?mode=text` so text-first accessibility and no-WebGL2 fallbacks stay 100% complete).
 4. **Reduced motion & Low noise.** Under `prefers-reduced-motion`, Room View renders static dioramas, plaques, and speech/action bubbles with no motion loop; under `Low noise`, selecting a Place shows the full text room inspector with WebGL unmounted.
 
+### D8. Pass 4 Visual Craft, Procedural IBL & Gentle Ambient Diorama Motion (owner, 2026-11-27)
+
+**SELECTED.** Danny approved Pass 4 (A, B, and C in sequence) on 2026-11-27. Presentation-only; zero `watch-live/1.0` or `watch-map/1.0` schema changes, zero post-processing passes (D6 §8 retained), and all D5 gzip ceilings remain enforced.
+
+1. **Procedural nocturnal IBL & district PBR materiality (Pass 4A):** Both stages may build a procedural environment cubemap (`PMREMGenerator`) and procedural normal/roughness/ambient-occlusion maps plus lightweight Fresnel rim hooks so metallic brass/steel and obsidian-basalt architecture read with tactile tabletop depth. Each public district may carry distinct procedural floor/wall materiality. Overview updates diff in place when topology is unchanged, dirty-flag shadow map redraws, and throttle DOM label decluttering.
+2. **Curved/instanced geometry & role-matched automaton rigs (Pass 4B):** Shared vendor exports may include `PMREMGenerator`, `LatheGeometry`, `ExtrudeGeometry`, `CatmullRomCurve3`, `TubeGeometry`, `Shape`, and `InstancedMesh` within the 150 KiB D5 cap. Automaton rigs match public role cues (`Founder`, `Quartermaster`, `Custodian`, `Archivist`, `Speaker`, `Surveyor`, with deterministic fallback for external handles) and may use subtle articulated working/walking motion. Cutaway rooms may include volumetric additive light cones and compass-aligned distant exterior silhouettes without implying hidden rooms.
+3. **Macro-to-micro continuity & diegetic label craft (Pass 4C):** Entering a Place may ease the Overview camera toward the clicked plinth before revealing the Room Cutaway (instant under `prefers-reduced-motion`). Shifted Room View speech bubbles may draw subtle leader stems back to their speaker.
+4. **Gentle visible-tab ambient diorama motion (WS3-08 amend):** While the document is visible and `prefers-reduced-motion` is off, subtle in-place diorama life (slow centerpiece machinery rotation, gentle automaton breathing/head-tracking, and active verb VFX) is permitted on the 3D stages. Hidden documents draw nothing, `prefers-reduced-motion` draws static frames with zero frame loop, and decorative scanlines, HUD reticles, and post-processing bloom remain banned.
+
 ## Stage requirements
 
 | ID | Requirement |
@@ -152,8 +161,8 @@ Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-
 | WS3-05 | Routes show direction. Authorized traces appear as marks on their site. Scar, pressure and protocol bands may tint the site plate. Depth stays the transient §18.6-bound elevation (Danny, 2026-10-15); no cumulative towers. |
 | WS3-06 | An HTML map key sits beside the stage and names every mark in plain language. |
 | WS3-07 | The semantic site list stays present and complete: exits with direction, handles, entities, traces, Look closer, site and handle Follow. Every fact on the stage is also in the list, and selection is shared between the two. |
-| WS3-08 | Motion is event-born only: pulses, event captions, route travel, the tier director (D6), Direct-Camera, and spectator input. No ambient loop, particles, fog, scanlines, HUD, or Orbitron-class type. At most one MAJOR treatment at a time. Rendering is on demand; hidden documents draw nothing. |
-| WS3-09 | Reduced motion: no pulses, no exit lighting, no route travel, no MAJOR moment, instant camera. Captions still appear, as still text. Low noise: the stage is unmounted. |
+| WS3-08 | Primary stage motion is event-born: pulses, event captions, route travel, the tier director (D6), Direct-Camera, and spectator input; gentle in-place diorama motion (centerpiece machinery rotation and automaton breathing, D8) is permitted only while the document is visible and `prefers-reduced-motion` is off. No scanlines, HUD reticles, post-processing bloom, or Orbitron-class type. At most one MAJOR treatment at a time. Hidden documents draw nothing. |
+| WS3-09 | Reduced motion: no pulses, no exit lighting, no route travel, no MAJOR moment, no ambient motion, instant camera. Captions still appear, as still text. Low noise: the stage is unmounted. |
 | WS3-10 | Keyboard and touch: sites are reachable through the list. Enter selects, Esc clears, and Follow and Clear are keyboard reachable. Stage controls and Reset view meet the 44 px target. No horizontal scroll at 375 px. |
 | WS3-11 | `aria-live` stays limited to the headline. The canvas is `aria-hidden`, and the list is the accessible authority. |
 | WS3-12 | Pause freezes the displayed head and the stage. Manual refresh and resume stay coherent. |
@@ -177,7 +186,7 @@ Event exposure for more `ENTITY_UPDATE` operations is a separate contract: [RFC-
 | WS3-A1 | On one public snapshot, stage and list show the same world head, sites, routes, handles and Recently feed. |
 | WS3-A2 | No WebGL2, forced context loss, a blocked chunk and Low noise each leave the list and the text cartogram complete, with no uncaught error. |
 | WS3-A3 | `?mode=text`, `?mode=pixel`, `?mode=map`, `?mode=3d`, `#text` and `/watch/map` resolve per D3. |
-| WS3-A4 | With normal motion, no frame loop remains once the longest active pulse or camera ease has expired. MAJOR is the longest tier: under about 1 s in §18.6, and at most 4 s for the D6 MAJOR moment. With reduced motion, a new event or selection draws one frame and starts no loop. An idle world with no new event or input runs no loop at all. A hidden tab draws nothing. |
+| WS3-A4 | With normal motion, event pulses and MAJOR moments expire within their bounds (under about 1 s in §18.6, and at most 4 s for the D6 MAJOR moment), while gentle visible-tab ambient diorama motion (D8) runs without rebuilding geometry or running DOM layout thrash. With reduced motion, a new event or selection draws one frame and starts no loop. A hidden tab draws nothing. |
 | WS3-A5 | Every site name renders at full length and readable at 1440×900 and 375×812, with no overdraw by marks. |
 | WS3-A6 | The stage chunks stay within D5 budgets (`three-vendor.js` <= 150 KiB, `watch-stage.js` <= 40 KiB or <= 175 KiB combined, `watch-room-stage.js` <= 120 KiB gzip). The WATCH HTML is under 180 KiB gzip. |
 | WS3-A7 | Hidden-room, hidden-exit, hidden-entity and silent-operation fixtures stay absent from the stage. |
