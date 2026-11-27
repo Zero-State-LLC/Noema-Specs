@@ -402,7 +402,7 @@
           "gate": {
             "kind": "run",
             "commands": [
-              "python3 tools/check_psr1_readiness.py --dir evidence/psr1-study"
+              "python3 tools/check_psr1_readiness.py --enrollment evidence/psr1-study/psr1_tier3_enrollment.json"
             ]
           }
         }

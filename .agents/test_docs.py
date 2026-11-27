@@ -100,6 +100,64 @@ class RunbooksAndChecklists(unittest.TestCase):
         ids = {st["id"]: D.step_gate(rb, i) for i, st in enumerate(rb["steps"])}
         self.assertEqual(ids["HUMAN_APPROVAL"]["kind"], "user_yes")
         self.assertEqual(ids["RECEIPT"]["kind"], "run")
+        self.assertEqual(
+            ids["RECEIPT"]["commands"],
+            ["python3 tools/check_psr1_readiness.py --enrollment evidence/psr1-study/psr1_tier3_enrollment.json"],
+        )
+
+    def test_since_applies_default_and_index_fallback(self) -> None:
+        import subprocess
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            def git(*args: str) -> None:
+                subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+            git("init")
+            git("config", "user.email", "test@example.com")
+            git("config", "user.name", "Test")
+            (root / "docs" / "adr").mkdir(parents=True)
+            (root / "rfcs").mkdir(parents=True)
+            (root / "docs" / "adr" / "0001-bare.md").write_text("# ADR 1\n\nDecision.\n")
+            (root / "rfcs" / "RFC-0001-base.md").write_text("# RFC 1\n\nBody.\n")
+            (root / "rfcs" / "README.md").write_text("| RFC | Status |\n| --- | --- |\n| [RFC-0001](RFC-0001-base.md) | Accepted |\n")
+            git("add", ".")
+            git("commit", "-m", "initial")
+            (root / "docs" / "adr" / "0001-bare.md").write_text("# ADR 1\n\nStatus: proposed\n\nDecision.\n")
+            (root / "rfcs" / "README.md").write_text("| RFC | Status |\n| --- | --- |\n| [RFC-0001](RFC-0001-base.md) | Draft |\n")
+            orig_root = D.ROOT
+            D.ROOT = root
+            try:
+                lc = {
+                    "kinds": {
+                        "adr": {
+                            "title": "ADR",
+                            "declared": "docs/adr",
+                            "files": "docs/adr/[0-9]*.md",
+                            "status": ["^status:\\s*(.+)$"],
+                            "default": "accepted",
+                            "states": ["proposed", "accepted"],
+                            "aliases": {"proposed": ["proposed"], "accepted": ["accepted"]},
+                            "next": {"proposed": ["accepted"], "accepted": []},
+                        },
+                        "rfc": {
+                            "title": "RFC",
+                            "declared": "rfcs/README.md",
+                            "files": "rfcs/RFC-[0-9]*.md",
+                            "status": ["^status:\\s*(.+)$"],
+                            "states": ["Draft", "Accepted"],
+                            "aliases": {"Draft": ["draft"], "Accepted": ["accepted"]},
+                            "next": {"Draft": ["Accepted"], "Accepted": []},
+                            "index": {
+                                "file": "rfcs/README.md",
+                                "row": "^\\|\\s*\\[RFC-\\d+\\]\\((?P<file>[^)]+)\\)\\s*\\|\\s*(?P<status>[^|]+?)\\s*\\|",
+                            },
+                        },
+                    }
+                }
+                keys = [v["key"] for v in D.lifecycle_violations(lc, since="HEAD")]
+            finally:
+                D.ROOT = orig_root
+            self.assertIn("adr:0001-bare.md:backward:accepted->proposed", keys)
+            self.assertIn("rfc:RFC-0001-base.md:backward:Accepted->Draft", keys)
 
     def test_checklist_items(self) -> None:
         items = D.checklist_items("- [x] Done thing.\n - [ ] Open thing.\n- not an item\n")
