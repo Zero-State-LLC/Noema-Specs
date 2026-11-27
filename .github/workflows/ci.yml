@@ -23,6 +23,8 @@ jobs:
       run: python3 tools/check_psr1_readiness.py --dir evidence/psr1-study
     - name: Validate GC1-GC10 RFC proposal registry (ADR-0010)
       run: python3 tools/check_gc_proposals.py
+    - name: Check the agent workflow state machine and its AGENTS.md block
+      run: python3 .agents/machine.py check
     # The committed graft/ index must match validation/*.py. Pinned to the version that built it (#366).
     - name: Set up Node
       uses: actions/setup-node@v4
