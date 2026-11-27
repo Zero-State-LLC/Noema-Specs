@@ -1,6 +1,6 @@
 # Intent: One WATCH stage in 3D
 
-**Status:** `draft`
+**Status:** `accepted`
 
 **Next stage:** [specify/watch-single-3d-stage.md](../specify/watch-single-3d-stage.md), accepted by the owner on 2026-11-10.
 
