@@ -1,0 +1,170 @@
+{
+  "format": "noema-lifecycles/1",
+  "_note": "Document lifecycles. `check` reads each document's own Status line, so no front matter is needed. Forward skips are allowed; backward moves fail `check --since`.",
+  "kinds": {
+    "rfc": {
+      "title": "RFC",
+      "files": "rfcs/RFC-[0-9][0-9][0-9][0-9]-*.md",
+      "exclude": [
+        "rfcs/RFC-0000-template.md",
+        "rfcs/*-REVIEW-NOTE.md"
+      ],
+      "declared": "Draft → Review → Accepted / Rejected → Implemented / Superseded (SKILLS.md SKILL.RFC, rfcs/README.md)",
+      "status": [
+        "^##\\s*Status\\s*\\n+(.+)$",
+        "^\\s*[-*]?\\s*\\*\\*Status:?\\*\\*:?\\s*(.+)$",
+        "^\\*\\*Status:\\s*(.+?)\\*\\*\\s*$"
+      ],
+      "states": [
+        "Draft",
+        "Review",
+        "Accepted",
+        "Rejected",
+        "Implemented",
+        "Superseded"
+      ],
+      "aliases": {
+        "Draft": [
+          "draft",
+          "proposal",
+          "proposed"
+        ],
+        "Review": [
+          "review"
+        ],
+        "Accepted": [
+          "accepted"
+        ],
+        "Rejected": [
+          "rejected"
+        ],
+        "Implemented": [
+          "implemented"
+        ],
+        "Superseded": [
+          "superseded"
+        ]
+      },
+      "next": {
+        "Draft": [
+          "Review",
+          "Accepted",
+          "Rejected",
+          "Superseded"
+        ],
+        "Review": [
+          "Accepted",
+          "Rejected",
+          "Superseded"
+        ],
+        "Accepted": [
+          "Implemented",
+          "Superseded"
+        ],
+        "Implemented": [
+          "Superseded"
+        ],
+        "Rejected": [],
+        "Superseded": []
+      },
+      "links": {
+        "Superseded": {
+          "pattern": "(RFC-\\d{4})",
+          "file_prefix": "{}"
+        }
+      },
+      "index": {
+        "file": "rfcs/README.md",
+        "row": "^\\|\\s*\\[RFC-\\d{4}\\]\\((?P<file>[^)]+)\\)\\s*\\|\\s*(?P<status>[^|]+?)\\s*\\|"
+      },
+      "_scope": "Numbered RFCs. RFC-PROPOSAL-*.md drafts are governed by specs/gc-rfc-proposals.v1.json and tools/check_gc_proposals.py (ADR-0010)."
+    },
+    "adr": {
+      "title": "ADR",
+      "files": "docs/adr/[0-9]*.md",
+      "declared": "Nygard: Proposed → Accepted / Rejected → Deprecated / Superseded (docs/adr/README.md)",
+      "status": [
+        "^##\\s*Status\\s*\\n+(.+)$",
+        "^\\s*[-*]?\\s*\\*\\*Status:?\\*\\*:?\\s*(.+)$",
+        "^\\*\\*Status:\\s*(.+?)\\*\\*\\s*$"
+      ],
+      "states": [
+        "Proposed",
+        "Accepted",
+        "Rejected",
+        "Deprecated",
+        "Superseded"
+      ],
+      "aliases": {
+        "Proposed": [
+          "proposed",
+          "draft"
+        ],
+        "Accepted": [
+          "accepted"
+        ],
+        "Rejected": [
+          "rejected"
+        ],
+        "Deprecated": [
+          "deprecated"
+        ],
+        "Superseded": [
+          "superseded"
+        ]
+      },
+      "next": {
+        "Proposed": [
+          "Accepted",
+          "Rejected",
+          "Superseded"
+        ],
+        "Accepted": [
+          "Deprecated",
+          "Superseded"
+        ],
+        "Deprecated": [
+          "Superseded"
+        ],
+        "Rejected": [],
+        "Superseded": []
+      },
+      "links": {
+        "Superseded": {
+          "pattern": "ADR-(\\d+)",
+          "file_prefix": "{:04d}-"
+        }
+      },
+      "index": {
+        "file": "docs/adr/README.md",
+        "row": "^\\|\\s*\\[ADR-\\d+\\]\\((?P<file>[^)]+)\\)\\s*\\|[^|]*\\|\\s*(?P<status>[^|]+?)\\s*\\|"
+      }
+    },
+    "intent": {
+      "title": "Intent",
+      "files": "intent/2*.md",
+      "declared": "draft → accepted (intent/_TEMPLATE.md starts at `draft`)",
+      "status": [
+        "^\\s*[-*]?\\s*\\*\\*Status:?\\*\\*:?\\s*(.+)$"
+      ],
+      "states": [
+        "draft",
+        "accepted"
+      ],
+      "aliases": {
+        "draft": [
+          "draft"
+        ],
+        "accepted": [
+          "accepted"
+        ]
+      },
+      "next": {
+        "draft": [
+          "accepted"
+        ],
+        "accepted": []
+      }
+    }
+  }
+}

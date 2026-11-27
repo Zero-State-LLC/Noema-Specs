@@ -21,6 +21,8 @@ Non-trivial RFCs and features are intent-first. Start from [intent/README.md](in
 
 The first `specify/spec.md` is the thin one-door spectator amend. The MAP WebGL brand-lock reopen is [specify/watch-map-p0-gl-poi.md](specify/watch-map-p0-gl-poi.md). Repeatable procedures remain the `SKILL.*` entries below.
 
+The `SKILL.*` entries are generated from [`.agents/procedures.json`](.agents/procedures.json). Each runs as a state machine: its steps, then its **Validation**, with **Stop / escalate when** as the exit from any step. Run one with `python3 .agents/docs.py run SKILL.NAME`.
+
 If a specification campaign adds or amends `specify/spec.md`, include a `## Workflows` section that:
 
 - Names **existing** skills only. Defaults when those skills are installed: `grill-with-docs` (alignment and glossary), `to-spec` and `to-tickets` (publishing to the issue tracker), `code-review` (review against `CONTRIBUTING.md` and the spec), and `google-developer-style` (prose). In this repository, also name the applicable `SKILL.*` procedures. Do not invent new skills or bots.
@@ -28,6 +30,7 @@ If a specification campaign adds or amends `specify/spec.md`, include a `## Work
 - Names any existing GitHub Action to reuse or add under `.github/workflows/`.
 - Does not invent an RFC.
 
+<!-- agent-machine:skills:start · generated: edit .agents/procedures.json, then run `python3 .agents/docs.py render --write` -->
 ## SKILL.ORIENT
 **Use when** Starting any substantive task.
 **Inputs** Requested change and repository state.
@@ -222,6 +225,7 @@ If a specification campaign adds or amends `specify/spec.md`, include a `## Work
 **Outputs** Implementation scope, authoritative contracts, fixtures, conformance targets, non-goals, known spec defects.
 **Validation** If material behavior is undefined, report `NOT READY FOR HANDOFF`.
 **Stop / escalate when** Runtime code would be added here. This repository is specifications only.
+<!-- agent-machine:skills:end -->
 
 ## Missing-signal rule
 When required authority or evidence is absent, return `NOT_COMPUTABLE` for a research calculation or report a `SPEC DEFECT` for a missing canonical decision. Never invent canonical behavior.

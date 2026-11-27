@@ -27,6 +27,7 @@ Agent work is a state machine (`.agents/machine.json`): `python3 .agents/machine
 - **Any state → STOPPED** on a stop signal: Stop autonomous work. Then: ORIENT when the user clears the stop.
 - **Any state → ESCALATED** when CI, tests or the request itself look wrong: If CI or validation looks wrong, open a labeled defect (`bug` or `type:bug`). Do not patch tests, fixtures, or validators to obtain a green result. Then: back when reported; work can continue · ORIENT when task dropped.
 - **Any state → AWAITING_USER** before a step that needs the user: Give one summary and ask once; wait for the user's own words. Then: back when the user says no or redirects.
+- Procedures (`SKILLS.md`, triage labels) and RFC, ADR and intent lifecycles are machines too: `python3 .agents/docs.py`. RFC and ADR status changes must move forward.
 
 ## Standing grant
 
