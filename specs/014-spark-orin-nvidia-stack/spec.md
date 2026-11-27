@@ -2,7 +2,7 @@
 
 **Status:** SPECULATIVE: direction without implementation authority ([current-state](../current-state.v1.yaml) `spark_orin_nvidia_stack`). A local or offline research topology; it does not change the hosted Platform in [CONTEXT.md](../../CONTEXT.md) and is not part of the active Campaign ([Population and Study Readiness](../../docs/POPULATION-AND-STUDY-READINESS.md)).
 
-**SPEC DEFECT (open, if promoted):** "Spark runs the Noema chamber as the sole writer of WorldState" conflicts with the Platform authority (Durable Objects own live serialization; Postgres owns the durable canonical record). Resolve before any promotion.
+**SPEC DEFECT (resolved by scoping, [ADR-013](../../docs/adr/0013-offline-spark-research-chamber-scope.md)):** "Spark runs the Noema chamber as the sole writer of WorldState" means the sole writer of a separate, non-canonical `offline.spark.*` chamber world only. Platform authority over the hosted world (Durable Objects own live serialization; Postgres owns the durable canonical record) is unchanged. Chamber evidence is never promoted as hosted or PSR-1 evidence.
 
 ## Overview
 

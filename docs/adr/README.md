@@ -20,3 +20,4 @@ Use the Nygard format. Number sequentially. Link related RFCs and SPECs.
 | [ADR-010](0010-gc-rfc-proposals-ratification-gate.md) | GC1–GC10 RFC Proposal Ratification Gate | Accepted |
 | [ADR-011](0011-whitepaper-parity-and-edition-governance.md) | Whitepaper Working Edition Parity and Governance | Accepted |
 | [ADR-012](0012-watch-live-agent-activity-and-deed-priority.md) | WATCH Live Agent Activity, Deed Priority, and Public Roster | Accepted |
+| [ADR-013](0013-offline-spark-research-chamber-scope.md) | Offline Spark research chamber scope (spec 014 writer authority) | Accepted |

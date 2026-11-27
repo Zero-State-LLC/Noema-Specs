@@ -367,7 +367,7 @@ capabilities:
     state: SPECULATIVE
     spec: specs/014-spark-orin-nvidia-stack/spec.md
     scope: local or offline research topology; does not change the hosted Platform
-    note: "SPEC DEFECT if promoted: 'Spark is the sole writer of WorldState' conflicts with CONTEXT.md Platform (Durable Objects live, Postgres durable)"
+    note: "Spec defect resolved by scoping (ADR-013): Spark is sole writer of a separate non-canonical offline.spark.* chamber only; hosted Platform authority unchanged"
 # Direction packet for #361 (spec #377). Human-yes: owner confirmation and merge of #378, 2026-10-31.
 # Campaign id and PSR-* milestone ids confirmed at merge.
 active_campaign:
