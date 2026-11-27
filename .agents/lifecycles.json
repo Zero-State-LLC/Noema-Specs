@@ -77,7 +77,8 @@
         "file": "rfcs/README.md",
         "row": "^\\|\\s*\\[RFC-\\d{4}\\]\\((?P<file>[^)]+)\\)\\s*\\|\\s*(?P<status>[^|]+?)\\s*\\|"
       },
-      "_scope": "Numbered RFCs. RFC-PROPOSAL-*.md drafts are governed by specs/gc-rfc-proposals.v1.json and tools/check_gc_proposals.py (ADR-0010)."
+      "_scope": "Numbered RFCs. RFC-PROPOSAL-*.md drafts are governed by specs/gc-rfc-proposals.v1.json and tools/check_gc_proposals.py (ADR-0010).",
+      "practice": "Kept by owner decision (2026-11-26): an RFC may be created already Accepted when the owner's approval is recorded in its Status section, and may skip Review. History at the time: 134 of 143 numbered RFCs were created Accepted; every observed move was Draft → Accepted (6); Review was never used as a step."
     },
     "adr": {
       "title": "ADR",
