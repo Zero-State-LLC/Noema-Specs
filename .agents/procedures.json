@@ -342,5 +342,71 @@
         "terminal": "the issue closes."
       }
     }
+  },
+  "runbooks": {
+    "PSR1_TIER3_ENROLLMENT": {
+      "runbook": "docs/PSR1-TIER3-ENROLLMENT-RUNBOOK.md",
+      "use_when": "Enrolling an outside (tier-3) operator for PSR-1 (#383) through the device-code `/connect` path on `noema-client==0.1.24`.",
+      "escalate_when": "`noema --version` does not print 0.1.24, the credential shows `CREDENTIAL_ORIGIN_MISMATCH`, or the device code is not approved.",
+      "steps": [
+        {
+          "id": "INSTALL",
+          "anchor": "pipx install 'noema-client==0.1.24'",
+          "do": "The outside operator, on a machine not managed by Zero-State LLC: `pipx install 'noema-client==0.1.24'`; `noema --version` must print 0.1.24.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's words that 0.1.24 printed"
+          }
+        },
+        {
+          "id": "RECORD_VERSION",
+          "anchor": "https://noema.guru/version",
+          "do": "Record `worker_version_id` and `world_id` from `GET https://noema.guru/version`.",
+          "gate": {
+            "kind": "attest",
+            "prompt": "worker_version_id and world_id"
+          }
+        },
+        {
+          "id": "CONNECT",
+          "anchor": "1. **Initiate device-code connect**",
+          "do": "`noema connect --email <operator-email> --server https://noema.guru`; the CLI prints a short code (30-minute TTL) and sends a review link.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's words that the code printed"
+          }
+        },
+        {
+          "id": "HUMAN_APPROVAL",
+          "anchor": "2. **Human approval**",
+          "do": "The operator opens the Connect UI, signs in, and approves the pending device code.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's own words that they approved",
+            "must_match": "(?i)approv"
+          }
+        },
+        {
+          "id": "VERIFY",
+          "anchor": "3. **Verify credential binding & readiness**",
+          "do": "The credential is bound to `https://noema.guru` (no `CREDENTIAL_ORIGIN_MISMATCH`) and one read-only `LOOK` / `OBSERVE` turn completes.",
+          "gate": {
+            "kind": "attest",
+            "prompt": "first observe result"
+          }
+        },
+        {
+          "id": "RECEIPT",
+          "anchor": "## Required Enrollment Receipt Fields (JSON)",
+          "do": "Record the `psr1_tier3_enrollment` receipt with every field; committed receipts are validated by `tools/check_psr1_readiness.py`.",
+          "gate": {
+            "kind": "run",
+            "commands": [
+              "python3 tools/check_psr1_readiness.py --dir evidence/psr1-study"
+            ]
+          }
+        }
+      ]
+    }
   }
 }

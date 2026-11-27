@@ -165,6 +165,11 @@
         ],
         "accepted": []
       }
+    },
+    "spec_checklist": {
+      "title": "SPEC-CHECKLIST",
+      "checklist": "SPEC-CHECKLIST.md",
+      "declared": "each item open → done; reopening a done item (same text) fails `check --since`"
     }
   }
 }

@@ -91,3 +91,16 @@ class Lifecycles(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RunbooksAndChecklists(unittest.TestCase):
+    def test_enrollment_approval_needs_the_operators_words(self) -> None:
+        procs = json.loads(D.PROCEDURES.read_text())
+        rb = procs["runbooks"]["PSR1_TIER3_ENROLLMENT"]
+        ids = {st["id"]: D.step_gate(rb, i) for i, st in enumerate(rb["steps"])}
+        self.assertEqual(ids["HUMAN_APPROVAL"]["kind"], "user_yes")
+        self.assertEqual(ids["RECEIPT"]["kind"], "run")
+
+    def test_checklist_items(self) -> None:
+        items = D.checklist_items("- [x] Done thing.\n - [ ] Open thing.\n- not an item\n")
+        self.assertEqual(items, {"Done thing.": True, "Open thing.": False})
