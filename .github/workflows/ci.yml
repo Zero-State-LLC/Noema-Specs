@@ -25,6 +25,13 @@ jobs:
       run: python3 tools/check_gc_proposals.py
     - name: Check the agent workflow state machine and its AGENTS.md block
       run: python3 .agents/machine.py check
+    - name: Check procedures and document lifecycles (status changes must move forward)
+      run: |
+        set -euo pipefail
+        SINCE=""
+        if git fetch --quiet --depth=1 origin main; then SINCE="--since FETCH_HEAD"; fi
+        python3 .agents/docs.py check $SINCE
+        python3 -m unittest discover -s .agents -p 'test_*.py'
     # The committed graft/ index must match validation/*.py. Pinned to the version that built it (#366).
     - name: Set up Node
       uses: actions/setup-node@v4

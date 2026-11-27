@@ -1,5 +1,7 @@
 # PSR-1 Tier-3 Operator Enrollment Runbook (`#383`)
 
+**Machine:** `python3 .agents/docs.py run PSR1_TIER3_ENROLLMENT` walks these steps; the operator's install, connect and approval need their own words.
+
 Status: Operational runbook for `#383` (operator-locked 2026-11-24). Uses the standardized device-code `/connect` approval path on `noema-client==0.1.24`.
 
 ## Prerequisites

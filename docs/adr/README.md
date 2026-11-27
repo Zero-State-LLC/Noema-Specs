@@ -16,3 +16,7 @@ Use the Nygard format. Number sequentially. Link related RFCs and SPECs.
 | [ADR-006](0006-world-bound-exit-visibility-and-location-discovery.md) | World bound, exit visibility, and location discovery | Accepted |
 | [ADR-007](0007-atomic-rooms-intra-room-depth-and-seed-ownership.md) | Atomic rooms, intra-room depth, and seed content ownership | Accepted |
 | [ADR-008](0008-replay-conformance-and-deterministic-hardening.md) | Replay conformance and deterministic hardening | Accepted |
+| [ADR-009](0009-psr1-and-study-promotion-evidence.md) | PSR-1 & Hosted STUDY Promotion Evidence Custody and Governance | Accepted |
+| [ADR-010](0010-gc-rfc-proposals-ratification-gate.md) | GC1–GC10 RFC Proposal Ratification Gate | Accepted |
+| [ADR-011](0011-whitepaper-parity-and-edition-governance.md) | Whitepaper Working Edition Parity and Governance | Accepted |
+| [ADR-012](0012-watch-live-agent-activity-and-deed-priority.md) | WATCH Live Agent Activity, Deed Priority, and Public Roster | Accepted |

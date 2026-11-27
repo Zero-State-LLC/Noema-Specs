@@ -1,0 +1,412 @@
+{
+  "format": "noema-procedures/1",
+  "_note": "Source of truth for generated Markdown blocks. Skills are repeatable workflows; they do not create new authority. Each procedure runs as a state machine: its steps in order, then its Validation, then done; its Stop / escalate rule exits from any step (`python3 .agents/docs.py run NAME`).",
+  "blocks": [
+    {
+      "file": "SKILLS.md",
+      "name": "skills",
+      "render": "skills"
+    },
+    {
+      "file": "docs/agents/triage-labels.md",
+      "name": "triage",
+      "render": "triage"
+    }
+  ],
+  "skills": {
+    "SKILL.ORIENT": {
+      "use_when": "Starting any substantive task.",
+      "inputs": "Requested change and repository state.",
+      "authority": "`CONTEXT.md`, `AGENTS.md`, `GLOSSARY.md`, `docs/PLAYER-BRAND.md` when the change is player-facing, affected docs/RFCs/schemas, `docs/ROADMAP.md`.",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "Read `CONTEXT.md`, `AGENTS.md`, affected terminology, and `git status`.",
+          "Identify the roadmap milestone, affected version domains, and canonical authority hierarchy.",
+          "Inspect related protocols, schemas, fixtures, conformance, validation, and open branch/PR state if tooling supports it.",
+          "Decide whether the request changes a contract or only documentation.",
+          "If the work is a non-trivial RFC or feature, require a filled [intent](intent/README.md) record before `specify/spec.md` or an RFC draft. Skip intent for clarifications and docs-only hygiene. Do not invent intents for existing RFCs."
+        ]
+      },
+      "outputs": "Task scope, authoritative files, affected version domains, RFC required yes/no, intent required yes/no, known drift, validation targets.",
+      "validation": "Confirm every cited authority exists.",
+      "escalate_when": "Authority conflicts or required evidence is missing. Report `SPEC DEFECT` or `NOT_COMPUTABLE`."
+    },
+    "SKILL.SPEC_CHANGE": {
+      "use_when": "Making a normative specification change.",
+      "inputs": "Requested behavior and canonical source.",
+      "authority": "`CONTEXT.md`, affected subsystem docs, `CONTRIBUTING.md`, versioning, related RFCs, [intent/README.md](intent/README.md) when the change is a non-trivial feature.",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "Orient, identify authority, domains, version impact, and RFC requirement. For a non-trivial feature, fill `intent/` from [`_TEMPLATE.md`](intent/_TEMPLATE.md) before drafting `specify/spec.md`.",
+          "Check protocol, schema, ontology, replay, security, claims, experience, and migration impact.",
+          "Edit the smallest canonical surface, then machine contracts, examples, conformance, and indexes.",
+          "Update changelog, versioning, roadmap, and checklist when contracts move."
+        ]
+      },
+      "outputs": "Versioned normative delta and acceptance evidence.",
+      "validation": "Run `SKILL.VALIDATE`.",
+      "escalate_when": "A semantic choice is not canonically defined."
+    },
+    "SKILL.RFC": {
+      "use_when": "A protocol, schema, ontology, reproducibility, claims, security, version-domain, or dataset-immutability boundary changes.",
+      "inputs": "Problem and affected authority.",
+      "authority": "`rfcs/README.md`, affected RFCs, `CONTRIBUTING.md`, [intent/README.md](intent/README.md).",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "For a non-trivial new RFC, fill `intent/` from [`_TEMPLATE.md`](intent/_TEMPLATE.md) first. Do not invent intent records for existing RFCs.",
+          "State problem, affected authority, proposal, alternatives, compatibility, data/research/security impact, migration, validation, rollback, and unresolved questions.",
+          "Use lifecycle `Draft → Review → Accepted / Rejected → Implemented / Superseded`.",
+          "Add required machine contracts and validation evidence before requesting acceptance."
+        ]
+      },
+      "outputs": "RFC and linked implementation plan.",
+      "validation": "Apply required review lenses from `rfcs/README.md`.",
+      "escalate_when": "Required evidence is absent. An RFC MUST NOT become Accepted without machine-readable contracts and validation evidence."
+    },
+    "SKILL.MILESTONE": {
+      "use_when": "Turning roadmap prose into an executable release package.",
+      "inputs": "Milestone and predecessor package.",
+      "authority": "Roadmap, predecessor releases, affected subsystem docs, versioning.",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "Define the exact delta without duplicating existing canonical authority.",
+          "Create or update `SCOPE`, `ARCHITECTURE`, `DATA-MODEL`, `ACCEPTANCE`, `CONFORMANCE`, `MIGRATION`, `EXAMPLES`, and `NON-GOALS` where current conventions support them.",
+          "Add normative behavior, schemas/catalogs, positive and negative fixtures, conformance families, migration, version domains, and PLAY/WATCH/STUDY integration.",
+          "Preserve prior suites and update roadmap/checklist/changelog."
+        ]
+      },
+      "outputs": "Executable package, fixtures, conformance, migration.",
+      "validation": "Current and predecessor suites pass.",
+      "escalate_when": "The implementation would need to invent a lifecycle, mapping, error, or default."
+    },
+    "SKILL.SCHEMA": {
+      "use_when": "Creating or changing a machine-readable contract.",
+      "inputs": "Canonical semantics and version domain.",
+      "authority": "Semantic owner, `docs/VERSIONING.md`, related protocol/RFC.",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "Identify semantic source and compatibility requirements.",
+          "Define stable IDs, exact enums, explicit required fields, bounds, deterministic representations, and `additionalProperties` policy.",
+          "Add positive and negative fixtures. Never place secrets or private architecture in public fixtures.",
+          "Validate compatibility and version semantics before changing public fields."
+        ]
+      },
+      "outputs": "Schema, fixtures, validation hook, version update if required.",
+      "validation": "Schema-valid positive fixtures and rejecting negatives.",
+      "escalate_when": "Public semantic change lacks RFC/version review."
+    },
+    "SKILL.FIXTURE": {
+      "use_when": "Producing a positive, negative, strategic, replay, migration, experience-projection, or research-experiment example.",
+      "inputs": "Contract and canonical source state.",
+      "authority": "Referenced schema/protocol and conformance case.",
+      "procedure": {
+        "form": "steps",
+        "steps": [
+          "State fixture role, source versions, contract demonstrated, IDs, seeds, expected events/results, and expected digests where applicable.",
+          "Use canonical state only. Script choices only in explicit trajectories.",
+          "Link the fixture to conformance and validate it."
+        ]
+      },
+      "outputs": "Non-authoritative conformance fixture.",
+      "validation": "Schema, deterministic replay/digest, and conformance link.",
+      "escalate_when": "A fixture would define new semantics."
+    },
+    "SKILL.CONFORMANCE": {
+      "use_when": "Defining acceptance evidence.",
+      "inputs": "Normative requirement.",
+      "authority": "Acceptance/release docs and fixture contracts.",
+      "procedure": {
+        "form": "chain",
+        "steps": [
+          "requirement",
+          "smallest independently testable claim",
+          "case ID",
+          "fixture/input",
+          "expected result",
+          "negative boundary",
+          "validation hook"
+        ]
+      },
+      "outputs": "Atomic cases with stable family IDs.",
+      "validation": "Every fixture path exists and predecessor suites remain preserved.",
+      "escalate_when": "A case depends on implementation-defined behavior."
+    },
+    "SKILL.DETERMINISM": {
+      "use_when": "Changing replay-sensitive behavior.",
+      "inputs": "State transition, analysis, or experiment boundary.",
+      "authority": "Replay, reproducibility, versioning, and relevant schemas.",
+      "procedure": {
+        "form": "prose",
+        "text": "Check seed source, RNG stream identity, ordering, tie-breakers, canonical serialization, numeric representation, version identity, declared external inputs, event lineage, state digest, and replay equivalence."
+      },
+      "outputs": "Pinned deterministic contract and test.",
+      "validation": "Replay and digest checks.",
+      "escalate_when": "wall-clock authority, unseeded randomness, implementation-defined ordering, opaque float thresholds, or mutable current defaults are claim-bearing."
+    },
+    "SKILL.DRIFT_AUDIT": {
+      "use_when": "Asked for consistency, continuation, or readiness analysis.",
+      "inputs": "Claimed milestone/state.",
+      "authority": "README, roadmap, schemas, canonical docs, fixtures, conformance, versioning, changelog, RFCs, experience terminology.",
+      "procedure": {
+        "form": "prose",
+        "text": "Compare each surface, separate safe repairs from product decisions, and never infer readiness from prose alone."
+      },
+      "outputs": "Observed state, drift found, safe repairs, spec defects, next highest-value work.",
+      "validation": "Machine contracts, conformance, and validator establish executable readiness.",
+      "escalate_when": "Surfaces conflict."
+    },
+    "SKILL.EXPERIENCE": {
+      "use_when": "Technical work affects PLAY, WATCH, or STUDY.",
+      "inputs": "Internal concept and audience.",
+      "authority": "Experience docs, terminology, machine contract, affected subsystem.",
+      "procedure": {
+        "form": "prose",
+        "text": "`internal concept → simple user intent → deterministic mapping → machine contract → advanced drill-down`. Verify PLAY, WATCH, STUDY, simple workflow, advanced workflow, and machine contract."
+      },
+      "outputs": "Progressive-disclosure mapping and authorized projections.",
+      "validation": "No simple surface alters canonical truth or leaks research data.",
+      "escalate_when": "Ordinary tasks require internal terminology."
+    },
+    "SKILL.GAME_SYSTEM": {
+      "use_when": "Changing persistent strategic play.",
+      "inputs": "Proposed mechanic.",
+      "authority": "Game-design, world, economy, and strategic contracts.",
+      "procedure": {
+        "form": "prose",
+        "text": "Evaluate WORLD, GAME, AGENT, SPECTATOR, RESEARCH, and ENGINEERING. Check persistent consequence, interesting choice, agent usability, spectator significance, observable evidence, and deterministic replay. Check economy, infrastructure, geography, territory, organizations, diplomacy, conflict, knowledge, progression, and loss/recovery interactions."
+      },
+      "outputs": "Integrated mechanic contract.",
+      "validation": "Strategic scenario and prior game suites.",
+      "escalate_when": "The mechanic is isolated or non-replayable."
+    },
+    "SKILL.RESEARCH_CONTRACT": {
+      "use_when": "Working on Frontier, Observatory, Lab, Compiler, Capability Graph, Phenomena, or Atlas.",
+      "inputs": "Research behavior and evidence boundary.",
+      "authority": "Research method, reproducibility, affected subsystem, claims policy.",
+      "procedure": {
+        "form": "prose",
+        "text": "Separate WORLD TRUTH, OBSERVATION, EVIDENCE, INTERPRETATION, and CLAIM. Use only `OBSERVED`, `INFERRED`, `SPECULATIVE`, and `NOT_COMPUTABLE`."
+      },
+      "outputs": "Provenanced research contract.",
+      "validation": "Evidence/claim separation and research conformance.",
+      "escalate_when": "Evidence is missing, private cognition is inferred, or a scalar consciousness score is proposed."
+    },
+    "SKILL.MIGRATION": {
+      "use_when": "A versioned contract changes.",
+      "inputs": "Source and target versions.",
+      "authority": "Versioning and release migration docs.",
+      "procedure": {
+        "form": "prose",
+        "text": "Define compatibility, historical interpretation, new-write rules, snapshot handling, replay behavior, rollback boundary, and failure mode."
+      },
+      "outputs": "Versioned migration contract.",
+      "validation": "Historical canonical events MUST NOT be silently reinterpreted.",
+      "escalate_when": "Compatibility or historical replay behavior is unresolved."
+    },
+    "SKILL.VERSION": {
+      "use_when": "Pinning semantics.",
+      "inputs": "Changed semantics and replay/compatibility needs.",
+      "authority": "`docs/VERSIONING.md`.",
+      "procedure": {
+        "form": "prose",
+        "text": "Distinguish product, spec, protocol, schema, event-catalog, world-rules, and subsystem algorithm/config versions. Add a domain only when independently pinning semantics is required for replay, compatibility, or research claims."
+      },
+      "outputs": "Version decision and migration impact.",
+      "validation": "Runtime/research identity can resolve all claim-bearing versions.",
+      "escalate_when": "A version domain is proposed without an independently pinned semantic need."
+    },
+    "SKILL.VALIDATE": {
+      "use_when": "Closing any specification task.",
+      "inputs": "Changed paths and affected suites.",
+      "authority": "Current validation entry points and `SPEC-CHECKLIST.md`.",
+      "procedure": {
+        "form": "prose",
+        "text": "Run `python3 validation/validate_all.py`, JSON/schema validation, fixture and negative checks, Markdown-link checks, required-path checks, prior conformance preservation, and `git diff --check`."
+      },
+      "outputs": "Executed command results.",
+      "validation": "Report `PASS` only when the command passes.",
+      "escalate_when": "A required check cannot execute."
+    },
+    "SKILL.CONTINUATION": {
+      "use_when": "Asked what is next, for continuation analysis, or for a next prompt.",
+      "inputs": "Current main and open work.",
+      "authority": "Main, open PRs, roadmap, RFCs, conformance, changelog.",
+      "procedure": {
+        "form": "prose",
+        "text": "Identify completed milestone, incomplete contracts, blockers, and gaps ranked by downstream ambiguity. Do not assume unmerged work is canonical. Prefer closing authority/validation gaps before later milestones."
+      },
+      "outputs": "Current state, open work, blockers, highest-value next run, why.",
+      "validation": "Inspect canonical `main`, open RFCs/PRs where available, and current validator/conformance evidence.",
+      "escalate_when": "Existing specs are sufficient and implementation feedback is more valuable."
+    },
+    "SKILL.PROMPT_BUILD": {
+      "use_when": "Preparing a Grok Build, Codex, or Fable campaign prompt.",
+      "inputs": "Repository and desired contract delta.",
+      "authority": "Canonical authority for the target surface.",
+      "procedure": {
+        "form": "prose",
+        "text": "Name repository/campaign/objective, authority to read, artifacts, machine contracts, fixtures, conformance, validation, non-goals, completion report, and specs-only boundary. Reference canonical files rather than copying architecture."
+      },
+      "outputs": "Bounded implementation-neutral prompt.",
+      "validation": "No required methodology remains implicit.",
+      "escalate_when": "The prompt would require an agent to invent a contract or runtime behavior."
+    },
+    "SKILL.REVIEW": {
+      "use_when": "Reviewing a generated specification PR.",
+      "inputs": "Diff and requested scope.",
+      "authority": "Canonical source, schemas, fixtures, conformance, versioning, migration, experience docs.",
+      "procedure": {
+        "form": "chain",
+        "steps": [
+          "scope match",
+          "authority check",
+          "semantic drift",
+          "schema compatibility",
+          "fixture validity",
+          "conformance coverage",
+          "versioning",
+          "migration",
+          "experience mapping",
+          "validation"
+        ]
+      },
+      "outputs": "Findings classified `BLOCKER`, `CONTRACT DEFECT`, `DRIFT`, or `CLEANUP`.",
+      "validation": "Only BLOCKER or CONTRACT DEFECT prevents acceptance.",
+      "escalate_when": "Requested scope conflicts with an accepted RFC or canonical schema/protocol."
+    },
+    "SKILL.HANDOFF_RUNTIME": {
+      "use_when": "Handing validated specifications to a runtime repository.",
+      "inputs": "Completed release package.",
+      "authority": "Release acceptance, conformance, schemas, migration, validation evidence.",
+      "procedure": {
+        "form": "prose",
+        "text": "Confirm normative behavior, needed schema, positive fixture, negative boundary, conformance, version identity, migration, validator PASS, and no unresolved material behavior."
+      },
+      "outputs": "Implementation scope, authoritative contracts, fixtures, conformance targets, non-goals, known spec defects.",
+      "validation": "If material behavior is undefined, report `NOT READY FOR HANDOFF`.",
+      "escalate_when": "Runtime code would be added here. This repository is specifications only."
+    }
+  },
+  "triage": {
+    "states": {
+      "needs-triage": {
+        "role": "needs-triage",
+        "meaning": "Maintainer needs to evaluate this issue",
+        "next": [
+          {
+            "to": "needs-info",
+            "when": "the reporter must add information"
+          },
+          {
+            "to": "ready-for-agent",
+            "when": "it is fully specified for an AFK agent"
+          },
+          {
+            "to": "ready-for-human",
+            "when": "it needs human implementation"
+          },
+          {
+            "to": "wontfix",
+            "when": "it will not be actioned"
+          }
+        ]
+      },
+      "needs-info": {
+        "role": "needs-info",
+        "meaning": "Waiting on reporter for more information",
+        "next": [
+          {
+            "to": "needs-triage",
+            "when": "the reporter replies"
+          }
+        ]
+      },
+      "ready-for-agent": {
+        "role": "ready-for-agent",
+        "meaning": "Fully specified, ready for an AFK agent",
+        "terminal": "the issue closes when the work is done."
+      },
+      "ready-for-human": {
+        "role": "ready-for-human",
+        "meaning": "Requires human implementation",
+        "terminal": "the issue closes when the work is done."
+      },
+      "wontfix": {
+        "role": "wontfix",
+        "meaning": "Will not be actioned",
+        "terminal": "the issue closes."
+      }
+    }
+  },
+  "runbooks": {
+    "PSR1_TIER3_ENROLLMENT": {
+      "runbook": "docs/PSR1-TIER3-ENROLLMENT-RUNBOOK.md",
+      "use_when": "Enrolling an outside (tier-3) operator for PSR-1 (#383) through the device-code `/connect` path on `noema-client==0.1.24`.",
+      "escalate_when": "`noema --version` does not print 0.1.24, the credential shows `CREDENTIAL_ORIGIN_MISMATCH`, or the device code is not approved.",
+      "steps": [
+        {
+          "id": "INSTALL",
+          "anchor": "pipx install 'noema-client==0.1.24'",
+          "do": "The outside operator, on a machine not managed by Zero-State LLC: `pipx install 'noema-client==0.1.24'`; `noema --version` must print 0.1.24.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's words that 0.1.24 printed"
+          }
+        },
+        {
+          "id": "RECORD_VERSION",
+          "anchor": "https://noema.guru/version",
+          "do": "Record `worker_version_id` and `world_id` from `GET https://noema.guru/version`.",
+          "gate": {
+            "kind": "attest",
+            "prompt": "worker_version_id and world_id"
+          }
+        },
+        {
+          "id": "CONNECT",
+          "anchor": "1. **Initiate device-code connect**",
+          "do": "`noema connect --email <operator-email> --server https://noema.guru`; the CLI prints a short code (30-minute TTL) and sends a review link.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's words that the code printed"
+          }
+        },
+        {
+          "id": "HUMAN_APPROVAL",
+          "anchor": "2. **Human approval**",
+          "do": "The operator opens the Connect UI, signs in, and approves the pending device code.",
+          "gate": {
+            "kind": "user_yes",
+            "prompt": "the operator's own words that they approved",
+            "must_match": "(?i)approv"
+          }
+        },
+        {
+          "id": "VERIFY",
+          "anchor": "3. **Verify credential binding & readiness**",
+          "do": "The credential is bound to `https://noema.guru` (no `CREDENTIAL_ORIGIN_MISMATCH`) and one read-only `LOOK` / `OBSERVE` turn completes.",
+          "gate": {
+            "kind": "attest",
+            "prompt": "first observe result"
+          }
+        },
+        {
+          "id": "RECEIPT",
+          "anchor": "## Required Enrollment Receipt Fields (JSON)",
+          "do": "Record the `psr1_tier3_enrollment` receipt with every field; committed receipts are validated by `tools/check_psr1_readiness.py`.",
+          "gate": {
+            "kind": "run",
+            "commands": [
+              "python3 tools/check_psr1_readiness.py --enrollment evidence/psr1-study/psr1_tier3_enrollment.json"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
