@@ -159,6 +159,24 @@ class RunbooksAndChecklists(unittest.TestCase):
             self.assertIn("adr:0001-bare.md:backward:accepted->proposed", keys)
             self.assertIn("rfc:RFC-0001-base.md:backward:Accepted->Draft", keys)
 
+    def test_unknown_index_status_is_reported(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "rfcs").mkdir(parents=True)
+            (root / "rfcs" / "RFC-0001-a.md").write_text("# RFC 1\n\nStatus: Accepted\n")
+            (root / "rfcs" / "README.md").write_text("| RFC | Status |\n| --- | --- |\n| [RFC-0001](RFC-0001-a.md) | INVALID |\n")
+            orig_root = D.ROOT
+            D.ROOT = root
+            try:
+                kind = {"title": "RFC", "files": "rfcs/RFC-[0-9]*.md", "status": ["^status:\\s*(.+)$"],
+                        "states": ["Draft", "Accepted"], "aliases": {"Draft": ["draft"], "Accepted": ["accepted"]},
+                        "next": {"Draft": ["Accepted"], "Accepted": []},
+                        "index": {"file": "rfcs/README.md", "row": "^\\|\\s*\\[RFC-\\d+\\]\\((?P<file>[^)]+)\\)\\s*\\|\\s*(?P<status>[^|]+?)\\s*\\|"}}
+                keys = [v["key"] for v in D.lifecycle_violations({"kinds": {"rfc": kind}})]
+            finally:
+                D.ROOT = orig_root
+            self.assertEqual(keys, ["rfc:RFC-0001-a.md:unknown_index_status"])
+
     def test_checklist_items(self) -> None:
         items = D.checklist_items("- [x] Done thing.\n - [ ] Open thing.\n- not an item\n")
         self.assertEqual(items, {"Done thing.": True, "Open thing.": False})
